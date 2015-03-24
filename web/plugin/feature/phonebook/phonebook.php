@@ -167,7 +167,7 @@ switch (_OP_) {
 			</form>";
 		
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;
@@ -239,7 +239,7 @@ switch (_OP_) {
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;

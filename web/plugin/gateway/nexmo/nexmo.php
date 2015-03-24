@@ -31,7 +31,7 @@ $callback_url = "http://" . $callback_url;
 switch (_OP_) {
 	case "manage" :
 		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
+			$error_content = _err_display();
 		}
 		$tpl = array(
 			'name' => 'nexmo',

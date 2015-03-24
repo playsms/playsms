@@ -39,7 +39,7 @@ if ($poll_id = (int) $_REQUEST['poll_id']) {
 switch (_OP_) {
 	case "sms_poll_list" :
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage poll') . "</h2>
@@ -206,7 +206,7 @@ switch (_OP_) {
 		}
 		
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage poll') . "</h2>
@@ -304,7 +304,7 @@ switch (_OP_) {
 		}
 		
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage poll') . "</h2>

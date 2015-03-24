@@ -39,7 +39,7 @@ if ($subscribe_id = (int) $_REQUEST['subscribe_id']) {
 switch (_OP_) {
 	case "sms_subscribe_list":
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage subscribe') . "</h2>
@@ -130,7 +130,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$add_forward_param = 'BC';
 		$select_durations = _select('add_duration', $plugin_config['sms_subscribe']['durations']);
@@ -305,7 +305,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<link rel='stylesheet' type='text/css' href=" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css />
@@ -491,7 +491,7 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
 		$db_result = dba_query($db_query);
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage subscribe') . "</h2>
@@ -536,7 +536,7 @@ switch (_OP_) {
 	
 	case "msg_list":
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage subscribe') . "</h2>
@@ -585,7 +585,7 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$edit_mbr_msg = $db_row['msg'];
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage subscribe') . "</h2>
@@ -632,7 +632,7 @@ switch (_OP_) {
 	
 	case "msg_add":
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe where subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
@@ -704,7 +704,7 @@ switch (_OP_) {
 		$message = $db_row['msg'];
 		$counter = $db_row['counter'];
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage subscribe') . "</h2>

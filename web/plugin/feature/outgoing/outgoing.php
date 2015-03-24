@@ -81,7 +81,7 @@ switch (_OP_) {
 		$prefix = outgoing_getprefix($rid);
 		$smsc = outgoing_getsmsc($rid);
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$select_smsc = "<select name=up_smsc>";
 		unset($smsc_list);
@@ -150,7 +150,7 @@ switch (_OP_) {
 		break;
 	case "outgoing_add" :
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$select_users = themes_select_users_single('add_uid');
 		$select_smsc = "<select name=add_smsc>";

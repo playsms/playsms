@@ -209,7 +209,7 @@ switch (_OP_) {
 		
 		// error string
 		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
+			$error_content = _err_display();
 		}
 		
 		$tpl = array(

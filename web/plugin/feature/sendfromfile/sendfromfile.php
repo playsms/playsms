@@ -24,7 +24,7 @@ if (! auth_isvalid()) {
 
 switch (_OP_) {
 	case 'list':
-		$content = '<h2>' . _('Send from file') . '</h2><p />';
+		$content = _err_display().'<h2>' . _('Send from file') . '</h2><p />';
 		if (auth_isadmin()) {
 			$info_format = _('destination number, message, username');
 		} else {
@@ -47,9 +47,6 @@ switch (_OP_) {
 					</tr>
 				</tbody>
 			</table>";
-		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
-		}
 		_p($content);
 		break;
 	case 'upload_confirm':

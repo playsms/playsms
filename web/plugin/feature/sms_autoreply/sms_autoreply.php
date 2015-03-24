@@ -85,7 +85,7 @@ switch (_OP_) {
 			</div>
 			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;
@@ -147,7 +147,7 @@ switch (_OP_) {
 			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;
@@ -191,7 +191,7 @@ switch (_OP_) {
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;
@@ -249,7 +249,7 @@ switch (_OP_) {
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;
@@ -318,7 +318,7 @@ switch (_OP_) {
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;
@@ -388,7 +388,7 @@ switch (_OP_) {
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;

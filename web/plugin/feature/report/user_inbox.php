@@ -89,7 +89,7 @@ switch (_OP_) {
 		}
 		$error_content = '';
 		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
+			$error_content = _err_display();
 		}
 		$tpl['vars']['ERROR'] = $error_content;
 		$tpl['name'] = 'user_inbox';
@@ -146,6 +146,7 @@ switch (_OP_) {
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				$_SESSION['error_string'] = _('Selected incoming message has been deleted');
 				header("Location: " . _u($ref));
+				exit();
 		}
 		break;
 }

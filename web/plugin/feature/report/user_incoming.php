@@ -122,7 +122,7 @@ switch (_OP_) {
 			</form>";
 		
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;
@@ -186,6 +186,7 @@ switch (_OP_) {
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				$_SESSION['error_string'] = _('Selected incoming message has been deleted');
 				header("Location: " . _u($ref));
+				exit();
 		}
 		break;
 }

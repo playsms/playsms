@@ -434,10 +434,31 @@ function themes_display_error_string($error_string = array()) {
 		if (count($errors) > 0) {
 			foreach ($errors as $err) {
 				if (trim($err)) {
-					$ret .= '<div class=error_string>' . trim($err) . '</div>';
+					$ret .= '<p>' . trim($err) . '</p>';
 				}
 			}
 		}
+	}
+	
+	if ($ret) {
+		$ret = "
+				<script type='text/javascript'>
+					BootstrapDialog.show({
+						type: BootstrapDialog.TYPE_PRIMARY,
+						title: '" . _('Information') . "',
+						message: '" . $ret . "',
+						draggable: true,
+						buttons: [{
+						        id: 'btn-ok',   
+						        label: '" . _('Close') . "',
+						        cssClass: 'btn-primary', 
+						        autospin: true,
+						        action: function(dialogRef){    
+						       		dialogRef.close();
+						        }
+						}]						
+					})
+				</script>";
 	}
 	
 	return $ret;

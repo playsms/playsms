@@ -15,7 +15,7 @@ $dlr_url = "http://" . $dlr_url;
 switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage infobip') . "</h2>

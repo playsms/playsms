@@ -75,7 +75,7 @@ switch (_OP_) {
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$content .= "
 			<h2>" . _('Manage account') . "</h2>
@@ -168,7 +168,7 @@ switch (_OP_) {
 	
 	case "user_add":
 		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+			$content = _err_display();
 		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
 		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());

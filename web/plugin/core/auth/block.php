@@ -32,16 +32,11 @@ if (_OP_ == 'block') {
 	exit();
 } else {
 	
-	// error string
-	if ($_SESSION['error_string']) {
-		$error_content = '<div class="error_string">' . $_SESSION['error_string'] . '</div>';
-	}
-	
 	unset($tpl);
 	$tpl = array(
 		'name' => 'auth_block',
 		'vars' => array(
-			'ERROR' => $error_content,
+			'ERROR' => _err_display(),
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'Home' => _('Home')
 		)

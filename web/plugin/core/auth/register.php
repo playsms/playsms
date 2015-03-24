@@ -61,11 +61,6 @@ if (_OP_ == 'register') {
 	exit();
 } else {
 	
-	// error string
-	if ($_SESSION['error_string']) {
-		$error_content = '<div class="error_string">' . $_SESSION['error_string'] . '</div>';
-	}
-	
 	$enable_logo = FALSE;
 	$show_web_title = TRUE;
 	
@@ -86,7 +81,7 @@ if (_OP_ == 'register') {
 		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $core_config['main']['web_title'],
-			'ERROR' => $error_content,
+			'ERROR' => _err_display(),
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register'),
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'),
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),

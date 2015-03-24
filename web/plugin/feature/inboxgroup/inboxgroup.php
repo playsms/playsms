@@ -5,7 +5,7 @@ if(!auth_isadmin()){auth_block();};
 // error messages
 $error_content = '';
 if ($err = $_SESSION['error_string']) {
-	$error_content = "<div class=error_string>$err</div>";
+	$error_content = _err_display();
 }
 
 // main

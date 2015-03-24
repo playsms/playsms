@@ -97,7 +97,7 @@ switch (_OP_) {
 			</form>";
 		
 		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+			_p(_err_display());
 		}
 		_p($content);
 		break;

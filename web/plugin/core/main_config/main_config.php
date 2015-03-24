@@ -132,13 +132,10 @@ switch (_OP_) {
 		// display
 		
 
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
-		}
 		$tpl = array(
 			'name' => 'main_config',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'ERROR' => _err_display(),
 				'ACTION_URL' => _u('index.php?app=main&inc=core_main_config&op=main_config_save'),
 				'Main configuration' => _('Main configuration'),
 				'Default settings' => _('Default settings'),
