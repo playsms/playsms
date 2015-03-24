@@ -6,8 +6,14 @@ function common_hook_themes_apply($content) {
 	
 	$themes_lang = strtolower(substr($user_config['language_module'], 0, 2));
 	
+	if ($themes_layout = trim($_REQUEST['_themes_layout_'])) {
+		$themes_layout = 'themes_layout_' . $themes_layout;
+	} else {
+		$themes_layout = 'themes_layout';
+	}
+	
 	$tpl = array(
-		'name' => 'themes_layout',
+		'name' => $themes_layout,
 		'vars' => array(
 			'CONTENT' => $content,
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
