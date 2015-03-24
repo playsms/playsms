@@ -166,6 +166,12 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 	if ($id) {
 		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
 		if (rate_setusercredit($uid, $balance)) {
+			
+			// set never been notified
+			registry_update($uid, 'feature', 'credit', array(
+				'lowest_limit_notif' => FALSE 
+			));
+			
 			_log('updated uid:' . $uid . ' credit:' . $balance, 3, 'credit_add');
 			return TRUE;
 		} else {
