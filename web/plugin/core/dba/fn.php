@@ -346,7 +346,7 @@ function dba_update($db_table, $items, $condition='', $operand='AND') {
 function dba_remove($db_table, $condition='', $operand='AND') {
 	$ret = false;
 	if (is_array($condition)) {
-		foreach ($condition as $key => $val){ 
+		foreach ($condition as $key => $val){
 			$q_condition .= $operand." ".$key."='".$val."' ";
 		}
 		if ($q_condition) {

@@ -183,7 +183,7 @@ function bulksms_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 				$p_status = 1;
 			}
 			logger_print("smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " sms_status:" . $p_status . " response:" . $response[0] . " " . $response[1]. " " . $response[2], 2, "bulksms outgoing");
-		 
+
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace("\n", " ", $fd);
@@ -205,7 +205,7 @@ function bulksms_getsmsstatus($smslog_id) {
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	if ($apimsgid = $db_row['apimsgid']) {
-		//TODO: get charge 
+		//TODO: get charge
 		$query_string = "status_reports/get_report/2/2.0?username=" . $plugin_config['bulksms']['username'] . "&password=" . $plugin_config['bulksms']['password'] . "&batch_id=$apimsgid&optional_fields=credits";
 		
 		$url = $plugin_config['bulksms']['send_url'] . "/" . $query_string;

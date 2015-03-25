@@ -317,8 +317,8 @@ function report_hook_playsmsd() {
 /**
  * Resolve sender number or name to contact name or account's name
  *
- * @param integer $uid        
- * @param string $sender        
+ * @param integer $uid
+ * @param string $sender
  * @return string
  */
 function report_resolve_sender($uid, $sender) {

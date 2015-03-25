@@ -81,7 +81,7 @@ function recvsmsd() {
 /**
  * Check available keyword or keyword that hasn't been added
  *
- * @param $keyword keyword        
+ * @param $keyword keyword
  * @return TRUE if available, FALSE if already exists or not available
  */
 function checkavailablekeyword($keyword) {
@@ -319,7 +319,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	$c_uid = ($c_uid ? $c_uid : 1);
 	
 	$db_query = "
-		INSERT INTO " . _DB_PREF_ . "_tblSMSIncoming 
+		INSERT INTO " . _DB_PREF_ . "_tblSMSIncoming
 		(in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
 		VALUES
 		('$c_uid','$c_feature','$smsc','$sms_sender','$sms_receiver','$target_keyword','$message','" . core_adjust_datetime($sms_datetime) . "','$c_status')";
@@ -407,7 +407,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_tblSMSInbox
-					(in_sender,in_receiver,in_uid,in_msg,in_datetime,reference_id) 
+					(in_sender,in_receiver,in_uid,in_msg,in_datetime,reference_id)
 					VALUES ('$sms_sender','$sms_receiver','$uid','$message','" . core_adjust_datetime($sms_datetime) . "','$reference_id')
 				";
 				logger_print("saving sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user . " reference_id:" . $reference_id, 2, "recvsms_inbox_add");
