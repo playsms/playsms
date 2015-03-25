@@ -110,10 +110,10 @@ switch (_OP_) {
 		
 		if ($_REQUEST['enable_fetch']) {
 			$enabled = 'enabled';
-			$_SESSION['error_string'] = _('Email to SMS configuration has been saved and service enabled');
+			$_SESSION['dialog']['info'][] = _('Email to SMS configuration has been saved and service enabled');
 		} else {
 			$enabled = 'disabled';
-			$_SESSION['error_string'] = _('Email to SMS configuration has been saved and service disabled');
+			$_SESSION['dialog']['info'][] = _('Email to SMS configuration has been saved and service disabled');
 		}
 		_log($enabled . ' server:' . $_REQUEST['server'], 2, 'mailsms');
 		

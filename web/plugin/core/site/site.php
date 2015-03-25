@@ -91,10 +91,10 @@ switch (_OP_) {
 		
 		$site = site_config_getbydomain($up['domain']);
 		if ($up['domain'] && $site[0]['uid'] && $site[0]['uid'] != $user_config['uid']) {
-			$_SESSION['error_string'] = _('The domain is already configured by other user') . ' (' . _('domain') . ':' . $up['domain'] . ')';
+			$_SESSION['dialog']['info'][] = _('The domain is already configured by other user') . ' (' . _('domain') . ':' . $up['domain'] . ')';
 		} else {
 			site_config_set($up);
-			$_SESSION['error_string'] = _('Site configuration has been saved');
+			$_SESSION['dialog']['info'][] = _('Site configuration has been saved');
 		}
 		
 		_log('site configuration saved. uid:' . $user_config['uid'] . ' domain:' . $up['domain'], 3, 'site');

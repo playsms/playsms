@@ -88,7 +88,7 @@ switch (_OP_) {
 			);
 		}
 		$error_content = '';
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$error_content = _dialog();
 		}
 		$tpl['vars']['DIALOG_DISPLAY'] = $error_content;
@@ -144,7 +144,7 @@ switch (_OP_) {
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-				$_SESSION['error_string'] = _('Selected incoming message has been deleted');
+				$_SESSION['dialog']['info'][] = _('Selected incoming message has been deleted');
 				header("Location: " . _u($ref));
 				exit();
 		}

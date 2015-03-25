@@ -96,7 +96,7 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -150,7 +150,7 @@ switch (_OP_) {
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-				$_SESSION['error_string'] = _('Selected transactions has been deleted');
+				$_SESSION['dialog']['info'][] = _('Selected transactions has been deleted');
 				header("Location: " . _u($ref));
 				exit();
 				break;

@@ -28,9 +28,9 @@ $uid = $_REQUEST['uid'];
 // if ban/unban action
 if (_OP_ == 'unban') {
 	if (user_banned_remove($uid)) {
-		$_SESSION['error_string'] = _('Account has been unbanned') . ' (' . _('username') . ': ' . user_uid2username($uid) . ')';
+		$_SESSION['dialog']['info'][] = _('Account has been unbanned') . ' (' . _('username') . ': ' . user_uid2username($uid) . ')';
 	} else {
-		$_SESSION['error_string'] = _('Unable to unban account') . ' (' . _('username') . ': ' . user_uid2username($uid) . ')';
+		$_SESSION['dialog']['info'][] = _('Unable to unban account') . ' (' . _('username') . ': ' . user_uid2username($uid) . ')';
 	}
 	header('Location: ' . _u('index.php?app=main&inc=feature_report&route=banned'));
 	exit();
@@ -38,7 +38,7 @@ if (_OP_ == 'unban') {
 
 // display whose online
 
-if ($err = $_SESSION['error_string']) {
+if ($err = $_SESSION['dialog']['info'][]) {
 	$error_content = _dialog();
 }
 

@@ -166,7 +166,7 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -238,7 +238,7 @@ switch (_OP_) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -334,9 +334,9 @@ switch (_OP_) {
 							}
 						}
 					}
-					$_SESSION['error_string'] = _('Contact has been added');
+					$_SESSION['dialog']['info'][] = _('Contact has been added');
 				} else {
-					$_SESSION['error_string'] = _('You must fill required fields');
+					$_SESSION['dialog']['info'][] = _('You must fill required fields');
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add'));
 				exit();
@@ -368,7 +368,7 @@ switch (_OP_) {
 					dba_update(_DB_PREF_ . '_featurePhonebook', $items, $conditions, 'AND');
 					logger_print('contact edited pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
 				} else {
-					$_SESSION['error_string'] = _('You must fill mandatory fields');
+					$_SESSION['dialog']['info'][] = _('You must fill mandatory fields');
 					header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_list'));
 					exit();
 					break;
@@ -396,7 +396,7 @@ switch (_OP_) {
 						}
 					}
 				}
-				$_SESSION['error_string'] = _('Contact has been edited');
+				$_SESSION['dialog']['info'][] = _('Contact has been edited');
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_list'));
 				exit();
 				break;

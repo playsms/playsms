@@ -69,7 +69,7 @@ switch (_OP_) {
 		$smsc = gateway_get_smscbyname($c_name);
 
 		if ($smsc['name']) {
-			$_SESSION['error_string'] = _('SMSC already exists');
+			$_SESSION['dialog']['info'][] = _('SMSC already exists');
 		} else {
 			
 			if ($c_name && $c_gateway) {
@@ -86,12 +86,12 @@ switch (_OP_) {
 				);
 				$db_table = _DB_PREF_ . '_tblGateway';
 				if ($new_id = dba_add($db_table, $items)) {
-					$_SESSION['error_string'] = _('New SMSC has been added');
+					$_SESSION['dialog']['info'][] = _('New SMSC has been added');
 				} else {
-					$_SESSION['error_string'] = _('Fail to add new SMSC');
+					$_SESSION['dialog']['info'][] = _('Fail to add new SMSC');
 				}
 			} else {
-				$_SESSION['error_string'] = _('Unknown error');
+				$_SESSION['dialog']['info'][] = _('Unknown error');
 				header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 				exit();
 			}
@@ -166,12 +166,12 @@ switch (_OP_) {
 			);
 			$db_table = _DB_PREF_ . '_tblGateway';
 			if ($new_id = dba_update($db_table, $items, $condition)) {
-				$_SESSION['error_string'] = _('SMSC has been edited');
+				$_SESSION['dialog']['info'][] = _('SMSC has been edited');
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit SMSC');
+				$_SESSION['dialog']['info'][] = _('Fail to edit SMSC');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Unknown error');
+			$_SESSION['dialog']['info'][] = _('Unknown error');
 			header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 			exit();
 		}
@@ -187,12 +187,12 @@ switch (_OP_) {
 				'id' => $c_id 
 			);
 			if (dba_remove($db_table, $condition)) {
-				$_SESSION['error_string'] = _('SMSC has been removed');
+				$_SESSION['dialog']['info'][] = _('SMSC has been removed');
 			} else {
-				$_SESSION['error_string'] = _('Fail to remove SMSC');
+				$_SESSION['dialog']['info'][] = _('Fail to remove SMSC');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Unknown error');
+			$_SESSION['dialog']['info'][] = _('Unknown error');
 		}
 		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 		exit();

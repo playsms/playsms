@@ -55,7 +55,7 @@ switch (_OP_) {
 			</tbody></table>
 			</div>
 			" . _button('index.php?app=main&inc=feature_simplerate&op=simplerate_add', _('Add rate'));
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -64,10 +64,10 @@ switch (_OP_) {
 		$rateid = $_REQUEST['rateid'];
 		$dst = simplerate_getdst($rateid);
 		$prefix = simplerate_getprefix($rateid);
-		$_SESSION['error_string'] = _('Fail to delete rate') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
+		$_SESSION['dialog']['info'][] = _('Fail to delete rate') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$rateid'";
 		if (@dba_affected_rows($db_query)) {
-			$_SESSION['error_string'] = _('Rate has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
+			$_SESSION['dialog']['info'][] = _('Rate has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_list'));
 		exit();
@@ -77,7 +77,7 @@ switch (_OP_) {
 		$dst = simplerate_getdst($rateid);
 		$prefix = simplerate_getprefix($rateid);
 		$rate = simplerate_getbyid($rateid);
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -108,22 +108,22 @@ switch (_OP_) {
 		$up_prefix = $_POST['up_prefix'];
 		$up_prefix = preg_replace('/[^0-9.]*/', '', $up_prefix);
 		$up_rate = $_POST['up_rate'];
-		$_SESSION['error_string'] = _('No changes made!');
+		$_SESSION['dialog']['info'][] = _('No changes made!');
 		if ($rateid && $up_dst && ($up_prefix >= 0) && ($up_rate >= 0)) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSimplerate SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Rate has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['info'][] = _('Rate has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			} else {
-				$_SESSION['error_string'] = _('Fail to save rate') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['info'][] = _('Fail to save rate') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_edit&rateid=' . $rateid));
 		exit();
 		break;
 	case "simplerate_add":
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -156,17 +156,17 @@ switch (_OP_) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSimplerate WHERE prefix='$add_prefix'";
 			$db_result = dba_query($db_query);
 			if ($db_row = dba_fetch_array($db_result)) {
-				$_SESSION['error_string'] = _('Rate already exists') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")";
+				$_SESSION['dialog']['info'][] = _('Rate already exists') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")";
 			} else {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureSimplerate (dst,prefix,rate)
 					VALUES ('$add_dst','$add_prefix','$add_rate')";
 				if ($new_uid = @dba_insert_id($db_query)) {
-					$_SESSION['error_string'] = _('Rate has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
+					$_SESSION['dialog']['info'][] = _('Rate has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
 				}
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_add'));
 		exit();

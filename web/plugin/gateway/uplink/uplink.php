@@ -16,7 +16,7 @@ switch (_OP_) {
 		}
 		$option_try_disable_footer = "<option value=\"1\" " . $selected['yes'] . ">" . _('yes') . "</option>";
 		$option_try_disable_footer .= "<option value=\"0\" " . $selected['no'] . ">" . _('no') . "</option>";
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$error_content = _dialog();
 		}
 		$content = "
@@ -67,7 +67,7 @@ switch (_OP_) {
 		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$up_try_disable_footer = $_POST['up_try_disable_footer'];
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_master && $up_username) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayUplink_config
@@ -80,7 +80,7 @@ switch (_OP_) {
 				cfg_datetime_timezone='$up_global_timezone',
 				cfg_try_disable_footer='$up_try_disable_footer'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: "._u('index.php?app=main&inc=gateway_uplink&op=manage'));

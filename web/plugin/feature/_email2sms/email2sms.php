@@ -98,8 +98,8 @@ switch (_OP_) {
 		if ($pin) {
 			$continue = TRUE;
 		} else {
-			$_SESSION['error_string'][] = _('PIN is empty');
-			$_SESSION['error_string'][] = _('Fail to save email to SMS configuration');
+			$_SESSION['dialog']['info'][] = _('PIN is empty');
+			$_SESSION['dialog']['info'][] = _('Fail to save email to SMS configuration');
 		}
 		
 		if ($continue) {
@@ -122,10 +122,10 @@ switch (_OP_) {
 			
 			if ($_REQUEST['enable']) {
 				$enabled = 'enabled';
-				$_SESSION['error_string'] = _('Email to SMS configuration has been saved and enabled');
+				$_SESSION['dialog']['info'][] = _('Email to SMS configuration has been saved and enabled');
 			} else {
 				$enabled = 'disabled';
-				$_SESSION['error_string'] = _('Email to SMS configuration has been saved but disabled');
+				$_SESSION['dialog']['info'][] = _('Email to SMS configuration has been saved but disabled');
 			}
 			_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $_REQUEST['username'] . ' server:' . $_REQUEST['server'], 2, 'email2sms');
 		}

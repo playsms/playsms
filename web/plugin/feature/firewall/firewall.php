@@ -133,7 +133,7 @@ switch (_OP_) {
 		$search = themes_search_session();
 		$nav = themes_nav_session();
 
-		$_SESSION['error_string'] = _('IP addresses have been deleted');
+		$_SESSION['dialog']['info'][] = _('IP addresses have been deleted');
 		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 		header("Location: " . _u($ref));
 		exit();
@@ -168,9 +168,9 @@ switch (_OP_) {
 			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
 					blacklist_addip($add_username, $ip);
 			}
-			$_SESSION['error_string'] = _('IP addresses have been blocked');
+			$_SESSION['dialog']['info'][] = _('IP addresses have been blocked');
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_firewall&op=firewall_add'));
 		exit();

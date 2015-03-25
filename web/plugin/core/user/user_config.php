@@ -66,7 +66,7 @@ switch (_OP_) {
 			$acl_id = (int) $c_user[0]['acl_id'];
 			$credit = rate_getusercredit($c_username);
 		} else {
-			$_SESSION['error_string'] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
+			$_SESSION['dialog']['info'][] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 			exit();
 		}
@@ -208,7 +208,7 @@ switch (_OP_) {
 		}
 		
 		// error string
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$error_content = _dialog();
 		}
 		
@@ -303,9 +303,9 @@ switch (_OP_) {
 		$items['enable_credit_unicode'] = (int) $_POST['edit_enable_credit_unicode'];
 		registry_update($c_uid, 'core', 'user_config', $items);
 		
-		$_SESSION['error_string'] = $ret['error_string'];
+		$_SESSION['dialog']['info'][] = $ret['error_string'];
 		
-		_log('saving username:' . $c_username . ' error_string:' . $_SESSION['error_string'], 2, 'user_config');
+		_log('saving username:' . $c_username . ' error_string:' . $_SESSION['dialog']['info'][], 2, 'user_config');
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_config&op=user_config' . $url_uname . '&view=' . $view));
 		exit();
 		break;

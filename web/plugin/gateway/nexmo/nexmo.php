@@ -30,7 +30,7 @@ $callback_url = "http://" . $callback_url;
 
 switch (_OP_) {
 	case "manage" :
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$error_content = _dialog();
 		}
 		$tpl = array(
@@ -72,7 +72,7 @@ switch (_OP_) {
 		$up_api_secret = $_POST['up_api_secret'];
 		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_url && $up_api_key) {
 			if ($up_api_secret) {
 				$api_secret_change = "cfg_api_secret='$up_api_secret',";
@@ -86,7 +86,7 @@ switch (_OP_) {
 				cfg_module_sender='$up_module_sender',
 				cfg_datetime_timezone='$up_global_timezone'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_nexmo&op=manage'));

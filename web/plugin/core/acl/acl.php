@@ -96,12 +96,12 @@ switch (_OP_) {
 				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,acl_subuser,url,flag_deleted)
 				VALUES ('" . mktime() . "','" . $name . "','" . $acl_subuser . "','" . $url . "','0')";
 			if ($new_id = @dba_insert_id($db_query)) {
-				$_SESSION['error_string'] = _('New ACL been added');
+				$_SESSION['dialog']['info'][] = _('New ACL been added');
 			} else {
-				$_SESSION['error_string'] = _('Fail to add new ACL');
+				$_SESSION['dialog']['info'][] = _('Fail to add new ACL');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+			$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_acl&op=add'));
 		exit();
@@ -152,12 +152,12 @@ switch (_OP_) {
 				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "'
 				WHERE id='" . $id . "'";
 			if ($new_id = @dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('ACL been edited');
+				$_SESSION['dialog']['info'][] = _('ACL been edited');
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit ACL');
+				$_SESSION['dialog']['info'][] = _('Fail to edit ACL');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+			$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_acl&op=edit&id=' . $id));
 		exit();
@@ -170,9 +170,9 @@ switch (_OP_) {
 		), 'AND')) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "', flag_deleted='1' WHERE id='$id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('ACL has been deleted');
+				$_SESSION['dialog']['info'][] = _('ACL has been deleted');
 			} else {
-				$_SESSION['error_string'] = _('Fail to delete ACL');
+				$_SESSION['dialog']['info'][] = _('Fail to delete ACL');
 			}
 		} else {
 			auth_block();

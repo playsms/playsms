@@ -57,7 +57,7 @@ switch (_OP_) {
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -137,7 +137,7 @@ switch (_OP_) {
 		break;
 	
 	case "subuser_add":
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
@@ -227,9 +227,9 @@ switch (_OP_) {
 		$ret = user_add($add);
 		
 		if (is_array($ret)) {
-			$_SESSION['error_string'] = $ret['error_string'];
+			$_SESSION['dialog']['info'][] = $ret['error_string'];
 		} else {
-			$_SESSION['error_string'] = _('Unable to process subuser addition');
+			$_SESSION['dialog']['info'][] = _('Unable to process subuser addition');
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_add'));
@@ -240,7 +240,7 @@ switch (_OP_) {
 		$up['username'] = $subuser_edited['username'];
 		$del_uid = user_username2uid($up['username']);
 		$ret = user_remove($del_uid);
-		$_SESSION['error_string'] = $ret['error_string'];
+		$_SESSION['dialog']['info'][] = $ret['error_string'];
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list'));
 		exit();
 		break;
@@ -248,15 +248,15 @@ switch (_OP_) {
 	case "subuser_unban":
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be unbanned');
+			$_SESSION['dialog']['info'][] = _('Account admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
 			if (user_banned_remove($uid)) {
-				$_SESSION['error_string'] = _('Account has been unbanned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['dialog']['info'][] = _('Account has been unbanned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			} else {
-				$_SESSION['error_string'] = _('Unable to unban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['dialog']['info'][] = _('Unable to unban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			}
 		} else {
-			$_SESSION['error_string'] = _('User is not on banned subusers list') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+			$_SESSION['dialog']['info'][] = _('User is not on banned subusers list') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list'));
 		exit();
@@ -265,14 +265,14 @@ switch (_OP_) {
 	case "subuser_ban":
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be unbanned');
+			$_SESSION['dialog']['info'][] = _('Account admin or currently logged in administrator cannot be unbanned');
 		} else if (user_banned_get($uid)) {
-			$_SESSION['error_string'] = _('User is already on banned subusers list') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+			$_SESSION['dialog']['info'][] = _('User is already on banned subusers list') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 		} else {
 			if (user_banned_add($uid)) {
-				$_SESSION['error_string'] = _('Account has been banned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['dialog']['info'][] = _('Account has been banned') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			} else {
-				$_SESSION['error_string'] = _('Unable to ban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
+				$_SESSION['dialog']['info'][] = _('Unable to ban subuser') . ' (' . _('username') . ': ' . $subuser_edited['username'] . ')';
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list'));

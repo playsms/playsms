@@ -4,7 +4,7 @@ if(!auth_isadmin()){auth_block();};
 
 // error messages
 $error_content = '';
-if ($err = $_SESSION['error_string']) {
+if ($err = $_SESSION['dialog']['info'][]) {
 	$error_content = _dialog();
 }
 
@@ -167,13 +167,13 @@ switch (_OP_) {
 				$c_uid = $uids[$i];
 				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_catchalladd($rid, $c_uid)) {
-					$_SESSION['error_string'] .= _('Catch-all has been added')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] .= _('Catch-all has been added')." ("._('Username').": ".$c_username.")<br />";
 				} else {
-					$_SESSION['error_string'] .= _('Fail to add catch-all')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] .= _('Fail to add catch-all')." ("._('Username').": ".$c_username.")<br />";
 				}
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exist');
+			$_SESSION['dialog']['info'][] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid));
 		exit();
@@ -255,13 +255,13 @@ switch (_OP_) {
 				$c_uid = $uids[$i];
 				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_catchalldel($rid, $c_uid)) {
-					$_SESSION['error_string'] .= _('Catch-all has been deleted')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] .= _('Catch-all has been deleted')." ("._('Username').": ".$c_username.")<br />";
 				} else {
-					$_SESSION['error_string'] .= _('Fail to delete catch-all')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] .= _('Fail to delete catch-all')." ("._('Username').": ".$c_username.")<br />";
 				}
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exist');
+			$_SESSION['dialog']['info'][] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid));
 		exit();

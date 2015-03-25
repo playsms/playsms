@@ -185,12 +185,12 @@ switch (_OP_) {
 	case "sender_id_add_yes":
 		if (sender_id_add($uid, $c_sender_id, $c_sender_id_description, $_REQUEST['default'], $_REQUEST['approved'])) {
 			if (auth_isadmin()) {
-				$_SESSION['error_string'] = _('Sender ID description has been added') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+				$_SESSION['dialog']['info'][] = _('Sender ID description has been added') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 			} else {
-				$_SESSION['error_string'] = _('Sender ID has been added and waiting for approval') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+				$_SESSION['dialog']['info'][] = _('Sender ID has been added and waiting for approval') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 			}
 		} else {
-			$_SESSION['error_string'] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+			$_SESSION['dialog']['info'][] = _('Sender ID is not available') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_add'));
@@ -252,9 +252,9 @@ switch (_OP_) {
 	
 	case "sender_id_edit_yes":
 		if (sender_id_update($uid, $c_sender_id, $c_sender_id_description, $_REQUEST['default'], $_REQUEST['approved'])) {
-			$_SESSION['error_string'] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+			$_SESSION['dialog']['info'][] = _('Sender ID description has been updated') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		} else {
-			$_SESSION['error_string'] = _('Fail to update due to invalid sender ID') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
+			$_SESSION['dialog']['info'][] = _('Fail to update due to invalid sender ID') . ' (' . _('Sender ID') . ': ' . $c_sender_id . ')';
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $_REQUEST['id']));
@@ -272,7 +272,7 @@ switch (_OP_) {
 			registry_update($row['uid'], 'features', 'sender_id', $items);
 		}
 		
-		$_SESSION['error_string'] = (($status == 1) ? _('Sender ID is now approved') : _('Sender ID is now disabled')) . ' (' . _('Sender ID') . ': ' . $row['registry_key'] . ')';
+		$_SESSION['dialog']['info'][] = (($status == 1) ? _('Sender ID is now approved') : _('Sender ID is now disabled')) . ' (' . _('Sender ID') . ': ' . $row['registry_key'] . ')';
 		
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_list'));
 		exit();
@@ -293,7 +293,7 @@ switch (_OP_) {
 			sender_id_default_set($data_sender_id[0]['uid'], '');
 		}
 		
-		$_SESSION['error_string'] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $data_sender_id[0]['registry_key'] . ')';
+		$_SESSION['dialog']['info'][] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $data_sender_id[0]['registry_key'] . ')';
 		header("Location: " . _u($ref));
 		exit();
 		break;

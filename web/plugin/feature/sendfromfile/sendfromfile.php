@@ -100,7 +100,7 @@ switch (_OP_) {
 				}
 			}
 		} else {
-			$_SESSION['error_string'] = _('Invalid CSV file');
+			$_SESSION['dialog']['info'][] = _('Invalid CSV file');
 			header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 			exit();
 			break;
@@ -179,12 +179,12 @@ switch (_OP_) {
 		if ($sid = $_REQUEST['sid']) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
 			if ($db_result = dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Send from file has been cancelled');
+				$_SESSION['dialog']['info'][] = _('Send from file has been cancelled');
 			} else {
-				$_SESSION['error_string'] = _('Fail to remove cancelled entries from database');
+				$_SESSION['dialog']['info'][] = _('Fail to remove cancelled entries from database');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Invalid session ID');
+			$_SESSION['dialog']['info'][] = _('Invalid session ID');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 		exit();
@@ -207,9 +207,9 @@ switch (_OP_) {
 			}
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
 			$db_result = dba_affected_rows($db_query);
-			$_SESSION['error_string'] = _('SMS has been sent to valid numbers in uploaded file');
+			$_SESSION['dialog']['info'][] = _('SMS has been sent to valid numbers in uploaded file');
 		} else {
-			$_SESSION['error_string'] = _('Invalid session ID');
+			$_SESSION['dialog']['info'][] = _('Invalid session ID');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 		exit();

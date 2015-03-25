@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug']."/gateway/template/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string'])
+		if ($err = $_SESSION['dialog']['info'][])
 		{
 			$content = _dialog();
 		}
@@ -29,7 +29,7 @@ switch (_OP_) {
 		break;
 	case "manage_save":
 		$up_path = $_POST['up_path'];
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_path)
 		{
 			$db_query = "
@@ -38,7 +38,7 @@ switch (_OP_) {
 	    ";
 			if (@dba_affected_rows($db_query))
 			{
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: "._u('index.php?app=main&inc=gateway_template&op=manage'));

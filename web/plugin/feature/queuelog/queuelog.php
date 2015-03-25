@@ -101,7 +101,7 @@ switch (_OP_) {
 	case "queuelog_delete":
 		if ($queue = $_REQUEST['queue']) {
 			if (queuelog_delete($queue)) {
-				$_SESSION['error_string'] = _('Queue has been removed');
+				$_SESSION['dialog']['info'][] = _('Queue has been removed');
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_queuelog&op=queuelog_list'));
@@ -109,7 +109,7 @@ switch (_OP_) {
 		break;
 	case "queuelog_delete_all":
 		if (queuelog_delete_all($queue)) {
-			$_SESSION['error_string'] = _('All queues have been removed');
+			$_SESSION['dialog']['info'][] = _('All queues have been removed');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_queuelog&op=queuelog_list'));
 		exit();

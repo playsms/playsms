@@ -29,10 +29,10 @@ if (_OP_ == 'login') {
 				logger_print("u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
 				logger_print("unable to setup session u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
-				$_SESSION['error_string'] = _('Unable to login');
+				$_SESSION['dialog']['info'][] = _('Unable to login');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Invalid username or password');
+			$_SESSION['dialog']['info'][] = _('Invalid username or password');
 		}
 	}
 	

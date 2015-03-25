@@ -26,7 +26,7 @@ include $core_config['apps_path']['plug'] . "/gateway/kannel/config.php";
 
 switch (_OP_) {
 	case "manage" :
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		// Handle DLR options config (emmanuel)
@@ -125,7 +125,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "manage_save" :
-		$_SESSION['error_string'] = _('Changes have been made');
+		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		// Handle DLR config (emmanuel)
 		if (isset($_POST['dlr_box'])) {
 			for($i = 0, $c = count($_POST['dlr_box']); $i < $c; $i++) {
@@ -165,7 +165,7 @@ switch (_OP_) {
 		$admin_password = $plugin_config['kannel']['admin_password'];
 		$url = 'http://' . $admin_host . '/restart?password=' . $admin_password;
 		$restart = file_get_contents($url);
-		$_SESSION['error_string'] = _('Restart Kannel') . ' - ' . _('Status') . ': ' . $restart;
+		$_SESSION['dialog']['info'][] = _('Restart Kannel') . ' - ' . _('Status') . ': ' . $restart;
 		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
 		break;

@@ -72,12 +72,12 @@ switch (_OP_) {
 				SET c_timestamp='" . mktime() . "',name='$name',message='$message', schedule_rule='$schedule_rule'
 				WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS schedule been saved');
+				$_SESSION['dialog']['info'][] = _('SMS schedule been saved');
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit SMS schedule');
+				$_SESSION['dialog']['info'][] = _('Fail to edit SMS schedule');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+			$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=edit&op=list&id=' . $id));
 		exit();

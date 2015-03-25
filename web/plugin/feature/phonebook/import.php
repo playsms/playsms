@@ -45,7 +45,7 @@ switch (_OP_) {
 				</tbody>
 			</table>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -119,7 +119,7 @@ switch (_OP_) {
 				" . _back('index.php?app=main&inc=feature_phonebook&route=import&op=list');
 			_p($content);
 		} else {
-			$_SESSION['error_string'] = _('Fail to upload CSV file for phonebook');
+			$_SESSION['dialog']['info'][] = _('Fail to upload CSV file for phonebook');
 			header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list'));
 			exit();
 		}
@@ -173,7 +173,7 @@ switch (_OP_) {
 			}
 			unset($gpid);
 		}
-		$_SESSION['error_string'] = _('Contacts have been imported');
+		$_SESSION['dialog']['info'][] = _('Contacts have been imported');
 		header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list'));
 		exit();
 		break;

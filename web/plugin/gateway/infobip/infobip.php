@@ -14,7 +14,7 @@ $dlr_url = "http://" . $dlr_url;
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -64,7 +64,7 @@ switch (_OP_) {
 		$up_send_url = $_POST['up_send_url'];
 		$up_additional_param = $_POST['up_additional_param'];
 		$up_nopush = '0';
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_username && $up_send_url) {
 			if ($up_password) {
 				$password_change = "cfg_password='$up_password',";
@@ -80,7 +80,7 @@ switch (_OP_) {
 				cfg_additional_param='$up_additional_param',
 				cfg_dlr_nopush='$up_nopush'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: index.php?app=main&inc=gateway_infobip&op=manage");

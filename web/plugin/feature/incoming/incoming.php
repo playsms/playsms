@@ -169,7 +169,7 @@ switch (_OP_) {
 		// sandbox prefix
 		$post_rules['insert_prefix'] = trim(strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix'])));
 		if ($post_rules['insert_prefix'] && checkavailablekeyword($post_rules['insert_prefix'])) {
-			$_SESSION['error_string'][] = _('Fail to insert keyword') . ' (' . _('keyword') . ': ' . $post_rules['insert_prefix'] . ')';
+			$_SESSION['dialog']['info'][] = _('Fail to insert keyword') . ' (' . _('keyword') . ': ' . $post_rules['insert_prefix'] . ')';
 			$post_rules['insert_prefix'] = '';
 		}
 		$items['sandbox_prefix'] = $post_rules['insert_prefix'];
@@ -189,9 +189,9 @@ switch (_OP_) {
 		// save to registry
 		if (count($items)) {
 			registry_update(1, 'feature', 'incoming', $items);
-			$_SESSION['error_string'][] = _('Incoming SMS route changes has been saved');
+			$_SESSION['dialog']['info'][] = _('Incoming SMS route changes has been saved');
 		} else {
-			$_SESSION['error_string'] = _('No route has been saved');
+			$_SESSION['dialog']['info'][] = _('No route has been saved');
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=feature_incoming&op=incoming'));

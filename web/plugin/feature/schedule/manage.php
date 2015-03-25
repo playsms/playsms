@@ -178,12 +178,12 @@ switch (_OP_) {
 				INSERT INTO " . _DB_PREF_ . "_featureSchedule_dst (schedule_id,schedule,name,destination)
 				VALUES ('$schedule_id','$schedule','$name','$destination')";
 				if ($new_uid = @dba_insert_id($db_query)) {
-					$_SESSION['error_string'] = _('New destination has been added');
+					$_SESSION['dialog']['info'][] = _('New destination has been added');
 				} else {
-					$_SESSION['error_string'] = _('Fail to add new destination');
+					$_SESSION['dialog']['info'][] = _('Fail to add new destination');
 				}
 			} else {
-				$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+				$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 			}
 			header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_add&schedule_id=' . $schedule_id));
 			exit();
@@ -201,9 +201,9 @@ switch (_OP_) {
 		), 'AND')) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSchedule_dst WHERE schedule_id='$schedule_id' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Destination has been deleted');
+				$_SESSION['dialog']['info'][] = _('Destination has been deleted');
 			} else {
-				$_SESSION['error_string'] = _('Fail to delete destination');
+				$_SESSION['dialog']['info'][] = _('Fail to delete destination');
 			}
 		} else {
 			auth_block();
@@ -282,12 +282,12 @@ switch (_OP_) {
 					SET c_timestamp='" . mktime() . "',name='$name',destination='$destination',schedule='$schedule',scheduled='0000-00-00 00:00:00'
 					WHERE schedule_id='$schedule_id' AND id='$id'";
 				if (@dba_affected_rows($db_query)) {
-					$_SESSION['error_string'] = _('Destination has been edited');
+					$_SESSION['dialog']['info'][] = _('Destination has been edited');
 				} else {
-					$_SESSION['error_string'] = _('Fail to edit destination');
+					$_SESSION['dialog']['info'][] = _('Fail to edit destination');
 				}
 			} else {
-				$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+				$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 			}
 			header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_edit&schedule_id=' . $schedule_id . '&id=' . $id));
 			exit();

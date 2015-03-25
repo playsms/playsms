@@ -8,7 +8,7 @@ include $core_config['apps_path']['plug'] . "/gateway/gammu/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		$content.= "

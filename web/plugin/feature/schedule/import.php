@@ -59,7 +59,7 @@ switch (_OP_) {
 				</tbody>
 			</table>
 			" . _back('index.php?app=main&inc=feature_schedule&route=manage&op=list&id=' . $schedule_id);
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -127,7 +127,7 @@ switch (_OP_) {
 				" . _back('index.php?app=main&inc=feature_schedule&route=import&op=list&schedule_id=' . $schedule_id);
 			_p($content);
 		} else {
-			$_SESSION['error_string'] = _('Fail to upload CSV file');
+			$_SESSION['dialog']['info'][] = _('Fail to upload CSV file');
 			header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=import&op=list&schedule_id=' . $schedule_id));
 			exit();
 		}
@@ -173,7 +173,7 @@ switch (_OP_) {
 				}
 			}
 		}
-		$_SESSION['error_string'] = _('Entries in CSV file have been imported');
+		$_SESSION['dialog']['info'][] = _('Entries in CSV file have been imported');
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=import&op=list&schedule_id=' . $schedule_id));
 		exit();
 		break;

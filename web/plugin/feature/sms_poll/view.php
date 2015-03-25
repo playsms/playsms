@@ -38,7 +38,7 @@ switch (_OP_) {
 		
 		$stat = sms_poll_statistics($poll_id);
 		
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$content = _dialog();
 		}
 		$content .= "

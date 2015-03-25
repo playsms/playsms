@@ -408,18 +408,16 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
  * Display error string from function parameter or session
  *
  * @param array $content
- *        Array of contents of dialog
- * @param string $type
- *        Type of window dialog: DEFAULT, INFO, PRIMARY, SUCCESS, WARNING, DANGER
+ *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
+ *        Type of dialog: default, info, primary, success, warning, danger
  * @param string $title
  *        Dialog title
  * @return string HTML string of error strings
  */
-function themes_dialog($content = array(), $type = 'PRIMARY', $title = '') {
+function themes_dialog($content = array(), $title = '') {
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_dialog', array(
 			$content,
-			$type,
 			$title 
 		));
 		
@@ -445,8 +443,6 @@ function themes_dialog($content = array(), $type = 'PRIMARY', $title = '') {
 	}
 	
 	$ret = '';
-	
-	sort($contents);
 	
 	foreach ($contents as $type => $data) {
 		$message = '';
@@ -484,7 +480,8 @@ function themes_dialog($content = array(), $type = 'PRIMARY', $title = '') {
 						closable: true,
 						draggable: true
 					})
-				</script>";
+				</script>
+			";
 		}
 	}
 	

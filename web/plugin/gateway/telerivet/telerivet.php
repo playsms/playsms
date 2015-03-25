@@ -15,7 +15,7 @@ if ($gw == $plugin_config['telerivet']['name']) {
 
 switch (_OP_) {
     case "manage":
-        if ($err = $_SESSION['error_string'])
+        if ($err = $_SESSION['dialog']['info'][])
         {
             $content = _dialog();
         }
@@ -49,7 +49,7 @@ switch (_OP_) {
         $up_api_key = $_POST['up_api_key'];
         $up_status_url = $_POST['up_status_url'];
         $up_status_secret = $_POST['up_status_secret'];
-        $_SESSION['error_string'] = _('No changes has been made');
+        $_SESSION['dialog']['info'][] = _('No changes has been made');
         if ($up_url && $up_project_id) {
             if ($up_api_key) {
                  $api_key_change = "cfg_api_key='$up_api_key',";
@@ -64,7 +64,7 @@ switch (_OP_) {
                 cfg_status_secret='$up_status_secret'";
                 _log('query:' . $db_query,2,'config telerivet');
             if (@dba_affected_rows($db_query)) {
-                $_SESSION['error_string'] = _('Gateway module configurations has been saved');
+                $_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
             }
         }
         header("Location: "._u('index.php?app=main&inc=gateway_telerivet&op=manage'));

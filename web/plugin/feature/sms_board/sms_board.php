@@ -138,12 +138,12 @@ switch (_OP_) {
 				SET c_timestamp='" . mktime() . "',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'
 				WHERE board_id='$board_id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS board has been saved') . " (" . _('keyword') . ": $edit_board_keyword)";
+				$_SESSION['dialog']['info'][] = _('SMS board has been saved') . " (" . _('keyword') . ": $edit_board_keyword)";
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit SMS board') . " (" . _('keyword') . ": $edit_board_keyword)";
+				$_SESSION['dialog']['info'][] = _('Fail to edit SMS board') . " (" . _('keyword') . ": $edit_board_keyword)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_board&op=sms_board_edit&board_id=' . $board_id));
 		exit();
@@ -157,7 +157,7 @@ switch (_OP_) {
 		if ($board_keyword) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$board_keyword'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS board with all its messages has been deleted') . " (" . _('keyword') . ": $board_keyword)";
+				$_SESSION['dialog']['info'][] = _('SMS board with all its messages has been deleted') . " (" . _('keyword') . ": $board_keyword)";
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_board&op=sms_board_list'));
@@ -205,15 +205,15 @@ switch (_OP_) {
 					INSERT INTO " . _DB_PREF_ . "_featureBoard (uid,board_keyword,board_forward_email,board_css,board_pref_template)
 					VALUES ('" . $user_config['uid'] . "','$add_board_keyword','$add_email','$add_css','$add_template')";
 				if ($new_uid = @dba_insert_id($db_query)) {
-					$_SESSION['error_string'] = _('SMS board has been added') . " (" . _('keyword') . ": $add_board_keyword)";
+					$_SESSION['dialog']['info'][] = _('SMS board has been added') . " (" . _('keyword') . ": $add_board_keyword)";
 				} else {
-					$_SESSION['error_string'] = _('Fail to add SMS board') . " (" . _('keyword') . ": $add_board_keyword)";
+					$_SESSION['dialog']['info'][] = _('Fail to add SMS board') . " (" . _('keyword') . ": $add_board_keyword)";
 				}
 			} else {
-				$_SESSION['error_string'] = _('SMS keyword already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_board_keyword)";
+				$_SESSION['dialog']['info'][] = _('SMS keyword already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_board_keyword)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_board&op=sms_board_add'));
 		exit();

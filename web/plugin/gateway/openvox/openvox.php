@@ -30,7 +30,7 @@ $callback_url = "http://" . $callback_url;
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
+		if ($err = $_SESSION['dialog']['info'][]) {
 			$error_content = _dialog();
 		}
 		$tpl = array(
@@ -60,7 +60,7 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 	case "manage_save":
-		$_SESSION['error_string'] = _('Changes have been made');
+		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		$items = array(
 			'gateway_host' => $_POST['up_gateway_host'],
 			'gateway_port' => $_POST['up_gateway_port'],

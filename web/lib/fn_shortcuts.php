@@ -120,15 +120,14 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
  * Shortcut to themes_dialog()
  *
  * @param array $content
- *        Array of contents of dialog
- * @param string $type
- *        Type of window dialog: DEFAULT, INFO, PRIMARY, SUCCESS, WARNING, DANGER
+ *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
+ *        Type of dialog: default, info, primary, success, warning, danger
  * @param string $title
  *        Dialog title
  * @return string HTML string of error strings
  */
-function _dialog($content = array(), $type = '', $title = '') {
-	return themes_dialog($content, $type, $title);
+function _dialog($content = array(), $title = '') {
+	return themes_dialog($content, $title);
 }
 
 /**
