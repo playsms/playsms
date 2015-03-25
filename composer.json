@@ -9,6 +9,8 @@
 		"playsms/tpl": "1.0.*",
 		"playsms/webservices": "1.0.*",
 		"gregwar/captcha": "1.0.*",
-		"ezyang/htmlpurifier": "4.6.*"
+		"ezyang/htmlpurifier": "4.6.*",
+		"pear/pear": "dev-master",
+		"pear/db": "dev-trunk"
 	}
 }
