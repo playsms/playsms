@@ -28,7 +28,7 @@ $cb_status = $requests['status'];
 if ($cb_status && $cb_smsid)
 {
 	$db_query = "
-		SELECT local_smslog_id FROM "._DB_PREF_."_gatewayMsgtoolbox 
+		SELECT local_smslog_id FROM "._DB_PREF_."_gatewayMsgtoolbox
 		WHERE remote_smslog_id='$cb_smsid' AND (status='10' OR status='11' OR status='21')
 	";
 	$db_result = dba_query($db_query);
@@ -41,7 +41,7 @@ if ($cb_status && $cb_smsid)
 		$c_sms_status = $data['p_status'];
 		switch ($cb_status)
 		{
-			case "10": 
+			case "10":
 			case "11":
 			case "21": $c_sms_status = 1; break; // sent
 			case "30":

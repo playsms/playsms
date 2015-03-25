@@ -1,8 +1,7 @@
 <?php
 error_reporting(0);
 
-
-// inspired by  http://www.bulksms.com/int/docs/eapi/status_reports/http_push/
+// inspired by http://www.bulksms.com/int/docs/eapi/status_reports/http_push/
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
@@ -15,9 +14,7 @@ if (!$called_from_hook_call) {
 	chdir("plugin/gateway/bulksms/");
 }
 
-
-
-$cb_from = $_REQUEST['source_id'];  
+$cb_from = $_REQUEST['source_id'];
 $cb_to = $_REQUEST['msisdn'];
 $cb_completed_time = $_REQUEST['completed_time'];  //r check format  yy-MM-dd HH:mm:ss
 $cb_status = $_REQUEST['status'];
@@ -41,10 +38,10 @@ if ($cb_completed_time && $cb_from && $$cb_apimsgid) {
 
 if ($cb_status && $cb_apimsgid) {
 	$db_query = "
-		SELECT " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id AS smslog_id," . _DB_PREF_ . "_tblSMSOutgoing.uid AS uid 
+		SELECT " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id AS smslog_id," . _DB_PREF_ . "_tblSMSOutgoing.uid AS uid
 		FROM " . _DB_PREF_ . "_tblSMSOutgoing," . _DB_PREF_ . "_gatewayBulksms_apidata
-		WHERE 
-			" . _DB_PREF_ . "_tblSMSOutgoing.smslog_id=" . _DB_PREF_ . "_gatewayBulksms_apidata.smslog_id AND 
+		WHERE
+			" . _DB_PREF_ . "_tblSMSOutgoing.smslog_id=" . _DB_PREF_ . "_gatewayBulksms_apidata.smslog_id AND
 			" . _DB_PREF_ . "_gatewayBulksms_apidata.apimsgid='$cb_apimsgid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -53,7 +50,7 @@ if ($cb_status && $cb_apimsgid) {
 	if ($uid && $smslog_id) {
 		$c_sms_status = 0;
 
-		switch ($cb_status) { 
+		switch ($cb_status) {
 			case "0" :
 				$c_sms_status = 0;
 				break; // pending

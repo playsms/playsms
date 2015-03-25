@@ -197,8 +197,8 @@ function core_hook($c_plugin, $c_function, $c_param = array()) {
  * Call function that hook caller function
  *
  * @global array $core_config
- * @param string $function_name        
- * @param array $arguments        
+ * @param string $function_name
+ * @param array $arguments
  * @return string
  */
 function core_call_hook($function_name = '', $arguments = array()) {
@@ -428,7 +428,7 @@ function core_display_datetime($time, $tz = 0) {
 /**
  * Format text to proper date/time format
  *
- * @param string $text        
+ * @param string $text
  * @return string
  */
 function core_format_datetime($text) {
@@ -609,7 +609,7 @@ function core_net_match($network, $ip) {
  * any continuation bytes outside of a valid UTF-8 sequence is not processed.
  * Based on https://github.com/onlinecity/php-smpp
  *
- * @param string $string        
+ * @param string $string
  * @return string
  */
 function core_string_to_gsm($string) {
@@ -749,7 +749,7 @@ function core_object_to_array($data) {
 /**
  * Convert array to CSV formatted string
  *
- * @param array $item        
+ * @param array $item
  * @return string
  */
 function core_csv_format($item) {
@@ -770,10 +770,10 @@ function core_csv_format($item) {
 /**
  * Download content as a file
  *
- * @param string $content        
- * @param string $fn        
- * @param string $content_type        
- * @param string $charset        
+ * @param string $content
+ * @param string $fn
+ * @param string $content_type
+ * @param string $charset
  */
 function core_download($content, $fn = '', $content_type = '', $charset = '') {
 	$fn = ($fn ? $fn : 'download.txt');
@@ -876,9 +876,9 @@ function core_themes_get() {
 /**
  * Get status of plugin, loaded or not
  *
- * @param integer $uid        
- * @param string $plugin_category        
- * @param string $plugin_name        
+ * @param integer $uid
+ * @param string $plugin_category
+ * @param string $plugin_name
  * @return boolean
  */
 function core_plugin_get_status($uid, $plugin_category, $plugin_name) {
@@ -906,10 +906,10 @@ function core_plugin_get_status($uid, $plugin_category, $plugin_name) {
 /**
  * Set status of plugin
  *
- * @param integer $uid        
- * @param string $plugin_category        
- * @param string $plugin_name        
- * @param boolean $plugin_status        
+ * @param integer $uid
+ * @param string $plugin_category
+ * @param string $plugin_name
+ * @param boolean $plugin_status
  * @return boolean
  */
 function core_plugin_set_status($uid, $plugin_category, $plugin_name, $plugin_status) {
@@ -1069,7 +1069,7 @@ function core_playsmsd_timer($period = 60) {
 /**
  * Get mobile format for matching purposes
  *
- * @param string $mobile        
+ * @param string $mobile
  * @return mixed
  */
 function core_mobile_matcher_format($mobile) {

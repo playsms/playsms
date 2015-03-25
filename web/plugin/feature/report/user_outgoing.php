@@ -137,7 +137,7 @@ switch (_OP_) {
 					<td>
 						<input type=hidden name=itemid" . $j . " value=\"$smslog_id\">
 						<input type=checkbox name=checkid" . $j . ">
-					</td>		  
+					</td>
 				</tr>";
 		}
 		

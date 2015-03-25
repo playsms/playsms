@@ -35,7 +35,7 @@ if ($_POST['event'] == 'send_status')
     $c_status = $_POST['status'];
     $c_error = $_POST['error_message'];
 
-    # Ref: https://telerivet.com/api/webhook#send_status        
+    # Ref: https://telerivet.com/api/webhook#send_status
     # Available status:
     #    sent    the message has been successfully sent to the mobile network
     #    queued    the message has not been sent yet
@@ -43,7 +43,7 @@ if ($_POST['event'] == 'send_status')
     #    failed_queued    the message has failed to send, but Telerivet will try to send it again later
     #    delivered    the message has been delivered to the recipient phone (if delivery reports are enabled)
     #    not_delivered    the message could not be delivered (if delivery reports are enabled)
-    #    cancelled    the message was cancelled by the user    
+    #    cancelled    the message was cancelled by the user
 
     # Reminder delivery status
     # $p_status = 0 --> pending

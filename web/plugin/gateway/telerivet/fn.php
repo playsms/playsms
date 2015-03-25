@@ -11,9 +11,9 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
     $api_key = $plugin_config['telerivet']['api_key'];
     $project_id = $plugin_config['telerivet']['project_id'];
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, 
+    curl_setopt($curl, CURLOPT_URL,
         "https://api.telerivet.com/v1/projects/$project_id/messages/outgoing");
-    curl_setopt($curl, CURLOPT_USERPWD, "{$api_key}:");  
+    curl_setopt($curl, CURLOPT_USERPWD, "{$api_key}:");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
     # override plugin gateway configuration by smsc configuration
@@ -28,7 +28,7 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
     $data = array();
     $data['to_number'] = $sms_to;
     $data['content'] = $sms_msg;
-    
+
     if (trim($plugin_config['telerivet']['status_url'])) {
         $data['status_url'] = trim($plugin_config['telerivet']['status_url']);
     }
@@ -37,21 +37,21 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
     }
 
     # Build API query
-    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data, '', '&')); 
+    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data, '', '&'));
     _log('building http query',3,'telerivet_query');
 
     # Send query to API and get result
-    $json = curl_exec($curl);    
+    $json = curl_exec($curl);
     $network_error = curl_error($curl);
     curl_close($curl);
 
     # Catch query error
-    if ($network_error) { 
+    if ($network_error) {
         _log('curl error:' . $network_error,2,'telerivet_query');
         dlr($smslog_id, $uid, 2);
     } else {
         # Save JSON reply
-        $res = json_decode($json, true);        
+        $res = json_decode($json, true);
         if (is_array($res)) {
             foreach ($res as $key => $val ) {
                 $log .= $key . ':' . $val . ' ';
@@ -73,7 +73,7 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
         $c_source = $res['source'];
         $c_error = $res['error_message'];
 
-        # Ref: https://telerivet.com/api/webhook#send_status        
+        # Ref: https://telerivet.com/api/webhook#send_status
         # Available status:
         #   sent    the message has been successfully sent to the mobile network
         #   queued  the message has not been sent yet
@@ -88,7 +88,7 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
         # $p_status = 1 --> sent
         # $p_status = 2 --> failed
         # $p_status = 3 --> delivered
-        
+
         if ($c_remote_id && $c_status) {
             $db_query = '
                 INSERT INTO ' . _DB_PREF_ . '_gatewayTelerivet (local_slid, remote_slid, status, phone_id, message_type, source, error_text)
@@ -99,15 +99,15 @@ function telerivet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_m
                     case "queued":
                         $ok = true;
                         $p_status = 0;
-                        break; 
+                        break;
                     case "sent":
                         $ok = true;
                         $p_status = 1;
-                        break; 
+                        break;
                     case "delivered":
                         $ok = true;
                         $p_status = 3;
-                        break; 
+                        break;
                     case "failed":
                     case "failed_queued":
                     case "not_delivered":

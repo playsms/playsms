@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 // hook_sendsms
 // called by main sms sender
 // return true for success delivery
-// $smsc			: smsc 
+// $smsc		: smsc
 // $sms_sender	: sender mobile number
 // $sms_footer	: sender sms footer or sms sender ID
 // $sms_to		: destination sms number
