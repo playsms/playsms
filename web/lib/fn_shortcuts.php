@@ -131,6 +131,22 @@ function _dialog($content = array(), $title = '') {
 }
 
 /**
+ * Display error string from function parameter or session
+ * Shortcut to themes_dialog()
+ * Compatibilty with previous playSMS versions, will be removed on 1.0
+ *
+ * @param array $content
+ *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
+ *        Type of dialog: default, info, primary, success, warning, danger
+ * @param string $title
+ *        Dialog title
+ * @return string HTML string of error strings
+ */
+function _err_display($content = array(), $title = '') {
+	return _dialog($content, $title);
+}
+
+/**
  * Generate HTML input tag
  * Shortcut to themes_input()
  *
