@@ -14,7 +14,7 @@ $dlr_url = "http://" . $dlr_url;
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

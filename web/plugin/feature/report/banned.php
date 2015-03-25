@@ -38,7 +38,7 @@ if (_OP_ == 'unban') {
 
 // display whose online
 
-if ($err = $_SESSION['dialog']['info'][]) {
+if ($err = TRUE) {
 	$error_content = _dialog();
 }
 

@@ -21,7 +21,7 @@ if ($quiz_id = (int) $_REQUEST['quiz_id']) {
 
 switch (_OP_) {
 	case "sms_quiz_list" :
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -88,7 +88,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -159,7 +159,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -222,7 +222,7 @@ switch (_OP_) {
 		$quiz_answer_query = "SELECT quiz_keyword,quiz_answer FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

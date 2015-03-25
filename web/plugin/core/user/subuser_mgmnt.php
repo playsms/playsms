@@ -57,7 +57,7 @@ switch (_OP_) {
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -137,7 +137,7 @@ switch (_OP_) {
 		break;
 	
 	case "subuser_add":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];

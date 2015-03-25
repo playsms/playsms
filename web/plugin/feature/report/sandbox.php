@@ -116,7 +116,7 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			_p(_dialog());
 		}
 		_p($content);

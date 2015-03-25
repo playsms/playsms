@@ -55,7 +55,7 @@ switch (_OP_) {
 			</tbody></table>
 			</div>
 			" . _button('index.php?app=main&inc=feature_simplerate&op=simplerate_add', _('Add rate'));
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -77,7 +77,7 @@ switch (_OP_) {
 		$dst = simplerate_getdst($rateid);
 		$prefix = simplerate_getprefix($rateid);
 		$rate = simplerate_getbyid($rateid);
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -123,7 +123,7 @@ switch (_OP_) {
 		exit();
 		break;
 	case "simplerate_add":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

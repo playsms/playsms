@@ -17,7 +17,7 @@ $sms_command_bin = $plugin_config['sms_command']['bin'];
 
 switch (_OP_) {
 	case "sms_command_list":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -83,7 +83,7 @@ switch (_OP_) {
 		$edit_command_exec = stripslashes($db_row['command_exec']);
 		$edit_command_exec = str_replace($sms_command_bin . "/", '', $edit_command_exec);
 		$edit_command_return_as_reply = ( $db_row['command_return_as_reply'] == '1' ? 'checked' : '' );
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -169,7 +169,7 @@ switch (_OP_) {
 		exit();
 		break;
 	case "sms_command_add":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

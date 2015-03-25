@@ -80,7 +80,7 @@ switch (_OP_) {
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
 		$smsc = outgoing_getsmsc($rid);
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$select_smsc = "<select name=up_smsc>";
@@ -149,7 +149,7 @@ switch (_OP_) {
 		exit();
 		break;
 	case "outgoing_add" :
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$select_users = themes_select_users_single('add_uid');

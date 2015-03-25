@@ -6,7 +6,7 @@ include $core_config['apps_path']['plug']."/gateway/smstools/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

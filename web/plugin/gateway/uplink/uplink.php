@@ -16,7 +16,7 @@ switch (_OP_) {
 		}
 		$option_try_disable_footer = "<option value=\"1\" " . $selected['yes'] . ">" . _('yes') . "</option>";
 		$option_try_disable_footer .= "<option value=\"0\" " . $selected['no'] . ">" . _('no') . "</option>";
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$error_content = _dialog();
 		}
 		$content = "

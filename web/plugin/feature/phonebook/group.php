@@ -92,7 +92,7 @@ switch (_OP_) {
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			_p(_dialog());
 		}
 		_p($content);
@@ -163,7 +163,7 @@ switch (_OP_) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			_p(_dialog());
 		}
 		_p($content);

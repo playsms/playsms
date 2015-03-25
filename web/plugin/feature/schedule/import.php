@@ -59,7 +59,7 @@ switch (_OP_) {
 				</tbody>
 			</table>
 			" . _back('index.php?app=main&inc=feature_schedule&route=manage&op=list&id=' . $schedule_id);
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			_p(_dialog());
 		}
 		_p($content);

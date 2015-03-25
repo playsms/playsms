@@ -38,7 +38,7 @@ if ($subscribe_id = (int) $_REQUEST['subscribe_id']) {
 
 switch (_OP_) {
 	case "sms_subscribe_list":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -129,7 +129,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$add_forward_param = 'BC';
@@ -304,7 +304,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -490,7 +490,7 @@ switch (_OP_) {
 	case "mbr_list":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
 		$db_result = dba_query($db_query);
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -535,7 +535,7 @@ switch (_OP_) {
 		break;
 	
 	case "msg_list":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -584,7 +584,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$edit_mbr_msg = $db_row['msg'];
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -631,7 +631,7 @@ switch (_OP_) {
 		break;
 	
 	case "msg_add":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe where subscribe_id='$subscribe_id'";
@@ -703,7 +703,7 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$message = $db_row['msg'];
 		$counter = $db_row['counter'];
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

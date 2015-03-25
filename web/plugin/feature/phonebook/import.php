@@ -45,7 +45,7 @@ switch (_OP_) {
 				</tbody>
 			</table>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			_p(_dialog());
 		}
 		_p($content);

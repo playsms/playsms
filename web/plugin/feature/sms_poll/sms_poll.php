@@ -38,7 +38,7 @@ if ($poll_id = (int) $_REQUEST['poll_id']) {
 
 switch (_OP_) {
 	case "sms_poll_list" :
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -205,7 +205,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc') . "</td></tr>";
 		}
 		
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -303,7 +303,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('edit_smsc', $db_row['smsc']) . "</td></tr>";
 		}
 		
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

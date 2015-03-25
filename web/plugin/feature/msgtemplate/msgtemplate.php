@@ -64,13 +64,13 @@ switch (_OP_) {
 				</ul>
 			</div>
 		";
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			_p(_dialog());
 		}
 		_p($content);
 		break;
 	case "add":
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "
@@ -95,7 +95,7 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureMsgtemplate WHERE tid='$tid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$content .= "

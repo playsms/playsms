@@ -88,7 +88,7 @@ switch (_OP_) {
 			);
 		}
 		$error_content = '';
-		if ($err = $_SESSION['dialog']['info'][]) {
+		if ($err = TRUE) {
 			$error_content = _dialog();
 		}
 		$tpl['vars']['DIALOG_DISPLAY'] = $error_content;
