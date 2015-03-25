@@ -18,7 +18,7 @@ msgid "Anyone"
 msgstr "Tous"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "Format de fichier CSV"
 
 msgid "Contact has been added"
 msgstr "Le contact a été ajouté."
@@ -70,7 +70,7 @@ msgid ""
 "Group has been edited but unable to set broadcast from members or anyone"
 msgstr ""
 "Le groupe a été modifié, mais impossible de régler le broadcast depuis les "
-"membres ou n'importe qui"
+"membres ou qui que ce soit"
 
 msgid "Group name"
 msgstr "Nom du groupe"
@@ -97,7 +97,7 @@ msgid "Move to"
 msgstr "Déplacer vers"
 
 msgid "Multiple entries separated by space"
-msgstr ""
+msgstr "Plusieurs entrées séparées par un espace"
 
 msgid "Name"
 msgstr "Nom"
@@ -105,9 +105,8 @@ msgstr "Nom"
 msgid "No changes have been made"
 msgstr "Aucune modification apportée"
 
-#, fuzzy
 msgid "No group"
-msgstr "group"
+msgstr "Aucun groupe"
 
 msgid "Phonebook"
 msgstr "Carnet d'adresses"
@@ -119,7 +118,6 @@ msgstr ""
 msgid "Please use alphanumeric only and make it short"
 msgstr "Veuillez utiliser uniquement alphanumérique et soyez bref"
 
-#, fuzzy
 msgid "Please use uppercase and make it short"
 msgstr "Veuillez utiliser des majuscules et soyez bref"
 
@@ -139,18 +137,17 @@ msgid "Selected group has been deleted"
 msgstr "Le groupe sélectionné a été supprimé"
 
 msgid "Share phonebook and allow broadcast"
-msgstr ""
+msgstr "Partager le carnet d'adresses et autoriser le broadcast"
 
-#, fuzzy
 msgid ""
 "Share this phonebook group and set permission for broadcasting SMS to this "
 "group from mobile phone"
 msgstr ""
-"Régler l'autorisation de faire un broadcast SMS vers ce groupe depuis un "
-"téléphone portable"
+"Partager ce carnet d'adresses et donner l'autorisation de faire un broadcast "
+"SMS vers ce groupe depuis un téléphone portable"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Le groupe ne peut pas être supprimé tant qu'il n'est pas vide."

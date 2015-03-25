@@ -6,78 +6,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr ""
+msgstr "ACL DÉFAUT ne restreindra pas l'accès aux menus"
 
 msgid "Access Control List"
-msgstr ""
+msgstr "Access Control List"
 
-#, fuzzy
 msgid "Account admin or currently logged in administrator cannot be banned"
 msgstr ""
-"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
-"être banni"
+"Le compte admin ou l'administrateur actuellement connecté ne peut pas être "
+"banni"
 
-#, fuzzy
 msgid "Account admin or currently logged in administrator cannot be unbanned"
 msgstr ""
-"L'utilisateur admin ou l'administrateur actuellement connecté ne peut pas "
-"être réintégré"
+"Le compte admin ou l'administrateur actuellement connecté ne peut pas être "
+"réintégré"
 
-#, fuzzy
 msgid "Account has been added and password has been emailed"
-msgstr "L'utilisateur a été ajouté et le mot de passe envoyé par e-mail"
+msgstr "Le compte a été ajouté et le mot de passe envoyé par e-mail"
 
-#, fuzzy
 msgid "Account has been added but failed to send email"
-msgstr "L'utilisateur a été ajouté mais l'envoi par e-mail a échoué"
+msgstr "Le compte a été ajouté mais l'envoi par e-mail a échoué"
 
-#, fuzzy
 msgid "Account has been banned"
-msgstr "L'utilisateur a été banni"
+msgstr "Le compte a été banni"
 
-#, fuzzy
 msgid "Account has been removed"
-msgstr "L'utilisateur a été supprimé"
+msgstr "Le compte a été supprimé"
 
-#, fuzzy
 msgid "Account has been unbanned"
-msgstr "L'utilisateur a été réintégré"
+msgstr "Le compte a été réintégré"
 
-#, fuzzy
 msgid "Account is already exists"
-msgstr "L'utilisateur existe déjà"
+msgstr "Le compte existe déjà"
 
-#, fuzzy
 msgid "Account name is mandatory"
-msgstr "L'adresse email est obligatoire"
+msgstr "Le nom du compte est obligatoire"
 
-#, fuzzy
 msgid "Account registration is not available"
-msgstr "L'inscription d'utilisateur n'est pas disponible"
+msgstr "L'inscription de compte n'est pas disponible"
 
 msgid "Account status"
-msgstr ""
+msgstr "Statut du compte"
 
-#, fuzzy
 msgid "Account with this email is already exists"
-msgstr "L'utilisateur avec cet email existe déjà"
+msgstr "Le compte avec cet email existe déjà"
 
-#, fuzzy
 msgid "Account with this mobile is already exists"
-msgstr "L'utilisateur avec ce mobile existe déjà"
+msgstr "Le compte avec ce mobile existe déjà"
 
 msgid "Action"
 msgstr "Action"
 
 msgid "Active language"
-msgstr "Langue active"
+msgstr "Langue activée"
 
-#, fuzzy
 msgid "Add account"
-msgstr "Gérer utilisateur"
+msgstr "Ajouter un compte"
 
 msgid "Add or reduce credit from manage credit menu"
 msgstr "Ajouter ou réduire le crédit depuis le menu gérer crédit"
@@ -100,9 +87,8 @@ msgstr "Toujours choisir d'envoyer en tant qu'unicode"
 msgid "Application options"
 msgstr "Options d'application"
 
-#, fuzzy
 msgid "Are you sure you want to ban account"
-msgstr "Êtes-vous sûr de vouloir bannir l'utilisateur"
+msgstr "Êtes-vous sûr de vouloir bannir le compte"
 
 msgid "Are you sure you want to ban subuser"
 msgstr "Êtes-vous sûr de vouloir bannir le sous-utilisateur"
@@ -119,9 +105,8 @@ msgstr "Êtes-vous sûr de vouloir supprimer l'utilisateur"
 msgid "Are you sure you want to delete user ?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'utilisateur ?"
 
-#, fuzzy
 msgid "Are you sure you want to unban account"
-msgstr "Êtes-vous sûr de vouloir réintégrer l'utilisateur"
+msgstr "Êtes-vous sûr de vouloir réintégrer le compte"
 
 msgid "Are you sure you want to unban subuser"
 msgstr "Êtes-vous sûr de vouloir réintégrer le sous-utilisateur"
@@ -171,7 +156,7 @@ msgid "Email address is mandatory"
 msgstr "L'adresse email est obligatoire"
 
 msgid "Enable credit unicode SMS as normal SMS"
-msgstr ""
+msgstr "Activer le crédit d'un SMS unicode comme un SMS normal"
 
 msgid "Enable webservices"
 msgstr "Activer les webservices"
@@ -179,9 +164,8 @@ msgstr "Activer les webservices"
 msgid "Fail to register an account"
 msgstr "Échec de l'inscription d'un compte"
 
-#, fuzzy
 msgid "Fail to save configuration"
-msgstr "Configuration de l'utilisateur"
+msgstr "Échec de l'enregistrement de la configuration"
 
 msgid "Fail to save preferences"
 msgstr "Échec de l'enregistrement des préférences"
@@ -196,11 +180,10 @@ msgid "Forward message to mobile"
 msgstr "Échec du transfert du message vers le mobile"
 
 msgid "Full name"
-msgstr ""
+msgstr "Nom complet"
 
-#, fuzzy
 msgid "Invalid sender ID"
-msgstr "Sender ID par défaut"
+msgstr "Sender ID erroné"
 
 msgid "List of administrators"
 msgstr "Liste des administrateurs"
@@ -217,11 +200,9 @@ msgstr "Longueur d'un numéro local"
 msgid "Login information"
 msgstr "Informations de connexion"
 
-#, fuzzy
 msgid "Manage account"
-msgstr "Gérer utilisateur"
+msgstr "Gérer compte"
 
-#, fuzzy
 msgid "Manage subuser"
 msgstr "Gérer sous-utilisateur"
 
@@ -252,17 +233,15 @@ msgstr "Veuillez sélectionner le sender ID par défaut"
 msgid "Parent"
 msgstr "Parent"
 
-#, fuzzy
 msgid "Parent account"
-msgstr "Gérer utilisateur"
+msgstr "Compte parent"
 
-#, fuzzy
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
 msgstr ""
-"L'utilisateur parent est obligatoire uniquement pour les sous-utilisateurs. "
-"Si aucune valeur n'est renseignée, le sous-utilisateur sera alors "
+"Le compte parent est obligatoire uniquement pour les sous-utilisateurs. Si "
+"aucune valeur n'est renseignée, le sous-utilisateur sera alors "
 "automatiquement attribué à l'admin de l'utilisateur."
 
 msgid "Password"
@@ -307,9 +286,8 @@ msgstr "Saisir à nouveau le mot de passe"
 msgid "Registered"
 msgstr "Inscrit"
 
-#, fuzzy
 msgid "Renew webservices token"
-msgstr "Nouveau token de webservices"
+msgstr "Renouveler le token de webservices"
 
 msgid "Replace prefix 0 or padding local numbers"
 msgstr "Remplacer le préfix 0, ou allonger les numéros locaux"
@@ -332,16 +310,14 @@ msgstr "Sous-utilisateurs"
 msgid "Timezone"
 msgstr "Fuseau horaire"
 
-#, fuzzy
 msgid "Unable to ban account"
-msgstr "Impossible de bannir l'utilisateur"
+msgstr "Impossible de bannir le compte"
 
 msgid "Unable to ban subuser"
 msgstr "Impossible de bannir le sous-utilisateur"
 
-#, fuzzy
 msgid "Unable to delete other users"
-msgstr "Impossible de bannir l'utilisateur"
+msgstr "Impossible de bannir les autres utilisateurs"
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
@@ -356,16 +332,14 @@ msgstr "Échec du traitement de l'ajout du sous-utilisateur"
 msgid "Unable to process user addition"
 msgstr "Échec du traitement de l'ajout de l'utilisateur"
 
-#, fuzzy
 msgid "Unable to unban account"
-msgstr "Impossible de réintégrer l'utilisateur"
+msgstr "Impossible de réintégrer le compte"
 
 msgid "Unable to unban subuser"
 msgstr "Impossible de réintégrer le sous-utilisateur"
 
-#, fuzzy
 msgid "Unknown error"
-msgstr "Une erreur inconnue est survenue"
+msgstr "Erreur inconnue"
 
 msgid "Unknown error has occurred"
 msgstr "Une erreur inconnue est survenue"
@@ -384,9 +358,8 @@ msgstr ""
 "La configuration de l'utilisateur a été enregistrée et le token de "
 "webservices mis à jour"
 
-#, fuzzy
 msgid "User deletion unavailable"
-msgstr "L'inscription d'utilisateur n'est pas disponible"
+msgstr "La suppression d'utilisateur n'est pas disponible"
 
 msgid "User does not exist"
 msgstr "L'utilisateur n'existe pas"
@@ -410,9 +383,11 @@ msgstr "L'utilisateur ne fait partie de la liste des utilisateurs bannis"
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Username must be at least 3 characters and maximum %d characters"
-msgstr "Le nom d'utilisateur doit comporter au moins 3 caractères"
+msgstr ""
+"Le nom d'utilisateur doit comporter au moins 3 caractères et au plus %d "
+"caractères"
 
 msgid "Users"
 msgstr "Utilisateurs"
@@ -431,9 +406,8 @@ msgstr "Token des webservices"
 msgid "Webservices username"
 msgstr "Nom d'utilisateur des webservices"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Vous devez saisir tous les champs"
+msgstr "Vous devez saisir tous les champs obligatoires"
 
 msgid "You must fill all required fields"
 msgstr "Vous devez saisir tous les champs obligatoires"

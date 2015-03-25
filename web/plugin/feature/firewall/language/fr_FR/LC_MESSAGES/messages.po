@@ -7,44 +7,43 @@ msgstr ""
 "Language : fr_FR\n"
 
 msgid "Add blocked IP addresses"
-msgstr ""
+msgstr "Ajouter des adresses IP bloquées"
 
 msgid "Blocked IP address"
-msgstr ""
+msgstr "Adresses IP bloquées"
 
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
-#, fuzzy
 msgid "IP addreses has been deleted"
-msgstr "la route a été sauvegardée"
+msgstr "Les adresses IP ont été supprimées"
 
 msgid "IP address"
-msgstr ""
+msgstr "Adresse IP"
 
 msgid "IP addresses"
-msgstr ""
+msgstr "Adresses IP"
 
 msgid "IP addresses have been blocked"
-msgstr ""
+msgstr "Les adresses IP ont été bloquées"
 
 msgid "Manage firewall"
-msgstr ""
+msgstr "Gérer pare-feu"
 
 msgid "Multiple IP addresses must be comma seperated"
-msgstr ""
+msgstr "En cas d'adresses IP multiples, veuillez séparer par une virgule"
 
 msgid "Save"
 msgstr "Enregistrer"
 
 msgid "Select"
-msgstr ""
+msgstr "Sélectionner"
 
 msgid "Select username"
-msgstr ""
+msgstr "Veuillez sélectionner un nom d'utilisateur"
 
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "You must fill all fields"
 msgstr "Vous devez saisir tous les champs"

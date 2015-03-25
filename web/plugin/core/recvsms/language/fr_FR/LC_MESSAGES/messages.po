@@ -4,16 +4,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "From"
-msgstr ""
+msgstr "De"
 
 msgid "Message from"
 msgstr "Message de"
 
 msgid "Message received at"
-msgstr ""
+msgstr "Message reçu à"
 
 msgid "New inbox from"
 msgstr "Nouvelle boîte de réception de"
 
 msgid "on"
-msgstr ""
+msgstr "activé"

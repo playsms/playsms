@@ -57,10 +57,12 @@ msgstr "Enregistrer"
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
 msgstr ""
+"Le nom d'utilisateur %s avec ID de compte %d a atteint la limite de crédit "
+"inférieure de %s"
 
 #, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr ""
+msgstr "Vous avez atteint la limite de crédit inférieure de %s"
 
 msgid "You must fill all fields"
 msgstr "Vous devez saisir tous les champs"
@@ -70,6 +72,8 @@ msgid ""
 "Your subuser with username %s and account ID %d have reached lowest credit "
 "limit of %s"
 msgstr ""
+"Votre sous-utilisateur avec nom d'utilisateur %s et ID de compte %d a "
+"atteint la limite de crédit inférieure de %s"
 
 msgid "destination"
 msgstr "destination"

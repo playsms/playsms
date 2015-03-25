@@ -8,6 +8,5 @@ msgstr ""
 msgid "Gateway name"
 msgstr "Nom de la passerelle"
 
-#, fuzzy
 msgid "Manage blocked"
-msgstr "Gérer dev"
+msgstr "Gérer bloqués"

@@ -15,16 +15,16 @@ msgid "Back"
 msgstr "Retour"
 
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Rédiger un message"
 
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 msgid "Please select"
-msgstr ""
+msgstr "Veuillez sélectionner"
 
 msgid "Search"
 msgstr "Recherche"
