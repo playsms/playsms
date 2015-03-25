@@ -18,9 +18,8 @@ msgstr "E-mail"
 msgid "Fail to recover password"
 msgstr "Kunne ikke gendanne adgangskode"
 
-#, fuzzy
 msgid "Fail to save temporary password"
-msgstr "Kunne ikke gendanne adgangskode"
+msgstr "Kunne ikke gemme midlertidig adgangskode"
 
 msgid "Fail to send email"
 msgstr "Kunne ikke sende e-mail"

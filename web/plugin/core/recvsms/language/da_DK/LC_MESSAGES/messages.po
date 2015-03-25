@@ -12,16 +12,16 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 
 msgid "From"
-msgstr ""
+msgstr "Fra"
 
 msgid "Message from"
 msgstr "Besked fra"
 
 msgid "Message received at"
-msgstr ""
+msgstr "Besked modtaget kl"
 
 msgid "New inbox from"
 msgstr "Ny indbakke fra"
 
 msgid "on"
-msgstr ""
+msgstr "den"
