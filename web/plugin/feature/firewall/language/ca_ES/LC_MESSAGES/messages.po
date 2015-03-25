@@ -22,10 +22,6 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#, fuzzy
-msgid "IP addreses has been deleted"
-msgstr "La tarifa s'ha guardat"
-
 msgid "IP address"
 msgstr ""
 
@@ -35,10 +31,14 @@ msgstr ""
 msgid "IP addresses have been blocked"
 msgstr ""
 
+#, fuzzy
+msgid "IP addresses have been deleted"
+msgstr "La tarifa s'ha guardat"
+
 msgid "Manage firewall"
 msgstr ""
 
-msgid "Multiple IP addresses must be comma seperated"
+msgid "Multiple IP addresses must be comma-separated"
 msgstr ""
 
 msgid "Save"

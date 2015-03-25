@@ -17,7 +17,7 @@ msgstr ""
 msgid "Compose message"
 msgstr "Lav besked"
 
-msgid "Fail to send message to all destination"
+msgid "Fail to send message to all destinations"
 msgstr "Kunne ikke sende besked til alle destinationer"
 
 msgid "Flash message"
@@ -68,7 +68,7 @@ msgstr "Du skal vælge en modtager og din besked bør ikke være tom"
 msgid "Your message has been delivered to queue"
 msgstr "Din besked er afleveret til køen"
 
-msgid "Your message has been delivered to some of the destination"
+msgid "Your message has been delivered to some of the destinations"
 msgstr "Din besked er afleveret til nogen af destinationerne"
 
 msgid "chars"

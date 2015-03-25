@@ -40,7 +40,7 @@ switch (_OP_) {
 							<p>" . _('Please select CSV file') . "</p>
 							<p><input type=\"file\" name=\"fncsv\"></p>
 							<p class=help-block>" . _('CSV file format') . " : " . $info_format . "</p>
-							<p><input type=checkbox name=fncsv_dup value=1 checked>"._(' Prevent duplicates')."</p>
+							<p><input type=checkbox name=fncsv_dup value=1 checked> "._('Prevent duplicates')."</p>
 							<p><input type=\"submit\" value=\"" . _('Upload file') . "\" class=\"button\"></p>
 							</form>
 						</td>

@@ -15,9 +15,6 @@ msgstr "Adresses IP bloquées"
 msgid "Delete"
 msgstr "Supprimer"
 
-msgid "IP addreses has been deleted"
-msgstr "Les adresses IP ont été supprimées"
-
 msgid "IP address"
 msgstr "Adresse IP"
 
@@ -27,10 +24,13 @@ msgstr "Adresses IP"
 msgid "IP addresses have been blocked"
 msgstr "Les adresses IP ont été bloquées"
 
+msgid "IP addresses have been deleted"
+msgstr "Les adresses IP ont été supprimées"
+
 msgid "Manage firewall"
 msgstr "Gérer pare-feu"
 
-msgid "Multiple IP addresses must be comma seperated"
+msgid "Multiple IP addresses must be comma-separated"
 msgstr "En cas d'adresses IP multiples, veuillez séparer par une virgule"
 
 msgid "Save"

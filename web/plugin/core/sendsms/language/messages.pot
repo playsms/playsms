@@ -4,7 +4,7 @@ msgstr ""
 msgid "Compose message"
 msgstr ""
 
-msgid "Fail to send message to all destination"
+msgid "Fail to send message to all destinations"
 msgstr ""
 
 msgid "Flash message"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Your message has been delivered to queue"
 msgstr ""
 
-msgid "Your message has been delivered to some of the destination"
+msgid "Your message has been delivered to some of the destinations"
 msgstr ""
 
 msgid "chars"

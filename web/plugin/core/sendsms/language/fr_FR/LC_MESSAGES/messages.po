@@ -9,7 +9,7 @@ msgstr "Annuler"
 msgid "Compose message"
 msgstr "Rédiger un message"
 
-msgid "Fail to send message to all destination"
+msgid "Fail to send message to all destinations"
 msgstr "Échec de l'envoi du message vers toutes les destinations"
 
 msgid "Flash message"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Your message has been delivered to queue"
 msgstr "Votre message a été réceptionné dans la file d'attente"
 
-msgid "Your message has been delivered to some of the destination"
+msgid "Your message has been delivered to some of the destinations"
 msgstr "Votre message a été réceptionné par certaines des destinations"
 
 msgid "chars"

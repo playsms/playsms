@@ -69,7 +69,7 @@ msgstr "Vous devez saisir tous les champs"
 
 #, php-format
 msgid ""
-"Your subuser with username %s and account ID %d have reached lowest credit "
+"Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
 "Votre sous-utilisateur avec nom d'utilisateur %s et ID de compte %d a "

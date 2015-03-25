@@ -24,6 +24,9 @@ msgstr ""
 "Le compte admin ou l'administrateur actuellement connecté ne peut pas être "
 "réintégré"
 
+msgid "Account already exists"
+msgstr "Le compte existe déjà"
+
 msgid "Account has been added and password has been emailed"
 msgstr "Le compte a été ajouté et le mot de passe envoyé par e-mail"
 
@@ -39,9 +42,6 @@ msgstr "Le compte a été supprimé"
 msgid "Account has been unbanned"
 msgstr "Le compte a été réintégré"
 
-msgid "Account is already exists"
-msgstr "Le compte existe déjà"
-
 msgid "Account name is mandatory"
 msgstr "Le nom du compte est obligatoire"
 
@@ -51,10 +51,10 @@ msgstr "L'inscription de compte n'est pas disponible"
 msgid "Account status"
 msgstr "Statut du compte"
 
-msgid "Account with this email is already exists"
+msgid "Account with this email already exists"
 msgstr "Le compte avec cet email existe déjà"
 
-msgid "Account with this mobile is already exists"
+msgid "Account with this mobile already exists"
 msgstr "Le compte avec ce mobile existe déjà"
 
 msgid "Action"
@@ -267,13 +267,13 @@ msgstr "Veuillez sélectionner"
 msgid "Preferences"
 msgstr "Préférences"
 
-msgid "Preferences has been saved"
+msgid "Preferences have been saved"
 msgstr "Les préférences ont été enregistrées"
 
-msgid "Preferences has been saved and password updated"
+msgid "Preferences have been saved and password updated"
 msgstr "Les préférences ont été enregistrées et le mot de passe mis à jour"
 
-msgid "Preferences has been saved and webservices token updated"
+msgid "Preferences have been saved and webservices token updated"
 msgstr ""
 "Les préférences ont été enregistrées et le token de webservices mis à jour"
 

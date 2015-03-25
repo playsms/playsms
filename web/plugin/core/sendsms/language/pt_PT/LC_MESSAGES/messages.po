@@ -17,7 +17,7 @@ msgstr ""
 msgid "Compose message"
 msgstr "Enviar mensagem"
 
-msgid "Fail to send message to all destination"
+msgid "Fail to send message to all destinations"
 msgstr "Falha ao enviar mensagem para todos os destinatários"
 
 msgid "Flash message"
@@ -68,7 +68,7 @@ msgstr "Tem que selecionar um destinatário e a mensagem não pode estar vazia"
 msgid "Your message has been delivered to queue"
 msgstr "Sua mensagem foi entregue para a fila"
 
-msgid "Your message has been delivered to some of the destination"
+msgid "Your message has been delivered to some of the destinations"
 msgstr "A sua mensagem foi entregue alguns destinatários "
 
 msgid "chars"

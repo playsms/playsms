@@ -11,9 +11,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid " Prevent duplicates"
-msgstr "Éviter les doublons"
-
 msgid "CSV file format"
 msgstr "Format du fichier CSV"
 
@@ -49,6 +46,9 @@ msgstr "Message"
 
 msgid "Please select CSV file"
 msgstr "Sélectionnez un fichier CSV"
+
+msgid "Prevent duplicates"
+msgstr "Éviter les doublons"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "Un SMS a été envoyé aux destinataires valables dans le fichier importé"
