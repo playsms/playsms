@@ -407,69 +407,72 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
 /**
  * Display error string from function parameter or session
  *
- * @param array $error_string
- *        Array of error strings (optional)
+ * @param array $content
+ *        Array of contents of dialog
  * @param string $type
  *        Type of window dialog: DEFAULT, INFO, PRIMARY, SUCCESS, WARNING, DANGER
  * @param string $title
  *        Dialog title
  * @return string HTML string of error strings
  */
-function themes_dialog($error_string = array(), $type = 'PRIMARY', $title = '') {
-	if (is_array($error_string) && (count($error_string) > 0)) {
-		$errors = $error_string;
+function themes_dialog($content = array(), $type = 'PRIMARY', $title = '') {
+	if (is_array($content) && (count($content) > 0)) {
+		$contents = $content;
 	} else {
-		$errors = $_SESSION['error_string'];
+		$contents = $_SESSION['error_string'];
 	}
 	
-	if (!is_array($errors)) {
-		$errors = array(
-			$errors 
+	if (!is_array($contents)) {
+		$contents = array(
+			$contents 
 		);
 	}
 	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_dialog', array(
-			$errors 
+			$contents 
 		));
 	}
 	
 	if (!$ret) {
-		if (count($errors) > 0) {
-			foreach ($errors as $err) {
-				if (trim($err)) {
-					$ret .= '<p>' . trim($err) . '</p>';
+		$continue = FALSE;
+		
+		if (count($contents) > 0) {
+			foreach ($contents as $text) {
+				if (trim($text)) {
+					$ret .= '<div class=playsms-dialog-text>' . trim($text) . '</div>';
+					$continue = TRUE;
 				}
 			}
 		}
-	}
-	
-	switch (strtoupper(trim($type))) {
-		case 'DEFAULT':
-		case 'INFO':
-		case 'PRIMARY':
-		case 'SUCCESS':
-		case 'WARNING':
-		case 'DANGER':
-			$dialog_type = strtoupper(trim($type));
-			break;
-		default :
-			$dialog_type = 'PRIMARY';
-	}
-	
-	$dialog_title = ($title ? $title : _('Information'));
-	
-	if ($ret) {
-		$ret = "
+		
+		if ($continue) {
+			switch (strtoupper(trim($type))) {
+				case 'DEFAULT':
+				case 'INFO':
+				case 'PRIMARY':
+				case 'SUCCESS':
+				case 'WARNING':
+				case 'DANGER':
+					$dialog_type = strtoupper(trim($type));
+					break;
+				default :
+					$dialog_type = 'PRIMARY';
+			}
+			
+			$dialog_title = ($title ? $title : _('Information'));
+			
+			$ret = "
 				<script type='text/javascript'>
 					BootstrapDialog.show({
 						type: BootstrapDialog.TYPE_" . $dialog_type . ",
 						title: '" . $dialog_title . "',
 						message: '" . $ret . "',
 						closable: true,
-						draggable: true				
+						draggable: true
 					})
 				</script>";
+		}
 	}
 	
 	return $ret;

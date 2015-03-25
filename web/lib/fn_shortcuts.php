@@ -119,16 +119,16 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
  * Display error string from function parameter or session
  * Shortcut to themes_dialog()
  *
- * @param array $error_string
- *        Array of error strings (optional)
+ * @param array $content
+ *        Array of contents of dialog
  * @param string $type
  *        Type of window dialog: DEFAULT, INFO, PRIMARY, SUCCESS, WARNING, DANGER
  * @param string $title
  *        Dialog title
  * @return string HTML string of error strings
  */
-function _dialog($error_string = array(), $type = '', $title = '') {
-	return themes_dialog($error_string, $type, $title);
+function _dialog($content = array(), $type = '', $title = '') {
+	return themes_dialog($content, $type, $title);
 }
 
 /**
