@@ -117,13 +117,7 @@ switch (_OP_) {
 		
 		$select_user = credit_html_select_user();
 		
-		if (count($_SESSION['dialog']['info'][]) > 0) {
-			foreach ($_SESSION['dialog']['info'][] as $err) {
-				$error_content .= _dialog();
-			}
-		}
-		
-		$content = $error_content . "
+		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
 					$(\"#playsms-credit-select-user\").select2({
@@ -161,13 +155,7 @@ switch (_OP_) {
 		
 		$select_user = credit_html_select_user();
 		
-		if (count($_SESSION['dialog']['info'][]) > 0) {
-			foreach ($_SESSION['dialog']['info'][] as $err) {
-				$error_content .= _dialog();
-			}
-		}
-		
-		$content = $error_content . "
+		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
 					$(\"#playsms-credit-select-user\").select2({
