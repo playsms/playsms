@@ -206,6 +206,11 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0, $exact
 	if ($keyword) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
 		
+		// fixme anton - not elegant at all ^^
+		if (!$user_mobile) {
+			$user_mobile = md5($uid . mktime());
+		}
+		
 		if ($exact) {
 			$keyword_sql = "
 				A.name='" . $keyword . "' OR
