@@ -249,7 +249,7 @@ switch (_OP_) {
 		}
 		$_SESSION['dialog']['info'][] = $ret['error_string'];
 		
-		_log('saving username:' . $c_username . ' error_string:' . $_SESSION['dialog']['info'][], 2, 'user_pref');
+		_log('saving username:' . $c_username . ' error_string:[' . $ret['error_string'] . ']', 2, 'user_pref');
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref' . $url_uname . '&view=' . $view));
 		exit();
 		break;
