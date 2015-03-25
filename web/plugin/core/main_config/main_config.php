@@ -21,7 +21,6 @@ defined('_SECURE_') or die('Forbidden');
 if (!auth_isadmin()) {
 	auth_block();
 }
-;
 
 switch (_OP_) {
 	case "main_config":
@@ -324,7 +323,7 @@ switch (_OP_) {
 		
 		_log('main configuration saved. uid:' . $user_config['uid'], 3, 'main_config');
 		
-		$_SESSION['error_string'] = _('Main configuration changes has been saved');
+		$_SESSION['dialog']['info'][] = _('Main configuration changes has been saved');
 		header("Location: " . _u('index.php?app=main&inc=core_main_config&op=main_config'));
 		exit();
 		break;

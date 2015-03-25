@@ -416,33 +416,46 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
  * @return string HTML string of error strings
  */
 function themes_dialog($content = array(), $type = 'PRIMARY', $title = '') {
-	if (is_array($content) && (count($content) > 0)) {
-		$contents = $content;
-	} else {
-		$contents = $_SESSION['error_string'];
-	}
-	
-	if (!is_array($contents)) {
-		$contents = array(
-			$contents 
-		);
-	}
-	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_dialog', array(
-			$contents 
+			$content,
+			$type,
+			$title 
 		));
+		
+		if ($ret) {
+			
+			// returns on hooked
+			return $ret;
+		}
 	}
 	
-	if (!$ret) {
+	if (is_array($content) && (count($content) > 0) && $content['dialog']) {
+		$contents = $content['dialog'];
+	} else {
+		if ($_SESSION['dialog']) {
+			$contents = $_SESSION['dialog'];
+		} else {
+			if (is_array($_SESSION['error_string'])) {
+				$contents['info'] = $_SESSION['error_string'];
+			} else {
+				$contents['info'][] = $_SESSION['error_string'];
+			}
+		}
+	}
+	
+	$ret = '';
+	
+	sort($contents);
+	
+	foreach ($contents as $type => $data) {
+		$message = '';
 		$continue = FALSE;
 		
-		if (count($contents) > 0) {
-			foreach ($contents as $text) {
-				if (trim($text)) {
-					$ret .= '<div class=playsms-dialog-text>' . trim($text) . '</div>';
-					$continue = TRUE;
-				}
+		foreach ($data as $text) {
+			if (trim($text)) {
+				$message .= '<div class=playsms-dialog-text>' . trim($text) . '</div>';
+				$continue = TRUE;
 			}
 		}
 		
@@ -462,12 +475,12 @@ function themes_dialog($content = array(), $type = 'PRIMARY', $title = '') {
 			
 			$dialog_title = ($title ? $title : _('Information'));
 			
-			$ret = "
+			$ret .= "
 				<script type='text/javascript'>
 					BootstrapDialog.show({
 						type: BootstrapDialog.TYPE_" . $dialog_type . ",
 						title: '" . $dialog_title . "',
-						message: '" . $ret . "',
+						message: '" . $message . "',
 						closable: true,
 						draggable: true
 					})

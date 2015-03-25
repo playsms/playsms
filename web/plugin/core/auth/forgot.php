@@ -45,10 +45,10 @@ if (_OP_ == 'forgot') {
 									$_SESSION['error_string'] = _('Fail to send email');
 								}
 							} else {
-								$error_string = _('Fail to send email');
+								$_SESSION['error_string'] = _('Fail to save temporary password');
 							}
 							
-							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $_SESSION['error_string']. "]", 2, "forgot");
 						}
 					}
 				}
