@@ -2,9 +2,9 @@
  /*
      pDraw - class extension with drawing methods
 
-     Version     : 2.1.3
+     Version     : 2.1.4
      Made by     : Jean-Damien POGOLOTTI
-     Last Update : 09/09/11
+     Last Update : 19/01/2014
 
      This file can be distributed under the license you can find at :
 
@@ -1790,6 +1790,7 @@
      $LabelingMethod	= isset($Format["LabelingMethod"]) ? $Format["LabelingMethod"] : LABELING_ALL;
      $LabelSkip		= isset($Format["LabelSkip"]) ? $Format["LabelSkip"] : 0;
      $LabelRotation	= isset($Format["LabelRotation"]) ? $Format["LabelRotation"] : 0;
+     $RemoveSkippedAxis	= isset($Format["RemoveSkippedAxis"]) ? $Format["RemoveSkippedAxis"] : FALSE;
      $SkippedAxisTicks	= isset($Format["SkippedAxisTicks"]) ? $Format["SkippedAxisTicks"] : $GridTicks+2;
      $SkippedAxisR	= isset($Format["SkippedAxisR"]) ? $Format["SkippedAxisR"] : $GridR;
      $SkippedAxisG	= isset($Format["SkippedAxisG"]) ? $Format["SkippedAxisG"] : $GridG;
@@ -2036,8 +2037,8 @@
 
                if ( $Skipped )
                 {
-                 if ( $DrawXLines ) { $this->drawLine($XPos,$this->GraphAreaY1+$FloatingOffset,$XPos,$this->GraphAreaY2-$FloatingOffset,$SkippedAxisColor); }
-                 if ( ($SkippedInnerTickWidth !=0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis ) { $this->drawLine($XPos,$YPos-$SkippedInnerTickWidth,$XPos,$YPos+$SkippedOuterTickWidth,$SkippedTickColor); }
+                 if ( $DrawXLines && !$RemoveSkippedAxis ) { $this->drawLine($XPos,$this->GraphAreaY1+$FloatingOffset,$XPos,$this->GraphAreaY2-$FloatingOffset,$SkippedAxisColor); }
+                 if ( ($SkippedInnerTickWidth !=0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis && !$RemoveSkippedAxis) { $this->drawLine($XPos,$YPos-$SkippedInnerTickWidth,$XPos,$YPos+$SkippedOuterTickWidth,$SkippedTickColor); }
                 }
                else
                 {
@@ -2109,8 +2110,8 @@
 
                if ( $Skipped )
                 {
-                 if ( $DrawXLines ) { $this->drawLine($XPos,$this->GraphAreaY1+$FloatingOffset,$XPos,$this->GraphAreaY2-$FloatingOffset,$SkippedAxisColor); }
-                 if ( ($SkippedInnerTickWidth !=0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis ) { $this->drawLine($XPos,$YPos+$SkippedInnerTickWidth,$XPos,$YPos-$SkippedOuterTickWidth,$SkippedTickColor); }
+                 if ( $DrawXLines && !$RemoveSkippedAxis ) { $this->drawLine($XPos,$this->GraphAreaY1+$FloatingOffset,$XPos,$this->GraphAreaY2-$FloatingOffset,$SkippedAxisColor); }
+                 if ( ($SkippedInnerTickWidth !=0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis && !$RemoveSkippedAxis ) { $this->drawLine($XPos,$YPos+$SkippedInnerTickWidth,$XPos,$YPos-$SkippedOuterTickWidth,$SkippedTickColor); }
                 }
                else
                 {
@@ -2186,8 +2187,8 @@
 
                if ( $Skipped )
                 {
-                 if ( $DrawXLines ) { $this->drawLine($this->GraphAreaX1+$FloatingOffset,$YPos,$this->GraphAreaX2-$FloatingOffset,$YPos,$SkippedAxisColor); }
-                 if ( ($SkippedInnerTickWidth !=0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis ) { $this->drawLine($XPos-$SkippedOuterTickWidth,$YPos,$XPos+$SkippedInnerTickWidth,$YPos,$SkippedTickColor); }
+                 if ( $DrawXLines && !$RemoveSkippedAxis ) { $this->drawLine($this->GraphAreaX1+$FloatingOffset,$YPos,$this->GraphAreaX2-$FloatingOffset,$YPos,$SkippedAxisColor); }
+                 if ( ($SkippedInnerTickWidth !=0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis && !$RemoveSkippedAxis ) { $this->drawLine($XPos-$SkippedOuterTickWidth,$YPos,$XPos+$SkippedInnerTickWidth,$YPos,$SkippedTickColor); }
                 }
                else
                 {
@@ -2259,8 +2260,8 @@
 
                if ( $Skipped )
                 {
-                 if ( $DrawXLines ) { $this->drawLine($this->GraphAreaX1+$FloatingOffset,$YPos,$this->GraphAreaX2-$FloatingOffset,$YPos,$SkippedAxisColor); }
-                 if ( ($SkippedInnerTickWidth != 0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis ) { $this->drawLine($XPos+$SkippedOuterTickWidth,$YPos,$XPos-$SkippedInnerTickWidth,$YPos,$SkippedTickColor); }
+                 if ( $DrawXLines && !$RemoveSkippedAxis ) { $this->drawLine($this->GraphAreaX1+$FloatingOffset,$YPos,$this->GraphAreaX2-$FloatingOffset,$YPos,$SkippedAxisColor); }
+                 if ( ($SkippedInnerTickWidth != 0 || $SkippedOuterTickWidth != 0) && !$RemoveXAxis && !$RemoveSkippedAxis ) { $this->drawLine($XPos+$SkippedOuterTickWidth,$YPos,$XPos-$SkippedInnerTickWidth,$YPos,$SkippedTickColor); }
                 }
                else
                 {
@@ -3129,14 +3130,24 @@
     {
      if ( $Value == VOID ) { return(""); }
 
+     if ( $Mode == AXIS_FORMAT_TRAFFIC )
+      {
+       if ( $Value == 0 ) { return("0B"); }
+       $Units = array("B","KB","MB","GB","TB","PB");
+       $Sign = ""; if ( $Value < 0 ) { $Value = abs($Value); $Sign = "-"; }
+
+       $Value = number_format($Value/pow(1024,($Scale=floor(log($Value,1024)))),2,",",".");
+       return($Sign.$Value." ".$Units[$Scale]);
+      }
+
      if ( $Mode == AXIS_FORMAT_CUSTOM )
       { if ( function_exists($Format) ) { return(call_user_func($Format,$Value)); } }
 
      if ( $Mode == AXIS_FORMAT_DATE )
-      { if ( $Format == NULL ) { $Pattern = "d/m/Y"; } else { $Pattern = $Format; } return(date($Pattern,$Value)); }
+      { if ( $Format == NULL ) { $Pattern = "d/m/Y"; } else { $Pattern = $Format; } return(gmdate($Pattern,$Value)); }
 
      if ( $Mode == AXIS_FORMAT_TIME )
-      { if ( $Format == NULL ) { $Pattern = "H:i:s"; } else { $Pattern = $Format; } return(date($Pattern,$Value)); }
+      { if ( $Format == NULL ) { $Pattern = "H:i:s"; } else { $Pattern = $Format; } return(gmdate($Pattern,$Value)); }
 
      if ( $Mode == AXIS_FORMAT_CURRENCY )
       { return($Format.number_format($Value,2)); }
@@ -5603,23 +5614,27 @@
           {
            if ( isset($Data["Series"][$SerieName]["Data"][$Index]) )
             {
-             $AxisID      = $Data["Series"][$SerieName]["Axis"];
+             $AxisID       = $Data["Series"][$SerieName]["Axis"];
+             $XAxisMode    = $Data["XAxisDisplay"];
+             $XAxisFormat  = $Data["XAxisFormat"];
+             $XAxisUnit    = $Data["XAxisUnit"];
+             $AxisMode     = $Data["Axis"][$AxisID]["Display"];
+             $AxisFormat   = $Data["Axis"][$AxisID]["Format"];
+             $AxisUnit     = $Data["Axis"][$AxisID]["Unit"];
+
+             if ( isset($Data["Abscissa"]) && isset($Data["Series"][$Data["Abscissa"]]["Data"][$Index]) )
+              $XLabel = $this->scaleFormat($Data["Series"][$Data["Abscissa"]]["Data"][$Index],$XAxisMode,$XAxisFormat,$XAxisUnit);
+             else
+              $XLabel = "";
 
              if ( $OverrideTitle != NULL)
               $Description = $OverrideTitle;
              elseif ( count($SeriesName) == 1 )
               {
-               if ( isset($Data["Abscissa"]) && isset($Data["Series"][$Data["Abscissa"]]["Data"][$Index]) )
-                $Description = $Data["Series"][$SerieName]["Description"]." - ".$Data["Series"][$Data["Abscissa"]]["Data"][$Index];
-               else
-                $Description = $Data["Series"][$SerieName]["Description"];
+               $Description = $Data["Series"][$SerieName]["Description"]." - ".$XLabel;
               }
              elseif ( isset($Data["Abscissa"]) && isset($Data["Series"][$Data["Abscissa"]]["Data"][$Index]) )
-              $Description = $Data["Series"][$Data["Abscissa"]]["Data"][$Index];
-
-             $AxisMode     = $Data["Axis"][$AxisID]["Display"];
-             $AxisFormat   = $Data["Axis"][$AxisID]["Format"];
-             $AxisUnit     = $Data["Axis"][$AxisID]["Unit"];
+              $Description = $XLabel;
 
              $Serie = "";
              $Serie["R"] = $Data["Series"][$SerieName]["Color"]["R"];
@@ -5688,22 +5703,27 @@
            if ( isset($Data["Series"][$SerieName]["Data"][$Index]) )
             {
              $AxisID      = $Data["Series"][$SerieName]["Axis"];
+             $XAxisMode   = $Data["XAxisDisplay"];
+             $XAxisFormat = $Data["XAxisFormat"];
+             $XAxisUnit   = $Data["XAxisUnit"];
+             $AxisMode    = $Data["Axis"][$AxisID]["Display"];
+             $AxisFormat  = $Data["Axis"][$AxisID]["Format"];
+             $AxisUnit    = $Data["Axis"][$AxisID]["Unit"];
+
+             if ( isset($Data["Abscissa"]) && isset($Data["Series"][$Data["Abscissa"]]["Data"][$Index]) )
+              $XLabel = $this->scaleFormat($Data["Series"][$Data["Abscissa"]]["Data"][$Index],$XAxisMode,$XAxisFormat,$XAxisUnit);
+             else
+              $XLabel = "";
 
              if ( $OverrideTitle != NULL)
               $Description = $OverrideTitle;
              elseif ( count($SeriesName) == 1 )
               {
                if ( isset($Data["Abscissa"]) && isset($Data["Series"][$Data["Abscissa"]]["Data"][$Index]) )
-                $Description = $Data["Series"][$SerieName]["Description"]." - ".$Data["Series"][$Data["Abscissa"]]["Data"][$Index];
-               else
-                $Description = $Data["Series"][$SerieName]["Description"];
+                $Description = $Data["Series"][$SerieName]["Description"]." - ".$XLabel;
               }
              elseif ( isset($Data["Abscissa"]) && isset($Data["Series"][$Data["Abscissa"]]["Data"][$Index]) )
-              $Description = $Data["Series"][$Data["Abscissa"]]["Data"][$Index];
-
-             $AxisMode     = $Data["Axis"][$AxisID]["Display"];
-             $AxisFormat   = $Data["Axis"][$AxisID]["Format"];
-             $AxisUnit     = $Data["Axis"][$AxisID]["Unit"];
+              $Description = $XLabel;
 
              $Serie = "";
              if ( isset($Data["Extended"]["Palette"][$Index] ) )
@@ -5774,36 +5794,39 @@
    /* Draw a label box */
    function drawLabelBox($X,$Y,$Title,$Captions,$Format="")
     {
-     $NoTitle		= isset($Format["NoTitle"]) ? $Format["NoTitle"] : NULL;
-     $BoxWidth		= isset($Format["BoxWidth"]) ? $Format["BoxWidth"] : 50;
-     $DrawSerieColor	= isset($Format["DrawSerieColor"]) ? $Format["DrawSerieColor"] : TRUE;
-     $SerieR		= isset($Format["SerieR"]) ? $Format["SerieR"] : NULL;
-     $SerieG		= isset($Format["SerieG"]) ? $Format["SerieG"] : NULL;
-     $SerieB		= isset($Format["SerieB"]) ? $Format["SerieB"] : NULL;
-     $SerieAlpha	= isset($Format["SerieAlpha"]) ? $Format["SerieAlpha"] : NULL;
-     $SerieBoxSize	= isset($Format["SerieBoxSize"]) ? $Format["SerieBoxSize"] : 6;
-     $SerieBoxSpacing	= isset($Format["SerieBoxSpacing"]) ? $Format["SerieBoxSpacing"] : 4;
-     $VerticalMargin	= isset($Format["VerticalMargin"]) ? $Format["VerticalMargin"] : 10;
-     $HorizontalMargin	= isset($Format["HorizontalMargin"]) ? $Format["HorizontalMargin"] : 8;
-     $R			= isset($Format["R"]) ? $Format["R"] : $this->FontColorR;
-     $G			= isset($Format["G"]) ? $Format["G"] : $this->FontColorG;
-     $B			= isset($Format["B"]) ? $Format["B"] : $this->FontColorB;
-     $Alpha		= isset($Format["Alpha"]) ? $Format["Alpha"] : $this->FontColorA;
-     $FontName		= isset($Format["FontName"]) ? $Format["FontName"] : $this->FontName;
-     $FontSize		= isset($Format["FontSize"]) ? $Format["FontSize"] : $this->FontSize;
-     $TitleMode		= isset($Format["TitleMode"]) ? $Format["TitleMode"] : LABEL_TITLE_NOBACKGROUND;
-     $TitleR		= isset($Format["TitleR"]) ? $Format["TitleR"] : $R;
-     $TitleG		= isset($Format["TitleG"]) ? $Format["TitleG"] : $G;
-     $TitleB		= isset($Format["TitleB"]) ? $Format["TitleB"] : $B;
-     $TitleBackgroundR	= isset($Format["TitleBackgroundR"]) ? $Format["TitleBackgroundR"] : 0;
-     $TitleBackgroundG	= isset($Format["TitleBackgroundG"]) ? $Format["TitleBackgroundG"] : 0;
-     $TitleBackgroundB	= isset($Format["TitleBackgroundB"]) ? $Format["TitleBackgroundB"] : 0;
-     $GradientStartR	= isset($Format["GradientStartR"]) ? $Format["GradientStartR"] : 255;
-     $GradientStartG	= isset($Format["GradientStartG"]) ? $Format["GradientStartG"] : 255;
-     $GradientStartB	= isset($Format["GradientStartB"]) ? $Format["GradientStartB"] : 255;
-     $GradientEndR	= isset($Format["GradientEndR"]) ? $Format["GradientEndR"] : 220;
-     $GradientEndG	= isset($Format["GradientEndG"]) ? $Format["GradientEndG"] : 220;
-     $GradientEndB	= isset($Format["GradientEndB"]) ? $Format["GradientEndB"] : 220;
+     $NoTitle			= isset($Format["NoTitle"]) ? $Format["NoTitle"] : NULL;
+     $BoxWidth			= isset($Format["BoxWidth"]) ? $Format["BoxWidth"] : 50;
+     $DrawSerieColor		= isset($Format["DrawSerieColor"]) ? $Format["DrawSerieColor"] : TRUE;
+     $SerieR			= isset($Format["SerieR"]) ? $Format["SerieR"] : NULL;
+     $SerieG			= isset($Format["SerieG"]) ? $Format["SerieG"] : NULL;
+     $SerieB			= isset($Format["SerieB"]) ? $Format["SerieB"] : NULL;
+     $SerieAlpha		= isset($Format["SerieAlpha"]) ? $Format["SerieAlpha"] : NULL;
+     $SerieBoxSize		= isset($Format["SerieBoxSize"]) ? $Format["SerieBoxSize"] : 6;
+     $SerieBoxSpacing		= isset($Format["SerieBoxSpacing"]) ? $Format["SerieBoxSpacing"] : 4;
+     $VerticalMargin		= isset($Format["VerticalMargin"]) ? $Format["VerticalMargin"] : 10;
+     $HorizontalMargin		= isset($Format["HorizontalMargin"]) ? $Format["HorizontalMargin"] : 8;
+     $R				= isset($Format["R"]) ? $Format["R"] : $this->FontColorR;
+     $G				= isset($Format["G"]) ? $Format["G"] : $this->FontColorG;
+     $B				= isset($Format["B"]) ? $Format["B"] : $this->FontColorB;
+     $Alpha			= isset($Format["Alpha"]) ? $Format["Alpha"] : $this->FontColorA;
+     $FontName			= isset($Format["FontName"]) ? $Format["FontName"] : $this->FontName;
+     $FontSize			= isset($Format["FontSize"]) ? $Format["FontSize"] : $this->FontSize;
+     $TitleMode			= isset($Format["TitleMode"]) ? $Format["TitleMode"] : LABEL_TITLE_NOBACKGROUND;
+     $TitleR			= isset($Format["TitleR"]) ? $Format["TitleR"] : $R;
+     $TitleG			= isset($Format["TitleG"]) ? $Format["TitleG"] : $G;
+     $TitleB			= isset($Format["TitleB"]) ? $Format["TitleB"] : $B;
+     $TitleAlpha		= isset($Format["TitleAlpha"]) ? $Format["TitleAlpha"] : 100;
+     $TitleBackgroundR		= isset($Format["TitleBackgroundR"]) ? $Format["TitleBackgroundR"] : 0;
+     $TitleBackgroundG		= isset($Format["TitleBackgroundG"]) ? $Format["TitleBackgroundG"] : 0;
+     $TitleBackgroundB		= isset($Format["TitleBackgroundB"]) ? $Format["TitleBackgroundB"] : 0;
+     $TitleBackgroundAlpha	= isset($Format["TitleBackgroundAlpha"]) ? $Format["TitleBackgroundAlpha"] : 100;
+     $GradientStartR		= isset($Format["GradientStartR"]) ? $Format["GradientStartR"] : 255;
+     $GradientStartG		= isset($Format["GradientStartG"]) ? $Format["GradientStartG"] : 255;
+     $GradientStartB		= isset($Format["GradientStartB"]) ? $Format["GradientStartB"] : 255;
+     $GradientEndR		= isset($Format["GradientEndR"]) ? $Format["GradientEndR"] : 220;
+     $GradientEndG		= isset($Format["GradientEndG"]) ? $Format["GradientEndG"] : 220;
+     $GradientEndB		= isset($Format["GradientEndB"]) ? $Format["GradientEndB"] : 220;
+     $BoxAlpha			= isset($Format["BoxAlpha"]) ? $Format["BoxAlpha"] : 100;
 
      if ( !$DrawSerieColor ) { $SerieBoxSize = 0; $SerieBoxSpacing = 0; }
 
@@ -5857,16 +5880,16 @@
       }
 
      /* Draw the background */
-     $GradientSettings = array("StartR"=>$GradientStartR,"StartG"=>$GradientStartG,"StartB"=>$GradientStartB,"EndR"=>$GradientEndR,"EndG"=>$GradientEndG,"EndB"=>$GradientEndB);
+     $GradientSettings = array("StartR"=>$GradientStartR,"StartG"=>$GradientStartG,"StartB"=>$GradientStartB,"EndR"=>$GradientEndR,"EndG"=>$GradientEndG,"EndB"=>$GradientEndB,"Alpha"=>$BoxAlpha);
      if ( $NoTitle )
       $this->drawGradientArea($XMin,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin*2,$XMax,$Y-6,DIRECTION_VERTICAL,$GradientSettings);
      else
       $this->drawGradientArea($XMin,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin*3,$XMax,$Y-6,DIRECTION_VERTICAL,$GradientSettings);
      $Poly = ""; $Poly[] = $X; $Poly[] = $Y; $Poly[] = $X-5; $Poly[] = $Y-5; $Poly[] = $X+5; $Poly[] = $Y-5;
-     $this->drawPolygon($Poly,array("R"=>$GradientEndR,"G"=>$GradientEndG,"B"=>$GradientEndB,"NoBorder"=>TRUE));
+     $this->drawPolygon($Poly,array("R"=>$GradientEndR,"G"=>$GradientEndG,"B"=>$GradientEndB,"Alpha"=>$BoxAlpha,"NoBorder"=>TRUE));
 
      /* Outer border */
-     $OuterBorderColor = $this->allocateColor($this->Picture,100,100,100,100);
+     $OuterBorderColor = $this->allocateColor($this->Picture,100,100,100,$BoxAlpha);
      imageline($this->Picture,$XMin,$Y-5,$X-5,$Y-5,$OuterBorderColor);
      imageline($this->Picture,$X,$Y,$X-5,$Y-5,$OuterBorderColor);
      imageline($this->Picture,$X,$Y,$X+5,$Y-5,$OuterBorderColor);
@@ -5885,7 +5908,7 @@
       }
 
      /* Inner border */
-     $InnerBorderColor = $this->allocateColor($this->Picture,255,255,255,100);
+     $InnerBorderColor = $this->allocateColor($this->Picture,255,255,255,$BoxAlpha);
      imageline($this->Picture,$XMin+1,$Y-6,$X-5,$Y-6,$InnerBorderColor);
      imageline($this->Picture,$X,$Y-1,$X-5,$Y-6,$InnerBorderColor);
      imageline($this->Picture,$X,$Y-1,$X+5,$Y-6,$InnerBorderColor);
@@ -5908,12 +5931,12 @@
       {
        $YPos    = $Y-7-$CaptionHeight-$HorizontalMargin-$HorizontalMargin/2;
        $XMargin = $VerticalMargin / 2;
-       $this->drawLine($XMin+$XMargin,$YPos+1,$XMax-$XMargin,$YPos+1,array("R"=>$GradientEndR,"G"=>$GradientEndG,"B"=>$GradientEndB));
-       $this->drawLine($XMin+$XMargin,$YPos,$XMax-$XMargin,$YPos,array("R"=>$GradientStartR,"G"=>$GradientStartG,"B"=>$GradientStartB));
+       $this->drawLine($XMin+$XMargin,$YPos+1,$XMax-$XMargin,$YPos+1,array("R"=>$GradientEndR,"G"=>$GradientEndG,"B"=>$GradientEndB,"Alpha"=>$BoxAlpha));
+       $this->drawLine($XMin+$XMargin,$YPos,$XMax-$XMargin,$YPos,array("R"=>$GradientStartR,"G"=>$GradientStartG,"B"=>$GradientStartB,"Alpha"=>$BoxAlpha));
       }
      elseif ( $TitleMode == LABEL_TITLE_BACKGROUND )
       {
-       $this->drawFilledRectangle($XMin,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin*3,$XMax,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin+$HorizontalMargin/2,array("R"=>$TitleBackgroundR,"G"=>$TitleBackgroundG,"B"=>$TitleBackgroundB));
+       $this->drawFilledRectangle($XMin,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin*3,$XMax,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin+$HorizontalMargin/2,array("R"=>$TitleBackgroundR,"G"=>$TitleBackgroundG,"B"=>$TitleBackgroundB,"Alpha"=>$BoxAlpha));
        imageline($this->Picture,$XMin+1,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin+$HorizontalMargin/2+1,$XMax-1,$Y-5-$TitleHeight-$CaptionHeight-$HorizontalMargin+$HorizontalMargin/2+1,$InnerBorderColor);
       }
 
