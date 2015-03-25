@@ -39,7 +39,7 @@ switch (_OP_) {
 		$stat = sms_poll_statistics($poll_id);
 		
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage poll') . "</h2>

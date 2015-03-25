@@ -209,7 +209,7 @@ switch (_OP_) {
 		
 		// error string
 		if ($err = $_SESSION['error_string']) {
-			$error_content = _err_display();
+			$error_content = _dialog();
 		}
 		
 		$tpl = array(
@@ -237,7 +237,7 @@ switch (_OP_) {
 				'Prefix or country code' => _('Prefix or country code'),
 				'Always choose to send as unicode' => _('Always choose to send as unicode'),
 				'Save' => _('Save'),
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'FORM_TITLE' => $form_title,
 				'BUTTON_DELETE' => $button_delete,
 				'BUTTON_BACK' => $button_back,

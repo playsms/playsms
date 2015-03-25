@@ -65,13 +65,13 @@ switch (_OP_) {
 			</div>
 		";
 		if ($err = $_SESSION['error_string']) {
-			_p(_err_display());
+			_p(_dialog());
 		}
 		_p($content);
 		break;
 	case "add":
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>"._('Message template')."</h2>
@@ -96,7 +96,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>"._('Message template')."</h2>

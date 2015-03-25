@@ -24,7 +24,7 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case "list":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<p>" . _button('index.php?app=main&inc=feature_schedule&op=add', _('Add SMS schedule')) . "
 			<div class=table-responsive>
@@ -66,7 +66,7 @@ switch (_OP_) {
 		break;
 	
 	case "add":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<h3>" . _('Add SMS schedule') . "</h3>
 			<form action=index.php?app=main&inc=feature_schedule&op=add_yes method=post>

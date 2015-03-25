@@ -32,7 +32,7 @@ switch (_OP_) {
 		$message = $db_row['message'];
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
-			$content = _err_display() . "
+			$content = _dialog() . "
 				<h2>" . _('Schedule messages') . "</h2>
 				<h3>" . _('Manage schedule') . "</h3>
 				" . _CSRF_FORM_ . "
@@ -128,7 +128,7 @@ switch (_OP_) {
 		$schedule_name = $db_row['name'];
 		$schedule_message = $db_row['message'];
 		if ($schedule_id && $schedule_name && $schedule_message) {
-			$content = _err_display() . "
+			$content = _dialog() . "
 				<h2>" . _('Schedule messages') . "</h2>
 				<h3>" . _('Manage schedule') . "</h3>
 				<h4>" . _('Add destination') . "</h4>
@@ -229,7 +229,7 @@ switch (_OP_) {
 			$name = $db_row['name'];
 			$destination = $db_row['destination'];
 			
-			$content = _err_display() . "
+			$content = _dialog() . "
 				<h2>" . _('Schedule messages') . "</h2>
 				<h3>" . _('Manage schedule') . "</h3>
 				<h4>" . _('Edit destination') . "</h4>

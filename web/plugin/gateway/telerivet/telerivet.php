@@ -17,12 +17,12 @@ switch (_OP_) {
     case "manage":
         if ($err = $_SESSION['error_string'])
         {
-            $content = _err_display();
+            $content = _dialog();
         }
         $tpl = array(
             'name' => 'telerivet',
             'vars' => array(
-                'ERROR' => $error_content,
+                'DIALOG_DISPLAY' => $error_content,
                 'Manage telerivet' => _('Manage telerivet'),
                 'Gateway name' => _('Gateway name'),
                 'Project ID' => _('Project ID'),

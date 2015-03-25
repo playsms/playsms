@@ -81,7 +81,7 @@ if (_OP_ == 'register') {
 		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $core_config['main']['web_title'],
-			'ERROR' => _err_display(),
+			'DIALOG_DISPLAY' => _dialog(),
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register'),
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'),
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),

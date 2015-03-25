@@ -39,7 +39,7 @@ switch (_OP_) {
 		);
 		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', '', $keywords, $extras);
 
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Manage firewall') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form name=fm_firewall_list id=fm_firewall_list action='index.php?app=main&inc=feature_firewall&op=actions' method=post>
@@ -140,7 +140,7 @@ switch (_OP_) {
 		break;
 
 	case "firewall_add":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Manage firewall') . "</h2>
 			<h3>" . _('Add blocked IP addresses') . " " . _hint(_('Multiple IP addresses must be comma-separated')) . "</h3>
 			<form action='index.php?app=main&inc=feature_firewall&op=firewall_add_yes' method='post'>

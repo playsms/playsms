@@ -5,7 +5,7 @@ if(!auth_isadmin()){auth_block();};
 // error messages
 $error_content = '';
 if ($err = $_SESSION['error_string']) {
-	$error_content = _err_display();
+	$error_content = _dialog();
 }
 
 // main
@@ -14,7 +14,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 			'vars' => array(
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'Group inbox' => _('Group inbox'),
 				'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')),
 				'Receiver number' => _('Receiver number'),
@@ -57,7 +57,7 @@ switch (_OP_) {
 		$tpl = array(
 		    'name' => 'inboxgroup_add',
 		    'vars' => array(
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Add group inbox' => _('Add group inbox'),
 			'Receiver number' => _('Receiver number'),
@@ -103,7 +103,7 @@ switch (_OP_) {
 		$tpl = array(
 		    'name' => 'inboxgroup_edit',
 		    'vars' => array(
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Edit group inbox' => _('Edit group inbox'),
 			'RID' => $rid,
@@ -160,7 +160,7 @@ switch (_OP_) {
 		$tpl = array(
 		    'name' => 'inboxgroup_del',
 		    'vars' => array(
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Delete group inbox' => _('Delete group inbox'),
 			'RID' => $rid,

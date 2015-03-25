@@ -125,7 +125,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'incoming',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'PAGE_TITLE' => _('Route incoming SMS'),
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_incoming&op=incoming_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,

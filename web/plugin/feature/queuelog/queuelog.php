@@ -26,7 +26,7 @@ switch (_OP_) {
 	case "queuelog_list":
 		$nav = themes_nav($count, "index.php?app=main&inc=feature_queuelog&op=queuelog_list");
 		
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('View SMS queue') . "</h2>";
 		
 		$count = queuelog_countall();

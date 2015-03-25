@@ -59,7 +59,7 @@ if (_OP_ == 'login') {
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
-			'ERROR' => _err_display(),
+			'DIALOG_DISPLAY' => _dialog(),
 			'Username or email' => _('Username or email') ,
 			'Password' => _('Password') ,
 			'Login' => _('Login') ,

@@ -31,12 +31,12 @@ $callback_url = "http://" . $callback_url;
 switch (_OP_) {
 	case "manage" :
 		if ($err = $_SESSION['error_string']) {
-			$error_content = _err_display();
+			$error_content = _dialog();
 		}
 		$tpl = array(
 			'name' => 'nexmo',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'Manage nexmo' => _('Manage nexmo'),
 				'Gateway name' => _('Gateway name'),
 				'Nexmo URL' => _('Nexmo URL'),

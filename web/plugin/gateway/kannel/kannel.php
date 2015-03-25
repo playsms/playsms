@@ -27,7 +27,7 @@ include $core_config['apps_path']['plug'] . "/gateway/kannel/config.php";
 switch (_OP_) {
 	case "manage" :
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		// Handle DLR options config (emmanuel)
 		/*

@@ -159,7 +159,7 @@ switch (_OP_) {
 			</form>";
 		
 		if ($err = $_SESSION['error_string']) {
-			_p(_err_display());
+			_p(_dialog());
 		}
 		_p($content);
 		break;

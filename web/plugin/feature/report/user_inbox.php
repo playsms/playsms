@@ -89,9 +89,9 @@ switch (_OP_) {
 		}
 		$error_content = '';
 		if ($err = $_SESSION['error_string']) {
-			$error_content = _err_display();
+			$error_content = _dialog();
 		}
-		$tpl['vars']['ERROR'] = $error_content;
+		$tpl['vars']['DIALOG_DISPLAY'] = $error_content;
 		$tpl['name'] = 'user_inbox';
 		$content = tpl_apply($tpl);
 		_p($content);

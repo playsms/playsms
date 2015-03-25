@@ -28,7 +28,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'outgoing_list',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'Route outgoing SMS' => _('Route outgoing SMS'),
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
 				'User' => _('User'),
@@ -81,7 +81,7 @@ switch (_OP_) {
 		$prefix = outgoing_getprefix($rid);
 		$smsc = outgoing_getsmsc($rid);
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$select_smsc = "<select name=up_smsc>";
 		unset($smsc_list);
@@ -150,7 +150,7 @@ switch (_OP_) {
 		break;
 	case "outgoing_add" :
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$select_users = themes_select_users_single('add_uid');
 		$select_smsc = "<select name=add_smsc>";

@@ -135,7 +135,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'main_config',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'ACTION_URL' => _u('index.php?app=main&inc=core_main_config&op=main_config_save'),
 				'Main configuration' => _('Main configuration'),
 				'Default settings' => _('Default settings'),

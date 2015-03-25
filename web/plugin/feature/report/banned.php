@@ -39,7 +39,7 @@ if (_OP_ == 'unban') {
 // display whose online
 
 if ($err = $_SESSION['error_string']) {
-	$error_content = _err_display();
+	$error_content = _dialog();
 }
 
 $tpl = array(
@@ -47,7 +47,7 @@ $tpl = array(
 	'vars' => array(
 		'Report' => _('Report') ,
 		'Banned users list' => _('Banned users list') ,
-		'ERROR' => $error_content,
+		'DIALOG_DISPLAY' => $error_content,
 		'User' => _('User') ,
 		'Email' => _('Email') ,
 		'Ban date/time' => _('Ban date/time') ,

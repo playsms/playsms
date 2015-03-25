@@ -233,7 +233,7 @@ switch (_OP_) {
 			</script>
 		";
 }
-$final_content = _err_display() . "
+$final_content = _dialog() . "
 	<h2>" . _('Manage gateway and SMSC') . "</h2>
 	" . $content;
 

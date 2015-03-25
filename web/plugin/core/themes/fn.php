@@ -409,9 +409,13 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
  *
  * @param array $error_string
  *        Array of error strings (optional)
+ * @param string $type
+ *        Type of window dialog: DEFAULT, INFO, PRIMARY, SUCCESS, WARNING, DANGER
+ * @param string $title
+ *        Dialog title
  * @return string HTML string of error strings
  */
-function themes_display_error_string($error_string = array()) {
+function themes_dialog($error_string = array(), $type = 'PRIMARY', $title = '') {
 	if (is_array($error_string) && (count($error_string) > 0)) {
 		$errors = $error_string;
 	} else {
@@ -425,7 +429,7 @@ function themes_display_error_string($error_string = array()) {
 	}
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_display_error_string', array(
+		$ret = core_hook(core_themes_get(), 'themes_dialog', array(
 			$errors 
 		));
 	}
@@ -440,23 +444,30 @@ function themes_display_error_string($error_string = array()) {
 		}
 	}
 	
+	switch (strtoupper(trim($type))) {
+		case 'DEFAULT':
+		case 'INFO':
+		case 'PRIMARY':
+		case 'SUCCESS':
+		case 'WARNING':
+		case 'DANGER':
+			$dialog_type = strtoupper(trim($type));
+			break;
+		default :
+			$dialog_type = 'PRIMARY';
+	}
+	
+	$dialog_title = ($title ? $title : _('Information'));
+	
 	if ($ret) {
 		$ret = "
 				<script type='text/javascript'>
 					BootstrapDialog.show({
-						type: BootstrapDialog.TYPE_PRIMARY,
-						title: '" . _('Information') . "',
+						type: BootstrapDialog.TYPE_" . $dialog_type . ",
+						title: '" . $dialog_title . "',
 						message: '" . $ret . "',
-						draggable: true,
-						buttons: [{
-						        id: 'btn-ok',   
-						        label: '" . _('Close') . "',
-						        cssClass: 'btn-primary', 
-						        autospin: true,
-						        action: function(dialogRef){    
-						       		dialogRef.close();
-						        }
-						}]						
+						closable: true,
+						draggable: true				
 					})
 				</script>";
 	}

@@ -31,12 +31,12 @@ $callback_url = "http://" . $callback_url;
 switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string']) {
-			$error_content = _err_display();
+			$error_content = _dialog();
 		}
 		$tpl = array(
 			'name' => 'openvox',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'Manage OpenVox' => _('Manage OpenVox'),
 				'Gateway name' => _('Gateway name'),
 				'Gateway host' => _('Gateway host'),

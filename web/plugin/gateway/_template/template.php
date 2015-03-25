@@ -8,7 +8,7 @@ switch (_OP_) {
 	case "manage":
 		if ($err = $_SESSION['error_string'])
 		{
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 	    <h2>"._('Manage template')."</h2>

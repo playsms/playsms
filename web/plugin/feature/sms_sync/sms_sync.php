@@ -35,7 +35,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sms_sync',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'HINT_SECRET' => _hint(_('Secret key is used in SMSSync app')) ,
 				'HINT_ENABLE' => _hint(_('Check to enable receiving push messages from SMSSync app')) ,
 				'SECRET' => $sms_sync_secret,

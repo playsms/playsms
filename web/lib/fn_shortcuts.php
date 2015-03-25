@@ -117,14 +117,18 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
 
 /**
  * Display error string from function parameter or session
- * Shortcut to themes_display_error_string()
+ * Shortcut to themes_dialog()
  *
- * @param string $error_string
+ * @param array $error_string
  *        Array of error strings (optional)
+ * @param string $type
+ *        Type of window dialog: DEFAULT, INFO, PRIMARY, SUCCESS, WARNING, DANGER
+ * @param string $title
+ *        Dialog title
  * @return string HTML string of error strings
  */
-function _err_display($error_string = array()) {
-	return themes_display_error_string($error_string);
+function _dialog($error_string = array(), $type = '', $title = '') {
+	return themes_dialog($error_string, $type, $title);
 }
 
 /**

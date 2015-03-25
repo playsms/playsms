@@ -60,7 +60,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'mailsms',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => _('Manage email to SMS'),
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&op=mailsms_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,

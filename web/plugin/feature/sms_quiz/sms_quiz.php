@@ -22,7 +22,7 @@ if ($quiz_id = (int) $_REQUEST['quiz_id']) {
 switch (_OP_) {
 	case "sms_quiz_list" :
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 				<h2>" . _('Manage quiz') . "</h2>
@@ -89,7 +89,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage quiz') . "</h2>
@@ -160,7 +160,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage quiz') . "</h2>
@@ -223,7 +223,7 @@ switch (_OP_) {
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage quiz') . "</h2>

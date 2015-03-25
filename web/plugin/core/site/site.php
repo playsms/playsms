@@ -53,7 +53,7 @@ switch (_OP_) {
 			'vars' => array(
 				'ACTION_URL' => _u('index.php?app=main&inc=core_site&op=site_config_save'),
 				'HINT_DOMAIN' => _hint('Put your domain name here and then set your domain DNS A record to this server IP address'),
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'Manage site' => _('Manage site'),
 				'Site configuration' => _('Site configuration'),
 				'Configuration' => _('Configuration'),

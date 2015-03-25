@@ -24,7 +24,7 @@ if (! auth_isvalid()) {
 
 switch (_OP_) {
 	case 'list':
-		$content = _err_display().'<h2>' . _('Send from file') . '</h2><p />';
+		$content = _dialog().'<h2>' . _('Send from file') . '</h2><p />';
 		if (auth_isadmin()) {
 			$info_format = _('destination number, message, username');
 		} else {

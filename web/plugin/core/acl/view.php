@@ -48,7 +48,7 @@ switch (_OP_) {
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 
-		$content .= _err_display() . "
+		$content .= _dialog() . "
 			<h2>" . _('Manage ACL') . "</h2>
 			<h3>" . _('View report') . "</h3>
 

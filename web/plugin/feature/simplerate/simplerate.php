@@ -56,7 +56,7 @@ switch (_OP_) {
 			</div>
 			" . _button('index.php?app=main&inc=feature_simplerate&op=simplerate_add', _('Add rate'));
 		if ($err = $_SESSION['error_string']) {
-			_p(_err_display());
+			_p(_dialog());
 		}
 		_p($content);
 		break;
@@ -78,7 +78,7 @@ switch (_OP_) {
 		$prefix = simplerate_getprefix($rateid);
 		$rate = simplerate_getbyid($rateid);
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage SMS rate') . "</h2>
@@ -124,7 +124,7 @@ switch (_OP_) {
 		break;
 	case "simplerate_add":
 		if ($err = $_SESSION['error_string']) {
-			$content = _err_display();
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage SMS rate') . "</h2>

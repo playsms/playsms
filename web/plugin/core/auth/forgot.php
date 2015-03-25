@@ -89,7 +89,7 @@ if (_OP_ == 'forgot') {
 		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $core_config['main']['web_title'],
-			'ERROR' => _err_display(),
+			'DIALOG_DISPLAY' => _dialog(),
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=forgot&op=forgot'),
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register'),
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),

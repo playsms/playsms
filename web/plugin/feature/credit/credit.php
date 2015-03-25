@@ -108,7 +108,7 @@ switch (_OP_) {
 			</form>";
 		
 		if ($err = $_SESSION['error_string']) {
-			_p(_err_display());
+			_p(_dialog());
 		}
 		_p($content);
 		break;
@@ -119,7 +119,7 @@ switch (_OP_) {
 		
 		if (count($_SESSION['error_string']) > 0) {
 			foreach ($_SESSION['error_string'] as $err) {
-				$error_content .= _err_display();
+				$error_content .= _dialog();
 			}
 		}
 		
@@ -163,7 +163,7 @@ switch (_OP_) {
 		
 		if (count($_SESSION['error_string']) > 0) {
 			foreach ($_SESSION['error_string'] as $err) {
-				$error_content .= _err_display();
+				$error_content .= _dialog();
 			}
 		}
 		

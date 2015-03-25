@@ -112,7 +112,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sender_id',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
 				'FORM_TITLE' => _('Manage sender ID'),
@@ -154,7 +154,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sender_id_add',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => _('Manage sender ID'),
 				'FORM_SUBTITLE' => _('Add sender ID'),
 				'ACTION_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_add_yes'),
@@ -221,7 +221,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'sender_id_add',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => _('Manage sender ID'),
 				'FORM_SUBTITLE' => _('Edit sender ID'),
 				'ACTION_URL' => _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit_yes'),

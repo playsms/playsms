@@ -78,7 +78,7 @@ switch (_OP_) {
 				'Cancel' => _('Cancel'),
 				'Schedule' => _('Schedule'),
 				'Options' => _('Options'),
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users'),

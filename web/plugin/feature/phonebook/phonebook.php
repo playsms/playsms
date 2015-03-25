@@ -167,7 +167,7 @@ switch (_OP_) {
 			</form>";
 		
 		if ($err = $_SESSION['error_string']) {
-			_p(_err_display());
+			_p(_dialog());
 		}
 		_p($content);
 		break;
@@ -180,7 +180,7 @@ switch (_OP_) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			$list_of_group .= "<option value=" . $db_row['id'] . ">" . $db_row['name'] . " - " . _('code') . ": " . $db_row['code'] . "</option>";
 		}
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Add contact') . "</h3>
 			<form action=\"index.php?app=main&inc=feature_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
@@ -239,7 +239,7 @@ switch (_OP_) {
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		if ($err = $_SESSION['error_string']) {
-			_p(_err_display());
+			_p(_dialog());
 		}
 		_p($content);
 		break;

@@ -32,7 +32,7 @@ switch (_OP_) {
 		$message = $db_row['message'];
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
-			$content = _err_display() . "
+			$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<h3>" . _('Edit schedule') . "</h3>
 			<form action=index.php?app=main&inc=feature_schedule&route=edit&op=edit_yes method=post>

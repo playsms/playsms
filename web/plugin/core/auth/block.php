@@ -36,7 +36,7 @@ if (_OP_ == 'block') {
 	$tpl = array(
 		'name' => 'auth_block',
 		'vars' => array(
-			'ERROR' => _err_display(),
+			'DIALOG_DISPLAY' => _dialog(),
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'Home' => _('Home')
 		)
