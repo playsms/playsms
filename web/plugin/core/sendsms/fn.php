@@ -172,15 +172,15 @@ function sendsms_intercept_after($status, $smslog_id, $p_status, $sms_sender, $s
  * Create SMS queue
  *
  * @global array $core_config
- * @param string $sms_sender        
- * @param string $sms_footer        
- * @param string $sms_msg        
- * @param integer $uid        
- * @param integer $gpid        
- * @param string $sms_type        
- * @param integer $unicode        
- * @param string $sms_schedule        
- * @param string $smsc        
+ * @param string $sms_sender
+ * @param string $sms_footer
+ * @param string $sms_msg
+ * @param integer $uid
+ * @param integer $gpid
+ * @param string $sms_type
+ * @param integer $unicode
+ * @param string $sms_schedule
+ * @param string $smsc
  * @return string Queue code
  */
 function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $sms_schedule = '', $smsc = '') {
@@ -465,8 +465,8 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// the thing about this is that message saved may not be the same since gateway may not be able to process
 	// message with that length or certain characters in the message are not supported by the gateway
 	$db_query = "
-		INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing 
-		(smslog_id,uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code) 
+		INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing
+		(smslog_id,uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code)
 		VALUES ('$smslog_id','$uid','$gpid','$smsc','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
 	_log("saving smslog_id:" . $smslog_id . " u:" . $uid . " g:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
 	
@@ -532,17 +532,17 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * Send SMS helper
  *
  * @global array $core_config, $user_config
- * @param string $username        
- * @param mixed $sms_to        
- * @param string $message        
- * @param string $sms_type        
- * @param integer $unicode        
- * @param string $smsc        
- * @param boolean $nofooter        
- * @param string $sms_footer        
- * @param string $sms_sender        
- * @param string $sms_schedule        
- * @param string $reference_id        
+ * @param string $username
+ * @param mixed $sms_to
+ * @param string $message
+ * @param string $sms_type
+ * @param integer $unicode
+ * @param string $smsc
+ * @param boolean $nofooter
+ * @param string $sms_footer
+ * @param string $sms_sender
+ * @param string $sms_schedule
+ * @param string $reference_id
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $sms_count, $sms_failed)
  */
 function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
@@ -634,16 +634,16 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  * Send SMS
  *
  * @global array $core_config, $user_config
- * @param string $username        
- * @param mixed $sms_to        
- * @param string $message        
- * @param string $sms_type        
- * @param integer $unicode        
- * @param string $smsc        
- * @param boolean $nofooter        
- * @param string $sms_footer        
- * @param string $sms_sender        
- * @param string $sms_schedule        
+ * @param string $username
+ * @param mixed $sms_to
+ * @param string $message
+ * @param string $sms_type
+ * @param integer $unicode
+ * @param string $smsc
+ * @param boolean $nofooter
+ * @param string $sms_footer
+ * @param string $sms_sender
+ * @param string $sms_schedule
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts)
  */
 function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
@@ -856,16 +856,16 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
  * Send SMS to phonebook group
  *
  * @global array $core_config
- * @param string $username        
- * @param integer $gpid        
- * @param string $message        
- * @param string $sms_type        
- * @param integer $unicode        
- * @param string $smsc        
- * @param boolean $nofooter        
- * @param string $sms_footer        
- * @param string $sms_sender        
- * @param string $sms_schedule        
+ * @param string $username
+ * @param integer $gpid
+ * @param string $message
+ * @param string $sms_type
+ * @param integer $unicode
+ * @param string $smsc
+ * @param boolean $nofooter
+ * @param string $sms_footer
+ * @param string $sms_sender
+ * @param string $sms_schedule
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts)
  */
 function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
@@ -967,7 +967,7 @@ function sendsms_get_template() {
 /**
  * Get SMS data from $smslog_id
  *
- * @param integer $smslog_id        
+ * @param integer $smslog_id
  * @return array
  */
 function sendsms_get_sms($smslog_id) {

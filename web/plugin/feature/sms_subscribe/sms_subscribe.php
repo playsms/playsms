@@ -150,17 +150,17 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('SMS subscribe reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"add_subscribe_msg\" id=\"add_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
-						onkeypress=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
-						onblur=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_subscribe_msg');\" 
+					<textarea maxlength=\"140\" name=\"add_subscribe_msg\" id=\"add_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onkeypress=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onblur=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onKeyUp=\"SmsSetCounter_Abstract('add_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_subscribe_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" id=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_subscribe_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount\" id=\"hiddcount\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode\" id=\"hiddcount_unicode\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount\" id=\"hiddcount\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode\" id=\"hiddcount_unicode\">
 				</td>
 			</tr>
 			<tr>
@@ -173,17 +173,17 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('SMS unsubscribe reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"add_unsubscribe_msg\" id=\"add_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
-						onkeypress=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
-						onblur=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_unsubscribe_msg');\" 
+					<textarea maxlength=\"140\" name=\"add_unsubscribe_msg\" id=\"add_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onkeypress=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onblur=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onKeyUp=\"SmsSetCounter_Abstract('add_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_unsubscribe_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_un\" id=\"txtcount_un\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_unsubscribe_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_un\" id=\"hiddcount_un\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_un\" id=\"hiddcount_unicode_un\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_un\" id=\"hiddcount_un\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_un\" id=\"hiddcount_unicode_un\">
 				</td>
 			</tr>
 			<tr>
@@ -199,49 +199,49 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('Subscription expired reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"add_expire_msg\" id=\"add_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
-						onkeypress=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
-						onblur=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_expire_msg');\" 
+					<textarea maxlength=\"140\" name=\"add_expire_msg\" id=\"add_expire_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onkeypress=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onblur=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onKeyUp=\"SmsSetCounter_Abstract('add_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_expire_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_ex\" id=\"txtcount_ex\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_expire_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\">
 				</td>
 			</tr>
 			<tr>
 				<td>" . _('Unknown format reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"add_unknown_format_msg\" id=\"add_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
-						onkeypress=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
-						onblur=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_unknown_format_msg');\" 
+					<textarea maxlength=\"140\" name=\"add_unknown_format_msg\" id=\"add_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onkeypress=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onblur=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onKeyUp=\"SmsSetCounter_Abstract('add_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_unknown_format_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_uk\" id=\"txtcount_uk\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_unknown_format_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_uk\" id=\"hiddcount_uk\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_uk\" id=\"hiddcount_unicode_uk\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_uk\" id=\"hiddcount_uk\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_uk\" id=\"hiddcount_unicode_uk\">
 				</td>
 			</tr>
 			<tr>
 				<td>" . _('Already a member reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"add_already_member_msg\" id=\"add_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
-						onkeypress=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
-						onblur=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_already_member_msg');\" 
+					<textarea maxlength=\"140\" name=\"add_already_member_msg\" id=\"add_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onkeypress=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onblur=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onKeyUp=\"SmsSetCounter_Abstract('add_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'add_already_member_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\"></textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_am\" id=\"txtcount_am\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.add_already_member_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_am\" id=\"hiddcount_am\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_am\" id=\"hiddcount_am\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\">
 				</td>
 			</tr>
 			" . $select_reply_smsc . "
@@ -329,17 +329,17 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('SMS subscribe reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"edit_subscribe_msg\" id=\"edit_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
-						onkeypress=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
-						onblur=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_edit', 'edit_subscribe_msg');\" 
+					<textarea maxlength=\"140\" name=\"edit_subscribe_msg\" id=\"edit_subscribe_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onkeypress=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onblur=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onKeyUp=\"SmsSetCounter_Abstract('edit_subscribe_msg','txtcount','hiddcount','hiddcount_unicode');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_edit', 'edit_subscribe_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_edit');\">$edit_subscribe_msg</textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount\" id=\"txtcount\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_edit.edit_subscribe_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount\" id=\"hiddcount\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode\" id=\"hiddcount_unicode\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount\" id=\"hiddcount\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode\" id=\"hiddcount_unicode\">
 				</td>
 			</tr>
 			<tr>
@@ -352,17 +352,17 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('SMS unsubscribe reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"edit_unsubscribe_msg\" id=\"edit_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
-						onkeypress=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
-						onblur=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_edit', 'edit_unsubscribe_msg');\" 
+					<textarea maxlength=\"140\" name=\"edit_unsubscribe_msg\" id=\"edit_unsubscribe_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onkeypress=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onblur=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onKeyUp=\"SmsSetCounter_Abstract('edit_unsubscribe_msg','txtcount_un','hiddcount_un','hiddcount_unicode_un');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_edit', 'edit_unsubscribe_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_edit');\">$edit_unsubscribe_msg</textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_un\" id=\"txtcount_un\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_edit.edit_unsubscribe_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_un\" id=\"hiddcount_un\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_un\" id=\"hiddcount_unicode_un\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_un\" id=\"hiddcount_un\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_un\" id=\"hiddcount_unicode_un\">
 				</td>
 			</tr>
 			<tr>
@@ -378,49 +378,49 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('Subscription expired reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"edit_expire_msg\" id=\"edit_expire_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
-						onkeypress=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
-						onblur=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_expire_msg');\" 
+					<textarea maxlength=\"140\" name=\"edit_expire_msg\" id=\"edit_expire_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onkeypress=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onblur=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onKeyUp=\"SmsSetCounter_Abstract('edit_expire_msg','txtcount_ex','hiddcount_ex','hiddcount_unicode_ex');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_expire_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\">$edit_expire_msg</textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_ex\" id=\"txtcount_ex\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.edit_expire_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_ex\" id=\"hiddcount_ex\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_ex\" id=\"hiddcount_unicode_ex\">
 				</td>
 			</tr>
 			<tr>
 				<td>" . _('Unknown format reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"edit_unknown_format_msg\" id=\"edit_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
-						onkeypress=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
-						onblur=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_unknown_format_msg');\" 
+					<textarea maxlength=\"140\" name=\"edit_unknown_format_msg\" id=\"edit_unknown_format_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onkeypress=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onblur=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onKeyUp=\"SmsSetCounter_Abstract('edit_unknown_format_msg','txtcount_uk','hiddcount_uk','hiddcount_unicode_uk');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_unknown_format_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\">$edit_unknown_format_msg</textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_uk\" id=\"txtcount_uk\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.edit_unknown_format_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_uk\" id=\"hiddcount_uk\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_uk\" id=\"hiddcount_unicode_uk\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_uk\" id=\"hiddcount_uk\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_uk\" id=\"hiddcount_unicode_uk\">
 				</td>
 			</tr>
 			<tr>
 				<td>" . _('Already a member reply') . "</td>
 				<td>
-					<textarea maxlength=\"140\" name=\"edit_already_member_msg\" id=\"edit_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\" 
-						onClick=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
-						onkeypress=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
-						onblur=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\" 
-						onKeyUp=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"	
-						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_already_member_msg');\" 
+					<textarea maxlength=\"140\" name=\"edit_already_member_msg\" id=\"edit_already_member_msg\" value=\"\" cols=\"35\" rows=\"3\"
+						onClick=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onkeypress=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onblur=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onKeyUp=\"SmsSetCounter_Abstract('edit_already_member_msg','txtcount_am','hiddcount_am','hiddcount_unicode_am');\"
+						onKeyUp=\"SmsCountKeyUp_Abstract($max_length, 'form_subscribe_add', 'edit_already_member_msg');\"
 						onKeyDown=\"SmsCountKeyDown_Abstract($max_length, 'form_subscribe_add');\">$edit_already_member_msg</textarea>
 					<br>
 					<input type=\"text\"  style=\"font-weight:bold;\" name=\"txtcount_am\" id=\"txtcount_am\" value=\"0 char : 0 SMS\" size=\"17\" onFocus=\"document.form_subscribe_add.edit_already_member_msg.focus();\" readonly>
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_am\" id=\"hiddcount_am\"> 
-					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\"> 
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length'] . "\" name=\"hiddcount_am\" id=\"hiddcount_am\">
+					<input type=\"hidden\" value=\"" . $core_config['main']['max_sms_length_unicode'] . "\" name=\"hiddcount_unicode_am\" id=\"hiddcount_unicode_am\">
 				</td>
 			</tr>
 			" . $select_reply_smsc . "

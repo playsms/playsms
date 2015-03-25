@@ -22,7 +22,7 @@ defined('_SECURE_') or die('Forbidden');
  * Check available keyword or keyword that hasn't been added
  * This function is equivalent to checkavailablekeyword()
  *
- * @param $keyword keyword        
+ * @param $keyword keyword
  * @return TRUE if available, FALSE if already exists or not available
  */
 function keyword_isavail($keyword) {
@@ -60,7 +60,7 @@ function keyword_isavail($keyword) {
 /**
  * Opposite of keyword_isavail()
  *
- * @param string $keyword        
+ * @param string $keyword
  * @return boolean
  */
 function keyword_isexists($keyword) {

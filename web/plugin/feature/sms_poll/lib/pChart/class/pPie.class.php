@@ -2,9 +2,9 @@
  /*
      pPie - class to draw pie charts
 
-     Version     : 2.1.3
+     Version     : 2.1.4
      Made by     : Jean-Damien POGOLOTTI
-     Last Update : 09/09/11
+     Last Update : 19/01/2014
 
      This file can be distributed under the license you can find at :
 
@@ -263,7 +263,7 @@
        $Settings = array("Align"=>TEXT_ALIGN_MIDDLEMIDDLE,"R"=>$ValueR,"G"=>$ValueG,"B"=>$ValueB,"Alpha"=>$ValueAlpha);
        foreach($Values as $Key => $Value)
         {
-         $EndAngle = ($Value*$ScaleFactor) + $Offset; if ( $EndAngle > 360 ) { $EndAngle = 0; }
+         $EndAngle = ($Value*$ScaleFactor) + $Offset; if ( (int)$EndAngle > 360 ) { $EndAngle = 0; }
          $Angle    = ($EndAngle - $Offset)/2 + $Offset;
 
          if ( $ValuePosition == PIE_VALUE_OUTSIDE )
