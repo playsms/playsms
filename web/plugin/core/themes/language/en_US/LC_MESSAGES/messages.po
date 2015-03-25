@@ -14,9 +14,6 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-msgid "Close"
-msgstr ""
-
 msgid "Compose message"
 msgstr ""
 

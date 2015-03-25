@@ -21,9 +21,6 @@ msgstr "Administradores"
 msgid "Back"
 msgstr "Voltar"
 
-msgid "Close"
-msgstr ""
-
 msgid "Compose message"
 msgstr ""
 

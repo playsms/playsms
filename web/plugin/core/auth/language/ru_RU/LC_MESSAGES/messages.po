@@ -18,6 +18,10 @@ msgstr "Email"
 msgid "Fail to recover password"
 msgstr "Не удалось восстановить пароль"
 
+#, fuzzy
+msgid "Fail to save temporary password"
+msgstr "Не удалось восстановить пароль"
+
 msgid "Fail to send email"
 msgstr "Не удалось отправить письмо"
 
