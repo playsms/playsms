@@ -1,149 +1,154 @@
-msgid "Action"
+msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Action"
 
 msgid "Add SMS schedule"
-msgstr ""
+msgstr "Ajouter un SMS planifié"
 
 msgid "Add destination"
-msgstr ""
+msgstr "Ajouter une destination"
 
 msgid "Annually"
-msgstr ""
+msgstr "Chaque année"
 
 msgid "Are you sure you want to delete SMS schedule ?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer cet SMS planifié?"
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir retirer ce numéro du SMS planifié?"
 
 msgid "Daily"
-msgstr ""
+msgstr "Chaque jour"
 
 msgid "Destination"
-msgstr ""
+msgstr "Destination"
 
 msgid "Destination has been deleted"
-msgstr ""
+msgstr "La destination a été supprimée"
 
 msgid "Destination has been edited"
-msgstr ""
+msgstr "La destination a été éditée"
 
 msgid "Edit destination"
-msgstr ""
+msgstr "Éditer la destination"
 
 msgid "Edit schedule"
-msgstr ""
+msgstr "Éditer l'horaire"
 
 msgid "Entries in CSV file have been imported"
-msgstr ""
+msgstr "Les entrées dans le fichier CSV ont été importées"
 
 msgid "Fail to add new SMS schedule"
-msgstr ""
+msgstr "Échec de l'ajout du SMS planifié"
 
 msgid "Fail to add new destination"
-msgstr ""
+msgstr "Échec de l'ajout de la nouvelle destination"
 
 msgid "Fail to delete SMS schedule"
-msgstr ""
+msgstr "Échec de la suppression de l'horaire SMS"
 
 msgid "Fail to delete destination"
-msgstr ""
+msgstr "Échec de la suppression de la destination"
 
 msgid "Fail to edit SMS schedule"
-msgstr ""
+msgstr "Échec de l'édition de l'horaire SMS"
 
 msgid "Fail to edit destination"
-msgstr ""
+msgstr "Échec de l'édition de la destination"
 
 msgid "Fail to upload CSV file"
-msgstr ""
+msgstr "Échec de l'upload du fichier CSV"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "Format AAAA-MM-JJ hh:mm"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Import above destination entries ?"
-msgstr ""
+msgstr "Importer les entrées de destination ci-dessus?"
 
 msgid "Import confirmation"
-msgstr ""
+msgstr "Confirmation de l'importation"
 
 msgid "List of destinations"
-msgstr ""
+msgstr "Liste des destinations"
 
 msgid "Manage schedule"
-msgstr ""
+msgstr "Gérer horaire"
 
 msgid "Mandatory fields must not be empty"
-msgstr ""
+msgstr "Les champs obligatoires ne doivent pas être vides"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Chaque mois"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "New SMS schedule been added"
-msgstr ""
+msgstr "Le nouvel SMS planifié a été ajouté"
 
 msgid "New destination has been added"
-msgstr ""
+msgstr "La nouvelle destination a été ajoutée"
 
 msgid "Once"
-msgstr ""
+msgstr "Une fois"
 
 msgid "Please select CSV file"
-msgstr ""
+msgstr "Veuillez sélectionner le fichier CSV"
 
 msgid "SMS schedule been saved"
-msgstr ""
+msgstr "Le SMS planifié a été enregistré"
 
 msgid "SMS schedule has been deleted"
-msgstr ""
+msgstr "Le SMS planifié a été supprimé"
 
 msgid "SMS schedule has been disabled"
-msgstr ""
+msgstr "Le SMS planifié a été désactivé"
 
 msgid "SMS schedule has been enabled"
-msgstr ""
+msgstr "Le SMS planifié a été activé"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Planification"
 
 msgid "Schedule ID"
-msgstr ""
+msgstr "ID de planification"
 
 msgid "Schedule messages"
-msgstr ""
+msgstr "Messages planifiés"
 
 msgid "Schedule name"
-msgstr ""
+msgstr "Nom de la planification"
 
 msgid "Schedule rule"
-msgstr ""
+msgstr "Règle de planification"
 
 msgid "Scheduled message"
-msgstr ""
+msgstr "Message planifié"
 
 msgid "Separate by comma for multiple destinations"
-msgstr ""
+msgstr "Veuillez séparer par une virgule pour plusieurs destinations"
 
 msgid "Status"
-msgstr ""
+msgstr "Statut"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Chaque semaine"
 
 msgid "format"
-msgstr ""
+msgstr "format"

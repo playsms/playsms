@@ -23,9 +23,8 @@ msgstr "Bannir"
 msgid "Buy"
 msgstr "Acheter"
 
-#, fuzzy
 msgid "Compose message"
-msgstr "Envoyer message"
+msgstr "Rédiger un message"
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -78,12 +77,11 @@ msgstr "Au repos"
 msgid "Import"
 msgstr "Importer"
 
-#, fuzzy
 msgid "Logged in as"
 msgstr "Connecté en tant que"
 
 msgid "Login as"
-msgstr "Connecté en tant que"
+msgstr "Se connecter en tant que"
 
 msgid "Logout"
 msgstr "Déconnexion"
@@ -94,40 +92,32 @@ msgstr "Configuration principale"
 msgid "Manage"
 msgstr "Gérer"
 
-#, fuzzy
 msgid "Manage ACL"
-msgstr "Gérer"
+msgstr "Gérer ACL"
 
-#, fuzzy
 msgid "Manage account"
-msgstr "Mon Compte"
+msgstr "Gérer compte"
 
-#, fuzzy
 msgid "Manage gateway"
-msgstr "Gérer utilisateur"
+msgstr "Gérer passerelle"
 
-#, fuzzy
 msgid "Manage gateway and SMSC"
-msgstr "Gérer utilisateur"
+msgstr "Gérer passerelle et SMSC"
 
 msgid "Manage sender ID"
 msgstr "Gérer sender ID"
 
-#, fuzzy
 msgid "Manage site"
-msgstr "Gérer utilisateur"
+msgstr "Gérer site"
 
-#, fuzzy
 msgid "Manage sub-account"
-msgstr "Gérer sous-utilisateurs"
+msgstr "Gérer sous-compte"
 
-#, fuzzy
 msgid "Manage sub-accounts"
-msgstr "Gérer sous-utilisateurs"
+msgstr "Gérer sous-comptes"
 
-#, fuzzy
 msgid "Manage subuser"
-msgstr "Gérer sous-utilisateurs"
+msgstr "Gérer sous-utilisateur"
 
 msgid "Manage subusers"
 msgstr "Gérer sous-utilisateurs"
@@ -187,7 +177,7 @@ msgid "View"
 msgstr "Afficher"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Votre crédit"
 
 msgid "return"
-msgstr ""
+msgstr "retour"

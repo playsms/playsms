@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid " Prevent duplicates"
-msgstr ""
-
 msgid "CSV file format"
 msgstr ""
 
@@ -43,6 +40,9 @@ msgstr "Pesan"
 
 msgid "Please select CSV file"
 msgstr "Silahkan pilih file CSV"
+
+msgid "Prevent duplicates"
+msgstr ""
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"

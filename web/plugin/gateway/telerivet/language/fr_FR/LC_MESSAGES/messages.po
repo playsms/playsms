@@ -6,34 +6,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "API key"
-msgstr ""
+msgstr "Clé de l'API"
 
 msgid "Callback Secret"
-msgstr ""
+msgstr "Secret du callback"
 
 msgid "Callback URL"
-msgstr ""
+msgstr "URL du callback"
 
 msgid "Fill to change the API key"
-msgstr ""
+msgstr "Veuillez saisir pour changer la clé de l'API"
 
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Gateway name"
-msgstr ""
+msgstr "Nom de la passerelle"
 
 msgid "Manage telerivet"
-msgstr ""
+msgstr "Gérer telerivet"
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "Aucun changement apporté"
 
 msgid "Project ID"
-msgstr ""
+msgstr "ID du projet"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Telerivet URL"
-msgstr ""
+msgstr "URL de telerivet"
