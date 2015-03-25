@@ -109,9 +109,8 @@ msgstr "Håndter gateway og SMSC"
 msgid "Manage sender ID"
 msgstr "Håndter afsender ID"
 
-#, fuzzy
 msgid "Manage site"
-msgstr "Håndter bruger"
+msgstr "Håndter websted"
 
 msgid "Manage sub-account"
 msgstr "Håndter underkonto"

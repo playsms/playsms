@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuller"
 
 msgid "Compose message"
 msgstr "Lav besked"
