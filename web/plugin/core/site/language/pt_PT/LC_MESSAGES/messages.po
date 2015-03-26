@@ -1,71 +1,84 @@
-msgid "Active themes"
+msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Active themes"
+msgstr "Temas ativos"
 
 msgid "Buy credit page"
-msgstr ""
+msgstr "Comprar crédito"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configuração"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domínio"
 
 msgid "Email footer"
-msgstr ""
+msgstr "Rodapé de e-mail"
 
 msgid "Email service"
-msgstr ""
+msgstr "Serviço de e-mail"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Ativar recuperação de palavra-passe"
 
 msgid "Enable public registration"
-msgstr ""
+msgstr "Ativar registros públicos"
 
 msgid "Information page"
-msgstr ""
+msgstr "Informações da página"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Rodapé de layout"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "URL do Logótipo"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "URL Principal do site "
 
 msgid "Main website name"
-msgstr ""
+msgstr "Nome do principal "
 
 msgid "Manage site"
-msgstr ""
+msgstr "Gerir Site"
 
 msgid "Page content"
-msgstr ""
+msgstr "O conteúdo da página"
 
 msgid "Page title"
-msgstr ""
+msgstr "Título da Página"
 
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 msgid "Site configuration"
-msgstr ""
+msgstr "Configurações padrões para o site"
 
 msgid "Site configuration has been saved"
-msgstr ""
+msgstr "Configurações do site foram guardadas"
 
 msgid "The domain is already configured by other user"
-msgstr ""
+msgstr "Este domínio já está configurado por outro utilizador"
 
 msgid "Website title"
-msgstr ""
+msgstr "Titulo do Site"
 
 msgid "domain"
-msgstr ""
+msgstr "Domínio"
 
 msgid "no"
-msgstr ""
+msgstr "Não"
 
 msgid "yes"
-msgstr ""
+msgstr "Sim"
