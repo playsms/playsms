@@ -1,10 +1,10 @@
-<?php 
+<?php
  /*
      pDraw - pChart core class
 
-     Version     : 2.1.3
+     Version     : 2.1.4
      Made by     : Jean-Damien POGOLOTTI
-     Last Update : 09/09/11
+     Last Update : 19/01/2014
 
      This file can be distributed under the license you can find at :
 
@@ -147,11 +147,7 @@
    /* Render the picture to a file */
    function render($FileName)
     {
-     if ( $this->TransparentBackground ) { 
-		 imagealphablending($this->Picture,false); 
-		 imagesavealpha($this->Picture,true); 
-	 }
-    
+     if ( $this->TransparentBackground ) { imagealphablending($this->Picture,false); imagesavealpha($this->Picture,true); }
      imagepng($this->Picture,$FileName);
     }
 
@@ -174,12 +170,10 @@
    /* Automatic output method based on the calling interface */
    function autoOutput($FileName="output.png")
     {
-     if (php_sapi_name() == "cli"){
-			$this->Render($FileName);
-		}else{
-			$this->Stroke();
-		}
-      
+     if (php_sapi_name() == "cli")
+      $this->Render($FileName);
+     else
+      $this->Stroke();
     }
 
    /* Return the length between two points */
@@ -355,7 +349,7 @@
         {
          while (($Buffer = fgets($Handle, 4096)) !== false)
           {
-           $Fields      = split(IMAGE_MAP_DELIMITER,str_replace(array(chr(10),chr(13)),"",$Buffer));
+           $Fields      = preg_split("/".IMAGE_MAP_DELIMITER."/",str_replace(array(chr(10),chr(13)),"",$Buffer));
            $TempArray[] = array($Fields[0],$Fields[1],$Fields[2],$Fields[3],$Fields[4]);
           }
          fclose($Handle);
@@ -393,7 +387,7 @@
         {
          while (($Buffer = fgets($Handle, 4096)) !== false)
           {
-           $Fields      = split(IMAGE_MAP_DELIMITER,str_replace(array(chr(10),chr(13)),"",$Buffer));
+           $Fields      = preg_split("/".IMAGE_MAP_DELIMITER."/",str_replace(array(chr(10),chr(13)),"",$Buffer));
            $TempArray[] = array($Fields[0],$Fields[1],$Fields[2],$Fields[3],$Fields[4]);
           }
          fclose($Handle);
