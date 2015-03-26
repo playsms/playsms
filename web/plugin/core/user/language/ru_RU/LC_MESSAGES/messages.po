@@ -31,6 +31,10 @@ msgstr ""
 "Пользователь admin или вошедший в систему администратор не может быть "
 "заблокирован"
 
+#, fuzzy
+msgid "Account already exists"
+msgstr "Пользователь уже существует"
+
 msgid "Account has been added and password has been emailed"
 msgstr "Пользователь добавлен, пароль отправлен по почте"
 
@@ -46,10 +50,6 @@ msgstr "Пользователь удалён"
 msgid "Account has been unbanned"
 msgstr "Пользователь разблокирован"
 
-#, fuzzy
-msgid "Account is already exists"
-msgstr "Пользователь уже существует"
-
 msgid "Account name is mandatory"
 msgstr "Имя пользователя обязательно"
 
@@ -60,11 +60,11 @@ msgid "Account status"
 msgstr "Состояние пользователя"
 
 #, fuzzy
-msgid "Account with this email is already exists"
+msgid "Account with this email already exists"
 msgstr "Пользователь с таким email уже существует"
 
 #, fuzzy
-msgid "Account with this mobile is already exists"
+msgid "Account with this mobile already exists"
 msgstr "Мользователь с таким номером телефона уже существует"
 
 msgid "Action"
@@ -276,13 +276,13 @@ msgstr "Выберите"
 msgid "Preferences"
 msgstr "Профиль"
 
-msgid "Preferences has been saved"
+msgid "Preferences have been saved"
 msgstr "Профиль сохранён"
 
-msgid "Preferences has been saved and password updated"
+msgid "Preferences have been saved and password updated"
 msgstr "Профиль сохранён, пароль изменён"
 
-msgid "Preferences has been saved and webservices token updated"
+msgid "Preferences have been saved and webservices token updated"
 msgstr "Профиль сохранён, токен для webservices изменён"
 
 msgid "Prefix or country code"

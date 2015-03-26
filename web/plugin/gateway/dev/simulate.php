@@ -28,7 +28,7 @@ switch (_OP_) {
 		$receiver = '1234';
 		$datetime = core_get_datetime();
 		
-		$content .= _err_display() . "
+		$content .= _dialog() . "
 			<h2>" . _('Simulate incoming SMS') . "</h2>
 			<form action=\"index.php?app=main&inc=gateway_dev&route=simulate&op=simulate_yes\" method=post>
 			" . _CSRF_FORM_ . "
@@ -57,9 +57,9 @@ switch (_OP_) {
 			$err[] = "Sent: " . $sms_datetime;
 			$err[] = "Message: " . stripslashes($message);
 			_log(print_r($err, TRUE), 3, "dev incoming");
-			$_SESSION['error_string'] = $err;
+			$_SESSION['dialog']['info'][] = $err;
 		} else {
-			$_SESSION['error_string'] = _('Fail to simulate incoming SMS');
+			$_SESSION['dialog']['info'][] = _('Fail to simulate incoming SMS');
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=gateway_dev&route=simulate&op=simulate'));

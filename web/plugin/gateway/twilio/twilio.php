@@ -6,8 +6,8 @@ include $core_config['apps_path']['plug']."/gateway/twilio/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>"._('Manage twilio')."</h2>
@@ -40,7 +40,7 @@ switch (_OP_) {
 		$up_auth_token = $_POST['up_auth_token'];
 		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_account_sid) {
 			if ($up_auth_token) {
 				$auth_token_change = "cfg_auth_token='$up_auth_token',";
@@ -54,7 +54,7 @@ switch (_OP_) {
 				cfg_module_sender='$up_module_sender',
 				cfg_datetime_timezone='$up_global_timezone'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: "._u('index.php?app=main&inc=gateway_twilio&op=manage'));

@@ -48,15 +48,12 @@ switch (_OP_) {
 		// get themes options
 		$options['themes_module'] = _options($core_config['themeslist'], $site_config['themes_module']);
 		
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
-		}
-		
 		$tpl = array(
 			'name' => 'site',
 			'vars' => array(
 				'ACTION_URL' => _u('index.php?app=main&inc=core_site&op=site_config_save'),
 				'HINT_DOMAIN' => _hint('Put your domain name here and then set your domain DNS A record to this server IP address'),
+				'DIALOG_DISPLAY' => _dialog(),
 				'Manage site' => _('Manage site'),
 				'Site configuration' => _('Site configuration'),
 				'Configuration' => _('Configuration'),
@@ -80,7 +77,6 @@ switch (_OP_) {
 			'injects' => array(
 				'core_config',
 				'site_config',
-				'error_content',
 				'options' 
 			) 
 		);
@@ -95,10 +91,10 @@ switch (_OP_) {
 		
 		$site = site_config_getbydomain($up['domain']);
 		if ($up['domain'] && $site[0]['uid'] && $site[0]['uid'] != $user_config['uid']) {
-			$_SESSION['error_string'] = _('The domain is already configured by other user') . ' (' . _('domain') . ':' . $up['domain'] . ')';
+			$_SESSION['dialog']['info'][] = _('The domain is already configured by other user') . ' (' . _('domain') . ':' . $up['domain'] . ')';
 		} else {
 			site_config_set($up);
-			$_SESSION['error_string'] = _('Site configuration has been saved');
+			$_SESSION['dialog']['info'][] = _('Site configuration has been saved');
 		}
 		
 		_log('site configuration saved. uid:' . $user_config['uid'] . ' domain:' . $up['domain'], 3, 'site');

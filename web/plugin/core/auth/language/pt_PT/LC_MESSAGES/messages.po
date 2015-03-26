@@ -18,6 +18,10 @@ msgstr ""
 msgid "Fail to recover password"
 msgstr "Falha ao recuperar a palavra-passe"
 
+#, fuzzy
+msgid "Fail to save temporary password"
+msgstr "Falha ao recuperar a palavra-passe"
+
 msgid "Fail to send email"
 msgstr "Erro ao enviar email"
 

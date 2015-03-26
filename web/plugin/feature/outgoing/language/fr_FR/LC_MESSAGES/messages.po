@@ -13,11 +13,10 @@ msgid "Add route"
 msgstr "Ajouter une route"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Êtes-vous sûr?"
 
-#, fuzzy
 msgid "Destination name"
-msgstr "Destination"
+msgstr "Nom de la destination"
 
 msgid "Edit route"
 msgstr "Éditer la route"
@@ -29,7 +28,7 @@ msgid "Fail to save route"
 msgstr "Échec de l'enregistrement de la route"
 
 msgid "Maximum 8 digits numeric only"
-msgstr ""
+msgstr "Maximum 8 chiffres uniquement numériques"
 
 msgid "No changes made!"
 msgstr "Aucune modification apportée!"
@@ -40,39 +39,35 @@ msgstr "Préfixe"
 msgid "Route SMS outgoing"
 msgstr "Route SMS sortant"
 
-#, fuzzy
 msgid "Route has been added"
-msgstr "la route a été sauvegardée"
+msgstr "La route a été ajoutée"
 
-#, fuzzy
 msgid "Route has been deleted"
-msgstr "la route a été sauvegardée"
+msgstr "La route a été supprimée"
 
-#, fuzzy
 msgid "Route has been saved"
-msgstr "la route a été sauvegardée"
+msgstr "La route a été enregistrée"
 
 msgid "Route outgoing SMS"
 msgstr "Route SMS sortant"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Enregistrer"
 
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 msgid "You must fill all fields"
 msgstr "Vous devez saisir tous les champs"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Vous devez saisir tous les champs"
+msgstr "Vous devez saisir tous les champs obligatoires"
 
 msgid "blocked"
-msgstr ""
+msgstr "bloqué"
 
 msgid "destination"
 msgstr "destination"

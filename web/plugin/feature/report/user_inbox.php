@@ -10,31 +10,31 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isvalid()) {
 	auth_block();
-};
+}
+;
 
 switch (_OP_) {
 	case "user_inbox":
 		$search_category = array(
 			_('Time') => 'in_datetime',
 			_('From') => 'in_sender',
-			_('Message') => 'in_msg'
+			_('Message') => 'in_msg' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
 			'in_uid' => $user_config['uid'],
-			'flag_deleted' => 0
+			'flag_deleted' => 0 
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords);
@@ -42,7 +42,7 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset']
+			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
 		unset($tpl);
@@ -50,13 +50,13 @@ switch (_OP_) {
 			'vars' => array(
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
-				'Inbox' => _('Inbox') ,
+				'Inbox' => _('Inbox'),
 				'Export' => $icon_config['export'],
 				'Delete' => $icon_config['delete'],
-				'From' => _('From') ,
-				'Message' => _('Message') ,
-				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?')
-			)
+				'From' => _('From'),
+				'Message' => _('Message'),
+				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?') 
+			) 
 		);
 		$i = $nav['top'];
 		$j = 0;
@@ -71,8 +71,8 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=reply&message=' . urlencode($msg) . '&to=' . urlencode($in_sender) , $icon_config['reply']);
-				$forward = _a('index.php?app=main&inc=core_sendsms&op=sendsms&do=forward&message=' . urlencode($msg) , $icon_config['forward']);
+				$reply = _sendsms($in_sender, $msg);
+				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
 			$i--;
 			$tpl['loops']['data'][] = array(
@@ -84,19 +84,19 @@ switch (_OP_) {
 				'reply' => $reply,
 				'forward' => $forward,
 				'in_id' => $in_id,
-				'j' => $j
+				'j' => $j 
 			);
 		}
 		$error_content = '';
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$error_content = _dialog();
 		}
-		$tpl['vars']['ERROR'] = $error_content;
+		$tpl['vars']['DIALOG_DISPLAY'] = $error_content;
 		$tpl['name'] = 'user_inbox';
 		$content = tpl_apply($tpl);
 		_p($content);
 		break;
-
+	
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -105,47 +105,48 @@ switch (_OP_) {
 			case 'export':
 				$conditions = array(
 					'in_uid' => $user_config['uid'],
-					'flag_deleted' => 0
+					'flag_deleted' => 0 
 				);
 				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
-					_('User') ,
-					_('Time') ,
-					_('From') ,
-					_('Message')
+					_('User'),
+					_('Time'),
+					_('From'),
+					_('Message') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						user_uid2username($list[$i]['in_uid']) ,
-						core_display_datetime($list[$i]['in_datetime']) ,
+						user_uid2username($list[$i]['in_uid']),
+						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
-						$list[$i]['in_msg']
+						$list[$i]['in_msg'] 
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'user_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-
+			
 			case 'delete':
 				for ($i = 0; $i < $nav['limit']; $i++) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
 						$up = array(
-							'c_timestamp' => mktime() ,
-							'flag_deleted' => '1'
+							'c_timestamp' => mktime(),
+							'flag_deleted' => '1' 
 						);
 						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
 							'in_uid' => $user_config['uid'],
-							'in_id' => $itemid
+							'in_id' => $itemid 
 						));
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-				$_SESSION['error_string'] = _('Selected incoming message has been deleted');
+				$_SESSION['dialog']['info'][] = _('Selected incoming message has been deleted');
 				header("Location: " . _u($ref));
+				exit();
 		}
 		break;
 }

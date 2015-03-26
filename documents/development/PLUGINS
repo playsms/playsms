@@ -1,7 +1,7 @@
 PLUGINS
 -------
 
-playSMS plugin's files and folders are under directory web/plugins and categorized 
+playSMS plugin's files and folders are under directory web/plugins and categorized
 into 5 different categories, they are:
 - tools
 - feature
@@ -46,7 +46,7 @@ Core functions that you can 'hook' from tools plugins:
 Feature
 -------
 
-Here are installed plugins which contain specific SMS related features and directly handle 
+Here are installed plugins which contain specific SMS related features and directly handle
 incoming or outgoing SMS.
 
 Core functions that you can 'hook' from feature plugins:
@@ -64,7 +64,7 @@ Core functions that you can 'hook' from feature plugins:
 Gateway
 -------
 
-Here are installed plugins that hasve ability to actually send and/or receive SMS, and directly 
+Here are installed plugins that have ability to actually send and/or receive SMS, and directly
 connected to SMS gateway applications or services.
 
 Core functions that you can 'hook' from gateway plugins:
@@ -91,7 +91,7 @@ Core functions that you can 'hook' from themes plugins:
 Language
 --------
 
-Here are installed language database based on gettext for core/main files only. But each plugin's 
+Here are installed language database based on gettext for core/main files only. But each plugin's
 language files are reside under each plugin's directory.
 
 
@@ -107,7 +107,7 @@ Each plugin will need to have below structure:
                                                   /lib
                                                   /<plugin_name>.php
 
-For example, plugin with purpose to serve connecting playsms to your own Content Provider, 
+For example, plugin with purpose to serve connecting playsms to your own Content Provider,
 called 'mycp'. Since its a gateway, the category would be 'gateway'.
 
 The plugin structure will be:
@@ -134,7 +134,7 @@ Access to callback functions, or functions in plugins, you will need to use inde
 Notes:
 - access to menu.php has been replaced with index.php?app=menu
 - access to input.php and output.php has been replaced with index.php?app=webservices
-- access to callback.php, dlr.php and geturl.php has been replaced with 
+- access to callback.php, dlr.php and geturl.php has been replaced with
   index.php?app=call&cat=[plugin's category]&plugin=[plugin's name]
 - access to dlr.php in kannel will require additional parameter access=dlr
 - access to geturl.php in kannel will require additional parameter access=geturl

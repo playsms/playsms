@@ -11,11 +11,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "Cancel"
+msgstr ""
+
 #, fuzzy
 msgid "Compose message"
 msgstr "содержит русские символы"
 
-msgid "Fail to send message to all destination"
+msgid "Fail to send message to all destinations"
 msgstr ""
 
 msgid "Flash message"
@@ -67,7 +70,7 @@ msgid "Your message has been delivered to queue"
 msgstr "Сообщение успешно принято к отправке"
 
 #, fuzzy
-msgid "Your message has been delivered to some of the destination"
+msgid "Your message has been delivered to some of the destinations"
 msgstr "Сообщение успешно принято к отправке"
 
 msgid "chars"

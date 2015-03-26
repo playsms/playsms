@@ -6,82 +6,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ACL ID"
-msgstr ""
+msgstr "ID de l'ACL"
 
 msgid "ACL been edited"
-msgstr ""
+msgstr "L'ACL a été éditée"
 
 msgid "ACL has been deleted"
-msgstr ""
+msgstr "L'ACL a été supprimée"
 
 msgid "ACL name"
-msgstr ""
+msgstr "Nom de l'ACL"
 
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 msgid "Add ACL"
-msgstr ""
+msgstr "Ajouter une ACL"
 
 msgid "Are you sure you want to delete ACL ?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'ACL?"
 
 msgid "Comma separated for multiple entries"
-msgstr ""
+msgstr "Séparées par une virgule en cas d'entrées multiples"
 
 msgid "Credit"
-msgstr ""
+msgstr "Crédit"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "DÉFAUT"
 
 msgid "Edit ACL"
-msgstr ""
+msgstr "Éditer l'ACL"
 
 msgid "Fail to add new ACL"
-msgstr ""
+msgstr "Échec de l'ajout de l'ACL"
 
 msgid "Fail to delete ACL"
-msgstr ""
+msgstr "Échec de la suppression de l'ACL"
 
 msgid "Fail to edit ACL"
-msgstr ""
+msgstr "Échec de l'édition de l'ACL"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "List of accounts"
-msgstr ""
+msgstr "Liste des comptes"
 
 msgid "Manage ACL"
-msgstr ""
+msgstr "Gérer ACL"
 
 msgid "Mandatory fields must not be empty"
-msgstr ""
+msgstr "Les champs obligatoires ne doivent pas être vides"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobile"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 msgid "New ACL been added"
-msgstr ""
+msgstr "La nouvelle ACL a été ajoutée"
 
 msgid "Registered"
-msgstr ""
+msgstr "Enregistré"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Subuser ACL"
-msgstr ""
+msgstr "ACL de sous-utilisateur"
 
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 msgid "View report"
-msgstr ""
+msgstr "Afficher le rapport"

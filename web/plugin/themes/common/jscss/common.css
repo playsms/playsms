@@ -146,7 +146,7 @@ table.sortable thead, table.sortable th {
 .actions_box {
 	padding: 0;
 	width: 100%;
-	height: 25px;	
+	height: 25px;
 }
 
 .actions_box_left {
@@ -251,11 +251,18 @@ table.sortable thead, table.sortable th {
 	width: 400px;
 }
 
+.playsms-dialog-text {
+	font-size: 14px;
+	font-weight: normal;
+	text-align: left;
+	color: #34495e;
+}
+
 /* IDs */
 
 /* Wrapper for page content to push down footer */
-#main-body {
-	// min-width: 240px;
+#main-body { //
+	min-width: 240px;
 	width: auto !important;
 	min-height: 100%;
 	height: auto;
@@ -306,7 +313,6 @@ table.sortable thead, table.sortable th {
 	background-color: transparent;
 	border: 0px solid;
 	font-weight: normal;
-	
 }
 
 #user_inbox_msg {
@@ -320,7 +326,7 @@ table.sortable thead, table.sortable th {
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-        hyphens: auto;
+	hyphens: auto;
 }
 
 #user_incoming_msg {
@@ -334,7 +340,7 @@ table.sortable thead, table.sortable th {
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-        hyphens: auto;
+	hyphens: auto;
 }
 
 #user_outgoing_msg {
@@ -348,7 +354,7 @@ table.sortable thead, table.sortable th {
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-        hyphens: auto;
+	hyphens: auto;
 }
 
 #all_inbox_msg {
@@ -362,7 +368,7 @@ table.sortable thead, table.sortable th {
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-        hyphens: auto;
+	hyphens: auto;
 }
 
 #all_incoming_msg {
@@ -376,7 +382,7 @@ table.sortable thead, table.sortable th {
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-        hyphens: auto;
+	hyphens: auto;
 }
 
 #all_outgoing_msg {
@@ -390,7 +396,7 @@ table.sortable thead, table.sortable th {
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-        hyphens: auto;
+	hyphens: auto;
 }
 
 #sandbox_msg {
@@ -404,7 +410,7 @@ table.sortable thead, table.sortable th {
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
-        hyphens: auto;
+	hyphens: auto;
 }
 
 #msg_price {
@@ -452,4 +458,12 @@ table.sortable thead, table.sortable th {
 
 #submenu-credit-show {
 	display: inline;
+}
+
+.modal-dialog {
+	position: absolute;
+	width: 46%;
+	left: 50%;
+	margin-left : -23%;
+	top: 15%;
 }

@@ -21,6 +21,12 @@ msgstr "Администраторы"
 msgid "Back"
 msgstr "Назад"
 
+msgid "Compose message"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
 msgid "Please select"
 msgstr ""
 

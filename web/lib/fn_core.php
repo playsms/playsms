@@ -298,7 +298,13 @@ function core_display_html($data) {
 }
 
 /**
- * Format text for safe display on the web @param $text original text @param $len length of text @return formatted text
+ * Format text for safe display on the web
+ *
+ * @param $text original
+ *        text
+ * @param $len length
+ *        of text
+ * @return formatted text
  */
 function core_display_text($text, $len = 0) {
 	$hp = new HTMLPurifier();
@@ -330,8 +336,11 @@ function core_display_data($data) {
 	return $data;
 }
 
-/*
- * Convert timestamp to datetime in UTC @param $timestamp timestamp @return current date and time
+/**
+ * Convert timestamp to datetime in UTC
+ *
+ * @param $timestamp timestamp        
+ * @return current date and time
  */
 function core_convert_datetime($timestamp) {
 	global $core_config;
@@ -340,8 +349,10 @@ function core_convert_datetime($timestamp) {
 	return $ret;
 }
 
-/*
- * Get current server date and time in GMT+0 @return current date and time
+/**
+ * Get current server date and time in GMT+0
+ *
+ * @return current date and time
  */
 function core_get_datetime() {
 	global $core_config;
@@ -351,8 +362,10 @@ function core_get_datetime() {
 	return $ret;
 }
 
-/*
- * Get current server date in GMT+0 @return current date
+/**
+ * Get current server date in GMT+0
+ *
+ * @return current date
  */
 function core_get_date() {
 	$ret = core_get_datetime();
@@ -361,8 +374,10 @@ function core_get_date() {
 	return $ret;
 }
 
-/*
- * Get current server time in GMT+0 @return current time
+/**
+ * Get current server time in GMT+0
+ *
+ * @return current time
  */
 function core_get_time() {
 	$ret = core_get_datetime();
@@ -371,8 +386,12 @@ function core_get_time() {
 	return $ret;
 }
 
-/*
- * Get timezone @param $username username or empty for default timezone @return timezone
+/**
+ * Get timezone
+ *
+ * @param $username username
+ *        or empty for default timezone
+ * @return timezone
  */
 function core_get_timezone($username = '') {
 	global $core_config;
@@ -390,8 +409,11 @@ function core_get_timezone($username = '') {
 	return $ret;
 }
 
-/*
- * Calculate timezone string into number of seconds offset @param $tz timezone @return offset in number of seconds
+/**
+ * Calculate timezone string into number of seconds offset
+ *
+ * @param $tz timezone        
+ * @return offset in number of seconds
  */
 function core_datetime_offset($tz = 0) {
 	$n = (int) $tz;
@@ -401,8 +423,12 @@ function core_datetime_offset($tz = 0) {
 	return ($num ? $num : 0);
 }
 
-/*
- * Format and adjust date/time from GMT+0 to user's timezone for web display purposes @param $time date/time @param $tz timezone @return formatted date/time with adjusted timezone
+/**
+ * Format and adjust date/time from GMT+0 to user's timezone for web display purposes
+ *
+ * @param $time date/time        
+ * @param $tz timezone        
+ * @return formatted date/time with adjusted timezone
  */
 function core_display_datetime($time, $tz = 0) {
 	global $core_config, $user_config;
@@ -440,8 +466,12 @@ function core_format_datetime($text) {
 	return $ret;
 }
 
-/*
- * Format and adjust date/time to GMT+0 for log or incoming SMS saving purposes @param $time date/time @param $tz timezone @return formatted date/time with adjusted timezone
+/**
+ * Format and adjust date/time to GMT+0 for log or incoming SMS saving purposes
+ *
+ * @param $time date/time        
+ * @param $tz timezone        
+ * @return formatted date/time with adjusted timezone
  */
 function core_adjust_datetime($time, $tz = 0) {
 	global $core_config, $user_config;

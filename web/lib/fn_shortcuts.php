@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Shortcut to core_print() for printing output to display
- * 
+ *
  * @return string
  */
 function _p($content) {
@@ -58,7 +58,7 @@ function _mandatory($text) {
 /**
  * Generate options for select HTML tag
  * Shortcut to themes_select_options()
- * 
+ *
  * @param array $options
  *        Select options
  * @param string $selected
@@ -72,7 +72,7 @@ function _options($options = array(), $selected = '') {
 /**
  * Generate select HTML tag
  * Shortcut to themes_select()
- * 
+ *
  * @param string $name
  *        Tag name
  * @param array $options
@@ -94,7 +94,7 @@ function _select($name, $options = array(), $selected = '', $tag_params = array(
 /**
  * Generate select HTML tag for yes-no or enabled-disabled type of options
  * Shortcut to themes_select_yesno()
- * 
+ *
  * @param string $name
  *        Tag name
  * @param boolean $selected
@@ -117,20 +117,39 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
 
 /**
  * Display error string from function parameter or session
- * Shortcut to themes_display_error_string()
- * 
- * @param string $error_string
- *        Array of error strings (optional)
+ * Shortcut to themes_dialog()
+ *
+ * @param array $content
+ *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
+ *        Type of dialog: default, info, primary, success, warning, danger
+ * @param string $title
+ *        Dialog title
  * @return string HTML string of error strings
  */
-function _err_display($error_string = array()) {
-	return themes_display_error_string($error_string);
+function _dialog($content = array(), $title = '') {
+	return themes_dialog($content, $title);
+}
+
+/**
+ * Display error string from function parameter or session
+ * Shortcut to themes_dialog()
+ * Compatibilty with previous playSMS versions, will be removed on 1.0
+ *
+ * @param array $content
+ *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
+ *        Type of dialog: default, info, primary, success, warning, danger
+ * @param string $title
+ *        Dialog title
+ * @return string HTML string of error strings
+ */
+function _err_display($content = array(), $title = '') {
+	return _dialog($content, $title);
 }
 
 /**
  * Generate HTML input tag
  * Shortcut to themes_input()
- * 
+ *
  * @param string $type
  *        Input type
  * @param string $name
@@ -152,4 +171,21 @@ function _input($type = 'text', $name = '', $value = '', $tag_params = array(), 
 // lib/fn_logger.php
 function _log($log, $level, $label) {
 	return logger_print($log, $level, $label);
+}
+
+/**
+ * Popup compose message form
+ *
+ * @param string $to
+ *        Default destination
+ * @param string $message
+ *        Default or previous message
+ * @param string $return_url
+ *        If empty this would be $_SERVER['REQUEST_URI']
+ * @param string $button_icon
+ *        If empty this would be a reply icon
+ * @return string Javascript PopupSendsms()
+ */
+function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
+	return themes_popup_sendsms($to, $message, $return_url, $button_icon);
 }

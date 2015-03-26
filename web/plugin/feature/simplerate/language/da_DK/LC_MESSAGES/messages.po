@@ -74,7 +74,7 @@ msgstr "Du skal udfylde alle felter"
 
 #, php-format
 msgid ""
-"Your subuser with username %s and account ID %d have reached lowest credit "
+"Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
 "Din underbruger med brugernavnet %s og konto ID %d har noget den laveste "

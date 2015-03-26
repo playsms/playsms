@@ -16,7 +16,7 @@ $core_config['db']['name'] = '#DBNAME#';	// database name
 //$core_config['db']['options'] = $options = array('debug' => 2, 'portability' => DB_PORTABILITY_ALL);
 
 // SMTP configuration
-$core_config['smtp']['relm'] = ''; // yes, not realm, its relm
+$core_config['smtp']['relm'] = ''; // yes, not realm, it's relm
 $core_config['smtp']['user'] = '';
 $core_config['smtp']['pass'] = '';
 $core_config['smtp']['host'] = 'localhost';
@@ -28,7 +28,7 @@ $core_config['smtp']['port'] = '25';
 
 
 // you can turn on or off PHP error reporting
-// on production level you should turn off PHP error reporting (set to 0), by default its on
+// on production level you should turn off PHP error reporting (set to 0), by default it's on
 //error_reporting(0);
 //error_reporting(E_ALL ^ (E_NOTICE | E_WARNING | E_DEPRECATED));
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT);
@@ -37,7 +37,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT);
 $core_config['apps_path']['logs'] = '#PATHLOG#';
 
 // log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
-// WARNING: log level 3 and 4 will also save sensitif information such as password for used gateway
+// WARNING: log level 3 and 4 will also save sensitive information such as password for used gateway
 $core_config['logstate']	= 2;
 
 // log file

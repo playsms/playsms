@@ -407,36 +407,81 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
 /**
  * Display error string from function parameter or session
  *
- * @param array $error_string
- *        Array of error strings (optional)
+ * @param array $content
+ *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
+ *        Type of dialog: default, info, primary, success, warning, danger
+ * @param string $title
+ *        Dialog title
  * @return string HTML string of error strings
  */
-function themes_display_error_string($error_string = array()) {
-	if (is_array($error_string) && (count($error_string) > 0)) {
-		$errors = $error_string;
-	} else {
-		$errors = $_SESSION['error_string'];
-	}
-	
-	if (!is_array($errors)) {
-		$errors = array(
-			$errors 
-		);
-	}
-	
+function themes_dialog($content = array(), $title = '') {
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_display_error_string', array(
-			$errors 
+		$ret = core_hook(core_themes_get(), 'themes_dialog', array(
+			$content,
+			$title 
 		));
+		
+		if ($ret) {
+			
+			// returns on hooked
+			return $ret;
+		}
 	}
 	
-	if (!$ret) {
-		if (count($errors) > 0) {
-			foreach ($errors as $err) {
-				if (trim($err)) {
-					$ret .= '<div class=error_string>' . trim($err) . '</div>';
-				}
+	if (is_array($content) && (count($content) > 0) && $content['dialog']) {
+		$contents = $content['dialog'];
+	} else {
+		if ($_SESSION['dialog']) {
+			$contents = $_SESSION['dialog'];
+		} else {
+			if (is_array($_SESSION['error_string'])) {
+				$contents['info'] = $_SESSION['error_string'];
+			} else {
+				$contents['info'][] = $_SESSION['error_string'];
 			}
+		}
+	}
+	
+	$ret = '';
+	
+	foreach ($contents as $type => $data) {
+		$message = '';
+		$continue = FALSE;
+		
+		foreach ($data as $text) {
+			if (trim($text)) {
+				$message .= '<div class=playsms-dialog-text>' . trim($text) . '</div>';
+				$continue = TRUE;
+			}
+		}
+		
+		if ($continue) {
+			switch (strtoupper(trim($type))) {
+				case 'DEFAULT':
+				case 'INFO':
+				case 'PRIMARY':
+				case 'SUCCESS':
+				case 'WARNING':
+				case 'DANGER':
+					$dialog_type = strtoupper(trim($type));
+					break;
+				default :
+					$dialog_type = 'PRIMARY';
+			}
+			
+			$dialog_title = ($title ? $title : _('Information'));
+			
+			$ret .= "
+				<script type='text/javascript'>
+					BootstrapDialog.show({
+						type: BootstrapDialog.TYPE_" . $dialog_type . ",
+						title: '" . $dialog_title . "',
+						message: '" . $message . "',
+						closable: true,
+						draggable: true
+					})
+				</script>
+			";
 		}
 	}
 	
@@ -750,6 +795,28 @@ function themes_input($type = 'text', $name = '', $value = '', $tag_params = arr
 		}
 		$ret = '<input type="' . $type . '" name="' . $name . '" value="' . $value . '" id="' . $css_id . '" class="playsms-input ' . $css_class . '" ' . $params . '>';
 	}
+	
+	return $ret;
+}
+
+/**
+ * Popup compose message form
+ *
+ * @param string $to
+ *        Default destination
+ * @param string $message
+ *        Default or previous message
+ * @param string $return_url
+ *        If empty this would be $_SERVER['REQUEST_URI']
+ * @param string $button_icon
+ *        If empty this would be a reply icon
+ * @return string Javascript PopupSendsms()
+ */
+function themes_popup_sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
+	$return_url = ($return_url ? $return_url : $_SERVER['REQUEST_URI']);
+	$button_icon = ($button_icon ? $button_icon : $icon_config['reply']);
+	
+	$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode($return_url) . "');\">" . $button_icon . "</a>";
 	
 	return $ret;
 }

@@ -36,7 +36,7 @@ if (auth_isvalid()) {
 	} else {
 		logger_print("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
 		@session_destroy();
-		$_SESSION['error_string'] = _('You have been logged out');
+		$_SESSION['dialog']['info'][] = _('You have been logged out');
 	}
 }
 

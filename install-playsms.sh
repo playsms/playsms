@@ -228,9 +228,8 @@ echo "Attention"
 echo
 echo "When message \"unable to start playsmsd\" occurred above, please check:"
 echo
-echo "1. PEAR-DB installed. Install PEAR-DB by running from Linux console: \"pear install DB\""
-echo "2. Possibly theres an issue with composer updates, try to run: \"composer update\""
-echo "3. Manually run playsmsd, eg: \"playsmsd start\", and then \"playsmsd status\""
+echo "1. Possibly theres an issue with composer updates, try to run: \"composer update\""
+echo "2. Manually run playsmsd, eg: \"playsmsd start\", and then \"playsmsd status\""
 echo
 
 exit 0

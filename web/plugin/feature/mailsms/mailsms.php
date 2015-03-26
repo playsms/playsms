@@ -60,7 +60,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'mailsms',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => _('Manage email to SMS'),
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&op=mailsms_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
@@ -110,10 +110,10 @@ switch (_OP_) {
 		
 		if ($_REQUEST['enable_fetch']) {
 			$enabled = 'enabled';
-			$_SESSION['error_string'] = _('Email to SMS configuration has been saved and service enabled');
+			$_SESSION['dialog']['info'][] = _('Email to SMS configuration has been saved and service enabled');
 		} else {
 			$enabled = 'disabled';
-			$_SESSION['error_string'] = _('Email to SMS configuration has been saved and service disabled');
+			$_SESSION['dialog']['info'][] = _('Email to SMS configuration has been saved and service disabled');
 		}
 		_log($enabled . ' server:' . $_REQUEST['server'], 2, 'mailsms');
 		

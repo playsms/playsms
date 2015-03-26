@@ -107,8 +107,8 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = $_SESSION['error_string']) {
-			_p("<div class=error_string>$err</div>");
+		if ($err = TRUE) {
+			_p(_dialog());
 		}
 		_p($content);
 		break;
@@ -117,13 +117,7 @@ switch (_OP_) {
 		
 		$select_user = credit_html_select_user();
 		
-		if (count($_SESSION['error_string']) > 0) {
-			foreach ($_SESSION['error_string'] as $err) {
-				$error_content .= "<div class=error_string>$err</div>";
-			}
-		}
-		
-		$content = $error_content . "
+		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
 					$(\"#playsms-credit-select-user\").select2({
@@ -161,13 +155,7 @@ switch (_OP_) {
 		
 		$select_user = credit_html_select_user();
 		
-		if (count($_SESSION['error_string']) > 0) {
-			foreach ($_SESSION['error_string'] as $err) {
-				$error_content .= "<div class=error_string>$err</div>";
-			}
-		}
-		
-		$content = $error_content . "
+		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
 					$(\"#playsms-credit-select-user\").select2({
@@ -262,7 +250,7 @@ switch (_OP_) {
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-				$_SESSION['error_string'] = _('Selected transactions has been deleted');
+				$_SESSION['dialog']['info'][] = _('Selected transactions has been deleted');
 				header("Location: " . _u($ref));
 				exit();
 				break;
@@ -289,12 +277,12 @@ switch (_OP_) {
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['error_string'][] .= _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
+								$_SESSION['dialog']['info'][] .= _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
 							} else {
-								$_SESSION['error_string'][] .= _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] .= _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
 						} else {
-							$_SESSION['error_string'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
+							$_SESSION['dialog']['info'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
@@ -325,12 +313,12 @@ switch (_OP_) {
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['error_string'][] .= _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
+								$_SESSION['dialog']['info'][] .= _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
 							} else {
-								$_SESSION['error_string'][] .= _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] .= _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
 						} else {
-							$_SESSION['error_string'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
+							$_SESSION['dialog']['info'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}

@@ -4,8 +4,8 @@ if(!auth_isadmin()){auth_block();};
 
 // error messages
 $error_content = '';
-if ($err = $_SESSION['error_string']) {
-	$error_content = "<div class=error_string>$err</div>";
+if ($err = TRUE) {
+	$error_content = _dialog();
 }
 
 // main
@@ -14,7 +14,7 @@ switch (_OP_) {
 		unset($tpl);
 		$tpl = array(
 			'vars' => array(
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'Group inbox' => _('Group inbox'),
 				'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')),
 				'Receiver number' => _('Receiver number'),
@@ -57,7 +57,7 @@ switch (_OP_) {
 		$tpl = array(
 		    'name' => 'inboxgroup_add',
 		    'vars' => array(
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Add group inbox' => _('Add group inbox'),
 			'Receiver number' => _('Receiver number'),
@@ -77,12 +77,12 @@ switch (_OP_) {
 		$description = $_REQUEST['description'];
 		if ($in_receiver && $keywords && $description) {
 			if (inboxgroup_dataadd($in_receiver, $keywords, $description)) {
-				$_SESSION['error_string'] = _('Group inbox has been added')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Group inbox has been added')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$_SESSION['error_string'] = _('Fail to add group inbox')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Fail to add group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=add'));
 		exit();
@@ -103,7 +103,7 @@ switch (_OP_) {
 		$tpl = array(
 		    'name' => 'inboxgroup_edit',
 		    'vars' => array(
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Edit group inbox' => _('Edit group inbox'),
 			'RID' => $rid,
@@ -132,12 +132,12 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver && $keywords && $description) {
 			if (inboxgroup_dataedit($rid, $keywords, $description, $exclusive)) {
-				$_SESSION['error_string'] = _('Group inbox has been edited')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Group inbox has been edited')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit group inbox')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Fail to edit group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=edit&rid='.$rid));
 		exit();
@@ -160,7 +160,7 @@ switch (_OP_) {
 		$tpl = array(
 		    'name' => 'inboxgroup_del',
 		    'vars' => array(
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => $error_content,
 			'Group inbox' => _('Group inbox'),
 			'Delete group inbox' => _('Delete group inbox'),
 			'RID' => $rid,
@@ -189,12 +189,12 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			if (inboxgroup_datadel($rid)) {
-				$_SESSION['error_string'] = _('Group inbox has been deleted')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Group inbox has been deleted')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$_SESSION['error_string'] = _('Fail to delete group inbox')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Fail to delete group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exist');
+			$_SESSION['dialog']['info'][] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();
@@ -205,12 +205,12 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			if (inboxgroup_dataenable($rid)) {
-				$_SESSION['error_string'] = _('Group inbox has been enabled')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Group inbox has been enabled')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$_SESSION['error_string'] = _('Fail to enable group inbox')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Fail to enable group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exist');
+			$_SESSION['dialog']['info'][] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();
@@ -221,12 +221,12 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			if (inboxgroup_datadisable($rid)) {
-				$_SESSION['error_string'] = _('Group inbox has been disabled')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Group inbox has been disabled')." ("._('Number').": ".$in_receiver.")";
 			} else {
-				$_SESSION['error_string'] = _('Fail to disable group inbox')." ("._('Number').": ".$in_receiver.")";
+				$_SESSION['dialog']['info'][] = _('Fail to disable group inbox')." ("._('Number').": ".$in_receiver.")";
 			}
 		} else {
-			$_SESSION['error_string'] = _('Receiver number does not exist');
+			$_SESSION['dialog']['info'][] = _('Receiver number does not exist');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_inboxgroup&op=list&rid='.$rid));
 		exit();

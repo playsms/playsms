@@ -21,9 +21,6 @@ msgstr "Blokeret IP adresse"
 msgid "Delete"
 msgstr "Slet"
 
-msgid "IP addreses has been deleted"
-msgstr "IP adresse er blevet slettet"
-
 msgid "IP address"
 msgstr "IP adresse"
 
@@ -33,10 +30,13 @@ msgstr "IP adresser"
 msgid "IP addresses have been blocked"
 msgstr "IP adresser er blevet blokeret"
 
+msgid "IP addresses have been deleted"
+msgstr "IP adresse er blevet slettet"
+
 msgid "Manage firewall"
 msgstr "Håndter firewall"
 
-msgid "Multiple IP addresses must be comma seperated"
+msgid "Multiple IP addresses must be comma-separated"
 msgstr "Flere IP adresser skal adskilles med komma"
 
 msgid "Save"

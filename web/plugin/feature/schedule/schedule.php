@@ -24,7 +24,7 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case "list":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<p>" . _button('index.php?app=main&inc=feature_schedule&op=add', _('Add SMS schedule')) . "
 			<div class=table-responsive>
@@ -66,7 +66,7 @@ switch (_OP_) {
 		break;
 	
 	case "add":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<h3>" . _('Add SMS schedule') . "</h3>
 			<form action=index.php?app=main&inc=feature_schedule&op=add_yes method=post>
@@ -99,12 +99,12 @@ switch (_OP_) {
 				INSERT INTO " . _DB_PREF_ . "_featureSchedule (c_timestamp,uid,name,message,schedule_rule,flag_active,flag_deleted)
 				VALUES (" . mktime() . ",'" . $user_config['uid'] . "','$name','$message','$schedule_rule','2','0')";
 			if ($new_uid = @dba_insert_id($db_query)) {
-				$_SESSION['error_string'] = _('New SMS schedule been added');
+				$_SESSION['dialog']['info'][] = _('New SMS schedule been added');
 			} else {
-				$_SESSION['error_string'] = _('Fail to add new SMS schedule');
+				$_SESSION['dialog']['info'][] = _('Fail to add new SMS schedule');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+			$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&op=add'));
 		exit();
@@ -121,9 +121,9 @@ switch (_OP_) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . mktime() . "', flag_active='$status' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
 				if ($status == 1) {
-					$_SESSION['error_string'] = _('SMS schedule has been enabled');
+					$_SESSION['dialog']['info'][] = _('SMS schedule has been enabled');
 				} else {
-					$_SESSION['error_string'] = _('SMS schedule has been disabled');
+					$_SESSION['dialog']['info'][] = _('SMS schedule has been disabled');
 				}
 			}
 		}
@@ -139,9 +139,9 @@ switch (_OP_) {
 		), 'AND')) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . mktime() . "', flag_active='2', flag_deleted='1' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS schedule has been deleted');
+				$_SESSION['dialog']['info'][] = _('SMS schedule has been deleted');
 			} else {
-				$_SESSION['error_string'] = _('Fail to delete SMS schedule');
+				$_SESSION['dialog']['info'][] = _('Fail to delete SMS schedule');
 			}
 		} else {
 			auth_block();

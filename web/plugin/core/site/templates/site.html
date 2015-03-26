@@ -13,7 +13,7 @@ tinymce.init({
 	toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | print preview fullpage code",
 });
 </script>
-{{ $error_content }}
+{{ DIALOG_DISPLAY }}
 <h2>{{ Manage site }}</h2>
 <form id=fm_core_site name=id_core_site action="{{ ACTION_URL }}" method=POST>
 	{{ CSRF_FORM }}

@@ -6,8 +6,8 @@ include $core_config['apps_path']['plug']."/gateway/msgtoolbox/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>"._('Manage msgtoolbox')."</h2>
@@ -49,7 +49,7 @@ switch (_OP_) {
 		$up_password = $_POST['up_password'];
 		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_url && $up_username) {
 			if ($up_password) {
 				$password_change = "cfg_password='$up_password',";
@@ -65,7 +65,7 @@ switch (_OP_) {
 				cfg_datetime_timezone='$up_global_timezone'
 			";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: "._u('index.php?app=main&inc=gateway_msgtoolbox&op=manage'));

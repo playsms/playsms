@@ -75,7 +75,7 @@ msgstr "Preencha todos os campos"
 
 #, php-format
 msgid ""
-"Your subuser with username %s and account ID %d have reached lowest credit "
+"Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
 "O sub-utilizador com Nome de Utilizador %s com numero de conta %d é inferior "

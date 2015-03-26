@@ -11,32 +11,27 @@ msgstr "Vérifiez l'expéditeur de l'email"
 msgid "Email protocol"
 msgstr "Protocole email"
 
-#, fuzzy
 msgid "Email to SMS PIN has been saved"
-msgstr "La configuration email vers SMS a été enregistrée et activée"
+msgstr "Le PIN d'email vers SMS a été enregistré"
 
-#, fuzzy
 msgid "Email to SMS PIN has been saved but service is disabled"
-msgstr "La configuration email vers SMS a été enregistrée mais désactivée"
+msgstr "Le PIN d'email vers SMS a été enregistré mais le service est désactivé"
 
-#, fuzzy
 msgid "Email to SMS address"
-msgstr "Activer email vers SMS"
+msgstr "Adresse d'email vers SMS"
 
-#, fuzzy
 msgid "Email to SMS configuration has been saved and service disabled"
-msgstr "La configuration email vers SMS a été enregistrée et activée"
+msgstr ""
+"La configuration email vers SMS a été enregistrée et le service désactivé"
 
-#, fuzzy
 msgid "Email to SMS configuration has been saved and service enabled"
-msgstr "La configuration email vers SMS a été enregistrée et activée"
+msgstr "La configuration email vers SMS a été enregistrée et le service activé"
 
 msgid "Enable fetch new emails"
-msgstr ""
+msgstr "Activer le rapatriement des nouveaux emails"
 
-#, fuzzy
 msgid "Fail to save email to SMS PIN"
-msgstr "Échec de l'enregistrement de la configuration email vers SMS"
+msgstr "Échec de l'enregistrement du PIN d'email vers SMS"
 
 msgid "Fill the password field to change password"
 msgstr "Veuillez saisir le champ du mot de passe pour le changer"
@@ -56,16 +51,14 @@ msgstr "Nom d'utilisateur de la boîte aux lettres"
 msgid "Manage email to SMS"
 msgstr "Gérer email vers SMS"
 
-#, fuzzy
 msgid "My email to SMS"
-msgstr "Gérer email vers SMS"
+msgstr "Mon email vers SMS"
 
 msgid "No validate cert option"
 msgstr "Option ne pas valider le cert"
 
-#, fuzzy
 msgid "PIN for email to SMS"
-msgstr "Gérer email vers SMS"
+msgstr "PIN pour email vers SMS"
 
 msgid "PIN is empty"
 msgstr "Le PIN est vide"

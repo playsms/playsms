@@ -73,7 +73,7 @@ function phonebook_getmembercountbyid($gpid) {
  *
  * @param integer $gpid
  *        Group ID
- * @param string $orderby        
+ * @param string $orderby
  * @return array array(pid, p_desc, p_num, email)
  */
 function phonebook_getdatabyid($gpid, $orderby = "") {
@@ -86,7 +86,7 @@ function phonebook_getdatabyid($gpid, $orderby = "") {
  *
  * @param integer $uid
  *        User ID
- * @param string $orderby        
+ * @param string $orderby
  * @return array array(pid, p_desc, p_num, email)
  */
 function phonebook_getdatabyuid($uid, $orderby = "") {
@@ -111,7 +111,7 @@ function phonebook_getgroupbyid($gpid) {
  *
  * @param integer $uid
  *        User ID
- * @param string $orderby        
+ * @param string $orderby
  * @return array array(gpid, group_name, code, flag_sender)
  */
 function phonebook_getgroupbyuid($uid, $orderby = "") {

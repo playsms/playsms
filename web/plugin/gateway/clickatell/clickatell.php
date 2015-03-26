@@ -10,8 +10,8 @@ $callback_url = "http://" . $callback_url;
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage clickatell') . "</h2>
@@ -63,7 +63,7 @@ switch (_OP_) {
 		$up_send_url = $_POST['up_send_url'];
 		$up_incoming_path = $_POST['up_incoming_path'];
 		$up_additional_param = ($_POST['up_additional_param'] ? $_POST['up_additional_param'] : "deliv_ack=1&callback=3");
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_api_id && $up_username && $up_send_url) {
 			if ($up_password) {
 				$password_change = "cfg_password='$up_password',";
@@ -80,7 +80,7 @@ switch (_OP_) {
 				cfg_additional_param='$up_additional_param',
 				cfg_incoming_path='$up_incoming_path'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: index.php?app=main&inc=gateway_clickatell&op=manage");

@@ -24,7 +24,7 @@ defined('_SECURE_') or die('Forbidden');
  * @param $keyword checkavailablekeyword()
  *        will insert keyword for checking to the hook here
  * @return TRUE if keyword is available
- *        
+ *
  */
 function sms_subscribe_hook_checkavailablekeyword($keyword) {
 	$ok = true;

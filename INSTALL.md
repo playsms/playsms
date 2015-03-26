@@ -82,19 +82,19 @@ Install playSMS using install script `install-playsms.sh`
     ```
 
 4.  Configure rc.local to get playsmsd started on boot
-   
+
     Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
-      
+
     When you found it edit that rc.local and put:
 
     `/usr/local/bin/playsmsd start`
 
     on the bottom of the file (before exit if theres an exit command).
-    
+
     This way playsmsd will start automatically on boot.
 
 Note:
-   
+
 * After successful installation, please run command `ps ax` and see if playsmsd is running
 
   ```
@@ -141,6 +141,11 @@ Install playSMS by following step-by-step:
     ./getcomposer.sh
     ```
 
+    You may see the following warning, that can safely be ignored:
+    ```
+    Warning: Ambiguous class resolution, "PEAR_ErrorStack" was found in both "/usr/local/src/playsms-1.0.0/web/lib/composer/vendor/pear/pear/PEAR/ErrorStack.php" and "/usr/local/src/playsms-1.0.0/web/lib/composer/vendor/pear/pear/PEAR/ErrorStack5.php", the first will be used.
+    ```
+
 3.  Create playSMS web root, log, lib and set ownership to user www-data or web server user
 
     Assumed that your web root is `/var/www` and your web server user is `www-data`
@@ -149,15 +154,15 @@ Install playSMS by following step-by-step:
     mkdir -p /var/www/playsms /var/log/playsms /var/lib/playsms
     chown -R www-data /var/www/playsms /var/log/playsms /var/lib/playsms
     ```
-   
+
     Please note that there are Linux distributions using `apache` as web server user instead of `www-data`
-    
+
     Also note that there are Linux distributions set `/var/www/html` as web root instead of `/var/www`
 
 4.  Copy files and directories inside `web` directory to playSMS web root and set ownership to web server user
 
     ```
-    cp -rR web/* /var/www/playsms
+    cp -R web/* /var/www/playsms
     chown -R www-data /var/www/playsms
     ```
 
@@ -201,19 +206,19 @@ Install playSMS by following step-by-step:
     ```
 
 10. Configure rc.local to get playsmsd started on boot
-   
+
     Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
-      
+
     When you found it edit that rc.local and put:
 
     `/usr/local/bin/playsmsd start`
 
     on the bottom of the file (before exit if theres an exit command).
-    
+
     This way playsmsd will start automatically on boot.
 
 Note:
-   
+
 * After successful installation, please run command `ps ax` and see if playsmsd is running
 
   ```

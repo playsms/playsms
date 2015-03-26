@@ -87,7 +87,7 @@ switch (_OP_) {
 			$zipcode = $c_user[0]['zipcode'];
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 		} else {
-			$_SESSION['error_string'] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
+			$_SESSION['dialog']['info'][] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 			exit();
 		}
@@ -147,8 +147,8 @@ switch (_OP_) {
 		}
 		
 		// error string
-		if ($err = $_SESSION['error_string']) {
-			$error_content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$error_content = _dialog();
 		}
 		
 		$tpl = array(
@@ -173,7 +173,7 @@ switch (_OP_) {
 				'HINT_STATUS' => _hint(_('Cannot change status when user have subusers')),
 				'HINT_PARENT' => _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
 				'STATUS' => _('User'),
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'FORM_TITLE' => $form_title,
 				'BUTTON_DELETE' => $button_delete,
 				'BUTTON_BACK' => $button_back,
@@ -202,7 +202,7 @@ switch (_OP_) {
 		break;
 	case "user_pref_save":
 		$continue = TRUE;
-		$_SESSION['error_string'] = _('No changes made');
+		$_SESSION['dialog']['info'][] = _('No changes made');
 		$fields = array(
 			'name',
 			'email',
@@ -247,9 +247,9 @@ switch (_OP_) {
 			$uid = user_username2uid($c_username);
 			$ret = user_edit($uid, $up);
 		}
-		$_SESSION['error_string'] = $ret['error_string'];
+		$_SESSION['dialog']['info'][] = $ret['error_string'];
 		
-		_log('saving username:' . $c_username . ' error_string:' . $_SESSION['error_string'], 2, 'user_pref');
+		_log('saving username:' . $c_username . ' error_string:[' . $ret['error_string'] . ']', 2, 'user_pref');
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref' . $url_uname . '&view=' . $view));
 		exit();
 		break;
