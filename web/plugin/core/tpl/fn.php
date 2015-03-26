@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Actual template apply
- * 
+ *
  * @param string $fn
  *        	Template filename
  * @param array $tpl
@@ -47,7 +47,7 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
 
 /**
  * Sanitize template name
- * 
+ *
  * @param string $name
  *        	Template name
  * @return string Sanitized template name

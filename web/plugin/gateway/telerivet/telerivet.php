@@ -54,7 +54,7 @@ switch (_OP_) {
                  $api_key_change = "cfg_api_key='$up_api_key',";
             }
             $db_query = "
-                UPDATE "._DB_PREF_."_gatewayTelerivet_config 
+                UPDATE "._DB_PREF_."_gatewayTelerivet_config
                 SET c_timestamp='".mktime()."',
                 cfg_url='$up_url',
                 ".$api_key_change."

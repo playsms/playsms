@@ -190,7 +190,7 @@ switch (_OP_) {
 		</tr>
 		<tr>
 			<td>" . _('SMS footer') . "</td><td><input type='text' maxlength='30' name='add_footer' value=\"$add_footer\"> " . _hint(_('Max. 30 alphanumeric characters')) . "</td>
-		</tr>	    	    	    
+		</tr>
 		<tr>
 			<td>" . _('Timezone') . "</td><td><input type='text' size='5' maxlength='5' name='add_datetime_timezone' value=\"$add_datetime_timezone\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
 		</tr>
