@@ -108,9 +108,8 @@ msgstr "Gerir gateway e SMSC"
 msgid "Manage sender ID"
 msgstr "Gerir identificação de envio"
 
-#, fuzzy
 msgid "Manage site"
-msgstr "Gerir Utilizadores"
+msgstr "Gerir Site"
 
 msgid "Manage sub-account"
 msgstr "Gerir subconta"
@@ -134,10 +133,10 @@ msgid "My account"
 msgstr "Minha conta"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Please run composer.phar update"
 msgstr "Por favor execute a atualização do composer.phar"
