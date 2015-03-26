@@ -251,6 +251,13 @@ table.sortable thead, table.sortable th {
 	width: 400px;
 }
 
+.playsms-dialog-text {
+	font-size: 14px;
+	font-weight: normal;
+	text-align: left;
+	color: #34495e;
+}
+
 /* IDs */
 
 /* Wrapper for page content to push down footer */
