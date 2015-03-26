@@ -12,11 +12,11 @@ Frequently Asked Questions for playSMS version **1.0-rc7**.
 
    Answer:
 
-   GPLv3 is one of the open source distribution license, choosing this will force 
+   GPLv3 is one of the open source distribution license, choosing this will force
    anyone that distributing this software to contribute back when they modify it.
 
-   I believe playSMS users, open source community in general, will gain benefit 
-   from applying this distrubution license.
+   I believe playSMS users, open source community in general, will gain benefit
+   from applying this distribution license.
 
 
 ## Login
@@ -35,7 +35,7 @@ Frequently Asked Questions for playSMS version **1.0-rc7**.
 
     Answer:
 
-    Change your default password, add new users, setup main configuration, 
+    Change your default password, add new users, setup main configuration,
     create group and add mobile phone number.
 
 3.  What should I do for the first time as User?
@@ -109,7 +109,7 @@ Frequently Asked Questions for playSMS version **1.0-rc7**.
     2. Module sender ID on active gateway configuration (in case it exists)
     3. SMS sender ID on User preferences
 
-    Sender ID is managed from Manage sender ID menu and is required to be 
+    Sender ID is managed from Manage sender ID menu and is required to be
     approved by administrator.
 
 
@@ -212,7 +212,7 @@ Frequently Asked Questions for playSMS version **1.0-rc7**.
 
     Answer:
     For example you've added SMS board with keyword INFO. The web page
-    for keyword INFO (referred as SMS board INFO) would be accessable
+    for keyword INFO (referred as SMS board INFO) would be accessible
     through this url:
 
     `http://playsms/index.php?app=webservices&ta=sms_board&keyword=INFO`
@@ -221,8 +221,8 @@ Frequently Asked Questions for playSMS version **1.0-rc7**.
 
     * line : show x line number of rows
     * bodybgcolor : set body background color
-    * oddbgcolor : set odd row backround color
-    * evenbgcolor	: set even row backround color
+    * oddbgcolor : set odd row background color
+    * evenbgcolor	: set even row background color
 
     Example:
 
@@ -382,7 +382,7 @@ Frequently Asked Questions for playSMS version **1.0-rc7**.
 
     For example polling with keyword PRES
 
-    Webpage for poll named PRES would be accessable trough this url:
+    Webpage for poll named PRES would be accessible trough this url:
 
     ```
     http://your_playsms/index.php?app=webservices&ta=sms_poll&keyword=PRES
