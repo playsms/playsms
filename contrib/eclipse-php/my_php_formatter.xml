@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <profiles>
-<profile name="PHP_eclipse_my_style">
+<profile name="my_php_formatter">
 <setting id="indentationChar" value="&#9;"/>
 <setting id="insert_space_after_opening_paren_in_declare" value="false"/>
 <setting id="insert_space_before_closing_paren_in_declare" value="false"/>
