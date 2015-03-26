@@ -98,8 +98,8 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _sendsms($in_sender, $msg, 'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming', $icon_config['reply']);
-				$forward = _sendsms('', $msg, 'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming', $icon_config['forward']);
+				$reply = _sendsms($in_sender, $msg);
+				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
 			$c_message = "<div id=\"all_incoming_msg\">" . $in_message . "</div><div id=\"msg_label\">" . $in_datetime . "&nbsp;" . $in_status . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
 			$i--;

@@ -71,8 +71,8 @@ switch (_OP_) {
 			$reply = '';
 			$forward = '';
 			if ($msg && $in_sender) {
-				$reply = _sendsms($in_sender, $msg, 'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox', $icon_config['reply']);
-				$forward = _sendsms('', $msg, 'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox', $icon_config['forward']);
+				$reply = _sendsms($in_sender, $msg);
+				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
 			$i--;
 			$tpl['loops']['data'][] = array(
