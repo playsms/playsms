@@ -1,77 +1,76 @@
-msgid "Active themes"
+msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-msgid "Buy credit"
-msgstr ""
+msgid "Active themes"
+msgstr "Thèmes activés"
 
 msgid "Buy credit page"
-msgstr ""
+msgstr "Page d'achat de crédit"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domaine"
 
 msgid "Email footer"
-msgstr ""
+msgstr "Pied de page des emails"
 
 msgid "Email service"
-msgstr ""
+msgstr "Service email"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Activer Mot de passe oublié"
 
 msgid "Enable public registration"
-msgstr ""
-
-msgid "Go to manage site menu to edit this page"
-msgstr ""
+msgstr "Activer l'enregistrement public"
 
 msgid "Information page"
-msgstr ""
+msgstr "Page d'information"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Disposition du pied de page"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "URL du logo"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "URL du site web principal"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Nom du site web principal"
 
 msgid "Manage site"
-msgstr ""
+msgstr "Gérer site"
 
 msgid "Page content"
-msgstr ""
+msgstr "Contenu de la page"
 
 msgid "Page title"
-msgstr ""
+msgstr "Titre de la page"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Site configuration"
-msgstr ""
+msgstr "Configuration du site"
 
 msgid "Site configuration has been saved"
-msgstr ""
+msgstr "La configuration du site a été enregistrée"
 
 msgid "The domain is already configured by other user"
-msgstr ""
+msgstr "Ce domaine est déjà configuré par un autre utilisateur"
 
 msgid "Website title"
-msgstr ""
+msgstr "Titre du site web"
 
 msgid "domain"
-msgstr ""
+msgstr "domaine"
 
 msgid "no"
-msgstr ""
+msgstr "non"
 
 msgid "yes"
-msgstr ""
+msgstr "oui"

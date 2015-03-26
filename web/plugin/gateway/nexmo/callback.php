@@ -45,7 +45,7 @@ $client_ref = $requests['client-ref'];
 $status = $requests['status'];
 if ($remote_smslog_id && $client_ref && $status) {
 	$db_query = "
-		SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayNexmo 
+		SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayNexmo
 		WHERE local_smslog_id='$client_ref' AND remote_smslog_id='$remote_smslog_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);

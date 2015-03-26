@@ -7,22 +7,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "1 Day"
-msgstr ""
+msgstr "1 jour"
 
 msgid "1 Month"
-msgstr ""
+msgstr "1 mois"
 
 msgid "1 Week"
-msgstr ""
+msgstr "1 semaine"
 
 msgid "2 Days"
-msgstr ""
+msgstr "2 jours"
 
 msgid "2 Weeks"
-msgstr ""
+msgstr "2 semaines"
 
 msgid "6 Months"
-msgstr ""
+msgstr "6 mois"
 
 msgid "Action"
 msgstr "Action"
@@ -155,7 +155,7 @@ msgid "SMS unsubscribe reply"
 msgstr "Réponse de désabonnement SMS"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Enregistrer"
@@ -172,19 +172,17 @@ msgstr "Envoyé"
 msgid "Status"
 msgstr "Statut"
 
-#, fuzzy
 msgid "Subscribe duration"
-msgstr "Paramètre d'abonnement SMS"
+msgstr "Durée d'abonnement"
 
-#, fuzzy
 msgid "Subscription expired reply"
-msgstr "Réponse d'abonnement SMS"
+msgstr "Réponse d'abonnement expiré"
 
 msgid "Unknown format reply"
 msgstr "Réponse avec un format inconnu"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Illimité"
 
 msgid "User"
 msgstr "Utilisateur"

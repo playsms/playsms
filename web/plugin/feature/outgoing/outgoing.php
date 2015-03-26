@@ -28,7 +28,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'outgoing_list',
 			'vars' => array(
-				'ERROR' => $error_content,
+				'DIALOG_DISPLAY' => $error_content,
 				'Route outgoing SMS' => _('Route outgoing SMS'),
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
 				'User' => _('User'),
@@ -65,10 +65,10 @@ switch (_OP_) {
 		$rid = $_REQUEST['rid'];
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
-		$_SESSION['error_string'] = _('Fail to delete route') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
+		$_SESSION['dialog']['info'][] = _('Fail to delete route') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$rid'";
 		if (@dba_affected_rows($db_query)) {
-			$_SESSION['error_string'] = _('Route has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
+			$_SESSION['dialog']['info'][] = _('Route has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_list'));
 		exit();
@@ -80,8 +80,8 @@ switch (_OP_) {
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
 		$smsc = outgoing_getsmsc($rid);
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$select_smsc = "<select name=up_smsc>";
 		unset($smsc_list);
@@ -134,23 +134,23 @@ switch (_OP_) {
 		$up_prefix = core_sanitize_numeric($up_prefix);
 		$up_prefix = (string) substr($up_prefix, 0, 8);
 		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
-		$_SESSION['error_string'] = _('No changes made!');
+		$_SESSION['dialog']['info'][] = _('No changes made!');
 		if ($rid && $up_dst) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			} else {
-				$_SESSION['error_string'] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['info'][] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all mandatory fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all mandatory fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $rid));
 		exit();
 		break;
 	case "outgoing_add" :
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$select_users = themes_select_users_single('add_uid');
 		$select_smsc = "<select name=add_smsc>";
@@ -206,10 +206,10 @@ switch (_OP_) {
 					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (uid,dst,prefix,smsc)
 					VALUES ('$add_uid','$add_dst','$add_prefix','$add_smsc')";
 			if ($new_uid = @dba_insert_id($db_query)) {
-				$_SESSION['error_string'] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
+				$_SESSION['dialog']['info'][] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_add'));
 		exit();

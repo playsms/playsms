@@ -13,14 +13,13 @@ tinymce.init({
 	toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | print preview fullpage code",
 });
 </script>
-{{ $error_content }}
+{{ DIALOG_DISPLAY }}
 <h2>{{ Manage site }}</h2>
 <form id=fm_core_site name=id_core_site action="{{ ACTION_URL }}" method=POST>
 	{{ CSRF_FORM }}
 	<ul class='nav nav-tabs nav-justified'>
 		<li class=active><a href='#tabs-site-configuration' data-toggle=tab>{{ Site configuration }}</a></li>
 		<li><a href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
-		<li><a href='#tabs-buy-credit-page' data-toggle=tab>{{ Buy credit page }}</a></li>
 	</ul>
 	<div class=tab-content>
 		<div id='tabs-site-configuration' class='tab-pane fade in active'>
@@ -85,21 +84,6 @@ tinymce.init({
 					<tr>
 						<td>{{ Page content }}</td>
 						<td><textarea name=up[information_content] class=playsms-htmleditor rows=20>{{ $site_config['information_content'] }}</textarea></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div id='tabs-buy-credit-page' class='tab-pane fade'>
-			<h4>{{ Buy credit page }}</h4>
-			<table class=playsms-table>
-				<tbody>
-					<tr>
-						<td class=label-sizer>{{ Page title }}</td>
-						<td><input type="text" size=30 maxlength=255 name=up[buy_credit_page_title] value="{{ $site_config['buy_credit_page_title'] }}"></td>
-					</tr>
-					<tr>
-						<td>{{ Page content }}</td>
-						<td><textarea name=up[buy_credit_page_content] class=playsms-htmleditor rows=20>{{ $site_config['buy_credit_page_content'] }}</textarea></td>
 					</tr>
 				</tbody>
 			</table>

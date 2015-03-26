@@ -6,8 +6,8 @@ include $core_config['apps_path']['plug']."/gateway/gnokii/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>"._('Manage gnokii')."</h2>
@@ -30,13 +30,13 @@ switch (_OP_) {
 		break;
 	case "manage_save":
 		$up_path = $_POST['up_path'];
-		$_SESSION['error_string'] = _('No changes have been made');
+		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_path) {
 			$db_query = "
 				UPDATE "._DB_PREF_."_gatewayGnokii_config
 				SET c_timestamp='".mktime()."',cfg_path='$up_path'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('Gateway module configurations has been saved');
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			}
 		}
 		header("Location: "._u('index.php?app=main&inc=gateway_gnokii&op=manage'));

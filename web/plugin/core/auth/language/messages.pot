@@ -4,6 +4,9 @@ msgstr ""
 msgid "Fail to recover password"
 msgstr ""
 
+msgid "Fail to save temporary password"
+msgstr ""
+
 msgid "Fail to send email"
 msgstr ""
 

@@ -1,8 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
@@ -13,28 +8,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, fuzzy
 msgid "Changes have been made"
-msgstr "Aucun changement apporté"
+msgstr "Modifications effectuées"
 
-#, fuzzy
 msgid "Fill to change the password"
-msgstr "Veuillez saisir pour changer le secret de l'API"
+msgstr "Veuillez saisir pour changer le mot de passe"
 
-#, fuzzy
 msgid "Gateway host"
-msgstr "Nom de la passerelle"
+msgstr "Hôte de la passerelle"
 
 msgid "Gateway name"
 msgstr "Nom de la passerelle"
 
-#, fuzzy
 msgid "Gateway port"
-msgstr "Nom de la passerelle"
+msgstr "Port de la passerelle"
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "Gérer nexmo"
+msgstr "Gérer OpenVox"
 
 msgid "Module sender ID"
 msgstr "Sender ID du module"
@@ -46,17 +36,16 @@ msgid "Notes"
 msgstr "Remarques"
 
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 msgid "Save"
 msgstr "Enregistrer"
 
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 msgid "Your callback URL is"
 msgstr "Votre URL de callback est"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr "Votre URL de callback doit être accessible par Nexmo"
+msgstr "Votre URL de callback doit être accessible par OpenVox"

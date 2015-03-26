@@ -1,77 +1,84 @@
-msgid "Active themes"
+msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da_DK\n"
+"X-Generator: Poedit 1.7.4\n"
 
-msgid "Buy credit"
-msgstr ""
+msgid "Active themes"
+msgstr "Aktive temaer"
 
 msgid "Buy credit page"
-msgstr ""
+msgstr "Køb kredit siden"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domæne"
 
 msgid "Email footer"
-msgstr ""
+msgstr "E-mail footer"
 
 msgid "Email service"
-msgstr ""
+msgstr "E-mail service"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Aktiver glemt adgangskode"
 
 msgid "Enable public registration"
-msgstr ""
-
-msgid "Go to manage site menu to edit this page"
-msgstr ""
+msgstr "Aktiver offentlig registrering"
 
 msgid "Information page"
-msgstr ""
+msgstr "Informationsside"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Layout footer"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "Logo URL"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "Primær webside URL"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Primær webside navn"
 
 msgid "Manage site"
-msgstr ""
+msgstr "Håndter websted"
 
 msgid "Page content"
-msgstr ""
+msgstr "Sideindhold"
 
 msgid "Page title"
-msgstr ""
+msgstr "Sidetitel"
 
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgid "Site configuration"
-msgstr ""
+msgstr "Websted konfiguration"
 
 msgid "Site configuration has been saved"
-msgstr ""
+msgstr "Websted konfiguration er blevet gemt"
 
 msgid "The domain is already configured by other user"
-msgstr ""
+msgstr "Domænet er allerede konfigureret af en anden bruger"
 
 msgid "Website title"
-msgstr ""
+msgstr "Websted titel"
 
 msgid "domain"
-msgstr ""
+msgstr "domæne"
 
 msgid "no"
-msgstr ""
+msgstr "nej"
 
 msgid "yes"
-msgstr ""
+msgstr "ja"

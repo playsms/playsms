@@ -6,7 +6,7 @@
  *
  * @param $keyword
  *   checkavailablekeyword() will insert keyword for checking to the hook here
- * @return 
+ * @return
  *   TRUE if keyword is available
  */
 function inboxgroup_hook_checkavailablekeyword($keyword) {
@@ -258,7 +258,7 @@ function inboxgroup_dataedit($rid, $keywords, $description, $exclusive) {
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$orig_keywords = explode(',', $db_row['keywords']);
-	$exclusive = $exclusive ? 1 : 0 ; 
+	$exclusive = $exclusive ? 1 : 0 ;
 	$keywords = str_replace(' ', '', $keywords);
 	$keywords = trim(strtoupper($keywords));
 	$keywords = explode(',', $keywords);

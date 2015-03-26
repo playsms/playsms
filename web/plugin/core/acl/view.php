@@ -47,10 +47,8 @@ switch (_OP_) {
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
+
+		$content .= _dialog() . "
 			<h2>" . _('Manage ACL') . "</h2>
 			<h3>" . _('View report') . "</h3>
 

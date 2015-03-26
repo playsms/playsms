@@ -21,9 +21,6 @@ msgstr "Endereço IP bloqueado"
 msgid "Delete"
 msgstr "Apagar"
 
-msgid "IP addreses has been deleted"
-msgstr "Endereço de IP foi apagado"
-
 msgid "IP address"
 msgstr "Endereço IP"
 
@@ -33,10 +30,13 @@ msgstr "Endereços IP"
 msgid "IP addresses have been blocked"
 msgstr "Endereço IP foi bloqueado"
 
+msgid "IP addresses have been deleted"
+msgstr "Endereço de IP foi apagado"
+
 msgid "Manage firewall"
 msgstr "Gerir Firewall"
 
-msgid "Multiple IP addresses must be comma seperated"
+msgid "Multiple IP addresses must be comma-separated"
 msgstr "Multi endereços IP devem ser separados por vírgula"
 
 msgid "Save"

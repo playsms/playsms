@@ -74,7 +74,7 @@ msgstr "Heu d'omplir tots els camps"
 
 #, php-format
 msgid ""
-"Your subuser with username %s and account ID %d have reached lowest credit "
+"Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
 

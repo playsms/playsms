@@ -1,8 +1,8 @@
 # README
 
-playSMS version **1.0-master**
+playSMS version **1.0-rc7**
 
-Release date **150309**
+Release date **150323**
 
 Official project website:
 
@@ -59,6 +59,7 @@ communication tools
 * Multi-language user interface (English, French, Bahasa Indonesia, Russian and a few others)
 * Easily add new language for user interface
 * Web-based interface
+* Multi-domain from single playSMS installation with site branding for reseller supports
 
 
 ## License

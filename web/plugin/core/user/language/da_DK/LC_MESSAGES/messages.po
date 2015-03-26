@@ -29,6 +29,9 @@ msgstr ""
 "Kontoadmin eller aktuelt indlogget administrator kan ikke få fjernet "
 "bandlysning"
 
+msgid "Account already exists"
+msgstr "Kontoen eksisterer allerede"
+
 msgid "Account has been added and password has been emailed"
 msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
 
@@ -44,9 +47,6 @@ msgstr "Konto er blevet fjernet"
 msgid "Account has been unbanned"
 msgstr "Konto er ikke længere bandlyst"
 
-msgid "Account is already exists"
-msgstr "Kontoen eksisterer allerede"
-
 msgid "Account name is mandatory"
 msgstr "Kontonavn er krævet"
 
@@ -56,10 +56,10 @@ msgstr "Konto registrering er ikke tilgængeligt"
 msgid "Account status"
 msgstr "Kontostatus"
 
-msgid "Account with this email is already exists"
+msgid "Account with this email already exists"
 msgstr "Konto med denne e-mail eksisterer allerede"
 
-msgid "Account with this mobile is already exists"
+msgid "Account with this mobile already exists"
 msgstr "Konto med dette mobilnr eksisterer allerede"
 
 msgid "Action"
@@ -267,13 +267,13 @@ msgstr "Vælg venligsr"
 msgid "Preferences"
 msgstr "Indstillinger"
 
-msgid "Preferences has been saved"
+msgid "Preferences have been saved"
 msgstr "Indstillingerne er blevet gemt"
 
-msgid "Preferences has been saved and password updated"
+msgid "Preferences have been saved and password updated"
 msgstr "Indstillingerne er blevet gemt og adgangskoden er opdateret"
 
-msgid "Preferences has been saved and webservices token updated"
+msgid "Preferences have been saved and webservices token updated"
 msgstr "Indstillingerne er blevet gemt og webservice token er opdateret"
 
 msgid "Prefix or country code"

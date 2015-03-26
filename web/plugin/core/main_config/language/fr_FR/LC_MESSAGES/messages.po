@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr ""
+msgstr "L'ACL DÉFAUT ne restreindra pas l'accès aux menus"
 
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
@@ -12,7 +12,7 @@ msgid ""
 "service."
 msgstr ""
 "L'accès à un domaine inconnu associé à l'adresse IP de ce serveur va être "
-"redirigé vers l'URL de ce serveur. L'URL de ce serveur doit être l'adresse "
+"redirigé vers l'URL de ce site web. L'URL de ce site web doit être l'adresse "
 "primaire pour le service."
 
 msgid "Active themes"
@@ -44,24 +44,20 @@ msgstr ""
 msgid "Buy credit page"
 msgstr "Page Ajouter du crédit"
 
-#, fuzzy
 msgid "Default ACL upon registration"
-msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+msgstr "ACL par défaut lors de l'inscription"
 
 msgid "Default SMS rate"
 msgstr "Tarif SMS par défaut"
 
-#, fuzzy
 msgid "Default SMSC"
-msgstr "Tarif SMS par défaut"
+msgstr "SMSC par défaut"
 
-#, fuzzy
 msgid "Default account status upon registration"
-msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+msgstr "Statut du compte par défaut lors de l'inscription"
 
-#, fuzzy
 msgid "Default credit upon registration"
-msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+msgstr "Crédit par défaut lors de l'inscription"
 
 msgid "Default language"
 msgstr "Langue par défaut"
@@ -70,17 +66,20 @@ msgid ""
 "Default parent selected upon registration when the default account status on "
 "registration setting set to Subuser"
 msgstr ""
+"Parent sélectionné par défaut lors de l'inscription lorsque le statut du "
+"compte par défaut lors de l'inscription est réglé sur Sous-utilisateur"
 
-#, fuzzy
 msgid "Default parent upon registration"
-msgstr "Statut par défaut de l'utilisateur lors de l'inscription"
+msgstr "Parent sélectionné par défaut lors de l'inscription"
 
 msgid "Default prefix or country code"
-msgstr ""
+msgstr "Préfixe ou code de pays par défaut"
 
 msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
+"Préfixe ou code de pays par défaut pour remplacer le préfixe 0 dans le "
+"numéro de destination"
 
 msgid "Default sender ID"
 msgstr "Sender ID par défaut"
@@ -98,6 +97,8 @@ msgid ""
 "Define a single character as keyword separator replacing default keyword "
 "separator a space"
 msgstr ""
+"Définir un seul caractère comme séparateur de mot-clé, remplaçant le "
+"séparateur de mot-clé par défaut (espace)"
 
 msgid "Disable login as subuser"
 msgstr "Désactiver la connexion en tant que sous-utilisateur"
@@ -111,13 +112,13 @@ msgstr ""
 "propre sender ID"
 
 msgid "Enable credit unicode SMS as normal SMS"
-msgstr ""
+msgstr "Activer le crédit d'un SMS unicode comme un SMS normal"
 
 msgid "Enable forgot password"
 msgstr "Activer la récupération du mot de passe"
 
 msgid "Enable login brute force detection"
-msgstr ""
+msgstr "Activer la détection de connexion par force brute"
 
 msgid "Enable logo"
 msgstr "Activer le logo"
@@ -129,7 +130,7 @@ msgid "Enhance privacy for subusers"
 msgstr "Améliorer la confidentialité pour les sous-utilisateurs"
 
 msgid "Fill with zero to disable limit"
-msgstr ""
+msgstr "Saisissez zéro pour désactiver la limite"
 
 msgid "Forwarded email footer"
 msgstr "Pied de page des emails transférés"
@@ -145,7 +146,7 @@ msgid "Information page"
 msgstr "Page d'information"
 
 msgid "Keyword separator"
-msgstr ""
+msgstr "Séparateur de mot-clé"
 
 msgid "Layout footer"
 msgstr "Disposition du pied de page"
@@ -160,7 +161,7 @@ msgstr ""
 "d'oubli du mot de passe"
 
 msgid "Lowest credit limit to trigger notification"
-msgstr ""
+msgstr "Limite de crédit inférieure déclenchant une notification"
 
 msgid "Main configuration"
 msgstr "Configuration principale"
@@ -179,13 +180,15 @@ msgid "Maximum SMS count"
 msgstr "Nombre maximum de SMS"
 
 msgid "Maximum username length"
-msgstr ""
+msgstr "Longueur maximale du nom d'utilisateur"
 
 msgid "Maximum username length must be a number between 4 to 100"
 msgstr ""
+"La longueur maximale du nom d'utilisateur doit être un nombre compris entre "
+"4 et 100"
 
 msgid "Number of sent SMS per hour limit"
-msgstr ""
+msgstr "Limite du nombre de SMS envoyés par heure"
 
 msgid "Page content"
 msgstr "Contenu de la page"
@@ -203,6 +206,8 @@ msgid ""
 "Set credit value bigger than 0 to set credit lowest limit that will trigger "
 "notification"
 msgstr ""
+"Réglez une valeur de crédit supérieure à 0 pour définir une limite de crédit "
+"inférieure déclenchant une notification"
 
 msgid "Subuser"
 msgstr "Sous-utilisateur"

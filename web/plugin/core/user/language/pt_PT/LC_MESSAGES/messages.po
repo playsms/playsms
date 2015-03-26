@@ -28,6 +28,9 @@ msgstr ""
 msgid "Account admin or currently logged in administrator cannot be unbanned"
 msgstr "Conta admin ou administrador conectado no momento não pode ser banido"
 
+msgid "Account already exists"
+msgstr "A conta já existe"
+
 msgid "Account has been added and password has been emailed"
 msgstr "A conta foi adicionada e palavra-passe enviada para o email"
 
@@ -43,9 +46,6 @@ msgstr "A conta foi removida"
 msgid "Account has been unbanned"
 msgstr "Foi removido o banir da conta"
 
-msgid "Account is already exists"
-msgstr "A conta já existe"
-
 msgid "Account name is mandatory"
 msgstr "Nome da conta é obrigatória"
 
@@ -55,10 +55,10 @@ msgstr "O registo da conta não está disponível"
 msgid "Account status"
 msgstr "Estado da Conta"
 
-msgid "Account with this email is already exists"
+msgid "Account with this email already exists"
 msgstr "A conta com este email já existe"
 
-msgid "Account with this mobile is already exists"
+msgid "Account with this mobile already exists"
 msgstr "A conta com este numero de telemóvel já existe"
 
 msgid "Action"
@@ -269,13 +269,13 @@ msgstr "Por favor selecione"
 msgid "Preferences"
 msgstr "Preferências"
 
-msgid "Preferences has been saved"
+msgid "Preferences have been saved"
 msgstr "Preferências foram guardadas"
 
-msgid "Preferences has been saved and password updated"
+msgid "Preferences have been saved and password updated"
 msgstr "Preferências foram guardadas e palavra-passe atualizada"
 
-msgid "Preferences has been saved and webservices token updated"
+msgid "Preferences have been saved and webservices token updated"
 msgstr "Preferências foram salvas e webservices token foram atualizados"
 
 msgid "Prefix or country code"

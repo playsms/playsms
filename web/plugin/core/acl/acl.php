@@ -24,7 +24,7 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "acl_list":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Manage ACL') . "</h2>
 			<p>" . _button('index.php?app=main&inc=core_acl&op=add', _('Add ACL')) . "
 			<div class=table-responsive>
@@ -61,7 +61,7 @@ switch (_OP_) {
 		break;
 	
 	case "add":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Manage ACL') . "</h2>
 			<h3>" . _('Add ACL') . "</h3>
 			<form action=index.php?app=main&inc=core_acl&op=add_yes method=post>
@@ -96,12 +96,12 @@ switch (_OP_) {
 				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,acl_subuser,url,flag_deleted)
 				VALUES ('" . mktime() . "','" . $name . "','" . $acl_subuser . "','" . $url . "','0')";
 			if ($new_id = @dba_insert_id($db_query)) {
-				$_SESSION['error_string'] = _('New ACL been added');
+				$_SESSION['dialog']['info'][] = _('New ACL been added');
 			} else {
-				$_SESSION['error_string'] = _('Fail to add new ACL');
+				$_SESSION['dialog']['info'][] = _('Fail to add new ACL');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+			$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_acl&op=add'));
 		exit();
@@ -112,7 +112,7 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted='0' AND id='" . $id . "'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Manage ACL') . "</h2>
 			<h3>" . _('Edit ACL') . "</h3>
 			<form action=index.php?app=main&inc=core_acl&op=edit_yes method=post>
@@ -152,12 +152,12 @@ switch (_OP_) {
 				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "'
 				WHERE id='" . $id . "'";
 			if ($new_id = @dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('ACL been edited');
+				$_SESSION['dialog']['info'][] = _('ACL been edited');
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit ACL');
+				$_SESSION['dialog']['info'][] = _('Fail to edit ACL');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+			$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_acl&op=edit&id=' . $id));
 		exit();
@@ -170,9 +170,9 @@ switch (_OP_) {
 		), 'AND')) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "', flag_deleted='1' WHERE id='$id'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('ACL has been deleted');
+				$_SESSION['dialog']['info'][] = _('ACL has been deleted');
 			} else {
-				$_SESSION['error_string'] = _('Fail to delete ACL');
+				$_SESSION['dialog']['info'][] = _('Fail to delete ACL');
 			}
 		} else {
 			auth_block();

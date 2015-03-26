@@ -42,10 +42,10 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 
 if ($cb_status && $cb_apimsgid) {
 	$db_query = "
-	SELECT " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id AS smslog_id," . _DB_PREF_ . "_tblSMSOutgoing.uid AS uid 
+	SELECT " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id AS smslog_id," . _DB_PREF_ . "_tblSMSOutgoing.uid AS uid
 	FROM " . _DB_PREF_ . "_tblSMSOutgoing," . _DB_PREF_ . "_gatewayInfobip_apidata
-	WHERE 
-	    " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id=" . _DB_PREF_ . "_gatewayInfobip_apidata.smslog_id AND 
+	WHERE
+	    " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id=" . _DB_PREF_ . "_gatewayInfobip_apidata.smslog_id AND
 	    " . _DB_PREF_ . "_gatewayInfobip_apidata.apimsgid='$cb_apimsgid'
     ";
 	$db_result = dba_query($db_query);

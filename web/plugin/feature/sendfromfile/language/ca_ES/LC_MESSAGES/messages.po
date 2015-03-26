@@ -17,9 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-msgid " Prevent duplicates"
-msgstr ""
-
 msgid "CSV file format"
 msgstr ""
 
@@ -55,6 +52,9 @@ msgstr "Missatge"
 
 msgid "Please select CSV file"
 msgstr "Trieu el fitxer CSV"
+
+msgid "Prevent duplicates"
+msgstr ""
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "S'ha enviat l'SMS als números vàlids del fitxer pujat"

@@ -74,8 +74,8 @@ switch (_OP_) {
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage account') . "</h2>
@@ -167,8 +167,8 @@ switch (_OP_) {
 		break;
 	
 	case "user_add":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
 		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
@@ -285,9 +285,9 @@ switch (_OP_) {
 		$ret = user_add($add);
 		
 		if (is_array($ret)) {
-			$_SESSION['error_string'] = $ret['error_string'];
+			$_SESSION['dialog']['info'][] = $ret['error_string'];
 		} else {
-			$_SESSION['error_string'] = _('Unable to process user addition');
+			$_SESSION['dialog']['info'][] = _('Unable to process user addition');
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add&view=' . $view));
@@ -306,7 +306,7 @@ switch (_OP_) {
 			$ret = user_remove($del_uid);
 		}
 		
-		$_SESSION['error_string'] = $ret['error_string'];
+		$_SESSION['dialog']['info'][] = $ret['error_string'];
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 		exit();
 		break;
@@ -315,12 +315,12 @@ switch (_OP_) {
 		$uid = user_username2uid($_REQUEST['uname']);
 		if (user_banned_get($uid)) {
 			if (user_banned_remove($uid)) {
-				$_SESSION['error_string'] = _('Account has been unbanned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['dialog']['info'][] = _('Account has been unbanned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			} else {
-				$_SESSION['error_string'] = _('Unable to unban account') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['dialog']['info'][] = _('Unable to unban account') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			}
 		} else {
-			$_SESSION['error_string'] = _('User is not on banned users list') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+			$_SESSION['dialog']['info'][] = _('User is not on banned users list') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 		exit();
@@ -329,14 +329,14 @@ switch (_OP_) {
 	case "user_ban":
 		$uid = user_username2uid($_REQUEST['uname']);
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
-			$_SESSION['error_string'] = _('Account admin or currently logged in administrator cannot be banned');
+			$_SESSION['dialog']['info'][] = _('Account admin or currently logged in administrator cannot be banned');
 		} else if (user_banned_get($uid)) {
-			$_SESSION['error_string'] = _('User is already on banned users list') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+			$_SESSION['dialog']['info'][] = _('User is already on banned users list') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 		} else {
 			if (user_banned_add($uid)) {
-				$_SESSION['error_string'] = _('Account has been banned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['dialog']['info'][] = _('Account has been banned') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			} else {
-				$_SESSION['error_string'] = _('Unable to ban account') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
+				$_SESSION['dialog']['info'][] = _('Unable to ban account') . ' (' . _('username') . ': ' . $_REQUEST['uname'] . ')';
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));

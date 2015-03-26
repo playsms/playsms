@@ -17,8 +17,8 @@ $sms_command_bin = $plugin_config['sms_command']['bin'];
 
 switch (_OP_) {
 	case "sms_command_list":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
@@ -83,8 +83,8 @@ switch (_OP_) {
 		$edit_command_exec = stripslashes($db_row['command_exec']);
 		$edit_command_exec = str_replace($sms_command_bin . "/", '', $edit_command_exec);
 		$edit_command_return_as_reply = ( $db_row['command_return_as_reply'] == '1' ? 'checked' : '' );
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
@@ -142,12 +142,12 @@ switch (_OP_) {
 			if (@dba_affected_rows($db_query)) {
 				$c_dir = $sms_command_bin."/".$user_config['uid'];
 				@shell_exec("mkdir -p \"".$c_dir."\"");
-				$_SESSION['error_string'] = _('SMS command has been saved') . " (" . _('keyword') . ": $edit_command_keyword)";
+				$_SESSION['dialog']['info'][] = _('SMS command has been saved') . " (" . _('keyword') . ": $edit_command_keyword)";
 			} else {
-				$_SESSION['error_string'] = _('Fail to save SMS command') . " (" . _('keyword') . ": $edit_command_keyword)";
+				$_SESSION['dialog']['info'][] = _('Fail to save SMS command') . " (" . _('keyword') . ": $edit_command_keyword)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_sms_command&op=sms_command_edit&command_id='.$command_id));
 		exit();
@@ -160,17 +160,17 @@ switch (_OP_) {
 		if ($keyword_name) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureCommand WHERE command_keyword='$keyword_name'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS command has been deleted') . " (" . _('keyword') . ": $keyword_name)";
+				$_SESSION['dialog']['info'][] = _('SMS command has been deleted') . " (" . _('keyword') . ": $keyword_name)";
 			} else {
-				$_SESSION['error_string'] = _('Fail to delete SMS command') . " (" . _('keyword') . ": $keyword_name)";
+				$_SESSION['dialog']['info'][] = _('Fail to delete SMS command') . " (" . _('keyword') . ": $keyword_name)";
 			}
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_sms_command&op=sms_command_list'));
 		exit();
 		break;
 	case "sms_command_add":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
+		if ($err = TRUE) {
+			$content = _dialog();
 		}
 		$content .= "
 			<h2>" . _('Manage command') . "</h2>
@@ -226,15 +226,15 @@ switch (_OP_) {
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$c_dir = $sms_command_bin."/".$user_config['uid'];
 					@shell_exec("mkdir -p \"".$c_dir."\"");
-					$_SESSION['error_string'] = _('SMS command has been added') . " (" . _('keyword') . " $add_command_keyword)";
+					$_SESSION['dialog']['info'][] = _('SMS command has been added') . " (" . _('keyword') . " $add_command_keyword)";
 				} else {
-					$_SESSION['error_string'] = _('Fail to add SMS command') . " (" . _('keyword') . ": $add_command_keyword)";
+					$_SESSION['dialog']['info'][] = _('Fail to add SMS command') . " (" . _('keyword') . ": $add_command_keyword)";
 				}
 			} else {
-				$_SESSION['error_string'] = _('SMS command already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_command_keyword)";
+				$_SESSION['dialog']['info'][] = _('SMS command already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_command_keyword)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_sms_command&op=sms_command_add'));
 		exit();

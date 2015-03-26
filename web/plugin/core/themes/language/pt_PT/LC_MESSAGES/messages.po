@@ -21,6 +21,12 @@ msgstr "Administradores"
 msgid "Back"
 msgstr "Voltar"
 
+msgid "Compose message"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
 msgid "Please select"
 msgstr "Por favor selecione"
 

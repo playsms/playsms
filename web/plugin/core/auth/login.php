@@ -29,21 +29,16 @@ if (_OP_ == 'login') {
 				logger_print("u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
 				logger_print("unable to setup session u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
-				$_SESSION['error_string'] = _('Unable to login');
+				$_SESSION['dialog']['info'][] = _('Unable to login');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Invalid username or password');
+			$_SESSION['dialog']['info'][] = _('Invalid username or password');
 		}
 	}
 	
 	header("Location: " . _u($core_config['http_path']['base']));
 	exit();
 } else {
-	
-	// error string
-	if ($_SESSION['error_string']) {
-		$error_content = '<div class="error_string">' . $_SESSION['error_string'] . '</div>';
-	}
 	
 	$enable_logo = FALSE;
 	$show_web_title = TRUE;
@@ -64,7 +59,7 @@ if (_OP_ == 'login') {
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => _dialog(),
 			'Username or email' => _('Username or email') ,
 			'Password' => _('Password') ,
 			'Login' => _('Login') ,

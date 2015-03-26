@@ -15,7 +15,7 @@ msgstr "Échec de l'insertion du mot-clé"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
-"Les modifications de l'acheminement des SMS entrants ont été sauvegardées"
+"Les modifications de l'acheminement des SMS entrants ont été enregistrés"
 
 msgid "Insert keyword"
 msgstr "Insérer un mot-clé"

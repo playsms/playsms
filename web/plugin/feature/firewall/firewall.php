@@ -35,11 +35,11 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'uid',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', '', $keywords, $extras);
-		
-		$content = _err_display() . "
+
+		$content = _dialog() . "
 			<h2>" . _('Manage firewall') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form name=fm_firewall_list id=fm_firewall_list action='index.php?app=main&inc=feature_firewall&op=actions' method=post>
@@ -73,7 +73,7 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
+
 		$i = $nav['top'];
 		$j = 0;
 		for ($j = 0; $j < count($list); $j++) {
@@ -95,21 +95,21 @@ switch (_OP_) {
 					</td>
 				</tr>";
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$checkid = $_REQUEST['checkid'];
 		$itemid = $_REQUEST['itemid'];
-		
+
 		$items = array();
 		foreach ($checkid as $key => $val) {
 			if (strtoupper($val) == 'ON') {
@@ -123,26 +123,26 @@ switch (_OP_) {
 			case 'delete':
 				foreach ($items as $item) {
 					$conditions = array(
-						'id' => $item 
+						'id' => $item
 					);
 					dba_remove(_DB_PREF_ . '_featureFirewall', $conditions);
 				}
 				break;
 		}
-		
+
 		$search = themes_search_session();
 		$nav = themes_nav_session();
-		
-		$_SESSION['error_string'] = _('IP addreses has been deleted');
+
+		$_SESSION['dialog']['info'][] = _('IP addresses have been deleted');
 		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 		header("Location: " . _u($ref));
 		exit();
 		break;
-	
+
 	case "firewall_add":
-		$content = _err_display() . "
+		$content = _dialog() . "
 			<h2>" . _('Manage firewall') . "</h2>
-			<h3>" . _('Add blocked IP addresses') . " " . _hint(_('Multiple IP addresses must be comma seperated')) . "</h3>
+			<h3>" . _('Add blocked IP addresses') . " " . _hint(_('Multiple IP addresses must be comma-separated')) . "</h3>
 			<form action='index.php?app=main&inc=feature_firewall&op=firewall_add_yes' method='post'>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
@@ -160,7 +160,7 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_firewall&op=firewall_list');
 		_p($content);
 		break;
-	
+
 	case "firewall_add_yes":
 		$add_username = user_uid2username($_POST['add_username']);
 		$add_ip_address = $_POST['add_ip_address'];
@@ -168,9 +168,9 @@ switch (_OP_) {
 			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
 					blacklist_addip($add_username, $ip);
 			}
-			$_SESSION['error_string'] = _('IP addresses have been blocked');
+			$_SESSION['dialog']['info'][] = _('IP addresses have been blocked');
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_firewall&op=firewall_add'));
 		exit();

@@ -10,10 +10,7 @@ if ($custom_id = $_REQUEST['custom_id']) {
 
 switch (_OP_) {
 	case "sms_custom_list":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
+		$content .= _dialog() . "
 			<h2>" . _('Manage custom') . "</h2>
 			"._button('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
 		if (! auth_isadmin()) {
@@ -75,10 +72,7 @@ switch (_OP_) {
 		$edit_custom_keyword = $db_row['custom_keyword'];
 		$edit_custom_url = $db_row['custom_url'];
 		$edit_custom_return_as_reply = ( $db_row['custom_return_as_reply'] == '1' ? 'checked' : '' );
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
+		$content .= _dialog() . "
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Edit SMS custom') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
@@ -124,12 +118,12 @@ switch (_OP_) {
 		if ($custom_id && $edit_custom_keyword && $edit_custom_url) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_keyword='$edit_custom_keyword'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS custom has been saved') . " (" . _('keyword') . ": $edit_custom_keyword)";
+				$_SESSION['dialog']['info'][] = _('SMS custom has been saved') . " (" . _('keyword') . ": $edit_custom_keyword)";
 			} else {
-				$_SESSION['error_string'] = _('Fail to save SMS custom') . " (" . _('keyword') . ": $edit_custom_keyword)";
+				$_SESSION['dialog']['info'][] = _('Fail to save SMS custom') . " (" . _('keyword') . ": $edit_custom_keyword)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id='.$custom_id));
 		exit();
@@ -142,19 +136,16 @@ switch (_OP_) {
 		if ($keyword_name) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureCustom WHERE custom_keyword='$keyword_name'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS custom has been deleted') . " (" . _('keyword') . ": $keyword_name)";
+				$_SESSION['dialog']['info'][] = _('SMS custom has been deleted') . " (" . _('keyword') . ": $keyword_name)";
 			} else {
-				$_SESSION['error_string'] = _('Fail to delete SMS custom') . " (" . _('keyword') . ": $keyword_name)";
+				$_SESSION['dialog']['info'][] = _('Fail to delete SMS custom') . " (" . _('keyword') . ": $keyword_name)";
 			}
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_list'));
 		exit();
 		break;
 	case "sms_custom_add":
-		if ($err = $_SESSION['error_string']) {
-			$content = "<div class=error_string>$err</div>";
-		}
-		$content .= "
+		$content .= _dialog() . "
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Add SMS custom') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
@@ -199,15 +190,15 @@ switch (_OP_) {
 			if (checkavailablekeyword($add_custom_keyword)) {
 				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,custom_keyword,custom_url,custom_return_as_reply) VALUES ('".$user_config['uid']."','$add_custom_keyword','$add_custom_url','$add_custom_return_as_reply')";
 				if ($new_uid = @dba_insert_id($db_query)) {
-					$_SESSION['error_string'] = _('SMS custom has been added') . " (" . _('keyword') . " $add_custom_keyword)";
+					$_SESSION['dialog']['info'][] = _('SMS custom has been added') . " (" . _('keyword') . " $add_custom_keyword)";
 				} else {
-					$_SESSION['error_string'] = _('Fail to add SMS custom') . " (" . _('keyword') . ": $add_custom_keyword)";
+					$_SESSION['dialog']['info'][] = _('Fail to add SMS custom') . " (" . _('keyword') . ": $add_custom_keyword)";
 				}
 			} else {
-				$_SESSION['error_string'] = _('SMS custom already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_custom_keyword)";
+				$_SESSION['dialog']['info'][] = _('SMS custom already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_custom_keyword)";
 			}
 		} else {
-			$_SESSION['error_string'] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: "._u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add'));
 		exit();

@@ -47,9 +47,9 @@ if (_OP_ == 'register') {
 			
 			$ret = user_add($data);
 			$ok = ($ret['status'] ? TRUE : FALSE);
-			$_SESSION['error_string'] = $ret['error_string'];
+			$_SESSION['dialog']['info'][] = $ret['error_string'];
 		} else {
-			$_SESSION['error_string'] = _('Please type the displayed captcha phrase correctly');
+			$_SESSION['dialog']['info'][] = _('Please type the displayed captcha phrase correctly');
 		}
 	}
 	
@@ -60,11 +60,6 @@ if (_OP_ == 'register') {
 	}
 	exit();
 } else {
-	
-	// error string
-	if ($_SESSION['error_string']) {
-		$error_content = '<div class="error_string">' . $_SESSION['error_string'] . '</div>';
-	}
 	
 	$enable_logo = FALSE;
 	$show_web_title = TRUE;
@@ -86,7 +81,7 @@ if (_OP_ == 'register') {
 		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $core_config['main']['web_title'],
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => _dialog(),
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register'),
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'),
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),

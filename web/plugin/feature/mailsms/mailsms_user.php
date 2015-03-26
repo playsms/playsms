@@ -37,7 +37,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'mailsms_user',
 			'vars' => array(
-				'ERROR' => _err_display(),
+				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => _('My email to SMS'),
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&route=mailsms_user&op=mailsms_user_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
@@ -61,8 +61,8 @@ switch (_OP_) {
 		if ($pin) {
 			$continue = TRUE;
 		} else {
-			$_SESSION['error_string'][] = _('PIN is empty');
-			$_SESSION['error_string'][] = _('Fail to save email to SMS PIN');
+			$_SESSION['dialog']['info'][] = _('PIN is empty');
+			$_SESSION['dialog']['info'][] = _('Fail to save email to SMS PIN');
 		}
 		
 		if ($continue) {
@@ -74,10 +74,10 @@ switch (_OP_) {
 			$items_global = registry_search(0, 'features', 'mailsms');
 			if ($items_global['features']['mailsms']['enable_fetch']) {
 				$enabled = 'enabled';
-				$_SESSION['error_string'] = _('Email to SMS PIN has been saved');
+				$_SESSION['dialog']['info'][] = _('Email to SMS PIN has been saved');
 			} else {
 				$enabled = 'disabled';
-				$_SESSION['error_string'] = _('Email to SMS PIN has been saved but service is disabled');
+				$_SESSION['dialog']['info'][] = _('Email to SMS PIN has been saved but service is disabled');
 			}
 			_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $user_config['username'], 2, 'mailsms_user');
 		}

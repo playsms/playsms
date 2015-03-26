@@ -10,20 +10,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Message"
-msgstr "Сообщение"
+msgid "From"
+msgstr ""
 
 msgid "Message from"
 msgstr "Сообщение от"
 
+msgid "Message received at"
+msgstr ""
+
 msgid "New inbox from"
 msgstr "Новое входящее от"
 
-msgid "Received"
-msgstr "Получено"
-
-msgid "Receiver"
-msgstr "Получатель"
-
-msgid "Sender"
-msgstr "Отправитель"
+msgid "on"
+msgstr ""

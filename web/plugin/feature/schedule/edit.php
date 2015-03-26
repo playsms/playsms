@@ -32,7 +32,7 @@ switch (_OP_) {
 		$message = $db_row['message'];
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
-			$content = _err_display() . "
+			$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<h3>" . _('Edit schedule') . "</h3>
 			<form action=index.php?app=main&inc=feature_schedule&route=edit&op=edit_yes method=post>
@@ -72,12 +72,12 @@ switch (_OP_) {
 				SET c_timestamp='" . mktime() . "',name='$name',message='$message', schedule_rule='$schedule_rule'
 				WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['error_string'] = _('SMS schedule been saved');
+				$_SESSION['dialog']['info'][] = _('SMS schedule been saved');
 			} else {
-				$_SESSION['error_string'] = _('Fail to edit SMS schedule');
+				$_SESSION['dialog']['info'][] = _('Fail to edit SMS schedule');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Mandatory fields must not be empty');
+			$_SESSION['dialog']['info'][] = _('Mandatory fields must not be empty');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=edit&op=list&id=' . $id));
 		exit();

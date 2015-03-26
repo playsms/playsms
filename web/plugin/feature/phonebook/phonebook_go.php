@@ -44,7 +44,7 @@ switch (_OP_) {
 				dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
 					'pid' => $item 
 				));
-				$_SESSION['error_string'] = _('Selected contact has been deleted');
+				$_SESSION['dialog']['info'][] = _('Selected contact has been deleted');
 			}
 		}
 		break;
@@ -68,7 +68,7 @@ if ($gpid && (dba_valid(_DB_PREF_ . '_featurePhonebook_group', 'id', $gpid))) {
 					'gpid' => $gpid 
 				);
 				if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $data)) {
-					$_SESSION['error_string'] = _('Selected contact moved to new group');
+					$_SESSION['dialog']['info'][] = _('Selected contact moved to new group');
 				}
 			}
 		}

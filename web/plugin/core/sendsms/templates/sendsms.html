@@ -56,7 +56,7 @@
 		});
 	});
 </script>
-{{ ERROR }}
+{{ DIALOG_DISPLAY }}
 
 <form name="fm_sendsms" id="fm_sendsms"
 	action="index.php?app=main&inc=core_sendsms&op=sendsms_yes"
@@ -70,7 +70,8 @@
 		type="hidden" value="{{ max_sms_length_unicode }}"
 		name="hiddcount_unicode"> <input type="hidden"
 		value="{{ chars }}" name="chars"> <input type="hidden"
-		value="{{ SMS }}" name="SMS">
+		value="{{ SMS }}" name="SMS"> <input type="hidden"
+		value="{{ return_url }}" name="return_url">
 
 	<div class="row">
 		<div class="col-sm-12">
@@ -113,20 +114,23 @@
 			<div class="form-group">
 				<label for="msg_footer">{{ Message footer }}</label>
 				<p>
-					<input type="text" name="sms_footer" id="msg_footer" style="width: 100%" value="{{ sms_footer }}">
+					<input type="text" name="sms_footer" id="msg_footer"
+						style="width: 100%" value="{{ sms_footer }}">
 				</p>
 			</div>
 			<div class="form-group">
 				<label for="msg_options">{{ Options }}</label>
 				<div id="msg_options">
 					<div class="checkbox">
-						<label> <input type=checkbox name=msg_flash id="msg_flash">{{ Flash message }}
+						<label> <input type=checkbox name=msg_flash id="msg_flash">
+							{{ Flash message }}
 						</label>
 					</div>
 					<div class="checkbox">
 						<label> <input type=checkbox name=msg_unicode
 							id="msg_unicode" onClick="SmsSetCounter();"
-							onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">{{ Unicode message }}
+							onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">
+							{{ Unicode message }}
 						</label>
 					</div>
 				</div>

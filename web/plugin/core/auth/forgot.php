@@ -13,7 +13,7 @@ if (_OP_ == 'forgot') {
 	if (!auth_isvalid()) {
 		if ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
 			if ($core_config['main']['enable_forgot']) {
-				$_SESSION['error_string'] = _('Fail to recover password');
+				$_SESSION['dialog']['info'][] = _('Fail to recover password');
 				if ($username && $email) {
 					$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username' AND email='$email'";
 					$db_result = dba_query($db_query);
@@ -39,24 +39,24 @@ if (_OP_ == 'forgot') {
 									'mail_body' => $body 
 								);
 								if (sendmail($data)) {
-									$_SESSION['error_string'] = _('Password has been emailed') . " (" . _('Username') . ": " . $username . ")";
+									$_SESSION['dialog']['info'][] = _('Password has been emailed') . " (" . _('Username') . ": " . $username . ")";
 									$ok = TRUE;
 								} else {
-									$_SESSION['error_string'] = _('Fail to send email');
+									$_SESSION['dialog']['info'][] = _('Fail to send email');
 								}
 							} else {
-								$error_string = _('Fail to send email');
+								$_SESSION['dialog']['info'][] = _('Fail to save temporary password');
 							}
 							
-							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $_SESSION['dialog']['info'][]. "]", 2, "forgot");
 						}
 					}
 				}
 			} else {
-				$_SESSION['error_string'] = _('Recover password disabled');
+				$_SESSION['dialog']['info'][] = _('Recover password disabled');
 			}
 		} else {
-			$_SESSION['error_string'] = _('Please type the displayed captcha phrase correctly');
+			$_SESSION['dialog']['info'][] = _('Please type the displayed captcha phrase correctly');
 		}
 	}
 	
@@ -68,11 +68,6 @@ if (_OP_ == 'forgot') {
 	
 	exit();
 } else {
-	
-	// error string
-	if ($_SESSION['error_string']) {
-		$error_content = '<div class="error_string">' . $_SESSION['error_string'] . '</div>';
-	}
 	
 	$enable_logo = FALSE;
 	$show_web_title = TRUE;
@@ -94,7 +89,7 @@ if (_OP_ == 'forgot') {
 		'vars' => array(
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'WEB_TITLE' => $core_config['main']['web_title'],
-			'ERROR' => $error_content,
+			'DIALOG_DISPLAY' => _dialog(),
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=forgot&op=forgot'),
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register'),
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),

@@ -9,69 +9,67 @@ msgid "Action"
 msgstr "Action"
 
 msgid "Add SMSC"
-msgstr ""
+msgstr "Ajouter un SMSC"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Êtes-vous sûr?"
 
 msgid "Description"
 msgstr "Description"
 
 msgid "Edit SMSC"
-msgstr ""
+msgstr "Éditer le SMSC"
 
 msgid "Fail to add new SMSC"
-msgstr ""
+msgstr "Échec de l'ajout du SMSC"
 
 msgid "Fail to edit SMSC"
-msgstr ""
+msgstr "Échec de l'édition du SMSC"
 
 msgid "Fail to remove SMSC"
-msgstr ""
+msgstr "Échec de la suppression du SMSC"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Passerelle"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Passerelles"
 
-#, fuzzy
 msgid "List of gateways and SMSCs"
-msgstr "Gérer passerelle"
+msgstr "Liste des passerelles et des SMSC"
 
-#, fuzzy
 msgid "Manage gateway and SMSC"
-msgstr "Gérer passerelle"
+msgstr "Gérer passerelle et SMSC"
 
 msgid "Name"
 msgstr "Nom"
 
 msgid "New SMSC has been added"
-msgstr ""
+msgstr "Le nouveau SMSC a été ajouté"
 
 msgid "Routed SMSC"
-msgstr ""
+msgstr "SMSC d'acheminement"
 
 msgid "SMSC already exists"
-msgstr ""
+msgstr "Le SMSC existe déjà"
 
 msgid "SMSC has been edited"
-msgstr ""
+msgstr "Le SMSC a été édité"
 
 msgid "SMSC has been removed"
-msgstr ""
+msgstr "Le SMSC a été supprimé"
 
 msgid "SMSC name"
-msgstr ""
+msgstr "Nom du SMSC"
 
 msgid "SMSCs"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 msgid "Supplied SMSC"
-msgstr ""
+msgstr "SMSC fourni"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Erreur inconnue"
