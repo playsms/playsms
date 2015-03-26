@@ -173,6 +173,19 @@ function _log($log, $level, $label) {
 	return logger_print($log, $level, $label);
 }
 
-function _sendsms($to, $message, $return_url, $button_icon = "") {
+/**
+ * Popup compose message form
+ *
+ * @param string $to
+ *        Default destination
+ * @param string $message
+ *        Default or previous message
+ * @param string $return_url
+ *        If empty this would be $_SERVER['REQUEST_URI']
+ * @param string $button_icon
+ *        If empty this would be a reply icon
+ * @return string Javascript PopupSendsms()
+ */
+function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
 	return themes_popup_sendsms($to, $message, $return_url, $button_icon);
 }

@@ -799,7 +799,21 @@ function themes_input($type = 'text', $name = '', $value = '', $tag_params = arr
 	return $ret;
 }
 
-function themes_popup_sendsms($to, $message, $return_url, $button_icon = "") {
+/**
+ * Popup compose message form
+ *
+ * @param string $to
+ *        Default destination
+ * @param string $message
+ *        Default or previous message
+ * @param string $return_url
+ *        If empty this would be $_SERVER['REQUEST_URI']
+ * @param string $button_icon
+ *        If empty this would be a reply icon
+ * @return string Javascript PopupSendsms()
+ */
+function themes_popup_sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
+	$return_url = ($return_url ? $return_url : $_SERVER['REQUEST_URI']);
 	$button_icon = ($button_icon ? $button_icon : $icon_config['reply']);
 	
 	$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode($return_url) . "');\">" . $button_icon . "</a>";
