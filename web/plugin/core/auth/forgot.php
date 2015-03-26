@@ -39,16 +39,19 @@ if (_OP_ == 'forgot') {
 									'mail_body' => $body 
 								);
 								if (sendmail($data)) {
-									$_SESSION['dialog']['info'][] = _('Password has been emailed') . " (" . _('Username') . ": " . $username . ")";
+									$error_string = _('Password has been emailed') . " (" . _('Username') . ": " . $username . ")";
+									$_SESSION['dialog']['info'][] = $error_string;
 									$ok = TRUE;
 								} else {
-									$_SESSION['dialog']['info'][] = _('Fail to send email');
+									$error_string = _('Fail to send email');
+									$_SESSION['dialog']['info'][] = $error_string;
 								}
 							} else {
-								$_SESSION['dialog']['info'][] = _('Fail to save temporary password');
+								$error_string = _('Fail to save temporary password');
+								$_SESSION['dialog']['info'][] = $error_string;
 							}
 							
-							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $_SESSION['dialog']['info'][]. "]", 2, "forgot");
+							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $error_string. "]", 2, "forgot");
 						}
 					}
 				}
