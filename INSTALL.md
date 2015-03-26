@@ -141,6 +141,11 @@ Install playSMS by following step-by-step:
     ./getcomposer.sh
     ```
 
+    You may see the following warning, that can safely be ignored:
+    ```
+    Warning: Ambiguous class resolution, "PEAR_ErrorStack" was found in both "/usr/local/src/playsms-1.0.0/web/lib/composer/vendor/pear/pear/PEAR/ErrorStack.php" and "/usr/local/src/playsms-1.0.0/web/lib/composer/vendor/pear/pear/PEAR/ErrorStack5.php", the first will be used.
+    ```
+
 3.  Create playSMS web root, log, lib and set ownership to user www-data or web server user
 
     Assumed that your web root is `/var/www` and your web server user is `www-data`
