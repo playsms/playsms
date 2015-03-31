@@ -66,3 +66,23 @@
 		display: none;
 	}
 }
+
+#main-content {
+	padding-top: 50px;
+	height: 100%;
+	overflow: hidden;
+}
+
+#main-submenu {
+	padding: 0;
+	background-color: #f5f5f5;
+	border-radius: 3px;
+	top: 49px;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+
+#main-submenu div {
+	padding: 5px;
+}
