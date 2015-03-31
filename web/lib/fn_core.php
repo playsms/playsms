@@ -1122,6 +1122,25 @@ function core_mobile_matcher_format($mobile) {
 }
 
 /**
+ * Get last submitted $_POST data
+ *
+ * @param string $key        
+ * @return mixed
+ */
+function core_last_post_get($key = '') {
+	$ret = '';
+	
+	$key = trim($key);
+	if ($key) {
+		$ret = $_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))][$key];
+	} else {
+		$ret = $_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))];
+	}
+	
+	return $ret;
+}
+
+/**
  * Include composer based packages
  */
 if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {

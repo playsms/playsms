@@ -165,6 +165,11 @@ define('_NAV_', core_query_sanitize($_REQUEST['nav']));
 define('_CAT_', core_query_sanitize($_REQUEST['cat']));
 define('_PLUGIN_', core_query_sanitize($_REQUEST['plugin']));
 
+// save last $_POST in $_SESSION
+if ($_POST['X-CSRF-Token']) {
+	$_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $_POST;
+}
+
 // enable anti-CSRF for anything but webservices
 if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
 	
