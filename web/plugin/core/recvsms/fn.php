@@ -481,8 +481,15 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 }
 
 function getsmsinbox() {
-	$smsc = core_smsc_get();
-	$smsc_data = gateway_get_smscbyname($smsc);
-	$gateway = $smsc_data['gateway'];
-	core_hook($gateway, 'getsmsinbox');
+	$smscs = gateway_getall_smsc_names();
+	foreach ($smscs as $smsc) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$gateways[] = $smsc_data['gateway'];		
+	}
+	if (is_array($gateways)) {
+		$gateways = array_unique($gateways);
+		foreach ($gateways as $gateway) {
+			core_hook($gateway, 'getsmsinbox');
+		}
+	}
 }

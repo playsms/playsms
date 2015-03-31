@@ -419,6 +419,10 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$smsc = 'blocked';
 	}
 	
+	// get gateway
+	$smsc_data = gateway_get_smscbyname($smsc);
+	$gateway = $smsc_data['gateway'];
+	
 	// a hack to remove \r from \r\n
 	// the issue begins with ENTER being \r\n and detected as 2 chars
 	// and since the javascript message counter can't detect it as 2 chars
@@ -466,18 +470,17 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// message with that length or certain characters in the message are not supported by the gateway
 	$db_query = "
 		INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing
-		(smslog_id,uid,p_gpid,p_gateway,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code)
-		VALUES ('$smslog_id','$uid','$gpid','$smsc','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
-	_log("saving smslog_id:" . $smslog_id . " u:" . $uid . " g:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
+		(smslog_id,uid,p_gpid,p_gateway,p_smsc,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code)
+		VALUES ('$smslog_id','$uid','$gpid','$gateway','$smsc','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
+	_log("saving smslog_id:" . $smslog_id . " u:" . $uid . " g:" . $gpid . " gw:" . $gateway . " smsc:" . $smsc . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
 	
 	// continue to gateway only when save to db is true
 	if ($id = @dba_insert_id($db_query)) {
 		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "sendsms_process");
-		if ($p_status == 0) {
-			$smsc = gateway_get_smscbyname($smsc);
-			_log("final smslog_id:" . $smslog_id . " gw:" . $smsc['gateway'] . " smsc:" . $smsc['name'] . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
-			if (core_hook($smsc['gateway'], 'sendsms', array(
-				$smsc['name'],
+		if ($p_status == 0) {			
+			_log("final smslog_id:" . $smslog_id . " gw:" . $gateway . " smsc:" . $smsc . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
+			if (core_hook($gateway, 'sendsms', array(
+				$smsc,
 				$sms_sender,
 				$sms_footer,
 				$sms_to,
