@@ -13,7 +13,6 @@ if (_OP_ == 'forgot') {
 	if (!auth_isvalid()) {
 		if ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
 			if ($core_config['main']['enable_forgot']) {
-				$_SESSION['dialog']['info'][] = _('Fail to recover password');
 				if ($username && $email) {
 					$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username' AND email='$email'";
 					$db_result = dba_query($db_query);
@@ -51,9 +50,15 @@ if (_OP_ == 'forgot') {
 								$_SESSION['dialog']['danger'][] = $error_string;
 							}
 							
-							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $error_string. "]", 2, "forgot");
+							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $error_string . "]", 2, "forgot");
+						} else {
+							$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 						}
+					} else {
+						$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 					}
+				} else {
+					$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 				}
 			} else {
 				$_SESSION['dialog']['danger'][] = _('Recover password disabled');
