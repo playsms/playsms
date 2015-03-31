@@ -47,9 +47,13 @@ if (_OP_ == 'register') {
 			
 			$ret = user_add($data);
 			$ok = ($ret['status'] ? TRUE : FALSE);
-			$_SESSION['dialog']['info'][] = $ret['error_string'];
+			if ($ok) {
+				$_SESSION['dialog']['info'][] = $ret['error_string'];
+			} else {
+				$_SESSION['dialog']['danger'][] = $ret['error_string'];
+			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('Please type the displayed captcha phrase correctly');
+			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 		}
 	}
 	

@@ -44,11 +44,11 @@ if (_OP_ == 'forgot') {
 									$ok = TRUE;
 								} else {
 									$error_string = _('Fail to send email');
-									$_SESSION['dialog']['info'][] = $error_string;
+									$_SESSION['dialog']['danger'][] = $error_string;
 								}
 							} else {
 								$error_string = _('Fail to save temporary password');
-								$_SESSION['dialog']['info'][] = $error_string;
+								$_SESSION['dialog']['danger'][] = $error_string;
 							}
 							
 							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $error_string. "]", 2, "forgot");
@@ -56,10 +56,10 @@ if (_OP_ == 'forgot') {
 					}
 				}
 			} else {
-				$_SESSION['dialog']['info'][] = _('Recover password disabled');
+				$_SESSION['dialog']['danger'][] = _('Recover password disabled');
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('Please type the displayed captcha phrase correctly');
+			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 		}
 	}
 	
