@@ -27,8 +27,10 @@ msgstr "Adicionar opção para essa votação"
 msgid "All"
 msgstr "Todos"
 
-msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Tem certeza que quer eliminar a votação SMS com todas as opções e votos?"
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Tem certeza que quer eliminar a votação SMS com todas as opções e votos?"
 
 msgid "Are you sure you want to delete choice ?"
 msgstr "Tem certeza que quer eliminar essa opção?"

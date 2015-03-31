@@ -5,10 +5,10 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
 "Language-Team: \n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da_DK\n"
 "X-Generator: Poedit 1.7.4\n"
 
 msgid "Active themes"
@@ -19,6 +19,13 @@ msgstr "Køb kredit siden"
 
 msgid "Configuration"
 msgstr "Konfiguration"
+
+#, fuzzy
+msgid "Default credit upon registration"
+msgstr "Aktiver offentlig registrering"
+
+msgid "Default language"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domæne"
@@ -32,6 +39,10 @@ msgstr "E-mail service"
 msgid "Enable forgot password"
 msgstr "Aktiver glemt adgangskode"
 
+#, fuzzy
+msgid "Enable logo"
+msgstr "Aktiver glemt adgangskode"
+
 msgid "Enable public registration"
 msgstr "Aktiver offentlig registrering"
 
@@ -43,6 +54,10 @@ msgstr "Layout footer"
 
 msgid "Logo URL"
 msgstr "Logo URL"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Main website URL"
 msgstr "Primær webside URL"
@@ -58,6 +73,9 @@ msgstr "Sideindhold"
 
 msgid "Page title"
 msgstr "Sidetitel"
+
+msgid "Replace website title with logo"
+msgstr ""
 
 msgid "Save"
 msgstr "Gem"

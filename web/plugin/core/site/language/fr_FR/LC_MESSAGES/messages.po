@@ -12,6 +12,13 @@ msgstr "Page d'achat de crédit"
 msgid "Configuration"
 msgstr "Configuration"
 
+#, fuzzy
+msgid "Default credit upon registration"
+msgstr "Activer l'enregistrement public"
+
+msgid "Default language"
+msgstr ""
+
 msgid "Domain"
 msgstr "Domaine"
 
@@ -22,6 +29,10 @@ msgid "Email service"
 msgstr "Service email"
 
 msgid "Enable forgot password"
+msgstr "Activer Mot de passe oublié"
+
+#, fuzzy
+msgid "Enable logo"
 msgstr "Activer Mot de passe oublié"
 
 msgid "Enable public registration"
@@ -35,6 +46,10 @@ msgstr "Disposition du pied de page"
 
 msgid "Logo URL"
 msgstr "URL du logo"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Main website URL"
 msgstr "URL du site web principal"
@@ -50,6 +65,9 @@ msgstr "Contenu de la page"
 
 msgid "Page title"
 msgstr "Titre de la page"
+
+msgid "Replace website title with logo"
+msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"

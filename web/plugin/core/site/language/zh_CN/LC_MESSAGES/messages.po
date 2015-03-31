@@ -7,6 +7,12 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
+msgid "Default credit upon registration"
+msgstr ""
+
+msgid "Default language"
+msgstr ""
+
 msgid "Domain"
 msgstr ""
 
@@ -19,6 +25,9 @@ msgstr ""
 msgid "Enable forgot password"
 msgstr ""
 
+msgid "Enable logo"
+msgstr ""
+
 msgid "Enable public registration"
 msgstr ""
 
@@ -29,6 +38,10 @@ msgid "Layout footer"
 msgstr ""
 
 msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
 
 msgid "Main website URL"
@@ -44,6 +57,9 @@ msgid "Page content"
 msgstr ""
 
 msgid "Page title"
+msgstr ""
+
+msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Save"

@@ -5,10 +5,10 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_PT\n"
 "X-Generator: Poedit 1.7.5\n"
 
 msgid "Active themes"
@@ -19,6 +19,13 @@ msgstr "Comprar crédito"
 
 msgid "Configuration"
 msgstr "Configuração"
+
+#, fuzzy
+msgid "Default credit upon registration"
+msgstr "Ativar registros públicos"
+
+msgid "Default language"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domínio"
@@ -32,6 +39,10 @@ msgstr "Serviço de e-mail"
 msgid "Enable forgot password"
 msgstr "Ativar recuperação de palavra-passe"
 
+#, fuzzy
+msgid "Enable logo"
+msgstr "Ativar recuperação de palavra-passe"
+
 msgid "Enable public registration"
 msgstr "Ativar registros públicos"
 
@@ -43,6 +54,10 @@ msgstr "Rodapé de layout"
 
 msgid "Logo URL"
 msgstr "URL do Logótipo"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
 
 msgid "Main website URL"
 msgstr "URL Principal do site "
@@ -58,6 +73,9 @@ msgstr "O conteúdo da página"
 
 msgid "Page title"
 msgstr "Título da Página"
+
+msgid "Replace website title with logo"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"
