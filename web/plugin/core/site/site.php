@@ -60,6 +60,19 @@ switch (_OP_) {
 		// get themes options
 		$options['themes_module'] = _options($core_config['themeslist'], $site_config['themes_module']);
 		
+		// get language options
+		$lang_list = '';
+		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
+			$language = $core_config['languagelist'][$i];
+			$c_language_title = $plugin_config[$language]['title'];
+			if ($c_language_title) {
+				$lang_list[$c_language_title] = $language;
+			}
+		}
+		if (is_array($lang_list)) {
+			$options['language_module'] = _options($lang_list, $site_config['language_module']);
+		}
+		
 		$tpl = array(
 			'name' => 'site',
 			'vars' => array(
@@ -81,6 +94,7 @@ switch (_OP_) {
 				'Main website name' => _('Main website name'),
 				'Main website URL' => _('Main website URL'),
 				'Active themes' => _('Active themes'),
+				'Default language' => _('Default language'),
 				'Enable logo' => _('Enable logo'),
 				'Logo URL' => _('Logo URL'),
 				'Replace website title with logo' => _('Replace website title with logo'),
