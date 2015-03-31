@@ -175,6 +175,7 @@ function _log($log, $level, $label) {
 
 /**
  * Popup compose message form
+ * Shortcut to themes_popup_sendsms()
  *
  * @param string $to
  *        Default destination
@@ -188,4 +189,15 @@ function _log($log, $level, $label) {
  */
 function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
 	return themes_popup_sendsms($to, $message, $return_url, $button_icon);
+}
+
+/**
+ * Get last submitted $_POST data
+ * Shortcut to core_last_post_get()
+ *
+ * @param string $key        
+ * @return mixed
+ */
+function _lastpost($key = '') {
+	return core_last_post_get($key);
 }
