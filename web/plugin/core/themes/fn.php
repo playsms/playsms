@@ -813,10 +813,34 @@ function themes_input($type = 'text', $name = '', $value = '', $tag_params = arr
  * @return string Javascript PopupSendsms()
  */
 function themes_popup_sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
+	global $icon_config;
+	
+	$ret = '';
+	
 	$return_url = ($return_url ? $return_url : $_SERVER['REQUEST_URI']);
 	$button_icon = ($button_icon ? $button_icon : $icon_config['reply']);
 	
-	$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode($return_url) . "');\">" . $button_icon . "</a>";
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get(), 'themes_popup_sendsms', array(
+			$to,
+			$message,
+			$return_url,
+			$button_icon 
+		));
+	}
+	
+	if (!$ret) {
+		$ret = core_hook('common', 'themes_popup_sendsms', array(
+			$to,
+			$message,
+			$return_url,
+			$button_icon 
+		));
+	}
+	
+	if (!$ret) {
+		$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode($return_url) . "');\">" . $button_icon . "</a>";
+	}
 	
 	return $ret;
 }
