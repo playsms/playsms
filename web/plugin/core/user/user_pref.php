@@ -202,7 +202,7 @@ switch (_OP_) {
 		break;
 	case "user_pref_save":
 		$continue = TRUE;
-		$_SESSION['dialog']['info'][] = _('No changes made');
+
 		$fields = array(
 			'name',
 			'email',
