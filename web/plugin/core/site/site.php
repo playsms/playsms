@@ -45,6 +45,18 @@ switch (_OP_) {
 			_('no') => 0 
 		), $site_config['enable_forgot']);
 		
+		// enable logo yes-no option
+		$options['enable_logo'] = _options(array(
+			_('yes') => 1,
+			_('no') => 0 
+		), $site_config['enable_logo']);
+		
+		// enable logo to replace main website title yes-no option
+		$options['logo_replace_title'] = _options(array(
+			_('yes') => 1,
+			_('no') => 0 
+		), $site_config['logo_replace_title']);
+		
 		// get themes options
 		$options['themes_module'] = _options($core_config['themeslist'], $site_config['themes_module']);
 		
@@ -52,6 +64,7 @@ switch (_OP_) {
 			'name' => 'site',
 			'vars' => array(
 				'ACTION_URL' => _u('index.php?app=main&inc=core_site&op=site_config_save'),
+				'HINT_ENABLE_LOGO' => _hint(_('Logo by default will be displayed at login, register and forgot password page')),
 				'HINT_DOMAIN' => _hint('Put your domain name here and then set your domain DNS A record to this server IP address'),
 				'DIALOG_DISPLAY' => _dialog(),
 				'Manage site' => _('Manage site'),
@@ -68,7 +81,9 @@ switch (_OP_) {
 				'Main website name' => _('Main website name'),
 				'Main website URL' => _('Main website URL'),
 				'Active themes' => _('Active themes'),
+				'Enable logo' => _('Enable logo'),
 				'Logo URL' => _('Logo URL'),
+				'Replace website title with logo' => _('Replace website title with logo'),
 				'Enable public registration' => _('Enable public registration'),
 				'Enable forgot password' => _('Enable forgot password'),
 				'Layout footer' => _('Layout footer'),

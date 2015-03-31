@@ -63,6 +63,14 @@ tinymce.init({
 						<td><select name=up[enable_forgot]>{{ $options['enable_forgot'] }}</select></td>
 					</tr>
 					<tr>
+						<td>{{ Enable logo }}</td>
+						<td><select name="up[enable_logo]">{{ $options['enable_logo'] }}</select> {{ HINT_ENABLE_LOGO }}</td>
+					</tr>
+					<tr>
+						<td>{{ Replace website title with logo }}</td>
+						<td><select name="up[logo_replace_title]">{{ $options['logo_replace_title'] }}</select></td>
+					</tr>
+					<tr>
 						<td>{{ Logo URL }}</td>
 						<td><input type="text" size=30 maxlength=255 name=up[logo_url] value="{{ $site_config['logo_url'] }}"></td>
 					</tr>
