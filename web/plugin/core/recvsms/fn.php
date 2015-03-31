@@ -435,7 +435,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 				if ($email = $user['email']) {
 					$subject = _('Message from') . " " . $sender;
 					$body = $web_title . "\n\n";
-					$body .= _('Message received at') . " " . $sms_receiver . " " . _('on') . " " . core_display_datetime($sms_datetime) . "\n\n";
+					$body .= _('Message received at') . " " . $sms_receiver . " " . _('on') . " " . core_adjust_datetime($sms_datetime) . "\n\n";
 					$body .= _('From') . " " . $sender . "\n\n";
 					$body .= $message . "\n\n--\n";
 					$body .= $email_footer . "\n\n";
