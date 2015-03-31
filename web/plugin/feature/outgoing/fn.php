@@ -124,7 +124,17 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 	}
 	
 	if ($next) {
-		$smsc_list = outgoing_mobile2smsc($sms_to, $uid);
+		
+		// if subuser then use parent_uid
+		$the_uid = $uid;
+		$parent_uid = 0;
+		$user = user_getdatabyuid($uid);
+		if ($user['status'] == 4) {
+			$parent_uid = $user['parent_uid'];
+			$the_uid = $parent_uid;
+		}
+		
+		$smsc_list = outgoing_mobile2smsc($sms_to, $the_uid);
 		$found = FALSE;
 		$smsc_all = '';
 		$smsc_found = array();
@@ -136,19 +146,20 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 			$smsc_all = trim($smsc_all);
 			shuffle($smsc_found);
 			_log('found SMSCs:' . $smsc_all, 3, 'outgoing_hook_sendsms_intercept');
-			_log('using prefix based smsc smsc:[' . $smsc_found[0] . '] uid:' . $uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
+			_log('using prefix based smsc smsc:[' . $smsc_found[0] . '] uid:' . $uid . ' parent_uid:' . $parent_uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 			$smsc = $smsc_found[0];
 			$next = FALSE;
 		}
 	}
 	
 	if ($next) {
-		_log('no SMSC found uid:' . $uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
+		_log('no SMSC found uid:' . $uid . ' parent_uid:' . $parent_uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 	}
 	
 	if ($smsc) {
 		$ret['modified'] = TRUE;
 		$ret['param']['smsc'] = $smsc;
 	}
+	
 	return $ret;
 }
