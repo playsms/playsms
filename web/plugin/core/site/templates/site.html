@@ -55,6 +55,10 @@ tinymce.init({
 						<td><select name=up[themes_module]>{{ $options['themes_module'] }}</select></td>
 					</tr>
 					<tr>
+						<td>{{ Default credit upon registration }}</td>
+						<td><input type="text" name="up[default_credit]" value="{{ $site_config['default_credit'] }}"></td>
+					</tr>
+					<tr>
 						<td>{{ Enable public registration }}</td>
 						<td><select name=up[enable_register]>{{ $options['enable_register'] }}</select></td>
 					</tr>
