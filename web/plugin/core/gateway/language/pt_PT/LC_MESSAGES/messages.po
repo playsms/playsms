@@ -37,10 +37,10 @@ msgid "Fail to remove SMSC"
 msgstr "Erro ao remover SMSC"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Gateways"
 
 msgid "List of gateways and SMSCs"
 msgstr "Lista de gateways e SMSCs"
@@ -70,7 +70,7 @@ msgid "SMSC name"
 msgstr "Nome SMSC"
 
 msgid "SMSCs"
-msgstr ""
+msgstr "SMSCs"
 
 msgid "Save"
 msgstr "Guardar"

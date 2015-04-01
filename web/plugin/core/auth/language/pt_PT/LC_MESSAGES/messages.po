@@ -13,14 +13,13 @@ msgstr ""
 "X-Generator: Poedit 1.7.5\n"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Fail to recover password"
 msgstr "Falha ao recuperar a palavra-passe"
 
-#, fuzzy
 msgid "Fail to save temporary password"
-msgstr "Falha ao recuperar a palavra-passe"
+msgstr "Falha ao guardar a palavra-passe"
 
 msgid "Fail to send email"
 msgstr "Erro ao enviar email"

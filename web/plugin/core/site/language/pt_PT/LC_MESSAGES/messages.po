@@ -78,7 +78,7 @@ msgid "Save"
 msgstr "Guardar"
 
 msgid "Site configuration"
-msgstr "Configurações padrões para o site"
+msgstr "Configurações do site"
 
 msgid "Site configuration has been saved"
 msgstr "Configurações do site foram guardadas"

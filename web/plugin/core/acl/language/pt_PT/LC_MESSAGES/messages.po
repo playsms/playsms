@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 1.7.5\n"
 
 msgid "ACL ID"
-msgstr ""
+msgstr "ACL ID"
 
 msgid "ACL been edited"
 msgstr "ACL foi editado"
@@ -55,7 +55,7 @@ msgid "Fail to edit ACL"
 msgstr "Erro ao editar ACL"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "List of accounts"
 msgstr "Lista de Contas"
@@ -85,7 +85,7 @@ msgid "Subuser ACL"
 msgstr "Sub-Utilizador ACL"
 
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 msgid "Username"
 msgstr "Nome de Utilizador"
