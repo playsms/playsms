@@ -96,7 +96,7 @@ switch (_OP_) {
 							</div>
 						</div>
 					</td>
-			</td>
+			</tr>
 			<tr>
 				<th width=20%>" . _('Name') . "</th>
 				<th width=20%>" . _('Mobile') . "</th>
