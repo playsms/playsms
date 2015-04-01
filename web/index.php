@@ -106,6 +106,5 @@ unset($_SESSION['dialog']);
 // fixme anton - still exists for compatibilty
 unset($_SESSION['error_string']);
 
-// fixme anton - this array should be cleaned at the end of execution, but still don't know the effect
-unset($_SESSION['tmp']);
-
+// fixme anton - remove last_post
+unset($_SESSION['tmp']['last_post']);
