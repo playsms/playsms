@@ -22,10 +22,10 @@ msgid "Back"
 msgstr "Voltar"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Enviar Mensagem"
 
 msgid "Information"
-msgstr ""
+msgstr "Informação"
 
 msgid "Please select"
 msgstr "Por favor selecione"

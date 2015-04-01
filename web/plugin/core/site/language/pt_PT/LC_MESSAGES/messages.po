@@ -20,12 +20,11 @@ msgstr "Comprar crédito"
 msgid "Configuration"
 msgstr "Configuração"
 
-#, fuzzy
 msgid "Default credit upon registration"
-msgstr "Ativar registros públicos"
+msgstr "Créditos Padrão no acto do Registro"
 
 msgid "Default language"
-msgstr ""
+msgstr "Idioma padrão"
 
 msgid "Domain"
 msgstr "Domínio"
@@ -39,9 +38,8 @@ msgstr "Serviço de e-mail"
 msgid "Enable forgot password"
 msgstr "Ativar recuperação de palavra-passe"
 
-#, fuzzy
 msgid "Enable logo"
-msgstr "Ativar recuperação de palavra-passe"
+msgstr "Ativar Logo"
 
 msgid "Enable public registration"
 msgstr "Ativar registros públicos"
@@ -55,9 +53,8 @@ msgstr "Rodapé de layout"
 msgid "Logo URL"
 msgstr "URL do Logótipo"
 
-msgid ""
-"Logo by default will be displayed at login, register and forgot password page"
-msgstr ""
+msgid "Logo by default will be displayed at login, register and forgot password page"
+msgstr "Logotipo, por padrão, será exibido no início da sessão, registo e na recuperação da palavra-passe"
 
 msgid "Main website URL"
 msgstr "URL Principal do site "
@@ -75,7 +72,7 @@ msgid "Page title"
 msgstr "Título da Página"
 
 msgid "Replace website title with logo"
-msgstr ""
+msgstr "Substitua título do site pelo logotipo"
 
 msgid "Save"
 msgstr "Guardar"
