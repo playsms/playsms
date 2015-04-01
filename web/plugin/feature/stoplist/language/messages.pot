@@ -1,28 +1,28 @@
-msgid "Add blocked IP addresses"
+msgid "Add blocked mobile numbers"
 msgstr ""
 
-msgid "Blocked IP address"
+msgid "Blocked mobile"
 msgstr ""
 
 msgid "Delete"
 msgstr ""
 
-msgid "IP address"
+msgid "Mobile"
 msgstr ""
 
-msgid "IP addresses"
+msgid "Mobile numbers"
 msgstr ""
 
-msgid "IP addresses have been blocked"
+msgid "Mobile numbers have been blocked"
 msgstr ""
 
-msgid "IP addresses have been deleted"
+msgid "Mobile numbers have been deleted"
 msgstr ""
 
 msgid "Manage stoplist"
 msgstr ""
 
-msgid "Multiple IP addresses must be comma-separated"
+msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "Save"

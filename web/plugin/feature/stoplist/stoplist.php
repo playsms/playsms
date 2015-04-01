@@ -25,19 +25,19 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "stoplist_list":
 		$search_category = array(
-			_('IP address') => 'ip_address' 
+			_('Mobile') => 'mobile' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_stoplist&op=stoplist_list';
 		$search = themes_search($search_category, $base_url);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_ . '_featureFirewall', '', $keywords);
+		$count = dba_count(_DB_PREF_ . '_featureStoplist', '', $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'uid',
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', '', $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_featureStoplist', '*', '', $keywords, $extras);
 		
 		$content = _dialog() . "
 			<h2>" . _('Manage stoplist') . "</h2>
@@ -72,7 +72,7 @@ switch (_OP_) {
 					</tr>
 					<tr>
 						<th width=45%>" . _('User') . "</th>
-						<th width=50%>" . _('Blocked IP address') . "</th>
+						<th width=50%>" . _('Blocked mobile') . "</th>
 						<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_stoplist_list)></th>
 					</tr>
 				</thead>
@@ -83,7 +83,7 @@ switch (_OP_) {
 		for ($j = 0; $j < count($list); $j++) {
 			$pid = $list[$j]['id'];
 			$username = user_uid2username($list[$j]['uid']);
-			$ip_address = $list[$j]['ip_address'];
+			$mobile = $list[$j]['mobile'];
 			$i--;
 			$c_i = "<a href=\"" . _u('index.php?app=main&inc=feature_stoplist&op=stoplist_edit&id=' . $pid) . "\">" . $i . ".</a>";
 			if ($list[$j]['uid'] == $user_config['uid']) {
@@ -92,7 +92,7 @@ switch (_OP_) {
 			$content .= "
 				<tr>
 					<td>$username</td>
-					<td>$ip_address</td>
+					<td>$mobile</td>
 					<td>
 						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
 						<input type=checkbox name=checkid[" . $j . "]>
@@ -130,7 +130,7 @@ switch (_OP_) {
 					$conditions = array(
 						'id' => $item 
 					);
-					if (dba_remove(_DB_PREF_ . '_featureFirewall', $conditions)) {
+					if (dba_remove(_DB_PREF_ . '_featureStoplist', $conditions)) {
 						$removed = TRUE;
 					}
 				}
@@ -141,7 +141,7 @@ switch (_OP_) {
 		$nav = themes_nav_session();
 		
 		if ($removed) {
-			$_SESSION['dialog']['info'][] = _('IP addresses have been deleted');
+			$_SESSION['dialog']['info'][] = _('Mobile numbers have been deleted');
 		}
 		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 		header("Location: " . _u($ref));
@@ -151,17 +151,13 @@ switch (_OP_) {
 	case "stoplist_add":
 		$content = _dialog() . "
 			<h2>" . _('Manage stoplist') . "</h2>
-			<h3>" . _('Add blocked IP addresses') . " " . _hint(_('Multiple IP addresses must be comma-separated')) . "</h3>
+			<h3>" . _('Add blocked mobile numbers') . " " . _hint(_('Multiple mobile numbers must be comma-separated')) . "</h3>
 			<form action='index.php?app=main&inc=feature_stoplist&op=stoplist_add_yes' method='post'>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Select username')) . "</td>
-				<td>" . themes_select_users_single('add_username') . "</td>
-			</tr>
-			<tr>
-				<td class=label-sizer>" . _mandatory(_('IP addresses')) . "</td>
-				<td><input type=text name='add_ip_address' required> " . _hint(_('Comma separated values for multiple IP addresses')) . "
+				<td class=label-sizer>" . _mandatory(_('Mobile numbers')) . "</td>
+				<td><input type=text name='add_mobile' required> " . _hint(_('Comma separated values for multiple mobile numbers')) . "
 				</td>
 			</tr>
 			</table>
@@ -172,13 +168,13 @@ switch (_OP_) {
 		break;
 	
 	case "stoplist_add_yes":
-		$add_username = user_uid2username($_POST['add_username']);
-		$add_ip_address = $_POST['add_ip_address'];
-		if ($add_username && $add_ip_address) {
-			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
-				blacklist_addip($add_username, $ip);
+		$add_mobile = $_POST['add_mobile'];
+		if ($add_mobile) {
+			$mobiles = explode(',', str_replace(' ', '', $add_mobile));
+			foreach ($mobiles as $mobile) {
+				blacklist_mobile_add($user_config['uid'], $mobile);
 			}
-			$_SESSION['dialog']['info'][] = _('IP addresses have been blocked');
+			$_SESSION['dialog']['info'][] = _('Mobile numbers have been blocked');
 		} else {
 			$_SESSION['dialog']['danger'][] = _('You must fill all fields');
 		}
