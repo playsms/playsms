@@ -12,13 +12,13 @@ msgstr ""
 "X-Generator: Poedit 1.7.5\n"
 
 msgid "From"
-msgstr ""
+msgstr "De"
 
 msgid "Message from"
 msgstr "Mensagem de"
 
 msgid "Message received at"
-msgstr ""
+msgstr "Mensagem recebida de"
 
 msgid "New inbox from"
 msgstr "Nova caixa de entrada de"
