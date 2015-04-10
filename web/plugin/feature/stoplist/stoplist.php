@@ -18,7 +18,7 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isvalid()) {
+if (!auth_isadmin()) {
 	auth_block();
 }
 
