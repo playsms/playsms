@@ -73,3 +73,7 @@ msgstr "Пользователь"
 
 msgid "Username"
 msgstr "Имя пользователя"
+
+#, php-format
+msgid "Username %s with account ID %d has requested approval for sender ID %s"
+msgstr ""
