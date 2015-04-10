@@ -53,8 +53,11 @@ msgstr "Rodapé de layout"
 msgid "Logo URL"
 msgstr "URL do Logótipo"
 
-msgid "Logo by default will be displayed at login, register and forgot password page"
-msgstr "Logotipo, por padrão, será exibido no início da sessão, registo e na recuperação da palavra-passe"
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Logotipo, por padrão, será exibido no início da sessão, registo e na "
+"recuperação da palavra-passe"
 
 msgid "Main website URL"
 msgstr "URL Principal do site "

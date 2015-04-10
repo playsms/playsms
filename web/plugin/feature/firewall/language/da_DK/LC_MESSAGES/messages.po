@@ -18,6 +18,9 @@ msgstr "Tilføj blokeret IP adresse"
 msgid "Blocked IP address"
 msgstr "Blokeret IP adresse"
 
+msgid "Comma separated values for multiple IP addresses"
+msgstr ""
+
 msgid "Delete"
 msgstr "Slet"
 

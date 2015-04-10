@@ -19,6 +19,9 @@ msgstr ""
 msgid "Blocked IP address"
 msgstr ""
 
+msgid "Comma separated values for multiple IP addresses"
+msgstr ""
+
 msgid "Delete"
 msgstr ""
 

@@ -18,6 +18,9 @@ msgstr "Adicionar endereços IP bloqueados"
 msgid "Blocked IP address"
 msgstr "Endereço IP bloqueado"
 
+msgid "Comma separated values for multiple IP addresses"
+msgstr ""
+
 msgid "Delete"
 msgstr "Apagar"
 
