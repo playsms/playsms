@@ -95,12 +95,17 @@ function notif_remove($uid, $id) {
  *        User ID
  * @param string $id
  *        Notification ID
- * @param array $data
- *        Updated data
+ * @param array $fields
+ *        Updated fields
  * @return boolean
  */
-function notif_update($uid, $id, $data) {
+function notif_update($uid, $id, $fields) {
 	$ret = FALSE;
+	
+	if (!is_array($fields)) {
+		
+		return FALSE;
+	}
 	
 	$db_table = _DB_PREF_ . '_tblNotif';
 	$result = dba_search($db_table, '*', array(
@@ -108,16 +113,16 @@ function notif_update($uid, $id, $data) {
 		'id' => $id 
 	));
 	foreach ($result[0] as $key => $val) {
-		$items[$key] = ($data[$key] ? $data[$key] : $val);
-		if ($data[$key]) {
-			$data_replaced .= $key . ':' . $val . ' ';
+		$items[$key] = ($fields[$key] ? $fields[$key] : $val);
+		if ($fields[$key]) {
+			$fields_replaced .= $key . ':' . $val . ' ';
 		}
 	}
 	if ($items && trim($replaced)) {
 		if (dba_update($db_table, $items, array(
 			'id' => $id 
 		))) {
-			_log('uid:' . $uid . ' id:' . $id . ' data:[' . trim($data_replaced) . ']', 2, 'notif_update');
+			_log('uid:' . $uid . ' id:' . $id . ' ' . trim($fields_replaced), 2, 'notif_update');
 			$ret = TRUE;
 		}
 	}
@@ -128,18 +133,15 @@ function notif_update($uid, $id, $data) {
 /**
  * Search notification
  *
- * @param integer $uid
- *        User ID
  * @param array $conditions
- *        Search criteria
+ *        Search requirements
+ * @param array $keywords
+ *        Search keywords
  * @return array
  */
-function notif_search($uid, $conditions) {
+function notif_search($conditions = array(), $keywords = array()) {
 	$db_table = _DB_PREF_ . '_tblNotif';
-	$results = dba_search($db_table, '*', $conditions, array(
-		'uid' => $uid,
-		'id' => $uid 
-	));
+	$results = dba_search($db_table, '*', $conditions, $keywords);
 	
 	return $results;
 }
