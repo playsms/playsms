@@ -192,9 +192,26 @@ function sender_id_add($uid, $sender_id, $sender_id_description = '', $isdefault
 			return FALSE;
 		}
 		
-		// if default and approved and data saved
-		if (auth_isadmin() && $default && $approved && $ret[$sender_id]) {
+		if ($ret[$sender_id]) {
+			_log('sender ID has been added id:' . $sender_id . ' uid:' . $uid, 2, 'sender_id_add');
+		} else {
+			_log('fail to add sender ID id:' . $sender_id . ' uid:' . $uid, 2, 'sender_id_add');
+			
+			return FALSE;
+		}
+		
+		// if default and approved
+		if (auth_isadmin() && $default && $approved) {
 			sender_id_default_set($uid, $sender_id);
+		}
+		
+		// notify admins if user or subuser
+		if ($user_config['status'] == 3 || $user_config['status'] == 4) {
+			$admins = user_getallwithstatus(2);
+			foreach ($admins as $admin) {
+				$message_to_admins = sprintf(_('Username %s with account ID %d has requested approval for sender ID %s'), user_uid2username($uid), $uid, $sender_id);
+				recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $admin['username'], $message_to_admins);
+			}
 		}
 		
 		// added
