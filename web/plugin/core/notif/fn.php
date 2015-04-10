@@ -36,6 +36,12 @@ defined('_SECURE_') or die('Forbidden');
 function notif_add($uid, $label, $subject, $body, $data = array()) {
 	$ret = FALSE;
 	
+	if (!is_array($data)) {
+		$data = array(
+			$data 
+		);
+	}
+	
 	$db_table = _DB_PREF_ . '_tblNotif';
 	$items = array(
 		'uid' => $uid,
@@ -47,7 +53,11 @@ function notif_add($uid, $label, $subject, $body, $data = array()) {
 		'data' => json_encode($data) 
 	);
 	if ($result = dba_add($db_table, $items)) {
-		_log('uid:' . $uid . ' id:' . $result . ' label:' . $label . ' subject:' . $subject, 2, 'notif_add');
+		foreach ($data as $key => $val) {
+			$show_data .= $key . ':' . $val . ' ';
+		}
+		_log('uid:' . $uid . ' id:' . $result . ' label:' . $label . ' subject:' . $subject . ' data:[' . trim($show_data) . ']', 2, 'notif_add');
+		
 		$ret = TRUE;
 	}
 	
@@ -92,8 +102,6 @@ function notif_remove($uid, $id) {
 function notif_update($uid, $id, $data) {
 	$ret = FALSE;
 	
-	$replaced = '';
-	
 	$db_table = _DB_PREF_ . '_tblNotif';
 	$result = dba_search($db_table, '*', array(
 		'uid' => $uid,
@@ -102,14 +110,14 @@ function notif_update($uid, $id, $data) {
 	foreach ($result[0] as $key => $val) {
 		$items[$key] = ($data[$key] ? $data[$key] : $val);
 		if ($data[$key]) {
-			$replaced = $key . ':' . $val . ' ';
+			$data_replaced .= $key . ':' . $val . ' ';
 		}
 	}
 	if ($items && trim($replaced)) {
 		if (dba_update($db_table, $items, array(
 			'id' => $id 
 		))) {
-			_log('uid:' . $uid . ' id:' . $id . ' ' . trim($replaced), 2, 'notif_update');
+			_log('uid:' . $uid . ' id:' . $id . ' data:[' . trim($data_replaced) . ']', 2, 'notif_update');
 			$ret = TRUE;
 		}
 	}
