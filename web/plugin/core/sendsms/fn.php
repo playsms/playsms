@@ -172,15 +172,15 @@ function sendsms_intercept_after($status, $smslog_id, $p_status, $sms_sender, $s
  * Create SMS queue
  *
  * @global array $core_config
- * @param string $sms_sender
- * @param string $sms_footer
- * @param string $sms_msg
- * @param integer $uid
- * @param integer $gpid
- * @param string $sms_type
- * @param integer $unicode
- * @param string $sms_schedule
- * @param string $smsc
+ * @param string $sms_sender        
+ * @param string $sms_footer        
+ * @param string $sms_msg        
+ * @param integer $uid        
+ * @param integer $gpid        
+ * @param string $sms_type        
+ * @param integer $unicode        
+ * @param string $sms_schedule        
+ * @param string $smsc        
  * @return string Queue code
  */
 function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $sms_schedule = '', $smsc = '') {
@@ -445,6 +445,17 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	
 	_log("start", 2, "sendsms_process");
 	
+	if (blacklist_mobile_isexists(0, $sms_to)) {
+		_log("fail to send. mobile is in the blacklist mobile:" . $sms_to . " smslog_id:" . $smslog_id, 2, "sendsms_process");
+		
+		$ret['status'] = FALSE;
+		$ret['to'] = $sms_to;
+		$ret['smslog_id'] = $smslog_id;
+		$ret['p_status'] = 2;
+		
+		return $ret;
+	}
+	
 	if (rate_cansend($username, strlen($sms_msg . $sms_footer), $unicode, $sms_to)) {
 		$p_status = 0;
 	} else {
@@ -477,7 +488,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// continue to gateway only when save to db is true
 	if ($id = @dba_insert_id($db_query)) {
 		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "sendsms_process");
-		if ($p_status == 0) {			
+		if ($p_status == 0) {
 			_log("final smslog_id:" . $smslog_id . " gw:" . $gateway . " smsc:" . $smsc . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
 			if (core_hook($gateway, 'sendsms', array(
 				$smsc,
@@ -535,17 +546,17 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * Send SMS helper
  *
  * @global array $core_config, $user_config
- * @param string $username
- * @param mixed $sms_to
- * @param string $message
- * @param string $sms_type
- * @param integer $unicode
- * @param string $smsc
- * @param boolean $nofooter
- * @param string $sms_footer
- * @param string $sms_sender
- * @param string $sms_schedule
- * @param string $reference_id
+ * @param string $username        
+ * @param mixed $sms_to        
+ * @param string $message        
+ * @param string $sms_type        
+ * @param integer $unicode        
+ * @param string $smsc        
+ * @param boolean $nofooter        
+ * @param string $sms_footer        
+ * @param string $sms_sender        
+ * @param string $sms_schedule        
+ * @param string $reference_id        
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $sms_count, $sms_failed)
  */
 function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
@@ -569,8 +580,8 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 				$c_gpid = $list[0]['gpid'];
 				$members = phonebook_getdatabyid($c_gpid);
 				foreach ($members as $member) {
-					if (trim($member['p_num'])) {
-						$array_sms_to[] = trim($member['p_num']);
+					if ($c_sms_to = trim($member['p_num'])) {
+						$array_sms_to[] = $c_sms_to;
 					}
 				}
 			}
@@ -637,16 +648,16 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  * Send SMS
  *
  * @global array $core_config, $user_config
- * @param string $username
- * @param mixed $sms_to
- * @param string $message
- * @param string $sms_type
- * @param integer $unicode
- * @param string $smsc
- * @param boolean $nofooter
- * @param string $sms_footer
- * @param string $sms_sender
- * @param string $sms_schedule
+ * @param string $username        
+ * @param mixed $sms_to        
+ * @param string $message        
+ * @param string $sms_type        
+ * @param integer $unicode        
+ * @param string $smsc        
+ * @param boolean $nofooter        
+ * @param string $sms_footer        
+ * @param string $sms_sender        
+ * @param string $sms_schedule        
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts)
  */
 function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
@@ -807,7 +818,15 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$failed_sms_count = 0;
 	for ($i = 0; $i < count($all_sms_to); $i++) {
 		$c_sms_to = $all_sms_to[$i];
-		if ($smslog_id[$i] = sendsms_queue_push($queue_code, $c_sms_to)) {
+		
+		$continue = TRUE;
+		if (blacklist_mobile_isexists(0, $c_sms_to)) {
+			$continue = FALSE;
+			
+			_log("fail to send. mobile is in the blacklist mobile:" . $c_sms_to, 2, "sendsms");
+		}
+		
+		if ($continue && ($smslog_id[$i] = sendsms_queue_push($queue_code, $c_sms_to))) {
 			$ok[$i] = TRUE;
 			$queue_count++;
 			$sms_count = $sms_count + $count;
@@ -859,16 +878,16 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
  * Send SMS to phonebook group
  *
  * @global array $core_config
- * @param string $username
- * @param integer $gpid
- * @param string $message
- * @param string $sms_type
- * @param integer $unicode
- * @param string $smsc
- * @param boolean $nofooter
- * @param string $sms_footer
- * @param string $sms_sender
- * @param string $sms_schedule
+ * @param string $username        
+ * @param integer $gpid        
+ * @param string $message        
+ * @param string $sms_type        
+ * @param integer $unicode        
+ * @param string $smsc        
+ * @param boolean $nofooter        
+ * @param string $sms_footer        
+ * @param string $sms_sender        
+ * @param string $sms_schedule        
  * @return array array($status, $sms_to, $smslog_id, $queue, $counts)
  */
 function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
@@ -970,7 +989,7 @@ function sendsms_get_template() {
 /**
  * Get SMS data from $smslog_id
  *
- * @param integer $smslog_id
+ * @param integer $smslog_id        
  * @return array
  */
 function sendsms_get_sms($smslog_id) {

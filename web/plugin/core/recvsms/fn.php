@@ -81,7 +81,7 @@ function recvsmsd() {
 /**
  * Check available keyword or keyword that hasn't been added
  *
- * @param $keyword keyword
+ * @param $keyword keyword        
  * @return TRUE if available, FALSE if already exists or not available
  */
 function checkavailablekeyword($keyword) {
@@ -206,6 +206,12 @@ function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_rece
 function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receiver = '', $smsc = '') {
 	global $core_config;
 	
+	// blacklist
+	if (blacklist_mobile_isexists(0, $sms_sender)) {
+		logger_print("incoming SMS discarded sender is in the blacklist datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "setsmsincomingaction");
+		return false;
+	}
+	
 	// incoming sms will be handled by plugins first
 	$ret_intercept = recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 	if ($ret_intercept['modified']) {
@@ -227,7 +233,7 @@ function setsmsincomingaction($sms_datetime, $sms_sender, $message, $sms_receive
 	
 	// if hooked function returns cancel=true then stop the processing incoming sms, return false
 	if ($ret_intercept['cancel']) {
-		logger_print("cancelled datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message, 3, "setsmsincomingaction");
+		logger_print("cancelled datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "setsmsincomingaction");
 		return false;
 	}
 	
@@ -484,7 +490,7 @@ function getsmsinbox() {
 	$smscs = gateway_getall_smsc_names();
 	foreach ($smscs as $smsc) {
 		$smsc_data = gateway_get_smscbyname($smsc);
-		$gateways[] = $smsc_data['gateway'];		
+		$gateways[] = $smsc_data['gateway'];
 	}
 	if (is_array($gateways)) {
 		$gateways = array_unique($gateways);
