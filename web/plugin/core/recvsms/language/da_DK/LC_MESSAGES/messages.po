@@ -20,8 +20,5 @@ msgstr "Besked fra"
 msgid "Message received at"
 msgstr "Besked modtaget kl"
 
-msgid "New inbox from"
-msgstr "Ny indbakke fra"
-
 msgid "on"
 msgstr "den"

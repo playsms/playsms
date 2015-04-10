@@ -82,6 +82,9 @@ msgstr "Подпись"
 msgid "From"
 msgstr "От"
 
+msgid "Gateway"
+msgstr ""
+
 msgid "Inbox"
 msgstr "Входящие"
 

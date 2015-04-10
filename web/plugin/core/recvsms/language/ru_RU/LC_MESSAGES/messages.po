@@ -19,8 +19,5 @@ msgstr "Сообщение от"
 msgid "Message received at"
 msgstr ""
 
-msgid "New inbox from"
-msgstr "Новое входящее от"
-
 msgid "on"
 msgstr ""

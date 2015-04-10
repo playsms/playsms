@@ -67,6 +67,9 @@ msgstr ""
 msgid "From"
 msgstr ""
 
+msgid "Gateway"
+msgstr ""
+
 msgid "Inbox"
 msgstr ""
 

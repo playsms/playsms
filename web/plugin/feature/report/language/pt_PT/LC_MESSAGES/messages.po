@@ -81,6 +81,9 @@ msgstr "Rodapé"
 msgid "From"
 msgstr "De"
 
+msgid "Gateway"
+msgstr ""
+
 msgid "Inbox"
 msgstr "Caixa de Entrada"
 

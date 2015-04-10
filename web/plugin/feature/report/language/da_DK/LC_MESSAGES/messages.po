@@ -81,6 +81,9 @@ msgstr "Bundtekst"
 msgid "From"
 msgstr "Fra"
 
+msgid "Gateway"
+msgstr ""
+
 msgid "Inbox"
 msgstr "Indbakke"
 

@@ -12,8 +12,5 @@ msgstr "Message de"
 msgid "Message received at"
 msgstr "Message reçu à"
 
-msgid "New inbox from"
-msgstr "Nouvelle boîte de réception de"
-
 msgid "on"
 msgstr "activé"
