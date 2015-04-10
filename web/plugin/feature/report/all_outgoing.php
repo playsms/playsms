@@ -26,7 +26,8 @@ switch (_OP_) {
 	case "all_outgoing":
 		$search_category = array(
 			_('User') => 'username',
-			_('SMSC') => 'p_gateway',
+			_('Gateway') => 'p_gateway',
+			_('SMSC') => 'p_smsc',
 			_('Time') => 'p_datetime',
 			_('To') => 'p_dst',
 			_('Message') => 'p_msg',
@@ -82,6 +83,7 @@ switch (_OP_) {
 			$list[$j] = core_display_data($list[$j]);
 			$p_username = $list[$j]['username'];
 			$p_gateway = $list[$j]['p_gateway'];
+			$p_smsc = $list[$j]['p_smsc'];
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_uid = $list[$j]['uid'];
 			$p_dst = $list[$j]['p_dst'];
@@ -141,7 +143,7 @@ switch (_OP_) {
 			$content .= "
 				<tr>
 					<td>$p_username</td>
-					<td>$p_gateway</td>
+					<td><div>" . $p_smsc . "</div><div>" . $p_gateway . "</td>
 					<td>$current_p_dst</td>
 					<td>$c_message</td>
 					<td>
