@@ -18,17 +18,20 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isadmin()) {
+if (!auth_isvalid()) {
 	auth_block();
 }
 
 switch (_OP_) {
 	case "stoplist_list":
 		$search_category = array(
-			_('Mobile') => 'mobile' 
+			_('Mobile') => 'mobile',
+			_('Username') => 'uid' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_stoplist&op=stoplist_list';
-		$search = themes_search($search_category, $base_url);
+		$search = themes_search($search_category, $base_url, array(
+			'uid' => 'user_username2uid' 
+		));
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featureStoplist', '', $keywords);
 		$nav = themes_nav($count, $search['url']);
