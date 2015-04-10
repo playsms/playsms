@@ -74,6 +74,9 @@ msgstr "Pied de page"
 msgid "From"
 msgstr "De"
 
+msgid "Gateway"
+msgstr ""
+
 msgid "Inbox"
 msgstr "Boîte de réception"
 
