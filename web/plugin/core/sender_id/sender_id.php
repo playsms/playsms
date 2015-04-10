@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 // check permission when $uid supplied
 if ($_REQUEST['uid']) {
-	if (! auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
+	if (!auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
 		auth_block();
 	}
 	$uid = $_REQUEST['uid'];
@@ -33,7 +33,7 @@ if ($_REQUEST['id']) {
 		'registry_family' => 'sender_id' 
 	);
 	$data_sender_id = registry_search_record($search);
-	if (! auth_isadmin() && $user_config['uid'] != $data_sender_id[0]['uid']) {
+	if (!auth_isadmin() && $user_config['uid'] != $data_sender_id[0]['uid']) {
 		auth_block();
 	}
 	$uid = $data_sender_id[0]['uid'];
@@ -41,13 +41,13 @@ if ($_REQUEST['id']) {
 
 // check permission if _OP_ == toggle_status
 if (_OP_ == 'toggle_status') {
-	if (! auth_isadmin()) {
+	if (!auth_isadmin()) {
 		auth_block();
 	}
 }
 
 // default uid
-if (! $uid) {
+if (!$uid) {
 	$uid = $user_config['uid'];
 }
 
