@@ -160,8 +160,6 @@ function blacklist_mobile_get($label) {
 /**
  * Get list of all blacklisted mobile numbers
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
  * @return array all blacklisted mobile numbers
  */
 function blacklist_mobile_getall() {
