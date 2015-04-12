@@ -52,11 +52,11 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
 		
-		$unicode = "";
 		if ($unicode) {
 			if (function_exists('mb_convert_encoding')) {
 				// $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
-				$sms_msg = mb_convert_encoding($sms_msg, "UCS-2", "auto");
+				// $sms_msg = mb_convert_encoding($sms_msg, "UCS-2", "auto");
+				$sms_msg = mb_convert_encoding($sms_msg, "UTF-8", "auto");
 				$unicode = "&type=unicode"; // added at the of query string if unicode
 			}
 		}
