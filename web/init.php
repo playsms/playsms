@@ -129,7 +129,7 @@ define('_HTTP_PATH_STORAGE_', $core_config['http_path']['storage']);
 define('_SYSTEM_SENDER_ID_', '@admin');
 
 // load init functions
-include_once _APPS_PATH_LIBS_ . '/fn_core.php';
+include _APPS_PATH_LIBS_ . '/fn_core.php';
 
 // if magic quotes gps is set to Off (which is recommended) then addslashes all requests
 if (!get_magic_quotes_gpc()) {
