@@ -163,16 +163,16 @@ switch (_OP_) {
 			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, '', $nofooter, $sms_footer, $sms_sender, $sms_schedule, $reference_id);
 
 			if (!$sms_count && $sms_failed) {
-				$_SESSION['dialog']['info'][] = _('Fail to send message to all destinations') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+				$_SESSION['dialog']['danger'][] = _('Fail to send message to all destinations') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
 			} else if ($sms_count && $sms_failed) {
-				$_SESSION['dialog']['info'][] = _('Your message has been delivered to some of the destinations') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+				$_SESSION['dialog']['danger'][] = _('Your message has been delivered to some of the destinations') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
 			} else if ($sms_count && !$sms_failed) {
 				$_SESSION['dialog']['info'][] = _('Your message has been delivered to queue') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
 			} else {
-				$_SESSION['dialog']['info'][] = _('System error has occured') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
+				$_SESSION['dialog']['danger'][] = _('System error has occured') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('You must select receiver and your message should not be empty');
+			$_SESSION['dialog']['danger'][] = _('You must select receiver and your message should not be empty');
 		}
 
 		if ($return_url) {
