@@ -52,15 +52,17 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
 		
+		$unicode_query_string = '';
 		if ($unicode) {
 			if (function_exists('mb_convert_encoding')) {
 				// $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
 				// $sms_msg = mb_convert_encoding($sms_msg, "UCS-2", "auto");
 				$sms_msg = mb_convert_encoding($sms_msg, "UTF-8", "auto");
-				$unicode = "&type=unicode"; // added at the of query string if unicode
+				$unicode_query_string = "&type=unicode"; // added at the of query string if unicode
 			}
 		}
-		$query_string = "api_key=" . $plugin_config['nexmo']['api_key'] . "&api_secret=" . $plugin_config['nexmo']['api_secret'] . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&text=" . urlencode($sms_msg) . $unicode . "&status-report-req=1&client-ref=" . $smslog_id;
+		
+		$query_string = "api_key=" . $plugin_config['nexmo']['api_key'] . "&api_secret=" . $plugin_config['nexmo']['api_secret'] . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&text=" . urlencode($sms_msg) . $unicode_query_string . "&status-report-req=1&client-ref=" . $smslog_id;
 		$url = $plugin_config['nexmo']['url'] . "?" . $query_string;
 		
 		_log("url:[" . $url . "]", 3, "nexmo outgoing");
