@@ -557,7 +557,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * @param string $sms_sender        
  * @param string $sms_schedule        
  * @param string $reference_id        
- * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $sms_count, $sms_failed)
+ * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $sms_count, $sms_failed, $error_strings)
  */
 function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
 	global $core_config, $user_config;
@@ -606,7 +606,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	
 	// sendsms
 	if (is_array($array_sms_to) && $array_sms_to[0]) {
-		list($ok, $to, $smslog_id, $queue, $counts) = sendsms($user_config['username'], $array_sms_to, $message, $sms_type, $unicode, $smsc, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
+		list($ok, $to, $smslog_id, $queue, $counts, $error_strings) = sendsms($user_config['username'], $array_sms_to, $message, $sms_type, $unicode, $smsc, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
 	}
 	
 	// fixme anton - IMs doesn't count
@@ -640,7 +640,8 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 		$queue,
 		$counts,
 		$sms_count,
-		$sms_failed 
+		$sms_failed,
+		$error_strings 
 	);
 }
 
@@ -658,7 +659,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  * @param string $sms_footer        
  * @param string $sms_sender        
  * @param string $sms_schedule        
- * @return array array($status, $sms_to, $smslog_id, $queue, $counts)
+ * @return array array($status, $sms_to, $smslog_id, $queue, $counts, $error_strings)
  */
 function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
 	global $core_config, $user_config;
@@ -677,13 +678,14 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	
 	// discard if banned
 	if (user_banned_get($uid)) {
-		_log("user banned, exit immediately uid:" . $uid, 2, "sendsms");
+		_log("user banned, exit immediately uid:" . $uid . ' username:' . $user['username'], 2, "sendsms");
 		return array(
 			FALSE,
 			'',
 			'',
 			'',
-			'' 
+			'',
+			sprintf(_('Account %s is currently banned to use services'), $username) 
 		);
 	}
 	
@@ -735,7 +737,8 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 			'',
 			'',
 			'',
-			'' 
+			'',
+			_('Send message failed due to unable to create queue') 
 		);
 	}
 	
@@ -779,6 +782,32 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 		$balance_parent = $credit_parent - $total_charges;
 	}
 	
+	if ($parent_uid) {
+		if (!($balance_parent >= 0)) {
+			_log('failed parent do not have enough credit. credit:' . $credit_parent . ' dst:' . count($all_sms_to) . ' sms_count:' . $total_count . ' total_charges:' . $total_charges, 2, 'sendsms');
+			return array(
+				FALSE,
+				'',
+				'',
+				'',
+				'',
+				_('Internal error please contact service provider') 
+			);
+		}
+	} else {
+		if (!($balance >= 0)) {
+			_log('failed user do not have enough credit. credit:' . $credit_parent . ' dst:' . count($all_sms_to) . ' sms_count:' . $total_count . ' total_charges:' . $total_charges, 2, 'sendsms');
+			return array(
+				FALSE,
+				'',
+				'',
+				'',
+				'',
+				_('Send message failed due to insufficient funds') 
+			);
+		}
+	}
+	
 	// default returns
 	for ($i = 0; $i < count($all_sms_to); $i++) {
 		$ok[$i] = FALSE;
@@ -786,30 +815,6 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 		$smslog_id[$i] = 0;
 		$queue[$i] = $queue_code;
 		$counts[$i] = $count;
-	}
-	
-	if ($parent_uid) {
-		if (!($balance_parent >= 0)) {
-			_log('failed parent do not have enough credit. credit:' . $credit_parent . ' dst:' . count($all_sms_to) . ' sms_count:' . $total_count . ' total_charges:' . $total_charges, 2, 'sendsms');
-			return array(
-				$ok,
-				$to,
-				$smslog_id,
-				$queue,
-				$counts 
-			);
-		}
-	} else {
-		if (!($balance >= 0)) {
-			_log('failed user do not have enough credit. credit:' . $credit_parent . ' dst:' . count($all_sms_to) . ' sms_count:' . $total_count . ' total_charges:' . $total_charges, 2, 'sendsms');
-			return array(
-				$ok,
-				$to,
-				$smslog_id,
-				$queue,
-				$counts 
-			);
-		}
 	}
 	
 	$queue_count = 0;
@@ -830,10 +835,12 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 			$ok[$i] = TRUE;
 			$queue_count++;
 			$sms_count = $sms_count + $count;
+			$error_strings[$i] = sprintf(_('Message %s has been delivered to queue'), $smslog_id[$i]);
 		} else {
 			$ok[$i] = FALSE;
 			$failed_queue_count++;
 			$failed_sms_count++;
+			$error_strings[$i] = sprintf(_('Send message to %s in queue %s has failed'), $c_sms_to, $queue_code);
 		}
 		$to[$i] = $c_sms_to;
 		$queue[$i] = $queue_code;
@@ -852,7 +859,8 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 			'',
 			'',
 			$queue_code,
-			'' 
+			'',
+			sprintf(_('Send message failed due to unable to prepare queue %s'), $queue_code) 
 		);
 	}
 	
@@ -870,7 +878,8 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 		$to,
 		$smslog_id,
 		$queue,
-		$counts 
+		$counts,
+		$error_strings 
 	);
 }
 
@@ -928,7 +937,7 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 	
 	// sendsms
 	if (is_array($array_sms_to) && $array_sms_to[0]) {
-		list($ok, $to, $smslog_id, $queue, $counts) = sendsms($username, $array_sms_to, $message, $sms_type, $unicode, $smsc, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
+		list($ok, $to, $smslog_id, $queue, $counts, $error_strings) = sendsms($username, $array_sms_to, $message, $sms_type, $unicode, $smsc, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
 	}
 	
 	return array(
@@ -936,7 +945,8 @@ function sendsms_bc($username, $gpid, $message, $sms_type = 'text', $unicode = 0
 		$to,
 		$smslog_id,
 		$queue,
-		$counts 
+		$counts,
+		$error_strings 
 	);
 }
 
