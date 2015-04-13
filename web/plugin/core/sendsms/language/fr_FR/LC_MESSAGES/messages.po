@@ -3,6 +3,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -18,8 +22,15 @@ msgstr "Message flash"
 msgid "Format YYYY-MM-DD hh:mm"
 msgstr "Format AAAA-MM-JJ hh:mm"
 
+msgid "Internal error please contact service provider"
+msgstr ""
+
 msgid "Message"
 msgstr "Message"
+
+#, fuzzy, php-format
+msgid "Message %s has been delivered to queue"
+msgstr "Votre message a été réceptionné dans la file d'attente"
 
 msgid "Message footer"
 msgstr "Pied de page du message"
@@ -41,6 +52,20 @@ msgstr "Planification"
 
 msgid "Send"
 msgstr "Envoyer"
+
+msgid "Send message failed due to insufficient funds"
+msgstr ""
+
+msgid "Send message failed due to unable to create queue"
+msgstr ""
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr ""
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
+msgstr ""
 
 msgid "Send to"
 msgstr "Envoyer "

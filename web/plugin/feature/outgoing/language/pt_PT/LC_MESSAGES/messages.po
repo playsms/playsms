@@ -27,6 +27,10 @@ msgstr "Nome de destino"
 msgid "Edit route"
 msgstr "Editar rota"
 
+#, fuzzy
+msgid "Fail to add route"
+msgstr "Erro ao guardar a rota"
+
 msgid "Fail to delete route"
 msgstr "Erro ao remover a rota"
 
@@ -35,9 +39,6 @@ msgstr "Erro ao guardar a rota"
 
 msgid "Maximum 8 digits numeric only"
 msgstr "Máximo 8 dígitos apenas numérico"
-
-msgid "No changes made!"
-msgstr "Nenhuma mudança feita!"
 
 msgid "Prefix"
 msgstr "Prefixo"

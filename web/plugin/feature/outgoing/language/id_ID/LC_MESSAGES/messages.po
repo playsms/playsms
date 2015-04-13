@@ -24,6 +24,10 @@ msgid "Edit route"
 msgstr "Ubah tarif"
 
 #, fuzzy
+msgid "Fail to add route"
+msgstr "Gagal menyimpan tarif"
+
+#, fuzzy
 msgid "Fail to delete route"
 msgstr "Gagal menghapus tarif"
 
@@ -33,9 +37,6 @@ msgstr "Gagal menyimpan tarif"
 
 msgid "Maximum 8 digits numeric only"
 msgstr ""
-
-msgid "No changes made!"
-msgstr "Tidak ada perubahan yang dilakukan!"
 
 msgid "Prefix"
 msgstr "Awalan"

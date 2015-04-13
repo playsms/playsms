@@ -24,6 +24,10 @@ msgid "Edit route"
 msgstr "Editar tarifa"
 
 #, fuzzy
+msgid "Fail to add route"
+msgstr "Fallo al eliminar la tarifa"
+
+#, fuzzy
 msgid "Fail to delete route"
 msgstr "Fallo al borrar la tarifa"
 
@@ -33,9 +37,6 @@ msgstr "Fallo al eliminar la tarifa"
 
 msgid "Maximum 8 digits numeric only"
 msgstr ""
-
-msgid "No changes made!"
-msgstr "No se efectuaron cambios!"
 
 msgid "Prefix"
 msgstr "Prefijo"

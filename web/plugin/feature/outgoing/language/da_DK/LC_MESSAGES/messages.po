@@ -27,6 +27,10 @@ msgstr "Destinationsnavn"
 msgid "Edit route"
 msgstr "Rediger rute"
 
+#, fuzzy
+msgid "Fail to add route"
+msgstr "Kunne ikke slette rute"
+
 msgid "Fail to delete route"
 msgstr "Kunne ikke slette rute"
 
@@ -35,9 +39,6 @@ msgstr "Kunne ikke slette rute"
 
 msgid "Maximum 8 digits numeric only"
 msgstr "Maksimum 8 numeriske tegn"
-
-msgid "No changes made!"
-msgstr "Ingen ændringer foretaget!"
 
 msgid "Prefix"
 msgstr "Præfiks"

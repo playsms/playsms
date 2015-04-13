@@ -1,3 +1,7 @@
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
@@ -13,7 +17,14 @@ msgstr ""
 msgid "Format YYYY-MM-DD hh:mm"
 msgstr ""
 
+msgid "Internal error please contact service provider"
+msgstr ""
+
 msgid "Message"
+msgstr ""
+
+#, php-format
+msgid "Message %s has been delivered to queue"
 msgstr ""
 
 msgid "Message footer"
@@ -35,6 +46,20 @@ msgid "Schedule"
 msgstr ""
 
 msgid "Send"
+msgstr ""
+
+msgid "Send message failed due to insufficient funds"
+msgstr ""
+
+msgid "Send message failed due to unable to create queue"
+msgstr ""
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr ""
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
 msgstr ""
 
 msgid "Send to"

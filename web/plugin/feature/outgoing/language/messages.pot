@@ -13,6 +13,9 @@ msgstr ""
 msgid "Edit route"
 msgstr ""
 
+msgid "Fail to add route"
+msgstr ""
+
 msgid "Fail to delete route"
 msgstr ""
 
@@ -20,9 +23,6 @@ msgid "Fail to save route"
 msgstr ""
 
 msgid "Maximum 8 digits numeric only"
-msgstr ""
-
-msgid "No changes made!"
 msgstr ""
 
 msgid "Prefix"

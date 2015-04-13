@@ -24,6 +24,10 @@ msgid "Edit route"
 msgstr "编辑等级"
 
 #, fuzzy
+msgid "Fail to add route"
+msgstr "保存等级失败"
+
+#, fuzzy
 msgid "Fail to delete route"
 msgstr "删除等级失败"
 
@@ -33,9 +37,6 @@ msgstr "保存等级失败"
 
 msgid "Maximum 8 digits numeric only"
 msgstr ""
-
-msgid "No changes made!"
-msgstr "没有做出改变"
 
 msgid "Prefix"
 msgstr "前缀"

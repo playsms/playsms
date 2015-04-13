@@ -21,6 +21,10 @@ msgstr "Nom de la destination"
 msgid "Edit route"
 msgstr "Éditer la route"
 
+#, fuzzy
+msgid "Fail to add route"
+msgstr "Échec de l'enregistrement de la route"
+
 msgid "Fail to delete route"
 msgstr "Échec de la suppression de la route"
 
@@ -29,9 +33,6 @@ msgstr "Échec de l'enregistrement de la route"
 
 msgid "Maximum 8 digits numeric only"
 msgstr "Maximum 8 chiffres uniquement numériques"
-
-msgid "No changes made!"
-msgstr "Aucune modification apportée!"
 
 msgid "Prefix"
 msgstr "Préfixe"

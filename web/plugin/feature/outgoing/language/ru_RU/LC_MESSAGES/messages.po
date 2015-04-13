@@ -27,6 +27,10 @@ msgstr "Назначение"
 msgid "Edit route"
 msgstr "Редактировать маршрут"
 
+#, fuzzy
+msgid "Fail to add route"
+msgstr "Не удалось сохранить маршрут"
+
 msgid "Fail to delete route"
 msgstr "Не удалось удалить маршрут"
 
@@ -35,9 +39,6 @@ msgstr "Не удалось сохранить маршрут"
 
 msgid "Maximum 8 digits numeric only"
 msgstr ""
-
-msgid "No changes made!"
-msgstr "Нет изменений"
 
 msgid "Prefix"
 msgstr "Префикс"

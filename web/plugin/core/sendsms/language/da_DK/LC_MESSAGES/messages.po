@@ -11,6 +11,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.4\n"
 
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -26,8 +30,15 @@ msgstr "Flash besked"
 msgid "Format YYYY-MM-DD hh:mm"
 msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
+msgid "Internal error please contact service provider"
+msgstr ""
+
 msgid "Message"
 msgstr "Besked"
+
+#, fuzzy, php-format
+msgid "Message %s has been delivered to queue"
+msgstr "Din besked er afleveret til køen"
 
 msgid "Message footer"
 msgstr "Besked bundtekst"
@@ -49,6 +60,20 @@ msgstr "Skema"
 
 msgid "Send"
 msgstr "Send"
+
+msgid "Send message failed due to insufficient funds"
+msgstr ""
+
+msgid "Send message failed due to unable to create queue"
+msgstr ""
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr ""
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
+msgstr ""
 
 msgid "Send to"
 msgstr "Send til"

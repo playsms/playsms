@@ -24,6 +24,10 @@ msgid "Edit route"
 msgstr "Editar taxa"
 
 #, fuzzy
+msgid "Fail to add route"
+msgstr "Falha ao salvar a taxa"
+
+#, fuzzy
 msgid "Fail to delete route"
 msgstr "Falha ao remover a taxa"
 
@@ -33,9 +37,6 @@ msgstr "Falha ao salvar a taxa"
 
 msgid "Maximum 8 digits numeric only"
 msgstr ""
-
-msgid "No changes made!"
-msgstr "Nenhuma mudança feita!"
 
 msgid "Prefix"
 msgstr "Prefixo"
