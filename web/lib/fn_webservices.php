@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
  *
  * @param $h Webservices
  *        token
- * @param $u Username
+ * @param $u Username        
  * @return boolean FALSE if invalid, string username if valid
  */
 function webservices_validate($h, $u) {
@@ -447,7 +447,8 @@ function webservices_query($username) {
 			'uid' => (int) $uid,
 			'status' => (int) $status,
 			'name' => $name,
-			'email' => $mobile,
+			'email' => $email,
+			'mobile' => $mobile,
 			'credit' => $credit 
 		),
 		'last_id' => array(
