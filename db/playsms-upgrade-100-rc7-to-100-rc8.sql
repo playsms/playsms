@@ -1,4 +1,4 @@
--- 1.0-master
+-- 1.0-rc8
 
 
 -- version
@@ -19,3 +19,6 @@ CREATE TABLE `playsms_featureStoplist` (
   `mobile` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- version
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc8' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;

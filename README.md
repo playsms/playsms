@@ -1,8 +1,8 @@
 # README
 
-playSMS version **1.0-rc7**
+playSMS version **1.0-rc8**
 
-Release date **150323**
+Release date **150415**
 
 Official project website:
 
@@ -28,7 +28,7 @@ communication tools
 
 ## Feature Highlights
 
-* Multiple database engine supported (through PHP PEAR DB)
+* Multiple database engine supported (through PHP PEAR DB, included in this package)
 * Send SMS to single mobile phone
 * Send SMS broadcasted to a group of mobile phones, or SMS bulk
 * Support sending text, flash and unicode messages
@@ -44,6 +44,7 @@ communication tools
 * SMS quiz, serve quizzes on SMS
 * SMS subscribe, manage user subscribes to a service using SMS
 * SMS sync to utilize SMSSync app from http://smssync.ushahidi.com
+* Blacklist, stoplist and firewall plugin for SMS services protections
 * Create your own features, tools, themes and gateway modules as a plugin
 * Supports Gammu, Gnokii, Kannel, SMS Server Tools, Msgtoolbox, Uplink, Nexmo, Twilio, Infobip and Clickatell
 * Supports multiple active SMSC
@@ -59,6 +60,7 @@ communication tools
 * Multi-language user interface (English, French, Bahasa Indonesia, Russian and a few others)
 * Easily add new language for user interface
 * Web-based interface
+* Android app for playSMS available on Google Play Store
 * Multi-domain from single playSMS installation with site branding for reseller supports
 
 
@@ -109,7 +111,3 @@ You may also use this URL to make donation:
 Information about code contributors can be found in this URL:
 
 * https://github.com/antonraharja/playSMS/graphs/contributors
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/antonraharja/playsms/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
