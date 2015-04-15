@@ -448,55 +448,49 @@ if (_OP_) {
 			break;
 		
 		case "GET_TOKEN":
-			$validated = FALSE;
+			$user = array();
 			
 			if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
 				if (auth_validate_email($u, $p)) {
 					$u = user_email2username($u);
-					$validated = TRUE;
+					$user = user_getdatabyusername($u);
 				}
 			} else {
 				if (auth_validate_login($u, $p)) {
-					$validated = TRUE;
+					$user = user_getdatabyusername($u);
 				}
 			}
 			
-			if ($validated) {
-				$user = user_getdatabyusername($u);
-				if ($user['uid']) {
-					$continue = false;
-					$json['status'] = 'ERR';
-					$json['error'] = '106';
-					$ip = explode(',', $user['webservices_ip']);
-					if (is_array($ip)) {
-						foreach ($ip as $key => $net) {
-							if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
-								$continue = true;
-							}
-						}
-					}
-					if ($continue) {
-						$continue = false;
-						if ($token = $user['token']) {
+			if ($user['uid']) {
+				$continue = false;
+				$json['status'] = 'ERR';
+				$json['error'] = '106';
+				$ip = explode(',', $user['webservices_ip']);
+				if (is_array($ip)) {
+					foreach ($ip as $key => $net) {
+						if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
 							$continue = true;
-						} else {
-							$json['status'] = 'ERR';
-							$json['error'] = '104';
 						}
 					}
-					if ($continue) {
-						if ($user['enable_webservices']) {
-							$json['status'] = 'OK';
-							$json['error'] = '0';
-							$json['token'] = $token;
-						} else {
-							$json['status'] = 'ERR';
-							$json['error'] = '105';
-						}
+				}
+				if ($continue) {
+					$continue = false;
+					if ($token = $user['token']) {
+						$continue = true;
+					} else {
+						$json['status'] = 'ERR';
+						$json['error'] = '104';
 					}
-				} else {
-					$json['status'] = 'ERR';
-					$json['error'] = '100';
+				}
+				if ($continue) {
+					if ($user['enable_webservices']) {
+						$json['status'] = 'OK';
+						$json['error'] = '0';
+						$json['token'] = $token;
+					} else {
+						$json['status'] = 'ERR';
+						$json['error'] = '105';
+					}
 				}
 			} else {
 				$json['status'] = 'ERR';

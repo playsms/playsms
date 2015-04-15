@@ -29,6 +29,11 @@ defined('_SECURE_') or die('Forbidden');
 function webservices_validate($h, $u) {
 	global $core_config;
 	$ret = false;
+	
+	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
+		$u = user_email2username($u);
+	}
+	
 	if ($c_uid = auth_validate_token($h)) {
 		$c_u = user_uid2username($c_uid);
 		if ($core_config['webservices_username']) {
@@ -53,6 +58,10 @@ function webservices_validate($h, $u) {
  */
 function webservices_validate_admin($h, $u) {
 	$ret = false;
+	
+	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
+		$u = user_email2username($u);
+	}
 	
 	$c_u = webservices_validate($h, $u);
 	if ($u) {
