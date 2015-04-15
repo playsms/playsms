@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajllah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+msgid "Fail to recover password"
+msgstr "فشل استعادة كلمة المرور"
+
+msgid "Fail to save temporary password"
+msgstr "فشل حفظ كلمة المرور المؤقتة"
+
+msgid "Fail to send email"
+msgstr "فشل إرسال البريد الالكتروني"
+
+msgid "Home"
+msgstr "الرئيسة"
+
+msgid "Invalid username or password"
+msgstr "اسم المستخدم أو كلمة المرور غير صحيحين"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Mobile"
+msgstr "الجوال"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Password has been emailed"
+msgstr "تم إرسال كلمة المرور إلى البريد الالكتروني"
+
+msgid "Password recovery"
+msgstr "استعادة كلمة المرور"
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr "الرجاء إدخال الرمز بشكل صحيح"
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr "في حال لم تستطع تخطي الرمز يرجى التواصل مع مدير حسابك"
+
+msgid "Recover password"
+msgstr "استعادة كلمة المرور"
+
+msgid "Recover password disabled"
+msgstr "تم تعطيل استعادة كلمة المرور"
+
+msgid "Register an account"
+msgstr "إنشاء حساب"
+
+msgid "Submit"
+msgstr "أرسل"
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+"سيتم إزالة كلمة المرور المؤقتة بعد أول عملية تسجيل دخول إلى حسابك بنجاح."
+
+msgid "Unable to login"
+msgstr "غير قادر على تسجيل الدخول"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Username or email"
+msgstr "اسم المستخدم أو كلمة المرور"
+
+msgid "Verify captcha"
+msgstr "تحقق من الرمز"
+
+msgid "You have been logged out"
+msgstr "تم تسجيل الخروج"
+
+msgid "You have no access to this page"
+msgstr "لايوجد لديك صلاحية للوصول إلى هذه الصفحة"
+
+msgid "You or someone else have requested a password recovery"
+msgstr "لقد طلبت أنت أو شخص ما استعادة كلمة المرور."

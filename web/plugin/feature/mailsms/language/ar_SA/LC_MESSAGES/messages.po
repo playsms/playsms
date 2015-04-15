@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Check email sender"
+msgstr "تأكد من مرسل البريد"
+
+msgid "Email protocol"
+msgstr "بروتوكول البريد"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "تم حفظ الرقم السري لتوجيه البريد للرسائل القصيرة"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "تم حفظ الرقم السري لكن تم تعطيل الخدمة."
+
+msgid "Email to SMS address"
+msgstr "عنوان توجيه البريد للرسائل"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "تم حفظ الإعدادات و تعطيل الخدمة."
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "تم حفظ الإعدادات وتمكين الخدمة."
+
+msgid "Enable fetch new emails"
+msgstr "تمكين البحث عن رسائل جديدة."
+
+msgid "Fail to save email to SMS PIN"
+msgstr "فشل حفظ الرقم السري"
+
+msgid "Fill the password field to change password"
+msgstr "الرجاء كتابة كلمة المرور"
+
+msgid "Mail server address"
+msgstr "عنوان خادم البريد"
+
+msgid "Mail server port"
+msgstr "منفذ خادم البريد"
+
+msgid "Mailbox password"
+msgstr "كلمة المرور لصندوق البريد"
+
+msgid "Mailbox username"
+msgstr "اسم المستخدم لصندوق البريد"
+
+msgid "Manage email to SMS"
+msgstr "إدارة توجيه البريد للرسائل القصيرة"
+
+msgid "My email to SMS"
+msgstr "بريدي الموجه للرسائل القصيرة"
+
+msgid "No validate cert option"
+msgstr "لا يوجد شهادة صالحة"
+
+msgid "PIN for email to SMS"
+msgstr "الرقم السري لتوجيه البريد للرسائل القصيرة"
+
+msgid "PIN is empty"
+msgstr "الرقم السري فارغ."
+
+msgid "Use SSL"
+msgstr "استخدم SSL"
+
+msgid "no"
+msgstr "لا"
+
+msgid "yes"
+msgstr "نعم"

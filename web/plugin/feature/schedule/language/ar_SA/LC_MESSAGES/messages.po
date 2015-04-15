@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Add SMS schedule"
+msgstr "أضف جدول إرسال"
+
+msgid "Add destination"
+msgstr "أضف وجهة"
+
+msgid "Annually"
+msgstr "سنويًا"
+
+msgid "Are you sure you want to delete SMS schedule ?"
+msgstr "هل تود بالتأكيد حذف جدول الإرسال؟"
+
+msgid "Are you sure you want to remove this number from SMS schedule ?"
+msgstr "هل ترغب بالتأكيد في إزالة هذا الرقم من الرسائل المجدولة؟"
+
+msgid "Daily"
+msgstr "يوميًا"
+
+msgid "Destination"
+msgstr "الوجهة"
+
+msgid "Destination has been deleted"
+msgstr "تم الحذف"
+
+msgid "Destination has been edited"
+msgstr "تم التحرير"
+
+msgid "Edit destination"
+msgstr "تحرير الوجهة"
+
+msgid "Edit schedule"
+msgstr "تحرير الجدول"
+
+msgid "Entries in CSV file have been imported"
+msgstr "تم استيراد الإدخالات من الملف"
+
+msgid "Fail to add new SMS schedule"
+msgstr "فشل إضافة رسالة مجدولة جديدة"
+
+msgid "Fail to add new destination"
+msgstr "فشل إضافة وجهة جديدة"
+
+msgid "Fail to delete SMS schedule"
+msgstr "فشل الحذف"
+
+msgid "Fail to delete destination"
+msgstr "فشل حذف الوجهة"
+
+msgid "Fail to edit SMS schedule"
+msgstr "فشل التحرير"
+
+msgid "Fail to edit destination"
+msgstr "فشل تحرير الوجهة"
+
+msgid "Fail to upload CSV file"
+msgstr "فشل تحميل الملف "
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "الصيغة YYYY-MM-DD hh:mm"
+
+msgid "ID"
+msgstr "المعرف"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Import above destination entries ?"
+msgstr "استيراد الإدخالات في الأعلى؟"
+
+msgid "Import confirmation"
+msgstr "تأكيد الاستيراد"
+
+msgid "List of destinations"
+msgstr "قائمة الوجهات"
+
+msgid "Manage schedule"
+msgstr "إدارة الجدولة"
+
+msgid "Mandatory fields must not be empty"
+msgstr "يجب ملء الحقول الأساسية"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Monthly"
+msgstr "شهريًا"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "New SMS schedule been added"
+msgstr "تم إضافة رسالة مجدولة جديدة."
+
+msgid "New destination has been added"
+msgstr "تم إضافة الوجهة الجديدة"
+
+msgid "Once"
+msgstr "مرة واحدة"
+
+msgid "Please select CSV file"
+msgstr "الرجاء اختيار ملف CSV  "
+
+msgid "SMS schedule been saved"
+msgstr "تم حفظ الرسائل المجدولة"
+
+msgid "SMS schedule has been deleted"
+msgstr "تم الحذف"
+
+msgid "SMS schedule has been disabled"
+msgstr "تم تعطيل جدول الإرسال"
+
+msgid "SMS schedule has been enabled"
+msgstr "تم تفعيل جدول الإرسال"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Schedule"
+msgstr "الجدول"
+
+msgid "Schedule ID"
+msgstr "معرف الجدول"
+
+msgid "Schedule messages"
+msgstr "الرسائل المجدولة"
+
+msgid "Schedule name"
+msgstr "اسم الجدولة"
+
+msgid "Schedule rule"
+msgstr "قاعدة الجدولة"
+
+msgid "Scheduled message"
+msgstr "الرسائل المجدولة"
+
+msgid "Separate by comma for multiple destinations"
+msgstr "اضافة فاصلة للقيم المتعددة"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Weekly"
+msgstr "أسبوعيًا"
+
+msgid "format"
+msgstr "الصيغة"

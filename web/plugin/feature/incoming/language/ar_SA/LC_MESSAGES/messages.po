@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Copy the message to user inbox when incoming SMS contains @username"
+msgstr "نسخ الرسالة للوارد عند وجود @اسم_المستخدم في محتوى الرسالة"
+
+msgid "Fail to insert keyword"
+msgstr "فشل إضافة الكلمة المفتاحية"
+
+msgid "Incoming SMS route changes has been saved"
+msgstr "تم حفظ مسار الرسالة الواردة"
+
+msgid "Insert keyword"
+msgstr "أدخل كلمة مفتاحية"
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr "اترك نسخة في صفحة الصندوق الرملي"
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr "ترك نسخة في الصندوق الرملي يمكن أن يفيد في حالات المراجعة"
+
+msgid "Match with all approved sender ID"
+msgstr "مطابقة مع كافة اسماء المرسل المفعلة"
+
+msgid "No route has been saved"
+msgstr "لم يتم حفظ المسار"
+
+msgid "Post rules"
+msgstr "القواعد اللاحقة"
+
+msgid "Pre rules"
+msgstr "القواعد السابقة"
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
+msgstr ""
+"يمكن مطابقة رقم المستلم مع اسم المرسل الافتراضي أو مع كافة اسماء المرسل "
+"المفعلة"
+
+msgid "Route all sandbox SMS to users"
+msgstr "توجيه كافة رسائل الصندوق الرملي للمستخدمين"
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr "توجيه كافة رسائل الصندوق الرملي مع اسم المرسل المطابق"
+
+msgid "Route incoming SMS"
+msgstr "تسيير الرسائل الواردة"
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
+msgstr "تسيير إلي وارد المستخدم في حالة مطابقة اسم المرسل لرقم المستلم"
+
+msgid "Rules applied after incoming SMS processed"
+msgstr "قواعد تطبق بعد معالجة الرسائل"
+
+msgid "Rules applied before incoming SMS processed"
+msgstr "قواعد تطبق قبل معالجة الرسائل"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Scan incoming SMS for #groupcode"
+msgstr "بحث عن رسائل واردة بحسب #رمز_المجموعة"
+
+msgid "Scan incoming SMS for @username"
+msgstr "بحث عن رسائل واردة بحسب@اسم_المستخدم"
+
+msgid "Select users"
+msgstr "اختيار المستخدمين"
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr "إرسال رسالة للمجموعات مطابقة لنتيجة البحث عن رمز المجموعة"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "keyword"
+msgstr "الكلمات المفتاحية"

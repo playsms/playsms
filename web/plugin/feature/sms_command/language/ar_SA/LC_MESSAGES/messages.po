@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Add SMS command"
+msgstr "أضف أمر رسائل"
+
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "هل تود بالتأكيد حذف أمر الرسائل؟"
+
+msgid "Edit SMS command"
+msgstr "التحرير"
+
+msgid "Exec"
+msgstr "تنفيذ"
+
+msgid "Fail to add SMS command"
+msgstr "فشل إضافة"
+
+msgid "Fail to delete SMS command"
+msgstr "فشل الحذف"
+
+msgid "Fail to save SMS command"
+msgstr "فشل الحفظ "
+
+msgid "Keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "Make return as reply"
+msgstr "إرسال القيمة الناتجة كرسالة رد"
+
+msgid "Manage command"
+msgstr "إدارة الأوامر"
+
+msgid "Pass these parameter to command exec field"
+msgstr "تمرير هذه المعاملات لأمر التنفيذ"
+
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr "أمر الرسائل موجود مسبقًا"
+
+msgid "SMS command exec"
+msgstr "تنفيذ أمر الرسائل"
+
+msgid "SMS command exec path"
+msgstr "مسار أمر التنفيذ"
+
+msgid "SMS command has been added"
+msgstr "تمت الإضافة"
+
+msgid "SMS command has been deleted"
+msgstr "تم الحذف"
+
+msgid "SMS command has been saved"
+msgstr "تم الحفظ"
+
+msgid "SMS command keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "You must fill all fields"
+msgstr "يجب ملء كافة الحقول"
+
+msgid "keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "سيتم استبدالها بوقت وتاريخ الرسالة"
+
+msgid "will be replaced by SMS raw message"
+msgstr "سيتم استبدالها بنص الرسالة"
+
+msgid "will be replaced by command keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr "سيتم استبداله بالمعاملات الموجهة للخادة من الرسالة"
+
+msgid "will be replaced by sender number"
+msgstr "سيتم استبداله برقم المرسل"

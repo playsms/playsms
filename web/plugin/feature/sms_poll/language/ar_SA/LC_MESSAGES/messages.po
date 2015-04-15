@@ -1,0 +1,220 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Add"
+msgstr "أضف"
+
+msgid "Add SMS poll"
+msgstr "أضف استفتاء"
+
+msgid "Add choice to this poll"
+msgstr "أضف خيار"
+
+msgid "All"
+msgstr "الكل"
+
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr "هل ترغب بالتأكيد في حذف الاستفتاء وكافة الخيارات والأصوات الخاصة به؟"
+
+msgid "Are you sure you want to delete choice ?"
+msgstr "هل تود بالتأكيد حذف هذا الخيار؟"
+
+msgid "Choice already exists"
+msgstr "الخيار موجود مسبقًا"
+
+msgid "Choice description"
+msgstr "الوصف"
+
+msgid "Choice has been added"
+msgstr "تمت الإضافة"
+
+msgid "Choice keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Edit SMS poll"
+msgstr "التحرير"
+
+msgid "Edit SMS poll choices"
+msgstr "تحرير الخيارات"
+
+msgid "Fail to add SMS poll"
+msgstr "فشل إضافة استفتاء"
+
+msgid "Fail to delete SMS poll choice"
+msgstr "فشل الحذف"
+
+msgid "Grand total SMS"
+msgstr "مجموع الرسائل"
+
+msgid "Grand total senders"
+msgstr "مجموع المرسلين"
+
+msgid "Graph output"
+msgstr "رسوم بيانية"
+
+msgid "HTML output"
+msgstr "مخرجات HTML"
+
+msgid "Invalid"
+msgstr "إدخالات غير صحيحة"
+
+msgid "JSON output"
+msgstr "مخرجات JSON"
+
+msgid "Keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "Manage poll"
+msgstr "إدارة الاستفتاء"
+
+msgid "Multi"
+msgstr "متعدد"
+
+msgid "Number of votes"
+msgstr "عدد الأصوات"
+
+msgid "Once"
+msgstr "مرة واحدة"
+
+msgid "PHP serialize output"
+msgstr "مخرجات PHP"
+
+msgid "Reply message on invalid vote"
+msgstr "رسالة الرد للأصوات الباطلة"
+
+msgid "Reply message on out of vote option"
+msgstr "رسالة الرد عند عدم وجود صلاحية للتصويت"
+
+msgid "Reply message on valid vote"
+msgstr "رسالة الرد للأصوات الصحيحة"
+
+msgid "Result graph"
+msgstr "الرسم البياني للنتيجة"
+
+msgid "Result table"
+msgstr "جدول النتيجة"
+
+msgid "SMS poll access code"
+msgstr "رمز الوصول للاستفتاء"
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr "يستخدم هذا الرمز بشكل أساسي لخدمات الويب"
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr "الاستفتاء موجودة مسبقًا"
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "تم حذف الاستفتاء وكافة الخيارات والمصوتين"
+
+msgid "SMS poll has been added"
+msgstr "تمت الإضافة"
+
+msgid "SMS poll has been saved"
+msgstr "تم الحفظ"
+
+msgid "SMS poll keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "SMS poll status has been changed"
+msgstr "تم تغيير حالة الاستفتاء"
+
+msgid "SMS poll title"
+msgstr "عنوان الاستفتاء"
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr "تم حذف الاستفتاء والرسائل الخاصة به"
+
+msgid "SMSC"
+msgstr "مركز الرسائل"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Senders sent multi votes"
+msgstr "المرسلون الذين أرسلوا أكثر من مرة"
+
+msgid "Senders sent multiple votes"
+msgstr "المرسلون الذين أرسلوا تصويتات متعددة"
+
+msgid "Senders sent once"
+msgstr "مرسلون أرسلوا مرة واحدة"
+
+msgid "Statistics"
+msgstr "إحصائيات"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Total invalid SMS"
+msgstr "مجموع الرسائل الباطلة"
+
+msgid "Total multiple votes SMS"
+msgstr "العدد الكلي للأصوات المتعددة"
+
+msgid "Total one time vote SMS"
+msgstr "العدد الكلي للأصوات الفردية"
+
+msgid "Total valid SMS"
+msgstr "مجموع الرسائل الصحيحة"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "Valid"
+msgstr "الإدخالات الصحيحة"
+
+msgid "Vote option"
+msgstr "خيارت التصويت"
+
+msgid "Webservices links"
+msgstr "رابط خدمات الويب"
+
+msgid "XML output"
+msgstr "مخرجات XML"
+
+msgid "You must fill all fields"
+msgstr "يجب ملء كافة الحقول"
+
+msgid "keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "multiple times"
+msgstr "مرات متعددة"
+
+msgid "one time"
+msgstr "مرة واحدة"
+
+msgid "one time every 24 hours"
+msgstr "مرة كل 24 ساعة"
+
+msgid "one time every month"
+msgstr "مرة كل شهر"
+
+msgid "one time every week"
+msgstr "مرة كل أسبوع"
+
+msgid "title"
+msgstr "العنوان"

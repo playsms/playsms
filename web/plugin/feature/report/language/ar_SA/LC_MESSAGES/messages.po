@@ -1,0 +1,192 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Account has been unbanned"
+msgstr "تم إلغاء حظر الحساب"
+
+msgid "All feature messages"
+msgstr "كافة الرسائل"
+
+msgid "All inbox"
+msgstr "مجموعة الوارد"
+
+msgid "All reports"
+msgstr "كافة التقارير"
+
+msgid "All sent messages"
+msgstr "كافة الرسائل المرسلة"
+
+msgid "Amount"
+msgstr "القيمة"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "هل ترغب في حذف هذه العناصر بالتأكيد؟"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "هل تود بالتأكيد حذف هذه الحوالات؟"
+
+msgid "Balance"
+msgstr "الرصيد"
+
+msgid "Balance recorded on transaction"
+msgstr "الرصيد وقت الحوالة"
+
+msgid "Ban date/time"
+msgstr "وقت وتاريخ الحظر"
+
+msgid "Banned users list"
+msgstr "قائمة المستخدمين المحظورين"
+
+msgid "Billing"
+msgstr "الفوترة"
+
+msgid "Content"
+msgstr "المحتوى"
+
+msgid "Credit"
+msgstr "الرصيد"
+
+msgid "Current IP address"
+msgstr "عنوان آي بي"
+
+msgid "Deleted"
+msgstr "تم الحذف"
+
+msgid "Delivered"
+msgstr "تم التسليم"
+
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+msgid "Failed"
+msgstr "فشل"
+
+msgid "Feature"
+msgstr "الميزات"
+
+msgid "Footer"
+msgstr "التذييل"
+
+msgid "From"
+msgstr "من"
+
+msgid "Gateway"
+msgstr "بوابة الإرسال"
+
+msgid "Inbox"
+msgstr "صندوق الوارد"
+
+msgid "Keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "Last update"
+msgstr "آخر تحديث"
+
+msgid "List of my credit transactions"
+msgstr "قائمة الحوالات"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "My credit transactions"
+msgstr "قائمة الحوالات"
+
+msgid "My feature messages"
+msgstr "رسائلي الخاصة"
+
+msgid "My report"
+msgstr "تقاريري"
+
+msgid "My sent messages"
+msgstr "رسائلي المرسلة"
+
+msgid "Pending"
+msgstr "قيد الإرسال"
+
+msgid "Report"
+msgstr "التقرير"
+
+msgid "Report all users"
+msgstr "تقرير كافة المستخدمين"
+
+msgid "Report banned users"
+msgstr "تقرير المستخدمين المحظورين"
+
+msgid "Report whose online"
+msgstr "تقرير الأعضاء النشطين"
+
+msgid "SMSC"
+msgstr "مركز الرسائل"
+
+msgid "Sandbox"
+msgstr "الصندوق الرملي"
+
+msgid "Selected incoming message has been deleted"
+msgstr "تم حذف الرسال الواردة المحددة "
+
+msgid "Selected outgoing message has been deleted"
+msgstr "تم حذف الرسائل الصادرة المحددة "
+
+msgid "Selected transactions has been deleted"
+msgstr "الحوالات المحددة تم حذفها"
+
+msgid "Sent"
+msgstr "تم الإرسال"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Time"
+msgstr "الوقت"
+
+msgid "To"
+msgstr "إلى"
+
+msgid "Total"
+msgstr "المجموع"
+
+msgid "Transaction datetime"
+msgstr "وقت الحوالة"
+
+msgid "Unable to unban account"
+msgstr "غير قادر على إلغاء حظر الحساب"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "User agent"
+msgstr "متصفح المستخدم"
+
+msgid "Whose online"
+msgstr "المتصلون"
+
+msgid "cost"
+msgstr "التكلفة"
+
+msgid "count"
+msgstr "العدد"
+
+msgid "handled"
+msgstr "تم الالتقاط"
+
+msgid "rate"
+msgstr "التعرفة"
+
+msgid "unhandled"
+msgstr "لم يتم الالتقاط"
+
+msgid "username"
+msgstr "اسم المستخدم"

@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Active themes"
+msgstr "السمات النشطة"
+
+msgid "Buy credit page"
+msgstr "صفحة شراء الرصيد"
+
+msgid "Configuration"
+msgstr "الإعدادات العامة"
+
+msgid "Default credit upon registration"
+msgstr "الرصيد الافتراضي عند تسجيل حساب"
+
+msgid "Default language"
+msgstr "اللغة الافتراضية"
+
+msgid "Domain"
+msgstr "عنوان الموقع"
+
+msgid "Email footer"
+msgstr "تذييل رسائل البريد"
+
+msgid "Email service"
+msgstr "خدمة البريد الالكتروني"
+
+msgid "Enable forgot password"
+msgstr "تمكين استعادة كلمة المرور"
+
+msgid "Enable logo"
+msgstr "تمكين الشعار"
+
+msgid "Enable public registration"
+msgstr "تمكين إنشاء حساب لزوار الموقع"
+
+msgid "Information page"
+msgstr "صفحة المعلومات"
+
+msgid "Layout footer"
+msgstr "تذييل الصفحات"
+
+msgid "Logo URL"
+msgstr "رابط الشعار"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"سيتم عرض الشعار في صفحة تسجيل الدخول و إنشاء حساب جديد وصفحة استعادة كلمة "
+"المرور"
+
+msgid "Main website URL"
+msgstr "رابط الموقع الرئيس"
+
+msgid "Main website name"
+msgstr "اسم الموقع الرئيس"
+
+msgid "Manage site"
+msgstr " إدارة الموقع"
+
+msgid "Page content"
+msgstr "محتوى الصفحة"
+
+msgid "Page title"
+msgstr "عنوان الصفحة"
+
+msgid "Replace website title with logo"
+msgstr "استبدال عنوان الموقع بالشعار"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Site configuration"
+msgstr "إعدادات الموقع "
+
+msgid "Site configuration has been saved"
+msgstr "تم حفظ إعدادات الموقع"
+
+msgid "The domain is already configured by other user"
+msgstr "عنوان الموقع تم استخدامة من قبل مستخدم آخر"
+
+msgid "Website title"
+msgstr "عنوان الموقع"
+
+msgid "domain"
+msgstr "عنوان الموقع"
+
+msgid "no"
+msgstr "لا"
+
+msgid "yes"
+msgstr "نعم"

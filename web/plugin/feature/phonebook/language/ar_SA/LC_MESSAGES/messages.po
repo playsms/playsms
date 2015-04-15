@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Add contact"
+msgstr "أضف جهة اتصال"
+
+msgid "Add group"
+msgstr "إضافة مجموعة"
+
+msgid "Anyone"
+msgstr "الكل"
+
+msgid "CSV file format"
+msgstr "صيغة ملف CSV"
+
+msgid "Contact has been added"
+msgstr "تم إضافة جهة اتصال"
+
+msgid "Contact has been edited"
+msgstr "تم التحرير"
+
+msgid "Contacts have been imported"
+msgstr "تم استيراد جهات الاتصال"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Edit contact"
+msgstr "تحرير جهة اتصال"
+
+msgid "Edit group"
+msgstr "تحرير المجموعة"
+
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+msgid "Fail to delete group"
+msgstr "فشل الحذف"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "فشل تحميل الملف لدليل الهاتف"
+
+msgid "Group"
+msgstr "لا مجموعة"
+
+msgid "Group code"
+msgstr "رمز المجموعة"
+
+msgid "Group code already exists"
+msgstr "رمز المجموعة موجود مسبقًا"
+
+msgid "Group code has been added"
+msgstr "تمت الإضافة"
+
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr "يستخدم رمز المجموعة لإرسال رسالة جماعية لهذه المجموعة."
+
+msgid "Group has been edited"
+msgstr "تم التحرير"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
+"تم تحرير المجموعة لكن غير قادر على إرسال رسالة جماعية من الأعضاء أو أي جهة."
+
+msgid "Group name"
+msgstr "اسم المجموعة"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Import above phonebook entries ?"
+msgstr "استيراد الإدخالات في الأعلى؟"
+
+msgid "Import confirmation"
+msgstr "تأكيد الاستيراد"
+
+msgid "Me only"
+msgstr "أنا فقط"
+
+msgid "Members"
+msgstr "الأعضاء"
+
+msgid "Mobile"
+msgstr "الجوال"
+
+msgid "Move to"
+msgstr "نقل إلى"
+
+msgid "Multiple entries separated by space"
+msgstr "القيم المتعددة يجب وضع فاصلة بينها"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "No changes have been made"
+msgstr "لم يتم إجراء تغييرات!"
+
+msgid "No group"
+msgstr "لا مجموعة"
+
+msgid "Phonebook"
+msgstr " دليل الهاتف"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "الرجاء اختيار ملف CSV  لإدخالات دليل الهاتف"
+
+msgid "Please use alphanumeric only and make it short"
+msgstr "الرجاء استخدام أحرف وأرقام فقط والاختصار"
+
+msgid "Please use uppercase and make it short"
+msgstr "الرجاء استخدام أحرف انجليزية كبيرة والاختصار"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Select"
+msgstr "اختيار"
+
+msgid "Selected contact has been deleted"
+msgstr "تم حذف المحدد"
+
+msgid "Selected contact moved to new group"
+msgstr "تم نقل جهات الاتصال المحددة لمجموعة جديدة"
+
+msgid "Selected group has been deleted"
+msgstr "تم حذف المحدد"
+
+msgid "Share phonebook and allow broadcast"
+msgstr "مشاركة دليل الهاتف والسماح بالتواصل الجماعي"
+
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
+msgstr "مشاركة دليل الهاتف وتحديد صلاحية الرسائل الجماعية من رقم الهاتف"
+
+msgid "Tags"
+msgstr "التسميات"
+
+msgid "Unable to delete group until the group is empty"
+msgstr "لايمكن حذف مجموعة ليست فارغة!"
+
+msgid "You must fill all field"
+msgstr "يجب ملء كافة الحقول"
+
+msgid "You must fill mandatory fields"
+msgstr "يجب ملء الحقول الأساسية"
+
+msgid "You must fill required fields"
+msgstr "يجب ملء الحقول المطلوبة"
+
+msgid "code"
+msgstr "الرمز"
+
+msgid "group"
+msgstr "لا مجموعة"

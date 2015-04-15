@@ -1,0 +1,228 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL الافتراضي لن يحظر الوصول للقوائم"
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+
+msgid "Active themes"
+msgstr "السمات النشطة"
+
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr "تمكين خيار تعيين التذييل للرسائل من صفحة إرسال الرسائل"
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr "تمكين المستخدمين من تعيين اسم المرسل من صفحة الإرسال"
+
+msgid "Always add plus sign"
+msgstr "دومًا أضف اشارة +"
+
+msgid "Always remove plus sign"
+msgstr "دومًا أزل إشارة +"
+
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr ""
+"تذييل التطبيق هنا. انتقل للإعدادات العامة أو إدارة الموقع لتعديل التذييل"
+
+msgid "Buy credit page"
+msgstr "صفحة شراء الرصيد"
+
+msgid "Default ACL upon registration"
+msgstr "ACL الافتراضي عند إنشاء حساب جديد"
+
+msgid "Default SMS rate"
+msgstr "التعرفة الافتراضية"
+
+msgid "Default SMSC"
+msgstr "مركز الرسائل الافتراضي"
+
+msgid "Default account status upon registration"
+msgstr "حالة الحساب الافتراضية عند تجسيل حساب جديد"
+
+msgid "Default credit upon registration"
+msgstr "الرصيد الافتراضي عند تسجيل حساب"
+
+msgid "Default language"
+msgstr "اللغة الافتراضية"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+"الحساب الرئيسي الافتراضي عند التسجيل في حالة تعيين حالة تعيين الحسابات "
+"الجديدة كحسابات فرعية"
+
+msgid "Default parent upon registration"
+msgstr "الحساب الرئيسي عند تسجيل حساب جديد"
+
+msgid "Default prefix or country code"
+msgstr "المقدمة الافتراضية أو مفتاح الدولة"
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+"المقدمة الافتراضية أو مفتاح الدولة لاستبدال المقدمة 0 في أرقام المستلمين"
+
+msgid "Default sender ID"
+msgstr "اسم المرسل الافتراضي"
+
+msgid "Default settings"
+msgstr "الإعدادات الافتراضية"
+
+msgid "Default site configuration"
+msgstr "إعدادات الموقع الافتراضية"
+
+msgid "Default timezone"
+msgstr "المنطقة الزمنية الافتراضية"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+"تعريف حرف واحد ليكون فاصلة بين الكلمات المفتاحية حيث سيتم إزالة الافترضي "
+"(مسافة)"
+
+msgid "Disable login as subuser"
+msgstr "تعطيل الدخول كمستخدم فرعي"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "مثال: +0200 لتوقيت القدس المحتلة/ فلسطين"
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr ""
+"اترك اسم المرسل الافتراضي فارغ لتمكين المستخدمين من تعيين أسماء مرسل خاصة بهم"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "تمكين احتساب رسائل يونيكود كرسائل عادية"
+
+msgid "Enable forgot password"
+msgstr "تمكين استعادة كلمة المرور"
+
+msgid "Enable login brute force detection"
+msgstr "تمكين اكتشاف هجمات تسجيل الدخول على الموقع"
+
+msgid "Enable logo"
+msgstr "تمكين الشعار"
+
+msgid "Enable public registration"
+msgstr "تمكين إنشاء حساب لزوار الموقع"
+
+msgid "Enhance privacy for subusers"
+msgstr "تحسين الخصوصية للمستخدمين الفرعيين"
+
+msgid "Fill with zero to disable limit"
+msgstr "ضع 0 لتعطيل الحد"
+
+msgid "Forwarded email footer"
+msgstr "تذييل رسائل البريد"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "انتقل للإعدادات العامة أو إدارة الموقع لتحرير هذه الصفحة"
+
+msgid "Information"
+msgstr "المعلومات"
+
+msgid "Information page"
+msgstr "صفحة المعلومات"
+
+msgid "Keyword separator"
+msgstr "فاصل الكلمات المفتاحية"
+
+msgid "Layout footer"
+msgstr "تذييل الصفحات"
+
+msgid "Logo URL"
+msgstr "رابط الشعار"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"سيتم عرض الشعار في صفحة تسجيل الدخول و إنشاء حساب جديد وصفحة استعادة كلمة "
+"المرور"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr "الحد الأدنى للرصيد لإرسال تنبيه"
+
+msgid "Main configuration"
+msgstr "الإعدادات العامة"
+
+msgid "Main configuration changes has been saved"
+msgstr "تم خفظ الإعدادات"
+
+msgid "Main website URL"
+msgstr "رابط الموقع الرئيس"
+
+msgid "Main website name"
+msgstr "اسم الموقع الرئيس"
+
+msgid "Maximum SMS count"
+msgstr "العدد الأقصى لمقاطع الرسالة"
+
+msgid "Maximum username length"
+msgstr "الحد الأقصى لطول اسم المستخدم"
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr "الحد الأقصى لاسم المستخدم يجب أن يكون رقم بين 4 إلى 100"
+
+msgid "Number of sent SMS per hour limit"
+msgstr "عدد الرسائل المرسلة في الساعة"
+
+msgid "Page content"
+msgstr "محتوى الصفحة"
+
+msgid "Page title"
+msgstr "عنوان الصفحة"
+
+msgid "Replace website title with logo"
+msgstr "استبدال عنوان الموقع بالشعار"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr "ضع قيمة الرصيد أكبر من 0 لتعيين أقل قيمة رصيد لإرسال التنبيه"
+
+msgid "Subuser"
+msgstr "المستخدم الفرعي"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "Website URL"
+msgstr "رابط الموقع"
+
+msgid "Website email"
+msgstr " البريد الالكتروني للموقع"
+
+msgid "Website title"
+msgstr "عنوان الموقع"
+
+msgid "no"
+msgstr "لأا"
+
+msgid "yes"
+msgstr "نعم"

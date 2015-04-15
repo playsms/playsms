@@ -1,0 +1,431 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL الافتراضي لن يحظر الوصول للقوائم"
+
+msgid "Access Control List"
+msgstr "قائمة تحكم الوصول"
+
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr "مدير الحساب أو مسجل دخول حاليا لا يمكن حظره"
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr "مدير الحساب أو مسجل دخول حاليًا لا يمكن إلغاء حظره."
+
+msgid "Account already exists"
+msgstr "الحساب موجود مسبقًا"
+
+msgid "Account has been added and password has been emailed"
+msgstr "تم إنشاء الحساب وإرسال كلمة المرور"
+
+msgid "Account has been added but failed to send email"
+msgstr "تم إضافة الحساب ولكن فشل إرسال كلمة المرور"
+
+msgid "Account has been banned"
+msgstr "تم حظر الحساب"
+
+msgid "Account has been removed"
+msgstr "تم حذف الحساب"
+
+msgid "Account has been unbanned"
+msgstr "تم إلغاء حظر الحساب"
+
+msgid "Account name is mandatory"
+msgstr "اسم الحساب لايمكن أن يكون فارغ"
+
+msgid "Account registration is not available"
+msgstr "إنشاء حساب جديد غير متاح"
+
+msgid "Account status"
+msgstr "حالة الحساب "
+
+msgid "Account with this email already exists"
+msgstr "يوجد حساب بنفس البريد الالكتروني"
+
+msgid "Account with this mobile already exists"
+msgstr "يوجد حساب بنفس رقم الجوال"
+
+msgid "Action"
+msgstr "إجراءات"
+
+msgid "Active language"
+msgstr "اللغة الافتراضية"
+
+msgid "Add account"
+msgstr "إضافة حساب"
+
+msgid "Add or reduce credit from manage credit menu"
+msgstr "أضف أو اسحب رصيد من صفحة إدارة الأرصدة"
+
+msgid "Add subuser"
+msgstr "إضافة مستخدم الفرعي"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "Administrator"
+msgstr "المدير"
+
+msgid "Administrators"
+msgstr "المدراء"
+
+msgid "Always choose to send as unicode"
+msgstr "دومًا أرسل كيونيكود"
+
+msgid "Application options"
+msgstr " خيارات التطبيق"
+
+msgid "Are you sure you want to ban account"
+msgstr "هل تود بالتأكيد حظر الحساب؟"
+
+msgid "Are you sure you want to ban subuser"
+msgstr "هل تود بالتأكيد حظر المستخدم الفرعي؟"
+
+msgid "Are you sure you want to delete subuser"
+msgstr "هل تود بالتأكيد حذف المستخدم الفرعي؟"
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr "هل تود بالتأكيد حذف المستخدم الفرعي؟"
+
+msgid "Are you sure you want to delete user"
+msgstr "هل تود بالتأكيد حذف المستخدم؟"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "هل تود بالتأكيد حذف المستخدم؟"
+
+msgid "Are you sure you want to unban account"
+msgstr "هل تود بالتأكيد إلغاء حظر الحساب؟"
+
+msgid "Are you sure you want to unban subuser"
+msgstr "هل تود بالتأكيد إلغاء حظر الحساب الفرعي؟"
+
+msgid "Cannot change status when user have subusers"
+msgstr "لايمكن تعديل الحالة عند وجود مستخمين فرعيين للحساب"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "Comma separated"
+msgstr "القيم المتعددة يجب وضع فاصلة بينها"
+
+msgid "Country"
+msgstr "الدولة"
+
+msgid "Credit"
+msgstr "الرصيد"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "لايمكن حذف مستخدم متصل"
+
+msgid "Default"
+msgstr "الافتراضي"
+
+msgid "Default message footer"
+msgstr " التذييل الافتراضي"
+
+msgid "Default sender ID"
+msgstr "اسم المرسل الافتراضي"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Effective SMS sender ID"
+msgstr "اسم المرسل الفعَّال"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "مثال: +0200 لتوقيت القدس المحتلة/ فلسطين"
+
+msgid "Email"
+msgstr "البريد الالكتروني"
+
+msgid "Email address is mandatory"
+msgstr "عنوان البريد الالكتروني أساسي"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "تمكين احتساب رسائل يونيكود كرسائل عادية"
+
+msgid "Enable webservices"
+msgstr "تمكين خدمات الويب"
+
+msgid "Fail to register an account"
+msgstr "فشل إنشاء حساب"
+
+msgid "Fail to save configuration"
+msgstr "فشل حفظ الإعدادات"
+
+msgid "Fail to save preferences"
+msgstr "فشل حفظ الخصائص"
+
+msgid "Forward message to email"
+msgstr "التوجيه للبريد الالكتروني"
+
+msgid "Forward message to inbox"
+msgstr "إعادة توجيه لصندوق الوار"
+
+msgid "Forward message to mobile"
+msgstr "توجيه الرسائل للجوال"
+
+msgid "Full name"
+msgstr "الاسم"
+
+msgid "Invalid sender ID"
+msgstr "اسم مرسل غير صالح"
+
+msgid "List of administrators"
+msgstr "المدراء"
+
+msgid "List of subusers"
+msgstr "المستخدمون الفرعيون"
+
+msgid "List of users"
+msgstr "قائمة المستخدمين "
+
+msgid "Local number length"
+msgstr "طول الرقم المحلي"
+
+msgid "Login information"
+msgstr "معلومات تسجيل الدخول"
+
+msgid "Manage account"
+msgstr "إدارة حساب"
+
+msgid "Manage subuser"
+msgstr "إدارة المستخدم الفرعي"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "الحد الأقصى 16 رقم أو 11 حرف رقمي"
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "الحد الأقصى 30 حرف رقمي"
+
+msgid "Min length to detect missing country code"
+msgstr "الحد الأدنى لاكتشاف عدم إدخال رمز الدولة"
+
+msgid "Mobile"
+msgstr "الجوال"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "New account registration"
+msgstr " تسجيل حساب جديد"
+
+msgid "No changes made"
+msgstr "لم يتم إجراء تغييرات!"
+
+msgid "None"
+msgstr "لاشيء"
+
+msgid "Parent"
+msgstr "الحساب الرئيسي "
+
+msgid "Parent account"
+msgstr "الحساب الرئيسي"
+
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
+msgstr ""
+"الحساب الرئيسي أساسي للحسابات الفرعية فقط. في حال تركه فراغًا سيتم تعيين "
+"الحساب الرئيسي للمستخدم الفرعي حساب المدير"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Password does not match"
+msgstr "كلمة المرور غير متطابقة"
+
+msgid "Password should be at least 4 characters"
+msgstr "يجب أن تكون كلمة المرور 4 أحرف على الأقل"
+
+msgid "Personal information"
+msgstr "المعلومات الشخصية"
+
+msgid "Please remove all subusers from this user to delete"
+msgstr "الرجاء إزالة كافة المستخدمين الفرعيين من هذا المستخدم للحذف"
+
+msgid "Please select"
+msgstr "الرجاء اختيار  "
+
+msgid "Preferences"
+msgstr "الخصائص"
+
+msgid "Preferences have been saved"
+msgstr "تم الحفظ"
+
+msgid "Preferences have been saved and password updated"
+msgstr "تم حفظ الخصائص وتحديث كلمة المرور"
+
+msgid "Preferences have been saved and webservices token updated"
+msgstr "تم حفظ الخصائص وتحديث شفرة الويب"
+
+msgid "Prefix or country code"
+msgstr "المقدمة الافتراضية أو مفتاح الدولة"
+
+msgid "Re-type password"
+msgstr "أعد كتابة كلمة المرور"
+
+msgid "Registered"
+msgstr "مسجل"
+
+msgid "Renew webservices token"
+msgstr "تجديد شفرة خدمات الويب"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "استبدال الأصفار أو مفتاح الشبكة"
+
+msgid "SMS footer"
+msgstr "تذييل الرسائل"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "State or Province"
+msgstr "الولاية أو المقاطعة"
+
+msgid "Subuser"
+msgstr "المستخدم الفرعي"
+
+msgid "Subusers"
+msgstr "المستخدمون الفرعيون"
+
+msgid "Timezone"
+msgstr "المنطقة الزمنية"
+
+msgid "Unable to ban account"
+msgstr "غير قادر على حظر الحساب"
+
+msgid "Unable to ban subuser"
+msgstr "غير قادر على حظر المستخدم الفرعي"
+
+msgid "Unable to delete other users"
+msgstr "غير قادر على حذف المستخدمين الآخرين"
+
+msgid ""
+"Unable to delete this user until all subusers under this user have been "
+"removed"
+msgstr ""
+"غير قادر على حذف هذا المستخدم حتى يتم إزالة كافة المستخدمين الفرعيين منه"
+
+msgid "Unable to process subuser addition"
+msgstr "غير قادر على إضافة مستخدم فرعي"
+
+msgid "Unable to process user addition"
+msgstr "غير قادر على إضافة مستخدم"
+
+msgid "Unable to unban account"
+msgstr "غير قادر على إلغاء حظر الحساب"
+
+msgid "Unable to unban subuser"
+msgstr "غير قادر على إلغاء حظر المستخدم الفرعي"
+
+msgid "Unknown error"
+msgstr "خطأ غير معروف"
+
+msgid "Unknown error has occurred"
+msgstr "خطأ غير معروف"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "User configuration"
+msgstr "إعدادات المستخدم"
+
+msgid "User configuration has been saved"
+msgstr "تم حفظ إعدادات المستخدم"
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr "تم حفظ الإعدادات وتحديث شفرة الويب"
+
+msgid "User deletion unavailable"
+msgstr "لايمكن حذف المستخدم"
+
+msgid "User does not exist"
+msgstr "مستخدم غير موجود"
+
+msgid "User is already on banned subusers list"
+msgstr "المستخدم موجود بالفعل في قائمة المستخدمين الفرعيين المحظورين"
+
+msgid "User is already on banned users list"
+msgstr "المستخدم محظور مسبقًا"
+
+msgid "User is immune to deletion"
+msgstr "المستخدم غير قابل للحذف"
+
+msgid "User is not on banned subusers list"
+msgstr "المستخدم ليس في قائمة المستخدمين الفرعيين المحظورين"
+
+msgid "User is not on banned users list"
+msgstr "المستخدم ليس في قائمة المستخدمين المحظورين"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
+msgstr "اسم المستخدم يجب أن يكون 3 أحرف وبحد أقصى %d حرف"
+
+msgid "Users"
+msgstr "المستخدمون"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr "اسم المستخدم يمكن أن يحتوي أحرف أو أرقام والنقطة والشرطة (-)"
+
+msgid "Webservices IP range"
+msgstr "عنوان آي بي لخدمات الويب"
+
+msgid "Webservices token"
+msgstr "شفرة خدمات الويب"
+
+msgid "Webservices username"
+msgstr "اسم المستخدم لخدمات الويب"
+
+msgid "You must fill all mandatory fields"
+msgstr "يجب ملء الحقول الأساسية"
+
+msgid "You must fill all required fields"
+msgstr "يجب ملء الحقول المطلوبة"
+
+msgid "Your email format is invalid"
+msgstr "بريد الكتروني غير صالح"
+
+msgid "Your mobile format is invalid"
+msgstr "رقم الجوال غير صالح"
+
+msgid "Zipcode"
+msgstr "الرمز البريدي"
+
+msgid "email"
+msgstr "البريد الالكتروني"
+
+msgid "for subuser only"
+msgstr "للمستخدم الفرعي فقط"
+
+msgid "mobile"
+msgstr "الجوال"
+
+msgid "no"
+msgstr "لأا"
+
+msgid "username"
+msgstr "اسم المستخدم"
+
+msgid "yes"
+msgstr "نعم"

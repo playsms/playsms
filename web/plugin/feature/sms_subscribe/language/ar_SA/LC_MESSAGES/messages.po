@@ -1,0 +1,213 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "1 Day"
+msgstr "يوم واحد"
+
+msgid "1 Month"
+msgstr "شهر واحد"
+
+msgid "1 Week"
+msgstr "أسبوع واحد"
+
+msgid "2 Days"
+msgstr "يومان"
+
+msgid "2 Weeks"
+msgstr "أسبوعان"
+
+msgid "6 Months"
+msgstr "6 أشهر"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Add SMS subscribe"
+msgstr "أضف رسالة اشتراك"
+
+msgid "Add message"
+msgstr "أضف رسالة"
+
+msgid "Already a member reply"
+msgstr "رد عضو مسبقًا"
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "هل تود بالتأكيد حذف رسالة الاشتراك؟"
+
+msgid "Are you sure you want to delete this member ?"
+msgstr "هل تود بالتأكيد حذف هذا العضو؟"
+
+msgid "Are you sure you want to delete this message?"
+msgstr "هل تود بالتأكيد حذف هذه الرسالة؟"
+
+msgid "Created"
+msgstr "تم الإنشاء"
+
+msgid "Edit SMS subscribe"
+msgstr "تحرير رسالة الاشتراك"
+
+msgid "Edit message"
+msgstr "تحرير الرسائل"
+
+msgid "Fail to add SMS subscribe"
+msgstr "فشل إضافة رسالة اشتراك"
+
+msgid "Fail to add message"
+msgstr "فشل إضافة رسالة"
+
+msgid "Fail to edit SMS subscribe"
+msgstr "فشل التحرير"
+
+msgid "Fail to edit message"
+msgstr "فشل تحرير الرسائل"
+
+msgid "Fail to send SMS"
+msgstr "فشل الإرسال"
+
+msgid "Keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "Last update"
+msgstr "آخر تحديث"
+
+msgid "Manage subscribe"
+msgstr "إدارة الاشتراك"
+
+msgid "Member has been deleted"
+msgstr "تم الحذف"
+
+msgid "Member join datetime"
+msgstr "وقت انضمام العضو"
+
+msgid "Member list for keyword"
+msgstr "قائمة الأعضاء للكلمة المفتاحية"
+
+msgid "Members"
+msgstr "الأعضاء"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Message ID"
+msgstr "معرف الرسالة"
+
+msgid "Message body"
+msgstr "الرسالة"
+
+msgid "Message detail"
+msgstr "تفاصيل الرسالة"
+
+msgid "Message has been added"
+msgstr "تم إضافة الرسالة"
+
+msgid "Message has been deleted"
+msgstr "تم حذف الرسالة "
+
+msgid "Message has been edited"
+msgstr "تم تحرير الرسائل"
+
+msgid "Messages"
+msgstr "الرسائل "
+
+msgid "Phone number"
+msgstr "رقم الهاتف"
+
+msgid "SMS forward parameter"
+msgstr "معامل إعادة توجيه الرسالة"
+
+msgid "SMS messages list for keyword"
+msgstr "قائمة الرسائل للكلمة المفتاحية"
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr "رسالة الاشتراك موجودة مسبقًا"
+
+msgid "SMS subscribe has been added"
+msgstr "تمت الإضافة"
+
+msgid "SMS subscribe has been saved"
+msgstr "تم الحفظ"
+
+msgid "SMS subscribe keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "SMS subscribe parameter"
+msgstr "معامل الاشتراك"
+
+msgid "SMS subscribe reply"
+msgstr "رسالة الرد عند الاشتراك"
+
+msgid "SMS subscribe status has been changed"
+msgstr "تم تغيير حالة الاشتراك"
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr "تم حذف كافة الرسائل"
+
+msgid "SMS unsubscribe parameter"
+msgstr "معامل إلغاء الاشتراك"
+
+msgid "SMS unsubscribe reply"
+msgstr "رد إلغاء الاشتراك"
+
+msgid "SMSC"
+msgstr "مركز الرسائل"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Send"
+msgstr "إرسال"
+
+msgid "Send this message to all members"
+msgstr "إرسال هذه الرسالة لكافة الأعضاء"
+
+msgid "Sent"
+msgstr "تم الإرسال"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Subscribe duration"
+msgstr "مدة الاشتراك"
+
+msgid "Subscription expired reply"
+msgstr "رد انتهاء الاشتراك"
+
+msgid "Unknown format reply"
+msgstr "رد الصيغة الباطلة"
+
+msgid "Unlimited"
+msgstr "غير محدودة"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "View members"
+msgstr "الأعضاء"
+
+msgid "View messages"
+msgstr "عرض الرسائل"
+
+msgid "You have no member"
+msgstr "لا يوجد لديك أعضاء"
+
+msgid "You must fill all fields"
+msgstr "يجب ملء كافة الحقول"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "تم وضع الرسالة في الطابور"
+
+msgid "keyword"
+msgstr "الكلمات المفتاحية"

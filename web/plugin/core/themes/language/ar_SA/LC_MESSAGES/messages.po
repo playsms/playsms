@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Administrator"
+msgstr "المدير"
+
+msgid "Administrators"
+msgstr "المدراء"
+
+msgid "Back"
+msgstr "رجوع"
+
+msgid "Compose message"
+msgstr "إنشاء رسالة"
+
+msgid "Information"
+msgstr "المعلومات"
+
+msgid "Please select"
+msgstr "الرجاء اختيار  "
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Select users"
+msgstr "اختيار المستخدمين"
+
+msgid "Subuser"
+msgstr "المستخدم الفرعي"
+
+msgid "Subusers"
+msgstr "المستخدمون الفرعيون"
+
+msgid "This field is required"
+msgstr "هذا الحقل مطلوب"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "Users"
+msgstr "المستخدمون"
+
+msgid "no"
+msgstr "لا"
+
+msgid "yes"
+msgstr "نعم"

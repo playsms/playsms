@@ -1,0 +1,186 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Add"
+msgstr "أضف"
+
+msgid "Administrator"
+msgstr "المدير"
+
+msgid "Ban"
+msgstr "غير قادر على حظر الحساب"
+
+msgid "Buy"
+msgstr "صفحة شراء الرصيد"
+
+msgid "Compose message"
+msgstr "إنشاء رسالة"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Delete user"
+msgstr "هل تود بالتأكيد المستخدم؟"
+
+msgid "Edit"
+msgstr "تحرير"
+
+msgid "Export"
+msgstr "تصدير"
+
+msgid "FATAL ERROR"
+msgstr "خطأ فادح!"
+
+msgid "Fail to connect to database"
+msgstr "فشل الاتصال بقواعد البيانات"
+
+msgid "Fail to load gateway"
+msgstr "بوابة الإرسال"
+
+msgid "Fail to load language"
+msgstr "اللغة الافتراضية"
+
+msgid "Fail to load main config from registry"
+msgstr "فشل تحميل الإعدادات من السجل"
+
+msgid "Fail to load themes"
+msgstr "السمات"
+
+msgid "Features"
+msgstr "الميزات"
+
+msgid "Forward"
+msgstr "إعادة توجيه"
+
+msgid "Go"
+msgstr "انتقل للإعدادات العامة أو إدارة الموقع لتحرير هذه الصفحة"
+
+msgid "Group"
+msgstr "المجموعة"
+
+msgid "Home"
+msgstr "الرئيسة"
+
+msgid "Idle"
+msgstr "خامل"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Logged in as"
+msgstr "تم تسجيل الخروج"
+
+msgid "Login as"
+msgstr "تسجيل الدخول"
+
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+msgid "Main configuration"
+msgstr "الإعدادات العامة"
+
+msgid "Manage"
+msgstr "المستخدمون الفرعيون"
+
+msgid "Manage ACL"
+msgstr "إدارة ACL"
+
+msgid "Manage account"
+msgstr "إدارة حساب"
+
+msgid "Manage gateway"
+msgstr "إدارة البوابات ومراكز الرسائل"
+
+msgid "Manage gateway and SMSC"
+msgstr "إدارة البوابات ومراكز الرسائل"
+
+msgid "Manage sender ID"
+msgstr "إدارة اسم المرسل"
+
+msgid "Manage site"
+msgstr " إدارة الموقع"
+
+msgid "Manage sub-account"
+msgstr "إدارة حساب"
+
+msgid "Manage sub-accounts"
+msgstr "قائمة الحسابات"
+
+msgid "Manage subuser"
+msgstr "إدارة المستخدم الفرعي"
+
+msgid "Manage subusers"
+msgstr "المستخدمون الفرعيون"
+
+msgid "Manage user"
+msgstr "المستخدم"
+
+msgid "Move"
+msgstr "نقل إلى"
+
+msgid "My account"
+msgstr "تقاريري"
+
+msgid "Offline"
+msgstr "غير متصل"
+
+msgid "Online"
+msgstr "المتصلون"
+
+msgid "Please run composer.phar update"
+msgstr "الرجاء تشغيل composer.phar  للتحديث"
+
+msgid "Preferences"
+msgstr "الخصائص"
+
+msgid "Reduce"
+msgstr "سحب الرصيد"
+
+msgid "Reply"
+msgstr "إرسال القيمة الناتجة كرسالة رد"
+
+msgid "Reports"
+msgstr "كافة التقارير"
+
+msgid "Resend"
+msgstr "إعادة إرسال"
+
+msgid "Send message"
+msgstr "فشل الإرسال لكافة الأرقام"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Unable to find composer files"
+msgstr "غير قادر على العثور على ملفات composer"
+
+msgid "Unban"
+msgstr "غير قادر على إلغاء حظر الحساب"
+
+msgid "User configuration"
+msgstr "إعدادات المستخدم"
+
+msgid "User preference"
+msgstr "المستخدم"
+
+msgid "View"
+msgstr "عرض التقرير"
+
+msgid "Your credit"
+msgstr "رصيدك"
+
+msgid "return"
+msgstr "العودة"

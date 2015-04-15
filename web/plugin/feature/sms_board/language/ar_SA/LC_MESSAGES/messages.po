@@ -1,0 +1,126 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Action"
+msgstr "إجراءات"
+
+msgid "Add SMS board"
+msgstr "أضف لوح رسائل"
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr "هل ترغب بالتأكيد في حذف كافة الرسائل؟"
+
+msgid "CSS URL"
+msgstr "رابط ملف CSS"
+
+msgid "Date and time"
+msgstr "وقت وتاريخ الحظر"
+
+msgid "Edit SMS board"
+msgstr "تحرير"
+
+msgid "Fail to add SMS board"
+msgstr "فشل إضافة"
+
+msgid "Fail to edit SMS board"
+msgstr "فشل التحرير"
+
+msgid "Forward"
+msgstr "إعادة توجيه"
+
+msgid "Forward to email"
+msgstr "التوجيه للبريد الالكتروني"
+
+msgid "HTML output"
+msgstr "مخرجات HTML"
+
+msgid "JSON output"
+msgstr "مخرجات JSON"
+
+msgid "Keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "MBOX output"
+msgstr "مخرجات MBOX"
+
+msgid "Manage board"
+msgstr "إدارة اللوح"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "PHP serialize output"
+msgstr "مخرجات PHP"
+
+msgid "RSS 0.91 output"
+msgstr "مخرجات RSS 0.91"
+
+msgid "RSS 1.0 output"
+msgstr "مخرجات RSS 1.0"
+
+msgid "RSS 2.0 output"
+msgstr "مخرجات RSS 2.0"
+
+msgid "RSS ATOM output"
+msgstr "مخرجات RSS ATOM"
+
+msgid "Receiver"
+msgstr "رقم المستلم"
+
+msgid "Row template"
+msgstr "القالب"
+
+msgid "SMS Board"
+msgstr "لوح الرسائل"
+
+msgid "SMS board from"
+msgstr "من"
+
+msgid "SMS board has been added"
+msgstr "تمت الإضافة"
+
+msgid "SMS board has been saved"
+msgstr "تم الحفظ"
+
+msgid "SMS board keyword"
+msgstr "الكلمات المفتاحية"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "تم حذف كافة الرسائل"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr "الكلمة المفتاحية موجودة مسبقًا"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Sender"
+msgstr "المرسل"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "View board"
+msgstr "عرض اللوح"
+
+msgid "XML output"
+msgstr "مخرجات XML"
+
+msgid "You must fill all fields"
+msgstr "يجب ملء كافة الحقول"
+
+msgid "keyword"
+msgstr "الكلمات المفتاحية"

@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Add credit"
+msgstr "أضف رصيد"
+
+msgid "Add credit to users"
+msgstr "اضافة رصيد للمستخدمين"
+
+msgid "Administrator"
+msgstr "المدير"
+
+msgid "Administrators"
+msgstr "المدراء"
+
+msgid "Amount"
+msgstr "القيمة"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "هل تود بالتأكيد حذف هذه الحوالة؟"
+
+msgid "Balance"
+msgstr "الرصيد"
+
+msgid "Balance recorded on transaction"
+msgstr "الرصيد وقت الحوالة"
+
+msgid "Credit has been added"
+msgstr "تم إضافة الرصيد"
+
+msgid "Credit has been reduced"
+msgstr "تم سحب الرصيد"
+
+msgid "Fail to add credit"
+msgstr "فشل إضافة الرصيد"
+
+msgid "Fail to reduce credit"
+msgstr "فشل سحب الرصيد"
+
+msgid "List of transactions"
+msgstr "قائمة الحوالات"
+
+msgid "Manage credit"
+msgstr "إدارة الرصيد"
+
+msgid "Reduce credit"
+msgstr "سحب الرصيد"
+
+msgid "Reduce credit from users"
+msgstr "سحب رصيد من المستخدمين"
+
+msgid "Select users"
+msgstr "اختيار مستخدمين"
+
+msgid "Selected transactions has been deleted"
+msgstr "الحوالات المحددة تم حذفها"
+
+msgid "Subuser"
+msgstr "المستخدم الفرعي"
+
+msgid "Subusers"
+msgstr "المستخدمون الفرعيون"
+
+msgid "Transaction datetime"
+msgstr "وقت الحوالة"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "User ID"
+msgstr "معرف المستخدم"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Users"
+msgstr "المستخدمون"
+
+msgid "Wrong amount or user does not exist"
+msgstr "قيمة خاطئة أو مستخدم غير موجود"
+
+msgid "amount"
+msgstr "القيمة"
+
+msgid "balance"
+msgstr "الرصيد"
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=add"
+
+msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
+msgstr "index.php?app=main&inc=feature_credit&op=actions&go=add"
+
+msgid "user"
+msgstr "المستخدم"

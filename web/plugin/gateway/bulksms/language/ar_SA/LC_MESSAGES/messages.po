@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Additional URL parameter"
+msgstr "الرابط"
+
+msgid "Bulksms API URL"
+msgstr "الرابط"
+
+msgid "Bulksms is a bulk SMS provider"
+msgstr "BulkSMS مزود خدمة رسائل قصيرة"
+
+msgid "Bulksms will push DLR and incoming SMS to your callback URL"
+msgstr ""
+"BulkSMS سيقوم بتوجيه تقارير الاستلام والرسائل الواردة إلى رابط الاستدعاء"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "مثال: +0200 لتوقيت القدس المحتلة/ فلسطين"
+
+msgid "Fill to change the password"
+msgstr "املأ حقل كلمة المرور لتغييرها."
+
+msgid "Gateway module configurations has been saved"
+msgstr "تم حفظ إعدادات البوابة"
+
+msgid "Gateway name"
+msgstr "بوابة الإرسال"
+
+msgid "Manage bulksms"
+msgstr "المستخدمون الفرعيون"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "الحد الأقصى 16 رقم أو 11 حرف رقمي، للتعطيل اتركه فارغًا"
+
+msgid "Module sender ID"
+msgstr "اسم المرسل"
+
+msgid "Module timezone"
+msgstr "المنطقة الزمنية"
+
+msgid "No changes have been made"
+msgstr "لم يتم إجراء تغييرات!"
+
+msgid "No trailing slash"
+msgstr "بدون شرطة مائلة"
+
+msgid "Notes"
+msgstr "الملاحظات"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Your callback URL is"
+msgstr "الرابط"
+
+msgid "Your callback URL should be accessible from Bulksms"
+msgstr "رابط الاستدعاء يجب أن يكون قابل للوصول من قبل BulkSMS"
+
+msgid "free credits are available for testing purposes"
+msgstr "رصيد مجاني متاح للتجربة"

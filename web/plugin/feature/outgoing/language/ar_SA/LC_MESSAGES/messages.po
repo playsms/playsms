@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Action"
+msgstr "إجراءات"
+
+msgid "Add route"
+msgstr "اضف مسار"
+
+msgid "Are you sure ?"
+msgstr "هل أنت متأكد؟"
+
+msgid "Destination name"
+msgstr "اسم الوجهة"
+
+msgid "Edit route"
+msgstr "تحرير المسار"
+
+msgid "Fail to add route"
+msgstr "اضف مسار"
+
+msgid "Fail to delete route"
+msgstr "فشل حذف المسار"
+
+msgid "Fail to save route"
+msgstr "فشل حفظ المسار"
+
+msgid "Maximum 8 digits numeric only"
+msgstr "الحد الأقصى 8 خانات رقمية فقط"
+
+msgid "Prefix"
+msgstr "المقدمة"
+
+msgid "Route SMS outgoing"
+msgstr "تسيير الرسائل الصادرة"
+
+msgid "Route has been added"
+msgstr "تم إضافة المسار"
+
+msgid "Route has been deleted"
+msgstr "تم حذف المسار"
+
+msgid "Route has been saved"
+msgstr "تم حفظ المسار"
+
+msgid "Route outgoing SMS"
+msgstr "تسيير الرسائل الصادرة"
+
+msgid "SMSC"
+msgstr "مركز الرسائل"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "You must fill all fields"
+msgstr "يجب ملء كافة الحقول"
+
+msgid "You must fill all mandatory fields"
+msgstr "يجب ملء الحقول الأساسية"
+
+msgid "blocked"
+msgstr "تم الحظر"
+
+msgid "destination"
+msgstr "الوجهة"
+
+msgid "prefix"
+msgstr "المقدمة"

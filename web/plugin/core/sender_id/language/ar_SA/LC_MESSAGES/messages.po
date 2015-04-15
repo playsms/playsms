@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Add sender ID"
+msgstr "أضف اسم مرسل"
+
+msgid "Approve sender ID"
+msgstr "المصادقة على اسم المرسل"
+
+msgid "Are you sure you want to delete sender ID"
+msgstr "هل تود بالتأكيد حذف اسم المرسل؟"
+
+msgid "Click the status button to enable or disable status"
+msgstr "اضغط على زر الحالة لتمكين أو تعطيل حالة اسم المرسل"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Edit sender ID"
+msgstr "تحرير اسم المرسل"
+
+msgid "Fail to update due to invalid sender ID"
+msgstr "فشل التحديث بسبب عدم صلاحية اسم المرسل"
+
+msgid "Last update"
+msgstr "آخر تحديث"
+
+msgid "Manage sender ID"
+msgstr "إدارة اسم المرسل"
+
+msgid "Only when the sender ID is approved"
+msgstr "فقط عند المصادقة على اسم المرسل"
+
+msgid "Sender ID"
+msgstr "اسم المرسل"
+
+msgid "Sender ID description has been added"
+msgstr "تم إضافة وصف اسم المرسل"
+
+msgid "Sender ID description has been updated"
+msgstr "تم تحديث وصف اسم المرسل"
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr "تم إضافة اسم المرسل في انتظار التفعيل"
+
+msgid "Sender ID has been removed"
+msgstr "تم حذف اسم المرسل"
+
+msgid "Sender ID is not available"
+msgstr "اسم المرسل غير متاح"
+
+msgid "Sender ID is now approved"
+msgstr "تم المصادقة على اسم المرسل"
+
+msgid "Sender ID is now disabled"
+msgstr "تم تعطيل اسم المرسل"
+
+msgid "Set as default"
+msgstr "تعيين كافتراضي"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#, php-format
+msgid "Username %s with account ID %d has requested approval for sender ID %s"
+msgstr "المستخدم %s صاحب الحساب %d طلب المصادقة على اسم المرسل %s"

@@ -1,0 +1,51 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Action"
+msgstr "إجراءات"
+
+msgid "All queues have been removed"
+msgstr "تم حذف كافة الرسائل في الطابور"
+
+msgid "Are you sure you want to delete ALL queues"
+msgstr "هل تود بالتأكيد حذف كافة الرسائل في الطابور؟"
+
+msgid "Are you sure you want to delete queue"
+msgstr "هل تود بالتأكيد حذف الطابور؟"
+
+msgid "Count"
+msgstr "العدد"
+
+msgid "Delete ALL queues"
+msgstr "حذف الكل"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Queue Code"
+msgstr "رمز الطابور"
+
+msgid "Queue has been removed"
+msgstr "تم حذف الطابور"
+
+msgid "Scheduled"
+msgstr "المجدولة"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "View SMS queue"
+msgstr "عرض طابور الإرسال"

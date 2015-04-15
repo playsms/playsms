@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PlaySMS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
+"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Add blocked mobile numbers"
+msgstr "إضافة عنوان آي بي محظور"
+
+msgid "Blocked mobile"
+msgstr "تم الحظر"
+
+msgid "Comma separated values for multiple mobile numbers"
+msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Manage stoplist"
+msgstr "المستخدمون الفرعيون"
+
+msgid "Mobile"
+msgstr "الجوال"
+
+msgid "Mobile numbers"
+msgstr "الجوال"
+
+msgid "Mobile numbers have been blocked"
+msgstr "تم حظر عناوين آي بي"
+
+msgid "Mobile numbers have been deleted"
+msgstr "تم حذف عناوين آي بي"
+
+msgid "Multiple mobile numbers must be comma-separated"
+msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Select"
+msgstr "اختيار"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "You must fill all fields"
+msgstr "يجب ملء كافة الحقول"
