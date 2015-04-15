@@ -34,20 +34,16 @@ TMPLANG=$(mktemp)
 cd $PLAYSMS
 find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > $TMPLANG
 for i in `cat $TMPLANG` ; do
-	mkdir -p "$i/language/$LANG"
 	mkdir -p "$TMP/$i/language/$LANG"
-	if [ -e $i/language/$LANG ] ; then
-		cp -rR $i/language/$LANG $TMP/$i/language/$LANG
-	else
-		cp -rR $i/language/en_US $TMP/$i/language/$LANG
-		cp -rR $i/language/messages.pot $TMP/$i/language/
-	fi
+	cp -rR $i/language/en_US/* $TMP/$i/language/$LANG/
+	cp -rR $i/language/messages.pot $TMP/$i/language/
 done
+
 rm $TMPLANG
 
-find $TMP -type f ! -name '*.po' -exec rm {} \;
-
 cd $CWD
+
+find $TMP -type f -name '*.mo' -exec rm {} \;
 
 mv $TMP playsms-language-$LANG
 tar -zcvf playsms-language-$LANG.tar.gz playsms-language-$LANG
