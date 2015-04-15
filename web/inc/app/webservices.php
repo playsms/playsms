@@ -448,7 +448,20 @@ if (_OP_) {
 			break;
 		
 		case "GET_TOKEN":
-			if (auth_validate_login($u, $p)) {
+			$validated = FALSE;
+			
+			if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
+				if (auth_validate_email($u, $p)) {
+					$u = user_email2username($u);
+					$validated = TRUE;
+				}
+			} else {
+				if (auth_validate_login($u, $p)) {
+					$validated = TRUE;
+				}
+			}
+			
+			if ($validated) {
 				$user = user_getdatabyusername($u);
 				if ($user['uid']) {
 					$continue = false;
