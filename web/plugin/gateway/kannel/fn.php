@@ -68,7 +68,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	// since 0.9.5.1
 	$dlr_url = $plugin_config['kannel']['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=" . $smslog_id . "&uid=" . $uid;
 	
-	$URL = "/cgi-bin/sendsms?username=" . urlencode($plugin_config['kannel']['username']) . "&password=" . urlencode($plugin_config['kannel']['password']);
+	$URL = "/cgi-bin/sendsms?username=" . urlencode($plugin_config['kannel']['username']) . "&password=" . urlencode(htmlspecialchars_decode($plugin_config['kannel']['password']));
 	$URL .= "&from=" . urlencode($sms_sender) . "&to=" . urlencode($sms_to);
 	// Handle DLR options config (emmanuel)
 	// $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
@@ -94,7 +94,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$URL .= "&text=" . urlencode($sms_msg);
 	
 	// fixme anton - patch 1.4.3, dlr requries smsc-id, you should add at least smsc=<your smsc-id in kannel.conf> from web
-	if ($additional_param = $plugin_config['kannel']['additional_param']) {
+	if ($additional_param = htmlspecialchars_decode($plugin_config['kannel']['additional_param'])) {
 		$additional_param = "&" . $additional_param;
 	}
 	$URL .= $additional_param;
