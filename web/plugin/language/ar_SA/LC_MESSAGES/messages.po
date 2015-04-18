@@ -132,7 +132,7 @@ msgid "Move"
 msgstr "نقل إلى"
 
 msgid "My account"
-msgstr "تقاريري"
+msgstr "حسابي"
 
 msgid "Offline"
 msgstr "غير متصل"
