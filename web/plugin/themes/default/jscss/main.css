@@ -82,3 +82,7 @@
 	height: 100%;
 	overflow: hidden;
 }
+body.he_IL, body.ar_SA {
+  direction: rtl;
+  text-align: right;
+}
