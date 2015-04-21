@@ -18,6 +18,10 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
+if (!auth_isvalid()) {
+	auth_block();
+}
+
 // check permission when $uid supplied
 if ($_REQUEST['uid']) {
 	if (!auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
