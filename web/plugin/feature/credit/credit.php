@@ -130,7 +130,7 @@ switch (_OP_) {
 			</script>
 			<h2>" . _('Manage credit') . "</h2>
 			<h3>" . _('Add credit') . "</h3>
-			<form id=fm_feature_credit_add name=id_feature_credit_add action=\"" . _('index.php?app=main&inc=feature_credit&op=actions&go=add') . "\" method=POST>
+			<form id=fm_feature_credit_add name=id_feature_credit_add action=\"" . _u('index.php?app=main&inc=feature_credit&op=actions&go=add') . "\" method=POST>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 				<tbody>
@@ -168,7 +168,7 @@ switch (_OP_) {
 			</script>
 			<h2>" . _('Manage credit') . "</h2>
 			<h3>" . _('Reduce credit') . "</h3>
-			<form id=fm_feature_credit_reduce name=id_feature_credit_reduce action=\"" . _('index.php?app=main&inc=feature_credit&op=actions&go=reduce') . "\" method=POST>
+			<form id=fm_feature_credit_reduce name=id_feature_credit_reduce action=\"" . _u('index.php?app=main&inc=feature_credit&op=actions&go=reduce') . "\" method=POST>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 				<tbody>
