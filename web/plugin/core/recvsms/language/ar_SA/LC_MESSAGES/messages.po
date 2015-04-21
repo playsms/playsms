@@ -17,10 +17,10 @@ msgid "From"
 msgstr "من"
 
 msgid "Message from"
-msgstr "الرسالة من "
+msgstr "رسالة من"
 
 msgid "Message received at"
-msgstr "الرسائل المستلمة في"
+msgstr "تم الاستلام في"
 
 msgid "on"
 msgstr "في"
