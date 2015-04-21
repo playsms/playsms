@@ -189,7 +189,7 @@ msgid "You must fill all fields"
 msgstr "يجب ملء كافة الحقول"
 
 msgid "no"
-msgstr "لأا"
+msgstr "لا"
 
 msgid "yes"
 msgstr "نعم"
