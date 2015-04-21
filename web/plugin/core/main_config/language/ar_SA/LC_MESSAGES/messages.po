@@ -169,7 +169,7 @@ msgid "Main configuration"
 msgstr "الإعدادات العامة"
 
 msgid "Main configuration changes has been saved"
-msgstr "تم خفظ الإعدادات"
+msgstr "تم حفظ الإعدادات"
 
 msgid "Main website URL"
 msgstr "رابط الموقع الرئيس"
