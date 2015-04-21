@@ -13,7 +13,7 @@ msgstr ""
 
 #, php-format
 msgid "Account %s is currently banned to use services"
-msgstr ""
+msgstr "Kontoen %s er i øjeblikket bandlyst fra at bruge services"
 
 msgid "Cancel"
 msgstr "Annuller"
@@ -31,14 +31,14 @@ msgid "Format YYYY-MM-DD hh:mm"
 msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Internal error please contact service provider"
-msgstr ""
+msgstr "Intern fejl, kontakt venligst serviceleverandør"
 
 msgid "Message"
 msgstr "Besked"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Message %s has been delivered to queue"
-msgstr "Din besked er afleveret til køen"
+msgstr "Beskeden %s er afleveret til køen"
 
 msgid "Message footer"
 msgstr "Besked bundtekst"
@@ -62,18 +62,18 @@ msgid "Send"
 msgstr "Send"
 
 msgid "Send message failed due to insufficient funds"
-msgstr ""
+msgstr "Afsendelse af besked mislykkedes på grund af manglende kredit"
 
 msgid "Send message failed due to unable to create queue"
-msgstr ""
+msgstr "Afsendelse af besked mislykkedes da køen ikke kunne oprettes"
 
 #, php-format
 msgid "Send message failed due to unable to prepare queue %s"
-msgstr ""
+msgstr "Afsendelse af besked mislykkedes da køen %s ikke kunne forberedes"
 
 #, php-format
 msgid "Send message to %s in queue %s has failed"
-msgstr ""
+msgstr "Afsendelse af besked til %s i køen %s mislykkedes"
 
 msgid "Send to"
 msgstr "Send til"

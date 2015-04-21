@@ -27,9 +27,8 @@ msgstr "Destinationsnavn"
 msgid "Edit route"
 msgstr "Rediger rute"
 
-#, fuzzy
 msgid "Fail to add route"
-msgstr "Kunne ikke slette rute"
+msgstr "Kunne ikke tilføje rute"
 
 msgid "Fail to delete route"
 msgstr "Kunne ikke slette rute"

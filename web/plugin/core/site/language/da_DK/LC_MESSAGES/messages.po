@@ -15,20 +15,19 @@ msgid "Active themes"
 msgstr "Aktive temaer"
 
 msgid "Buy credit page"
-msgstr "Køb kredit siden"
+msgstr "KÃ¸b kredit siden"
 
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#, fuzzy
 msgid "Default credit upon registration"
-msgstr "Aktiver offentlig registrering"
+msgstr "Standard kredit ved registrering"
 
 msgid "Default language"
-msgstr ""
+msgstr "Standard sprog"
 
 msgid "Domain"
-msgstr "Domæne"
+msgstr "DomÃ¦ne"
 
 msgid "Email footer"
 msgstr "E-mail footer"
@@ -39,9 +38,8 @@ msgstr "E-mail service"
 msgid "Enable forgot password"
 msgstr "Aktiver glemt adgangskode"
 
-#, fuzzy
 msgid "Enable logo"
-msgstr "Aktiver glemt adgangskode"
+msgstr "Aktiver logo"
 
 msgid "Enable public registration"
 msgstr "Aktiver offentlig registrering"
@@ -55,18 +53,17 @@ msgstr "Layout footer"
 msgid "Logo URL"
 msgstr "Logo URL"
 
-msgid ""
-"Logo by default will be displayed at login, register and forgot password page"
-msgstr ""
+msgid "Logo by default will be displayed at login, register and forgot password page"
+msgstr "Logo vil som standard blive vist på login, registrering og glemt adgangskode siderne"
 
 msgid "Main website URL"
-msgstr "Primær webside URL"
+msgstr "PrimÃ¦r webside URL"
 
 msgid "Main website name"
-msgstr "Primær webside navn"
+msgstr "PrimÃ¦r webside navn"
 
 msgid "Manage site"
-msgstr "Håndter websted"
+msgstr "HÃ¥ndter websted"
 
 msgid "Page content"
 msgstr "Sideindhold"
@@ -75,7 +72,7 @@ msgid "Page title"
 msgstr "Sidetitel"
 
 msgid "Replace website title with logo"
-msgstr ""
+msgstr "Erstat webstedstitel med logo"
 
 msgid "Save"
 msgstr "Gem"
@@ -87,13 +84,13 @@ msgid "Site configuration has been saved"
 msgstr "Websted konfiguration er blevet gemt"
 
 msgid "The domain is already configured by other user"
-msgstr "Domænet er allerede konfigureret af en anden bruger"
+msgstr "DomÃ¦net er allerede konfigureret af en anden bruger"
 
 msgid "Website title"
 msgstr "Websted titel"
 
 msgid "domain"
-msgstr "domæne"
+msgstr "domÃ¦ne"
 
 msgid "no"
 msgstr "nej"
