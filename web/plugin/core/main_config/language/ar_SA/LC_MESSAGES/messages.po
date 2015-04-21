@@ -222,7 +222,7 @@ msgid "Website title"
 msgstr "عنوان الموقع"
 
 msgid "no"
-msgstr "لأا"
+msgstr "لا"
 
 msgid "yes"
 msgstr "نعم"
