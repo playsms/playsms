@@ -19,7 +19,7 @@ msgid "Blocked IP address"
 msgstr "Blokeret IP adresse"
 
 msgid "Comma separated values for multiple IP addresses"
-msgstr ""
+msgstr "Kommaseparerede værdier ved flere IP adresser"
 
 msgid "Delete"
 msgstr "Slet"

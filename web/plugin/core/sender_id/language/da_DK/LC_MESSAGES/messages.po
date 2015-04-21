@@ -77,4 +77,4 @@ msgstr "Brugernavn"
 
 #, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
-msgstr ""
+msgstr "Brugeren %s med kontoID %d har bedt om godkendelse af afsenderID %s"

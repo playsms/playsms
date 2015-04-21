@@ -82,7 +82,7 @@ msgid "From"
 msgstr "Fra"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Inbox"
 msgstr "Indbakke"
