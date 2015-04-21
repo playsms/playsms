@@ -87,11 +87,5 @@ msgstr "montant"
 msgid "balance"
 msgstr "solde"
 
-msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
-msgstr "index.php?app=main&inc=feature_credit&op=actions&go=add"
-
-msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
-msgstr "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
-
 msgid "user"
 msgstr "utilisateur"

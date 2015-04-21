@@ -82,11 +82,5 @@ msgstr ""
 msgid "balance"
 msgstr ""
 
-msgid "index.php?app=main&inc=feature_credit&op=actions&go=add"
-msgstr ""
-
-msgid "index.php?app=main&inc=feature_credit&op=actions&go=reduce"
-msgstr ""
-
 msgid "user"
 msgstr ""
