@@ -219,47 +219,10 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			//echo $COMMAND . " start time:" . mktime() . "\n";
 			
 
+			// re-include init.php on every 'while' to get the most updated configurations
+			include 'init.php';
+			
 			// MAIN LOOP BLOCK
-			
-
-			// reload configs
-			
-
-			// load each plugin's config
-			$dir = $core_config['apps_path']['plug'] . '/';
-			$pcs = array(
-				'themes',
-				'language',
-				'gateway',
-				'feature' 
-			);
-			foreach ($pcs as $pc) {
-				for ($i = 0; $i < count($core_config[$pc . 'list']); $i++) {
-					$pl = $core_config[$pc . 'list'][$i];
-					$pl_dir = $dir . $pc . '/' . $pl;
-					$c_fn1 = $pl_dir . '/config.php';
-					if (file_exists($c_fn1)) {
-						if (function_exists('bindtextdomain') && file_exists($pl_dir . '/language')) {
-							bindtextdomain('messages', $pl_dir . '/language/');
-							bind_textdomain_codeset('messages', 'UTF-8');
-							textdomain('messages');
-						}
-						include $c_fn1;
-					}
-				}
-			}
-			
-			// themes main overrides
-			$mains = $themes_config[core_themes_get()]['main'];
-			if (is_array($mains)) {
-				foreach ($mains as $main_key => $main_val) {
-					if ($main_key && $main_val) {
-						$core_config['main'][$main_key] = $main_val;
-					}
-				}
-			}
-			
-			// commands switch
 			
 
 			switch ($COMMAND) {
