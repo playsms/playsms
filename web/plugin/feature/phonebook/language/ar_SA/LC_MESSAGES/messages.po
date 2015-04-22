@@ -57,7 +57,7 @@ msgid "Fail to upload CSV file for phonebook"
 msgstr "فشل تحميل الملف لدليل الهاتف"
 
 msgid "Group"
-msgstr "لا مجموعة"
+msgstr "المجموعة"
 
 msgid "Group code"
 msgstr "رمز المجموعة"
