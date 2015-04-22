@@ -355,6 +355,10 @@ function playsmsd_start() {
 		exit();
 	}
 	
+	// stop all daemons
+	shell_exec("$PLAYSMSD_BIN stop >/dev/null 2>&1");
+	sleep(2);
+	
 	// run playsmsd services
 	shell_exec("nohup $PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
 	shell_exec("nohup $PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
