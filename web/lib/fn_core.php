@@ -1144,7 +1144,7 @@ function core_last_post_get($key = '') {
  * Include composer based packages
  */
 if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
-	include _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
+	include_once _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
 } else {
 	die(_('FATAL ERROR') . ' : ' . _('Unable to find composer files') . ' ' . _('Please run composer.phar update'));
 	exit();
@@ -1191,9 +1191,9 @@ foreach ($core_config[$pc . 'list'] as $pl) {
 		include $c_fn1;
 		
 		// fn.php
-		include $c_fn2;
+		include_once $c_fn2;
 	}
 }
 
 // load shortcuts
-include $core_config['apps_path']['libs'] . "/fn_shortcuts.php";
+include_once $core_config['apps_path']['libs'] . "/fn_shortcuts.php";
