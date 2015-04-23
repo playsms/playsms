@@ -30,26 +30,56 @@ switch (_OP_) {
 			_('From') => 'in_sender',
 			_('Message') => 'in_msg' 
 		);
+		
 		$base_url = 'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox';
-		$search = themes_search($search_category, $base_url);
-		$conditions = array(
-			'in_uid' => $user_config['uid'],
-			'flag_deleted' => 0 
-		);
-		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords);
-		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'in_id DESC',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
+		
+		if ($in_sender = trim($_REQUEST['in_sender'])) {
+			$subpage_label = "<h4>" . sprintf(_('List of messages from %s'), $in_sender) . "</h4>";
+			$home_link = _back($base_url);
+			$base_url .= '&in_sender=' . $in_sender;
+			$search = themes_search($search_category, $base_url);
+			$conditions = array(
+				'in_sender' => $in_sender,
+				'in_uid' => $user_config['uid'],
+				'flag_deleted' => 0 
+			);
+			$keywords = $search['dba_keywords'];
+			$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords);
+			$nav = themes_nav($count, $search['url']);
+			$extras = array(
+				'ORDER BY' => 'in_id DESC',
+				'LIMIT' => $nav['limit'],
+				'OFFSET' => $nav['offset'] 
+			);
+			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
+		} else {
+			$search = themes_search($search_category, $base_url);
+			$conditions = array(
+				'in_uid' => $user_config['uid'],
+				'flag_deleted' => 0 
+			);
+			$keywords = $search['dba_keywords'];
+			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id', $conditions, $keywords, array(
+				'GROUP BY' => 'in_sender' 
+			));
+			$count = count($list);
+			$nav = themes_nav($count, $search['url']);
+			$extras = array(
+				'GROUP BY' => 'in_sender',
+				'ORDER BY' => 'in_id DESC',
+				'LIMIT' => $nav['limit'],
+				'OFFSET' => $nav['offset'] 
+			);
+			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*, COUNT(*) AS message_count', $conditions, $keywords, $extras);
+		}
+		
 		unset($tpl);
 		$tpl = array(
 			'vars' => array(
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
+				'SUBPAGE_LABEL' => $subpage_label,
+				'HOME_LINK' => $home_link,
 				'Inbox' => _('Inbox'),
 				'Export' => $icon_config['export'],
 				'Delete' => $icon_config['delete'],
@@ -74,10 +104,16 @@ switch (_OP_) {
 				$reply = _sendsms($in_sender, $msg);
 				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
+			$message_count = $list[$j]['message_count'];
+			$view_all_link = "";
+			if ($message_count > 1) {
+				$view_all_link = "<a href='" . $base_url . "&in_sender=" . $in_sender . "'>" . sprintf(_('view all %d'), $message_count) . "</a>";
+			}
 			$i--;
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
 				'current_sender' => $current_sender,
+				'view_all_link' => $view_all_link,
 				'in_msg' => $in_msg,
 				'in_datetime' => $in_datetime,
 				'in_status' => $in_status,

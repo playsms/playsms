@@ -1,5 +1,6 @@
 {{ DIALOG_DISPLAY }}
 <h2>{{ Inbox }}</h2>
+{{ SUBPAGE_LABEL }}
 <p>{{ SEARCH_FORM }}</p>
 <form id="fm_inbox" name="fm_inbox" action="index.php?app=main&inc=feature_report&route=user_inbox&op=actions" method=post>
 {{ CSRF_FORM }}
@@ -24,10 +25,13 @@
 	<tbody>
 		<loop.data>
 		<tr class={{ data.tr_class }}>
-			<td>{{ data.current_sender }}</td>
 			<td>
-				<div id="user_inbox_msg">{{ data.in_msg }}</div>
+				<div>{{ data.current_sender }}</div>
+				<div>{{ data.view_all_link }}</div>
+			</td>
+			<td>
 				<div id="msg_label">{{ data.in_datetime }}&nbsp;{{ data.in_status }}</div>
+				<div id="user_inbox_msg">{{ data.in_msg }}</div>
 				<div id="msg_option">{{ data.reply }}&nbsp{{ data.forward }}</div>
 			</td>
 			<td>
@@ -41,3 +45,4 @@
 </div>
 <div class=pull-right>{{ NAV_FORM }}</div>
 </form>
+<p>{{ HOME_LINK }}</p>
