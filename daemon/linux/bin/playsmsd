@@ -84,6 +84,7 @@ $CMD_PARAM = $argv[3];
 $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
 
 switch ($COMMAND) {
+	case 'watchdog':
 	case 'start':
 		
 		// start playsmsd services
