@@ -242,10 +242,14 @@ switch (_OP_) {
 							'c_timestamp' => mktime(),
 							'flag_deleted' => '1' 
 						);
-						dba_update(_DB_PREF_ . '_tblSMSOutgoing', $up, array(
+						$conditions = array(
 							'uid' => $user_config['uid'],
 							'smslog_id' => $itemid 
-						));
+						);
+						if ($queue_code = trim($_REQUEST['queue_code'])) {
+							$conditions['queue_code'] = $queue_code;
+						}
+						dba_update(_DB_PREF_ . '_tblSMSOutgoing', $up, $conditions);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

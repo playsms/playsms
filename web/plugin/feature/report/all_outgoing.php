@@ -219,6 +219,7 @@ switch (_OP_) {
 				$list = dba_search($table . ' AS A', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User'),
+					_('Gateway'),
 					_('SMSC'),
 					_('Time'),
 					_('To'),
@@ -230,6 +231,7 @@ switch (_OP_) {
 					$data[$j] = array(
 						$list[$i]['username'],
 						$list[$i]['p_gateway'],
+						$list[$i]['p_smsc'],
 						core_display_datetime($list[$i]['p_datetime']),
 						$list[$i]['p_dst'],
 						$list[$i]['p_msg'] . $list[$i]['p_footer'],
@@ -254,9 +256,13 @@ switch (_OP_) {
 							'c_timestamp' => mktime(),
 							'flag_deleted' => '1' 
 						);
-						dba_update(_DB_PREF_ . '_tblSMSOutgoing', $up, array(
+						$conditions = array(
 							'smslog_id' => $itemid 
-						));
+						);
+						if ($queue_code = trim($_REQUEST['queue_code'])) {
+							$conditions['queue_code'] = $queue_code;
+						}
+						dba_update(_DB_PREF_ . '_tblSMSOutgoing', $up, $conditions);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
