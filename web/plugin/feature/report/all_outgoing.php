@@ -161,11 +161,6 @@ switch (_OP_) {
 				$p_charge = '0.0';
 			}
 			
-			if ($p_gpid) {
-				$p_gpcode = strtoupper(phonebook_groupid2code($c_uid, $p_gpid));
-			} else {
-				$p_gpcode = "&nbsp;";
-			}
 			$msg = $list[$j]['p_msg'];
 			$p_msg = core_display_text($msg);
 			if ($msg && $p_dst) {
