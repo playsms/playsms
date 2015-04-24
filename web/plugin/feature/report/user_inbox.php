@@ -21,7 +21,6 @@ defined('_SECURE_') or die('Forbidden');
 if (!auth_isvalid()) {
 	auth_block();
 }
-;
 
 switch (_OP_) {
 	case "user_inbox":
@@ -85,7 +84,8 @@ switch (_OP_) {
 				'Delete' => $icon_config['delete'],
 				'From' => _('From'),
 				'Message' => _('Message'),
-				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?') 
+				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?'),
+				'in_sender' => $in_sender 
 			) 
 		);
 		$i = $nav['top'];
@@ -143,6 +143,9 @@ switch (_OP_) {
 					'in_uid' => $user_config['uid'],
 					'flag_deleted' => 0 
 				);
+				if ($in_sender = trim($_REQUEST['in_sender'])) {
+					$conditions['in_sender'] = $in_sender;
+				}
 				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
 					_('User'),
@@ -160,7 +163,11 @@ switch (_OP_) {
 					);
 				}
 				$content = core_csv_format($data);
-				$fn = 'user_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
+				if ($in_sender) {
+					$fn = 'user_inbox-' . $core_config['datetime']['now_stamp'] . '-' . $in_sender . '.csv';
+				} else {
+					$fn = 'user_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
+				}
 				core_download($content, $fn, 'text/csv');
 				break;
 			
@@ -173,10 +180,14 @@ switch (_OP_) {
 							'c_timestamp' => mktime(),
 							'flag_deleted' => '1' 
 						);
-						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
+						$conditions = array(
 							'in_uid' => $user_config['uid'],
 							'in_id' => $itemid 
-						));
+						);
+						if ($in_sender = trim($_REQUEST['in_sender'])) {
+							$conditions['in_sender'] = $in_sender;
+						}
+						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, $conditions);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

@@ -2,12 +2,12 @@
 <h2>{{ Inbox }}</h2>
 {{ SUBPAGE_LABEL }}
 <p>{{ SEARCH_FORM }}</p>
-<form id="fm_inbox" name="fm_inbox" action="index.php?app=main&inc=feature_report&route=user_inbox&op=actions" method=post>
+<form id="fm_inbox" name="fm_inbox" action="index.php?app=main&inc=feature_report&route=user_inbox&op=actions&in_sender={{ in_sender }}" method=post>
 {{ CSRF_FORM }}
 <input type=hidden name=go value="delete">
 <div class=actions_box>
 	<div class=pull-left>
-		<a href="index.php?app=main&inc=user_inbox&op=actions&go=export">{{ Export }}</a>
+		<a href="index.php?app=main&inc=feature_report&route=user_inbox&op=actions&go=export&in_sender={{ in_sender }}">{{ Export }}</a>
 	</div>
 	<div class="pull-right">
 		<a href='#' onClick="return SubmitConfirm('{{ ARE_YOU_SURE }}', 'fm_inbox');">{{ Delete }}</a>
