@@ -259,8 +259,8 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		$c_queue_id = $db_row['id'];
 		$c_queue_code = $db_row['queue_code'];
 		$c_sender_id = addslashes(trim($db_row['sender_id']));
-		$c_footer = addslashes(trim($db_row['footer']));
-		$c_message = addslashes(trim($db_row['message']));
+		$c_footer = addslashes(trim(htmlspecialchars_decode($db_row['footer'])));
+		$c_message = addslashes(trim(htmlspecialchars_decode($db_row['message'])));
 		$c_uid = $db_row['uid'];
 		$c_gpid = $db_row['gpid'];
 		$c_sms_type = $db_row['sms_type'];
@@ -386,6 +386,10 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	
 
 	$sms_datetime = core_get_datetime();
+	
+	// htmlspecialchars_decode to message and footer
+	$sms_msg = htmlspecialchars_decode($sms_msg);
+	$sms_footer = htmlspecialchars_decode($sms_footer);
 	
 	// sent sms will be handled by plugins first
 	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc);
@@ -562,6 +566,10 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '', $reference_id = '') {
 	global $core_config, $user_config;
 	
+	// htmlspecialchars_decode to message and footer
+	$message = htmlspecialchars_decode($message);
+	$sms_footer = htmlspecialchars_decode($sms_footer);
+	
 	// get user data
 	if ($username && ($user_config['username'] != $username)) {
 		$user_config = user_getdatabyusername($username);
@@ -663,6 +671,10 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  */
 function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0, $smsc = '', $nofooter = false, $sms_footer = '', $sms_sender = '', $sms_schedule = '') {
 	global $core_config, $user_config;
+	
+	// htmlspecialchars_decode to message and footer
+	$message = htmlspecialchars_decode($message);
+	$sms_footer = htmlspecialchars_decode($sms_footer);
 	
 	// get user data
 	$user = $user_config;
