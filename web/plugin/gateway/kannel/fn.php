@@ -44,8 +44,8 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 		$sms_sender = $plugin_config['kannel']['module_sender'];
 	}
 	
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_footer = stripslashes(htmlspecialchars_decode($sms_footer));
+	$sms_msg = stripslashes(htmlspecialchars_decode($sms_msg));
 	$ok = false;
 	$account = user_uid2username($uid);
 	$msg_type = 1;
@@ -63,6 +63,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	// this doesn't work properly if kannel is not on the same server with playSMS
 	// $dlr_url = $core_config['http_path']['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=$smslog_id&uid=$uid";
 	
+
 	// prior to 0.9.5.1
 	// $dlr_url = $plugin_config['kannel']['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=".$smslog_id."&uid=".$uid;
 	// since 0.9.5.1
@@ -75,6 +76,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$URL .= "&dlr-mask=" . $plugin_config['kannel']['dlr'] . "&dlr-url=" . urlencode($dlr_url);
 	// end of Handle DLR options config (emmanuel)
 	
+
 	if ($sms_type == 'flash') {
 		$URL .= "&mclass=" . $msg_type;
 	}
