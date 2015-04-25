@@ -53,8 +53,11 @@ msgstr "Layout footer"
 msgid "Logo URL"
 msgstr "Logo URL"
 
-msgid "Logo by default will be displayed at login, register and forgot password page"
-msgstr "Logo vil som standard blive vist på login, registrering og glemt adgangskode siderne"
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Logo vil som standard blive vist på login, registrering og glemt "
+"adgangskode siderne"
 
 msgid "Main website URL"
 msgstr "PrimÃ¦r webside URL"

@@ -29,9 +29,6 @@ msgstr "Confirmar"
 msgid "Destination number"
 msgstr "Número de destí"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "No s'han pogut el·liminar les entrades de la base de dades"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "S'han trobat entrades no vàlides en el fitxer"
 
@@ -76,9 +73,6 @@ msgstr "Fitxer pujat"
 
 msgid "Username"
 msgstr "Usuari"
-
-msgid "Valid entries"
-msgstr "Entrades vàlides"
 
 msgid "Your choice"
 msgstr "La vostra tria"

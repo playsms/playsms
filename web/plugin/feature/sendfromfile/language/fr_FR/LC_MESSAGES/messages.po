@@ -23,9 +23,6 @@ msgstr "Confirmation"
 msgid "Destination number"
 msgstr "Numéro du destinataire"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "Échec de la suppression dans la base de données des entrées à annuler"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "Entrées erronées trouvées dans le fichier CSV"
 
@@ -70,9 +67,6 @@ msgstr "Fichier importé"
 
 msgid "Username"
 msgstr "Nom d'utilisateur"
-
-msgid "Valid entries"
-msgstr "Entrées valables"
 
 msgid "Your choice"
 msgstr "Votre choix"

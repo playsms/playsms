@@ -94,8 +94,16 @@ msgstr "Ключевое слово"
 msgid "Last update"
 msgstr "Последнее обновление"
 
+#, php-format
+msgid "List of messages from %s"
+msgstr ""
+
 msgid "List of my credit transactions"
 msgstr "Список моих переводов"
+
+#, php-format
+msgid "List of queue %s"
+msgstr ""
 
 msgid "Message"
 msgstr "Сообщение"
@@ -190,3 +198,7 @@ msgstr "не обработано"
 
 msgid "username"
 msgstr "имя пользователя"
+
+#, php-format
+msgid "view all %d"
+msgstr ""

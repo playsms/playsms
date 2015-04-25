@@ -86,7 +86,15 @@ msgstr ""
 msgid "Last update"
 msgstr ""
 
+#, php-format
+msgid "List of messages from %s"
+msgstr ""
+
 msgid "List of my credit transactions"
+msgstr ""
+
+#, php-format
+msgid "List of queue %s"
 msgstr ""
 
 msgid "Message"
@@ -180,4 +188,8 @@ msgid "unhandled"
 msgstr ""
 
 msgid "username"
+msgstr ""
+
+#, php-format
+msgid "view all %d"
 msgstr ""

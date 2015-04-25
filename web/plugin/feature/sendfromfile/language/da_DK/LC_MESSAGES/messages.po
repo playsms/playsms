@@ -24,9 +24,6 @@ msgstr "Bekræftelse"
 msgid "Destination number"
 msgstr "Destinationsnummer"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "Kunne ikke fjerne anullerede emner fra databasen"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "Fandt ugyldige emner i den uploadede fil"
 
@@ -71,9 +68,6 @@ msgstr "Uploadet fil"
 
 msgid "Username"
 msgstr "Brugernavn"
-
-msgid "Valid entries"
-msgstr "Gyldige emner"
 
 msgid "Your choice"
 msgstr "Dit valg"

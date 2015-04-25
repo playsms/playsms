@@ -17,9 +17,6 @@ msgstr ""
 msgid "Destination number"
 msgstr ""
 
-msgid "Fail to remove cancelled entries from database"
-msgstr ""
-
 msgid "Found invalid entries in uploaded file"
 msgstr ""
 
@@ -63,9 +60,6 @@ msgid "Uploaded file"
 msgstr ""
 
 msgid "Username"
-msgstr ""
-
-msgid "Valid entries"
 msgstr ""
 
 msgid "Your choice"

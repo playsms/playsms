@@ -24,9 +24,6 @@ msgstr "Подтверждение"
 msgid "Destination number"
 msgstr "Номер получателя"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "Не удалось удалить отменённые задания из БД"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "Недействительные записи в загруженном файле"
 
@@ -71,9 +68,6 @@ msgstr "Загруженный файл"
 
 msgid "Username"
 msgstr "Имя пользователя"
-
-msgid "Valid entries"
-msgstr "Действительные записи"
 
 msgid "Your choice"
 msgstr "Ваш выбор"

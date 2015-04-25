@@ -95,8 +95,16 @@ msgstr "الكلمات المفتاحية"
 msgid "Last update"
 msgstr "آخر تحديث"
 
+#, php-format
+msgid "List of messages from %s"
+msgstr ""
+
 msgid "List of my credit transactions"
 msgstr "قائمة الحوالات"
+
+#, php-format
+msgid "List of queue %s"
+msgstr ""
 
 msgid "Message"
 msgstr "الرسالة"
@@ -190,3 +198,7 @@ msgstr "لم يتم الالتقاط"
 
 msgid "username"
 msgstr "اسم المستخدم"
+
+#, php-format
+msgid "view all %d"
+msgstr ""

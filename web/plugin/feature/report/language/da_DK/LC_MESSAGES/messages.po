@@ -93,8 +93,16 @@ msgstr "Nøgleord"
 msgid "Last update"
 msgstr "Sidst opdateret"
 
+#, php-format
+msgid "List of messages from %s"
+msgstr ""
+
 msgid "List of my credit transactions"
 msgstr "Liste over mine kredit transaktioner"
+
+#, php-format
+msgid "List of queue %s"
+msgstr ""
 
 msgid "Message"
 msgstr "Besked"
@@ -188,3 +196,7 @@ msgstr "ej håndteret"
 
 msgid "username"
 msgstr "brugernavn"
+
+#, php-format
+msgid "view all %d"
+msgstr ""

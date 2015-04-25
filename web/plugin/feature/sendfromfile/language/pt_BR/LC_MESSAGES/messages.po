@@ -17,9 +17,6 @@ msgstr "Confirmação"
 msgid "Destination number"
 msgstr "Número de destino"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "Falha ao remover as entradas canceladas do banco de dados"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "Encontradas entradas inválidas no arquivo enviado"
 
@@ -64,9 +61,6 @@ msgstr "Arquivo enviado"
 
 msgid "Username"
 msgstr "Usuário"
-
-msgid "Valid entries"
-msgstr "Entradas válidas"
 
 msgid "Your choice"
 msgstr "Sua escolha"

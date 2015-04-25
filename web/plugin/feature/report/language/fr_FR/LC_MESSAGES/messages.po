@@ -86,8 +86,16 @@ msgstr "Mot-clé"
 msgid "Last update"
 msgstr "Dernière mise à jour"
 
+#, php-format
+msgid "List of messages from %s"
+msgstr ""
+
 msgid "List of my credit transactions"
 msgstr "Liste de mes transactions de crédit"
+
+#, php-format
+msgid "List of queue %s"
+msgstr ""
 
 msgid "Message"
 msgstr "Message"
@@ -181,3 +189,7 @@ msgstr "non traité"
 
 msgid "username"
 msgstr "nom d'utilisateur"
+
+#, php-format
+msgid "view all %d"
+msgstr ""

@@ -17,9 +17,6 @@ msgstr "Konfirmasi"
 msgid "Destination number"
 msgstr "Nomor tujuan"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "Gagal untuk menghapus entri dibatalkan dari database"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "Ditemukan entri yang tidak valid dalam file yang diunggah"
 
@@ -64,9 +61,6 @@ msgstr "File dirunggah"
 
 msgid "Username"
 msgstr "Nama pengguna"
-
-msgid "Valid entries"
-msgstr "Entri valid"
 
 msgid "Your choice"
 msgstr "Pilihan Anda"

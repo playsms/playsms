@@ -17,9 +17,6 @@ msgstr "Bestätigung"
 msgid "Destination number"
 msgstr "Zielrufnummer"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "Fehler beim Löschen abgebrochener Einträge aus der Datenbank"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "Ungültige Einträge in hochgeladener Datei gefunden"
 
@@ -64,9 +61,6 @@ msgstr "Datei hochgeladen"
 
 msgid "Username"
 msgstr "Benutzername"
-
-msgid "Valid entries"
-msgstr "Gültige Eintrgäe"
 
 msgid "Your choice"
 msgstr "Ihre Auswahl"

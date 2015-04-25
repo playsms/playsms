@@ -26,9 +26,6 @@ msgstr "تأكيد الاستيراد"
 msgid "Destination number"
 msgstr "الوجهة"
 
-msgid "Fail to remove cancelled entries from database"
-msgstr "فشل حذف الرسائل الملغاة من قاعدة البيانات"
-
 msgid "Found invalid entries in uploaded file"
 msgstr "إدخالات غير صالحة في الملف المحمَّل"
 
@@ -73,9 +70,6 @@ msgstr "الملف المحمَّل"
 
 msgid "Username"
 msgstr "اسم المستخدم"
-
-msgid "Valid entries"
-msgstr "الإدخالات الصالحة"
 
 msgid "Your choice"
 msgstr "خيارك"
