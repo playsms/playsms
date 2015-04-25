@@ -76,7 +76,7 @@ if ($remote_smslog_id && $client_ref && $status) {
 // incoming message
 $sms_datetime = urldecode($requests['message-timestamp']);
 $sms_sender = $requests['msisdn'];
-$message = urldecode($requests['text']);
+$message = htmlspecialchars_decode(urldecode($requests['text']));
 $sms_receiver = $requests['to'];
 $smsc = $requests['smsc'];
 if ($remote_smslog_id && $message) {

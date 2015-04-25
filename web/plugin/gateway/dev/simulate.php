@@ -49,6 +49,7 @@ switch (_OP_) {
 		$sms_receiver = ($_REQUEST['receiver'] ? $_REQUEST['receiver'] : '1234');
 		$sms_datetime = ($_REQUEST['datetime'] ? $_REQUEST['datetime'] : core_get_datetime());
 		$message = ($_REQUEST['message'] ? $_REQUEST['message'] : _('This is a test incoming SMS message'));
+		$message = htmlspecialchars_decode($message);
 		
 		if (trim($sms_sender) && trim($sms_receiver) && trim($sms_datetime) && trim($message)) {
 			recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, 'dev');

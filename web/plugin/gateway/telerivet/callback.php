@@ -95,7 +95,7 @@ if ($_POST['event'] == 'incoming_message') {
 	$c_smsc = 'telerivet';
 	$c_remote_id = $_POST['id'];
 	$c_message_type = $_POST['message_type'];
-	$c_content = $_POST['content'];
+	$c_content = htmlspecialchars_decode($_POST['content']);
 	$c_from_number = $_POST['from_number'];
 	$c_to_number = $_POST['to_number'];
 	$c_time_created = $_POST['time_created'];

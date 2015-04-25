@@ -30,7 +30,7 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 	$cb_datetime = date($datetime_format, $cb_timestamp);
 	$sms_datetime = trim($cb_datetime);
 	$sms_sender = trim($cb_from);
-	$message = trim($cb_text);
+	$message = trim(htmlspecialchars_decode($cb_text));
 	$sms_receiver = trim($cb_to);
 	
 	logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:" . $message, 3, "infobip incoming");

@@ -52,7 +52,7 @@ if ($remote_smslog_id && $status && ($status != 'received')) {
 // incoming message
 $sms_datetime = $core_config['datetime']['now'];
 $sms_sender = $requests['From'];
-$message = urldecode($requests['Body']);
+$message = htmlspecialchars_decode(urldecode($requests['Body']));
 $sms_receiver = $requests['To'];
 $smsc = $requests['smsc'];
 
