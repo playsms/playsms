@@ -50,7 +50,7 @@ switch (_OP_) {
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 
 			);
-			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $keywords, $extras);
+			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id, in_uid, in_datetime, in_sender, in_msg', $conditions, $keywords, $extras);
 		} else {
 			$search = themes_search($search_category, $base_url);
 			$conditions = array(
@@ -69,7 +69,7 @@ switch (_OP_) {
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 
 			);
-			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*, COUNT(*) AS message_count', $conditions, $keywords, $extras);
+			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id, in_uid, in_datetime, in_sender, in_msg, COUNT(*) AS message_count', $conditions, $keywords, $extras);
 		}
 		
 		unset($tpl);
@@ -116,7 +116,6 @@ switch (_OP_) {
 				'view_all_link' => $view_all_link,
 				'in_msg' => $in_msg,
 				'in_datetime' => $in_datetime,
-				'in_status' => $in_status,
 				'reply' => $reply,
 				'forward' => $forward,
 				'in_id' => $in_id,
@@ -146,9 +145,8 @@ switch (_OP_) {
 				if ($in_sender = trim($_REQUEST['in_sender'])) {
 					$conditions['in_sender'] = $in_sender;
 				}
-				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords']);
+				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_datetime, in_sender, in_msg', $conditions, $search['dba_keywords']);
 				$data[0] = array(
-					_('User'),
 					_('Time'),
 					_('From'),
 					_('Message') 
@@ -156,7 +154,6 @@ switch (_OP_) {
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						user_uid2username($list[$i]['in_uid']),
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
 						$list[$i]['in_msg'] 
@@ -164,9 +161,9 @@ switch (_OP_) {
 				}
 				$content = core_csv_format($data);
 				if ($in_sender) {
-					$fn = 'user_inbox-' . $core_config['datetime']['now_stamp'] . '-' . $in_sender . '.csv';
+					$fn = 'user_inbox-' . $user_config['username'] . '-' . $core_config['datetime']['now_stamp'] . '-' . $in_sender . '.csv';
 				} else {
-					$fn = 'user_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
+					$fn = 'user_inbox-' . $user_config['username'] . '-' . $core_config['datetime']['now_stamp'] . '.csv';
 				}
 				core_download($content, $fn, 'text/csv');
 				break;

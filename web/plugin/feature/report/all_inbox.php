@@ -44,7 +44,7 @@ switch (_OP_) {
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSInbox AS A', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_ . '_tblSMSInbox AS A', 'B.username, A.in_id, A.in_uid, A.in_datetime, A.in_sender, A.in_msg', $conditions, $keywords, $extras, $join);
 		
 		$content = "
 			<h2>" . _('All inbox') . "</h2>
@@ -124,10 +124,10 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
-					'flag_deleted' => 0 
+					'A.flag_deleted' => 0 
 				);
-				$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
-				$list = dba_search(_DB_PREF_ . '_tblSMSInbox', '*', $conditions, $search['dba_keywords'], '', $join);
+				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND in_uid=B.uid";
+				$list = dba_search(_DB_PREF_ . '_tblSMSInbox as A', 'B.username, A.in_datetime, A.in_sender, A.in_msg', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User'),
 					_('Time'),

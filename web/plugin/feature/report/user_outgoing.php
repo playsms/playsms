@@ -222,9 +222,9 @@ switch (_OP_) {
 				}
 				$content = core_csv_format($data);
 				if ($queue_code) {
-					$fn = 'user_outgoing-' . $core_config['datetime']['now_stamp'] . '-' . $queue_code . '.csv';
+					$fn = 'user_outgoing-' . $user_config['username'] . '-' . $core_config['datetime']['now_stamp'] . '-' . $queue_code . '.csv';
 				} else {
-					$fn = 'user_outgoing-' . $core_config['datetime']['now_stamp'] . '.csv';
+					$fn = 'user_outgoing-' . $user_config['username'] . '-' . $core_config['datetime']['now_stamp'] . '.csv';
 				}
 				core_download($content, $fn, 'text/csv');
 				break;
