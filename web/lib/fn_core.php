@@ -786,12 +786,16 @@ function core_csv_format($item) {
 	$ret = '';
 	
 	foreach ($item as $row) {
+		
+		$entry = '';
 		foreach ($row as $field) {
+			
 			$field = str_replace('"', "'", $field);
-			$ret .= '"' . $field . '",';
+			$entry .= '"' . $field . '",';
 		}
-		$ret = substr($ret, 0, -1);
-		$ret .= "\n";
+		$entry = substr($entry, 0, -1);
+		
+		$ret .= $entry . "\n";
 	}
 	
 	return $ret;
