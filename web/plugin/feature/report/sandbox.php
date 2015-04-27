@@ -44,7 +44,7 @@ switch (_OP_) {
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_id, in_uid, in_sender, in_datetime, in_message', $conditions, $keywords, $extras, $join);
 		
 		$content = "
 			<h2>" . _('Sandbox') . "</h2>
@@ -83,11 +83,7 @@ switch (_OP_) {
 			if ($p_desc) {
 				$current_sender = "$in_sender<br />$p_desc";
 			}
-			$in_keyword = $list[$j]['in_keyword'];
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
-			if ($c_feature = $list[$j]['in_feature']) {
-				$c_feature = "<br />" . $c_feature;
-			}
 			$msg = $list[$j]['in_message'];
 			$in_message = core_display_text($msg);
 			$reply = '';
@@ -132,7 +128,7 @@ switch (_OP_) {
 					'flag_deleted' => 0,
 					'in_status' => 0 
 				);
-				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], '', $join);
+				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_datetime, in_sender, in_message', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('Time'),
 					_('From'),
