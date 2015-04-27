@@ -48,7 +48,7 @@ switch (_OP_) {
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_id, in_sender, in_keyword, in_datetime, in_feature, in_message', $conditions, $keywords, $extras);
 		
 		$content = "
 			<h2>" . _('My feature messages') . "</h2>
@@ -141,30 +141,26 @@ switch (_OP_) {
 				$extras = array(
 					'AND in_keyword' => '!= ""' 
 				);
-				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], $extras);
+				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_sender, in_keyword, in_datetime, in_feature, in_message', $conditions, $search['dba_keywords'], $extras);
 				$data[0] = array(
-					_('User'),
 					_('Time'),
 					_('From'),
 					_('Keyword'),
 					_('Content'),
-					_('Feature'),
-					_('Status') 
+					_('Feature') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						user_uid2username($list[$i]['in_uid']),
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
 						$list[$i]['in_keyword'],
 						$list[$i]['in_message'],
-						$list[$i]['in_feature'],
-						($list[$i]['in_status'] == 1 ? _('handled') : _('unhandled')) 
+						$list[$i]['in_feature'] 
 					);
 				}
 				$content = core_csv_format($data);
-				$fn = 'user_incoming-' . $core_config['datetime']['now_stamp'] . '.csv';
+				$fn = 'user_incoming-' . $user_config['username'] . '-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
 			

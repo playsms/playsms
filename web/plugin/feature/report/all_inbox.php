@@ -126,7 +126,7 @@ switch (_OP_) {
 				$conditions = array(
 					'A.flag_deleted' => 0 
 				);
-				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND in_uid=B.uid";
+				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
 				$list = dba_search(_DB_PREF_ . '_tblSMSInbox as A', 'B.username, A.in_datetime, A.in_sender, A.in_msg', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User'),

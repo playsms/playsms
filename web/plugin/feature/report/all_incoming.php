@@ -36,7 +36,7 @@ switch (_OP_) {
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
 			'A.flag_deleted' => 0,
-			'in_status' => 1 
+			'A.in_status' => 1 
 		);
 		$keywords = $search['dba_keywords'];
 		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
@@ -48,7 +48,7 @@ switch (_OP_) {
 			'LIMIT' => $nav['limit'],
 			'OFFSET' => $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming AS A', '*', $conditions, $keywords, $extras, $join);
+		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming AS A', 'B.username, A.in_id, A.in_uid, A.in_sender, A.in_keyword, A.in_datetime, A.in_feature, A.in_message', $conditions, $keywords, $extras, $join);
 		
 		$content = "
 			<h2>" . _('All feature messages') . "</h2>
@@ -136,22 +136,21 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
-					'flag_deleted' => 0,
-					'in_status' => 1 
+					'A.flag_deleted' => 0,
+					'A.in_status' => 1 
 				);
-				$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON in_uid=B.uid';
+				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
 				$extras = array(
-					'AND in_keyword' => '!= ""' 
+					'AND A.in_keyword' => '!= ""' 
 				);
-				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', '*', $conditions, $search['dba_keywords'], $extras, $join);
+				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming as A', 'B.username, A.in_id, A.in_uid, A.in_sender, A.in_keyword, A.in_datetime, A.in_feature, A.in_message', $conditions, $search['dba_keywords'], $extras, $join);
 				$data[0] = array(
 					_('User'),
 					_('Time'),
 					_('From'),
 					_('Keyword'),
 					_('Content'),
-					_('Feature'),
-					_('Status') 
+					_('Feature') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
@@ -161,8 +160,7 @@ switch (_OP_) {
 						$list[$i]['in_sender'],
 						$list[$i]['in_keyword'],
 						$list[$i]['in_message'],
-						$list[$i]['in_feature'],
-						($list[$i]['in_status'] == 1 ? _('handled') : _('unhandled')) 
+						$list[$i]['in_feature'] 
 					);
 				}
 				$content = core_csv_format($data);
