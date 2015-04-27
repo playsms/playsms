@@ -22,6 +22,8 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
+set_time_limit(600);
+
 switch (_OP_) {
 	case "all_outgoing":
 		$search_category = array(
@@ -57,7 +59,7 @@ switch (_OP_) {
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 
 			);
-			$list = dba_search($table . ' AS A', '*', $conditions, $keywords, $extras, $join);
+			$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, A.uid, A.queue_code', $conditions, $keywords, $extras, $join);
 		} else {
 			$search = themes_search($search_category, $base_url);
 			$conditions = array(
@@ -77,7 +79,7 @@ switch (_OP_) {
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 
 			);
-			$list = dba_search($table . ' AS A', '*, COUNT(*) AS queue_count', $conditions, $keywords, $extras, $join);
+			$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, A.uid, A.queue_code, COUNT(*) AS queue_count', $conditions, $keywords, $extras, $join);
 		}
 		
 		$content = "
@@ -126,8 +128,6 @@ switch (_OP_) {
 			$p_datetime = core_display_datetime($list[$j]['p_datetime']);
 			$p_update = $list[$j]['p_update'];
 			$p_status = $list[$j]['p_status'];
-			$p_gpid = $list[$j]['p_gpid'];
-			$c_uid = $list[$j]['uid'];
 			$c_queue_code = $list[$j]['queue_code'];
 			$c_queue_count = (int) $list[$j]['queue_count'];
 			
@@ -212,7 +212,7 @@ switch (_OP_) {
 				}
 				$table = _DB_PREF_ . '_tblSMSOutgoing';
 				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
-				$list = dba_search($table . ' AS A', '*', $conditions, $search['dba_keywords'], '', $join);
+				$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.p_datetime, A.p_dst, A.p_msg, A.p_footer, A.p_status', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User'),
 					_('Gateway'),
