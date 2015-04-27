@@ -178,14 +178,8 @@ msgstr "coût"
 msgid "count"
 msgstr "quantité"
 
-msgid "handled"
-msgstr "traité"
-
 msgid "rate"
 msgstr "tarif"
-
-msgid "unhandled"
-msgstr "non traité"
 
 msgid "username"
 msgstr "nom d'utilisateur"

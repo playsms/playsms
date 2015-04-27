@@ -187,14 +187,8 @@ msgstr "стоимость"
 msgid "count"
 msgstr "количество"
 
-msgid "handled"
-msgstr "обработано"
-
 msgid "rate"
 msgstr "цена"
-
-msgid "unhandled"
-msgstr "не обработано"
 
 msgid "username"
 msgstr "имя пользователя"

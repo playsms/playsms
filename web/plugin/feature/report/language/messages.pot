@@ -171,13 +171,7 @@ msgstr ""
 msgid "count"
 msgstr ""
 
-msgid "handled"
-msgstr ""
-
 msgid "rate"
-msgstr ""
-
-msgid "unhandled"
 msgstr ""
 
 msgid "username"

@@ -187,14 +187,8 @@ msgstr "التكلفة"
 msgid "count"
 msgstr "العدد"
 
-msgid "handled"
-msgstr "تم الالتقاط"
-
 msgid "rate"
 msgstr "التعرفة"
-
-msgid "unhandled"
-msgstr "لم يتم الالتقاط"
 
 msgid "username"
 msgstr "اسم المستخدم"

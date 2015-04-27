@@ -185,14 +185,8 @@ msgstr "pris"
 msgid "count"
 msgstr "antal"
 
-msgid "handled"
-msgstr "håndteret"
-
 msgid "rate"
 msgstr "frekvens"
-
-msgid "unhandled"
-msgstr "ej håndteret"
 
 msgid "username"
 msgstr "brugernavn"

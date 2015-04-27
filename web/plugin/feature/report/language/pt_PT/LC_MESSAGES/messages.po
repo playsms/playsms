@@ -185,14 +185,8 @@ msgstr "Preço"
 msgid "count"
 msgstr "Contador"
 
-msgid "handled"
-msgstr ""
-
 msgid "rate"
 msgstr "Taxa"
-
-msgid "unhandled"
-msgstr ""
 
 msgid "username"
 msgstr "Nome de Utilizador"
