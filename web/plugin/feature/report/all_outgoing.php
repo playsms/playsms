@@ -211,7 +211,7 @@ switch (_OP_) {
 					$conditions['A.queue_code'] = $queue_code;
 				}
 				$table = _DB_PREF_ . '_tblSMSOutgoing';
-				$join = 'INNER JOIN ' . _DB_PREF_ . '_tblUser AS B ON A.uid=B.uid';
+				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
 				$list = dba_search($table . ' AS A', '*', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User'),
