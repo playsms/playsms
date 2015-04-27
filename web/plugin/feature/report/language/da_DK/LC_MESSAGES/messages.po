@@ -95,14 +95,14 @@ msgstr "Sidst opdateret"
 
 #, php-format
 msgid "List of messages from %s"
-msgstr ""
+msgstr "Vis alle beskeder fra %s"
 
 msgid "List of my credit transactions"
 msgstr "Liste over mine kredit transaktioner"
 
 #, php-format
 msgid "List of queue %s"
-msgstr ""
+msgstr "Liste over køen %s"
 
 msgid "Message"
 msgstr "Besked"
@@ -199,4 +199,4 @@ msgstr "brugernavn"
 
 #, php-format
 msgid "view all %d"
-msgstr ""
+msgstr "se alle %d"
