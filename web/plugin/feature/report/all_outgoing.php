@@ -86,7 +86,7 @@ switch (_OP_) {
 			<h2>" . _('All sent messages') . "</h2>
 			" . $queue_label . "
 			<p>" . $search['form'] . "</p>
-			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=main&inc=feature_report&route=all_outgoing&op=actions&queue_code=' . $queue_code\" method=POST>
+			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=main&inc=feature_report&route=all_outgoing&op=actions&queue_code=" . $queue_code . "\" method=POST>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>

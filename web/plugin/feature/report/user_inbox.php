@@ -35,7 +35,7 @@ switch (_OP_) {
 		if ($in_sender = trim($_REQUEST['in_sender'])) {
 			$subpage_label = "<h4>" . sprintf(_('List of messages from %s'), $in_sender) . "</h4>";
 			$home_link = _back($base_url);
-			$base_url .= '&in_sender=' . $in_sender;
+			$base_url .= '&in_sender=' . urlencode($in_sender);
 			$search = themes_search($search_category, $base_url);
 			$conditions = array(
 				'in_sender' => $in_sender,
@@ -85,7 +85,7 @@ switch (_OP_) {
 				'From' => _('From'),
 				'Message' => _('Message'),
 				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?'),
-				'in_sender' => $in_sender 
+				'in_sender' => urlencode($in_sender) 
 			) 
 		);
 		$i = $nav['top'];
@@ -107,7 +107,7 @@ switch (_OP_) {
 			$message_count = $list[$j]['message_count'];
 			$view_all_link = "";
 			if ($message_count > 1) {
-				$view_all_link = "<a href='" . $base_url . "&in_sender=" . $in_sender . "'>" . sprintf(_('view all %d'), $message_count) . "</a>";
+				$view_all_link = "<a href='" . $base_url . "&in_sender=" . urlencode($in_sender) . "'>" . sprintf(_('view all %d'), $message_count) . "</a>";
 			}
 			$i--;
 			$tpl['loops']['data'][] = array(
