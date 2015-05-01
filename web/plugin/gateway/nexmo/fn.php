@@ -69,9 +69,25 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 		
 		// fixme anton
 		// rate limit to 1 second per submit - nexmo rule
-		sleep(1);
+		//sleep(1);
 		
-		$resp = json_decode(file_get_contents($url), true);
+
+		// old way
+		// $resp = json_decode(file_get_contents($url), true);
+		
+
+		// new way
+		$parsed_url = parse_url($url);
+		$opts = array(
+			'http' => array(
+				'method' => 'GET',
+				'header' => "Connection: close\r\n",
+				'content' => $parsed_url['query'] 
+			) 
+		);
+		$context = stream_context_create($opts);
+		$server_url = explode('?', $url);
+		$resp = json_decode(file_get_contents($server_url[0], false, $context), TRUE);
 		
 		if ($resp['message-count']) {
 			$c_status = $resp['messages'][0]['status'];
