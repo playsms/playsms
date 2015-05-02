@@ -79,8 +79,8 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 		// new way
 		$opts = array(
 			'http' => array(
-				'method' => 'GET',
-				'header' => "Connection: close\r\n",
+				'method' => 'POST',
+				'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n",
 				'content' => $query_string 
 			) 
 		);
