@@ -77,17 +77,15 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 		
 
 		// new way
-		$parsed_url = parse_url($url);
 		$opts = array(
 			'http' => array(
 				'method' => 'GET',
 				'header' => "Connection: close\r\n",
-				'content' => $parsed_url['query'] 
+				'content' => $query_string 
 			) 
 		);
 		$context = stream_context_create($opts);
-		$server_url = explode('?', $url);
-		$resp = json_decode(file_get_contents($server_url[0], false, $context), TRUE);
+		$resp = json_decode(file_get_contents($plugin_config['nexmo']['url'], FALSE, $context), TRUE);
 		
 		if ($resp['message-count']) {
 			$c_status = $resp['messages'][0]['status'];
