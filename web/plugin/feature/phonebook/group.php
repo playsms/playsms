@@ -200,7 +200,6 @@ switch (_OP_) {
 				$group_code = core_sanitize_alphanumeric($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
-				$_SESSION['dialog']['info'][] = _('You must fill all field');
 				if ($group_name && $group_code) {
 					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code'";
 					$db_result = dba_query($db_query);
@@ -216,6 +215,8 @@ switch (_OP_) {
 						$db_result = dba_query($db_query);
 						$_SESSION['dialog']['info'][] = _('Group code has been added') . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 					}
+				} else {
+					$_SESSION['dialog']['info'][] = _('You must fill all field');
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list'));
 				exit();
