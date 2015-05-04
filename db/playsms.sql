@@ -1807,15 +1807,13 @@ CREATE TABLE `playsms_featureStoplist` (
 --
 -- INDEXES
 --
+CREATE INDEX `pid` ON `playsms_featurePhonebook_group_contacts` (`pid`) ;
+CREATE INDEX `gpid` ON `playsms_featurePhonebook_group_contacts` (`gpid`) ;
 
--- Phonebook
-CREATE INDEX `uid_code_flag_sender` ON `playsms_featurePhonebook_group` (`uid`, `code`, `flag_sender`) USING BTREE ;
-CREATE INDEX `gpid_pid` ON `playsms_featurePhonebook_group_contacts` (`gpid`, `pid`) USING BTREE ;
+CREATE INDEX `uid` on `playsms_tblSMSOutgoing` (`uid`);
+CREATE INDEX `in_uid` on `playsms_tblSMSIncoming` (`in_uid`);
+CREATE INDEX `in_uid` on `playsms_tblSMSInbox` (`in_uid`);
 
--- Reports
-CREATE INDEX `uid_flag_deleted` ON `playsms_tblSMSOutgoing` (`uid`, `flag_deleted`) USING BTREE ;
-CREATE INDEX `in_uid_flag_deleted` ON `playsms_tblSMSIncoming` (`in_uid`, `flag_deleted`) USING BTREE ;
-CREATE INDEX `in_uid_flag_deleted` ON `playsms_tblSMSInbox` (`in_uid`, `flag_deleted`) USING BTREE ;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
