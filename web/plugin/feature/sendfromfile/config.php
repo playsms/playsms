@@ -9,4 +9,4 @@ $menu_config[$menutab][] = array(
 	1 
 );
 
-$sendfromfile_row_limit = 20000;
+$sendfromfile_row_limit = 5000;

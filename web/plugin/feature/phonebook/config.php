@@ -8,7 +8,7 @@ $menu_config[$menutab][] = array(
 	2 
 );
 
-$phonebook_row_limit = 20000;
+$phonebook_row_limit = 5000;
 
 $phonebook_flag_sender[0] = "<span class='playsms-icon glyphicon glyphicon-eye-close' alt='" . _('Me only') . "' title='" . _('Me only') . "'></span>";
 $phonebook_flag_sender[1] = "<span class='playsms-icon glyphicon glyphicon-eye-open' alt='" . _('Members') . "' title='" . _('Members') . "'></span>";
