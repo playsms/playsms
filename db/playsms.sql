@@ -1689,20 +1689,6 @@ CREATE TABLE `playsms_featureFirewall` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Indexes for dumped tables
---
-
-ALTER TABLE `playsms_featurePhonebook` ADD INDEX ( `uid` ) ;
-ALTER TABLE `playsms_featurePhonebook` ADD INDEX ( `mobile` ) ;
-
-ALTER TABLE `playsms_featurePhonebook_group` ADD INDEX ( `uid` ) ;
-ALTER TABLE `playsms_featurePhonebook_group` ADD INDEX ( `flag_sender` ) ;
-ALTER TABLE `playsms_featurePhonebook_group` ADD INDEX ( `code` ) ;
-
-ALTER TABLE `playsms_featurePhonebook_group_contacts` ADD INDEX ( `gpid` ) ;
-ALTER TABLE `playsms_featurePhonebook_group_contacts` ADD INDEX ( `pid` ) ;
-
---
 -- Table structure for table `playsms_featureSchedule`
 --
 
@@ -1817,6 +1803,19 @@ CREATE TABLE `playsms_featureStoplist` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+
+--
+-- INDEXES
+--
+
+-- Phonebook
+CREATE INDEX `uid_code_flag_sender` ON `playsms_featurePhonebook_group` (`uid`, `code`, `flag_sender`) USING BTREE ;
+CREATE INDEX `gpid_pid` ON `playsms_featurePhonebook_group_contacts` (`gpid`, `pid`) USING BTREE ;
+
+-- Reports
+CREATE INDEX `uid_flag_deleted` ON `playsms_tblSMSOutgoing` (`uid`, `flag_deleted`) USING BTREE ;
+CREATE INDEX `in_uid_flag_deleted` ON `playsms_tblSMSIncoming` (`in_uid`, `flag_deleted`) USING BTREE ;
+CREATE INDEX `in_uid_flag_deleted` ON `playsms_tblSMSInbox` (`in_uid`, `flag_deleted`) USING BTREE ;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -750,3 +750,28 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0-rc9' WHERE `registry_gr
 
 -- version
 UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
+
+
+-- phonebook
+DROP INDEX `uid` ON `playsms_featurePhonebook` ;
+DROP INDEX `mobile` ON `playsms_featurePhonebook` ;
+
+DROP INDEX `uid` ON `playsms_featurePhonebook_group` ;
+DROP INDEX `flag_sender` ON `playsms_featurePhonebook_group` ;
+DROP INDEX `code` ON `playsms_featurePhonebook_group` ;
+
+DROP INDEX `gpid` ON `playsms_featurePhonebook_group_contacts` ;
+DROP INDEX `pid` ON `playsms_featurePhonebook_group_contacts` ;
+
+--
+-- INDEXES
+--
+
+-- Phonebook
+CREATE INDEX `uid_code_flag_sender` ON `playsms_featurePhonebook_group` (`uid`, `code`, `flag_sender`) USING BTREE ;
+CREATE INDEX `gpid_pid` ON `playsms_featurePhonebook_group_contacts` (`gpid`, `pid`) USING BTREE ;
+
+-- Reports
+CREATE INDEX `uid_flag_deleted` ON `playsms_tblSMSOutgoing` (`uid`, `flag_deleted`) USING BTREE ;
+CREATE INDEX `in_uid_flag_deleted` ON `playsms_tblSMSIncoming` (`in_uid`, `flag_deleted`) USING BTREE ;
+CREATE INDEX `in_uid_flag_deleted` ON `playsms_tblSMSInbox` (`in_uid`, `flag_deleted`) USING BTREE ;
