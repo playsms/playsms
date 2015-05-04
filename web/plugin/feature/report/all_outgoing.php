@@ -22,7 +22,7 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-set_time_limit(600);
+@set_time_limit(0);
 
 switch (_OP_) {
 	case "all_outgoing":

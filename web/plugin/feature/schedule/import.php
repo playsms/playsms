@@ -133,7 +133,7 @@ switch (_OP_) {
 		}
 		break;
 	case "import_yes":
-		set_time_limit(600);
+		@set_time_limit(0);
 		$num = $_POST['number_of_row'];
 		$session_import = $_POST['session_import'];
 		$data = $_SESSION['tmp'][$session_import];

@@ -181,7 +181,7 @@ switch (_OP_) {
 		break;
 	
 	case 'upload_process':
-		set_time_limit(0);
+		@set_time_limit(0);
 		if ($sid = $_REQUEST['sid']) {
 			$data = array();
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
