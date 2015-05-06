@@ -265,10 +265,21 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		$c_gpid = $db_row['gpid'];
 		$c_sms_type = $db_row['sms_type'];
 		$c_unicode = $db_row['unicode'];
+		
+		// total number of SMS per queue
 		$c_sms_count = $db_row['sms_count'];
+		
 		$c_schedule = $db_row['datetime_scheduled'];
 		$c_smsc = $db_row['smsc'];
 		$c_current = core_get_datetime();
+		
+		$db_query = "SELECT count(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $c_queue_id . "'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$number_of_destination = $db_row['count'];
+		
+		// SMS count per destination
+		$sms_size = (int) ($c_sms_count / $number_of_destination);
 		
 		$continue = FALSE;
 		
@@ -316,7 +327,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 					$c_flag = 1;
 					
 					// add to throttle counter
-					sendsms_throttle_count(0, $c_sms_count);
+					sendsms_throttle_count(0, $sms_size);
 				}
 				_log("result queue_code:" . $c_queue_code . " to:" . $c_dst . " flag:" . $c_flag . " smslog_id:" . $c_smslog_id, 2, "sendsmsd");
 				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_smslog_id'";
@@ -341,7 +352,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			$dst_processed = (int) ($db_row['count'] ? $db_row['count'] : 0);
 			
 			// number of SMS processed
-			$sms_processed = $dst_processed * $c_sms_count;
+			$sms_processed = $dst_processed * $sms_size;
 			
 			// check whether SMS processed is >= stated SMS count in queue
 			// if YES then processing queue is finished
