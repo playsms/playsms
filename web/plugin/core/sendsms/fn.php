@@ -294,8 +294,10 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		
 		// process queue
 		if ($continue) {
-			_log("start processing queue_code:" . $c_queue_code . " sms_count:" . $c_sms_count . " scheduled:" . core_display_datetime($c_schedule) . " uid:" . $c_uid . " gpid:" . $c_gpid . " sender_id:" . $c_sender_id, 2, "sendsmsd");
+			_log("start processing queue_code:" . $c_queue_code . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " scheduled:" . core_display_datetime($c_schedule) . " uid:" . $c_uid . " gpid:" . $c_gpid . " sender_id:" . $c_sender_id, 2, "sendsmsd");
+			
 			$counter = 0;
+			
 			$db_query2 = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
 			$db_result2 = dba_query($db_query2);
 			while ($db_row2 = dba_fetch_array($db_result2)) {
