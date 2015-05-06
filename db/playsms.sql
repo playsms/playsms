@@ -1505,6 +1505,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `datetime_scheduled` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
   `datetime_update` varchar(20) NOT NULL DEFAULT '000-00-00 00:00:00',
   `flag` int(11) NOT NULL DEFAULT '0',
+  `queue_count` int(11) NOT NULL DEFAULT '0',
   `sms_count` int(11) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL DEFAULT '0',
   `gpid` int(11) NOT NULL DEFAULT '0',
