@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/antonraharja/playSMS.png?label=ready&title=Ready)](https://waffle.io/antonraharja/playSMS)
 # README
 
 playSMS version **1.0**
