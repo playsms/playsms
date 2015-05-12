@@ -111,5 +111,3 @@ You may also use this URL to make donation:
 Information about code contributors can be found in this URL:
 
 * https://github.com/antonraharja/playSMS/graphs/contributors
-
-[![Stories in Ready](https://badge.waffle.io/antonraharja/playSMS.png?label=ready&title=Ready)](https://waffle.io/antonraharja/playSMS)
