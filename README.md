@@ -1,9 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/antonraharja/playSMS.png?label=ready&title=Ready)](https://waffle.io/antonraharja/playSMS)
 # README
 
-playSMS version **1.0**
+playSMS version **1.1-master**
 
-Release date **150508**
+Release date **150613**
 
 Official project website:
 
@@ -112,3 +111,5 @@ You may also use this URL to make donation:
 Information about code contributors can be found in this URL:
 
 * https://github.com/antonraharja/playSMS/graphs/contributors
+
+[![Stories in Ready](https://badge.waffle.io/antonraharja/playSMS.png?label=ready&title=Ready)](https://waffle.io/antonraharja/playSMS)
