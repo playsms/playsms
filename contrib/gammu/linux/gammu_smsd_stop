@@ -1,5 +1,6 @@
 #!/bin/bash
 
-. /etc/default/playsms
+killall gammu-smsd >/dev/null 2>&1
+sleep 3
 
 killall -9 gammu-smsd >/dev/null 2>&1

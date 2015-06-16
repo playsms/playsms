@@ -1,14 +1,12 @@
 #!/bin/bash
 
-. /etc/default/playsms
-
 GAMMU=`which gammu-smsd`
 
-killall -9 gammu-smsd >/dev/null 2>&1
+gammu_smsd_stop
 sleep 3
 
 CWD=`pwd`
-cd $PLAYSMS_LOG
+mkdir -p /var/log/gammu
+cd /var/log/gammu
 nohup $GAMMU >/dev/null 2>&1 &
 cd $CWD
-
