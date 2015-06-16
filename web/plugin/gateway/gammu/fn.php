@@ -1,4 +1,21 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
 function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
@@ -73,7 +90,7 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 		} else {
 			
 			// delete the file if exists
-			logger_print("smslog_id:" . $smslog_id . " unlink the_fn:" . $the_fn . " p_status:" . $p_status, 2, "gammu getsmsstatus");
+			_log("smslog_id:" . $smslog_id . " unlink the_fn:" . $the_fn . " p_status:" . $p_status . " smsc:" . $smsc, 2, "gammu_hook_getsmsstatus");
 			@unlink($the_fn);
 		}
 	}
@@ -140,7 +157,7 @@ function gammu_hook_getsmsinbox() {
 							}
 							$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
 							recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, 'gammu');
-							logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $parts_message, 3, "gammu incoming");
+							_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $parts_message . " smsc:" . $smsc, 3, "gammu_hook_getsmsinbox");
 							
 							unset($messages);
 						}
@@ -168,7 +185,7 @@ function gammu_hook_getsmsinbox() {
 			}
 			$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
 			recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, $smsc);
-			logger_print("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $_parts_message, 3, "gammu incoming");
+			_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $_parts_message . " smsc:" . $smsc, 3, "gammu_hook_getsmsinbox");
 			unset($messages);
 		}
 		@closedir($handle);
@@ -212,7 +229,7 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	 * if ($unicode) { if (function_exists('mb_convert_encoding')) { $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto"); } }
 	 */
 	$fn = $plugin_config['gammu']['path'] . "/outbox/OUT" . $sms_id;
-	logger_print("saving outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
+	_log("saving outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
 	umask(0);
 	$fd = @fopen($fn, "w+");
 	@fputs($fd, $sms_msg);
@@ -221,10 +238,10 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("saved outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
+		_log("saved outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
 	} else {
 		$p_status = 2;
-		logger_print("fail to save outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
+		_log("fail to save outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
 	}
 	dlr($smslog_id, $uid, $p_status);
 	return $ok;
