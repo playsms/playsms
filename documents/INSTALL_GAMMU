@@ -1,14 +1,15 @@
 INSTALL GAMMU
-==============
+=============
 
-This is an example of Gammu installation in Ubuntu Desktop 15.04.
+This is an example of Gammu installation in **Ubuntu 15.04**.
 
-Your have to install both playSMS and Gammu on the same server.
+Your have to install both **playSMS** and **Gammu** on the same server.
 
 There are 2 methods of installation available:
 
 - first is to install from source
 - secondly is to install via apt-get.
+
 
 I. Install Gammu from source
 ----------------------------
@@ -90,6 +91,7 @@ I. Install Gammu from source
     ```
     gammu_smsd_start
     ```
+
 
 II. Install via apt-get
 -----------------------
