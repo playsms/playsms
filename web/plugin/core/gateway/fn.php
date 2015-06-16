@@ -27,7 +27,7 @@ function gateway_getall() {
 	global $core_config, $plugin_config;
 	
 	$ret = array();
-	foreach ($core_config['gatewaylist'] as $gw ) {
+	foreach ($core_config['gatewaylist'] as $gw) {
 		$ret[] = $plugin_config[$gw];
 	}
 	
@@ -37,10 +37,18 @@ function gateway_getall() {
 /**
  * Get all SMSC data
  *
+ * @param string $gateway
+ *        Filter by gateway
  * @return array
  */
-function gateway_getall_smsc() {
+function gateway_getall_smsc($gateway = "") {
 	$ret = array();
+	
+	if (trim($gateway)) {
+		$conditions = array(
+			'gateway' => $gateway 
+		);
+	}
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
 	$ret = dba_search($db_table, '*', $conditions);
@@ -51,13 +59,15 @@ function gateway_getall_smsc() {
 /**
  * Get all SMSC names
  *
+ * @param string $gateway
+ *        Filter by gateway
  * @return array
  */
-function gateway_getall_smsc_names() {
+function gateway_getall_smsc_names($gateway = "") {
 	$ret = array();
 	
-	$data = gateway_getall_smsc();
-	foreach ($data as $smsc ) {
+	$data = gateway_getall_smsc($gateway);
+	foreach ($data as $smsc) {
 		$ret[] = $smsc['name'];
 	}
 	
@@ -67,7 +77,7 @@ function gateway_getall_smsc_names() {
 /**
  * Get SMSC data by ID
  *
- * @param integer $id        	
+ * @param integer $id        
  * @return array
  */
 function gateway_get_smscbyid($id) {
@@ -85,7 +95,7 @@ function gateway_get_smscbyid($id) {
 /**
  * Get SMSC data by name
  *
- * @param string $name        	
+ * @param string $name        
  * @return array
  */
 function gateway_get_smscbyname($name) {
@@ -103,8 +113,8 @@ function gateway_get_smscbyname($name) {
 /**
  * Apply SMSC config to $plugin_config
  *
- * @param string $smsc        	
- * @param array $plugin_config        	
+ * @param string $smsc        
+ * @param array $plugin_config        
  * @return array
  */
 function gateway_apply_smsc_config($smsc, $plugin_config) {
@@ -112,7 +122,7 @@ function gateway_apply_smsc_config($smsc, $plugin_config) {
 		$smsc_data = gateway_get_smscbyname($smsc);
 		if ($smsc_data['name'] && $smsc_data['gateway'] && $smsc_data['data']) {
 			$smsc_config = json_decode($smsc_data['data'], TRUE);
-			foreach ($smsc_config as $key => $val ) {
+			foreach ($smsc_config as $key => $val) {
 				if ($val) {
 					$plugin_config[$smsc_data['gateway']][$key] = $val;
 				}
@@ -126,14 +136,14 @@ function gateway_apply_smsc_config($smsc, $plugin_config) {
 /**
  * Get valid name for supplied gateway
  *
- * @param string $name        	
+ * @param string $name        
  * @return mixed
  */
 function gateway_valid_name($name) {
 	global $core_config;
 	
 	if (trim($name)) {
-		foreach ($core_config['gatewaylist'] as $gw ) {
+		foreach ($core_config['gatewaylist'] as $gw) {
 			if ($name && $gw && $name == $gw) {
 				if ((strtolower($name) == 'blocked') || (strtolower($name) == 'dev')) {
 					$name = '';
@@ -179,7 +189,7 @@ function _gateway_display() {
 	global $core_config, $icon_config, $plugin_config;
 	
 	$subdir_tab = gateway_list();
-	for($l = 0; $l < sizeof($subdir_tab); $l++) {
+	for ($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($gateway_info);
 		$c_gateway = strtolower($subdir_tab[$l]['name']);
 		$xml_file = $core_config['apps_path']['plug'] . '/gateway/' . $c_gateway . '/docs/info.xml';
@@ -213,7 +223,7 @@ function _gateway_display() {
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
-	foreach ($gw_list as $gw ) {
+	foreach ($gw_list as $gw) {
 		$c_link_edit = '';
 		if ($gw['link_edit']) {
 			$c_link_edit = "<a href='" . _u($gw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
@@ -261,7 +271,7 @@ function _gateway_display_smsc() {
 				<th width=10%>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
-	foreach ($smsc_list as $smsc ) {
+	foreach ($smsc_list as $smsc) {
 		
 		$c_link_edit = '';
 		$c_link_del = '';
