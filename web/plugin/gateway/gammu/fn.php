@@ -20,7 +20,7 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 	
 	// list all files in sent and error dir
 	$fn = array();
-	for($i = 0; $i < count($dir); $i++) {
+	for ($i = 0; $i < count($dir); $i++) {
 		$j = 0;
 		if ($handle = @opendir($dir[$i])) {
 			while ($file = @readdir($handle)) {
@@ -35,8 +35,8 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 	
 	// check listed files above againts sms_id
 	$the_fn = '';
-	for($i = 0; $i < count($dir); $i++) {
-		for($j = 0; $j < count($fn[$i]); $j++) {
+	for ($i = 0; $i < count($dir); $i++) {
+		for ($j = 0; $j < count($fn[$i]); $j++) {
 			if (preg_match("/" . $sms_id . "/", $fn[$i][$j])) {
 				$the_fn = $dir[$i] . $fn[$i][$j];
 				if ($i === 0) {
@@ -88,7 +88,7 @@ function gammu_hook_getsmsinbox() {
 		}
 	}
 	sort($files);
-	foreach ($files as $sms_in_file ) {
+	foreach ($files as $sms_in_file) {
 		$fn = $plugin_config['gammu']['path'] . "/inbox/$sms_in_file";
 		
 		$matches = array();
@@ -120,10 +120,10 @@ function gammu_hook_getsmsinbox() {
 					if (count($messages) > 0) {
 						// saving concatenated message parts
 						$parts_sender = 0;
-						foreach ($messages as $sender => $message_parts ) {
+						foreach ($messages as $sender => $message_parts) {
 							$parts_message = "";
 							$parts_sender = $sender;
-							foreach ($message_parts as $part ) {
+							foreach ($message_parts as $part) {
 								$parts_message .= $part['message'];
 							}
 						}
@@ -148,10 +148,10 @@ function gammu_hook_getsmsinbox() {
 	if (count($messages) > 0) {
 		// saving last concatenated message parts
 		$parts_sender = 0;
-		foreach ($messages as $sender => $message_parts ) {
+		foreach ($messages as $sender => $message_parts) {
 			$parts_message = "";
 			$parts_sender = $sender;
-			foreach ($message_parts as $part ) {
+			foreach ($message_parts as $part) {
 				$parts_message .= $part['message'];
 			}
 		}
@@ -200,7 +200,7 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	 * if ($unicode) { if (function_exists('mb_convert_encoding')) { $sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto"); } }
 	 */
 	$fn = $plugin_config['gammu']['path'] . "/outbox/OUT" . $sms_id;
-	logger_print("saving outfile:" . $fn, 2, "gammu outgoing");
+	logger_print("saving outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
 	umask(0);
 	$fd = @fopen($fn, "w+");
 	@fputs($fd, $sms_msg);
@@ -209,10 +209,10 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("saved outfile:" . $fn, 2, "gammu outgoing");
+		logger_print("saved outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
 	} else {
 		$p_status = 2;
-		logger_print("fail to save outfile:" . $fn, 2, "gammu outgoing");
+		logger_print("fail to save outfile:[" . $fn . "] smsc:" . $smsc, 2, "gammu_hook_sendsms");
 	}
 	dlr($smslog_id, $uid, $p_status);
 	return $ok;

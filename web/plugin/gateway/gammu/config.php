@@ -1,12 +1,20 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-$plugin_config['gammu']['name'] = "gammu";
-$plugin_config['gammu']['path'] = "/var/spool/gammu";
-$plugin_config['gammu']['dlr'] = FALSE;
+// get gammu config from registry
+$data = registry_search(0, 'gateway', 'gammu');
+
+$plugin_config['gammu']['name'] = 'gammu';
+$plugin_config['gammu']['path'] = trim(core_sanitize_path($data['gateway']['gammu']['path']));
+if (!$plugin_config['gammu']['path']) {
+	$plugin_config['gammu']['path'] = '/var/spool/gammu';
+}
+$plugin_config['gammu']['dlr'] = TRUE;
 
 // smsc configuration
-$plugin_config['gammu']['_smsc_config_'] = array();
+$plugin_config['gammu']['_smsc_config_'] = array(
+	'path' => _('Spool folder') 
+);
 
 // insert to left menu array
 //if (isadmin()) {
