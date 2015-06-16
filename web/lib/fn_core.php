@@ -732,6 +732,29 @@ function core_detect_unicode($text) {
 }
 
 /**
+ * SMS strlen() based on unicode status
+ *
+ * @param string $text        
+ * @param string $encoding        
+ * @return integer Length of text
+ */
+function core_smslen($text, $encoding = "") {
+	if (function_exists('mb_strlen') && core_detect_unicode($text)) {
+		if ($encoding = trim($encoding)) {
+			$len = mb_strlen($text, $encoding);
+		} else {
+			$len = mb_strlen($text, "UTF-8");
+		}
+	} else if (core_detect_unicode($text)) {
+		$len = strlen(utf8_decode($text));
+	} else {
+		$len = strlen($text);
+	}
+	
+	return (int) $len;
+}
+
+/**
  * Function: array_to_xml()
  * ref: http://stackoverflow.com/a/3289602 (onokazu)
  *
