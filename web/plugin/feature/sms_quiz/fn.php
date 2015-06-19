@@ -18,9 +18,9 @@ function sms_quiz_hook_keyword_isavail($keyword) {
 }
 
 /*
- * Implementations of hook setsmsincomingaction() @param $sms_datetime date and time when incoming sms inserted to playsms @param $sms_sender sender on incoming sms @param $quiz_keyword check if keyword is for sms_quiz @param $quiz_param get parameters from incoming sms @param $sms_receiver receiver number that is receiving incoming sms @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
+ * Implementations of hook recvsms_process() @param $sms_datetime date and time when incoming sms inserted to playsms @param $sms_sender sender on incoming sms @param $quiz_keyword check if keyword is for sms_quiz @param $quiz_param get parameters from incoming sms @param $sms_receiver receiver number that is receiving incoming sms @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_quiz_hook_setsmsincomingaction($sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
+function sms_quiz_hook_recvsms_process($sms_datetime, $sms_sender, $quiz_keyword, $quiz_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword='$quiz_keyword'";
 	$db_result = dba_query($db_query);

@@ -146,7 +146,7 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 function infobip_hook_getsmsinbox() {
 	// fixme anton - infobip will only receive incoming sms from callback url
 	/*
-	 * global $plugin_config; $handle = @opendir($plugin_config['infobip']['incoming_path']); while ($sms_in_file = @readdir($handle)) { if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) { $fn = $plugin_config['infobip']['incoming_path']."/$sms_in_file"; $tobe_deleted = $fn; $lines = @file ($fn); $sms_datetime = trim($lines[0]); $sms_sender = trim($lines[1]); $message = ""; for ($lc=2;$lc<count($lines);$lc++) { $message .= trim($lines[$lc]); } // collected: // $sms_datetime, $sms_sender, $message, $sms_receiver setsmsincomingaction($sms_datetime,$sms_sender,$message,$sms_receiver,'infobip'); @unlink($tobe_deleted); } }
+	 * global $plugin_config; $handle = @opendir($plugin_config['infobip']['incoming_path']); while ($sms_in_file = @readdir($handle)) { if (eregi("^ERR.in",$sms_in_file) && !eregi("^[.]",$sms_in_file)) { $fn = $plugin_config['infobip']['incoming_path']."/$sms_in_file"; $tobe_deleted = $fn; $lines = @file ($fn); $sms_datetime = trim($lines[0]); $sms_sender = trim($lines[1]); $message = ""; for ($lc=2;$lc<count($lines);$lc++) { $message .= trim($lines[$lc]); } // collected: // $sms_datetime, $sms_sender, $message, $sms_receiver recvsms_process($sms_datetime,$sms_sender,$message,$sms_receiver,'infobip'); @unlink($tobe_deleted); } }
 	 */
 }
 

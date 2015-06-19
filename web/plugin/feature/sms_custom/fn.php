@@ -19,7 +19,7 @@ function sms_custom_hook_keyword_isavail($keyword) {
 }
 
 /*
- * Implementations of hook setsmsincomingaction()
+ * Implementations of hook recvsms_process()
  *
  * @param $sms_datetime
  *   date and time when incoming sms inserted to playsms
@@ -34,7 +34,7 @@ function sms_custom_hook_keyword_isavail($keyword) {
  * @return $ret
  *   array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_custom_hook_setsmsincomingaction($sms_datetime,$sms_sender,$custom_keyword,$custom_param='',$sms_receiver='',$smsc='',$raw_message='') {
+function sms_custom_hook_recvsms_process($sms_datetime,$sms_sender,$custom_keyword,$custom_param='',$sms_receiver='',$smsc='',$raw_message='') {
 	$ok = false;
 	$db_query = "SELECT uid,custom_id FROM "._DB_PREF_."_featureCustom WHERE custom_keyword='$custom_keyword'";
 	$db_result = dba_query($db_query);

@@ -35,7 +35,7 @@ function sms_autoreply_hook_keyword_isavail($keyword) {
 }
 
 /**
- * Implementations of hook setsmsincomingaction()
+ * Implementations of hook recvsms_process()
  *
  * @param $sms_datetime date
  *        	and time when incoming sms inserted to playsms
@@ -49,7 +49,7 @@ function sms_autoreply_hook_keyword_isavail($keyword) {
  *        	number that is receiving incoming sms
  * @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_autoreply_hook_setsmsincomingaction($sms_datetime, $sms_sender, $autoreply_keyword, $autoreply_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
+function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autoreply_keyword, $autoreply_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
 	$db_result = dba_query($db_query);

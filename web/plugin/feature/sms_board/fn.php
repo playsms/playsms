@@ -33,9 +33,9 @@ function sms_board_hook_keyword_isavail($keyword) {
 }
 
 /*
- * Implementations of hook setsmsincomingaction() @param $sms_datetime date and time when incoming sms inserted to playsms @param $sms_sender sender on incoming sms @param $board_keyword check if keyword is for sms_board @param $board_param get parameters from incoming sms @param $sms_receiver receiver number that is receiving incoming sms @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
+ * Implementations of hook recvsms_process() @param $sms_datetime date and time when incoming sms inserted to playsms @param $sms_sender sender on incoming sms @param $board_keyword check if keyword is for sms_board @param $board_param get parameters from incoming sms @param $sms_receiver receiver number that is receiving incoming sms @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_board_hook_setsmsincomingaction($sms_datetime, $sms_sender, $board_keyword, $board_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
+function sms_board_hook_recvsms_process($sms_datetime, $sms_sender, $board_keyword, $board_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
 	
 	$db_query = "SELECT uid,board_id FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$board_keyword'";
