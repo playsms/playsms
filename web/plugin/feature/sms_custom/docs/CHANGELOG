@@ -1,2 +1,7 @@
+Version 2.0
+- add option receiver number (sms_receiver)
+- multiple keywords for single service
+- add {SERVICENAME} and {SMSRECEIVER} param
+
 Version 1.0
 - changelog started

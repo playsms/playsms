@@ -203,7 +203,9 @@ CREATE TABLE `playsms_featureCustom` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `custom_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL DEFAULT '0',
-  `custom_keyword` varchar(10) NOT NULL DEFAULT '',
+  `service_name` varchar(255) NOT NULL DEFAULT '',
+  `custom_keyword` varchar(255) NOT NULL DEFAULT '',
+  `sms_receiver` varchar(20) NOT NULL DEFAULT '',
   `custom_url` text NOT NULL,
   `custom_return_as_reply` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`custom_id`)
