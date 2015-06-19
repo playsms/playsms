@@ -21,7 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Check available keyword or keyword that hasn't been added
  *
- * @param $keyword keyword
+ * @param $keyword keyword        
  * @return TRUE if available, FALSE if already exists or not available
  */
 function keyword_isavail($keyword) {
@@ -60,9 +60,25 @@ function keyword_isavail($keyword) {
 /**
  * Opposite of keyword_isavail()
  *
- * @param string $keyword
+ * @param string $keyword        
  * @return boolean
  */
 function keyword_isexists($keyword) {
 	return !keyword_isavail($keyword);
+}
+
+/**
+ * Get all keywords from plugins
+ *
+ * @return array
+ */
+function keyword_getall() {
+	global $core_config;
+	
+	$ret = array();
+	foreach ($core_config['featurelist'] as $feature) {
+		$ret[$feature] = core_hook($feature, 'keyword_getall');
+	}
+	
+	return $ret;
 }
