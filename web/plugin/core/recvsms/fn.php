@@ -85,12 +85,14 @@ function recvsmsd() {
  * @return TRUE if available, FALSE if already exists or not available
  */
 function checkavailablekeyword($keyword) {
-	global $reserved_keywords, $core_config;
+	global $core_config;
+	
 	$ok = true;
 	$reserved = false;
+	
 	$keyword = trim(strtoupper($keyword));
-	for ($i = 0; $i < count($reserved_keywords); $i++) {
-		if ($keyword == trim(strtoupper($reserved_keywords[$i]))) {
+	for ($i = 0; $i < count($core_config['reserved_keywords']); $i++) {
+		if ($keyword == trim(strtoupper($core_config['reserved_keywords'][$i]))) {
 			$reserved = true;
 		}
 	}
@@ -111,6 +113,7 @@ function checkavailablekeyword($keyword) {
 			}
 		}
 	}
+	
 	return $ok;
 }
 

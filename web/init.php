@@ -247,10 +247,9 @@ $core_config['main']['max_sms_length'] = $core_config['main']['sms_max_count'] *
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // reserved important keywords
-$reserved_keywords = array(
+$core_config['reserved_keywords'] = array(
 	'BC' 
 );
-$core_config['reserved_keywords'] = $reserved_keywords;
 
 if (auth_isvalid()) {
 	
