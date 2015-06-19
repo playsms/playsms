@@ -78,45 +78,6 @@ function recvsmsd() {
 	}
 }
 
-/**
- * Check available keyword or keyword that hasn't been added
- *
- * @param $keyword keyword        
- * @return TRUE if available, FALSE if already exists or not available
- */
-function checkavailablekeyword($keyword) {
-	global $core_config;
-	
-	$ok = true;
-	$reserved = false;
-	
-	$keyword = trim(strtoupper($keyword));
-	for ($i = 0; $i < count($core_config['reserved_keywords']); $i++) {
-		if ($keyword == trim(strtoupper($core_config['reserved_keywords'][$i]))) {
-			$reserved = true;
-		}
-	}
-	
-	// if reserved returns not available, FALSE
-	if ($reserved) {
-		$ok = false;
-	} else {
-		for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-			
-			// checkavailablekeyword() on hooks will return TRUE as well if keyword is available
-			// so we're looking for FALSE value
-			if (core_hook($core_config['featurelist'][$c], 'checkavailablekeyword', array(
-				$keyword 
-			)) === FALSE) {
-				$ok = false;
-				break;
-			}
-		}
-	}
-	
-	return $ok;
-}
-
 function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver = '', $smsc = '') {
 	global $core_config;
 	$ret = array();
