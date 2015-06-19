@@ -20,7 +20,6 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Check available keyword or keyword that hasn't been added
- * This function is equivalent to checkavailablekeyword()
  *
  * @param $keyword keyword
  * @return TRUE if available, FALSE if already exists or not available
@@ -44,9 +43,9 @@ function keyword_isavail($keyword) {
 	} else {
 		for ($c = 0; $c < count($core_config['featurelist']); $c++) {
 			
-			// checkavailablekeyword() on hooks will return TRUE as well if keyword is available
+			// keyword_isavail() on hooks will return TRUE as well if keyword is available
 			// so we're looking for FALSE value
-			if (core_hook($core_config['featurelist'][$c], 'checkavailablekeyword', array(
+			if (core_hook($core_config['featurelist'][$c], 'keyword_isavail', array(
 				$keyword 
 			)) === FALSE) {
 				$ok = false;

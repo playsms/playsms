@@ -259,7 +259,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	
 	// continue only when keyword does not exists
 	$m = explode(' ', $message);
-	if (!checkavailablekeyword($m[0])) {
+	if (!keyword_isavail($m[0])) {
 		return $ret;
 	}
 	

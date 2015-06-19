@@ -19,13 +19,13 @@
 defined('_SECURE_') or die('Forbidden');
 
 /**
- * Implementations of hook checkavailablekeyword()
+ * Implementations of hook keyword_isavail()
  *
- * @param $keyword checkavailablekeyword()
+ * @param $keyword keyword_isavail()
  *        	will insert keyword for checking to the hook here
  * @return TRUE if keyword is available
  */
-function sms_autoreply_hook_checkavailablekeyword($keyword) {
+function sms_autoreply_hook_keyword_isavail($keyword) {
 	$ok = true;
 	$db_query = "SELECT autoreply_id FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword='$keyword'";
 	if ($db_result = dba_num_rows($db_query)) {

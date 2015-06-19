@@ -19,14 +19,14 @@
 defined('_SECURE_') or die('Forbidden');
 
 /**
- * Implementations of hook checkavailablekeyword()
+ * Implementations of hook keyword_isavail()
  *
- * @param $keyword checkavailablekeyword()
+ * @param $keyword keyword_isavail()
  *        will insert keyword for checking to the hook here
  * @return TRUE if keyword is available
  *
  */
-function sms_subscribe_hook_checkavailablekeyword($keyword) {
+function sms_subscribe_hook_keyword_isavail($keyword) {
 	$ok = true;
 	$db_query = "SELECT subscribe_id FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_keyword='$keyword'";
 	if ($db_result = dba_num_rows($db_query)) {
@@ -207,7 +207,7 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 		_log("recvsms_intercept k:" . $keyword . " m:" . $message, 1, "sms_subscribe");
 		
 		// if not available then the keyword is exists
-		if (!sms_subscribe_hook_checkavailablekeyword($keyword)) {
+		if (!sms_subscribe_hook_keyword_isavail($keyword)) {
 			$c_uid = user_mobile2uid($sms_sender);
 			$c_username = user_uid2username($c_uid);
 			if ($c_uid && $c_username) {

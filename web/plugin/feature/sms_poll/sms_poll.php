@@ -257,7 +257,7 @@ switch (_OP_) {
 		}
 		
 		if ($add_poll_title && $add_poll_keyword && $add_poll_message_valid && $add_poll_message_invalid) {
-			if (checkavailablekeyword($add_poll_keyword)) {
+			if (keyword_isavail($add_poll_keyword)) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featurePoll (uid,poll_keyword,poll_title,poll_access_code,poll_option_vote,poll_message_option,poll_message_valid,poll_message_invalid,smsc)
 					VALUES ('" . $user_config['uid'] . "','$add_poll_keyword','$add_poll_title','$add_poll_access_code','$add_poll_option_vote','$add_poll_message_option','$add_poll_message_valid','$add_poll_message_invalid','$add_smsc')";

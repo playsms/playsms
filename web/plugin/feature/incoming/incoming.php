@@ -168,7 +168,7 @@ switch (_OP_) {
 		
 		// sandbox prefix
 		$post_rules['insert_prefix'] = trim(strtoupper(core_sanitize_alphanumeric($_REQUEST['sandbox_prefix'])));
-		if ($post_rules['insert_prefix'] && checkavailablekeyword($post_rules['insert_prefix'])) {
+		if ($post_rules['insert_prefix'] && keyword_isavail($post_rules['insert_prefix'])) {
 			$_SESSION['dialog']['info'][] = _('Fail to insert keyword') . ' (' . _('keyword') . ': ' . $post_rules['insert_prefix'] . ')';
 			$post_rules['insert_prefix'] = '';
 		}

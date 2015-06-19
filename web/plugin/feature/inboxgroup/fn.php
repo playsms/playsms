@@ -2,14 +2,14 @@
 <?php
 
 /*
- * Implementations of hook checkavailablekeyword()
+ * Implementations of hook keyword_isavail()
  *
  * @param $keyword
- *   checkavailablekeyword() will insert keyword for checking to the hook here
+ *   keyword_isavail() will insert keyword for checking to the hook here
  * @return
  *   TRUE if keyword is available
  */
-function inboxgroup_hook_checkavailablekeyword($keyword) {
+function inboxgroup_hook_keyword_isavail($keyword) {
 	$ok = true;
 	$db_query = "SELECT id FROM " . _DB_PREF_ . "_featureInboxgroup WHERE keywords LIKE '%$keyword%' AND deleted='0'";
 	if ($db_result = dba_num_rows($db_query)) {
@@ -241,7 +241,7 @@ function inboxgroup_dataadd($in_receiver, $keywords, $description) {
 	$keywords = explode(',', $keywords);
 	$k = '';
 	for ($i=0;$i<count($keywords);$i++) {
-		if (checkavailablekeyword($keywords[$i])) {
+		if (keyword_isavail($keywords[$i])) {
 			$k .= $keywords[$i].',';
 		}
 	}
@@ -264,7 +264,7 @@ function inboxgroup_dataedit($rid, $keywords, $description, $exclusive) {
 	$keywords = explode(',', $keywords);
 	$k = '';
 	for ($i=0;$i<count($keywords);$i++) {
-		if (checkavailablekeyword($keywords[$i])) {
+		if (keyword_isavail($keywords[$i])) {
 			$k .= $keywords[$i].',';
 		} else {
 			for ($j=0;$j<count($orig_keywords);$j++) {

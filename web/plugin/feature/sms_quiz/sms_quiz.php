@@ -129,7 +129,7 @@ switch (_OP_) {
 			$smsc = $_REQUEST['smsc'];
 		}
 		if ($add_quiz_keyword && $add_quiz_answer) {
-			if (checkavailablekeyword($add_quiz_keyword)) {
+			if (keyword_isavail($add_quiz_keyword)) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureQuiz (uid,quiz_keyword,quiz_question,quiz_answer,quiz_msg_correct,quiz_msg_incorrect,smsc)
 					VALUES ('" . $user_config['uid'] . "','$add_quiz_keyword','$add_quiz_question','$add_quiz_answer','$add_quiz_msg_correct','$add_quiz_msg_incorrect','$smsc')";

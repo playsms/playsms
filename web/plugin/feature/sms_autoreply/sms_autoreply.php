@@ -203,7 +203,7 @@ switch (_OP_) {
 		}
 		
 		if ($add_autoreply_keyword) {
-			if (checkavailablekeyword($add_autoreply_keyword)) {
+			if (keyword_isavail($add_autoreply_keyword)) {
 				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureAutoreply (uid,autoreply_keyword,smsc) VALUES ('" . $user_config['uid'] . "','$add_autoreply_keyword','$smsc')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['dialog']['info'][] = _('SMS autoreply keyword has been added') . " (" . _('keyword') . ": $add_autoreply_keyword)";

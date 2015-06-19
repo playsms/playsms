@@ -193,7 +193,7 @@ switch (_OP_) {
 		$add_css = $_POST['add_css'];
 		$add_template = $_POST['add_template'];
 		if ($add_board_keyword) {
-			if (checkavailablekeyword($add_board_keyword)) {
+			if (keyword_isavail($add_board_keyword)) {
 				if (!$add_template) {
 					$add_template = "<div class=sms_board_row>\n";
 					$add_template.= "\t<div class=sender>{SENDER}</div>\n";

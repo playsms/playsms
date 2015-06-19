@@ -54,11 +54,11 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 	if (dba_isavail($db_table, $conditions, 'AND')) {
 		_log("saving uid:" . $c_uid . " dt:" . $sms_datetime . " ts:" . $r['sent_timestamp'] . " message_id:" . $message_id . " s:" . $sms_sender . " m:" . $message . " r:" . $sms_receiver, 3, "sms_sync sync");
 		
-		// if keyword does not exists (checkavailablekeyword == TRUE)
+		// if keyword does not exists (keyword_isavail == TRUE)
 		// then prefix the message with an @username so that it will be routed to $c_uid's inbox
 		$m = explode(' ', $message);
 		$c_m = str_replace('#', '', $m[0]);
-		if (checkavailablekeyword($c_m)) {
+		if (keyword_isavail($c_m)) {
 			_log("forwarded to inbox uid:" . $c_uid . " message_id:" . $message_id, 3, "sms_sync sync");
 			$message = "@" . user_uid2username($c_uid) . " " . $message;
 		}

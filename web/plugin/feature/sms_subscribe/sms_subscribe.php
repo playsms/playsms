@@ -267,7 +267,7 @@ switch (_OP_) {
 			$smsc = $_REQUEST['smsc'];
 		}
 		if ($add_subscribe_keyword && $add_subscribe_msg && $add_unsubscribe_msg && $add_forward_param && $add_unknown_format_msg && $add_already_member_msg) {
-			if (checkavailablekeyword($add_subscribe_keyword)) {
+			if (keyword_isavail($add_subscribe_keyword)) {
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg,smsc,duration,expire_msg)
 					VALUES ('" . $user_config['uid'] . "','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg','$smsc','$add_duration','$add_expire_msg')";

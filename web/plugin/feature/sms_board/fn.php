@@ -19,9 +19,9 @@
 defined('_SECURE_') or die('Forbidden');
 
 /*
- * Implementations of hook checkavailablekeyword() @param $keyword checkavailablekeyword() will insert keyword for checking to the hook here @return TRUE if keyword is available
+ * Implementations of hook keyword_isavail() @param $keyword keyword_isavail() will insert keyword for checking to the hook here @return TRUE if keyword is available
  */
-function sms_board_hook_checkavailablekeyword($keyword) {
+function sms_board_hook_keyword_isavail($keyword) {
 	$ok = true;
 	
 	$db_query = "SELECT board_id FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$keyword'";

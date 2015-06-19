@@ -187,7 +187,7 @@ switch (_OP_) {
 		$add_custom_keyword = strtoupper($_POST['add_custom_keyword']);
 		$add_custom_url = $_POST['add_custom_url'];
 		if ($add_custom_keyword && $add_custom_url) {
-			if (checkavailablekeyword($add_custom_keyword)) {
+			if (keyword_isavail($add_custom_keyword)) {
 				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,custom_keyword,custom_url,custom_return_as_reply) VALUES ('".$user_config['uid']."','$add_custom_keyword','$add_custom_url','$add_custom_return_as_reply')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['dialog']['info'][] = _('SMS custom has been added') . " (" . _('keyword') . " $add_custom_keyword)";

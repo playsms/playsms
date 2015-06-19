@@ -221,7 +221,7 @@ switch (_OP_) {
 			$add_command_exec = str_replace("/", "", $add_command_exec);
 			$add_command_exec = str_replace("|", "", $add_command_exec);
 			$add_command_exec = str_replace("\\", "", $add_command_exec);
-			if (checkavailablekeyword($add_command_keyword)) {
+			if (keyword_isavail($add_command_keyword)) {
 				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCommand (uid,command_keyword,command_exec,command_return_as_reply) VALUES ('".$user_config['uid']."','$add_command_keyword','$add_command_exec','$add_command_return_as_reply')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$c_dir = $sms_command_bin."/".$user_config['uid'];
