@@ -79,6 +79,9 @@ function sms_custom_hook_keyword_isavail($keyword, $sms_receiver) {
 function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $custom_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = FALSE;
 	
+	$keyword = trim(strtoupper($keyword));
+	$sms_receiver = trim($sms_receiver);
+	
 	// match keyword with receiver number
 	if ($sms_receiver) {
 		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver='$sms_receiver'";
