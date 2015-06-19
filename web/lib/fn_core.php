@@ -831,30 +831,36 @@ function core_csv_format($item) {
  * @param string $fn        
  * @param string $content_type        
  * @param string $charset        
+ * @param string $content_encoding        
+ * @param string $convert_encoding_to        
  */
-function core_download($content, $fn = '', $content_type = '', $charset = '') {
+function core_download($content, $fn = '', $content_type = '', $charset = '', $content_encoding = '', $convert_encoding_to = '') {
 	$fn = ($fn ? $fn : 'download.txt');
 	$content_type = (trim($content_type) ? strtolower(trim($content_type)) : 'text/plain');
 	$charset = strtolower(trim($charset));
-	
-	// fixme anton
-	// seems to be good for Arabic, Chinese and Hebrew letters
-	// but I'm not sure if this is the right way to do it though
-	if ($content_type == 'text/csv') {
-		// $charset = 'windows-1255';
-		$charset = 'utf-8';
-	}
 	
 	ob_end_clean();
 	header('Pragma: public');
 	header('Expires: 0');
 	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+	if ($content_encoding) {
+		header('Content-Encoding: ' . $content_encoding);
+	}
 	if ($charset) {
 		header('Content-Type: ' . $content_type . '; charset=' . $charset);
 	} else {
 		header('Content-Type: ' . $content_type);
 	}
 	header('Content-Disposition: attachment; filename=' . $fn);
+	
+	if ($convert_encoding_to) {
+		if (function_exists('iconv')) {
+			$content = iconv($convert_encoding_to, $content_encoding, $content);
+		} else if (function_exists('mb_convert_encoding')) {
+			$content = mb_convert_encoding($content, $convert_encoding_to, $content_encoding);
+		}
+	}
+	
 	_p($content);
 	die();
 }
