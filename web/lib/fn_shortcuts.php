@@ -201,3 +201,12 @@ function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "") 
 function _lastpost($key = '') {
 	return core_last_post_get($key);
 }
+
+/**
+ * Empty last submitted $_POST data
+ *
+ * @return boolean TRUE
+ */
+function _lastpost_empty() {
+	return core_last_post_empty();
+}

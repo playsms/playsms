@@ -1174,6 +1174,17 @@ function core_last_post_get($key = '') {
 }
 
 /**
+ * Empty last submitted $_POST data
+ *
+ * @return boolean TRUE
+ */
+function core_last_post_empty() {
+	$_SESSION['tmp']['last_post'] = array();
+	
+	return TRUE;
+}
+
+/**
  * Include composer based packages
  */
 if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
