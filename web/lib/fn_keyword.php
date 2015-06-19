@@ -21,10 +21,13 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Check available keyword or keyword that hasn't been added
  *
- * @param $keyword keyword        
- * @return TRUE if available, FALSE if already exists or not available
+ * @param string $keyword
+ *        Keyword
+ * @param string $sms_receiver
+ *        Receiver number
+ * @return boolean TRUE if available, FALSE if already exists or not available
  */
-function keyword_isavail($keyword) {
+function keyword_isavail($keyword, $sms_receiver = '') {
 	global $core_config;
 	
 	$ok = true;
@@ -41,12 +44,13 @@ function keyword_isavail($keyword) {
 	if ($reserved) {
 		$ok = false;
 	} else {
-		for ($c = 0; $c < count($core_config['featurelist']); $c++) {
+		foreach ($core_config['featurelist'] as $plugin) {
 			
 			// keyword_isavail() on hooks will return TRUE as well if keyword is available
 			// so we're looking for FALSE value
-			if (core_hook($core_config['featurelist'][$c], 'keyword_isavail', array(
-				$keyword 
+			if (core_hook($plugin, 'keyword_isavail', array(
+				$keyword,
+				$sms_receiver 
 			)) === FALSE) {
 				$ok = false;
 				break;
@@ -60,11 +64,14 @@ function keyword_isavail($keyword) {
 /**
  * Opposite of keyword_isavail()
  *
- * @param string $keyword        
- * @return boolean
+ * @param string $keyword
+ *        Keyword
+ * @param string $sms_receiver
+ *        Receiver number
+ * @return boolean TRUE if keyword already exists
  */
-function keyword_isexists($keyword) {
-	return !keyword_isavail($keyword);
+function keyword_isexists($keyword, $sms_receiver = '') {
+	return !keyword_isavail($keyword, $sms_receiver);
 }
 
 /**
@@ -76,8 +83,12 @@ function keyword_getall() {
 	global $core_config;
 	
 	$ret = array();
-	foreach ($core_config['featurelist'] as $feature) {
-		$ret[$feature] = core_hook($feature, 'keyword_getall');
+	foreach ($core_config['featurelist'] as $plugin) {
+		list($keyword, $sms_receiver) = core_hook($plugin, 'keyword_getall');
+		$ret[$plugin][] = array(
+			$keyword,
+			$sms_receiver 
+		);
 	}
 	
 	return $ret;
