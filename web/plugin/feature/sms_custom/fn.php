@@ -84,22 +84,24 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 	
 	// match keyword with receiver number
 	if ($sms_receiver) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver='$sms_receiver'";
+		$db_query = "SELECT uid, custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver='$sms_receiver'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
-			$c_uid = $db_row['uid'];
+			$uid = $db_row['uid'];
+			$custom_id = $db_row['custom_id'];
 		}
 	}
 	
 	// look for matching with catchall, if found it will override above matches
-	$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver = ''";
+	$db_query = "SELECT uid, custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver = ''";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$c_uid = $db_row['uid'];
+		$uid = $db_row['uid'];
+		$custom_id = $db_row['custom_id'];
 	}
 	
-	if ($c_uid) {
-		if (sms_custom_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $custom_keyword, $custom_param, $smsc, $raw_message)) {
+	if ($uid && $custom_id) {
+		if (sms_custom_handle($uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param, $smsc, $raw_message)) {
 			$ok = TRUE;
 		}
 		$ret['uid'] = $c_uid;
@@ -110,25 +112,27 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 	return $ret;
 }
 
-function sms_custom_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $custom_keyword, $custom_param = '', $smsc = '', $raw_message = '') {
-	$ok = false;
-	$custom_keyword = strtoupper(trim($custom_keyword));
+function sms_custom_handle($uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param = '', $smsc = '', $raw_message = '') {
+	$ok = FALSE;
+	
+	$username = user_uid2username($uid);
+	$keyword = trim(strtoupper($keyword));
 	$custom_param = trim($custom_param);
-	$db_query = "SELECT custom_url,uid,service_name,sms_receiver,custom_return_as_reply FROM " . _DB_PREF_ . "_featureCustom WHERE custom_keyword='$custom_keyword'";
+	
+	$db_query = "SELECT custom_url,service_name,sms_receiver,custom_return_as_reply FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$service_name = htmlspecialchars_decode($db_row['service_name']);
 	$sms_receiver = $db_row['sms_receiver'];
 	$custom_url = htmlspecialchars_decode($db_row['custom_url']);
-	$username = user_uid2username($db_row['uid']);
 	$custom_return_as_reply = $db_row['custom_return_as_reply'];
-	if ($custom_keyword && $custom_url && $username) {
+	if ($username && $keyword && $custom_url) {
 		$sms_datetime = core_display_datetime($sms_datetime);
 		$custom_url = str_replace("{SERVICENAME}", urlencode($service_name), $custom_url);
 		$custom_url = str_replace("{SMSDATETIME}", urlencode($sms_datetime), $custom_url);
 		$custom_url = str_replace("{SMSSENDER}", urlencode($sms_sender), $custom_url);
 		$custom_url = str_replace("{SMSRECEIVER}", urlencode($sms_receiver), $custom_url);
-		$custom_url = str_replace("{CUSTOMKEYWORD}", urlencode($custom_keyword), $custom_url);
+		$custom_url = str_replace("{CUSTOMKEYWORD}", urlencode($keyword), $custom_url);
 		$custom_url = str_replace("{CUSTOMPARAM}", urlencode($custom_param), $custom_url);
 		$custom_url = str_replace("{CUSTOMRAW}", urlencode($raw_message), $custom_url);
 		logger_print("custom_url:[" . $custom_url . "]", 3, "sms_custom_handle");
@@ -160,5 +164,6 @@ function sms_custom_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $c
 		}
 		$ok = true;
 	}
+	
 	return $ok;
 }
