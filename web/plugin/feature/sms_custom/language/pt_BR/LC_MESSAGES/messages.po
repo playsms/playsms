@@ -11,11 +11,18 @@ msgstr "Ação"
 msgid "Add SMS custom"
 msgstr "Adicionar SMS personalizado"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Tem certeza que quer remover o SMS personalizado?"
 
 msgid "Edit SMS custom"
 msgstr "Editar SMS personalizado"
+
+#, fuzzy
+msgid "Example of SMS custom URL"
+msgstr "URL do SMS personalizado"
 
 msgid "Fail to add SMS custom"
 msgstr "Falha ao adicionar o SMS personalizado"
@@ -26,7 +33,12 @@ msgstr "Falha ao remover o SMS personalizado"
 msgid "Fail to save SMS custom"
 msgstr "Falha ao salvar o SMS personalizado"
 
-msgid "Keyword"
+#, php-format
+msgid "Keyword %s is not available"
+msgstr ""
+
+#, fuzzy
+msgid "Keywords"
 msgstr "Palavra-chave"
 
 msgid "Make return as reply"
@@ -38,15 +50,11 @@ msgstr "Administrar personalizado"
 msgid "Pass these parameters to custom URL field"
 msgstr "Use esses parâmetros no campo de URL"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "SMS custom URL"
 msgstr "URL do SMS personalizado"
-
-msgid "SMS custom already exists, reserved or use by other feature"
-msgstr ""
-"O SMS personalizado já existe, está reservado ou em uso por outro recurso"
-
-msgid "SMS custom has been added"
-msgstr "O SMS personalizado foi adicionado"
 
 msgid "SMS custom has been deleted"
 msgstr "O SMS personalizado foi removido"
@@ -54,20 +62,25 @@ msgstr "O SMS personalizado foi removido"
 msgid "SMS custom has been saved"
 msgstr "SMS personalizado foi salvo"
 
-msgid "SMS custom keyword"
+#, fuzzy
+msgid "SMS custom keywords"
 msgstr "Palavra-chave do SMS personalizado"
+
+#, fuzzy, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "O SMS personalizado foi adicionado"
 
 msgid "Save"
 msgstr "Salvar"
 
-msgid "URL"
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
 msgstr ""
 
 msgid "User"
 msgstr "Usuário"
-
-msgid "You must fill all fields"
-msgstr "Preencha todos os campos"
 
 msgid "keyword"
 msgstr "palavra-chave"
@@ -78,11 +91,23 @@ msgstr "será substituído pela data/hora de chegada do SMS"
 msgid "will be replaced by SMS raw message"
 msgstr "será substituído pela mensagem SMS pura"
 
+#, fuzzy
+msgid "will be replaced by actual receiver number"
+msgstr "será substituído pelo número do remetente"
+
 msgid "will be replaced by custom keyword"
 msgstr "será substituído pela palavra-chave do personalizado"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr "será substituído pelo parâmetro passado pro servidor por SMS"
 
+#, fuzzy
+msgid "will be replaced by receiver number"
+msgstr "será substituído pelo número do remetente"
+
 msgid "will be replaced by sender number"
+msgstr "será substituído pelo número do remetente"
+
+#, fuzzy
+msgid "will be replaced by service name"
 msgstr "será substituído pelo número do remetente"

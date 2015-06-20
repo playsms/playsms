@@ -19,11 +19,18 @@ msgstr "Action"
 msgid "Add SMS custom"
 msgstr "Ajouter URL script personnalisé"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'URL script personnalisé ?"
 
 msgid "Edit SMS custom"
 msgstr "Éditer URL script personnalisé"
+
+#, fuzzy
+msgid "Example of SMS custom URL"
+msgstr "URL du script personnalisé"
 
 msgid "Fail to add SMS custom"
 msgstr "Échec de l'ajout de l'URL script personnalisé"
@@ -34,7 +41,12 @@ msgstr "Échec de la suppression de l'URL script personnalisé"
 msgid "Fail to save SMS custom"
 msgstr "Échec de l'enregistrement de l'URL script personnalisé"
 
-msgid "Keyword"
+#, php-format
+msgid "Keyword %s is not available"
+msgstr ""
+
+#, fuzzy
+msgid "Keywords"
 msgstr "Mot-clé"
 
 msgid "Make return as reply"
@@ -46,16 +58,11 @@ msgstr "Gérer URL script personnalisé"
 msgid "Pass these parameters to custom URL field"
 msgstr "Passez ces paramètres dans le champ 'URL du script personnalisé'"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "SMS custom URL"
 msgstr "URL du script personnalisé"
-
-msgid "SMS custom already exists, reserved or use by other feature"
-msgstr ""
-"L'URL script personnalisé existe déjà, est réservée ou utilisée par une "
-"autre fonction"
-
-msgid "SMS custom has been added"
-msgstr "L'URL script personnalisé a été ajoutée"
 
 msgid "SMS custom has been deleted"
 msgstr "L'URL script personnalisé a été supprimée"
@@ -63,20 +70,25 @@ msgstr "L'URL script personnalisé a été supprimée"
 msgid "SMS custom has been saved"
 msgstr "L'URL script personnalisé a été enregistrée"
 
-msgid "SMS custom keyword"
+#, fuzzy
+msgid "SMS custom keywords"
 msgstr "Mot-clé de l'URL script personnalisé"
+
+#, fuzzy, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "L'URL script personnalisé a été ajoutée"
 
 msgid "Save"
 msgstr "Enregistrer"
 
-msgid "URL"
-msgstr "URL"
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
 
 msgid "User"
 msgstr "Utilisateur"
-
-msgid "You must fill all fields"
-msgstr "Vous devez saisir tous les champs"
 
 msgid "keyword"
 msgstr "mot-clé"
@@ -87,6 +99,10 @@ msgstr "sera remplacé par la date/heure d'arrivée du SMS"
 msgid "will be replaced by SMS raw message"
 msgstr "sera remplacé par le message brut"
 
+#, fuzzy
+msgid "will be replaced by actual receiver number"
+msgstr "sera remplacé par le numéro de l'expéditeur"
+
 msgid "will be replaced by custom keyword"
 msgstr "sera remplacé par le mot-clé de l'URL script personnalisé"
 
@@ -94,5 +110,13 @@ msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
 "sera remplacé par le paramètre additionnel passé au SMS depuis le serveur"
 
+#, fuzzy
+msgid "will be replaced by receiver number"
+msgstr "sera remplacé par le numéro de l'expéditeur"
+
 msgid "will be replaced by sender number"
+msgstr "sera remplacé par le numéro de l'expéditeur"
+
+#, fuzzy
+msgid "will be replaced by service name"
 msgstr "sera remplacé par le numéro de l'expéditeur"

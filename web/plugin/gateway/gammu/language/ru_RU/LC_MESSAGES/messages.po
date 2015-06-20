@@ -12,8 +12,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+msgid "Changes have been made"
+msgstr ""
+
 msgid "Gateway name"
 msgstr "Название шлюза"
 
 msgid "Manage gammu"
 msgstr "Gammu"
+
+msgid "Save"
+msgstr ""
+
+msgid "Spool folder"
+msgstr ""

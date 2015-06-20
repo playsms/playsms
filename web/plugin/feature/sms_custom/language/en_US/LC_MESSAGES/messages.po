@@ -11,10 +11,16 @@ msgstr ""
 msgid "Add SMS custom"
 msgstr ""
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr ""
 
 msgid "Edit SMS custom"
+msgstr ""
+
+msgid "Example of SMS custom URL"
 msgstr ""
 
 msgid "Fail to add SMS custom"
@@ -26,7 +32,11 @@ msgstr ""
 msgid "Fail to save SMS custom"
 msgstr ""
 
-msgid "Keyword"
+#, php-format
+msgid "Keyword %s is not available"
+msgstr ""
+
+msgid "Keywords"
 msgstr ""
 
 msgid "Make return as reply"
@@ -38,13 +48,10 @@ msgstr ""
 msgid "Pass these parameters to custom URL field"
 msgstr ""
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "SMS custom URL"
-msgstr ""
-
-msgid "SMS custom already exists, reserved or use by other feature"
-msgstr ""
-
-msgid "SMS custom has been added"
 msgstr ""
 
 msgid "SMS custom has been deleted"
@@ -53,19 +60,23 @@ msgstr ""
 msgid "SMS custom has been saved"
 msgstr ""
 
-msgid "SMS custom keyword"
+msgid "SMS custom keywords"
+msgstr ""
+
+#, php-format
+msgid "SMS custom with keyword %s has been added"
 msgstr ""
 
 msgid "Save"
 msgstr ""
 
-msgid "URL"
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
 msgstr ""
 
 msgid "User"
-msgstr ""
-
-msgid "You must fill all fields"
 msgstr ""
 
 msgid "keyword"
@@ -77,11 +88,20 @@ msgstr ""
 msgid "will be replaced by SMS raw message"
 msgstr ""
 
+msgid "will be replaced by actual receiver number"
+msgstr ""
+
 msgid "will be replaced by custom keyword"
 msgstr ""
 
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
 
+msgid "will be replaced by receiver number"
+msgstr ""
+
 msgid "will be replaced by sender number"
+msgstr ""
+
+msgid "will be replaced by service name"
 msgstr ""

@@ -18,11 +18,18 @@ msgstr "Handling"
 msgid "Add SMS custom"
 msgstr "Tilføj tilpasset SMS"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Er du sikker på at du ønsker at slette tilpasset SMS"
 
 msgid "Edit SMS custom"
 msgstr "Rediger tilpasset SMS"
+
+#, fuzzy
+msgid "Example of SMS custom URL"
+msgstr "Tilpasset SMS URL"
 
 msgid "Fail to add SMS custom"
 msgstr "Kunne ikke tilføje tilpasset SMS"
@@ -33,7 +40,12 @@ msgstr "Kunne ikke slette tilpasset SMS"
 msgid "Fail to save SMS custom"
 msgstr "Kunne ikke gemme tilpasset SMS"
 
-msgid "Keyword"
+#, php-format
+msgid "Keyword %s is not available"
+msgstr ""
+
+#, fuzzy
+msgid "Keywords"
 msgstr "Nøgleord"
 
 msgid "Make return as reply"
@@ -45,16 +57,11 @@ msgstr "Håndter tilpasset"
 msgid "Pass these parameters to custom URL field"
 msgstr "Videresend disse parametre til tilpasset URL felt"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "SMS custom URL"
 msgstr "Tilpasset SMS URL"
-
-msgid "SMS custom already exists, reserved or use by other feature"
-msgstr ""
-"Tilpasset SMS eksisterer allerede, er reserveret eller bruges af en anden "
-"funktion"
-
-msgid "SMS custom has been added"
-msgstr "Tilpasset SMS er blevet tilføjet"
 
 msgid "SMS custom has been deleted"
 msgstr "Tilpasset SMS er blevet slettet"
@@ -62,20 +69,25 @@ msgstr "Tilpasset SMS er blevet slettet"
 msgid "SMS custom has been saved"
 msgstr "Tilpasset SMS er blevet gemt"
 
-msgid "SMS custom keyword"
+#, fuzzy
+msgid "SMS custom keywords"
 msgstr "Tilpasset SMS nøgleord"
+
+#, fuzzy, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "Tilpasset SMS er blevet tilføjet"
 
 msgid "Save"
 msgstr "Gem"
 
-msgid "URL"
-msgstr "URL"
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
 
 msgid "User"
 msgstr "Bruger"
-
-msgid "You must fill all fields"
-msgstr "Du skal udfylde alle felter"
 
 msgid "keyword"
 msgstr "nøgleord"
@@ -86,6 +98,10 @@ msgstr "vil blive erstattet med SMS indkommende dato/tid"
 msgid "will be replaced by SMS raw message"
 msgstr "vil blive erstattet med rå SMS besked"
 
+#, fuzzy
+msgid "will be replaced by actual receiver number"
+msgstr "vil blive erstattet med afsendernummer"
+
 msgid "will be replaced by custom keyword"
 msgstr "vil blive erstattet med tilpasset nøgleord"
 
@@ -93,5 +109,13 @@ msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
 "vil blive erstattet med tilpasset parameter videreført fra server til SMS"
 
+#, fuzzy
+msgid "will be replaced by receiver number"
+msgstr "vil blive erstattet med afsendernummer"
+
 msgid "will be replaced by sender number"
+msgstr "vil blive erstattet med afsendernummer"
+
+#, fuzzy
+msgid "will be replaced by service name"
 msgstr "vil blive erstattet med afsendernummer"

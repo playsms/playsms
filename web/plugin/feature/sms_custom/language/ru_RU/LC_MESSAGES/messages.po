@@ -18,11 +18,18 @@ msgstr "Действие"
 msgid "Add SMS custom"
 msgstr "Добавить запрос URL"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Вы уверены, что хотите удалить запрос URL?"
 
 msgid "Edit SMS custom"
 msgstr "Изменить запрос url"
+
+#, fuzzy
+msgid "Example of SMS custom URL"
+msgstr "URL адрес"
 
 msgid "Fail to add SMS custom"
 msgstr "Не удалось добавить запрос url"
@@ -33,7 +40,12 @@ msgstr "Не удалось удалить запрос url"
 msgid "Fail to save SMS custom"
 msgstr "Не удалось сохранить запрос url"
 
-msgid "Keyword"
+#, php-format
+msgid "Keyword %s is not available"
+msgstr ""
+
+#, fuzzy
+msgid "Keywords"
 msgstr "Ключевое слово"
 
 msgid "Make return as reply"
@@ -45,15 +57,11 @@ msgstr "Запрос URL"
 msgid "Pass these parameters to custom URL field"
 msgstr "Эти параметры могут быть переданы странице в строке вызова"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "SMS custom URL"
 msgstr "URL адрес"
-
-msgid "SMS custom already exists, reserved or use by other feature"
-msgstr ""
-"URL адрес уже существует, зарезервирован или используется другими модулями"
-
-msgid "SMS custom has been added"
-msgstr "Запрос URL добавлен"
 
 msgid "SMS custom has been deleted"
 msgstr "Запрос URL удалён"
@@ -61,20 +69,25 @@ msgstr "Запрос URL удалён"
 msgid "SMS custom has been saved"
 msgstr "Запрос URL сохранён"
 
-msgid "SMS custom keyword"
+#, fuzzy
+msgid "SMS custom keywords"
 msgstr "Ключевое слово запроса"
+
+#, fuzzy, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "Запрос URL добавлен"
 
 msgid "Save"
 msgstr "Сохранить"
 
-msgid "URL"
-msgstr "URL"
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
 
 msgid "User"
 msgstr "Пользователь"
-
-msgid "You must fill all fields"
-msgstr "Необходимо заполнить все поля"
 
 msgid "keyword"
 msgstr "ключевое слово"
@@ -85,11 +98,23 @@ msgstr "будет заменён на дату/время входящего С
 msgid "will be replaced by SMS raw message"
 msgstr "будет заменён на текст входящего сообщения"
 
+#, fuzzy
+msgid "will be replaced by actual receiver number"
+msgstr "будет заменён на номер отправителя"
+
 msgid "will be replaced by custom keyword"
 msgstr "будет заменён на ключевое слово"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr "будет заменён на параметр, переданный в смс"
 
+#, fuzzy
+msgid "will be replaced by receiver number"
+msgstr "будет заменён на номер отправителя"
+
 msgid "will be replaced by sender number"
+msgstr "будет заменён на номер отправителя"
+
+#, fuzzy
+msgid "will be replaced by service name"
 msgstr "будет заменён на номер отправителя"

@@ -5,8 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Changes have been made"
+msgstr ""
+
 msgid "Gateway name"
 msgstr "网关名"
 
 msgid "Manage gammu"
 msgstr "管理监务"
+
+msgid "Save"
+msgstr ""
+
+msgid "Spool folder"
+msgstr ""

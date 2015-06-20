@@ -11,11 +11,18 @@ msgstr "Tindakan"
 msgid "Add SMS custom"
 msgstr "Tambah SMS kustom"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Anda yakin ingin menghapus kata kunci SMS kustom"
 
 msgid "Edit SMS custom"
 msgstr "Sunting SMS kustom"
+
+#, fuzzy
+msgid "Example of SMS custom URL"
+msgstr "URL SMS kustom"
 
 msgid "Fail to add SMS custom"
 msgstr "Gagal menambah SMS kustom"
@@ -26,7 +33,12 @@ msgstr "Gagal menghapus SMS kustom"
 msgid "Fail to save SMS custom"
 msgstr "Gagal menyimpan SMS kustom"
 
-msgid "Keyword"
+#, php-format
+msgid "Keyword %s is not available"
+msgstr ""
+
+#, fuzzy
+msgid "Keywords"
 msgstr "Kata kunci"
 
 msgid "Make return as reply"
@@ -38,14 +50,11 @@ msgstr "Pengaturan SMS kustom"
 msgid "Pass these parameters to custom URL field"
 msgstr "Masukkan parameter-parameter ini ke kolom penyesuaian URL"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "SMS custom URL"
 msgstr "URL SMS kustom"
-
-msgid "SMS custom already exists, reserved or use by other feature"
-msgstr "SMS kustom sudah dipesan atau digunakan oleh fitur lain."
-
-msgid "SMS custom has been added"
-msgstr "SMS kustom telah ditambahkan"
 
 msgid "SMS custom has been deleted"
 msgstr "SMS kustom sudah dihapus"
@@ -53,20 +62,25 @@ msgstr "SMS kustom sudah dihapus"
 msgid "SMS custom has been saved"
 msgstr "SMS kustom sudah disimpan"
 
-msgid "SMS custom keyword"
+#, fuzzy
+msgid "SMS custom keywords"
 msgstr "Kata kunci SMS kustom"
+
+#, fuzzy, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "SMS kustom telah ditambahkan"
 
 msgid "Save"
 msgstr "Simpan"
 
-msgid "URL"
-msgstr "URL"
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
 
 msgid "User"
 msgstr "Pengguna"
-
-msgid "You must fill all fields"
-msgstr "Anda harus mengisi semua kolom"
 
 msgid "keyword"
 msgstr "kata kunci"
@@ -77,6 +91,10 @@ msgstr "akan digantikan oleh waktu/tanggal SMS masuk"
 msgid "will be replaced by SMS raw message"
 msgstr "akan digantikan oleh nomor pengirim"
 
+#, fuzzy
+msgid "will be replaced by actual receiver number"
+msgstr "akan digantikan oleh nomor pengirim"
+
 msgid "will be replaced by custom keyword"
 msgstr "akan digantikan oleh kata kunci SMS kustom"
 
@@ -84,5 +102,13 @@ msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
 "akan diganti oleh parameter penyesuaian yang dikirim ke server dari SMS"
 
+#, fuzzy
+msgid "will be replaced by receiver number"
+msgstr "akan digantikan oleh nomor pengirim"
+
 msgid "will be replaced by sender number"
+msgstr "akan digantikan oleh nomor pengirim"
+
+#, fuzzy
+msgid "will be replaced by service name"
 msgstr "akan digantikan oleh nomor pengirim"
