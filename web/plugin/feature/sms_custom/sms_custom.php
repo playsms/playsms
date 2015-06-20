@@ -98,7 +98,7 @@ switch (_OP_) {
 		$edit_custom_uid = $db_row['uid'];
 		$edit_service_name = (_lastpost('edit_service_name') ? _lastpost('edit_service_name') : $db_row['service_name']);
 		$edit_custom_keyword = $db_row['custom_keyword'];
-		$edit_sms_receiver = (_lastpost('add_sms_receiver') ? _lastpost('add_sms_receiver') : $db_row['sms_receiver']);
+		$edit_sms_receiver = $db_row['sms_receiver'];
 		$edit_custom_url = $db_row['custom_url'];
 		$edit_custom_return_as_reply = ($db_row['custom_return_as_reply'] == '1' ? 'checked' : '');
 		$content .= _dialog() . "
@@ -117,7 +117,7 @@ switch (_OP_) {
 					<td>" . _('SMS custom keywords') . "</td><td>" . $edit_custom_keyword . "</td>
 				</tr>
 				<tr>
-					<td>" . _('Receiver number') . "</td><td><input type=text size=30 maxlength=20 name=edit_sms_receiver value=\"" . $edit_sms_receiver . "\"></td>
+					<td>" . _('Receiver number') . "</td><td>" . $edit_sms_receiver . "</td>
 				</tr>
 				<tr>
 					<td colspan=2>" . _('Pass these parameters to custom URL field') . "</td>
@@ -150,11 +150,10 @@ switch (_OP_) {
 		break;
 	case "sms_custom_edit_yes":
 		$edit_service_name = $_POST['edit_service_name'];
-		$edit_sms_receiver = $_POST['edit_sms_receiver'];
 		$edit_custom_return_as_reply = ($_POST['edit_custom_return_as_reply'] == 'on' ? '1' : '0');
 		$edit_custom_url = $_POST['edit_custom_url'];
 		if ($custom_id && $edit_service_name && $edit_custom_url) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',service_name='$edit_service_name',sms_receiver='$edit_sms_receiver',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_id='$custom_id'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',service_name='$edit_service_name',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_id='$custom_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS custom has been saved');
 				_lastpost_empty();
@@ -171,9 +170,8 @@ switch (_OP_) {
 		$db_query = "SELECT custom_keyword FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$keyword_name = $db_row['custom_keyword'];
-		if ($keyword_name) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureCustom WHERE custom_keyword='$keyword_name'";
+		if ($db_row['custom_keyword']) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS custom has been deleted');
 			} else {
