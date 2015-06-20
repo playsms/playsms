@@ -119,11 +119,10 @@ function sms_custom_handle($uid, $custom_id, $sms_datetime, $sms_sender, $sms_re
 	$keyword = trim(strtoupper($keyword));
 	$custom_param = trim($custom_param);
 	
-	$db_query = "SELECT custom_url,service_name,sms_receiver,custom_return_as_reply FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
+	$db_query = "SELECT custom_url,service_name,custom_return_as_reply FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$service_name = htmlspecialchars_decode($db_row['service_name']);
-	$sms_receiver = $db_row['sms_receiver'];
 	$custom_url = htmlspecialchars_decode($db_row['custom_url']);
 	$custom_return_as_reply = $db_row['custom_return_as_reply'];
 	if ($username && $keyword && $custom_url) {

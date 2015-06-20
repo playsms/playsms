@@ -127,7 +127,7 @@ switch (_OP_) {
 							<li>{SERVICENAME} " . _('will be replaced by service name') . "</li>
 							<li>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "</li>
 							<li>{SMSSENDER} " . _('will be replaced by sender number') . "</li>
-							<li>{SMSRECEIVER} " . _('will be replaced by receiver number') . "</li>
+							<li>{SMSRECEIVER} " . _('will be replaced by actual receiver number') . "</li>
 							<li>{CUSTOMKEYWORD} " . _('will be replaced by custom keyword') . "</li>
 							<li>{CUSTOMPARAM} " . _('will be replaced by custom parameter passed to server from SMS') . "</li>
 							<li>{CUSTOMRAW} " . _('will be replaced by SMS raw message') . "</li>
