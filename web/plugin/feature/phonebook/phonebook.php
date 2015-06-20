@@ -316,7 +316,7 @@ switch (_OP_) {
 						if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 							$save_to_group = TRUE;
 						} else {
-							logger_print('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
+							_log('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
 						}
 					}
 					foreach ($gpids as $gpid) {
@@ -327,16 +327,16 @@ switch (_OP_) {
 							);
 							if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 								if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
-									logger_print('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+									_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 								} else {
-									logger_print('contact added but fail to save in group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+									_log('contact added but fail to save in group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 								}
 							}
 						}
 					}
 					$_SESSION['dialog']['info'][] = _('Contact has been added');
 				} else {
-					$_SESSION['dialog']['info'][] = _('You must fill required fields');
+					$_SESSION['dialog']['danger'][] = _('You must fill required fields');
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add'));
 				exit();
@@ -366,7 +366,7 @@ switch (_OP_) {
 						'uid' => $uid 
 					);
 					dba_update(_DB_PREF_ . '_featurePhonebook', $items, $conditions, 'AND');
-					logger_print('contact edited pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
+					_log('contact edited pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
 				} else {
 					$_SESSION['dialog']['info'][] = _('You must fill mandatory fields');
 					header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_list'));
@@ -389,9 +389,9 @@ switch (_OP_) {
 						);
 						if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 							if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
-								logger_print('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
+								_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
 							} else {
-								logger_print('contact edited but fail to save in group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
+								_log('contact edited but fail to save in group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
 							}
 						}
 					}

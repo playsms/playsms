@@ -119,7 +119,7 @@ switch (_OP_) {
 				" . _back('index.php?app=main&inc=feature_phonebook&route=import&op=list');
 			_p($content);
 		} else {
-			$_SESSION['dialog']['info'][] = _('Fail to upload CSV file for phonebook');
+			$_SESSION['dialog']['danger'][] = _('Fail to upload CSV file for phonebook');
 			header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list'));
 			exit();
 		}
@@ -155,30 +155,30 @@ switch (_OP_) {
 						if ($gpid) {
 							$save_to_group = TRUE;
 						} else {
-							logger_print('contact added pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+							_log('contact added pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 						}
 					} else {
-						logger_print('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
+						_log('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
 					}
 				}
 				if ($save_to_group && $gpid) {
 					$db_query = "SELECT id FROM " . _DB_PREF_ . "_featurePhonebook_group_contacts WHERE gpid='" . $gpid . "' AND pid='" . $c_pid . "' LIMIT 1";
 					if (dba_num_rows($db_query) > 0) {
-						logger_print('contact already in the group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+						_log('contact already in the group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 					} else {
 						$items = array(
 							'gpid' => $gpid,
 							'pid' => $c_pid 
 						);
 						if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
-							logger_print('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+							_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 						} else {
-							logger_print('contact added but fail to save in group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
+							_log('contact added but fail to save in group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 						}
 					}
 				}
 				// $i++;
-				// logger_print("no:".$i." gpid:".$gpid." uid:".$uid." name:".$name." mobile:".$mobile." email:".$email, 3, "phonebook import");
+				// _log("no:".$i." gpid:".$gpid." uid:".$uid." name:".$name." mobile:".$mobile." email:".$email, 3, "phonebook import");
 			}
 			unset($gpid);
 		}

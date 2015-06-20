@@ -135,7 +135,7 @@ function sms_custom_handle($uid, $custom_id, $sms_datetime, $sms_sender, $sms_re
 		$custom_url = str_replace("{CUSTOMKEYWORD}", urlencode($keyword), $custom_url);
 		$custom_url = str_replace("{CUSTOMPARAM}", urlencode($custom_param), $custom_url);
 		$custom_url = str_replace("{CUSTOMRAW}", urlencode($raw_message), $custom_url);
-		logger_print("custom_url:[" . $custom_url . "]", 3, "sms_custom_handle");
+		_log("custom_url:[" . $custom_url . "]", 3, "sms_custom_handle");
 		
 		$parsed_url = parse_url($custom_url);
 		
@@ -156,10 +156,10 @@ function sms_custom_handle($uid, $custom_id, $sms_datetime, $sms_sender, $sms_re
 			if ($returns = trim($returns)) {
 				$unicode = core_detect_unicode($returns);
 				$returns = addslashes($returns);
-				logger_print("returns:[" . $returns . "]", 3, "sms_custom_handle");
+				_log("returns:[" . $returns . "]", 3, "sms_custom_handle");
 				sendsms_helper($username, $sms_sender, $returns, 'text', $unicode, $smsc);
 			} else {
-				logger_print("returns empty", 3, "sms_custom_handle");
+				_log("returns empty", 3, "sms_custom_handle");
 			}
 		}
 		$ok = true;

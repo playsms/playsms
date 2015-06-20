@@ -184,10 +184,10 @@ switch (_OP_) {
 						))) {
 							$_SESSION['dialog']['info'][] = _('Selected group has been deleted');
 						} else {
-							$_SESSION['dialog']['info'][] = _('Fail to delete group');
+							$_SESSION['dialog']['danger'][] = _('Fail to delete group');
 						}
 					} else {
-						$_SESSION['dialog']['info'][] = _('Unable to delete group until the group is empty');
+						$_SESSION['dialog']['danger'][] = _('Unable to delete group until the group is empty');
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
@@ -204,7 +204,7 @@ switch (_OP_) {
 					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code'";
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
-						$_SESSION['dialog']['info'][] = _('Group code already exists') . " (" . _('code') . ": $group_code)";
+						$_SESSION['dialog']['danger'][] = _('Group code already exists') . " (" . _('code') . ": $group_code)";
 					} else {
 						$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
 						$db_result = dba_query($db_query);
@@ -216,7 +216,7 @@ switch (_OP_) {
 						$_SESSION['dialog']['info'][] = _('Group code has been added') . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 					}
 				} else {
-					$_SESSION['dialog']['info'][] = _('You must fill all field');
+					$_SESSION['dialog']['danger'][] = _('You must fill all field');
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list'));
 				exit();
@@ -228,12 +228,11 @@ switch (_OP_) {
 				$group_code = core_sanitize_alphanumeric($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
-				$_SESSION['dialog']['info'][] = _('You must fill all field');
 				if ($gpid && $group_name && $group_code) {
 					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code' AND NOT id='$gpid'";
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
-						$_SESSION['dialog']['info'][] = _('No changes have been made');
+						$_SESSION['dialog']['danger'][] = _('No changes have been made');
 					} else {
 						$string_group_edit = _('Group has been edited');
 						
@@ -253,6 +252,8 @@ switch (_OP_) {
 						
 						$_SESSION['dialog']['info'][] = $string_group_edit . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 					}
+				} else {
+					$_SESSION['dialog']['danger'][] = _('You must fill all field');
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $gpid));
 				exit();
