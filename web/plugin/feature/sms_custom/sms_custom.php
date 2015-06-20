@@ -159,10 +159,10 @@ switch (_OP_) {
 				$_SESSION['dialog']['info'][] = _('SMS custom has been saved');
 				_lastpost_empty();
 			} else {
-				$_SESSION['dialog']['info'][] = _('Fail to save SMS custom');
+				$_SESSION['dialog']['danger'][] = _('Fail to save SMS custom');
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('All mandatory fields must be filled');
+			$_SESSION['dialog']['danger'][] = _('All mandatory fields must be filled');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id=' . $custom_id));
 		exit();
@@ -177,7 +177,7 @@ switch (_OP_) {
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS custom has been deleted');
 			} else {
-				$_SESSION['dialog']['info'][] = _('Fail to delete SMS custom');
+				$_SESSION['dialog']['danger'][] = _('Fail to delete SMS custom');
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_list'));
@@ -242,7 +242,7 @@ switch (_OP_) {
 				if (keyword_isavail($keyword, $add_sms_receiver)) {
 					$keywords .= core_sanitize_alphanumeric($keyword) . ' ';
 				} else {
-					$_SESSION['dialog']['info'][] = sprintf(_('Keyword %s is not available'), $keyword);
+					$_SESSION['dialog']['danger'][] = sprintf(_('Keyword %s is not available'), $keyword);
 				}
 			}
 		}
@@ -254,10 +254,10 @@ switch (_OP_) {
 				$_SESSION['dialog']['info'][] = sprintf(_('SMS custom with keyword %s has been added'), $keywords);
 				_lastpost_empty();
 			} else {
-				$_SESSION['dialog']['info'][] = _('Fail to add SMS custom');
+				$_SESSION['dialog']['danger'][] = _('Fail to add SMS custom');
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('All mandatory fields must be filled');
+			$_SESSION['dialog']['danger'][] = _('All mandatory fields must be filled');
 		}
 		
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add'));
