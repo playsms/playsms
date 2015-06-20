@@ -63,6 +63,7 @@ switch (_OP_) {
 			if ($owner = user_uid2username($db_row['uid'])) {
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id=' . $db_row['custom_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_del&custom_id=' . $db_row['custom_id']) . "')\">" . $icon_config['delete'] . "</a>";
+				$sms_receiver = '';
 				if ($db_row['sms_receiver']) {
 					$sms_receiver = "<div name=sms_custom_sms_receiver><span class=\"playsms-icon glyphicon glyphicon-inbox\" alt=\"" . _('Receiver number') . "\" title=\"" . _('Receiver number') . "\"></span>" . $db_row['sms_receiver'] . "</div>";
 				}
@@ -120,10 +121,8 @@ switch (_OP_) {
 					<td>" . _('Receiver number') . "</td><td>" . $edit_sms_receiver . "</td>
 				</tr>
 				<tr>
-					<td colspan=2>" . _('Pass these parameters to custom URL field') . "</td>
-				</tr>
-				<tr>
 					<td colspan=2>
+						" . _('Pass these parameters to custom URL field') . "
 						<ul>
 							<li>{SERVICENAME} " . _('will be replaced by service name') . "</li>
 							<li>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "</li>
@@ -132,6 +131,10 @@ switch (_OP_) {
 							<li>{CUSTOMKEYWORD} " . _('will be replaced by custom keyword') . "</li>
 							<li>{CUSTOMPARAM} " . _('will be replaced by custom parameter passed to server from SMS') . "</li>
 							<li>{CUSTOMRAW} " . _('will be replaced by SMS raw message') . "</li>
+						</ul>
+						" . _('Example of SMS custom URL') . "
+						<ul>
+							<li>" . htmlspecialchars('http://someserver.somedomain/handler.php?service={SERVICENAME}&datetime={SMSDATETIME}&sender={SMSSENDER}&receiver={SMSRECEIVER}&keyword={CUSTOMKEYWORD}&param={CUSTOMPARAM}&raw={CUSTOMRAW}') . "</li>
 						</ul>
 					</td>
 				</tr>
@@ -203,6 +206,7 @@ switch (_OP_) {
 				</tr>
 				<tr>
 					<td colspan=2>
+						" . _('Pass these parameters to custom URL field') . "
 						<ul>
 							<li>{SERVICENAME} " . _('will be replaced by service name') . "</li>
 							<li>{SMSDATETIME} " . _('will be replaced by SMS incoming date/time') . "</li>
@@ -211,6 +215,10 @@ switch (_OP_) {
 							<li>{CUSTOMKEYWORD} " . _('will be replaced by custom keyword') . "</li>
 							<li>{CUSTOMPARAM} " . _('will be replaced by custom parameter passed to server from SMS') . "</li>
 							<li>{CUSTOMRAW} " . _('will be replaced by SMS raw message') . "</li>
+						</ul>
+						" . _('Example of SMS custom URL') . "
+						<ul>
+							<li>" . htmlspecialchars('http://someserver.somedomain/handler.php?service={SERVICENAME}&datetime={SMSDATETIME}&sender={SMSSENDER}&receiver={SMSRECEIVER}&keyword={CUSTOMKEYWORD}&param={CUSTOMPARAM}&raw={CUSTOMRAW}') . "</li>
 						</ul>
 					</td>
 				</tr>
