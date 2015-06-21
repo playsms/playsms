@@ -201,19 +201,10 @@ switch (_OP_) {
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($group_name && $group_code) {
-					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code'";
-					$db_result = dba_query($db_query);
-					if ($db_row = dba_fetch_array($db_result)) {
-						$_SESSION['dialog']['danger'][] = _('Group code already exists') . " (" . _('code') . ": $group_code)";
-					} else {
-						$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
-						$db_result = dba_query($db_query);
-						if ($db_row = dba_fetch_array($db_result)) {
-							$flag_sender = 0;
-						}
-						$db_query = "INSERT INTO " . _DB_PREF_ . "_featurePhonebook_group (uid,name,code,flag_sender) VALUES ('$uid','$group_name','$group_code','$flag_sender')";
-						$db_result = dba_query($db_query);
+					if (phonebook_group_add($uid, $group_name, $group_code)) {
 						$_SESSION['dialog']['info'][] = _('Group code has been added') . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
+					} else {
+						$_SESSION['dialog']['danger'][] = _('Group code already exists') . " (" . _('code') . ": $group_code)";
 					}
 				} else {
 					$_SESSION['dialog']['danger'][] = _('You must fill all field');
