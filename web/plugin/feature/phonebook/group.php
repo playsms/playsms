@@ -44,7 +44,7 @@ switch (_OP_) {
 		$fields = 'id, name, code, flag_sender';
 		$list = dba_search(_DB_PREF_ . '_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
 		
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Group') . "</h3>
 			<p>" . $search['form'] . "</p>
@@ -92,9 +92,6 @@ switch (_OP_) {
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	case "add":
@@ -102,7 +99,7 @@ switch (_OP_) {
 			<option value='0'>" . _('Me only') . "</option>
 			<option value='1'>" . _('Members') . "</option>
 			<option value='2'>" . _('Anyone') . "</option>";
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Add group') . "</h3>
 			<p>
@@ -112,11 +109,11 @@ switch (_OP_) {
 			<tbody>
 				<tr>
 					<td class=label-sizer>" . _('Group name') . "</td>
-					<td><input type=text name=group_name></td>
+					<td><input type=text name=group_name value=\"" . _lastpost('group_name') . "\"></td>
 				</tr>
 				<tr>
 					<td>" . _('Group code') . "</td>
-					<td><input type=text name=group_code size=10> " . _hint(_('Group code may be used to broadcast SMS to this group') . ". " . _('Please use alphanumeric only and make it short')) . "</td>
+					<td><input type=text name=group_code size=10 value=\"" . _lastpost('group_code') . "\"> " . _hint(_('Group code may be used to broadcast SMS to this group') . ". " . _('Please use alphanumeric only and make it short')) . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Share phonebook and allow broadcast') . "</td>
@@ -137,7 +134,7 @@ switch (_OP_) {
 			<option value='0' $selected_0>" . _('Me only') . "</option>
 			<option value='1' $selected_1>" . _('Members') . "</option>
 			<option value='2' $selected_2>" . _('Anyone') . "</option>";
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Edit group') . "</h3>
 			<p>
@@ -201,15 +198,19 @@ switch (_OP_) {
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($group_name && $group_code) {
-					if (phonebook_group_add($uid, $group_name, $group_code)) {
+					$ret = phonebook_group_add($uid, $group_name, $group_code);
+					if ($ret == TRUE) {
 						$_SESSION['dialog']['info'][] = _('Group code has been added') . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
-					} else {
+						_lastpost_empty();
+					} else if ($ret === 0) {
 						$_SESSION['dialog']['danger'][] = _('Group code already exists') . " (" . _('code') . ": $group_code)";
+					} else {
+						$_SESSION['dialog']['danger'][] = _('Unable to add group') . " (" . _('code') . ": $group_code)";
 					}
 				} else {
 					$_SESSION['dialog']['danger'][] = _('You must fill all field');
 				}
-				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list'));
+				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=add'));
 				exit();
 				break;
 			case 'edit':
