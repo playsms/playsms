@@ -146,6 +146,10 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to add group"
+msgstr "Fehler beim Löschen der Gruppe"
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
 

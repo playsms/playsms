@@ -153,6 +153,10 @@ msgstr "مشاركة دليل الهاتف وتحديد صلاحية الرسا�
 msgid "Tags"
 msgstr "التسميات"
 
+#, fuzzy
+msgid "Unable to add group"
+msgstr "فشل الحذف"
+
 msgid "Unable to delete group until the group is empty"
 msgstr "لايمكن حذف مجموعة ليست فارغة!"
 

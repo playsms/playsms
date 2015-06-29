@@ -147,6 +147,9 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
+msgid "Unable to add group"
+msgstr ""
+
 msgid "Unable to delete group until the group is empty"
 msgstr ""
 

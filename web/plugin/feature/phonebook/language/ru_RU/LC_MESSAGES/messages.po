@@ -153,6 +153,10 @@ msgstr "Разрешить рассылку группе с мобильного
 msgid "Tags"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to add group"
+msgstr "Не удалось удалить группу"
+
 msgid "Unable to delete group until the group is empty"
 msgstr "Невозможно удалить группу, пока она не пуста"
 
