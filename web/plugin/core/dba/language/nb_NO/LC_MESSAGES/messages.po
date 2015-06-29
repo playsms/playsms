@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Cannot find PHP PEAR-DB"
+msgstr "Kan ikke finne PHP PEAR-DB"
+
+msgid "FATAL ERROR"
+msgstr "FATAL FEIL"

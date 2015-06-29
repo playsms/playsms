@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb:NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add message template"
+msgstr "Legg til meldingsmal"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Er du sikker på at du vil slette disse malen(e)?"
+
+msgid "Content"
+msgstr "Innhold"
+
+msgid "Edit message template"
+msgstr "Rediger meldingsmal"
+
+msgid "Fail to add message template"
+msgstr "Kunne ikke legge til meldingsmal"
+
+msgid "Fail to edit message template"
+msgstr "Kunne ikke redigerer meldingsmal"
+
+msgid "Message template"
+msgstr "Meldingsmal"
+
+msgid "Message template content"
+msgstr "Meldingsmal-innhold"
+
+msgid "Message template has been edited"
+msgstr "Meldingsmal har blitt redigert"
+
+msgid "Message template has been saved"
+msgstr "Meldignsmal har blitt lagret"
+
+msgid "Message template name"
+msgstr "Meldingsmal-navn"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Notes"
+msgstr "Notater"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Selected message template has been deleted"
+msgstr "Valgt meldingsmal har blitt slettet"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felter"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr "vil bli erstattet med navnet i telefonboken"
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr "vil bli erstattet med telefonnummer i telefonboken"

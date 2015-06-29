@@ -1,0 +1,191 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add catch-all"
+msgstr "Legg til catch-all"
+
+msgid "Add group inbox"
+msgstr "Legg till gruppe-innboks"
+
+msgid "Add member"
+msgstr "Legg til medlem"
+
+msgid "All users"
+msgstr "Alle brukere"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Er du sikker på at du vil slette denne bruker-innboksen?"
+
+msgid "Catch-all"
+msgstr "Catch-all"
+
+msgid "Catch-all has been added"
+msgstr "Catch-all har blitt lagt til"
+
+msgid "Catch-all has been deleted"
+msgstr "Catch-all har blitt slettet"
+
+msgid "Catch-all list"
+msgstr "Catch-all liste"
+
+msgid "Current catchall"
+msgstr "Nåværende catch-all"
+
+msgid "Current members"
+msgstr "Nåværende medlemmer"
+
+msgid "Delete catch-all"
+msgstr "Slett catch-all"
+
+msgid "Delete group inbox"
+msgstr "Slett gruppe-innboks"
+
+msgid "Delete member"
+msgstr "Slett medlem"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Edit group inbox"
+msgstr "Rediger gruppe-innboks"
+
+msgid "Exclusive"
+msgstr "Eksklusiv"
+
+msgid "Fail to add catch-all"
+msgstr "Feil i å legge til catch-all"
+
+msgid "Fail to add group inbox"
+msgstr "Feil i å legge til gruppe-innboks"
+
+msgid "Fail to add member"
+msgstr "Feil i å legge til medlem"
+
+msgid "Fail to delete catch-all"
+msgstr "Feil ved sletting av catch-all"
+
+msgid "Fail to delete group inbox"
+msgstr "Feil ved sletting av gruppe-innboks"
+
+msgid "Fail to delete member"
+msgstr "Feil ved sletting av medlem"
+
+msgid "Fail to disable group inbox"
+msgstr "Feil ved deaktivering av gruppe-innboks"
+
+msgid "Fail to edit group inbox"
+msgstr "Feil ved redigering av gruppe-innboks"
+
+msgid "Fail to enable group inbox"
+msgstr "Feil ved redigering av gruppe-innboks"
+
+msgid "For example a short code"
+msgstr "En kort kode for eksempel"
+
+msgid "Group inbox"
+msgstr "Gruppe-innboks"
+
+msgid "Group inbox has been added"
+msgstr "Gruppe-innboks har blitt lagt til"
+
+msgid "Group inbox has been deleted"
+msgstr "Gruppe-innboks har blitt slettet"
+
+msgid "Group inbox has been disabled"
+msgstr "Gruppe-innboks har blitt deaktivert"
+
+msgid "Group inbox has been edited"
+msgstr "Gruppe-innboks har blitt redigert"
+
+msgid "Group inbox has been enabled"
+msgstr "Gruppe-innboks har blitt aktivert"
+
+msgid "Keywords"
+msgstr "Nøkkelord"
+
+msgid "Member has been added"
+msgstr "Medlem har blitt lagt til"
+
+msgid "Member has been deleted"
+msgstr "Medlem har blitt slettet"
+
+msgid "Member list"
+msgstr "Medlemsliste"
+
+msgid "Members"
+msgstr "Medlemmer"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+"Trykk på send-knappen for å legge til valgte bruker til catch-all listen"
+
+msgid "Press submit button to add selected users to member list"
+msgstr "Trykk på send-knappen for å legge til valgte brukere til medlemslisten"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr ""
+"Trykk på send-knappen for å fjerne valgte catch-all fra catch-all listen"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr "Trykk på send-knappen for å slette valgte medlemmer fra medlemslisten"
+
+msgid "Receiver number"
+msgstr "Mottakernummer"
+
+msgid "Receiver number does not exist"
+msgstr "Mottakernummer eksisterer ikke"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Begrense sender til normale medlemmer eller kun catch-all medlemmer"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Selected catchall"
+msgstr "Valgte catch-all"
+
+msgid "Selected members"
+msgstr "Valgte medlemmer"
+
+msgid "Selected users"
+msgstr "Valgte brukere"
+
+msgid "Separate with comma for multiple items"
+msgstr "Flere emner adskilles med komma"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felter"
+
+msgid "no"
+msgstr "nei"
+
+msgid "yes"
+msgstr "ja"

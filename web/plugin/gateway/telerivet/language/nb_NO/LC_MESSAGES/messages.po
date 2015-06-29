@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-06 17:41+0100\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "API key"
+msgstr "API-nøkkel"
+
+msgid "Callback Secret"
+msgstr "Callback-hemmelighet"
+
+msgid "Callback URL"
+msgstr "Callback URL"
+
+msgid "Fill to change the API key"
+msgstr "Utfyll for å endre API-nøkkelen"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "Manage telerivet"
+msgstr "Håndter telerivet"
+
+msgid "No changes has been made"
+msgstr "Ingen endringer har blitt gjort"
+
+msgid "Project ID"
+msgstr "Prosjekt-ID"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Telerivet URL"
+msgstr "Telerivet-URL"

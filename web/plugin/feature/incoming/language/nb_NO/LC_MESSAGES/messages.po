@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Copy the message to user inbox when incoming SMS contains @username"
+msgstr ""
+"Kopier meldingen til bruker-innboks når innkommende SMS innholder @username"
+
+msgid "Fail to insert keyword"
+msgstr "Kunne ikke sette inn nøkkelord"
+
+msgid "Incoming SMS route changes has been saved"
+msgstr "Endringer for innkommende SMS-rute har blitt lagret"
+
+msgid "Insert keyword"
+msgstr "Sett inn nøkkelord"
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr "Legg igjen en kopi i sandbox SMS-side"
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr ""
+"Å legge en kopi i sandbox SMS-siden kan være nyttig forrevisjon eller "
+"granskning"
+
+msgid "Match with all approved sender ID"
+msgstr "Sammenlign med alle godkjente senderID-er"
+
+msgid "No route has been saved"
+msgstr "Ingen rute har blitt lagret"
+
+msgid "Post rules"
+msgstr "Etter-regler"
+
+msgid "Pre rules"
+msgstr "Før-regler"
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
+msgstr ""
+"Mottakernummer kan sammenlignes med standard senderID eller med alle "
+"godkjente senderID-er"
+
+msgid "Route all sandbox SMS to users"
+msgstr "Diriger alle sandbox SMS til brukere"
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr "Diriger alle sandbox SMS med tilhørende senderID"
+
+msgid "Route incoming SMS"
+msgstr "Diriger innkommende SMS"
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
+msgstr ""
+"Diriger til bruker-innboks hvis mottakernummer passer med brukers senderID"
+
+msgid "Rules applied after incoming SMS processed"
+msgstr "Regler som brukes etter behandling av innkommende SMS"
+
+msgid "Rules applied before incoming SMS processed"
+msgstr "Regler som brukes før innkommende SMS er behandlet"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Scan incoming SMS for #groupcode"
+msgstr "Søk i innkommende SMS etter #gruppekode"
+
+msgid "Scan incoming SMS for @username"
+msgstr "Søk i innkomende SMS for @brukernavn"
+
+msgid "Select users"
+msgstr "Velg brukere"
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr "Send SMS til grupper når gruppekode finnes i innkomende SMS"
+
+msgid "Settings"
+msgstr "Innstillinger"
+
+msgid "keyword"
+msgstr "nøkkelord"

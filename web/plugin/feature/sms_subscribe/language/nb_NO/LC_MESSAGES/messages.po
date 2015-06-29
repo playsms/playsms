@@ -1,0 +1,209 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "1 Day"
+msgstr "1 Dag"
+
+msgid "1 Month"
+msgstr "1 Måned"
+
+msgid "1 Week"
+msgstr "1 Uke"
+
+msgid "2 Days"
+msgstr "2 Dager"
+
+msgid "2 Weeks"
+msgstr "2 Uker"
+
+msgid "6 Months"
+msgstr "6 Måneder"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMS subscribe"
+msgstr "Legg til SMS-abonnement"
+
+msgid "Add message"
+msgstr "Legg til beskjed"
+
+msgid "Already a member reply"
+msgstr "Allerede et medlemssvar"
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "Er du sikker på at du vil slette SMS-abonnement?"
+
+msgid "Are you sure you want to delete this member ?"
+msgstr "Er du sikker på at du vil slette denne medlemet?"
+
+msgid "Are you sure you want to delete this message?"
+msgstr "Er du sikker på at du vil slette denne meldingen?"
+
+msgid "Created"
+msgstr "Opprettet"
+
+msgid "Edit SMS subscribe"
+msgstr "Redigerer SMS-abonnement"
+
+msgid "Edit message"
+msgstr "Rediger beskjed"
+
+msgid "Fail to add SMS subscribe"
+msgstr "Kunne ikke legge til SMS-abonnement"
+
+msgid "Fail to add message"
+msgstr "Kunne ikke legge til melding"
+
+msgid "Fail to edit SMS subscribe"
+msgstr "Kunne ikke legge til SMS-abonnement"
+
+msgid "Fail to edit message"
+msgstr "Kunne ikke redigere melding"
+
+msgid "Fail to send SMS"
+msgstr "Kunne ikke sende SMS"
+
+msgid "Keyword"
+msgstr "Nøkkelord"
+
+msgid "Last update"
+msgstr "Sist oppdatert"
+
+msgid "Manage subscribe"
+msgstr "Håndter abonnement"
+
+msgid "Member has been deleted"
+msgstr "Medlem har blitt slettet"
+
+msgid "Member join datetime"
+msgstr "Medlem siden dato-tid"
+
+msgid "Member list for keyword"
+msgstr "Medlemsliste for nøkkelord"
+
+msgid "Members"
+msgstr "Medlemmer"
+
+msgid "Message"
+msgstr "Melding"
+
+msgid "Message ID"
+msgstr "Meldings-ID"
+
+msgid "Message body"
+msgstr "Meldings-body"
+
+msgid "Message detail"
+msgstr "Meldingsdetaljer"
+
+msgid "Message has been added"
+msgstr "Melding har blitt lagt til"
+
+msgid "Message has been deleted"
+msgstr "Melding har blitt slettet"
+
+msgid "Message has been edited"
+msgstr "Melding har blitt redigert"
+
+msgid "Messages"
+msgstr "Meldinger"
+
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+msgid "SMS forward parameter"
+msgstr "Videresend SMS-parameter"
+
+msgid "SMS messages list for keyword"
+msgstr "SMS meldingsliste for nøkkelord"
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+"SMS-abonnement eksisterer allerede, er reservert eller er i bruk av en annen "
+"funksjon"
+
+msgid "SMS subscribe has been added"
+msgstr "SMS-abonnement har blitt lagt til"
+
+msgid "SMS subscribe has been saved"
+msgstr "SMS-abonnement har blitt lagret"
+
+msgid "SMS subscribe keyword"
+msgstr "SMS-abonnement nøkkelord"
+
+msgid "SMS subscribe parameter"
+msgstr "SMS-abonnement parameter"
+
+msgid "SMS subscribe reply"
+msgstr "SMS-abonnement svar"
+
+msgid "SMS subscribe status has been changed"
+msgstr "SMS-abonnement status har blitt endret"
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr "SMS-abonnement med alle dets beskjeder og medlemmer har blitt slettet"
+
+msgid "SMS unsubscribe parameter"
+msgstr "SMS avmeldingsparameter"
+
+msgid "SMS unsubscribe reply"
+msgstr "SMS avmeldingssvar"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "Send this message to all members"
+msgstr "Send denne meldingen til alle medlemmer"
+
+msgid "Sent"
+msgstr "Sendt"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Subscribe duration"
+msgstr "Abonnement varighet"
+
+msgid "Subscription expired reply"
+msgstr "Abonnement utløpt svar"
+
+msgid "Unknown format reply"
+msgstr "Ukjent svar-format"
+
+msgid "Unlimited"
+msgstr "Ubegrenset"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "View members"
+msgstr "Se medlemmer"
+
+msgid "View messages"
+msgstr "Se meldinger"
+
+msgid "You have no member"
+msgstr "Du har ingen medlemmer"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felter"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "Dine SMS har blitt levert til køen"
+
+msgid "keyword"
+msgstr "nøkkelord"

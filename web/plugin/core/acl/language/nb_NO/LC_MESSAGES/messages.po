@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ACL ID"
+msgstr "ACL ID"
+
+msgid "ACL been edited"
+msgstr "ACL har blitt redigert"
+
+msgid "ACL has been deleted"
+msgstr "ACL er blitt slettet"
+
+msgid "ACL name"
+msgstr "ACL-navn"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add ACL"
+msgstr "Legg til ACL"
+
+msgid "Are you sure you want to delete ACL ?"
+msgstr "Er du sikker på at du vil slette ACL?"
+
+msgid "Comma separated for multiple entries"
+msgstr "Kommaseparert for flere emner"
+
+msgid "Credit"
+msgstr "Kreditt"
+
+msgid "DEFAULT"
+msgstr "STANDARD"
+
+msgid "Edit ACL"
+msgstr "Rediger ACL"
+
+msgid "Fail to add new ACL"
+msgstr "Feil ved legge til ny ACL"
+
+msgid "Fail to delete ACL"
+msgstr "Feil ved sletting av ACL"
+
+msgid "Fail to edit ACL"
+msgstr "Feil ved redigering av ACL"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "List of accounts"
+msgstr "Liste over kontoer"
+
+msgid "Manage ACL"
+msgstr "Håndter ACL"
+
+msgid "Mandatory fields must not be empty"
+msgstr "Påkrevde felt kan ikke være tomme"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New ACL been added"
+msgstr "Ny ACL har blitt lagt til"
+
+msgid "Registered"
+msgstr "Registrert"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Subuser ACL"
+msgstr "Underbruker ACL"
+
+msgid "URLs"
+msgstr "URLer"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "View report"
+msgstr "Se rapport"

@@ -1,0 +1,44 @@
+msgid "Add blocked mobile numbers"
+msgstr "Legg till blokkerte mobilnummere"
+
+msgid "Blocked mobile"
+msgstr "Blokkert mobil"
+
+msgid "Comma separated values for multiple mobile numbers"
+msgstr "Kommaseparerte verdier for fler mobilnummere"
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Manage stoplist"
+msgstr "Hndter stoppliste"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Mobile numbers"
+msgstr "Mobilnummere"
+
+msgid "Mobile numbers have been blocked"
+msgstr "Mobilnummere har blitt blokkert"
+
+msgid "Mobile numbers have been deleted"
+msgstr "Mobilnummere har blitt slettet"
+
+msgid "Multiple mobile numbers must be comma-separated"
+msgstr "Fler mobilnummer m vre kommaseparert"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Select"
+msgstr "Velg"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "You must fill all fields"
+msgstr "Du m utfylle alle felDu m utfylle alle felt"

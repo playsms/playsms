@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb:NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "All queues have been removed"
+msgstr "Alle køer har blitt fjernet"
+
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Er du sikker på at du vil slette ALLE køer"
+
+msgid "Are you sure you want to delete queue"
+msgstr "Er du sikker på at du vil slette køen"
+
+msgid "Count"
+msgstr "Antall"
+
+msgid "Delete ALL queues"
+msgstr "Slett ALLE køer"
+
+msgid "Message"
+msgstr "Melding"
+
+msgid "Queue Code"
+msgstr "Kø-kode"
+
+msgid "Queue has been removed"
+msgstr "Kø har blitt fjernet"
+
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "View SMS queue"
+msgstr "Se SMS-kø"

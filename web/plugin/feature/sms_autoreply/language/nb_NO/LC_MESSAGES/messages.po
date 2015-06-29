@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMS autoreply"
+msgstr "Legg til SMS-autosvar"
+
+msgid "Add SMS autoreply scenario"
+msgstr "Legg til SMS-autosvar scenario"
+
+msgid "Are you sure you want to delete SMS autoreply ?"
+msgstr "Er du sikker på at du vil slette SMS-autosvar?"
+
+msgid "Are you sure you want to delete this SMS autoreply scenario ?"
+msgstr "Er du sikker på at du vil dette SMS-autosvar scenarioet?"
+
+msgid "Edit SMS autoreply"
+msgstr "Redigerer SMS-autosvar"
+
+msgid "Edit SMS autoreply scenario"
+msgstr "Rediger SMS-autosvar scenario"
+
+msgid "Fail to add SMS autoreply"
+msgstr "Kunne ikke legge til SMS-autosvar"
+
+msgid "Fail to add SMS autoreply scenario"
+msgstr "Kunne ikke legge til SMS-autosvar scenario"
+
+msgid "Fail to delete SMS autoreply"
+msgstr "Kunne ikke slette SMS-autosvar"
+
+msgid "Fail to delete SMS autoreply scenario"
+msgstr "Kunne ikke slette SMS-autosvar scenario"
+
+msgid "Fail to edit SMS autoreply scenario"
+msgstr "Kunne ikke redigere SMS-autosvar scenario"
+
+msgid "Fail to update SMS autoreply"
+msgstr "Kunne ikke oppdatere SMS-autosvar"
+
+msgid "Keyword"
+msgstr "Nøkkelord"
+
+msgid "Manage autoreply"
+msgstr "Håndter autosvar"
+
+msgid "Param"
+msgstr "Param"
+
+msgid "Return"
+msgstr "Retur"
+
+msgid "SMS autoreply has been deleted"
+msgstr "SMS-autosvar har blitt slettet"
+
+msgid "SMS autoreply has been updated"
+msgstr "SMS-autosvar har blitt oppdatert"
+
+msgid "SMS autoreply keyword"
+msgstr "SMS-autosvar nøkkelord"
+
+msgid "SMS autoreply keyword has been added"
+msgstr "SMS-autosvar nøkkelord har blitt lagt til"
+
+msgid "SMS autoreply scenario has been added"
+msgstr "SMS-autosvar scenario har blitt lagt til"
+
+msgid "SMS autoreply scenario has been deleted"
+msgstr "SMS-autosvar scenario har blitt slettet"
+
+msgid "SMS autoreply scenario has been edited"
+msgstr "SMS-autosvar scenario har blitt redigert"
+
+msgid "SMS autoreply scenario parameter"
+msgstr "SMS-autosvar scenario parameter"
+
+msgid "SMS autoreply scenario replies with"
+msgstr "SMS-autosvar scenario svarer med"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+"SMS nøkkelord eksisterer allerede, reservert eller brukt av andre funksjoner"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felt"
+
+msgid "keyword"
+msgstr "nøkkelord"

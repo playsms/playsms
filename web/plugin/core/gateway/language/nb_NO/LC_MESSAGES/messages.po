@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMSC"
+msgstr "Legg till SMSC"
+
+msgid "Are you sure ?"
+msgstr "Er du sikker?"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Edit SMSC"
+msgstr "Rediger SMSC"
+
+msgid "Fail to add new SMSC"
+msgstr "Kunne ikke legge til SMSC"
+
+msgid "Fail to edit SMSC"
+msgstr "Feil ved redigering av SMSC"
+
+msgid "Fail to remove SMSC"
+msgstr "Feil ved fjerning av SMSC"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Gateways"
+msgstr "Gateways"
+
+msgid "List of gateways and SMSCs"
+msgstr "Liste over gateway og SMSCer"
+
+msgid "Manage gateway and SMSC"
+msgstr "Håndter gateway og SMSC"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New SMSC has been added"
+msgstr "Ny SMSC har blitt lagt til"
+
+msgid "Routed SMSC"
+msgstr "SMSC-rute "
+
+msgid "SMSC already exists"
+msgstr "SMSC eksisterer allerede"
+
+msgid "SMSC has been edited"
+msgstr "SMSC har blitt redigert"
+
+msgid "SMSC has been removed"
+msgstr ""
+
+msgid "SMSC name"
+msgstr "SMSC-navn"
+
+msgid "SMSCs"
+msgstr "SMSCer"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Supplied SMSC"
+msgstr "Levert SMSC"
+
+msgid "Unknown error"
+msgstr "Ukjent feil"

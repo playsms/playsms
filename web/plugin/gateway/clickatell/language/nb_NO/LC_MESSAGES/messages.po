@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "API ID"
+msgstr "API ID"
+
+msgid "Additional URL parameter"
+msgstr "Ytterlige URL-paramtere"
+
+msgid "Clickatell API URL"
+msgstr "Clickatell API URL"
+
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell er en masse-SMS leverandør"
+
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgstr "Clickatell vil sende DLR og innkommende SMS til din callback URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+
+msgid "Fill to change the password"
+msgstr "Fyll for å skifte passord"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurasjon har blitt lagret"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "Manage clickatell"
+msgstr "Håndter clickatell"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 numeriske eller 11 alfanumeriske tegn, tom for å deaktivere"
+
+msgid "Module sender ID"
+msgstr "AvsenderID-modul"
+
+msgid "Module timezone"
+msgstr "Tidssone-modul"
+
+msgid "No changes have been made"
+msgstr "Ingen endringer har blitt gjort"
+
+msgid "No trailing slash"
+msgstr "Ingen etterfølgende skråstrek"
+
+msgid "Notes"
+msgstr "Notater"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Your callback URL is"
+msgstr "Din callback URL er"
+
+msgid "Your callback URL should be accessible from Clickatell"
+msgstr "Din callback URL skal være tilgjengelig fra Clickatell"
+
+msgid "free credits are available for testing purposes"
+msgstr "gratis kreditt er tilgjengelig for testformål"

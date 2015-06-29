@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "Manage template"
+msgstr "Håndter template"
+
+msgid "No changes have been made"
+msgstr "Ingen endringer har blitt gjort"
+
+msgid "No trailing slash"
+msgstr "Ingen etterfølgende skråstrek"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Template installation path"
+msgstr "Template installasjonssti"

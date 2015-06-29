@@ -1,0 +1,42 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Check to enable receiving push messages from SMSSync app"
+msgstr "Marker for å aktivere mottagelse av push-meldinger fra SMSSync app"
+
+msgid "Download SMSSync app for Android from"
+msgstr "Last ned SMSSync app til Android fra"
+
+msgid "Enable SMS Sync"
+msgstr "Aktiverer SMS Sync"
+
+msgid "Fail to save SMS Sync configuration"
+msgstr "Kunne ikke lagre SMS Sync konfigurasjon"
+
+msgid "Manage sync"
+msgstr "Håndter sync"
+
+msgid "Notes"
+msgstr "Notater"
+
+msgid "SMS Sync configuration has been saved"
+msgstr "SMS Sync konfigurasjon har blitt lagret"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Secret key"
+msgstr "Hemmelig nøkkel"
+
+msgid "Secret key is used in SMSSync app"
+msgstr "Hemmelig nøkkel er i bruk i SMSSync app"
+
+msgid "Sync URL"
+msgstr "Sync URL"

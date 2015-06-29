@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Check email sender"
+msgstr "Sjekk emailsenderen"
+
+msgid "Email protocol"
+msgstr "Emailprotokoll"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "Email til SMS-PIN har blitt lagret"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "Email to SMS-PIN har blitt lagret, men tjenesten er deaktivert"
+
+msgid "Email to SMS address"
+msgstr "Email til SMS-adresse"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "Email til SMS-konfigurasjon har blitt lagret og tjenesten deaktivert"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "Email til SMS-konfigurasjon har blitt lagret og tjenesten aktivert"
+
+msgid "Enable fetch new emails"
+msgstr "Aktiver hentning av nye emails"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Kunne ikke lagre email til SMS-PIN"
+
+msgid "Fill the password field to change password"
+msgstr "Fyll ut passordfeltet for å endre passord"
+
+msgid "Mail server address"
+msgstr "Postserver-adresse"
+
+msgid "Mail server port"
+msgstr "Postserver-port"
+
+msgid "Mailbox password"
+msgstr "Postkasse-passord"
+
+msgid "Mailbox username"
+msgstr "Postkasse-brukernavn"
+
+msgid "Manage email to SMS"
+msgstr "Håndter email til SMS"
+
+msgid "My email to SMS"
+msgstr "Min emal til SMS"
+
+msgid "No validate cert option"
+msgstr "Ingen gyldige cert-innstillinger"
+
+msgid "PIN for email to SMS"
+msgstr "PIN-kode for email til SMS"
+
+msgid "PIN is empty"
+msgstr "PIN er tom"
+
+msgid "Use SSL"
+msgstr "Bruk SSL"
+
+msgid "no"
+msgstr "nei"
+
+msgid "yes"
+msgstr "ja"

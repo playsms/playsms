@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMS quiz"
+msgstr "Legg til SMS-quiz"
+
+msgid "Answer"
+msgstr "Svar"
+
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Er du sikker på at du ønsker å slette SMS-quiz med alle dets valg og stemmer?"
+
+msgid "Are you sure you want to delete this answer ?"
+msgstr "Er du sikker på at du vil slette dette svaret?"
+
+msgid "Datetime"
+msgstr "Dato-tid"
+
+msgid "Edit SMS quiz"
+msgstr "Rediger SMS-quiz"
+
+msgid "Fail to add SMS quiz"
+msgstr "Kunne ikke legge til SMS-quiz"
+
+msgid "Fail to edit SMS quiz"
+msgstr "Kunne ikke redigere SMS-quiz"
+
+msgid "Keyword"
+msgstr "Nøkkelord"
+
+msgid "Manage quiz"
+msgstr "Håndter quiz"
+
+msgid "Question"
+msgstr "Spørsmål"
+
+msgid "Received answer list for keyword"
+msgstr "Mottatt svarliste for nøkkelord"
+
+msgid "Reply message on correct"
+msgstr "Svarbeskjed ved korrekt"
+
+msgid "Reply message on incorrect"
+msgstr "Svarbeskjed ved feil"
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
+"SMS-quiz eksisterer allerede, er reservert eller er i bruk av annen funksjon"
+
+msgid "SMS quiz answer"
+msgstr "SMS-quiz svar"
+
+msgid "SMS quiz answer messages have been deleted"
+msgstr "SMS-quis svarbeskjeder har blitt slettet"
+
+msgid "SMS quiz has been added"
+msgstr "SMS-quiz har blitt lagt til"
+
+msgid "SMS quiz has been saved"
+msgstr "SMS-quiz har blitt lagret"
+
+msgid "SMS quiz keyword"
+msgstr "SMS-quiz nøkkelord"
+
+msgid "SMS quiz question"
+msgstr "SMS-quiz spørsmål"
+
+msgid "SMS quiz status has been changed"
+msgstr "SMS-quiz stats har blitt endret"
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr "SMS-quiz med alle dets meldinger har blitt slettet"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Sender"
+msgstr "Sender"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "You must fill all field"
+msgstr "Du må utfylle alle felter"
+
+msgid "correct"
+msgstr "riktig"
+
+msgid "incorrect"
+msgstr "feil"
+
+msgid "keyword"
+msgstr "nøkkelord"

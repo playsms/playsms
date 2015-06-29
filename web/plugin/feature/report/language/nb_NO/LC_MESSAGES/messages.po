@@ -1,0 +1,192 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb:NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Account has been unbanned"
+msgstr "Konto er ikke lengre bannlyst"
+
+msgid "All feature messages"
+msgstr "Alle feature meldinger"
+
+msgid "All inbox"
+msgstr "Alle innbokser"
+
+msgid "All reports"
+msgstr "Alle rapporter"
+
+msgid "All sent messages"
+msgstr "Alle sendte beskjeder"
+
+msgid "Amount"
+msgstr "Beløp"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Er du sikker på at du vil slette disse emnene?"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Er du sikker på at du vil slette disse transaksjonene"
+
+msgid "Balance"
+msgstr "Balanse"
+
+msgid "Balance recorded on transaction"
+msgstr "Balanse på transaksjonen"
+
+msgid "Ban date/time"
+msgstr "Bannlyst dato/tid"
+
+msgid "Banned users list"
+msgstr "Listen over bannlyste brukere"
+
+msgid "Billing"
+msgstr "Fakturering"
+
+msgid "Content"
+msgstr "Innhold"
+
+msgid "Credit"
+msgstr "Kreditt"
+
+msgid "Current IP address"
+msgstr "Nåværende IP-adresse"
+
+msgid "Deleted"
+msgstr "Slettet"
+
+msgid "Delivered"
+msgstr "Levert"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Failed"
+msgstr "Mislykket"
+
+msgid "Feature"
+msgstr "Funksjon"
+
+msgid "Footer"
+msgstr "Bunntekst"
+
+msgid "From"
+msgstr "Fra"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Inbox"
+msgstr "Innboks"
+
+msgid "Keyword"
+msgstr "Nøkkelord"
+
+msgid "Last update"
+msgstr "Sist oppdatert"
+
+#, php-format
+msgid "List of messages from %s"
+msgstr "Vis alle meldinger fra %s"
+
+msgid "List of my credit transactions"
+msgstr "Liste over mine kreditt-transaksjoner"
+
+#, php-format
+msgid "List of queue %s"
+msgstr "Liste over køen %s"
+
+msgid "Message"
+msgstr "Melding"
+
+msgid "My credit transactions"
+msgstr "Mine kreditt-transaksjoner"
+
+msgid "My feature messages"
+msgstr "Mine feature-meldinger"
+
+msgid "My report"
+msgstr "Min rapport"
+
+msgid "My sent messages"
+msgstr "Mine sendte meldinger"
+
+msgid "Pending"
+msgstr "Avventer"
+
+msgid "Report"
+msgstr "Rapport"
+
+msgid "Report all users"
+msgstr "Rapport alle brukere"
+
+msgid "Report banned users"
+msgstr "Rapport bannlyste brukere"
+
+msgid "Report whose online"
+msgstr "Rapport hvem som er online"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Sandbox"
+msgstr "Sandbox"
+
+msgid "Selected incoming message has been deleted"
+msgstr "Valgt innkommende melding har blitt slettet"
+
+msgid "Selected outgoing message has been deleted"
+msgstr "Valgt utgående melding har blitt slettet"
+
+msgid "Selected transactions has been deleted"
+msgstr "Valgte transaksjoner har blitt slettet"
+
+msgid "Sent"
+msgstr "Sendt"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "To"
+msgstr "Til"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Transaction datetime"
+msgstr "Transaksjon data-tid"
+
+msgid "Unable to unban account"
+msgstr "Kunne ikke fjerne bannlysning av konto"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "User agent"
+msgstr "Brukeragent"
+
+msgid "Whose online"
+msgstr "Hvem er online"
+
+msgid "cost"
+msgstr "pris"
+
+msgid "count"
+msgstr "antall"
+
+msgid "rate"
+msgstr "frekvens"
+
+msgid "username"
+msgstr "brukernavn"
+
+#, php-format
+msgid "view all %d"
+msgstr "se alle %d"

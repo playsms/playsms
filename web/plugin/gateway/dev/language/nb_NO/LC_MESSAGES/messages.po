@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Date/Time"
+msgstr "Dato/Tid"
+
+msgid "Fail to simulate incoming SMS"
+msgstr "Kunne ikke simuluere inkommende SMS"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "Manage dev"
+msgstr "Håndter dev"
+
+msgid "Message"
+msgstr "Beskjed"
+
+msgid "Receiver"
+msgstr "Mottager"
+
+msgid "Sender"
+msgstr "Avsender"
+
+msgid "Simulate incoming SMS"
+msgstr "Simulerer innkommende SMS"
+
+msgid "Submit"
+msgstr "Innsend"
+
+msgid "This is a test incoming SMS message"
+msgstr "Dette er en innkommende test-SMS"

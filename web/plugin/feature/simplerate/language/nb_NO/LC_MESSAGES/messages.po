@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add rate"
+msgstr "Legg til takst"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Er du sikker på at du vil slette takst?"
+
+msgid "Destination"
+msgstr "Destinasjon"
+
+msgid "Edit rate"
+msgstr "Rediger takst"
+
+msgid "Fail to delete rate"
+msgstr "Kunne ikke slette takst"
+
+msgid "Fail to save rate"
+msgstr "Kunne ikke lagre takst"
+
+msgid "Manage SMS rate"
+msgstr "Håndter SMS-takst"
+
+msgid "No changes made!"
+msgstr "Ingen endringer gjort!"
+
+msgid "Prefix"
+msgstr "Prefiks"
+
+msgid "Rate"
+msgstr "Takst"
+
+msgid "Rate already exists"
+msgstr "Taksten eksisterer allerede"
+
+msgid "Rate has been added"
+msgstr "Taksten har blitt lagt til"
+
+msgid "Rate has been deleted"
+msgstr "Taksten har blitt slettet"
+
+msgid "Rate has been saved"
+msgstr "Taksten har blitt lagret"
+
+msgid "Save"
+msgstr "Lagre"
+
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr "Brukernavn %s med kontoID %d har nådd den laveste kredittgrense på %s"
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr "Du har nådd den laveste kredittgrense på %s"
+
+msgid "You must fill all fields"
+msgstr "Du må ufylle alle felt"
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
+msgstr ""
+"Din underbruker med brukernavn %s og kontoID %d har nådd den laveste "
+"kredittgrense på %s"
+
+msgid "destination"
+msgstr "destinasjon"
+
+msgid "prefix"
+msgstr "prefiks"

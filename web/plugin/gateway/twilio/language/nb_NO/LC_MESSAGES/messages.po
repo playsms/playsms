@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Account SID"
+msgstr "Konto SID"
+
+msgid "Auth Token"
+msgstr "Auth Token"
+
+msgid "Callback URL"
+msgstr "Callback URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +07000 for Jakarta/Bangkok tidssone"
+
+msgid "Fill to change the Auth Token"
+msgstr "Utfyll for å endre Auth Token"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "Manage twilio"
+msgstr "Håndter twilio"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn, tom for å deaktivere"
+
+msgid "Module sender ID"
+msgstr "SenderID-modul"
+
+msgid "Module timezone"
+msgstr "Tidssone-modul"
+
+msgid "No changes have been made"
+msgstr "Ingen endringer har blitt gjort"
+
+msgid "Notes"
+msgstr "Notater"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Twilio URL"
+msgstr "Twilio URL"
+
+msgid "Your callback URL should be accessible from twilio"
+msgstr "Din callback URL skal være tilgjengelig fra twilio"
+
+msgid "free credits are available for testing purposes"
+msgstr "gratis kreditt er tilgjenlige for testformål"
+
+msgid "twilio is a bulk SMS provider"
+msgstr "twilio er en masse-SMS leverandør"
+
+msgid "twilio will push DLR and incoming SMS to your callback URL"
+msgstr "twilio will sende DLR og innkommende SMS til din callback URL"

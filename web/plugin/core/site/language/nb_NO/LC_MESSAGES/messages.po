@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Active themes"
+msgstr "Aktive temaer"
+
+msgid "Buy credit page"
+msgstr "Kjøp kreditt-side"
+
+msgid "Configuration"
+msgstr "Konfigurasjon"
+
+msgid "Default credit upon registration"
+msgstr "Standardkreditt ved registrering"
+
+msgid "Default language"
+msgstr "Standardspråk"
+
+msgid "Domain"
+msgstr "Domene"
+
+msgid "Email footer"
+msgstr "Email-footer"
+
+msgid "Email service"
+msgstr "Email-service"
+
+msgid "Enable forgot password"
+msgstr "Aktiver glemt passord"
+
+msgid "Enable logo"
+msgstr "Aktiver logo"
+
+msgid "Enable public registration"
+msgstr "Aktiver offentlig registrering"
+
+msgid "Information page"
+msgstr "Informasjonsside"
+
+msgid "Layout footer"
+msgstr "Layout-footer"
+
+msgid "Logo URL"
+msgstr "Logo URL"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Logo vil ved standard vises på login, registrering og glemt passord-side"
+
+msgid "Main website URL"
+msgstr "Hovednettside-URL"
+
+msgid "Main website name"
+msgstr "Hovednettside-navn"
+
+msgid "Manage site"
+msgstr "Håndter side"
+
+msgid "Page content"
+msgstr "Sideinnhold"
+
+msgid "Page title"
+msgstr "Sidetittel"
+
+msgid "Replace website title with logo"
+msgstr "Ersttat nettsidetittel med logo"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Site configuration"
+msgstr "Sidekonfigurasjon"
+
+msgid "Site configuration has been saved"
+msgstr "Sidekonfigurasjon har blitt lagret"
+
+msgid "The domain is already configured by other user"
+msgstr ""
+
+msgid "Website title"
+msgstr "Nettside-tittel"
+
+msgid "domain"
+msgstr "domene"
+
+msgid "no"
+msgstr "nei"
+
+msgid "yes"
+msgstr "ja"

@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "CSV file format"
+msgstr "CSV filformat"
+
+msgid "Cancel send from file"
+msgstr "Avbryt send fra fil"
+
+msgid "Confirmation"
+msgstr "Bekreftelse"
+
+msgid "Destination number"
+msgstr "Destinasjonsnummer"
+
+msgid "Found invalid entries in uploaded file"
+msgstr "Fant ugyldige oppføringer i opplastet fil"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Fant gyldige oppføringer i opplastet fil"
+
+msgid "Invalid CSV file"
+msgstr "Ugyldig CSV-fil"
+
+msgid "Invalid entries"
+msgstr "Ugyldige linjer"
+
+msgid "Invalid session ID"
+msgstr "Ugyldig session ID"
+
+msgid "Message"
+msgstr "Melding"
+
+msgid "Please select CSV file"
+msgstr "Vennligst velg CSV-fil"
+
+msgid "Prevent duplicates"
+msgstr "Unngå duplikater"
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "SMS har blitt sendt til gyldige nummere i opplastet fil"
+
+msgid "Send SMS to valid entries"
+msgstr "Send SMS til gyldige oppføringer"
+
+msgid "Send from file"
+msgstr "Send fra fil"
+
+msgid "Send from file has been cancelled"
+msgstr "Send fra fil har blitt avbrutt"
+
+msgid "Upload file"
+msgstr "Opplast fil"
+
+msgid "Uploaded file"
+msgstr "Opplastet fil"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Your choice"
+msgstr "Ditt valg"
+
+msgid "destination number, message"
+msgstr "destinasjonsnummer, melding"
+
+msgid "destination number, message, username"
+msgstr "destinasjonsnummer, melding, brukernavn"
+
+msgid "invalid entries"
+msgstr "ugyldige oppføringer"
+
+msgid "of"
+msgstr "av"
+
+msgid "valid entries"
+msgstr "gyldige oppføringer"

@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr "Kontoen %s er blitt bannlyst fra å bruke tjenesten"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+#, fuzzy
+msgid "Compose message"
+msgstr "Skriv melding"
+
+msgid "Fail to send message to all destinations"
+msgstr "Kunne ikke sende melding til alle destinasjoner"
+
+msgid "Flash message"
+msgstr "Flash-melding"
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Format: ÅÅÅÅ-MM-DD tt:mm"
+
+msgid "Internal error please contact service provider"
+msgstr "Intern feil, vennligst kontakt tjenesteleverandør"
+
+msgid "Message"
+msgstr "Melding"
+
+#, php-format
+msgid "Message %s has been delivered to queue"
+msgstr "Meldingen %s har blitt sendt til køen"
+
+msgid "Message footer"
+msgstr "Meldingsfooter"
+
+msgid "Options"
+msgstr "Innstillinger"
+
+msgid "Please select template"
+msgstr "Vennligst velg mal"
+
+msgid "Prefix with # for groups and @ for users"
+msgstr "Prefiks med # for grupper og @ for brukere"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "Schedule"
+msgstr "Tidsskjema"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "Send message failed due to insufficient funds"
+msgstr "Sending av melding har misslykkes på grunn av kredittmangel"
+
+msgid "Send message failed due to unable to create queue"
+msgstr "Sending av melding har misslykkes på grunn av feil i opprettelse av kø"
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr "Sending av melding misslykkes fordi køen %s ikke kunne forberedes"
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
+msgstr "Sending av melding til %s i køen %s har mislykkes"
+
+msgid "Send to"
+msgstr "Send til"
+
+msgid "Sender ID"
+msgstr "SenderID"
+
+msgid "System error has occured"
+msgstr "Systemfeil har oppstått"
+
+msgid "Unicode message"
+msgstr "Unicode-melding"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Du må velge en mottager og meldingen din kan ikke være tom"
+
+msgid "Your message has been delivered to queue"
+msgstr "Meldingen din har blitt sendt til køen"
+
+msgid "Your message has been delivered to some of the destinations"
+msgstr "Meldingen din har blitt sendt til noen av destinasjonene"
+
+msgid "chars"
+msgstr "tegn"
+
+msgid "failed"
+msgstr "mislykket"
+
+msgid "queued"
+msgstr "i kø"

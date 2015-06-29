@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Fail to recover password"
+msgstr "Feil ved gjenoppretting av passord"
+
+msgid "Fail to save temporary password"
+msgstr "Feil ved lagring av midlertidig passord"
+
+msgid "Fail to send email"
+msgstr "Feil ved sending av email"
+
+msgid "Home"
+msgstr "Hjem"
+
+msgid "Invalid username or password"
+msgstr "Ugyldig brukernavn eller passord"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Password has been emailed"
+msgstr "Passord har blitt tilsendt på mail"
+
+msgid "Password recovery"
+msgstr "Passordgjenoppretting"
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr "Skriv inn den viste captcha-setningen riktig"
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+"Les og tast inn captcha-setningen i feltet. Hvis du ikke kan lese den, så "
+"kontakt administratoren."
+
+msgid "Recover password"
+msgstr "Gjenopprett passord"
+
+msgid "Recover password disabled"
+msgstr "Gjennoppretning av passord er deaktivert"
+
+msgid "Register an account"
+msgstr "Registrer konto"
+
+msgid "Submit"
+msgstr "Send"
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+"Dette midlertidige passordet vil bli fjernet når du har logget inntil "
+"tjenesten"
+
+msgid "Unable to login"
+msgstr "Kan ikke logge ut"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Username or email"
+msgstr "Brukernavn eller email"
+
+msgid "Verify captcha"
+msgstr "Verifiser captcha"
+
+msgid "You have been logged out"
+msgstr "Du har blitt logget ur"
+
+msgid "You have no access to this page"
+msgstr "Du har ikke tilgang til denne siden"
+
+msgid "You or someone else have requested a password recovery"
+msgstr "Du, eller en annen, har sendt forespørsel om passordgjenoppretting"

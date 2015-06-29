@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add credit"
+msgstr "Legg til kreditt"
+
+msgid "Add credit to users"
+msgstr "Legg til kreditt til brukere"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratorer"
+
+msgid "Amount"
+msgstr "Beløp"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Er du sikker på at du ønsker å slette disse transaksjonene?"
+
+msgid "Balance"
+msgstr "Balanse"
+
+msgid "Balance recorded on transaction"
+msgstr "Balanse på transaksjonen"
+
+msgid "Credit has been added"
+msgstr "Kreditt har blitt lagt til"
+
+msgid "Credit has been reduced"
+msgstr "Kreditt har blitt redusert"
+
+msgid "Fail to add credit"
+msgstr "Kunne ikke legge til kreditt"
+
+msgid "Fail to reduce credit"
+msgstr "Feil ved redusering av kreditt"
+
+msgid "List of transactions"
+msgstr "Liste over transaksjoner"
+
+msgid "Manage credit"
+msgstr "Håndter kreditt"
+
+msgid "Reduce credit"
+msgstr "Reduser kreditt"
+
+msgid "Reduce credit from users"
+msgstr "Reduser kreditt fra brukere"
+
+msgid "Select users"
+msgstr "Velg brukere"
+
+msgid "Selected transactions has been deleted"
+msgstr "Valgte transaksjoner har blitt slettet"
+
+msgid "Subuser"
+msgstr "Underbruker"
+
+msgid "Subusers"
+msgstr "Underbrukere"
+
+msgid "Transaction datetime"
+msgstr "Transaksjon dato-tid"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "User ID"
+msgstr "BrukerID"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Users"
+msgstr "Brukere"
+
+msgid "Wrong amount or user does not exist"
+msgstr "Feil mengde eller brukeren eksisterer ikke"
+
+msgid "amount"
+msgstr "beløp"
+
+msgid "balance"
+msgstr "balanse"
+
+msgid "user"
+msgstr "bruker"

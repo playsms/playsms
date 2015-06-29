@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add blocked IP addresses"
+msgstr "Legg til blokkert IP-adresse"
+
+msgid "Blocked IP address"
+msgstr "Blokkert IP-adresse"
+
+msgid "Comma separated values for multiple IP addresses"
+msgstr "Kommaseparerte verdier ved flere IP-adresser"
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "IP address"
+msgstr "IP-adresse"
+
+msgid "IP addresses"
+msgstr "IP-adresser"
+
+msgid "IP addresses have been blocked"
+msgstr "IP-adresser har blitt blokkert"
+
+msgid "IP addresses have been deleted"
+msgstr "IP-adresser har blitt slettet"
+
+msgid "Manage firewall"
+msgstr "Håndter brannmur"
+
+msgid "Multiple IP addresses must be comma-separated"
+msgstr "Flere IP-adresser skal adskilles med komma"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Select"
+msgstr "Velg"
+
+msgid "Select username"
+msgstr "Velg brukernavn"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felt"

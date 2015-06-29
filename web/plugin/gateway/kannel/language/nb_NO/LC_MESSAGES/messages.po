@@ -1,0 +1,120 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Additional URL parameter"
+msgstr "Ytterlige URL parametre"
+
+msgid "Bearerbox hostname or IP"
+msgstr "Bearerbox hostname eller IP"
+
+msgid "Changes have been made"
+msgstr "Endringer har blitt gjort"
+
+msgid "Delivered to SMSC"
+msgstr "Levert til SMSC"
+
+msgid "Delivered to phone"
+msgstr "Levert til telefon"
+
+msgid "Delivery Report"
+msgstr "Leveranserapport"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+
+msgid "Fill to change the password"
+msgstr "Utfyll for å endre passord"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "HTTP Kannel admin host"
+msgstr "HTTP Kannel admin host"
+
+msgid "HTTP Kannel admin password"
+msgstr "HTTP Kannel admin passord"
+
+msgid "HTTP Kannel admin port"
+msgstr "HTTP Kannel admin port"
+
+msgid "Incoming SMS time is in local time"
+msgstr "Innkommende SMS-tid er i lokal tid"
+
+msgid "Kannel admin host"
+msgstr "Kannel admin host"
+
+msgid "Kannel admin password"
+msgstr "Kannel admin passord"
+
+msgid "Kannel admin port"
+msgstr "Kannel admin port"
+
+msgid "Kannel specific"
+msgstr "Kannel spesifikt"
+
+msgid "Kannel status"
+msgstr "Kannel status"
+
+msgid "Manage kannel"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 numeriske eller 11 alfanumeriske tegn, tom for å deaktivere"
+
+msgid "Module sender ID"
+msgstr "SenderID-modul"
+
+msgid "Module timezone"
+msgstr "Tidssone-modul"
+
+msgid "No"
+msgstr "Nei"
+
+msgid "Non-Delivered to SMSC"
+msgstr "Ikke-levert til SMSC"
+
+msgid "Non-Delivered to phone"
+msgstr "Ikke-levert til telefon"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Queued on SMSC"
+msgstr "I kø på SMSC"
+
+msgid "Restart Kannel"
+msgstr "Restart Kanneø"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr "Velg nei hvis den innkommende SMS-tiden er i UTC"
+
+msgid "Send SMS hostname or IP"
+msgstr "SMS-avsender hostname eller IP"
+
+msgid "Send SMS port"
+msgstr "SMS-avsender port"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr "URL til playSMS, hvis tom settes den til base-URL"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "playSMS web URL"
+msgstr "playSMS web URL"

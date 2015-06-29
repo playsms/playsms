@@ -1,0 +1,54 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratorer"
+
+msgid "Back"
+msgstr "Tilbake"
+
+msgid "Compose message"
+msgstr "Send melding"
+
+msgid "Information"
+msgstr "Informasjon"
+
+msgid "Please select"
+msgstr "Vennligst velg"
+
+msgid "Search"
+msgstr "Søk"
+
+msgid "Select users"
+msgstr "Velg brukere"
+
+msgid "Subuser"
+msgstr "Underbruker"
+
+msgid "Subusers"
+msgstr "Underbrukere"
+
+msgid "This field is required"
+msgstr "Dette feltet er påkrevd"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "Users"
+msgstr "Brukere"
+
+msgid "no"
+msgstr "nei"
+
+msgid "yes"
+msgstr "ja"

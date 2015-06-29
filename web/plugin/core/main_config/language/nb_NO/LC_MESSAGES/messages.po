@@ -1,0 +1,225 @@
+msgid ""
+msgstr ""
+"Last-Translator: Robin Karlsen <robikar91.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL DEFAULT vil ikke begrense adgang til menyer"
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+"Adgang til ukjent domene som er mappet til denne servers IP-adresse vil bli "
+"omdirigert til nettstedets URL. URL-en bør være den primære addressen for "
+"servicen"
+
+msgid "Active themes"
+msgstr "Aktive temaer"
+
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr "Tillat bruker til å velge SMS-footer på Send SMS-siden"
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr "Tillat brukere til å velge senderID på Send SMS-siden"
+
+msgid "Always add plus sign"
+msgstr "Legg alltid til plusstegn"
+
+msgid "Always remove plus sign"
+msgstr "Fjern alltid plusstegn"
+
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr ""
+"Applikasjonsfooter her. Gå til primærkonfigurasjon eller håndter for å "
+"redigere denne footeren."
+
+msgid "Buy credit page"
+msgstr "Kjøp kreditt-side"
+
+msgid "Default ACL upon registration"
+msgstr "Standard ACL ved registrering"
+
+msgid "Default SMS rate"
+msgstr "Standard SMS-takst"
+
+msgid "Default SMSC"
+msgstr "Standard SMSC"
+
+msgid "Default account status upon registration"
+msgstr "Standard kontostatus ved registrering"
+
+msgid "Default credit upon registration"
+msgstr "Standard kreditt ved registrering"
+
+msgid "Default language"
+msgstr "Standardspråk"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+"Standard forelder valgt ved registrering når standard kontostatus ved "
+"registrering er satt til underbruker"
+
+msgid "Default parent upon registration"
+msgstr "Standard forelder valt ved registrering"
+
+msgid "Default prefix or country code"
+msgstr "Standard prefiks eller landskode"
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+"Standard prefiks eller landskode skal erstatte prefiks 0 på "
+"destinasjonsnummer"
+
+msgid "Default sender ID"
+msgstr "Standard senderID"
+
+msgid "Default settings"
+msgstr "Standardinnstillinger"
+
+msgid "Default site configuration"
+msgstr "Standard nettstedsinnstillinger"
+
+msgid "Default timezone"
+msgstr "Standard tidssone"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+"Angi et enkelt tegn som skal brukes som nøkkelordsseperator i stendenfor "
+"mellomrom som seperator"
+
+msgid "Disable login as subuser"
+msgstr "Deaktiver login som underbruker"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr ""
+"Nullstill standard senderID for å tillate brukere å velge deres eget senderID"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Aktiver kreditering av unicode-SMS som normal SMS"
+
+msgid "Enable forgot password"
+msgstr "Aktiver glemt passord"
+
+msgid "Enable login brute force detection"
+msgstr "Aktiver oppdaging av brute force login"
+
+msgid "Enable logo"
+msgstr "Aktiver logo"
+
+msgid "Enable public registration"
+msgstr "Aktiver offentlig registrering"
+
+msgid "Enhance privacy for subusers"
+msgstr "Forbedre privatliv for underbrukere"
+
+msgid "Fill with zero to disable limit"
+msgstr "Utfyll med null for å deaktivere begrensning"
+
+msgid "Forwarded email footer"
+msgstr "Videresendt email-footer"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+"Gå til hovedkonfigurasjon eller håndter nettside for å redigere denne siden"
+
+msgid "Information"
+msgstr "Informasjon"
+
+msgid "Information page"
+msgstr "Informasjonsside"
+
+msgid "Keyword separator"
+msgstr "Nøkkelords-separator"
+
+msgid "Layout footer"
+msgstr "Footerlayout"
+
+msgid "Logo URL"
+msgstr "Logo URL"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Logo vil vises som standard ved login, registrering og glemt passord-side"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr "Laveste kredittgrense som aktiverer notifikasjon"
+
+msgid "Main configuration"
+msgstr "Hovedkonfigurasjon"
+
+msgid "Main configuration changes has been saved"
+msgstr "Endringer i hovedkonfigurasjon har blitt lagret"
+
+msgid "Main website URL"
+msgstr "Hovednettside-URL"
+
+msgid "Main website name"
+msgstr "Hovednettside-navn"
+
+msgid "Maximum SMS count"
+msgstr "Maksimum antall SMS"
+
+msgid "Maximum username length"
+msgstr "Maksimum lengde på brukernavn"
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr "Maksimum brukernavns-lengde må være et tall mellom 4 og 100"
+
+msgid "Number of sent SMS per hour limit"
+msgstr "Grenste for antall SMS sendt per time"
+
+msgid "Page content"
+msgstr "Sideinnhold"
+
+msgid "Page title"
+msgstr "Sidetittel"
+
+msgid "Replace website title with logo"
+msgstr "Erstatt nettsidetittel med logo"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
+"Sett kredittverdi større enn 0 for å stille inn minstegrense som trigrer "
+"notifikasjon"
+
+msgid "Subuser"
+msgstr "Underbruker"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "Website URL"
+msgstr "Nettside-URL"
+
+msgid "Website email"
+msgstr "Nettside-email"
+
+msgid "Website title"
+msgstr "Nettsidetittel"
+
+msgid "no"
+msgstr "nei"
+
+msgid "yes"
+msgstr "ja"

@@ -1,0 +1,161 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMS schedule"
+msgstr "Legg til SMS-tidsplan"
+
+msgid "Add destination"
+msgstr "Legg til destinasjon"
+
+msgid "Annually"
+msgstr "Årlig"
+
+msgid "Are you sure you want to delete SMS schedule ?"
+msgstr "Er du sikker på at du vil slette SMS-tidsplanen?"
+
+msgid "Are you sure you want to remove this number from SMS schedule ?"
+msgstr "Er du sikker på at du vil fjerne dette nummeret fra SMS-tidsplanen?"
+
+msgid "Daily"
+msgstr "Daglig"
+
+msgid "Destination"
+msgstr "Destinasjon"
+
+msgid "Destination has been deleted"
+msgstr "Destinasjon har blitt slettet"
+
+msgid "Destination has been edited"
+msgstr "Destinasjon har blitt redigert"
+
+msgid "Edit destination"
+msgstr "Rediger destinasjon"
+
+msgid "Edit schedule"
+msgstr "Rediger tidsplan"
+
+msgid "Entries in CSV file have been imported"
+msgstr "Innhold is CSV-filen har blitt importert"
+
+msgid "Fail to add new SMS schedule"
+msgstr "Kunne ikke legge til ny SMS-tidsplan"
+
+msgid "Fail to add new destination"
+msgstr "Kunne ikke legg til ny destinasjon"
+
+msgid "Fail to delete SMS schedule"
+msgstr "Kunne ikke slette SMS-tidsplan"
+
+msgid "Fail to delete destination"
+msgstr "Kunne ikke slette destinasjon"
+
+msgid "Fail to edit SMS schedule"
+msgstr "Kunne ikke redigere SMS-tidsplan"
+
+msgid "Fail to edit destination"
+msgstr "Kunne ikke redigere destinasjon"
+
+msgid "Fail to upload CSV file"
+msgstr "Kunne ikke opplaste CSV-fil"
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "Import above destination entries ?"
+msgstr "Importer destinasjons-innleggene ovenfor?"
+
+msgid "Import confirmation"
+msgstr "Bekreft import"
+
+msgid "List of destinations"
+msgstr "Liste over destinasjoner"
+
+msgid "Manage schedule"
+msgstr "Håndter tidsplan"
+
+msgid "Mandatory fields must not be empty"
+msgstr "Påkrevde felter kan ikke være tomme"
+
+msgid "Message"
+msgstr "Melding"
+
+msgid "Monthly"
+msgstr "Månedlig"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New SMS schedule been added"
+msgstr "Ny SMS-tidsplan har blitt lagt til"
+
+msgid "New destination has been added"
+msgstr "Ny destinasjon har blitt lagt til"
+
+msgid "Once"
+msgstr "En gang"
+
+msgid "Please select CSV file"
+msgstr "Velg en CSV-fil"
+
+msgid "SMS schedule been saved"
+msgstr "SMS-tidsplan har blitt lagret"
+
+msgid "SMS schedule has been deleted"
+msgstr "SMS-tidsplan har blitt slettet"
+
+msgid "SMS schedule has been disabled"
+msgstr "SMS-tidsplan har blitt deaktivert"
+
+msgid "SMS schedule has been enabled"
+msgstr "SMS-tidsplan har blitt aktivert"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Schedule"
+msgstr "Tidsplan"
+
+msgid "Schedule ID"
+msgstr "TidsplanID"
+
+msgid "Schedule messages"
+msgstr "Planlegg meldinger"
+
+msgid "Schedule name"
+msgstr "Tidsplan-navn"
+
+msgid "Schedule rule"
+msgstr "Tidsplan-regel"
+
+msgid "Scheduled message"
+msgstr "Planlagt melding"
+
+msgid "Separate by comma for multiple destinations"
+msgstr "Separer med komme for flere destinasjoner"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Weekly"
+msgstr "Ukentlig"
+
+msgid "format"
+msgstr "format"

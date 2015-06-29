@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Additional URL parameter"
+msgstr "Ytterligere URL parametere"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "Manage uplink"
+msgstr "Håndter uplink"
+
+msgid "Master URL"
+msgstr "Master URL"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn, tom for å deaktivere"
+
+msgid "Module sender ID"
+msgstr "SenderID-modul"
+
+msgid "Module timezone"
+msgstr "Tidssone-modul"
+
+msgid "No changes have been made"
+msgstr "Ingen endringer har blitt gjort"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Try to disable SMS footer on master"
+msgstr "Prøv å deaktivere SMS footer på master"
+
+msgid "Webservice token"
+msgstr "Webservice token"
+
+msgid "Webservice username"
+msgstr "Webservice brukernavn"
+
+msgid "no"
+msgstr "nei"
+
+msgid "yes"
+msgstr "ja"

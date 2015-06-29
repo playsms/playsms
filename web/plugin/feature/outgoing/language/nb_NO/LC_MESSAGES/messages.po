@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb:NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add route"
+msgstr "Legg til rute"
+
+msgid "Are you sure ?"
+msgstr "Er du sikker?"
+
+msgid "Destination name"
+msgstr "Destinasjonsnavn"
+
+msgid "Edit route"
+msgstr "Rediger rute"
+
+msgid "Fail to add route"
+msgstr "Kunne ikke legge til rute"
+
+msgid "Fail to delete route"
+msgstr "Kunne ikke slette rute"
+
+msgid "Fail to save route"
+msgstr "Kunne ikke lagre rute"
+
+msgid "Maximum 8 digits numeric only"
+msgstr "Maksimum 8 nummeriske tegn"
+
+msgid "Prefix"
+msgstr "Prefiks"
+
+msgid "Route SMS outgoing"
+msgstr "Diriger utgående SMS"
+
+msgid "Route has been added"
+msgstr "Rute har blitt lagt til"
+
+msgid "Route has been deleted"
+msgstr "Rute har blitt slettet"
+
+msgid "Route has been saved"
+msgstr "Rute har blitt lagret"
+
+msgid "Route outgoing SMS"
+msgstr "Diriger utgående SMS"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felter"
+
+msgid "You must fill all mandatory fields"
+msgstr "Du må utfylle alle påkrevde felter"
+
+msgid "blocked"
+msgstr "blokkert"
+
+msgid "destination"
+msgstr "destinasjon"
+
+msgid "prefix"
+msgstr "prefiks"

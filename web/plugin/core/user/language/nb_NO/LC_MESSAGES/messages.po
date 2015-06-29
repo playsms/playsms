@@ -1,0 +1,430 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL DEFAULT vil ikke begrense adgang til menyer"
+
+msgid "Access Control List"
+msgstr "Adgangskontroll-liste"
+
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr ""
+"Kontoadmin eller nåværende innloggede administratorer kan ikke bannlyses"
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+"Kontoadmin eller nåværende innloggede administratorer kan ikkefå fjernet sin "
+"bannlysning"
+
+msgid "Account already exists"
+msgstr "Konto eksisterer allerede"
+
+msgid "Account has been added and password has been emailed"
+msgstr "Konto har blitt lagt till og passord har blitt sendt på mail"
+
+msgid "Account has been added but failed to send email"
+msgstr "Konto har blitt lagt til, men mail kunne ikke sendes"
+
+msgid "Account has been banned"
+msgstr "Konto har blitt bannlyst"
+
+msgid "Account has been removed"
+msgstr "Konto har blitt fjernet"
+
+msgid "Account has been unbanned"
+msgstr "Konto er ikke lengre bannlyst"
+
+msgid "Account name is mandatory"
+msgstr "Kontonavn er påkrevd"
+
+msgid "Account registration is not available"
+msgstr "Kontoregistrering er ikke tilgjengelig"
+
+msgid "Account status"
+msgstr "Kontostatus"
+
+msgid "Account with this email already exists"
+msgstr "Konto med denne email-en eksisterer allerede"
+
+msgid "Account with this mobile already exists"
+msgstr "Konto med dette mobilnummeret eksisterer allerede"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Active language"
+msgstr "Aktivt språk"
+
+msgid "Add account"
+msgstr "Legg til konto"
+
+msgid "Add or reduce credit from manage credit menu"
+msgstr "Legg til eller fjern kreditt fra håndter kreditt-meny"
+
+msgid "Add subuser"
+msgstr "Legg til underbruker"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratorer"
+
+msgid "Always choose to send as unicode"
+msgstr "Send alltid som unicode"
+
+msgid "Application options"
+msgstr "Programinstillinger"
+
+msgid "Are you sure you want to ban account"
+msgstr "Er du sikker på at du vil bannlyse kontoen"
+
+msgid "Are you sure you want to ban subuser"
+msgstr "Er du sikker på at du vil bannlyse underbrukeren"
+
+msgid "Are you sure you want to delete subuser"
+msgstr "Er du sikker på at du vil slette underbrukeren"
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr "Er du sikker på at du vil slette underbrukeren?"
+
+msgid "Are you sure you want to delete user"
+msgstr "Er du sikker på at du vil slette brukeren"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "Er du sikker på at du vil slette brukeren?"
+
+msgid "Are you sure you want to unban account"
+msgstr "Er du sikker på at du vil fjerne bannlysningen av kontoen"
+
+msgid "Are you sure you want to unban subuser"
+msgstr "Er du sikker på at du vil fjerne bannlysningen til underbrukeren"
+
+msgid "Cannot change status when user have subusers"
+msgstr "Kan ikke endre status når bruker har underbrukere"
+
+msgid "City"
+msgstr "By"
+
+msgid "Comma separated"
+msgstr "Kommaseparert"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Credit"
+msgstr "Kreditt"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "Nåværende innloggede brukere kan ikke slettes"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Default message footer"
+msgstr "Standard meldings-footer"
+
+msgid "Default sender ID"
+msgstr "Standard senderID"
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Effective SMS sender ID"
+msgstr "Effektivt SMS senderID"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email address is mandatory"
+msgstr "Email-adresse er påkrevd"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Aktiver kreditering av unicode SMS som normal SMS"
+
+msgid "Enable webservices"
+msgstr "Aktiver webservices"
+
+msgid "Fail to register an account"
+msgstr "Kunne ikke registrere en konto"
+
+msgid "Fail to save configuration"
+msgstr "Kunne ikke lagre konfigurasjonen"
+
+msgid "Fail to save preferences"
+msgstr "Kunne ikke lagre innstillingene"
+
+msgid "Forward message to email"
+msgstr "Videresend melding til email"
+
+msgid "Forward message to inbox"
+msgstr "Videresend melding til innboks"
+
+msgid "Forward message to mobile"
+msgstr "Videresend melding til mobil"
+
+msgid "Full name"
+msgstr "Fullt navn"
+
+msgid "Invalid sender ID"
+msgstr "Ugylding senderID"
+
+msgid "List of administrators"
+msgstr "Liste av administratorer"
+
+msgid "List of subusers"
+msgstr "Liste av underbrukere"
+
+msgid "List of users"
+msgstr "Liste av brukere"
+
+msgid "Local number length"
+msgstr "Lokalnummer-lengde"
+
+msgid "Login information"
+msgstr "Logininformasjon"
+
+msgid "Manage account"
+msgstr "Håndter konto"
+
+msgid "Manage subuser"
+msgstr "Håndter underbruker"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn"
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "Maks. 30 alfanummeriske tegn"
+
+msgid "Min length to detect missing country code"
+msgstr "Min. lengde for å oppdage manglende landskode"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New account registration"
+msgstr "Registrer ny konto"
+
+msgid "No changes made"
+msgstr "Ingen endringer gjort"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Parent"
+msgstr "Forelder"
+
+msgid "Parent account"
+msgstr "Forelderkonto"
+
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
+msgstr ""
+"Forelderkonto er kun påkrevd for underbrukere. Hvis det ikke angitt en "
+"verdi, vil underbrukeren automatisk tilknyttes til brukeradmin"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Password does not match"
+msgstr "Passord stemmer ikke overens"
+
+msgid "Password should be at least 4 characters"
+msgstr "Passord må minst være 4 tegn langt"
+
+msgid "Personal information"
+msgstr "Personlige opplysninger"
+
+msgid "Please remove all subusers from this user to delete"
+msgstr "Vennligst fjern alle underbrukere fra denne brukeren for å slette"
+
+msgid "Please select"
+msgstr "Vennligst velg"
+
+msgid "Preferences"
+msgstr "Innstillinger"
+
+msgid "Preferences have been saved"
+msgstr "Innstillnger har blitt lagret"
+
+msgid "Preferences have been saved and password updated"
+msgstr "Innstillinger har blitt lagret og passord oppdatert"
+
+msgid "Preferences have been saved and webservices token updated"
+msgstr "Innstillinger har blitt lagret og webservice token er oppdatert"
+
+msgid "Prefix or country code"
+msgstr "Prefiks eller landskode"
+
+msgid "Re-type password"
+msgstr "Tast passord igjen"
+
+msgid "Registered"
+msgstr "Registrert"
+
+msgid "Renew webservices token"
+msgstr "Forny webservices token"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Erstatt prefiks 0 eller utvid lokale nummere"
+
+msgid "SMS footer"
+msgstr "SMS-footer"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "State or Province"
+msgstr "Stat eller provins"
+
+msgid "Subuser"
+msgstr "Underbruker"
+
+msgid "Subusers"
+msgstr "Underbrukere"
+
+msgid "Timezone"
+msgstr "Tidssone"
+
+msgid "Unable to ban account"
+msgstr "Kan ikke bannlyse konto"
+
+msgid "Unable to ban subuser"
+msgstr "Kan ikke bannlyse underbruker"
+
+msgid "Unable to delete other users"
+msgstr "Kan ikke slette andre brukere"
+
+msgid ""
+"Unable to delete this user until all subusers under this user have been "
+"removed"
+msgstr ""
+"Kan ikke slette denne brukeren før alle underbrukere under denne brukeren "
+"har blitt fjernet"
+
+msgid "Unable to process subuser addition"
+msgstr "Kan ikke behandle underbruker-tilføyelse"
+
+msgid "Unable to process user addition"
+msgstr "Kan ikke behandle bruker-tilføyelse"
+
+msgid "Unable to unban account"
+msgstr "Kan ikke fjerne bannlysning fra konto"
+
+msgid "Unable to unban subuser"
+msgstr "Kan ikke fjerne bannlysning fra underbruker"
+
+msgid "Unknown error"
+msgstr "Ukjent feil"
+
+msgid "Unknown error has occurred"
+msgstr "Det oppstod en ukjent feil"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "User configuration"
+msgstr "Brukerkonfigurasjon"
+
+msgid "User configuration has been saved"
+msgstr "Brukerkonfigurasjon har blitt lagret"
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Brukerkonfigurasjon har blitt lagret og webservice token oppdatert"
+
+msgid "User deletion unavailable"
+msgstr "Brukersletning er ikke tilgjengelig"
+
+msgid "User does not exist"
+msgstr "Bruker eksisterer ikke"
+
+msgid "User is already on banned subusers list"
+msgstr "Brukeren er allerede blitt bannlyst i underbrukerlisten"
+
+msgid "User is already on banned users list"
+msgstr "Bruker er allerede bannlyst på brukerlisten"
+
+msgid "User is immune to deletion"
+msgstr "Bruker er immun mot sletning"
+
+msgid "User is not on banned subusers list"
+msgstr "Bruker er ikke på listen over bannluste underbrukere"
+
+msgid "User is not on banned users list"
+msgstr "Bruker er ikke på bannlyste brukere listen"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
+msgstr "Brukernavn må minst være 3 tegn langt og maksimum %d tegn"
+
+msgid "Users"
+msgstr "Brukere"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+"Gyldige tegn for brukernavn er bokstaver, tall, punktum eller bindestrek"
+
+msgid "Webservices IP range"
+msgstr "Webservices IP-område"
+
+msgid "Webservices token"
+msgstr "Webservices token"
+
+msgid "Webservices username"
+msgstr "Webservices brukernavn"
+
+msgid "You must fill all mandatory fields"
+msgstr "Du må fylle ut alle krevde felt"
+
+msgid "You must fill all required fields"
+msgstr "Du må fylle ut all påkrevde felt"
+
+msgid "Your email format is invalid"
+msgstr "Ditt email format er ugyldig"
+
+msgid "Your mobile format is invalid"
+msgstr "Ditt mobilformat er ugyldig"
+
+msgid "Zipcode"
+msgstr "Postnummer"
+
+msgid "email"
+msgstr "email"
+
+msgid "for subuser only"
+msgstr "kun til underbruker"
+
+msgid "mobile"
+msgstr "mobil"
+
+msgid "no"
+msgstr "nei"
+
+msgid "username"
+msgstr "brukernavn"
+
+msgid "yes"
+msgstr "ja"

@@ -1,0 +1,162 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr ""
+
+msgid "Add contact"
+msgstr ""
+
+msgid "Add group"
+msgstr ""
+
+msgid "Anyone"
+msgstr ""
+
+msgid "CSV file format"
+msgstr ""
+
+msgid "Contact has been added"
+msgstr ""
+
+msgid "Contact has been edited"
+msgstr ""
+
+msgid "Contacts have been imported"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Edit contact"
+msgstr ""
+
+msgid "Edit group"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Fail to delete group"
+msgstr ""
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Group code"
+msgstr ""
+
+msgid "Group code already exists"
+msgstr ""
+
+msgid "Group code has been added"
+msgstr ""
+
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr ""
+
+msgid "Group has been edited"
+msgstr ""
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
+
+msgid "Group name"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import above phonebook entries ?"
+msgstr ""
+
+msgid "Import confirmation"
+msgstr ""
+
+msgid "Me only"
+msgstr ""
+
+msgid "Members"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Move to"
+msgstr ""
+
+msgid "Multiple entries separated by space"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No changes have been made"
+msgstr ""
+
+msgid "No group"
+msgstr ""
+
+msgid "Phonebook"
+msgstr ""
+
+msgid "Please select CSV file for phonebook entries"
+msgstr ""
+
+msgid "Please use alphanumeric only and make it short"
+msgstr ""
+
+msgid "Please use uppercase and make it short"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Selected contact has been deleted"
+msgstr ""
+
+msgid "Selected contact moved to new group"
+msgstr ""
+
+msgid "Selected group has been deleted"
+msgstr ""
+
+msgid "Share phonebook and allow broadcast"
+msgstr ""
+
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Unable to delete group until the group is empty"
+msgstr ""
+
+msgid "You must fill all field"
+msgstr ""
+
+msgid "You must fill mandatory fields"
+msgstr ""
+
+msgid "You must fill required fields"
+msgstr ""
+
+msgid "code"
+msgstr ""
+
+msgid "group"
+msgstr ""

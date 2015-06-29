@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Add SMS board"
+msgstr "Legg til SMS-forum"
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr "Er du sikker på at du vil slette SMS-forum og dets meldinger?"
+
+msgid "CSS URL"
+msgstr "CSS URL"
+
+msgid "Date and time"
+msgstr "Dato og tid"
+
+msgid "Edit SMS board"
+msgstr "Rediger SMS-forum"
+
+msgid "Fail to add SMS board"
+msgstr "Kunne ikke legge til SMS-forum"
+
+msgid "Fail to edit SMS board"
+msgstr "Kunne ikke redigere SMS-forum"
+
+msgid "Forward"
+msgstr "Videresend"
+
+msgid "Forward to email"
+msgstr "Videresend til email"
+
+msgid "HTML output"
+msgstr "HTML output"
+
+msgid "JSON output"
+msgstr "JSON output"
+
+msgid "Keyword"
+msgstr "Nøkkelord"
+
+msgid "MBOX output"
+msgstr "MBOX output"
+
+msgid "Manage board"
+msgstr "Håndter forum"
+
+msgid "Message"
+msgstr "Melding"
+
+msgid "PHP serialize output"
+msgstr "PHP serialize output"
+
+msgid "RSS 0.91 output"
+msgstr "RSS 0.91 output"
+
+msgid "RSS 1.0 output"
+msgstr "RSS 1.0 output"
+
+msgid "RSS 2.0 output"
+msgstr "RSS 2.0 output"
+
+msgid "RSS ATOM output"
+msgstr "RSS ATOM output"
+
+msgid "Receiver"
+msgstr "Mottaker"
+
+msgid "Row template"
+msgstr "Rad-mal"
+
+msgid "SMS Board"
+msgstr "SMS-forum"
+
+msgid "SMS board from"
+msgstr "SMS-forum fra"
+
+msgid "SMS board has been added"
+msgstr "SMS-forum har blitt lagt til"
+
+msgid "SMS board has been saved"
+msgstr "SMS-forum har blitt lagret"
+
+msgid "SMS board keyword"
+msgstr "SMS-forum nøkkelord"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "SMS-forum med alle dets meldinger har blitt slettet"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+"SMS nøkkelord eksisterer allerede, reservert eller i bruk av en annen "
+"funksjon"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Sender"
+msgstr "Sender"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "View board"
+msgstr "Se forum"
+
+msgid "XML output"
+msgstr "XML output"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felt"
+
+msgid "keyword"
+msgstr "nøkkelord"

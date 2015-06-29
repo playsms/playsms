@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb:NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Refresh"
+msgstr "Oppdater"
+
+msgid "View log"
+msgstr "Vis logg"
+
+msgid "playSMS daemon is NOT running"
+msgstr "playSMS-daemon kjører ikke"
+
+msgid "playSMS daemon is running"
+msgstr "playSMS-daemon kjører"
+
+msgid "playSMS daemon status"
+msgstr "playSMS-daemon status"

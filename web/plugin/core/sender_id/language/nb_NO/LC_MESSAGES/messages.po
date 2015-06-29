@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add sender ID"
+msgstr "Legg til senderID"
+
+msgid "Approve sender ID"
+msgstr "Godkjenn senderID"
+
+msgid "Are you sure you want to delete sender ID"
+msgstr "Er du sikker på at du vil slette denne senderID-en?"
+
+msgid "Click the status button to enable or disable status"
+msgstr "Klikk på statusknapp for å aktiverere eller deaktivere status"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Edit sender ID"
+msgstr "Rediger senderID"
+
+msgid "Fail to update due to invalid sender ID"
+msgstr "Feil ved oppdatering på grunn av ugyldig senderID"
+
+msgid "Last update"
+msgstr "Sist oppdatert"
+
+msgid "Manage sender ID"
+msgstr "Håndter senderID"
+
+msgid "Only when the sender ID is approved"
+msgstr "Kun når avsenderID-en er godkjent"
+
+msgid "Sender ID"
+msgstr "SenderID"
+
+msgid "Sender ID description has been added"
+msgstr "SenderID-beskrivelse har blitt lagt til"
+
+msgid "Sender ID description has been updated"
+msgstr "SenderID-beskrivelse har blitt oppdatert"
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr "SenderID har blitt lagt til og venter på godkjenning"
+
+msgid "Sender ID has been removed"
+msgstr "SenderID har blitt fjernet"
+
+msgid "Sender ID is not available"
+msgstr "SenderID er ikke tilgjengelig"
+
+msgid "Sender ID is now approved"
+msgstr "SenderID er nå bekreftet"
+
+msgid "Sender ID is now disabled"
+msgstr "SenderID er nå blitt deaktivert"
+
+msgid "Set as default"
+msgstr "Sett som standard"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+#, php-format
+msgid "Username %s with account ID %d has requested approval for sender ID %s"
+msgstr "Brukernavn %s med kontoID %d har bedt om godkjennelse av senderID %s"
