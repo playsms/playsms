@@ -1,0 +1,128 @@
+msgid "Add"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+msgid "Compose message"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete user"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Features"
+msgstr ""
+
+msgid "Forward"
+msgstr ""
+
+msgid "Go"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Idle"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Logged in as"
+msgstr ""
+
+msgid "Login as"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Main configuration"
+msgstr ""
+
+msgid "Manage"
+msgstr ""
+
+msgid "Manage ACL"
+msgstr ""
+
+msgid "Manage account"
+msgstr ""
+
+msgid "Manage gateway and SMSC"
+msgstr ""
+
+msgid "Manage sender ID"
+msgstr ""
+
+msgid "Manage site"
+msgstr ""
+
+msgid "Manage subuser"
+msgstr ""
+
+msgid "Move"
+msgstr ""
+
+msgid "My account"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Reduce"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Resend"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Unban"
+msgstr ""
+
+msgid "User configuration"
+msgstr ""
+
+msgid "User preference"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""

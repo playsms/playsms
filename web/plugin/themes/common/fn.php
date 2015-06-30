@@ -12,6 +12,12 @@ function common_hook_themes_apply($content) {
 		$themes_layout = 'themes_layout';
 	}
 	
+	if (function_exists('bindtextdomain')) {
+		bindtextdomain('messages', $core_config['apps_path']['themes'] . '/common/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
+	
 	$tpl = array(
 		'name' => $themes_layout,
 		'vars' => array(
@@ -44,6 +50,12 @@ function common_hook_themes_apply($content) {
 function common_hook_themes_submenu($content = '') {
 	global $user_config;
 	
+	if (function_exists('bindtextdomain')) {
+		bindtextdomain('messages', $core_config['apps_path']['themes'] . '/common/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
+	
 	$separator = "&nbsp;&nbsp;&nbsp;";
 	
 	$logged_in = $user_config['username'];
@@ -68,6 +80,12 @@ function common_hook_themes_submenu($content = '') {
 
 function common_hook_themes_buildmenu($menu_config) {
 	global $core_config, $user_config, $icon_config;
+	
+	if (function_exists('bindtextdomain')) {
+		bindtextdomain('messages', $core_config['apps_path']['themes'] . '/common/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
 	
 	$main_menu = "";
 	foreach ($menu_config as $menu_title => $array_menu) {
@@ -134,6 +152,13 @@ function common_hook_themes_buildmenu($menu_config) {
 
 function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 	global $core_config;
+	
+	if (function_exists('bindtextdomain')) {
+		bindtextdomain('messages', $core_config['apps_path']['themes'] . '/common/language/');
+		bind_textdomain_codeset('messages', 'UTF-8');
+		textdomain('messages');
+	}
+	
 	$nav_pages = "";
 	if ($num) {
 		$nav_start = ((($nav - 1) * $max_nav) + 1);
