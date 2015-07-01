@@ -1,128 +1,128 @@
 msgid "Add"
-msgstr ""
+msgstr "Legg til"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
 msgid "Ban"
-msgstr ""
+msgstr "Bannlys"
 
 msgid "Buy"
-msgstr ""
+msgstr "Kjp"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Lag melding"
 
 msgid "Delete"
-msgstr ""
+msgstr "Slett"
 
 msgid "Delete user"
-msgstr ""
+msgstr "Slett bruker"
 
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 msgid "Export"
-msgstr ""
+msgstr "Eksporter"
 
 msgid "Features"
 msgstr ""
 
 msgid "Forward"
-msgstr ""
+msgstr "Videresend"
 
 msgid "Go"
-msgstr ""
+msgstr "Kjr"
 
 msgid "Group"
-msgstr ""
+msgstr "Gruppe"
 
 msgid "Home"
 msgstr "Hjem"
 
 msgid "Idle"
-msgstr ""
+msgstr "Idle"
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Logged in as"
-msgstr ""
+msgstr "Logget inn som"
 
 msgid "Login as"
-msgstr ""
+msgstr "Logg inn som"
 
 msgid "Logout"
 msgstr "Logg ut"
 
 msgid "Main configuration"
-msgstr ""
+msgstr "Hovedkonfigurasjon"
 
 msgid "Manage"
-msgstr ""
+msgstr "Hndter"
 
 msgid "Manage ACL"
-msgstr ""
+msgstr "Hndter ACL"
 
 msgid "Manage account"
-msgstr ""
+msgstr "Hndter konto"
 
 msgid "Manage gateway and SMSC"
-msgstr ""
+msgstr "Hndter gateway og SMSC"
 
 msgid "Manage sender ID"
-msgstr ""
+msgstr "Hndter senderID"
 
 msgid "Manage site"
-msgstr ""
+msgstr "Hndter side"
 
 msgid "Manage subuser"
-msgstr ""
+msgstr "Hndter underbruker"
 
 msgid "Move"
-msgstr ""
+msgstr "Flytt"
 
 msgid "My account"
-msgstr ""
+msgstr "Min konto"
 
 msgid "Offline"
-msgstr ""
+msgstr "Avlogget"
 
 msgid "Online"
-msgstr ""
+msgstr "Plogget"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Preferanse"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Reduser"
 
 msgid "Reply"
-msgstr ""
+msgstr "Svar"
 
 msgid "Reports"
-msgstr ""
+msgstr "Rapporter"
 
 msgid "Resend"
-msgstr ""
+msgstr "Send p nytt"
 
 msgid "Settings"
-msgstr ""
+msgstr "Innstillinger"
 
 msgid "Unban"
-msgstr ""
+msgstr "Fjern bannlysning"
 
 msgid "User configuration"
-msgstr ""
+msgstr "Brukerkonfigurasjon"
 
 msgid "User preference"
-msgstr ""
+msgstr "Brukerpreferanser"
 
 msgid "View"
-msgstr ""
+msgstr "Se"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Din kreditt"
 
 msgid "return"
-msgstr ""
+msgstr "tilbake"

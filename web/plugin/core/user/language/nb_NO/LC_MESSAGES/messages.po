@@ -87,7 +87,7 @@ msgid "Always choose to send as unicode"
 msgstr "Send alltid som unicode"
 
 msgid "Application options"
-msgstr "Programinstillinger"
+msgstr "Programinnstillinger"
 
 msgid "Are you sure you want to ban account"
 msgstr "Er du sikker på at du vil bannlyse kontoen"
