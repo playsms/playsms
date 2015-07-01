@@ -153,11 +153,12 @@ function common_hook_themes_buildmenu($menu_config) {
 function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 	global $core_config;
 	
-	if (function_exists('bindtextdomain')) {
-		bindtextdomain('messages', $core_config['apps_path']['themes'] . '/common/language/');
-		bind_textdomain_codeset('messages', 'UTF-8');
-		textdomain('messages');
-	}
+	// fixme anton - do not enable this or else you'll get issues with translation on files that using navbar
+	//if (function_exists('bindtextdomain')) {
+	//	bindtextdomain('messages', $core_config['apps_path']['themes'] . '/common/language/');
+	//	bind_textdomain_codeset('messages', 'UTF-8');
+	//	textdomain('messages');
+	//}
 	
 	$nav_pages = "";
 	if ($num) {
