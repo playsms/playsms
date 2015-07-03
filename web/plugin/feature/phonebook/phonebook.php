@@ -303,7 +303,9 @@ switch (_OP_) {
 						'uid' => $uid,
 						'mobile' => $mobile 
 					));
-					if ($c_pid = $list[0]['id']) {
+					// fixme anton - temporary - contacts not unique
+					// if ($c_pid = $list[0]['id']) {
+					if (FALSE) {
 						$save_to_group = TRUE;
 					} else {
 						$items = array(

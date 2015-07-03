@@ -194,7 +194,8 @@ switch (_OP_) {
 			case 'add':
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
-				$group_code = core_sanitize_alphanumeric($group_code);
+				// fixme anton
+				//$group_code = core_sanitize_alphanumeric($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($group_name && $group_code) {
@@ -217,7 +218,8 @@ switch (_OP_) {
 				$gpid = $_POST['gpid'];
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
-				$group_code = core_sanitize_alphanumeric($group_code);
+				// fixme anton
+				//$group_code = core_sanitize_alphanumeric($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($gpid && $group_name && $group_code) {

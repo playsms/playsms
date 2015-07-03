@@ -24,7 +24,8 @@ function phonebook_tags_clean($tags) {
 	$tags = '';
 	foreach ($arr_tags as $tag) {
 		if ($tag) {
-			$tag = strtolower(core_sanitize_alphanumeric($tag));
+			// fixme anton
+			//$tag = strtolower(core_sanitize_alphanumeric($tag));
 			if (strlen($tags) + strlen($tag) + 1 <= 250) {
 				$tags .= $tag . ' ';
 			} else {

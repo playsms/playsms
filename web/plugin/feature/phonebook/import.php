@@ -139,7 +139,9 @@ switch (_OP_) {
 			}
 			$tags = phonebook_tags_clean($d[4]);
 			if ($name && $mobile) {
-				if ($c_pid = phonebook_number2id($uid, $mobile)) {
+				// fixme anton - temporary - contacts not unique
+				// if ($c_pid = phonebook_number2id($uid, $mobile)) {
+				if (FALSE) {
 					if ($gpid) {
 						$save_to_group = TRUE;
 					}
