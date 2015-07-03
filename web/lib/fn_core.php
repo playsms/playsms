@@ -523,25 +523,31 @@ function core_sanitize_username($username) {
 /**
  * Sanitize to alpha-numeric only
  */
-function core_sanitize_alphanumeric($text) {
-	$text = preg_replace("/[^A-Za-z0-9]/", '', $text);
-	return $text;
+function core_sanitize_alphanumeric($string) {
+	// $text = preg_replace("/[^A-Za-z0-9]/", '', $text);
+	$string = trim(preg_replace('/[^\p{L}\p{N}]+/u', '', $string));
+	
+	return $string;
 }
 
 /**
  * Sanitize to alpha only
  */
-function core_sanitize_alpha($text) {
-	$text = preg_replace("/[^A-Za-z]/", '', $text);
-	return $text;
+function core_sanitize_alpha($string) {
+	// $text = preg_replace("/[^A-Za-z]/", '', $text);
+	$string = trim(preg_replace('/[^\p{L}]+/u', '', $string));
+	
+	return $string;
 }
 
 /**
  * Sanitize to numeric only
  */
-function core_sanitize_numeric($text) {
-	$text = preg_replace("/[^0-9]/", '', $text);
-	return $text;
+function core_sanitize_numeric($string) {
+	// $text = preg_replace("/[^0-9]/", '', $text);
+	$string = trim(preg_replace('/[^\p{N}]+/u', '', $string));
+	
+	return $string;
 }
 
 /**
