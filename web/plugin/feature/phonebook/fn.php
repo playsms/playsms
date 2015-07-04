@@ -18,22 +18,29 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
+function phonebook_code_clean($code) {
+	$code = trim(preg_replace('/[^\p{L}\p{N}_-]+/u', '', $code));
+	
+	return $code;
+}
+
 function phonebook_tags_clean($tags) {
-	$arr_tags = explode(' ', $tags);
+	$tags = trim(preg_replace("/\s+/", ' ', $tags));
+	$arr_tags = explode(',', $tags);
 	$arr_tags = array_unique($arr_tags);
 	$tags = '';
 	foreach ($arr_tags as $tag) {
 		if ($tag) {
 			// fixme anton
-			//$tag = strtolower(core_sanitize_alphanumeric($tag));
+			$tag = preg_replace('/[^\p{L}\p{N}_-\s\.]+/u', '', $tag);
 			if (strlen($tags) + strlen($tag) + 1 <= 250) {
-				$tags .= $tag . ' ';
+				$tags .= $tag . ', ';
 			} else {
 				break;
 			}
 		}
 	}
-	$tags = trim($tags);
+	$tags = rtrim(trim($tags), ',');
 	
 	return $tags;
 }
@@ -398,6 +405,8 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
  * @return boolean
  */
 function phonebook_group_add($uid, $group_name, $group_code) {
+	$group_code = phonebook_code_clean($group_code);
+	
 	$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {

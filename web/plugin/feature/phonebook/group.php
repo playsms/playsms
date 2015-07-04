@@ -195,7 +195,7 @@ switch (_OP_) {
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
 				// fixme anton
-				//$group_code = core_sanitize_alphanumeric($group_code);
+				$group_code = phonebook_code_clean($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($group_name && $group_code) {
@@ -219,7 +219,7 @@ switch (_OP_) {
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
 				// fixme anton
-				//$group_code = core_sanitize_alphanumeric($group_code);
+				$group_code = phonebook_code_clean($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($gpid && $group_name && $group_code) {
