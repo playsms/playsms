@@ -2,15 +2,15 @@
 
 playSMS version **1.1-master**
 
-Release date **150613**
+Release date **150728**
 
 Official project website:
 
 * http://playsms.org
 
-Official playSMS user group forum and mailing list:
+Official playSMS forum:
 
-* http://groups.google.com/group/playsmsusergroup
+* http://forum.playsms.org
 
 Official playSMS Facebook page:
 
