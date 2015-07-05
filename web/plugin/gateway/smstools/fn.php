@@ -1,4 +1,21 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
 function smstools_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
@@ -19,7 +36,7 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_da
 	if (file_exists($fn)) {
 		
 		$lines = @file($fn);
-		for($c = 0; $c < count($lines); $c++) {
+		for ($c = 0; $c < count($lines); $c++) {
 			$c_line = $lines[$c];
 			if (preg_match('/^Message_id: /', $c_line)) {
 				$message_id = trim(str_replace('Message_id: ', '', trim($c_line)));
@@ -80,7 +97,7 @@ function smstools_hook_getsmsinbox() {
 		
 		$lines = @file($fn);
 		$start = 0;
-		for($c = 0; $c < count($lines); $c++) {
+		for ($c = 0; $c < count($lines); $c++) {
 			$c_line = $lines[$c];
 			if (preg_match('/^From: /', $c_line)) {
 				$sms_sender = '+' . trim(str_replace('From: ', '', trim($c_line)));
@@ -107,7 +124,7 @@ function smstools_hook_getsmsinbox() {
 		if (!file_exists($fn) && $start) {
 			if ($sms_sender && $sms_datetime) {
 				$message = "";
-				for($lc = $start; $lc < count($lines); $lc++) {
+				for ($lc = $start; $lc < count($lines); $lc++) {
 					$message .= trim($lines[$lc]) . "\n";
 				}
 				if (strlen($message) > 0) {
@@ -223,5 +240,3 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	dlr($smslog_id, $uid, $p_status);
 	return $ok;
 }
-
-?>

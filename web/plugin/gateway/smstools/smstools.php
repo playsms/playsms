@@ -1,8 +1,28 @@
 <?php
-defined('_SECURE_') or die('Forbidden');
-if(!auth_isadmin()){auth_block();};
 
-include $core_config['apps_path']['plug']."/gateway/smstools/config.php";
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
+defined('_SECURE_') or die('Forbidden');
+
+if (!auth_isadmin()) {
+	auth_block();
+}
+
+include $core_config['apps_path']['plug'] . "/gateway/smstools/config.php";
 
 switch (_OP_) {
 	case "manage":
@@ -10,11 +30,11 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-			<h2>"._('Manage smstools')."</h2>
+			<h2>" . _('Manage smstools') . "</h2>
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>"._('Gateway name')."</td><td>smstools</td>
+					<td class=label-sizer>" . _('Gateway name') . "</td><td>smstools</td>
 				</tr>
 				</tbody>
 			</table>";
