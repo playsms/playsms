@@ -221,13 +221,10 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
-	$sms_id = "$gpid.$uid.$smslog_id";
-	if (empty($sms_id)) {
-		$sms_id = mktime();
-	}
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
+	
 	$the_msg = "From: " . $sms_sender . "\n";
 	$the_msg .= "To: " . $sms_to . "\n";
 	$the_msg .= "Report: yes\n";
@@ -242,14 +239,17 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 		// $sms_msg = str2hex($sms_msg);
 	}
 	if ($modem = $plugin_config['smstools']['modem']) {
-		_log('route to smsc:[' . $smsc . '] modem:[' . $modem . ']', 3, 'smstools_hook_sendsms');
 		$the_msg .= "Modem: " . $modem . "\n";
+		_log('route to smsc:[' . $smsc . '] modem:[' . $modem . ']', 3, 'smstools_hook_sendsms');
 	} else {
 		_log('routed by internal smstools3 smsc:[' . $smsc . ']', 3, 'smstools_hook_sendsms');
+		$modem = 'unspecified';
 	}
 	
 	// final message file content
 	$the_msg .= "\n" . $sms_msg;
+	
+	$sms_id = $modem . $gpid . "." . $uid . "." . $smslog_id . "." . mktime();
 	
 	// try to backup outgoing file first
 	$fn_bak = $plugin_config['smstools']['spool_bak'] . "/outgoing/out." . $sms_id;
