@@ -112,9 +112,12 @@ function smstools_hook_getsmsinbox() {
 	global $plugin_config;
 	
 	$smscs = gateway_getall_smsc_names($plugin_config['smstools']['name']);
-	foreach ($smscs as $smsc) {
-		$c_map = gateway_apply_smsc_config($smsc, $plugin_config);
-		$modem_number[$c_map['smstools']['modem'] = $c_map['smstools']]['sms_receiver'];
+	foreach ($smscs as $c_smsc) {
+		$c_map = gateway_apply_smsc_config($c_smsc, $plugin_config);
+		$modem_number[$c_map['smstools']['modem']] = array(
+			'smsc' => $c_smsc,
+			'sms_receiver' => $c_map['smstools']['sms_receiver'] 
+		);
 	}
 	
 	$handle = @opendir($plugin_config['smstools']['spool_dir'] . "/incoming");
@@ -122,6 +125,9 @@ function smstools_hook_getsmsinbox() {
 		$fn = $plugin_config['smstools']['spool_dir'] . "/incoming/" . $sms_in_file;
 		$fn_bak = $plugin_config['smstools']['spool_bak'] . "/incoming/" . $sms_in_file;
 		
+		$modem = '';
+		$smsc = '';
+		$sms_receiver = '';
 		$lines = @file($fn);
 		$start = 0;
 		for ($c = 0; $c < count($lines); $c++) {
@@ -131,8 +137,9 @@ function smstools_hook_getsmsinbox() {
 			} else if (preg_match('/^Received: /', $c_line)) {
 				$sms_datetime = '20' . trim(str_replace('Received: ', '', trim($c_line)));
 			} else if (preg_match('/^Subject: /', $c_line)) {
-				$smsc = trim(str_replace('Subject: ', '', trim($c_line)));
-				$sms_receiver = trim($modem_number[$smsc]);
+				$modem = trim(str_replace('Subject: ', '', trim($c_line)));
+				$smsc = trim($modem_number[$modem]['smsc']);
+				$sms_receiver = trim($modem_number[$modem]['sms_receiver']);
 			} else if ($c_line == "\n") {
 				$start = $c + 1;
 				break;
