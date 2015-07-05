@@ -242,7 +242,10 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 		// $sms_msg = str2hex($sms_msg);
 	}
 	if ($modem = $plugin_config['smstools']['modem']) {
+		_log('route to smsc:[' . $smsc . '] modem:[' . $modem . ']', 3, 'smstools_hook_sendsms');
 		$the_msg .= "Modem: " . $modem . "\n";
+	} else {
+		_log('routed by internal smstools3 smsc:[' . $smsc . ']', 3, 'smstools_hook_sendsms');
 	}
 	
 	// final message file content
@@ -260,7 +263,7 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	// copy from backup if exists, or create new one in spool dir
 	$fn = $plugin_config['smstools']['spool_dir'] . "/outgoing/out." . $sms_id;
 	if (file_exists($fn_bak)) {
-		_log("outfile backup:" . $fn_bak, 2, "smstools outgoing");
+		_log("outfile backup:" . $fn_bak, 2, "smstools_hook_sendsms");
 		@shell_exec('cp ' . $fn_bak . ' ' . $fn);
 	} else {
 		umask(0);
