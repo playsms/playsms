@@ -249,7 +249,8 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	// final message file content
 	$the_msg .= "\n" . $sms_msg;
 	
-	$sms_id = $modem . $gpid . "." . $uid . "." . $smslog_id . "." . mktime();
+	// outfile
+	$sms_id = $modem . "." . $gpid . "." . $uid . "." . $smslog_id . "." . mktime();
 	
 	// try to backup outgoing file first
 	$fn_bak = $plugin_config['smstools']['spool_bak'] . "/outgoing/out." . $sms_id;
