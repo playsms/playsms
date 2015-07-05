@@ -96,8 +96,8 @@ msgstr "Mobile"
 msgid "Move to"
 msgstr "Déplacer vers"
 
-msgid "Multiple entries separated by space"
-msgstr "Plusieurs entrées séparées par un espace"
+msgid "Multiple entries separated by comma"
+msgstr "Plusieurs entrées séparées par un comma"
 
 msgid "Name"
 msgstr "Nom"

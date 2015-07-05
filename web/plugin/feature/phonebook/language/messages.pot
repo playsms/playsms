@@ -86,7 +86,7 @@ msgstr ""
 msgid "Move to"
 msgstr ""
 
-msgid "Multiple entries separated by space"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Name"

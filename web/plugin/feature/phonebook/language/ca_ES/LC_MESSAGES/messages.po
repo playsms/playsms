@@ -102,7 +102,7 @@ msgstr "Mòbil"
 msgid "Move to"
 msgstr "Moure a"
 
-msgid "Multiple entries separated by space"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Name"

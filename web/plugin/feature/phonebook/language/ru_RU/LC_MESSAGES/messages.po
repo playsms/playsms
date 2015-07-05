@@ -100,7 +100,7 @@ msgstr "Мобильный"
 msgid "Move to"
 msgstr "Переместить в"
 
-msgid "Multiple entries separated by space"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Name"

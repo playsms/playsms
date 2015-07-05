@@ -98,8 +98,8 @@ msgstr "Mobil"
 msgid "Move to"
 msgstr "Flytt til"
 
-msgid "Multiple entries separated by space"
-msgstr "Separer innføringer med mellomrom"
+msgid "Multiple entries separated by comma"
+msgstr ""
 
 msgid "Name"
 msgstr "Navn"

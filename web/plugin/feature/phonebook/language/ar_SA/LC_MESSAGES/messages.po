@@ -103,8 +103,8 @@ msgstr "الجوال"
 msgid "Move to"
 msgstr "نقل إلى"
 
-msgid "Multiple entries separated by space"
-msgstr "القيم المتعددة يجب وضع فاصلة بينها"
+msgid "Multiple entries separated by comma"
+msgstr ""
 
 msgid "Name"
 msgstr "الاسم"

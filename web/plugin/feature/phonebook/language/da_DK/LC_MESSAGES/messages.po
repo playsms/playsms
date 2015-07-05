@@ -102,8 +102,8 @@ msgstr "Mobil"
 msgid "Move to"
 msgstr "Flyt til"
 
-msgid "Multiple entries separated by space"
-msgstr "Adskillige emner adskilt med mellemrum"
+msgid "Multiple entries separated by comma"
+msgstr ""
 
 msgid "Name"
 msgstr "Navn"

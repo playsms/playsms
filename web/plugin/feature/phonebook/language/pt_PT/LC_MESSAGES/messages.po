@@ -101,7 +101,7 @@ msgstr "Telemóvel"
 msgid "Move to"
 msgstr "Mover para"
 
-msgid "Multiple entries separated by space"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Name"
