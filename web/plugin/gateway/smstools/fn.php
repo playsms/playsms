@@ -23,16 +23,20 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_da
 	
 	// p_status :
 	// 0 = pending
-	// 1 = sent/delivered
+	// 1 = sent
 	// 2 = failed
+	// 3 = delivered
+	
+
 	if ($gpid) {
-		$fn = $plugin_config['smstools']['spool_dir'] . "/sent/out.$gpid.$uid.$smslog_id";
-		$efn = $plugin_config['smstools']['spool_dir'] . "/failed/out.$gpid.$uid.$smslog_id";
+		$fn = $plugin_config['smstools']['spool_dir'] . "/sent/out." . $gpid . "." . $uid . "." . $smslog_id;
+		$efn = $plugin_config['smstools']['spool_dir'] . "/failed/out." . $gpid . "." . $uid . "." . $smslog_id;
 	} else {
-		$fn = $plugin_config['smstools']['spool_dir'] . "/sent/out.0.$uid.$smslog_id";
-		$efn = $plugin_config['smstools']['spool_dir'] . "/failed/out.0.$uid.$smslog_id";
+		$fn = $plugin_config['smstools']['spool_dir'] . "/sent/out.0." . $uid . "." . $smslog_id;
+		$efn = $plugin_config['smstools']['spool_dir'] . "/failed/out.0." . $uid . "." . $smslog_id;
 	}
-	// set if its sent/delivered
+	
+	// set if its sent
 	if (file_exists($fn)) {
 		
 		$lines = @file($fn);
@@ -45,55 +49,78 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_da
 				}
 			}
 		}
-		if ($smslog_id && $message_id) {
-			$db_query = "INSERT INTO " . _DB_PREF_ . "_gatewaySmstools_dlr (c_timestamp,uid,smslog_id,message_id,status) VALUES ('" . mktime() . "','$uid','$smslog_id','$message_id','-1')";
-			$dlr_id = dba_insert_id($db_query);
-			if ($dlr_id) {
-				logger_print("DLR mapped id:" . $dlr_id . " uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $message_id, 2, "smstools getsmsstatus");
-			} else {
-				logger_print("Fail to map DLR id:" . $dlr_id . " uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $message_id, 2, "smstools getsmsstatus");
-			}
-		} else {
-			logger_print("No valid DLR id:" . $dlr_id . " uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $message_id, 2, "smstools getsmsstatus");
-		}
 		
-		$p_status = 1;
-		dlr($smslog_id, $uid, $p_status);
 		if (is_dir($plugin_config['smstools']['spool_bak'] . '/sent')) {
 			@shell_exec('mv ' . $fn . ' ' . $plugin_config['smstools']['spool_bak'] . '/sent/');
 		}
 		if (file_exists($fn)) {
 			@unlink($fn);
 		}
+		
+		if (!file_exists($fn)) {
+			if ($smslog_id && $message_id) {
+				$db_query = "INSERT INTO " . _DB_PREF_ . "_gatewaySmstools_dlr (c_timestamp,uid,smslog_id,message_id,status) VALUES ('" . mktime() . "','$uid','$smslog_id','$message_id','-1')";
+				$dlr_id = dba_insert_id($db_query);
+				if ($dlr_id) {
+					_log("DLR mapped fn:" . $fn . " id:" . $dlr_id . " uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $message_id, 2, "smstools_hook_getsmsstatus");
+				} else {
+					_log("Fail to map DLR fn:" . $fn . " id:" . $dlr_id . " uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $message_id, 2, "smstools_hook_getsmsstatus");
+				}
+			} else {
+				_log("No valid DLR fn:" . $fn . " uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $message_id, 2, "smstools_hook_getsmsstatus");
+			}
+			
+			if ($smslog_id) {
+				$p_status = 1;
+				dlr($smslog_id, $uid, $p_status);
+			} else {
+				_log("Error no smslog_id fn:" . $fn . " uid:" . $uid, 2, "smstools_hook_getsmsstatus");
+			}
+		}
 	}
+	
 	// set if its failed
 	if (file_exists($efn)) {
-		$p_status = 2;
-		dlr($smslog_id, $uid, $p_status);
 		if (is_dir($plugin_config['smstools']['spool_bak'] . '/failed')) {
 			@shell_exec('mv ' . $efn . ' ' . $plugin_config['smstools']['spool_bak'] . '/failed/');
 		}
 		if (file_exists($efn)) {
 			@unlink($efn);
 		}
+		
+		if ($smslog_id) {
+			$p_status = 2;
+			dlr($smslog_id, $uid, $p_status);
+		} else {
+			_log("Error no smslog_id efn:" . $efn . " uid:" . $uid, 2, "smstools_hook_getsmsstatus");
+		}
 	}
+	
 	// set failed if its at least 2 days old
 	$p_datetime_stamp = strtotime($p_datetime);
 	$p_update_stamp = strtotime($p_update);
 	$p_delay = floor(($p_update_stamp - $p_datetime_stamp) / 86400);
-	if ($p_delay >= 2) {
+	if ($smslog_id && ($p_delay >= 2)) {
 		$p_status = 2;
 		dlr($smslog_id, $uid, $p_status);
 	}
+	
 	return;
 }
 
 function smstools_hook_getsmsinbox() {
 	global $plugin_config;
+	
+	$smscs = gateway_getall_smsc_names($plugin_config['smstools']['name']);
+	foreach ($smscs as $smsc) {
+		$c_map = gateway_apply_smsc_config($smsc, $plugin_config);
+		$modem_number[$c_map['smstools']['modem'] = $c_map['smstools']]['sms_receiver'];
+	}
+	
 	$handle = @opendir($plugin_config['smstools']['spool_dir'] . "/incoming");
 	while ($sms_in_file = @readdir($handle)) {
-		$fn = $plugin_config['smstools']['spool_dir'] . "/incoming/$sms_in_file";
-		$fn_bak = $plugin_config['smstools']['spool_bak'] . "/incoming/$sms_in_file";
+		$fn = $plugin_config['smstools']['spool_dir'] . "/incoming/" . $sms_in_file;
+		$fn_bak = $plugin_config['smstools']['spool_bak'] . "/incoming/" . $sms_in_file;
 		
 		$lines = @file($fn);
 		$start = 0;
@@ -103,6 +130,9 @@ function smstools_hook_getsmsinbox() {
 				$sms_sender = '+' . trim(str_replace('From: ', '', trim($c_line)));
 			} else if (preg_match('/^Received: /', $c_line)) {
 				$sms_datetime = '20' . trim(str_replace('Received: ', '', trim($c_line)));
+			} else if (preg_match('/^Subject: /', $c_line)) {
+				$smsc = trim(str_replace('Subject: ', '', trim($c_line)));
+				$sms_receiver = trim($modem_number[$smsc]);
 			} else if ($c_line == "\n") {
 				$start = $c + 1;
 				break;
@@ -114,7 +144,7 @@ function smstools_hook_getsmsinbox() {
 		// playSMS does the backup since probably not many smstools3 users configure
 		// an eventhandler to backup incoming sms
 		if (is_dir($plugin_config['smstools']['spool_bak'] . '/incoming') && $start) {
-			logger_print("infile backup:" . $fn_bak, 2, "smstools incoming");
+			_log("infile backup:" . $fn_bak, 2, "smstools_hook_getsmsinbox");
 			@shell_exec('mv ' . $fn . ' ' . $plugin_config['smstools']['spool_bak'] . '/incoming/');
 		} else {
 			@unlink($fn);
@@ -145,7 +175,7 @@ function smstools_hook_getsmsinbox() {
 						$status = $status_var[0];
 					}
 					if ($message_id && $status_var[1]) {
-						logger_print("DLR received message_id:" . $message_id . " status:" . $status . " info1:" . $status_var[1] . " info2:" . $status_var[2], 2, "smstools incoming");
+						_log("DLR received message_id:" . $message_id . " smsc:[" . $smsc . "] status:" . $status . " info1:" . $status_var[1] . " info2:" . $status_var[2], 2, "smstools_hook_getsmsinbox");
 						$db_query = "SELECT uid,smslog_id FROM " . _DB_PREF_ . "_gatewaySmstools_dlr WHERE message_id='$message_id'";
 						$db_result = dba_query($db_query);
 						$db_row = dba_fetch_array($db_result);
@@ -154,7 +184,7 @@ function smstools_hook_getsmsinbox() {
 						if ($uid && $smslog_id && $status == 0) {
 							$p_status = 3;
 							dlr($smslog_id, $uid, $p_status);
-							logger_print("DLR smslog_id:" . $smslog_id . " p_status:" . $p_status, 2, "smstools incoming");
+							_log("DLR smslog_id:" . $smslog_id . " p_status:" . $p_status, 2, "smstools_hook_getsmsinbox");
 						}
 						$is_dlr = true;
 					}
@@ -163,7 +193,7 @@ function smstools_hook_getsmsinbox() {
 				// collected: $sms_datetime, $sms_sender, $message, $sms_receiver
 				// if not a DLR then route it to incoming handler
 				if (!$is_dlr) {
-					logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:" . $message, 3, "smstools incoming");
+					_log("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:[" . $message . "] smsc:[" . $smsc . "]", 3, "smstools_hook_getsmsinbox");
 					$sms_sender = addslashes($sms_sender);
 					$message = addslashes($message);
 					recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
@@ -191,8 +221,8 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
-	$the_msg = "From: $sms_sender\n";
-	$the_msg .= "To: $sms_to\n";
+	$the_msg = "From: " . $sms_sender . "\n";
+	$the_msg .= "To: " . $sms_to . "\n";
 	$the_msg .= "Report: yes\n";
 	if ($sms_type == 'flash') {
 		$the_msg .= "Flash: yes\n";
@@ -204,10 +234,15 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 		}
 		// $sms_msg = str2hex($sms_msg);
 	}
-	$the_msg .= "\n$sms_msg";
+	if ($modem = $plugin_config['smstools']['modem']) {
+		$the_msg .= "Modem: " . $modem . "\n";
+	}
+	
+	// final message file content
+	$the_msg .= "\n" . $sms_msg;
 	
 	// try to backup outgoing file first
-	$fn_bak = $plugin_config['smstools']['spool_bak'] . "/outgoing/out.$sms_id";
+	$fn_bak = $plugin_config['smstools']['spool_bak'] . "/outgoing/out." . $sms_id;
 	if (is_dir($plugin_config['smstools']['spool_bak'] . '/outgoing')) {
 		umask(0);
 		$fd = @fopen($fn_bak, 'w+');
@@ -216,9 +251,9 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	}
 	
 	// copy from backup if exists, or create new one in spool dir
-	$fn = $plugin_config['smstools']['spool_dir'] . "/outgoing/out.$sms_id";
+	$fn = $plugin_config['smstools']['spool_dir'] . "/outgoing/out." . $sms_id;
 	if (file_exists($fn_bak)) {
-		logger_print("outfile backup:" . $fn_bak, 2, "smstools outgoing");
+		_log("outfile backup:" . $fn_bak, 2, "smstools outgoing");
 		@shell_exec('cp ' . $fn_bak . ' ' . $fn);
 	} else {
 		umask(0);
@@ -227,15 +262,15 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 		@fclose($fd);
 	}
 	
-	logger_print("saving outfile:" . $fn, 2, "smstools outgoing");
+	_log("saving outfile:" . $fn, 2, "smstools_hook_sendsms");
 	$ok = false;
 	if (file_exists($fn)) {
 		$ok = true;
 		$p_status = 0;
-		logger_print("saved outfile:" . $fn, 2, "smstools outgoing");
+		_log("saved outfile:" . $fn, 2, "smstools_hook_sendsms");
 	} else {
 		$p_status = 2;
-		logger_print("fail to save outfile:" . $fn, 2, "smstools outgoing");
+		_log("fail to save outfile:" . $fn, 2, "smstools_hook_sendsms");
 	}
 	dlr($smslog_id, $uid, $p_status);
 	return $ok;
