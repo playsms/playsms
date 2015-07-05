@@ -19,20 +19,20 @@
 defined('_SECURE_') or die('Forbidden');
 
 function phonebook_code_clean($code) {
-	$code = trim(preg_replace('/[^\p{L}\p{N}_-]+/u', '', $code));
+	$code = trim(preg_replace('/[^\p{L}\p{N}_\-]+/u', '', $code));
 	
 	return $code;
 }
 
 function phonebook_tags_clean($tags) {
-	$tags = trim(preg_replace("/\s+/", ' ', $tags));
+	$tags = trim(preg_replace('/\s+/', ' ', $tags));
 	$arr_tags = explode(',', $tags);
 	$arr_tags = array_unique($arr_tags);
 	$tags = '';
 	foreach ($arr_tags as $tag) {
 		if ($tag) {
 			// fixme anton
-			$tag = preg_replace('/[^\p{L}\p{N}_-\s\.]+/u', '', $tag);
+			$tag = trim(preg_replace('/[^\p{L}\p{N}_\-\s\.]+/u', '', $tag));
 			if (strlen($tags) + strlen($tag) + 1 <= 250) {
 				$tags .= $tag . ', ';
 			} else {
