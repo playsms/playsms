@@ -70,12 +70,13 @@ function phonebook_hook_phonebook_groupid2code($uid, $gpid) {
 		$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND id='$gpid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$code = $db_row['code'];
+		$code = phonebook_code_clean($db_row['code']);
 	}
 	return $code;
 }
 
 function phonebook_hook_phonebook_groupcode2id($uid, $code) {
+	$code = phonebook_code_clean($code);
 	if ($uid && $code) {
 		$db_query = "SELECT id FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$code'";
 		$db_result = dba_query($db_query);
@@ -264,6 +265,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0, $exact
 function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0, $exact = FALSE) {
 	$ret = array();
 	
+	$keyword = phonebook_code_clean($keyword);
 	if ($keyword) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
 		

@@ -302,14 +302,12 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	if ($found_bc) {
 		$groups = array_unique($bc);
 		foreach ($groups as $key => $c_group_code) {
-			$c_group_code = strtoupper($c_group_code);
-			$c_group_code = core_sanitize_alphanumeric($c_group_code);
 			$c_uid = user_mobile2uid($sms_sender);
 			$list = phonebook_search_group($c_uid, $c_group_code, '', TRUE);
 			$c_gpid = $list[0]['gpid'];
 			if ($c_uid && $c_gpid) {
 				$c_username = user_uid2username($c_uid);
-				_log("bc g:" . $c_group_code . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
+				_log("bc g:" . phonebook_code_clean($c_group_code) . " gpid:" . $c_gpid . " uid:" . $c_uid . " dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " m:" . $message, 3, 'incoming recvsms_intercept');
 				sendsms_bc($c_username, $c_gpid, $message);
 				_log("bc end", 3, 'incoming recvsms_intercept');
 				$ret['uid'] = $c_uid;
