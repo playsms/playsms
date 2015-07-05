@@ -140,7 +140,7 @@ function smstools_hook_getsmsinbox() {
 					$sms_sender = '+' . trim(str_replace('From: ', '', trim($c_line)));
 				} else if (preg_match('/^Received: /', $c_line)) {
 					$sms_datetime = '20' . trim(str_replace('Received: ', '', trim($c_line)));
-				} else if ($c_line == '\n') {
+				} else if ($c_line == "\n") {
 					$start = $c + 1;
 					break;
 				}
@@ -161,14 +161,14 @@ function smstools_hook_getsmsinbox() {
 				if ($sms_sender && $sms_datetime) {
 					$message = '';
 					for ($lc = $start; $lc < count($lines); $lc++) {
-						$message .= trim($lines[$lc]) . '\n';
+						$message .= trim($lines[$lc]) . "\n";
 					}
 					if (strlen($message) > 0) {
 						$message = substr($message, 0, -1);
 					}
 					
 					$is_dlr = false;
-					$msg = explode('\n', $message);
+					$msg = explode("\n", $message);
 					if (trim($msg[0]) == 'SMS STATUS REPORT') {
 						$label = explode(':', $msg[1]);
 						if (trim($label[0]) == 'Message_id') {
@@ -225,22 +225,22 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 		$sms_msg = $sms_msg . $sms_footer;
 	}
 	
-	$the_msg = 'From: ' . $sms_sender . '\n';
-	$the_msg .= 'To: ' . $sms_to . '\n';
-	$the_msg .= 'Report: yes\n';
+	$the_msg = 'From: ' . $sms_sender . "\n";
+	$the_msg .= 'To: ' . $sms_to . "\n";
+	$the_msg .= "Report: yes\n";
 	if ($sms_type == 'flash') {
-		$the_msg .= 'Flash: yes\n';
+		$the_msg .= "Flash: yes\n";
 	}
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {
-			$the_msg .= 'Alphabet: UCS\n';
+			$the_msg .= "Alphabet: UCS\n";
 			$sms_msg = mb_convert_encoding($sms_msg, 'UCS-2BE', 'auto');
 		}
 		// $sms_msg = str2hex($sms_msg);
 	}
 	
 	// final message file content
-	$the_msg .= '\n' . $sms_msg;
+	$the_msg .= "\n" . $sms_msg;
 	
 	// outfile
 	$gpid = ((int) $gpid ? (int) $gpid : 0);
