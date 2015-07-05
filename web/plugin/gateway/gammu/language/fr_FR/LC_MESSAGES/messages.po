@@ -14,6 +14,9 @@ msgstr "Nom de la passerelle"
 msgid "Manage gammu"
 msgstr "Gérer gammu"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

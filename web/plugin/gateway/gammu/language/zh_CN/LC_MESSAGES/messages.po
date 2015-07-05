@@ -14,6 +14,9 @@ msgstr "网关名"
 msgid "Manage gammu"
 msgstr "管理监务"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

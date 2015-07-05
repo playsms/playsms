@@ -17,6 +17,9 @@ msgstr "Gateway-navn"
 msgid "Manage gammu"
 msgstr "Håndter gammu"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

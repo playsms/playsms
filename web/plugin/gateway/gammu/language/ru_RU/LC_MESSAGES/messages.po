@@ -21,6 +21,9 @@ msgstr "Название шлюза"
 msgid "Manage gammu"
 msgstr "Gammu"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

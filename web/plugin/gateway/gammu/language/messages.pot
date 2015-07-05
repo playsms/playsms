@@ -7,6 +7,9 @@ msgstr ""
 msgid "Manage gammu"
 msgstr ""
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

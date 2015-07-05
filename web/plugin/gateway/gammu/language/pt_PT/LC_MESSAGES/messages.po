@@ -21,6 +21,9 @@ msgstr "Nome do gateway"
 msgid "Manage gammu"
 msgstr "Gerir gammu"
 
+msgid "Receiver number"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
