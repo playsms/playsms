@@ -5,10 +5,9 @@ defined('_SECURE_') or die('Forbidden');
 $data = registry_search(0, 'gateway', 'smstools');
 
 $plugin_config['smstools']['name'] = 'smstools';
-$plugin_config['smstools']['sms_receiver'] = trim($data['gateway']['smstools']['sms_receiver']);
-$plugin_config['smstools']['queue'] = trim(core_sanitize_path($data['gateway']['smstools']['queue']));
-if (!$plugin_config['smstools']['queue']) {
-	$plugin_config['smstools']['queue'] = "/var/spool/sms/modem1";
+$plugin_config['smstools']['default_queue'] = trim(core_sanitize_path($data['gateway']['smstools']['default_queue']));
+if (!$plugin_config['smstools']['default_queue']) {
+	$plugin_config['smstools']['default_queue'] = "/var/spool/sms";
 }
 
 // smsc configuration

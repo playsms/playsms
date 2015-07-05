@@ -24,7 +24,7 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 	$smscs = gateway_getall_smsc_names($plugin_config['smstools']['name']);
 	foreach ($smscs as $smsc) {
 		$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-		$plugin_config['smstools']['backup'] = $plugin_config['smstools']['queue'] . '/_backup';
+		$plugin_config['smstools']['backup'] = $plugin_config['smstools']['default_queue'] . '/backup';
 		if (!is_dir($plugin_config['smstools']['backup'] . '/sent')) {
 			mkdir($plugin_config['smstools']['backup'] . '/sent', 0777, TRUE);
 		}
@@ -39,8 +39,8 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 		$sms_id = $gpid . '.' . $uid . '.' . $smslog_id;
 		$outfile = 'out.' . $sms_id;
 		
-		$fn = $plugin_config['smstools']['queue'] . '/sent/' . $outfile;
-		$efn = $plugin_config['smstools']['queue'] . '/failed/' . $outfile;
+		$fn = $plugin_config['smstools']['default_queue'] . '/sent/' . $outfile;
+		$efn = $plugin_config['smstools']['default_queue'] . '/failed/' . $outfile;
 		
 		// set if its sent
 		if (file_exists($fn)) {
@@ -121,14 +121,15 @@ function smstools_hook_getsmsinbox() {
 	$smscs = gateway_getall_smsc_names($plugin_config['smstools']['name']);
 	foreach ($smscs as $smsc) {
 		$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+		$plugin_config['smstools']['backup'] = $plugin_config['smstools']['default_queue'] . '/backup';
 		if (!is_dir($plugin_config['smstools']['backup'] . '/incoming')) {
 			mkdir($plugin_config['smstools']['backup'] . '/incoming', 0777, TRUE);
 		}
 		$sms_receiver = $plugin_config['smstools']['sms_receiver'];
 		
-		$handle = @opendir($plugin_config['smstools']['queue'] . '/incoming');
+		$handle = @opendir($plugin_config['smstools']['default_queue'] . '/incoming');
 		while ($sms_in_file = @readdir($handle)) {
-			$fn = $plugin_config['smstools']['queue'] . '/incoming/' . $sms_in_file;
+			$fn = $plugin_config['smstools']['default_queue'] . '/incoming/' . $sms_in_file;
 			$fn_backup = $plugin_config['smstools']['backup'] . '/incoming/' . $sms_in_file;
 			
 			$lines = @file($fn);
@@ -216,10 +217,6 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	$plugin_config['smstools']['backup'] = $plugin_config['smstools']['queue'] . '/_backup';
-	if (!is_dir($plugin_config['smstools']['backup'] . '/outgoing')) {
-		mkdir($plugin_config['smstools']['backup'] . '/outgoing', 0777, TRUE);
-	}
 	
 	$sms_sender = stripslashes($sms_sender);
 	$sms_footer = stripslashes($sms_footer);
@@ -252,18 +249,7 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	$sms_id = $gpid . '.' . $uid . '.' . $smslog_id;
 	$outfile = 'out.' . $sms_id;
 	
-	// try to backup outgoing file first
-	$fn_backup = $plugin_config['smstools']['backup'] . '/outgoing/' . $outfile;
-	if ($fd = @fopen($fn_backup, 'w+')) {
-		@fputs($fd, $the_msg);
-		@fclose($fd);
-		_log('save backup outfile:' . $fn_backup . ' smsc:[' . $smsc . ']', 3, 'smstools_hook_sendsms');
-	} else {
-		_log('not saving backup outfile:' . $fn_backup . ' smsc:[' . $smsc . ']', 3, 'smstools_hook_sendsms');
-	}
-	
-	// create in spool dir
-	$fn = $plugin_config['smstools']['queue'] . '/outgoing/' . $outfile;
+	$fn = $plugin_config['smstools']['queue'] . '/' . $outfile;
 	if ($fd = @fopen($fn, 'w+')) {
 		@fputs($fd, $the_msg);
 		@fclose($fd);
