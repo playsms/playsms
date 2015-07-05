@@ -107,6 +107,8 @@ function gammu_hook_getsmsinbox() {
 	foreach ($smscs as $smsc) {
 		$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 		
+		$sms_receiver = $plugin_config['gammu']['sms_receiver'];
+		
 		$handle = @opendir($plugin_config['gammu']['path'] . "/inbox");
 		$messages = array();
 		$files = array();
@@ -156,8 +158,8 @@ function gammu_hook_getsmsinbox() {
 								}
 							}
 							$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
-							recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, 'gammu');
-							_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $parts_message . " smsc:" . $smsc, 3, "gammu_hook_getsmsinbox");
+							recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, $smsc);
+							_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:[" . $parts_message . "] smsc:[" . $smsc . "]", 3, "gammu_hook_getsmsinbox");
 							
 							unset($messages);
 						}
@@ -185,7 +187,7 @@ function gammu_hook_getsmsinbox() {
 			}
 			$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
 			recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, $smsc);
-			_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:" . $_parts_message . " smsc:" . $smsc, 3, "gammu_hook_getsmsinbox");
+			_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:[" . $_parts_message . "] smsc:[" . $smsc . "]", 3, "gammu_hook_getsmsinbox");
 			unset($messages);
 		}
 		@closedir($handle);
