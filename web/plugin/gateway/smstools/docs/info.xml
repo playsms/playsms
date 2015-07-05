@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
 	<name>smstools</name>
-	<alias>Gateway SMSTools</alias>
-	<description>Gateway SMSTools</description>
-	<release>1.0</release>
-	<date>2010-09-25</date>
+	<alias>Gateway SMS Server Tools 3</alias>
+	<description>Gateway SMS Server Tools 3</description>
+	<release>2.0</release>
+	<date>2015-07-06</date>
 	<author>Anton Raharja</author>
 	<language_file>1</language_file>
 	<sql_file>0</sql_file>

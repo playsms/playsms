@@ -14,8 +14,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
+msgid "Changes have been made"
+msgstr ""
+
+msgid "Default default_queue directory"
+msgstr ""
+
 msgid "Gateway name"
 msgstr "Nom de la sortida"
 
 msgid "Manage smstools"
 msgstr "Manage smstools"
+
+msgid "Queue directory"
+msgstr ""
+
+msgid "Receiver number"
+msgstr ""
+
+msgid "Save"
+msgstr ""

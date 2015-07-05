@@ -12,8 +12,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
+msgid "Changes have been made"
+msgstr ""
+
+msgid "Default default_queue directory"
+msgstr ""
+
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage smstools"
 msgstr "Gerir smstools"
+
+msgid "Queue directory"
+msgstr ""
+
+msgid "Receiver number"
+msgstr ""
+
+msgid "Save"
+msgstr ""

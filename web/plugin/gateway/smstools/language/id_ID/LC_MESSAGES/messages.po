@@ -5,8 +5,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Changes have been made"
+msgstr ""
+
+msgid "Default default_queue directory"
+msgstr ""
+
 msgid "Gateway name"
 msgstr "Nama gateway"
 
 msgid "Manage smstools"
 msgstr "Pengaturan smstools"
+
+msgid "Queue directory"
+msgstr ""
+
+msgid "Receiver number"
+msgstr ""
+
+msgid "Save"
+msgstr ""
