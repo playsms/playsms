@@ -346,7 +346,8 @@ msgid "User configuration has been saved"
 msgstr "As configurações do usuário foram salvas"
 
 msgid "User configuration has been saved and webservices token updated"
-msgstr "As configurações do usuário foram salvas e o token de webservice atualizado"
+msgstr ""
+"As configurações do usuário foram salvas e o token de webservice atualizado"
 
 msgid "User deletion unavailable"
 msgstr "Excluão de usuário não disponível"
@@ -380,7 +381,8 @@ msgid "Users"
 msgstr "Usuários"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr "Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
+msgstr ""
+"Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
 
 msgid "Webservices IP range"
 msgstr "Range de IP para webservice"

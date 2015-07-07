@@ -17,7 +17,7 @@ msgid "Delete"
 msgstr "Excluir"
 
 msgid "Delete user"
-msgstr "Excluir usuário"
+msgstr "Excluir usurio"
 
 msgid "Edit"
 msgstr "Editar"
@@ -56,7 +56,7 @@ msgid "Logout"
 msgstr "Sair"
 
 msgid "Main configuration"
-msgstr "Configuração principal"
+msgstr "Configurao principal"
 
 msgid "Manage"
 msgstr "Gerenciar"
@@ -71,13 +71,13 @@ msgid "Manage gateway and SMSC"
 msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage sender ID"
-msgstr "Gerenciar ID de destinatário"
+msgstr "Gerenciar ID de destinatrio"
 
 msgid "Manage site"
 msgstr "Gerenciar site"
 
 msgid "Manage subuser"
-msgstr "Gerenciar sub-usuário"
+msgstr "Gerenciar sub-usurio"
 
 msgid "Move"
 msgstr "Mover"
@@ -92,7 +92,7 @@ msgid "Online"
 msgstr "Online"
 
 msgid "Preferences"
-msgstr "Preferências"
+msgstr "Preferncias"
 
 msgid "Reduce"
 msgstr "Reduzir"
@@ -101,28 +101,28 @@ msgid "Reply"
 msgstr "Responder"
 
 msgid "Reports"
-msgstr "Relatórios"
+msgstr "Relatrios"
 
 msgid "Resend"
 msgstr "Reenviar"
 
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Configuraes"
 
 msgid "Unban"
 msgstr "Desbanir"
 
 msgid "User configuration"
-msgstr "Configurações de usuário"
+msgstr "Configuraes de usurio"
 
 msgid "User preference"
-msgstr "Preferências de usuário"
+msgstr "Preferncias de usurio"
 
 msgid "View"
 msgstr "Visualizar"
 
 msgid "Your credit"
-msgstr "Seus créditos"
+msgstr "Seus crditos"
 
 msgid "return"
 msgstr "voltar"
