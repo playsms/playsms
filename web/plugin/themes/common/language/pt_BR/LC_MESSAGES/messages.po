@@ -1,3 +1,10 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "Add"
 msgstr "Adicionar"
 
@@ -56,7 +63,7 @@ msgid "Logout"
 msgstr "Sair"
 
 msgid "Main configuration"
-msgstr "Configurao principal"
+msgstr "Configuração principal"
 
 msgid "Manage"
 msgstr "Gerenciar"
@@ -71,13 +78,13 @@ msgid "Manage gateway and SMSC"
 msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage sender ID"
-msgstr "Gerenciar ID de destinatrio"
+msgstr "Gerenciar ID de destinatário"
 
 msgid "Manage site"
 msgstr "Gerenciar site"
 
 msgid "Manage subuser"
-msgstr "Gerenciar sub-usurio"
+msgstr "Gerenciar sub-usuário"
 
 msgid "Move"
 msgstr "Mover"
@@ -92,7 +99,7 @@ msgid "Online"
 msgstr "Online"
 
 msgid "Preferences"
-msgstr "Preferncias"
+msgstr "Preferências"
 
 msgid "Reduce"
 msgstr "Reduzir"
@@ -101,28 +108,28 @@ msgid "Reply"
 msgstr "Responder"
 
 msgid "Reports"
-msgstr "Relatrios"
+msgstr "Relatórios"
 
 msgid "Resend"
 msgstr "Reenviar"
 
 msgid "Settings"
-msgstr "Configuraes"
+msgstr "Configurações"
 
 msgid "Unban"
 msgstr "Desbanir"
 
 msgid "User configuration"
-msgstr "Configuraes de usurio"
+msgstr "Configurações de usuário"
 
 msgid "User preference"
-msgstr "Preferncias de usurio"
+msgstr "Preferências de usuário"
 
 msgid "View"
 msgstr "Visualizar"
 
 msgid "Your credit"
-msgstr "Seus crditos"
+msgstr "Seus créditos"
 
 msgid "return"
 msgstr "voltar"

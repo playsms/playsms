@@ -1,41 +1,49 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
 msgid "Active themes"
 msgstr "Temas ativos"
 
 msgid "Buy credit page"
-msgstr "Pgina para compra de crditos"
+msgstr "Página para compra de créditos"
 
 msgid "Configuration"
-msgstr "Configuraes"
+msgstr "Configurações"
 
 msgid "Default credit upon registration"
-msgstr "Crditos padro aps registro"
+msgstr "Créditos padrão após registro"
 
 msgid "Default language"
-msgstr "Idioma padro"
+msgstr "Idioma padrão"
 
 msgid "Domain"
-msgstr "Dominio"
+msgstr "Domínio"
 
 msgid "Email footer"
-msgstr "Rodap de email"
+msgstr "Rodapé de email"
 
 msgid "Email service"
-msgstr "Servio de email"
+msgstr "Serviço de email"
 
 msgid "Enable forgot password"
-msgstr "Habilitar recuperao de senha"
+msgstr "Habilitar recuperação de senha"
 
 msgid "Enable logo"
 msgstr "Habilitar logo"
 
 msgid "Enable public registration"
-msgstr "Habilitar registro pblico"
+msgstr "Habilitar registro público"
 
 msgid "Information page"
-msgstr "Pgina de informaes"
+msgstr "Página de informações"
 
 msgid "Layout footer"
-msgstr "Layout do rodap"
+msgstr "Layout do rodapé"
 
 msgid "Logo URL"
 msgstr "URL da logo"
@@ -43,7 +51,7 @@ msgstr "URL da logo"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Por padro a logo ser exibida nas pginas de login, registro e recuperao de "
+"Por padrão a logo será exibida nas páginas de login, registro e recuperação de "
 "senha"
 
 msgid "Main website URL"
@@ -56,31 +64,31 @@ msgid "Manage site"
 msgstr "Gerenciar site"
 
 msgid "Page content"
-msgstr "Contedo da pgina"
+msgstr "Conteúdo da página"
 
 msgid "Page title"
-msgstr "Ttulo da pgina"
+msgstr "Título da página"
 
 msgid "Replace website title with logo"
-msgstr "Substituir ttulo da pgina pela logo"
+msgstr "Substituir título da página pela logo"
 
 msgid "Save"
 msgstr "Salvar"
 
 msgid "Site configuration"
-msgstr "Configuraes do site"
+msgstr "Configurações do site"
 
 msgid "Site configuration has been saved"
-msgstr "As configuraes do site foram salvas"
+msgstr "As configurações do site foram salvas"
 
 msgid "The domain is already configured by other user"
-msgstr "Esse domnio j est registrado para oturo usurio"
+msgstr "Esse domínio já está registrado para oturo usuário"
 
 msgid "Website title"
-msgstr "Ttulo do site"
+msgstr "Título do site"
 
 msgid "domain"
-msgstr "domnio"
+msgstr "domínio"
 
 msgid "no"
 msgstr "no"
