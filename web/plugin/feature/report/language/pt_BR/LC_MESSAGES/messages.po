@@ -1,0 +1,189 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Account has been unbanned"
+msgstr "A conta foi desbanida"
+
+msgid "All feature messages"
+msgstr "Todas as mensagens de recurso"
+
+msgid "All inbox"
+msgstr "Todas as caixas de entrada"
+
+msgid "All reports"
+msgstr "Todos os relatórios"
+
+msgid "All sent messages"
+msgstr "Todas as mensagens enviadas"
+
+msgid "Amount"
+msgstr "Quantidade"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Tem certeza que deseja excluír esses ítens?"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Tem certeza que deseja excluir essas transações?"
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Balance recorded on transaction"
+msgstr "Saldo gravado na transação"
+
+msgid "Ban date/time"
+msgstr "Dia/hora do banimento"
+
+msgid "Banned users list"
+msgstr "Lista de usuários banidos"
+
+msgid "Billing"
+msgstr "Faturamento"
+
+msgid "Content"
+msgstr "Conteúdo"
+
+msgid "Credit"
+msgstr "Crédito"
+
+msgid "Current IP address"
+msgstr "Endereço de IP atual"
+
+msgid "Deleted"
+msgstr "Excluído"
+
+msgid "Delivered"
+msgstr "Entregue"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Failed"
+msgstr "Falhou"
+
+msgid "Feature"
+msgstr "Recurso"
+
+msgid "Footer"
+msgstr "Rodapé"
+
+msgid "From"
+msgstr "De"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Inbox"
+msgstr "Caixa de Entrada"
+
+msgid "Keyword"
+msgstr "Palavra-chave"
+
+msgid "Last update"
+msgstr "Última atualização"
+
+#, php-format
+msgid "List of messages from %s"
+msgstr "Liste de mensagens de %s"
+
+msgid "List of my credit transactions"
+msgstr "Lista de minhas transações de crédito"
+
+#, php-format
+msgid "List of queue %s"
+msgstr "Lista da fila %s"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "My credit transactions"
+msgstr "Minhas transações de crédito"
+
+msgid "My feature messages"
+msgstr "Minhas mensagens de recurso"
+
+msgid "My report"
+msgstr "Meus relatórios"
+
+msgid "My sent messages"
+msgstr "Minhas mensagens enviadas"
+
+msgid "Pending"
+msgstr "Pendente"
+
+msgid "Report"
+msgstr "Relatório"
+
+msgid "Report all users"
+msgstr "Relatório de todos usuários"
+
+msgid "Report banned users"
+msgstr "Relatório de usuários banidos"
+
+msgid "Report whose online"
+msgstr "Relatório de quem está online"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Sandbox"
+msgstr "Sandbox"
+
+msgid "Selected incoming message has been deleted"
+msgstr "A mensagem recebida selecionada foi excluída"
+
+msgid "Selected outgoing message has been deleted"
+msgstr "A mensagem de saída selecionada foi excluída"
+
+msgid "Selected transactions has been deleted"
+msgstr "A transação selecionada foi excluída"
+
+msgid "Sent"
+msgstr "Enviada"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Time"
+msgstr "Hora"
+
+msgid "To"
+msgstr "Para"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Transaction datetime"
+msgstr "Data e hora da transação"
+
+msgid "Unable to unban account"
+msgstr "Não é possível desbanir a conta"
+
+msgid "User"
+msgstr "Usuário"
+
+msgid "User agent"
+msgstr "User agent"
+
+msgid "Whose online"
+msgstr "Quem está online"
+
+msgid "cost"
+msgstr "custo"
+
+msgid "count"
+msgstr "contagem"
+
+msgid "rate"
+msgstr "taxa"
+
+msgid "username"
+msgstr "nome de usuário"
+
+#, php-format
+msgid "view all %d"
+msgstr "ver todos %d"

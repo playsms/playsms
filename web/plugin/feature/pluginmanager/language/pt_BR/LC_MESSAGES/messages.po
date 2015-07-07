@@ -18,7 +18,7 @@ msgid "Description"
 msgstr "Descrição"
 
 msgid "Features"
-msgstr "Funções"
+msgstr "Recursos"
 
 msgid "Gateways"
 msgstr "Gateways"
