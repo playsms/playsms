@@ -1,0 +1,27 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Count"
+msgstr "Contador"
+
+msgid "Date/Time"
+msgstr "Data/hora"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "Queue Code"
+msgstr "Código na fila"
+
+msgid "User"
+msgstr "Usuário"
+
+msgid "View SMS queue"
+msgstr "Visualizar fila de SMS"

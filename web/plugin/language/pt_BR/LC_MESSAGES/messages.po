@@ -12,21 +12,19 @@ msgid "Administrator"
 msgstr "Administrador"
 
 msgid "Ban"
-msgstr ""
+msgstr "Banir"
 
 msgid "Buy"
-msgstr ""
+msgstr "Comprar"
 
-#, fuzzy
 msgid "Compose message"
-msgstr "Mensagem unicode"
+msgstr "Compor mensagem"
 
 msgid "Delete"
-msgstr "Remover"
+msgstr "Excluír"
 
-#, fuzzy
 msgid "Delete user"
-msgstr "Remover"
+msgstr "Excluír usuário"
 
 msgid "Edit"
 msgstr "Editar"
@@ -35,33 +33,28 @@ msgid "Export"
 msgstr "Exportar"
 
 msgid "FATAL ERROR"
-msgstr ""
+msgstr "ERRO FATAL"
 
 msgid "Fail to connect to database"
-msgstr ""
+msgstr "Falha ao conectar ao banco de dados"
 
-#, fuzzy
 msgid "Fail to load gateway"
-msgstr "Preencha para atualizar"
+msgstr "Falha ao carregar gateway"
 
-#, fuzzy
 msgid "Fail to load language"
-msgstr "Idioma padrão"
+msgstr "Falha ao carregar idioma"
 
 msgid "Fail to load main config from registry"
-msgstr ""
+msgstr "Falha ao carregar as configurações principais do registro"
 
-#, fuzzy
 msgid "Fail to load themes"
-msgstr "Falha ao enviar e-mail"
+msgstr "Falha ao carregar temas"
 
-#, fuzzy
 msgid "Features"
-msgstr "Recurso"
+msgstr "Recursos"
 
-#, fuzzy
 msgid "Forward"
-msgstr "encaminhar"
+msgstr "Encaminhar"
 
 msgid "Go"
 msgstr "Ir"
@@ -73,17 +66,16 @@ msgid "Home"
 msgstr "Início"
 
 msgid "Idle"
-msgstr ""
+msgstr "Inativo"
 
-#, fuzzy
 msgid "Import"
-msgstr "Exportar"
+msgstr "Importar"
 
 msgid "Logged in as"
-msgstr ""
+msgstr "Logado como"
 
 msgid "Login as"
-msgstr ""
+msgstr "Logar como"
 
 msgid "Logout"
 msgstr "Sair"
@@ -92,111 +84,94 @@ msgid "Main configuration"
 msgstr "Configurações principais"
 
 msgid "Manage"
-msgstr "Administrar"
+msgstr "Gerenciar"
 
-#, fuzzy
 msgid "Manage ACL"
-msgstr "Administrar"
+msgstr "Gerenciar Regras"
 
-#, fuzzy
 msgid "Manage account"
-msgstr "Minha conta"
+msgstr "Gerenciar conta"
 
-#, fuzzy
 msgid "Manage gateway"
-msgstr "Administrar usuário"
+msgstr "Gerenciar Gateway"
 
-#, fuzzy
 msgid "Manage gateway and SMSC"
-msgstr "Administrar usuário"
+msgstr "Gerenciar Gateway e SMSC"
 
-#, fuzzy
 msgid "Manage sender ID"
-msgstr "SMS Sender ID"
+msgstr "Gerenciar ID de Remetente"
 
-#, fuzzy
 msgid "Manage site"
-msgstr "Administrar usuário"
+msgstr "Gerenciar Site"
 
-#, fuzzy
 msgid "Manage sub-account"
-msgstr "Administrar usuário"
+msgstr "Gerenciar sub-conta"
 
-#, fuzzy
 msgid "Manage sub-accounts"
-msgstr "Administrar usuário"
+msgstr "Gerenciar sub Contas"
 
-#, fuzzy
 msgid "Manage subuser"
-msgstr "Administrar usuário"
+msgstr "Gerenciar sub-usuário"
 
-#, fuzzy
 msgid "Manage subusers"
-msgstr "Administrar usuário"
+msgstr "Gerenciar sub-usuários"
 
 msgid "Manage user"
-msgstr "Administrar usuário"
+msgstr "Gerenciar usuário"
 
 msgid "Move"
-msgstr ""
+msgstr "Mover"
 
-#, fuzzy
 msgid "My account"
 msgstr "Minha conta"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Please run composer.phar update"
-msgstr ""
+msgstr "Por favor execute composer.phar update"
 
 msgid "Preferences"
 msgstr "Preferências"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Reduzir"
 
 msgid "Reply"
 msgstr "Responder"
 
-#, fuzzy
 msgid "Reports"
-msgstr "Exportar"
+msgstr "Relatórios"
 
-#, fuzzy
 msgid "Resend"
-msgstr "reenviar"
+msgstr "Reenviar"
 
-#, fuzzy
 msgid "Send message"
-msgstr "Mensagem unicode"
+msgstr "Enviar mensagem"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
-#, fuzzy
 msgid "Unable to find composer files"
-msgstr "Incapaz de atualizar a sessão de login"
+msgstr "Incapaz de localizar os arquivos do composer"
 
 msgid "Unban"
-msgstr ""
+msgstr "Desbanir"
 
-#, fuzzy
 msgid "User configuration"
-msgstr "Configurações principais"
+msgstr "Configurações de usuário"
 
-#, fuzzy
 msgid "User preference"
-msgstr "Preferências"
+msgstr "Preferências de usuário"
 
 msgid "View"
 msgstr "Visualizar"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Seu crédito"
 
 msgid "return"
-msgstr ""
+msgstr "voltar"

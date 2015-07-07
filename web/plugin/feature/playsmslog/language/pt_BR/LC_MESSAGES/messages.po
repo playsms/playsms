@@ -6,16 +6,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Atualizar"
 
 msgid "View log"
 msgstr "Visualizar log"
 
 msgid "playSMS daemon is NOT running"
-msgstr ""
+msgstr "O daemon do playSMS não está rodando"
 
 msgid "playSMS daemon is running"
-msgstr ""
+msgstr "daemon do playSMS está rodando"
 
 msgid "playSMS daemon status"
-msgstr ""
+msgstr "status do daemon do playSMS"

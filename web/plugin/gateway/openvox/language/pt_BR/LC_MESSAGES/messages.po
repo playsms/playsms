@@ -5,28 +5,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, fuzzy
 msgid "Changes have been made"
-msgstr "Nenhuma mudança feita"
+msgstr "Alterações foram realizadas"
 
-#, fuzzy
 msgid "Fill to change the password"
-msgstr "Preencha para alterar o segredo API"
+msgstr "Preencha para alterar a senha"
 
-#, fuzzy
 msgid "Gateway host"
-msgstr "Nome do gateway"
+msgstr "Host do gateway"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-#, fuzzy
 msgid "Gateway port"
-msgstr "Nome do gateway"
+msgstr "Porta do gateway"
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "Administrar nexmo"
+msgstr "Gerenciar OpenVox"
 
 msgid "Module sender ID"
 msgstr "Módulo ID remetente"
@@ -38,17 +33,16 @@ msgid "Notes"
 msgstr "Observações"
 
 msgid "Password"
-msgstr ""
+msgstr "Senha"
 
 msgid "Save"
 msgstr "Salvar"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome de usuário"
 
 msgid "Your callback URL is"
 msgstr "Sua URL callback é"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr "Sua URL callback deve estar acessível pelo Nexmo"
+msgstr "Sua URL callback deve estar acessível pelo OpenVox"

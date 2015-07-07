@@ -6,82 +6,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "Fail to recover password"
-msgstr ""
+msgstr "Falha ao recuperar senha"
 
 msgid "Fail to save temporary password"
-msgstr ""
+msgstr "Falha ao salvar senha temporária"
 
 msgid "Fail to send email"
-msgstr ""
+msgstr "Falha ao enviar email"
 
 msgid "Home"
-msgstr ""
+msgstr "Início"
 
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Usuário ou senha inválidos"
 
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Celular"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Password"
-msgstr ""
+msgstr "Senha"
 
 msgid "Password has been emailed"
-msgstr ""
+msgstr "A senha foi enviada para o e-mail"
 
 msgid "Password recovery"
-msgstr ""
+msgstr "Recuperação de senha"
 
 msgid "Please type the displayed captcha phrase correctly"
-msgstr ""
+msgstr "O captcha digitado não confere."
 
 msgid ""
 "Read and type the captcha phrase on verify captcha field. If you cannot read "
 "them please contact administrator."
 msgstr ""
+"Leia e digite o captcha no campo de verificação. Se você não conseguirlê-lo, "
+"contacte o administrador."
 
 msgid "Recover password"
-msgstr ""
+msgstr "Recuperar senha"
 
 msgid "Recover password disabled"
-msgstr ""
+msgstr "Recuperação de senha desabilitado"
 
 msgid "Register an account"
-msgstr ""
+msgstr "Registrar uma conta"
 
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
-msgstr ""
+msgstr "Essa senha temporária será removida após o login"
 
 msgid "Unable to login"
-msgstr ""
+msgstr "Não foi possível logar"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome de usuário"
 
 msgid "Username or email"
-msgstr ""
+msgstr "Usuário ou email"
 
 msgid "Verify captcha"
-msgstr ""
+msgstr "Verificar captcha"
 
 msgid "You have been logged out"
-msgstr ""
+msgstr "Você foi desconectado"
 
 msgid "You have no access to this page"
-msgstr ""
+msgstr "Você não tem acesso à essa página"
 
 msgid "You or someone else have requested a password recovery"
-msgstr ""
+msgstr "Você ou alguém solicitou a recuperação de senha"

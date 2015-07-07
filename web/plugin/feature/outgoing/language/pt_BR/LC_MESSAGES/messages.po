@@ -8,75 +8,65 @@ msgstr ""
 msgid "Action"
 msgstr "Ação"
 
-#, fuzzy
 msgid "Add route"
-msgstr "Adicionar taxa"
+msgstr "Adicionar rota"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Tem certeza?"
 
-#, fuzzy
 msgid "Destination name"
-msgstr "Destino"
+msgstr "Nome de destino"
 
-#, fuzzy
 msgid "Edit route"
-msgstr "Editar taxa"
+msgstr "Editar rota"
 
-#, fuzzy
 msgid "Fail to add route"
-msgstr "Falha ao salvar a taxa"
+msgstr "Falha ao salvar a rota"
 
-#, fuzzy
 msgid "Fail to delete route"
-msgstr "Falha ao remover a taxa"
+msgstr "Falha ao excluir a rota"
 
-#, fuzzy
 msgid "Fail to save route"
-msgstr "Falha ao salvar a taxa"
+msgstr "Falha ao salvar a rota"
 
 msgid "Maximum 8 digits numeric only"
-msgstr ""
+msgstr "Máximo 8 números apenas"
 
 msgid "Prefix"
 msgstr "Prefixo"
 
 msgid "Route SMS outgoing"
-msgstr ""
+msgstr "Rota para SMS de saída"
 
-#, fuzzy
 msgid "Route has been added"
-msgstr "A taxa foi salva"
+msgstr "A rota foi adicionada"
 
-#, fuzzy
 msgid "Route has been deleted"
-msgstr "A taxa foi salva"
+msgstr "A rota foi excluída"
 
-#, fuzzy
 msgid "Route has been saved"
-msgstr "A taxa foi salva"
+msgstr "A rota foi salva"
 
 msgid "Route outgoing SMS"
-msgstr ""
+msgstr "Rota para SMS de saída"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Salvar"
 
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Preencha todos os campos"
+msgstr "Preencha todos os campos obrigatórios"
 
 msgid "blocked"
-msgstr ""
+msgstr "bloqueado"
 
 msgid "destination"
 msgstr "destino"

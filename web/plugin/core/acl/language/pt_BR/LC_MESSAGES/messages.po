@@ -6,82 +6,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ACL ID"
-msgstr ""
+msgstr "ID da regra"
 
 msgid "ACL been edited"
-msgstr ""
+msgstr "regra foi editada"
 
 msgid "ACL has been deleted"
-msgstr ""
+msgstr "regra foi excluída"
 
 msgid "ACL name"
-msgstr ""
+msgstr "Nome da regra"
 
 msgid "Action"
-msgstr ""
+msgstr "Ação"
 
 msgid "Add ACL"
-msgstr ""
+msgstr "Adicionar regra"
 
 msgid "Are you sure you want to delete ACL ?"
-msgstr ""
+msgstr "Tem certeza que deseja excluír a regra"
 
 msgid "Comma separated for multiple entries"
-msgstr ""
+msgstr "Entradas múltiplas devem ser separadas por vírgula (,)"
 
 msgid "Credit"
-msgstr ""
+msgstr "Crédito"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "PADRÃO"
 
 msgid "Edit ACL"
-msgstr ""
+msgstr "Editar regra"
 
 msgid "Fail to add new ACL"
-msgstr ""
+msgstr "Falha ao adicionar nova regra"
 
 msgid "Fail to delete ACL"
-msgstr ""
+msgstr "Falha ao excluír regra"
 
 msgid "Fail to edit ACL"
-msgstr ""
+msgstr "Falha ao editar regra"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "List of accounts"
-msgstr ""
+msgstr "Lista de contas"
 
 msgid "Manage ACL"
-msgstr ""
+msgstr "Gerenciar regras"
 
 msgid "Mandatory fields must not be empty"
-msgstr ""
+msgstr "Campos obrigatórios não podem estar em branco"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Celular"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "New ACL been added"
-msgstr ""
+msgstr "Nova regra adicionada"
 
 msgid "Registered"
-msgstr ""
+msgstr "Registrado"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Subuser ACL"
-msgstr ""
+msgstr "Regra para sub-usuário"
 
 msgid "URLs"
-msgstr ""
+msgstr "URLs"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome de Usuário"
 
 msgid "View report"
-msgstr ""
+msgstr "Ver relatório"

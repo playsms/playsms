@@ -6,19 +6,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Changes have been made"
-msgstr ""
+msgstr "Alterações foram realizadas"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage gammu"
-msgstr "Administrar gammu"
+msgstr "Gerenciar gammu"
 
 msgid "Receiver number"
-msgstr ""
+msgstr "Número do destinatário"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Spool folder"
-msgstr ""
+msgstr "Diretório do spool"

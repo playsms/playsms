@@ -6,46 +6,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrador"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Administradores"
 
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Compor mensagem"
 
 msgid "Information"
-msgstr ""
+msgstr "Informações"
 
 msgid "Please select"
-msgstr ""
+msgstr "Por favor selecione"
 
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 msgid "Select users"
-msgstr ""
+msgstr "Selecionar usuários"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Sub-uruário"
 
 msgid "Subusers"
-msgstr ""
+msgstr "Sub-usuários"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo é obrigatório"
 
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 msgid "Users"
-msgstr ""
+msgstr "Usuários"
 
 msgid "no"
-msgstr ""
+msgstr "não"
 
 msgid "yes"
-msgstr ""
+msgstr "sim"

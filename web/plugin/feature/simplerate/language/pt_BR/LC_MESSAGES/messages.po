@@ -27,7 +27,7 @@ msgid "Fail to save rate"
 msgstr "Falha ao salvar a taxa"
 
 msgid "Manage SMS rate"
-msgstr "Administrar taxa de SMS"
+msgstr "Gerenciar taxa de SMS"
 
 msgid "No changes made!"
 msgstr "Nenhuma mudança feita!"
@@ -55,11 +55,11 @@ msgstr "Salvar"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr ""
+msgstr "O usuário %s com conta ID %d alcançou o limite mínimo de crédito de %s"
 
 #, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr ""
+msgstr "Você alcançou o limite mínimo de crédito de %s"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
@@ -69,6 +69,8 @@ msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
+"Seu sub-usuário com nome de usuário %s e ID de conta %d alcançou o limite"
+"mínimo de crédito de %s"
 
 msgid "destination"
 msgstr "destino"

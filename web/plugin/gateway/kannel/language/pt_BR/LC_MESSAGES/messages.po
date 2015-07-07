@@ -11,9 +11,8 @@ msgstr "Parâmetro de URL adicional"
 msgid "Bearerbox hostname or IP"
 msgstr "Hostname ou IP do bearerbox"
 
-#, fuzzy
 msgid "Changes have been made"
-msgstr "Nenhuma mudança feita"
+msgstr "Alterações foram realizadas"
 
 msgid "Delivered to SMSC"
 msgstr "Recebido pelo SMSC"
@@ -33,9 +32,8 @@ msgstr "Preencha para alterar a senha"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-#, fuzzy
 msgid "HTTP Kannel admin host"
-msgstr "Porta HTTP de administração Kannel"
+msgstr "Host HTTP do administrador Kannel"
 
 msgid "HTTP Kannel admin password"
 msgstr "Senha HTTP de administrador Kannel"
@@ -44,11 +42,10 @@ msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
 
 msgid "Incoming SMS time is in local time"
-msgstr ""
+msgstr "A hora do SMS recebido está na hora local"
 
-#, fuzzy
 msgid "Kannel admin host"
-msgstr "Porta de administração Kannel"
+msgstr "Host do administrador Kannel"
 
 msgid "Kannel admin password"
 msgstr "Senha de administrador Kannel"
@@ -63,7 +60,7 @@ msgid "Kannel status"
 msgstr "Status do Kannel"
 
 msgid "Manage kannel"
-msgstr "Administrar kannel"
+msgstr "Gerenciar kannel"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
@@ -75,7 +72,7 @@ msgid "Module timezone"
 msgstr "Módulo Fuso Horário"
 
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 msgid "Non-Delivered to SMSC"
 msgstr "Não entregue ao SMSC"
@@ -96,7 +93,7 @@ msgid "Save"
 msgstr "Salvar"
 
 msgid "Select no if the incoming SMS time is in UTC"
-msgstr ""
+msgstr "Selecione 'não' se o horário do recebimento do SMS estiver em UTC"
 
 msgid "Send SMS hostname or IP"
 msgstr "Enviar hostname do SMS ou IP"
@@ -105,7 +102,7 @@ msgid "Send SMS port"
 msgstr "Porta de envio de SMS"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL do playSMS, deixe em branco para usar a URL base"
@@ -114,7 +111,7 @@ msgid "Username"
 msgstr "Usuário"
 
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 msgid "playSMS web URL"
 msgstr "URL web do playSMS"

@@ -6,22 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Ação"
 
 msgid "All queues have been removed"
-msgstr ""
+msgstr "Todas as filas foram excluídas"
 
 msgid "Are you sure you want to delete ALL queues"
-msgstr ""
+msgstr "Tem certeza que deseja excluír TODAS as filas"
 
 msgid "Are you sure you want to delete queue"
-msgstr ""
+msgstr "Tem certeza que deseja excluir a fila"
 
 msgid "Count"
 msgstr "Contador"
 
 msgid "Delete ALL queues"
-msgstr ""
+msgstr "Excluír TODAS as filas"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -30,10 +30,10 @@ msgid "Queue Code"
 msgstr "Código na fila"
 
 msgid "Queue has been removed"
-msgstr ""
+msgstr "A fila foi excluída"
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Agendamento"
 
 msgid "User"
 msgstr "Usuário"

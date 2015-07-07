@@ -6,22 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Changes have been made"
-msgstr ""
+msgstr "Alterações foram realizadas"
 
 msgid "Default default_queue directory"
-msgstr ""
+msgstr "Diretório padrão de fila_padrão"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage smstools"
-msgstr "Administrar smstools"
+msgstr "Gerenciar smstools"
 
 msgid "Queue directory"
-msgstr ""
+msgstr "Diretório de fila"
 
 msgid "Receiver number"
-msgstr ""
+msgstr "Número do Destinatário"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"

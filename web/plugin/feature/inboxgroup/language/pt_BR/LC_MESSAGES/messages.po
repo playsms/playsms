@@ -156,7 +156,7 @@ msgid "Receiver number does not exist"
 msgstr "Número do destinatário não existe"
 
 msgid "Restrict sender to regular members or catch-all members only"
-msgstr ""
+msgstr "Restringir remetente para mebros regulares ou membro coringa apenas"
 
 msgid "Save"
 msgstr "Salvar"
@@ -174,7 +174,7 @@ msgid "Separate with comma for multiple items"
 msgstr "Separado por vírgula para múltiplos ítens"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Username"
 msgstr "Usuário"

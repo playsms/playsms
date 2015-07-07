@@ -1,87 +1,89 @@
 msgid "Active themes"
-msgstr ""
+msgstr "Temas ativos"
 
 msgid "Buy credit page"
-msgstr ""
+msgstr "Pgina para compra de crditos"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configuraes"
 
 msgid "Default credit upon registration"
-msgstr ""
+msgstr "Crditos padro aps registro"
 
 msgid "Default language"
-msgstr ""
+msgstr "Idioma padro"
 
 msgid "Domain"
-msgstr ""
+msgstr "Dominio"
 
 msgid "Email footer"
-msgstr ""
+msgstr "Rodap de email"
 
 msgid "Email service"
-msgstr ""
+msgstr "Servio de email"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Habilitar recuperao de senha"
 
 msgid "Enable logo"
-msgstr ""
+msgstr "Habilitar logo"
 
 msgid "Enable public registration"
-msgstr ""
+msgstr "Habilitar registro pblico"
 
 msgid "Information page"
-msgstr ""
+msgstr "Pgina de informaes"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Layout do rodap"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "URL da logo"
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
+"Por padro a logo ser exibida nas pginas de login, registro e recuperao de "
+"senha"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "URL Principal"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Nome principal do site"
 
 msgid "Manage site"
-msgstr ""
+msgstr "Gerenciar site"
 
 msgid "Page content"
-msgstr ""
+msgstr "Contedo da pgina"
 
 msgid "Page title"
-msgstr ""
+msgstr "Ttulo da pgina"
 
 msgid "Replace website title with logo"
-msgstr ""
+msgstr "Substituir ttulo da pgina pela logo"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Site configuration"
-msgstr ""
+msgstr "Configuraes do site"
 
 msgid "Site configuration has been saved"
-msgstr ""
+msgstr "As configuraes do site foram salvas"
 
 msgid "The domain is already configured by other user"
-msgstr ""
+msgstr "Esse domnio j est registrado para oturo usurio"
 
 msgid "Website title"
-msgstr ""
+msgstr "Ttulo do site"
 
 msgid "domain"
-msgstr ""
+msgstr "domnio"
 
 msgid "no"
-msgstr ""
+msgstr "no"
 
 msgid "yes"
-msgstr ""
+msgstr "sim"

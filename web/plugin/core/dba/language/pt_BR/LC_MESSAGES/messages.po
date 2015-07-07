@@ -4,7 +4,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Cannot find PHP PEAR-DB"
-msgstr ""
+msgstr "Não foi possível localizar PHP PEAR_DB"
 
 msgid "FATAL ERROR"
-msgstr ""
+msgstr "ERRO FATAL"

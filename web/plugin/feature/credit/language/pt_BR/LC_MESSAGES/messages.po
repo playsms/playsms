@@ -4,88 +4,88 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add credit"
-msgstr ""
+msgstr "Adicionar crédito"
 
 msgid "Add credit to users"
-msgstr ""
+msgstr "Adicionar crédito ao usuário"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrador"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Administradores"
 
 msgid "Amount"
-msgstr ""
+msgstr "Quantidade"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr ""
+msgstr "Tem certeza que deseja excluir essas transações?"
 
 msgid "Balance"
-msgstr ""
+msgstr "Saldo"
 
 msgid "Balance recorded on transaction"
-msgstr ""
+msgstr "Saldo gravado na transação"
 
 msgid "Credit has been added"
-msgstr ""
+msgstr "O crédito foi adicionado"
 
 msgid "Credit has been reduced"
-msgstr ""
+msgstr "O Crédito foi reduzido"
 
 msgid "Fail to add credit"
-msgstr ""
+msgstr "Falha ao adicionar crédito"
 
 msgid "Fail to reduce credit"
-msgstr ""
+msgstr "Falha ao reduzir crédito"
 
 msgid "List of transactions"
-msgstr ""
+msgstr "Lista de transações"
 
 msgid "Manage credit"
-msgstr ""
+msgstr "Gerenciar crédito"
 
 msgid "Reduce credit"
-msgstr ""
+msgstr "Reduzir crédito"
 
 msgid "Reduce credit from users"
-msgstr ""
+msgstr "Reduzir crédito dos usuários"
 
 msgid "Select users"
-msgstr ""
+msgstr "Selecionar usuários"
 
 msgid "Selected transactions has been deleted"
-msgstr ""
+msgstr "As transações selecionadas foram excluídas"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Sub-usuário"
 
 msgid "Subusers"
-msgstr ""
+msgstr "Sub-usuários"
 
 msgid "Transaction datetime"
-msgstr ""
+msgstr "Data e hora da transação"
 
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 msgid "User ID"
-msgstr ""
+msgstr "ID de usuário"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome de usuário"
 
 msgid "Users"
-msgstr ""
+msgstr "Usuários"
 
 msgid "Wrong amount or user does not exist"
-msgstr ""
+msgstr "Quantidade incorreta ou usuário não existe"
 
 msgid "amount"
-msgstr ""
+msgstr "quantidade"
 
 msgid "balance"
-msgstr ""
+msgstr "saldo"
 
 msgid "user"
-msgstr ""
+msgstr "usuário"

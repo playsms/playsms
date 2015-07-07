@@ -18,7 +18,7 @@ msgid "Edit SMS command"
 msgstr "Editar comando SMS"
 
 msgid "Exec"
-msgstr ""
+msgstr "Executar"
 
 msgid "Fail to add SMS command"
 msgstr "Falha ao adicionar comando SMS"
@@ -36,7 +36,7 @@ msgid "Make return as reply"
 msgstr "Enviar saída do comando como resposta"
 
 msgid "Manage command"
-msgstr "Administrar comando"
+msgstr "Gerenciar comando"
 
 msgid "Pass these parameter to command exec field"
 msgstr "Use esses parâmetros no campo do comando"

@@ -1,128 +1,128 @@
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrador"
 
 msgid "Ban"
-msgstr ""
+msgstr "Banir"
 
 msgid "Buy"
-msgstr ""
+msgstr "Comprar"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Compor mensagem"
 
 msgid "Delete"
-msgstr ""
+msgstr "Excluir"
 
 msgid "Delete user"
-msgstr ""
+msgstr "Excluir usuário"
 
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 msgid "Features"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Forward"
-msgstr ""
+msgstr "Encaminhar"
 
 msgid "Go"
-msgstr ""
+msgstr "Ir"
 
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 msgid "Home"
-msgstr ""
+msgstr "Inicio"
 
 msgid "Idle"
-msgstr ""
+msgstr "Inativo"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Logged in as"
-msgstr ""
+msgstr "Logado como"
 
 msgid "Login as"
-msgstr ""
+msgstr "Logar como"
 
 msgid "Logout"
-msgstr ""
+msgstr "Sair"
 
 msgid "Main configuration"
-msgstr ""
+msgstr "Configuração principal"
 
 msgid "Manage"
-msgstr ""
+msgstr "Gerenciar"
 
 msgid "Manage ACL"
-msgstr ""
+msgstr "Gerenciar Regras"
 
 msgid "Manage account"
-msgstr ""
+msgstr "Gerenciar Contas"
 
 msgid "Manage gateway and SMSC"
-msgstr ""
+msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage sender ID"
-msgstr ""
+msgstr "Gerenciar ID de destinatário"
 
 msgid "Manage site"
-msgstr ""
+msgstr "Gerenciar site"
 
 msgid "Manage subuser"
-msgstr ""
+msgstr "Gerenciar sub-usuário"
 
 msgid "Move"
-msgstr ""
+msgstr "Mover"
 
 msgid "My account"
-msgstr ""
+msgstr "Minha conta"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Preferências"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Reduzir"
 
 msgid "Reply"
-msgstr ""
+msgstr "Responder"
 
 msgid "Reports"
-msgstr ""
+msgstr "Relatórios"
 
 msgid "Resend"
-msgstr ""
+msgstr "Reenviar"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 msgid "Unban"
-msgstr ""
+msgstr "Desbanir"
 
 msgid "User configuration"
-msgstr ""
+msgstr "Configurações de usuário"
 
 msgid "User preference"
-msgstr ""
+msgstr "Preferências de usuário"
 
 msgid "View"
-msgstr ""
+msgstr "Visualizar"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Seus créditos"
 
 msgid "return"
-msgstr ""
+msgstr "voltar"

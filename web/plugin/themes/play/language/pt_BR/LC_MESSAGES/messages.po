@@ -1,0 +1,51 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Forgot password"
+msgstr "Esqueceu a senha?"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Logged in"
+msgstr "Logado"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "Mobile"
+msgstr "Celular"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Preferences"
+msgstr "Preferências"
+
+msgid "Recover password"
+msgstr "Recuperar senha"
+
+msgid "Register an account"
+msgstr "Registrar uma conta"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Username"
+msgstr "Usuário"

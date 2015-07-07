@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "Formato do arquivo CSV"
 
 msgid "Cancel send from file"
 msgstr "Cancelar envio de arquivo"
@@ -15,7 +15,7 @@ msgid "Confirmation"
 msgstr "Confirmação"
 
 msgid "Destination number"
-msgstr "Número de destino"
+msgstr "Número de destinatário"
 
 msgid "Found invalid entries in uploaded file"
 msgstr "Encontradas entradas inválidas no arquivo enviado"
@@ -39,7 +39,7 @@ msgid "Please select CSV file"
 msgstr "Por favor selecione arquivo CSV"
 
 msgid "Prevent duplicates"
-msgstr ""
+msgstr "Previnir duplicados"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "O SMS foi enviado para os números válidos no arquivo enviado"
@@ -65,13 +65,11 @@ msgstr "Usuário"
 msgid "Your choice"
 msgstr "Sua escolha"
 
-#, fuzzy
 msgid "destination number, message"
-msgstr "formato: número do destinatário, mensagem"
+msgstr "número do destinatário, mensagem"
 
-#, fuzzy
 msgid "destination number, message, username"
-msgstr "formato: número do destinatário, mensagem, usuário"
+msgstr "número do destinatário, mensagem, usuário"
 
 msgid "invalid entries"
 msgstr "entradas inválidas"
