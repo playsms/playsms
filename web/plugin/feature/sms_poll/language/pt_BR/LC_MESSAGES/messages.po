@@ -18,7 +18,7 @@ msgid "Add choice to this poll"
 msgstr "Adicionar opção para essa votação"
 
 msgid "All"
-msgstr ""
+msgstr "Todas"
 
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
@@ -31,7 +31,6 @@ msgstr "Tem certeza que quer remover essa opção?"
 msgid "Choice already exists"
 msgstr "A opção já existe"
 
-#, fuzzy
 msgid "Choice description"
 msgstr "Título da opção"
 
@@ -42,7 +41,7 @@ msgid "Choice keyword"
 msgstr "Palavra-chave da opção"
 
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 msgid "Edit SMS poll"
 msgstr "Editar votação SMS"
@@ -57,20 +56,19 @@ msgid "Fail to delete SMS poll choice"
 msgstr "Falha ao remover a opçao da votação SMS"
 
 msgid "Grand total SMS"
-msgstr ""
+msgstr "Total de SMS"
 
 msgid "Grand total senders"
-msgstr ""
+msgstr "Total de remetentes"
 
 msgid "Graph output"
-msgstr "Saída Graph"
+msgstr "Gráfico de saída"
 
-#, fuzzy
 msgid "HTML output"
-msgstr "Saída XML"
+msgstr "Saída HTML"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Inválido"
 
 msgid "JSON output"
 msgstr "Saída JSON"
@@ -79,44 +77,40 @@ msgid "Keyword"
 msgstr "Palavra-chave"
 
 msgid "Manage poll"
-msgstr "Administrar votação"
+msgstr "Gerenciar votação"
 
 msgid "Multi"
-msgstr ""
+msgstr "Multi"
 
 msgid "Number of votes"
-msgstr ""
+msgstr "Número de votos"
 
 msgid "Once"
-msgstr ""
+msgstr "Uma vez"
 
 msgid "PHP serialize output"
 msgstr "Saída PHP serialize"
 
-#, fuzzy
 msgid "Reply message on invalid vote"
-msgstr "Mensagem de retorno caso resposta inválida"
+msgstr "Mensagem de retorno caso voto inválida"
 
-#, fuzzy
 msgid "Reply message on out of vote option"
-msgstr "Mensagem de retorno caso mensagem válida"
+msgstr "Mensagem de retorno caso opção de voto invalido"
 
-#, fuzzy
 msgid "Reply message on valid vote"
-msgstr "Mensagem de retorno caso mensagem válida"
+msgstr "Mensagem de retorno caso voto válido"
 
 msgid "Result graph"
-msgstr ""
+msgstr "Gráfico de resultado"
 
 msgid "Result table"
-msgstr ""
+msgstr "Tabela de resultado"
 
-#, fuzzy
 msgid "SMS poll access code"
-msgstr "Palavra-chave da votação SMS"
+msgstr "Código de acesso à enquete SMS"
 
 msgid "SMS poll access code used mainly by webservices"
-msgstr ""
+msgstr "Código de acesso à enquete SMS usado basicamente por webservices"
 
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "A votação SMS já existe, está reservada ou em uso por outro recurso"
@@ -143,52 +137,52 @@ msgid "SMS poll with all its messages has been deleted"
 msgstr "A votação SMS foi removida com todas as suas mensagens"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Salvar"
 
 msgid "Senders sent multi votes"
-msgstr ""
+msgstr "Remetentes enviarm múltiplos votos"
 
 msgid "Senders sent multiple votes"
-msgstr ""
+msgstr "Rementes enviam multiplos votos"
 
 msgid "Senders sent once"
-msgstr ""
+msgstr "Destinatários enviado uma vez"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Estatística"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Title"
 msgstr "Título"
 
 msgid "Total invalid SMS"
-msgstr ""
+msgstr "Total de SMS inválidos"
 
 msgid "Total multiple votes SMS"
-msgstr ""
+msgstr "Total de SMSs de voto múltiplo"
 
 msgid "Total one time vote SMS"
-msgstr ""
+msgstr "Total de SMS de voto único"
 
 msgid "Total valid SMS"
-msgstr ""
+msgstr "Total de SMSs válidos"
 
 msgid "User"
 msgstr "Usuário"
 
 msgid "Valid"
-msgstr ""
+msgstr "Válido"
 
 msgid "Vote option"
-msgstr ""
+msgstr "Opção de voto"
 
 msgid "Webservices links"
-msgstr ""
+msgstr "Links de webservice"
 
 msgid "XML output"
 msgstr "Saída XML"
@@ -200,20 +194,19 @@ msgid "keyword"
 msgstr "palavra-chave"
 
 msgid "multiple times"
-msgstr ""
+msgstr "múltiplas vezes"
 
-#, fuzzy
 msgid "one time"
-msgstr "Título da opção"
+msgstr "uma vez"
 
 msgid "one time every 24 hours"
-msgstr ""
+msgstr "uma vez a cada 24 horas"
 
 msgid "one time every month"
-msgstr ""
+msgstr "uma vez por mês"
 
 msgid "one time every week"
-msgstr ""
+msgstr "uma vez por semana"
 
 msgid "title"
 msgstr "título"

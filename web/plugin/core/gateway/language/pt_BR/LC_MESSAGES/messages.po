@@ -6,70 +6,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Ação"
 
 msgid "Add SMSC"
-msgstr ""
+msgstr "Adicionar SMSC"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Tem certeza?"
 
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 msgid "Edit SMSC"
-msgstr ""
+msgstr "Editar SMSC"
 
 msgid "Fail to add new SMSC"
-msgstr ""
+msgstr "Falha ao adicionar novo SMSC"
 
 msgid "Fail to edit SMSC"
-msgstr ""
+msgstr "Falha ao editar SMSC"
 
 msgid "Fail to remove SMSC"
-msgstr ""
+msgstr "Falha ao excluír SMSC"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Gateways"
 
 msgid "List of gateways and SMSCs"
-msgstr ""
+msgstr "Lista de gateways e SMSCs"
 
 msgid "Manage gateway and SMSC"
-msgstr ""
+msgstr "Gerenciar gateway e SMSC"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "New SMSC has been added"
-msgstr ""
+msgstr "Novo SMSC foi adicionado"
 
 msgid "Routed SMSC"
-msgstr ""
+msgstr "SMSC roteado"
 
 msgid "SMSC already exists"
-msgstr ""
+msgstr "O SMSC já existe"
 
 msgid "SMSC has been edited"
-msgstr ""
+msgstr "O SMSC foi editado"
 
 msgid "SMSC has been removed"
-msgstr ""
+msgstr "O SMSC foi excluído"
 
 msgid "SMSC name"
-msgstr ""
+msgstr "Nome do SMSC"
 
 msgid "SMSCs"
-msgstr ""
+msgstr "SMSCs"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Supplied SMSC"
-msgstr ""
+msgstr "SMSC fornecido"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Erro desconhecido"

@@ -18,7 +18,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage uplink"
-msgstr "Administrar uplink"
+msgstr "Gerenciar uplink"
 
 msgid "Master URL"
 msgstr "URL mestre"
@@ -39,7 +39,7 @@ msgid "Save"
 msgstr "Salvar"
 
 msgid "Try to disable SMS footer on master"
-msgstr ""
+msgstr "Tente desabilitar o rodapé de SMS no principal"
 
 msgid "Webservice token"
 msgstr "Token de webservice"
@@ -48,7 +48,7 @@ msgid "Webservice username"
 msgstr "Usuário de webservice"
 
 msgid "no"
-msgstr ""
+msgstr "não"
 
 msgid "yes"
-msgstr ""
+msgstr "sim"

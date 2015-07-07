@@ -12,7 +12,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage template"
-msgstr "Administrar template"
+msgstr "Gerenciar template"
 
 msgid "No changes have been made"
 msgstr "Nenhuma mudança feita"

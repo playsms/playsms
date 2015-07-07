@@ -1,149 +1,149 @@
 msgid "Action"
-msgstr ""
+msgstr "Ação"
 
 msgid "Add SMS schedule"
-msgstr ""
+msgstr "Agendar SMS"
 
 msgid "Add destination"
-msgstr ""
+msgstr "Adicionar destino"
 
 msgid "Annually"
-msgstr ""
+msgstr "Anualmente"
 
 msgid "Are you sure you want to delete SMS schedule ?"
-msgstr ""
+msgstr "Tem certeza que deseja excluir o agendamento de SMS?"
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
-msgstr ""
+msgstr "Tem certeza que deseja excluir esse número do agendamento de SMS?"
 
 msgid "Daily"
-msgstr ""
+msgstr "Diariamente"
 
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 msgid "Destination has been deleted"
-msgstr ""
+msgstr "O destino foi excluído"
 
 msgid "Destination has been edited"
-msgstr ""
+msgstr "O destino foi editado"
 
 msgid "Edit destination"
-msgstr ""
+msgstr "Editar destino"
 
 msgid "Edit schedule"
-msgstr ""
+msgstr "Editar agendamento"
 
 msgid "Entries in CSV file have been imported"
-msgstr ""
+msgstr "As entradas do arquivo CSV foram importadas"
 
 msgid "Fail to add new SMS schedule"
-msgstr ""
+msgstr "Falha ao remover o agendamento de SMS"
 
 msgid "Fail to add new destination"
-msgstr ""
+msgstr "Falha ao adicionar novo destino"
 
 msgid "Fail to delete SMS schedule"
-msgstr ""
+msgstr "Falha ao excluír o agendamento de SMS"
 
 msgid "Fail to delete destination"
-msgstr ""
+msgstr "Falha ao excluír o destino"
 
 msgid "Fail to edit SMS schedule"
-msgstr ""
+msgstr "Falha ao editar o agendamento de SMS"
 
 msgid "Fail to edit destination"
-msgstr ""
+msgstr "Falha ao editar o destino"
 
 msgid "Fail to upload CSV file"
-msgstr ""
+msgstr "Falha ao fazer upload do arquivo CSV"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "Formato YYYY-MM-DD hh:mm"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Import above destination entries ?"
-msgstr ""
+msgstr "Importar as entradas de destino acima"
 
 msgid "Import confirmation"
-msgstr ""
+msgstr "Importar confirmação"
 
 msgid "List of destinations"
-msgstr ""
+msgstr "Lista de destinos"
 
 msgid "Manage schedule"
-msgstr ""
+msgstr "Gerenciar agendamento"
 
 msgid "Mandatory fields must not be empty"
-msgstr ""
+msgstr "Os campos obrigatórios não podem estar em branco"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensagem"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Mensalmente"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "New SMS schedule been added"
-msgstr ""
+msgstr "O novo agendamento de SMS foi adicionado"
 
 msgid "New destination has been added"
-msgstr ""
+msgstr "O novo destino foi adicionado"
 
 msgid "Once"
-msgstr ""
+msgstr "Uma vez"
 
 msgid "Please select CSV file"
-msgstr ""
+msgstr "Por favor selecione o arquivo CSV"
 
 msgid "SMS schedule been saved"
-msgstr ""
+msgstr "Agendamento de SMS salvo"
 
 msgid "SMS schedule has been deleted"
-msgstr ""
+msgstr "Agendamento de SMS excluído"
 
 msgid "SMS schedule has been disabled"
-msgstr ""
+msgstr "Agendamento de SMS desabilitado"
 
 msgid "SMS schedule has been enabled"
-msgstr ""
+msgstr "Agendamento de SMS habilitado"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Agendamento"
 
 msgid "Schedule ID"
-msgstr ""
+msgstr "ID do agendamento"
 
 msgid "Schedule messages"
-msgstr ""
+msgstr "Mensagens do agendamento"
 
 msgid "Schedule name"
-msgstr ""
+msgstr "Nome do agendamento"
 
 msgid "Schedule rule"
-msgstr ""
+msgstr "Regra de agendamento"
 
 msgid "Scheduled message"
-msgstr ""
+msgstr "Mensagem agendada"
 
 msgid "Separate by comma for multiple destinations"
-msgstr ""
+msgstr "Múltimos destinos devem ser separados por vírgula"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Semanalmente"
 
 msgid "format"
-msgstr ""
+msgstr "formato"

@@ -9,7 +9,7 @@ msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "EX.: +0300 para horário de Brasília"
 
 msgid "Fill to change the password"
 msgstr "Preencha pra mudar a senha"
@@ -27,20 +27,20 @@ msgid "Infobip is a bulk SMS provider"
 msgstr "Infobip é um provedor de SMS em massa"
 
 msgid "Infobip will push DLR and incoming SMS to above URL"
-msgstr ""
+msgstr "Infobip irá enviar DLR e SMS recebidos para a URL acima"
 
 msgid "Manage infobip"
-msgstr "Administrar infobip"
+msgstr "Gerenciar infobip"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
 "Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Module sender ID"
-msgstr ""
+msgstr "Módulo do ID do remetente"
 
 msgid "Module timezone"
-msgstr ""
+msgstr "Módulo fuso horário"
 
 msgid "No changes have been made"
 msgstr "Nenhuma mudança feita"
@@ -49,7 +49,7 @@ msgid "No trailing slash"
 msgstr "Sem barra no final"
 
 msgid "Notes"
-msgstr ""
+msgstr "Observações"
 
 msgid "Password"
 msgstr "Senha"
@@ -60,15 +60,14 @@ msgstr "Salvar"
 msgid "Username"
 msgstr "Usuário"
 
-#, fuzzy
 msgid "Your DLR URL is"
-msgstr "Sua URL de callback é"
+msgstr "Sua URL de DLR é"
 
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
 msgid "Your callback URL should be accessible from Infobip"
-msgstr ""
+msgstr "Sua URL de callback deve ser acessível pelo Infobip"
 
 msgid "create an account to send SMS"
-msgstr ""
+msgstr "criar uma conta para enviar SMS"

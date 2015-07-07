@@ -6,22 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "1 Day"
-msgstr ""
+msgstr "1 Dia"
 
 msgid "1 Month"
-msgstr ""
+msgstr "1 Mês"
 
 msgid "1 Week"
-msgstr ""
+msgstr "1 Semana"
 
 msgid "2 Days"
-msgstr ""
+msgstr "2 Dias"
 
 msgid "2 Weeks"
-msgstr ""
+msgstr "2 Semanas"
 
 msgid "6 Months"
-msgstr ""
+msgstr "6 Meses"
 
 msgid "Action"
 msgstr "Ação"
@@ -75,7 +75,7 @@ msgid "Last update"
 msgstr "Última atualização"
 
 msgid "Manage subscribe"
-msgstr "Administrar assinaturas"
+msgstr "Gerenciar assinaturas"
 
 msgid "Member has been deleted"
 msgstr "O membro foi removido"
@@ -153,7 +153,7 @@ msgid "SMS unsubscribe reply"
 msgstr "Resposta pra desinscrição"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Salvar"
@@ -170,19 +170,17 @@ msgstr "Enviado"
 msgid "Status"
 msgstr "Estado"
 
-#, fuzzy
 msgid "Subscribe duration"
-msgstr "Resposta pra assinatura"
+msgstr "Tempo de adesão"
 
-#, fuzzy
 msgid "Subscription expired reply"
-msgstr "Resposta pra assinatura"
+msgstr "Resposta para adesão expirada"
 
 msgid "Unknown format reply"
 msgstr "Formato de resposta desconhecido"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Ilimitado"
 
 msgid "User"
 msgstr "Usuário"

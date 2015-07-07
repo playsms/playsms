@@ -1,44 +1,44 @@
 msgid "Add blocked mobile numbers"
-msgstr ""
+msgstr "Adicionar celulares bloqueados"
 
 msgid "Blocked mobile"
-msgstr ""
+msgstr "Celular bloqueado"
 
 msgid "Comma separated values for multiple mobile numbers"
-msgstr ""
+msgstr "Múltiplos valores separados por vírgula"
 
 msgid "Delete"
-msgstr ""
+msgstr "Excluír"
 
 msgid "Manage stoplist"
-msgstr ""
+msgstr "Gerenciar stoplist"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Celular"
 
 msgid "Mobile numbers"
-msgstr ""
+msgstr "Números de celular"
 
 msgid "Mobile numbers have been blocked"
-msgstr ""
+msgstr "Os números de celular foram bloqueados"
 
 msgid "Mobile numbers have been deleted"
-msgstr ""
+msgstr "Os números de celular foram excluídos"
 
 msgid "Multiple mobile numbers must be comma-separated"
-msgstr ""
+msgstr "Múltiplos números de celular devem ser separados por vírgula"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Select"
-msgstr ""
+msgstr "Selecionar"
 
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome de usuário"
 
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Você deve preencher todos os campos"

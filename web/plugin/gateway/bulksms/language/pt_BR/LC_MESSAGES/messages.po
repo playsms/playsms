@@ -8,17 +8,14 @@ msgstr ""
 msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
-#, fuzzy
 msgid "Bulksms API URL"
-msgstr "URL da API do clickatell"
+msgstr "URL da API do Bulksms"
 
-#, fuzzy
 msgid "Bulksms is a bulk SMS provider"
-msgstr "Clickatell é um provedor de SMS em massa"
+msgstr "Bulksms é um provedor de SMS em massa"
 
-#, fuzzy
 msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell irá enviar DLR ou SMS recebido para sua URL de callback"
+msgstr "Bulksms irá enviar DLR ou SMS recebido para sua URL de callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0300 para fuso horário de Brasília"
@@ -33,7 +30,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage bulksms"
-msgstr ""
+msgstr "Gerenciar bulksms"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
@@ -65,9 +62,8 @@ msgstr "Usuário"
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Sua url de callback deve ser acessível pelo Clickatell"
+msgstr "Sua url de callback deve ser acessível pelo Bulksms"
 
 msgid "free credits are available for testing purposes"
 msgstr "créditos gratuitos estão disponíveis pra testes"

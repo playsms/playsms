@@ -15,7 +15,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage dev"
-msgstr "Administrar dev"
+msgstr "Gerenciar dev"
 
 msgid "Message"
 msgstr "Mensagem"

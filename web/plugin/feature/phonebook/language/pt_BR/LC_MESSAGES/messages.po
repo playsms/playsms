@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Ação"
 
 msgid "Add contact"
 msgstr "Adicionar contato"
@@ -15,10 +15,10 @@ msgid "Add group"
 msgstr "Adicionar grupo"
 
 msgid "Anyone"
-msgstr ""
+msgstr "Qualquer um"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "Arquivo formato CSV"
 
 msgid "Contact has been added"
 msgstr "Contato foi adicionado"
@@ -30,7 +30,7 @@ msgid "Contacts have been imported"
 msgstr "Contatos foram importados"
 
 msgid "Delete"
-msgstr ""
+msgstr "Excluír"
 
 msgid "Edit contact"
 msgstr "Editar contato"
@@ -42,7 +42,7 @@ msgid "Email"
 msgstr "E-mail"
 
 msgid "Fail to delete group"
-msgstr ""
+msgstr "Falha ao excluír grupo"
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Falha ao enviar o arquivo CSV para lista de contato"
@@ -60,14 +60,14 @@ msgid "Group code has been added"
 msgstr "Código do grupo foi adicionado"
 
 msgid "Group code may be used to broadcast SMS to this group"
-msgstr ""
+msgstr "Código de grupo pode ser utilizado para disseminar SMS para este grupo"
 
 msgid "Group has been edited"
 msgstr "Grupo foi editado"
 
 msgid ""
 "Group has been edited but unable to set broadcast from members or anyone"
-msgstr ""
+msgstr "O grupo foi editado mas não foi possível configurar disssminação para membros"
 
 msgid "Group name"
 msgstr "Nome do grupo"
@@ -82,19 +82,19 @@ msgid "Import confirmation"
 msgstr "Confirmação de importação"
 
 msgid "Me only"
-msgstr ""
+msgstr "Apenas eu"
 
 msgid "Members"
-msgstr ""
+msgstr "Membros"
 
 msgid "Mobile"
 msgstr "Celular"
 
 msgid "Move to"
-msgstr ""
+msgstr "Mover para"
 
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Multiplas entradas separadas por vírgula (,)"
 
 msgid "Name"
 msgstr "Nome"
@@ -102,9 +102,8 @@ msgstr "Nome"
 msgid "No changes have been made"
 msgstr "Nenhuma alteração realizada"
 
-#, fuzzy
 msgid "No group"
-msgstr "grupo"
+msgstr "Sem grupo"
 
 msgid "Phonebook"
 msgstr "Contatos"
@@ -112,57 +111,54 @@ msgstr "Contatos"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Por favor selecione o arquivo CSV para entradas dos contatos"
 
-#, fuzzy
 msgid "Please use alphanumeric only and make it short"
-msgstr "por favor use somente letras maisculas e seja curto"
+msgstr "Por favor use somente letras e seja curto"
 
-#, fuzzy
 msgid "Please use uppercase and make it short"
-msgstr "por favor use somente letras maisculas e seja curto"
+msgstr "Por favor use somente letras maisculas e seja curto"
 
 msgid "Save"
 msgstr "Salvar"
 
 msgid "Select"
-msgstr ""
+msgstr "Selecionar"
 
 msgid "Selected contact has been deleted"
 msgstr "Os contatos selecionados foram removidos"
 
-#, fuzzy
 msgid "Selected contact moved to new group"
-msgstr "Os contatos selecionados foram removidos"
+msgstr "Os contatos selecionados foram movidos para o novo grupo"
 
 msgid "Selected group has been deleted"
-msgstr "O grupo selecionado foi removido"
+msgstr "O grupo selecionado foi excluído"
 
 msgid "Share phonebook and allow broadcast"
-msgstr ""
+msgstr "Compartilhar catálogo e permitir disseminação"
 
 msgid ""
 "Share this phonebook group and set permission for broadcasting SMS to this "
 "group from mobile phone"
 msgstr ""
+"Compartilhar esse grupo do catálogo e permitir disseminação de SMS para "
+"esse grupo a partir do celular"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "Unable to add group"
-msgstr ""
+msgstr "Não é possível adicionar grupo"
 
 msgid "Unable to delete group until the group is empty"
-msgstr ""
+msgstr "Não é possível excluír grupo antes que ele esteja vazio"
 
 msgid "You must fill all field"
 msgstr "Você deve preencher todos os campos"
 
-#, fuzzy
 msgid "You must fill mandatory fields"
-msgstr "Você deve preencher todos os campos"
+msgstr "Você deve preencher todos os campos obrigatórios"
 
-#, fuzzy
 msgid "You must fill required fields"
-msgstr "Você deve preencher todos os campos"
+msgstr "Você deve preencher todos os campos requeridos"
 
 msgid "code"
 msgstr "código"

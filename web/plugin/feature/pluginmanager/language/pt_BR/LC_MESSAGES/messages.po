@@ -6,37 +6,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 msgid "Core"
-msgstr ""
+msgstr "Núcleo"
 
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 msgid "Features"
-msgstr ""
+msgstr "Funções"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Gateways"
 
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 msgid "Manage plugin"
-msgstr ""
+msgstr "Gerenciar plugins"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Themes"
-msgstr ""
+msgstr "Temas"
 
 msgid "Version"
-msgstr ""
+msgstr "Versão"

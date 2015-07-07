@@ -5,94 +5,94 @@ msgstr ""
 
 #, php-format
 msgid "Account %s is currently banned to use services"
-msgstr ""
+msgstr "A conta %s está atualmente banida de usar o seviço"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Compor mensagem"
 
 msgid "Fail to send message to all destinations"
-msgstr ""
+msgstr "Falha ao enviar a mensagem para todos os destinatários"
 
 msgid "Flash message"
-msgstr ""
+msgstr "Mensagem flash"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "Formato YYY-MM-DD hh:mm"
 
 msgid "Internal error please contact service provider"
-msgstr ""
+msgstr "Erro interno, contacte o provedor do serviço"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensagem"
 
 #, php-format
 msgid "Message %s has been delivered to queue"
-msgstr ""
+msgstr "A mensagem %s foi enviada à fila"
 
 msgid "Message footer"
-msgstr ""
+msgstr "Rodapé da mensagem"
 
 msgid "Options"
-msgstr ""
+msgstr "Opções"
 
 msgid "Please select template"
-msgstr ""
+msgstr "Por favor selecione um modelo"
 
 msgid "Prefix with # for groups and @ for users"
-msgstr ""
+msgstr "Use o prefixo # para grupos e @ para usuários"
 
 msgid "SMS"
-msgstr ""
+msgstr "SMS"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Agendamento"
 
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 msgid "Send message failed due to insufficient funds"
-msgstr ""
+msgstr "Você não possui créditos suficientes para enviar a mensagem"
 
 msgid "Send message failed due to unable to create queue"
-msgstr ""
+msgstr "O envio da mensagem falhou devido à indisponibilidade da fila"
 
 #, php-format
 msgid "Send message failed due to unable to prepare queue %s"
-msgstr ""
+msgstr "Envio de mensagem falhou devido à indisponibilidade da fila %s"
 
 #, php-format
 msgid "Send message to %s in queue %s has failed"
-msgstr ""
+msgstr "Envio da mensagem para %s na fila %s falhou"
 
 msgid "Send to"
-msgstr ""
+msgstr "Enviar para"
 
 msgid "Sender ID"
-msgstr ""
+msgstr "ID do Remetente"
 
 msgid "System error has occured"
-msgstr ""
+msgstr "Ocorreu um erro de systema"
 
 msgid "Unicode message"
-msgstr ""
+msgstr "Mensagem unicode"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr ""
+msgstr "Você deve selecionar um destinatário e sua mensagem não deve ser vazia"
 
 msgid "Your message has been delivered to queue"
-msgstr ""
+msgstr "Sua mensagem foi enviada à fila"
 
 msgid "Your message has been delivered to some of the destinations"
-msgstr ""
+msgstr "Sua mensagem foi entregue a alguns destinatários"
 
 msgid "chars"
-msgstr ""
+msgstr "caracteres"
 
 msgid "failed"
-msgstr ""
+msgstr "falhou"
 
 msgid "queued"
-msgstr ""
+msgstr "na fila"

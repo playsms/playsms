@@ -7,74 +7,84 @@ msgstr ""
 
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
+"Copiar a mensagem para a caixa de entrada do usuário quando o SMScontiver "
+"@username"
 
 msgid "Fail to insert keyword"
-msgstr ""
+msgstr "Falha ao inserir palavra-chave"
 
 msgid "Incoming SMS route changes has been saved"
-msgstr ""
+msgstr "Alterações de rota para SMS recebidos foram salvas"
 
 msgid "Insert keyword"
-msgstr ""
+msgstr "Insira palavra-chave"
 
 msgid "Leave a copy in sandbox SMS page"
-msgstr ""
+msgstr "Deixar uma cópia na página SMS sandbox"
 
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
+"Deixar uma cópia na página SMS sandbox pode ser útil para uma auditoria ou "
+"revisão"
 
 msgid "Match with all approved sender ID"
-msgstr ""
+msgstr "Combinar com todos os ID de remetente aprovados"
 
 msgid "No route has been saved"
-msgstr ""
+msgstr "Nenhuma rota foi salva"
 
 msgid "Post rules"
-msgstr ""
+msgstr "Regras de pós-processamento"
 
 msgid "Pre rules"
-msgstr ""
+msgstr "Regras de pré-processamento"
 
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
 "sender ID"
 msgstr ""
+"O número do destinatário pode combinar com o ID de remetente padrãoou com "
+"todos os IDs de remetente aprovados"
 
 msgid "Route all sandbox SMS to users"
-msgstr ""
+msgstr "Rotear todos os SMSs do sandbox para usuários"
 
 msgid "Route all sandbox SMS with matched sender ID"
-msgstr ""
+msgstr "Rotear todos os SMSs do sanbox para os ID de remetente correspondente"
 
 msgid "Route incoming SMS"
-msgstr ""
+msgstr "Roteando os SMSs recebidos"
 
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
+"Rotear para a caixa do usuário se o número do destinatário combinarcom o ID "
+"do remetente"
 
 msgid "Rules applied after incoming SMS processed"
-msgstr ""
+msgstr "Regras aplicadas após o processamento do SMS recebido"
 
 msgid "Rules applied before incoming SMS processed"
-msgstr ""
+msgstr "Regras aplicadas antes do processamento do SMS recebido"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Scan incoming SMS for #groupcode"
-msgstr ""
+msgstr "Procurar por #groupcode nos SMSs recebidos"
 
 msgid "Scan incoming SMS for @username"
-msgstr ""
+msgstr "Procurar por @username nos SMSs recebidos"
 
 msgid "Select users"
-msgstr ""
+msgstr "Selecionar usuários"
 
 msgid "Send SMS to groups with found group codes in the incoming SMS"
 msgstr ""
+"Enviar SMS para grupos com os códigos de grupos encontrados nos SMSs "
+"recebidos"
 
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 msgid "keyword"
-msgstr ""
+msgstr "palavra-chave"

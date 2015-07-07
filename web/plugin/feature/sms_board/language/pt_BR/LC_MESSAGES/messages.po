@@ -48,7 +48,7 @@ msgid "MBOX output"
 msgstr "Saída MBOX"
 
 msgid "Manage board"
-msgstr "Administrar quadro"
+msgstr "Gerenciar quadro"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -77,9 +77,8 @@ msgstr "Linha Modelo"
 msgid "SMS Board"
 msgstr "Quadro SMS"
 
-#, fuzzy
 msgid "SMS board from"
-msgstr "Palavra-chave do quadro SMS"
+msgstr "Quadro SMS de"
 
 msgid "SMS board has been added"
 msgstr "O quadro SMS foi adicionado"
@@ -106,7 +105,7 @@ msgid "User"
 msgstr "Usuário"
 
 msgid "View board"
-msgstr "Administrar quadro"
+msgstr "Gerenciar quadro"
 
 msgid "XML output"
 msgstr "Saída XML"

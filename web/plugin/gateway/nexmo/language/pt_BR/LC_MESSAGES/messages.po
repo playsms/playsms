@@ -24,7 +24,7 @@ msgid "Gateway name"
 msgstr "Nome do gateway"
 
 msgid "Manage nexmo"
-msgstr "Administrar nexmo"
+msgstr "Gerenciar nexmo"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"

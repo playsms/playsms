@@ -38,7 +38,7 @@ msgid "Keyword"
 msgstr "Palavra-chave"
 
 msgid "Manage quiz"
-msgstr "Administrar quiz"
+msgstr "Gerenciar quiz"
 
 msgid "Question"
 msgstr "Pergunta"
@@ -80,7 +80,7 @@ msgid "SMS quiz with all its messages has been deleted"
 msgstr "O quiz SMS foi removido com todas as suas mensagens"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "Save"
 msgstr "Salvar"
@@ -89,7 +89,7 @@ msgid "Sender"
 msgstr "Remetente"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "User"
 msgstr "Usuário"

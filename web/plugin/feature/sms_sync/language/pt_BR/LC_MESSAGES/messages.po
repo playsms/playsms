@@ -6,34 +6,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Check to enable receiving push messages from SMSSync app"
-msgstr ""
+msgstr "Marque para habilitar recebimento de push messages do app SMSSync"
 
 msgid "Download SMSSync app for Android from"
-msgstr ""
+msgstr "Baixar app SMSSync para Android de"
 
 msgid "Enable SMS Sync"
-msgstr ""
+msgstr "Habilitar SMS Sync"
 
 msgid "Fail to save SMS Sync configuration"
-msgstr ""
+msgstr "Falha ao salvar configuração de SMS Sync"
 
 msgid "Manage sync"
-msgstr ""
+msgstr "Gerenciar Sync"
 
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 msgid "SMS Sync configuration has been saved"
-msgstr ""
+msgstr "As configurações de SMS Sync foram salvas"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Secret key"
-msgstr ""
+msgstr "Chave secreta"
 
 msgid "Secret key is used in SMSSync app"
-msgstr ""
+msgstr "A chave secreta é usada no app SMSSync"
 
 msgid "Sync URL"
-msgstr ""
+msgstr "URL Sync"

@@ -9,7 +9,7 @@ msgid "Add message template"
 msgstr "Adicionar modelo de mensagem"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr ""
+msgstr "Tem certeza que deseja excluír esses ítens?"
 
 msgid "Content"
 msgstr "Conteúdo"
@@ -42,7 +42,7 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 msgid "Save"
 msgstr "Salvar"
@@ -54,7 +54,7 @@ msgid "You must fill all fields"
 msgstr "Você deve preencher todos os campos"
 
 msgid "will be replaced with the name listed in phonebook"
-msgstr ""
+msgstr "será substituído pelo nome listado no catálogo"
 
 msgid "will be replaced with the phone number listed in phonebook"
-msgstr ""
+msgstr "será substituído com o telefone listado no catálogo"

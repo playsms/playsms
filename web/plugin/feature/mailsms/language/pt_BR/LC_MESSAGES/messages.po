@@ -6,67 +6,69 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Check email sender"
-msgstr ""
+msgstr "Verificar remetente do email"
 
 msgid "Email protocol"
-msgstr ""
+msgstr "Protocolo do email"
 
 msgid "Email to SMS PIN has been saved"
-msgstr ""
+msgstr "O PIN do email para SMS foi salvo"
 
 msgid "Email to SMS PIN has been saved but service is disabled"
-msgstr ""
+msgstr "O PIN do email para SMS foi salvo, mas o serviço está desabilitado"
 
 msgid "Email to SMS address"
-msgstr ""
+msgstr "Endereço do Email para SMS"
 
 msgid "Email to SMS configuration has been saved and service disabled"
 msgstr ""
+"As configurações de Email para SMS foram salvas e o serviço está desabilitado"
 
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr ""
+"As configurações de Email para SMS foram salvas e o serviço está habilitado"
 
 msgid "Enable fetch new emails"
-msgstr ""
+msgstr "Habilitar recebimento de novos emails"
 
 msgid "Fail to save email to SMS PIN"
-msgstr ""
+msgstr "Falha ao salvar o PIN de Email para SMS"
 
 msgid "Fill the password field to change password"
-msgstr ""
+msgstr "Preencha o campo senha para alterar a senha"
 
 msgid "Mail server address"
-msgstr ""
+msgstr "Endereço do servidor de email"
 
 msgid "Mail server port"
-msgstr ""
+msgstr "Porta do servidor de email"
 
 msgid "Mailbox password"
-msgstr ""
+msgstr "Senha da caixa de email"
 
 msgid "Mailbox username"
-msgstr ""
+msgstr "Nome de usuário da caixa de email"
 
 msgid "Manage email to SMS"
-msgstr ""
+msgstr "Gerenciar Email para SMS"
 
 msgid "My email to SMS"
-msgstr ""
+msgstr "Meu Email para SMS"
 
 msgid "No validate cert option"
-msgstr ""
+msgstr "Sem opções de certificado validadas"
 
 msgid "PIN for email to SMS"
-msgstr ""
+msgstr "PIN de Email para SMS"
 
 msgid "PIN is empty"
-msgstr ""
+msgstr "o PIN está em branco"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Usar SSL"
 
 msgid "no"
-msgstr ""
+msgstr "não"
 
 msgid "yes"
-msgstr ""
+msgstr "sim"
