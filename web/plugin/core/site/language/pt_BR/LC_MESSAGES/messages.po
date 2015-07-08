@@ -5,7 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
 msgid "Active themes"
 msgstr "Temas ativos"
 
@@ -51,8 +50,8 @@ msgstr "URL da logo"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Por padrão a logo será exibida nas páginas de login, registro e recuperação de "
-"senha"
+"Por padrão a logo será exibida nas páginas de login, registro e recuperação "
+"de senha"
 
 msgid "Main website URL"
 msgstr "URL Principal"
