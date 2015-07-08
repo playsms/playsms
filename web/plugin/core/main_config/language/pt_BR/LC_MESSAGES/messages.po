@@ -1,201 +1,227 @@
-msgid "ACL DEFAULT will not restrict access to menus"
+msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "REGRA PADRÂO não restringe acecco aos menus"
 
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
 "service."
 msgstr ""
+"Acessos à dominios desconhecidos, mapeados ao endereço IP deste "
+"serviddorserão redirecionados para essa URL. Essa URL deve ser o endereço "
+"primário para o serviço"
 
 msgid "Active themes"
-msgstr ""
+msgstr "Temas ativos"
 
 msgid "Allow users to select SMS footer while on Send SMS page"
-msgstr ""
+msgstr "Permitir que usuários selecionem o rodapé na página Enviar SMS"
 
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
+"Permitir que usuários selecionem o ID do remetente na página Enviar SMS"
 
 msgid "Always add plus sign"
-msgstr ""
+msgstr "Sempre adicionar o sinal de mais (+)"
 
 msgid "Always remove plus sign"
-msgstr ""
+msgstr "Sempre remover o sinal de mais (+)"
 
 msgid ""
 "Application footer here. Go to main configuration or manage site to edit "
 "this footer."
 msgstr ""
+"Rodapé da aplicação aqui. Vá até as Configurações principais ou Gerenciar "
+"sitepara editar esse rodapé"
 
 msgid "Buy credit page"
-msgstr ""
+msgstr "Página Comprar Créditos"
 
 msgid "Default ACL upon registration"
-msgstr ""
+msgstr "Regra padrão após registro"
 
 msgid "Default SMS rate"
-msgstr ""
+msgstr "Taxa padrão de SMS"
 
 msgid "Default SMSC"
-msgstr ""
+msgstr "SMSC padrão"
 
 msgid "Default account status upon registration"
-msgstr ""
+msgstr "Status padrão da conta após registro"
 
 msgid "Default credit upon registration"
-msgstr ""
+msgstr "Créditos padrão após registro"
 
 msgid "Default language"
-msgstr ""
+msgstr "Idioma padrão"
 
 msgid ""
 "Default parent selected upon registration when the default account status on "
 "registration setting set to Subuser"
 msgstr ""
+"Container padrão selecionada após registro quando o status padrão da "
+"contafor configurado para sub-usuário"
 
 msgid "Default parent upon registration"
-msgstr ""
+msgstr "Container padrão após registro"
 
 msgid "Default prefix or country code"
-msgstr ""
+msgstr "Prefixo ou código de país padrão"
 
 msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
+"Prefixo ou código de país padrão para substituir o 0 (zero) no número de "
+"destinatário"
 
 msgid "Default sender ID"
-msgstr ""
+msgstr "ID de remetente padrão"
 
 msgid "Default settings"
-msgstr ""
+msgstr "Configurações padrão"
 
 msgid "Default site configuration"
-msgstr ""
+msgstr "Configurações padrão do site"
 
 msgid "Default timezone"
-msgstr ""
+msgstr "Fuso horário padrão"
 
 msgid ""
 "Define a single character as keyword separator replacing default keyword "
 "separator a space"
 msgstr ""
+"Definir um caracter único como separador de palavras substituindoo espaço "
+"como separador"
 
 msgid "Disable login as subuser"
-msgstr ""
+msgstr "Desabilitar login como sub-usuário"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex.: +0300 para fuso horário de Brasilia"
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
+"Deixar o ID de Remetente em branco para permitir que usuários coloquem seu "
+"próprio ID"
 
 msgid "Enable credit unicode SMS as normal SMS"
-msgstr ""
+msgstr "Habilitar cobrança de SMS unicode como SMS normal"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Habilitar Recuperação de senha"
 
 msgid "Enable login brute force detection"
-msgstr ""
+msgstr "Habilitar detecção de login por força bruta"
 
 msgid "Enable logo"
-msgstr ""
+msgstr "Habilitar logo"
 
 msgid "Enable public registration"
-msgstr ""
+msgstr "Habilitar registro público"
 
 msgid "Enhance privacy for subusers"
-msgstr ""
+msgstr "Elevar a privacidade para sub-usuários"
 
 msgid "Fill with zero to disable limit"
-msgstr ""
+msgstr "Preencha com zero para desabilitar limite"
 
 msgid "Forwarded email footer"
-msgstr ""
+msgstr "Rodapé de email encaminhado"
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
+"Vá para as Configurações Principais ou Gerenciar Site para editar essa página"
 
 msgid "Information"
-msgstr ""
+msgstr "Informações"
 
 msgid "Information page"
-msgstr ""
+msgstr "Página de Informação"
 
 msgid "Keyword separator"
-msgstr ""
+msgstr "Separador de palavras"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Layout do rodapé"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "URL da logo"
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
+"Por padrão, a logo será exibida nas páginas de login, registro e recuperação "
+"de senha"
 
 msgid "Lowest credit limit to trigger notification"
-msgstr ""
+msgstr "Limite mínimo de crédito para ativar notificação"
 
 msgid "Main configuration"
-msgstr ""
+msgstr "Configurações Principais"
 
 msgid "Main configuration changes has been saved"
-msgstr ""
+msgstr "As configurações principais foram salvas"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "URL principal do site"
 
 msgid "Main website name"
-msgstr ""
+msgstr "Nome principal do site"
 
 msgid "Maximum SMS count"
-msgstr ""
+msgstr "Número máximo de SMS"
 
 msgid "Maximum username length"
-msgstr ""
+msgstr "Tamanho máximo de nome de usuário"
 
 msgid "Maximum username length must be a number between 4 to 100"
-msgstr ""
+msgstr "O tamanho máximo do nome de usuário deve ser um número entre 4 e 100"
 
 msgid "Number of sent SMS per hour limit"
-msgstr ""
+msgstr "Limite de SMSs enviados por hora"
 
 msgid "Page content"
-msgstr ""
+msgstr "Conteúdo da página"
 
 msgid "Page title"
-msgstr ""
+msgstr "Título da Página"
 
 msgid "Replace website title with logo"
-msgstr ""
+msgstr "Substituir o título do site pela logo"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid ""
 "Set credit value bigger than 0 to set credit lowest limit that will trigger "
 "notification"
 msgstr ""
+"Configure um valor de crédito maior que 0 (zero) para configurar limite "
+"mínimode crédito para ativar norificação"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Sub-usuário"
 
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 msgid "Website URL"
-msgstr ""
+msgstr "URL do site"
 
 msgid "Website email"
-msgstr ""
+msgstr "Email do site"
 
 msgid "Website title"
-msgstr ""
+msgstr "Título do site"
 
 msgid "no"
-msgstr ""
+msgstr "não"
 
 msgid "yes"
-msgstr ""
+msgstr "sim"

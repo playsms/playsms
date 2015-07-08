@@ -1,5 +1,12 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 msgid "Action"
-msgstr "Ao"
+msgstr "Ação"
 
 msgid "Add SMS schedule"
 msgstr "Agendar SMS"
@@ -14,7 +21,7 @@ msgid "Are you sure you want to delete SMS schedule ?"
 msgstr "Tem certeza que deseja excluir o agendamento de SMS?"
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
-msgstr "Tem certeza que deseja excluir esse nmero do agendamento de SMS?"
+msgstr "Tem certeza que deseja excluir esse número do agendamento de SMS?"
 
 msgid "Daily"
 msgstr "Diariamente"
@@ -23,7 +30,7 @@ msgid "Destination"
 msgstr "Destino"
 
 msgid "Destination has been deleted"
-msgstr "O destino foi excludo"
+msgstr "O destino foi excluído"
 
 msgid "Destination has been edited"
 msgstr "O destino foi editado"
@@ -44,10 +51,10 @@ msgid "Fail to add new destination"
 msgstr "Falha ao adicionar novo destino"
 
 msgid "Fail to delete SMS schedule"
-msgstr "Falha ao exclur o agendamento de SMS"
+msgstr "Falha ao excluír o agendamento de SMS"
 
 msgid "Fail to delete destination"
-msgstr "Falha ao exclur o destino"
+msgstr "Falha ao excluír o destino"
 
 msgid "Fail to edit SMS schedule"
 msgstr "Falha ao editar o agendamento de SMS"
@@ -71,7 +78,7 @@ msgid "Import above destination entries ?"
 msgstr "Importar as entradas de destino acima"
 
 msgid "Import confirmation"
-msgstr "Importar confirmao"
+msgstr "Confirmação de importação"
 
 msgid "List of destinations"
 msgstr "Lista de destinos"
@@ -80,7 +87,7 @@ msgid "Manage schedule"
 msgstr "Gerenciar agendamento"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Os campos obrigatrios no podem estar em branco"
+msgstr "Os campos obrigatórios no podem estar em branco"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -107,7 +114,7 @@ msgid "SMS schedule been saved"
 msgstr "Agendamento de SMS salvo"
 
 msgid "SMS schedule has been deleted"
-msgstr "Agendamento de SMS excludo"
+msgstr "Agendamento de SMS excluído"
 
 msgid "SMS schedule has been disabled"
 msgstr "Agendamento de SMS desabilitado"
@@ -125,7 +132,7 @@ msgid "Schedule ID"
 msgstr "ID do agendamento"
 
 msgid "Schedule messages"
-msgstr "Mensagens do agendamento"
+msgstr "Agendar mensagens"
 
 msgid "Schedule name"
 msgstr "Nome do agendamento"
@@ -137,7 +144,7 @@ msgid "Scheduled message"
 msgstr "Mensagem agendada"
 
 msgid "Separate by comma for multiple destinations"
-msgstr "Mltimos destinos devem ser separados por vrgula"
+msgstr "Múltiplos destinos devem ser separados por vírgula"
 
 msgid "Status"
 msgstr "Status"
