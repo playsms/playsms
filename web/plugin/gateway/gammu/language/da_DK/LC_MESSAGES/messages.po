@@ -10,10 +10,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.2\n"
 
 msgid "Changes have been made"
-msgstr ""
+msgstr "Der er foretaget ændringer"
 
 msgid "Gateway name"
 msgstr "Gateway navn"
@@ -22,10 +22,10 @@ msgid "Manage gammu"
 msgstr "Håndter gammu"
 
 msgid "Receiver number"
-msgstr ""
+msgstr "Modtagernummer"
 
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgid "Spool folder"
-msgstr ""
+msgstr "Spool mappe"
