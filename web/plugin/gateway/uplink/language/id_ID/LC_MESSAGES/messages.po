@@ -8,6 +8,9 @@ msgstr ""
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -32,14 +35,15 @@ msgstr "Pengirim global"
 msgid "Module timezone"
 msgstr "Modul zona waktu"
 
-msgid "No changes have been made"
-msgstr "Tidak ada perubahan yang dilakukan"
-
 msgid "Save"
 msgstr "Simpan"
 
 msgid "Try to disable SMS footer on master"
 msgstr ""
+
+#, fuzzy
+msgid "Unable to save gateway module configurations"
+msgstr "Konfigurasi modul gateway telah disimpan"
 
 msgid "Webservice token"
 msgstr "Token webservices"

@@ -11,6 +11,9 @@ msgstr ""
 msgid "Additional URL parameter"
 msgstr "Ytterligere URL parametere"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
 
@@ -35,14 +38,15 @@ msgstr "SenderID-modul"
 msgid "Module timezone"
 msgstr "Tidssone-modul"
 
-msgid "No changes have been made"
-msgstr "Ingen endringer har blitt gjort"
-
 msgid "Save"
 msgstr "Lagre"
 
 msgid "Try to disable SMS footer on master"
 msgstr "Prøv å deaktivere SMS footer på master"
+
+#, fuzzy
+msgid "Unable to save gateway module configurations"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
 
 msgid "Webservice token"
 msgstr "Webservice token"

@@ -8,6 +8,9 @@ msgstr ""
 msgid "Additional URL parameter"
 msgstr "Paramètre additionnel d'URL"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
@@ -33,14 +36,15 @@ msgstr "Sender ID du module"
 msgid "Module timezone"
 msgstr "Fuseau horaire du module"
 
-msgid "No changes have been made"
-msgstr "Aucun changement apporté"
-
 msgid "Save"
 msgstr "Enregistrer"
 
 msgid "Try to disable SMS footer on master"
 msgstr "Essayer de désactiver le pied de page auprès du master"
+
+#, fuzzy
+msgid "Unable to save gateway module configurations"
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Webservice token"
 msgstr "Token du webservice"
