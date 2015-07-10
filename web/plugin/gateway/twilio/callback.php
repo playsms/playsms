@@ -15,7 +15,7 @@ if (!$called_from_hook_call) {
 
 $log = '';
 if (is_array($requests)) {
-	foreach ($requests as $key => $val ) {
+	foreach ($requests as $key => $val) {
 		$log .= $key . ':' . $val . ' ';
 	}
 	logger_print("pushed " . $log, 2, "twilio callback");
@@ -35,7 +35,7 @@ if ($remote_smslog_id && $status && ($status != 'received')) {
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($status) {
-			case "sent" :
+			case "sent":
 				$p_status = 1;
 				break; // delivered
 			default :

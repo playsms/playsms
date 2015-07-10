@@ -29,7 +29,7 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
 	
-	logger_print("sendsms start", 3, "twilio_hook_sendsms");
+	_log("sendsms start", 3, "twilio_hook_sendsms");
 	
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
@@ -54,13 +54,13 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			$returns = curl_exec($ch);
 			curl_close($ch);
-			logger_print("url:" . $url . " callback:" . $plugin_config['twilio']['callback_url'], 3, "twilio outgoing");
+			_log("sendsms url:[" . $url . "] callback:[" . $plugin_config['twilio']['callback_url'], "] smsc:[" . $smsc . "]", 3, "twilio_hook_sendsms");
 			$resp = json_decode($returns);
 			if ($resp->status) {
 				$c_status = $resp->status;
 				$c_message_id = $resp->sid;
 				$c_error_text = $c_status . '|' . $resp->code . '|' . $resp->message;
-				logger_print("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " status:" . $c_status . " error:" . $c_error_text, 2, "twilio outgoing");
+				_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " status:" . $c_status . " error:" . $c_error_text . " smsc:[" . $smsc . "]", 2, "twilio_hook_sendsms");
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_gatewayTwilio (local_smslog_id,remote_smslog_id,status,error_text)
 					VALUES ('$smslog_id','$c_message_id','$c_status','$c_error_text')";
@@ -76,10 +76,10 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 				// even when the response is not what we expected we still print it out for debug purposes
 				$resp = str_replace("\n", " ", $resp);
 				$resp = str_replace("\r", " ", $resp);
-				logger_print("failed smslog_id:" . $smslog_id . " resp:" . $resp, 2, "twilio outgoing");
+				_log("failed smslog_id:" . $smslog_id . " resp:" . $resp . " smsc:[" . $smsc . "]", 2, "twilio_hook_sendsms");
 			}
 		} else {
-			logger_print("fail to sendsms due to missing PHP curl functions", 3, "twilio_hook_sendsms");
+			_log("fail to sendsms due to missing PHP curl functions", 3, "twilio_hook_sendsms");
 		}
 	}
 	if (!$ok) {
@@ -87,7 +87,7 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 		dlr($smslog_id, $uid, $p_status);
 	}
 	
-	logger_print("sendsms end", 3, "twilio_hook_sendsms");
+	_log("sendsms end", 3, "twilio_hook_sendsms");
 	
 	return $ok;
 }

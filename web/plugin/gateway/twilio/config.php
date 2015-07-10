@@ -14,7 +14,12 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['twilio']['_smsc_config_'] = array();
+$plugin_config['twilio']['_smsc_config_'] = array(
+	'account_sid' => _('Account SID'),
+	'auth_token' => _('Auth Token'),
+	'module_sender' => _('Module sender ID'),
+	'datetime_timezone' => _('Module timezone') 
+);
 
 //$gateway_number = $plugin_config['twilio']['module_sender'];
 
