@@ -16,7 +16,14 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['uplink']['_smsc_config_'] = array();
+$plugin_config['uplink']['_smsc_config_'] = array(
+	'master' => _('Master URL'),
+	'username' => _('Webservice username'),
+	'token' => _('Webservice token'),
+	'additional_param' => _('Additional URL parameter'),
+	'module_sender' => _('Module sender ID'),
+	'datetime_timezone' => _('Module timezone') 
+);
 
 //$gateway_number = $plugin_config['uplink']['module_sender'];
 // insert to left menu array
