@@ -251,9 +251,4 @@ Note:
 
 Next, choose a gateway.
 
-If you have GSM modem and plan to use it with playSMS, please continue to follow
-instructions in `INSTALL_SMSSERVERTOOLS` to use SMS Server Tools (smstools3) as
-your gateway module, or follow `INSTALL_KANNEL` if you want to use Kannel.
-
-Gnokii and Gammu also supported, please follow `INSTALL_GNOKII` if you want to use
-Gnokii as your gateway module, or `INSTALL_GAMMU` if you want to use Gammu.
+Read more information and tutorial in [playSMS documentation](http://playsms.org/documentation/).

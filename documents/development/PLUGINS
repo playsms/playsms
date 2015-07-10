@@ -3,7 +3,6 @@ PLUGINS
 
 playSMS plugin's files and folders are under directory web/plugins and categorized
 into 5 different categories, they are:
-- tools
 - feature
 - gateway
 - themes
