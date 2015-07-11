@@ -8,6 +8,9 @@ msgstr ""
 msgid "Account SID"
 msgstr ""
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Auth Token"
 msgstr ""
 
@@ -16,6 +19,10 @@ msgstr "URL callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
+
+#, fuzzy
+msgid "Fail to save gateway module configurations"
+msgstr "Konfigurasi modul gateway telah disimpan"
 
 msgid "Fill to change the Auth Token"
 msgstr ""
@@ -37,9 +44,6 @@ msgstr "ID pengirim modul"
 
 msgid "Module timezone"
 msgstr "Zona waktu modul"
-
-msgid "No changes have been made"
-msgstr "Tidak ada perubahan yang dilakukan"
 
 msgid "Notes"
 msgstr "Catatan"

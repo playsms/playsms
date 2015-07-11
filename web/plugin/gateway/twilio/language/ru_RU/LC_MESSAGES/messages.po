@@ -15,6 +15,9 @@ msgstr ""
 msgid "Account SID"
 msgstr "Account SID"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Auth Token"
 msgstr "Auth Token"
 
@@ -23,6 +26,10 @@ msgstr "Callback URL"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Например +0400 для Москвы"
+
+#, fuzzy
+msgid "Fail to save gateway module configurations"
+msgstr "Настройки шлюза сохранены"
 
 msgid "Fill to change the Auth Token"
 msgstr "Заполните для изменения Auth Token"
@@ -44,9 +51,6 @@ msgstr "Имя отправителя"
 
 msgid "Module timezone"
 msgstr "Часовой пояс"
-
-msgid "No changes have been made"
-msgstr "Нет изменений"
 
 msgid "Notes"
 msgstr "Примечания"
