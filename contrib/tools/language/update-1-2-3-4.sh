@@ -10,5 +10,6 @@ fi
 ./1-update-pot-files.sh $PLAYSMS
 ./2-merge-existing-po-files.sh $PLAYSMS
 ./3-regenerating-mo-files.sh $PLAYSMS
+./4-compile-all.sh $PLAYSMS
 
 exit 0

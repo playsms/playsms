@@ -1,0 +1,802 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Language: de_DE\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Add SMSC"
+msgstr ""
+
+msgid "Add catch-all"
+msgstr "Hinzufügen Catch-All"
+
+msgid "Add contact"
+msgstr "Kontakt hinzufügen"
+
+msgid "Add group"
+msgstr "Gruppe hinzufügen"
+
+msgid "Add group inbox"
+msgstr "Hinzufügen Gruppen-Inbox"
+
+msgid "Add member"
+msgstr "Hinzufügen Mitglied"
+
+msgid "Add message template"
+msgstr "Nachrichten-Vorlage hinzufügen"
+
+msgid "Add sender ID"
+msgstr ""
+
+msgid "Administrator"
+msgstr "Administrator"
+
+#, fuzzy
+msgid "All queues have been removed"
+msgstr "Queue wurde gelscht"
+
+msgid "All users"
+msgstr "Alle Benutzer"
+
+msgid "Anyone"
+msgstr "Jeder"
+
+msgid "Approve sender ID"
+msgstr ""
+
+msgid "Are you sure ?"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Mchten Sie wirklich die Warteschlange lschen?"
+
+msgid "Are you sure you want to delete queue"
+msgstr "Mchten Sie wirklich die Warteschlange lschen?"
+
+msgid "Are you sure you want to delete sender ID"
+msgstr ""
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Mchten Sie diese Elemente wirklich löchen?"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Gruppen-Inbox wirklich löschen?"
+
+msgid "Author"
+msgstr ""
+
+msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+msgid "CSV file format"
+msgstr ""
+
+msgid "Cancel send from file"
+msgstr "Aus Datei senden abbrechen"
+
+msgid "Catch-all"
+msgstr "Catch-All"
+
+msgid "Catch-all has been added"
+msgstr "Catch-All wurde hinzugefügt"
+
+msgid "Catch-all has been deleted"
+msgstr "Catch-All wurde gelöscht"
+
+msgid "Catch-all list"
+msgstr "Catch-All Liste"
+
+msgid "Changes have been made"
+msgstr ""
+
+msgid "Click the status button to enable or disable status"
+msgstr ""
+
+msgid "Compose message"
+msgstr ""
+
+msgid "Confirmation"
+msgstr "Bestätigung"
+
+msgid "Contact has been added"
+msgstr "Kontakt wurde hinzugefügt"
+
+msgid "Contact has been edited"
+msgstr "Kontakt wurde geändert"
+
+msgid "Contacts have been imported"
+msgstr "Kontakte wurden importiert"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Core"
+msgstr ""
+
+msgid "Count"
+msgstr "Anzahl"
+
+msgid "Current catchall"
+msgstr "Aktuelle Catch-All"
+
+msgid "Current members"
+msgstr "Aktuelle Mitglieder"
+
+msgid "Date"
+msgstr ""
+
+msgid "Default default_queue directory"
+msgstr ""
+
+msgid "Delete"
+msgstr "Entfernen"
+
+msgid "Delete ALL queues"
+msgstr ""
+
+msgid "Delete catch-all"
+msgstr "Lösche Catch-All"
+
+msgid "Delete group inbox"
+msgstr "Lösche Gruppen-Inbox"
+
+msgid "Delete member"
+msgstr "Lösche Mitglied"
+
+msgid "Delete user"
+msgstr "Benutzer löschen"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Destination number"
+msgstr "Zielrufnummer"
+
+msgid "Edit"
+msgstr "Ändern"
+
+msgid "Edit SMSC"
+msgstr ""
+
+msgid "Edit contact"
+msgstr "Kontakt editieren"
+
+msgid "Edit group"
+msgstr "Gruppe editieren"
+
+msgid "Edit group inbox"
+msgstr "Editiere Gruppen-Inbox"
+
+msgid "Edit message template"
+msgstr "Editiere Nachrichten-Vorlage"
+
+msgid "Edit sender ID"
+msgstr ""
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Exclusive"
+msgstr "Exklusiv"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "FATAL ERROR"
+msgstr ""
+
+msgid "Fail to add catch-all"
+msgstr "Fehler beim Catch-All Hinzufügen"
+
+msgid "Fail to add group inbox"
+msgstr "Fehler beim Hinzufügen der Gruppen-Inbox"
+
+msgid "Fail to add member"
+msgstr "Fehler beim Hinzufügen des Mitglieds"
+
+msgid "Fail to add message template"
+msgstr "Fehler beim Hinzufügen der Nachrichten-Vorlage"
+
+msgid "Fail to add new SMSC"
+msgstr ""
+
+msgid "Fail to connect to database"
+msgstr ""
+
+msgid "Fail to delete catch-all"
+msgstr "Fehler beim Catch-All Löschen"
+
+msgid "Fail to delete group"
+msgstr "Fehler beim Löschen der Gruppe"
+
+msgid "Fail to delete group inbox"
+msgstr "Fehler beim Löschen der Gruppen-Inbox"
+
+msgid "Fail to delete member"
+msgstr "Fehler beim Löschen des Mitglieds"
+
+msgid "Fail to disable group inbox"
+msgstr "Fehler beim deaktivieren der Gruppen-Inbox"
+
+msgid "Fail to edit SMSC"
+msgstr ""
+
+msgid "Fail to edit group inbox"
+msgstr "Fehler beim editieren der Grupen-Inbox"
+
+msgid "Fail to edit message template"
+msgstr "Fehler beim Editieren der Nachrichten-Vorlage"
+
+msgid "Fail to enable group inbox"
+msgstr "Fehler beim aktivieren der Gruppen-Inbox"
+
+#, fuzzy
+msgid "Fail to load gateway"
+msgstr "Ausfüllen zum Aktualisieren"
+
+#, fuzzy
+msgid "Fail to load language"
+msgstr "Standard Sprache"
+
+msgid "Fail to load main config from registry"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to load themes"
+msgstr "Fehler beim Senden der Email"
+
+msgid "Fail to remove SMSC"
+msgstr ""
+
+msgid "Fail to update due to invalid sender ID"
+msgstr ""
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Fehler beim Hochladen der CSV-Datei für Telefonbuch"
+
+msgid "Features"
+msgstr ""
+
+msgid "For example a short code"
+msgstr "Als Beispiel ein kurzer Code"
+
+msgid "Forward"
+msgstr "Weiterleiten"
+
+msgid "Found invalid entries in uploaded file"
+msgstr "Ungültige Einträge in hochgeladener Datei gefunden"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Gültige Einträge in hochgeladener Datei gefunden"
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Gateway name"
+msgstr "Gateway Name"
+
+msgid "Gateways"
+msgstr ""
+
+msgid "Go"
+msgstr "Los"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Group code"
+msgstr "Gruppenkürzel"
+
+msgid "Group code already exists"
+msgstr "Gruppenkürzel existiert bereits"
+
+msgid "Group code has been added"
+msgstr "Gruppenkürzel wurde hinzugefügt"
+
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr ""
+
+msgid "Group has been edited"
+msgstr "Gruppe wurde geändert"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
+
+msgid "Group inbox"
+msgstr "Gruppen-Inbox"
+
+msgid "Group inbox has been added"
+msgstr "Gruppen-Inbox wurde hinzugefügt"
+
+msgid "Group inbox has been deleted"
+msgstr "Gruppen-Inbox wurde gelöscht"
+
+msgid "Group inbox has been disabled"
+msgstr "Gruppen-Inbox wurde deaktiviert"
+
+msgid "Group inbox has been edited"
+msgstr "Gruppen-Inbox wurde geändert"
+
+msgid "Group inbox has been enabled"
+msgstr "Gruppen-Inbox wurde aktiviert"
+
+msgid "Group name"
+msgstr "Gruppenname"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Idle"
+msgstr ""
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import above phonebook entries ?"
+msgstr "Importiere obige Telefonbucheinträge?"
+
+msgid "Import confirmation"
+msgstr "Import-Bestätigung"
+
+msgid "Invalid CSV file"
+msgstr "Ungültige CSV-Datei"
+
+msgid "Invalid entries"
+msgstr "Ungültige Einträge"
+
+msgid "Invalid session ID"
+msgstr "Ungültige Session-ID"
+
+msgid "Keywords"
+msgstr "Schlagworte"
+
+msgid "Languages"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
+
+msgid "List of gateways and SMSCs"
+msgstr ""
+
+msgid "Logged in as"
+msgstr ""
+
+msgid "Login as"
+msgstr ""
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Main configuration"
+msgstr "Hauptkonfiguration"
+
+msgid "Manage"
+msgstr "Verwalten"
+
+msgid "Manage ACL"
+msgstr ""
+
+msgid "Manage account"
+msgstr ""
+
+#, fuzzy
+msgid "Manage gateway"
+msgstr "Benutzer verwalten"
+
+msgid "Manage gateway and SMSC"
+msgstr ""
+
+msgid "Manage plugin"
+msgstr ""
+
+msgid "Manage sender ID"
+msgstr ""
+
+msgid "Manage site"
+msgstr ""
+
+msgid "Manage smstools"
+msgstr "Verwalte smstools"
+
+#, fuzzy
+msgid "Manage sub-account"
+msgstr "Benutzer verwalten"
+
+#, fuzzy
+msgid "Manage sub-accounts"
+msgstr "Benutzer verwalten"
+
+msgid "Manage subuser"
+msgstr ""
+
+#, fuzzy
+msgid "Manage subusers"
+msgstr "Benutzer verwalten"
+
+msgid "Manage user"
+msgstr "Benutzer verwalten"
+
+msgid "Me only"
+msgstr "Nur ich"
+
+msgid "Member has been added"
+msgstr "Mitglied wurde hinzugefügt"
+
+msgid "Member has been deleted"
+msgstr "Mitglied wurde gelöscht"
+
+msgid "Member list"
+msgstr "Mitgliederliste"
+
+msgid "Members"
+msgstr "Mitglieder"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Message template"
+msgstr "Nachrichten-Vorlage"
+
+msgid "Message template content"
+msgstr "Nachrichten-Vorlage Inhalt"
+
+msgid "Message template has been edited"
+msgstr "Nachrichten-Vorlage wurde editiert"
+
+msgid "Message template has been saved"
+msgstr "Nachrichten-Vorlage wurde gespeichert"
+
+msgid "Message template name"
+msgstr "Nachrichten-Vorlagen Name"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Move"
+msgstr ""
+
+msgid "Move to"
+msgstr "Verschieben nach"
+
+msgid "Multiple entries separated by comma"
+msgstr ""
+
+msgid "My account"
+msgstr ""
+
+msgid "Name"
+msgstr "Name"
+
+msgid "New SMSC has been added"
+msgstr ""
+
+msgid "No changes have been made"
+msgstr "Es wurden KEINE Änderungen vorgenommen"
+
+#, fuzzy
+msgid "No group"
+msgstr "Gruppe"
+
+msgid "Notes"
+msgstr "Anmerkungen"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Only when the sender ID is approved"
+msgstr ""
+
+msgid "Phonebook"
+msgstr "Telefonbuch"
+
+msgid "Please run composer.phar update"
+msgstr ""
+
+msgid "Please select CSV file"
+msgstr "Bitte CSV-Datei auswählen"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Bitte CSV-Datei für Telefonbuch-Einträge auswählen"
+
+#, fuzzy
+msgid "Please use alphanumeric only and make it short"
+msgstr "Bitte in Großbuchstaben und kurz"
+
+#, fuzzy
+msgid "Please use uppercase and make it short"
+msgstr "Bitte in Großbuchstaben und kurz"
+
+msgid "Preferences"
+msgstr "Einstellungen"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+"Drücke Ausführen, um gewählten Benutzer zur Catch-All-Liste hinzuzufügen"
+
+msgid "Press submit button to add selected users to member list"
+msgstr ""
+"Drücke Ausführen, um gewählten Benutzer zur Mitgliederliste hinzuzufügen"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr ""
+"Drücke Ausführen, um gewählten Catch-All von Catch-All-Liste zu streichen"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr ""
+"Drücke Ausführen, um ausgewählte Mitglieder von Mitgliederliste zu streichen"
+
+msgid "Prevent duplicates"
+msgstr ""
+
+msgid "Queue Code"
+msgstr "Queue Code"
+
+msgid "Queue directory"
+msgstr ""
+
+msgid "Queue has been removed"
+msgstr "Queue wurde gelscht"
+
+msgid "Receiver number"
+msgstr "Empfängernummer"
+
+msgid "Receiver number does not exist"
+msgstr "Empfängernummer existiert nicht"
+
+msgid "Reduce"
+msgstr ""
+
+msgid "Reply"
+msgstr "Antwort"
+
+msgid "Reports"
+msgstr ""
+
+msgid "Resend"
+msgstr "Erneut senden"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Sender auf gültige Mitglieder oder Catch-All-Mitglieder beschränken"
+
+msgid "Routed SMSC"
+msgstr ""
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
+
+msgid "SMSC already exists"
+msgstr ""
+
+msgid "SMSC has been edited"
+msgstr ""
+
+msgid "SMSC has been removed"
+msgstr ""
+
+msgid "SMSC name"
+msgstr ""
+
+msgid "SMSCs"
+msgstr ""
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Scheduled"
+msgstr "Geplant"
+
+msgid "Select"
+msgstr "Auswählen"
+
+msgid "Selected catchall"
+msgstr "Ausgewählter Catch-All"
+
+msgid "Selected contact has been deleted"
+msgstr "Gewählte Kontakte wurden gelöscht"
+
+msgid "Selected contact moved to new group"
+msgstr "Gewählter Kontakt wurde in neue Gruppe verschoben"
+
+msgid "Selected group has been deleted"
+msgstr "Gewählte Grupppe wurde geändert"
+
+msgid "Selected members"
+msgstr "Ausgewählte Mitglieder"
+
+msgid "Selected message template has been deleted"
+msgstr "Gewählte Nachrichten-Vorlage wurde gelöscht"
+
+msgid "Selected users"
+msgstr "Ausgewählte Benutzer"
+
+msgid "Send SMS to valid entries"
+msgstr "Sende SMS an gültige Einträge"
+
+msgid "Send from file"
+msgstr "Sende SMS aus Datei"
+
+msgid "Send from file has been cancelled"
+msgstr "Sende aus Datei wurde abgebrochen"
+
+msgid "Send message"
+msgstr "Sende SMS"
+
+msgid "Sender ID"
+msgstr ""
+
+msgid "Sender ID description has been added"
+msgstr ""
+
+msgid "Sender ID description has been updated"
+msgstr ""
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr ""
+
+msgid "Sender ID has been removed"
+msgstr ""
+
+msgid "Sender ID is not available"
+msgstr ""
+
+msgid "Sender ID is now approved"
+msgstr ""
+
+msgid "Sender ID is now disabled"
+msgstr ""
+
+msgid "Separate with comma for multiple items"
+msgstr "Mit Komma trennen für mehrere Objekte"
+
+msgid "Set as default"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Share phonebook and allow broadcast"
+msgstr ""
+
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
+msgstr ""
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Supplied SMSC"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Themes"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to add group"
+msgstr "Fehler beim Löschen der Gruppe"
+
+msgid "Unable to delete group until the group is empty"
+msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
+
+#, fuzzy
+msgid "Unable to find composer files"
+msgstr "Login Session kann nicht aktualisiert werden"
+
+msgid "Unban"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""
+
+msgid "Upload file"
+msgstr "Datei hochladen"
+
+msgid "Uploaded file"
+msgstr "Datei hochgeladen"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "User configuration"
+msgstr "Benutzerkonfiguration"
+
+msgid "User preference"
+msgstr "Benutzereinstellungen"
+
+msgid "Username"
+msgstr "Benutzername"
+
+#, php-format
+msgid "Username %s with account ID %d has requested approval for sender ID %s"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "View"
+msgstr "Anzeigen"
+
+msgid "View SMS queue"
+msgstr "Zeige SMS Queue"
+
+msgid "Yes"
+msgstr "ja"
+
+msgid "You must fill all field"
+msgstr "Es müssen alle Felder ausgefüllt werden"
+
+msgid "You must fill all fields"
+msgstr "Es müssen alle Felder ausgefüllt werden"
+
+msgid "You must fill mandatory fields"
+msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
+
+msgid "You must fill required fields"
+msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
+
+msgid "Your choice"
+msgstr "Ihre Auswahl"
+
+msgid "Your credit"
+msgstr ""
+
+msgid "code"
+msgstr "Kürzel"
+
+#, fuzzy
+msgid "destination number, message"
+msgstr "Format: Zielrufnummer, Nachricht"
+
+#, fuzzy
+msgid "destination number, message, username"
+msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
+
+msgid "group"
+msgstr "Gruppe"
+
+msgid "invalid entries"
+msgstr "Ungültige Einträge"
+
+msgid "no"
+msgstr "nein"
+
+msgid "of"
+msgstr "von"
+
+msgid "return"
+msgstr ""
+
+msgid "valid entries"
+msgstr "Gültige Einträge"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr "wird durch Name aus dem Telefonbuch ersetzt"
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr "wird durch die Rufnummer aus dem Telefonbuch ersetzt"
+
+msgid "yes"
+msgstr "ja"

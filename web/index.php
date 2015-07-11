@@ -47,11 +47,6 @@ if (_APP_) {
 			// _APP_=call to access subroutine in a plugin
 			// can be used to replace callback.php in clickatell or dlr.php and geturl.php in kannel
 			if (_CAT_ && _PLUGIN_) {
-				if (function_exists('bindtextdomain')) {
-					bindtextdomain('messages', $core_config['apps_path']['plug'] . '/' . _CAT_ . '/' . _PLUGIN_ . '/language/');
-					bind_textdomain_codeset('messages', 'UTF-8');
-					textdomain('messages');
-				}
 				core_hook(_PLUGIN_, 'call', array(
 					$_REQUEST 
 				));
@@ -65,11 +60,6 @@ if (_APP_) {
 			if (_INC_) {
 				$fn = $core_config['apps_path']['themes'] . '/' . core_themes_get() . '/page_' . _INC_ . '.php';
 				if (file_exists($fn)) {
-					if (function_exists('bindtextdomain')) {
-						bindtextdomain('messages', $core_config['apps_path']['themes'] . '/' . core_themes_get() . '/language/');
-						bind_textdomain_codeset('messages', 'UTF-8');
-						textdomain('messages');
-					}
 					include $fn;
 				} else {
 					$fn = $core_config['apps_path']['themes'] . '/common/page_' . _INC_ . '.php';

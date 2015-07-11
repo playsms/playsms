@@ -42,6 +42,7 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&route=mailsms_user&op=mailsms_user_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
+				'SAVE' => _('Save'),
 				'Email to SMS address' => _('Email to SMS address'),
 				'PIN for email to SMS' => _mandatory(_('PIN for email to SMS')) 
 			),

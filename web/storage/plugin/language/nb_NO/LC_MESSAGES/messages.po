@@ -1,0 +1,3235 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
+"Language-Team: \n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "1 Day"
+msgstr "1 Dag"
+
+msgid "1 Month"
+msgstr "1 Måned"
+
+msgid "1 Week"
+msgstr "1 Uke"
+
+msgid "2 Days"
+msgstr "2 Dager"
+
+msgid "2 Weeks"
+msgstr "2 Uker"
+
+msgid "6 Months"
+msgstr "6 Måneder"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL DEFAULT vil ikke begrense adgang til menyer"
+
+msgid "ACL ID"
+msgstr "ACL ID"
+
+msgid "ACL been edited"
+msgstr "ACL har blitt redigert"
+
+msgid "ACL has been deleted"
+msgstr "ACL er blitt slettet"
+
+msgid "ACL name"
+msgstr "ACL-navn"
+
+msgid "API ID"
+msgstr "API ID"
+
+msgid "API key"
+msgstr "API-nøkkel"
+
+msgid "API secret"
+msgstr "API-hemmelighet"
+
+msgid "Access Control List"
+msgstr "Adgangskontroll-liste"
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+"Adgang til ukjent domene som er mappet til denne servers IP-adresse vil bli "
+"omdirigert til nettstedets URL. URL-en bør være den primære addressen for "
+"servicen"
+
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr "Kontoen %s er blitt bannlyst fra å bruke tjenesten"
+
+msgid "Account SID"
+msgstr "Konto SID"
+
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr ""
+"Kontoadmin eller nåværende innloggede administratorer kan ikke bannlyses"
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+"Kontoadmin eller nåværende innloggede administratorer kan ikkefå fjernet sin "
+"bannlysning"
+
+msgid "Account already exists"
+msgstr "Konto eksisterer allerede"
+
+msgid "Account has been added and password has been emailed"
+msgstr "Konto har blitt lagt till og passord har blitt sendt på mail"
+
+msgid "Account has been added but failed to send email"
+msgstr "Konto har blitt lagt til, men mail kunne ikke sendes"
+
+msgid "Account has been banned"
+msgstr "Konto har blitt bannlyst"
+
+msgid "Account has been removed"
+msgstr "Konto har blitt fjernet"
+
+msgid "Account has been unbanned"
+msgstr "Konto er ikke lengre bannlyst"
+
+msgid "Account name is mandatory"
+msgstr "Kontonavn er påkrevd"
+
+msgid "Account registration is not available"
+msgstr "Kontoregistrering er ikke tilgjengelig"
+
+msgid "Account status"
+msgstr "Kontostatus"
+
+msgid "Account with this email already exists"
+msgstr "Konto med denne email-en eksisterer allerede"
+
+msgid "Account with this mobile already exists"
+msgstr "Konto med dette mobilnummeret eksisterer allerede"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Active language"
+msgstr "Aktivt språk"
+
+msgid "Active themes"
+msgstr "Aktive temaer"
+
+msgid "Add"
+msgstr "Legg til"
+
+msgid "Add ACL"
+msgstr "Legg til ACL"
+
+msgid "Add SMS autoreply"
+msgstr "Legg til SMS-autosvar"
+
+msgid "Add SMS autoreply scenario"
+msgstr "Legg til SMS-autosvar scenario"
+
+msgid "Add SMS board"
+msgstr "Legg til SMS-forum"
+
+msgid "Add SMS command"
+msgstr "Legg til SMS-kommando"
+
+msgid "Add SMS custom"
+msgstr "Legg til egendefinert SMS"
+
+msgid "Add SMS poll"
+msgstr "Legg til SMS-poll"
+
+msgid "Add SMS quiz"
+msgstr "Legg til SMS-quiz"
+
+msgid "Add SMS schedule"
+msgstr "Legg til SMS-tidsplan"
+
+msgid "Add SMS subscribe"
+msgstr "Legg til SMS-abonnement"
+
+msgid "Add SMSC"
+msgstr "Legg till SMSC"
+
+msgid "Add account"
+msgstr "Legg til konto"
+
+msgid "Add blocked IP addresses"
+msgstr "Legg til blokkert IP-adresse"
+
+msgid "Add blocked mobile numbers"
+msgstr "Legg till blokkerte mobilnummere"
+
+msgid "Add catch-all"
+msgstr "Legg til catch-all"
+
+msgid "Add choice to this poll"
+msgstr "Legg til alternativ til SMS-poll"
+
+msgid "Add contact"
+msgstr "Legg til kontakt"
+
+msgid "Add credit"
+msgstr "Legg til kreditt"
+
+msgid "Add credit to users"
+msgstr "Legg til kreditt til brukere"
+
+msgid "Add destination"
+msgstr "Legg til destinasjon"
+
+msgid "Add group"
+msgstr "Legg til gruppe"
+
+msgid "Add group inbox"
+msgstr "Legg till gruppe-innboks"
+
+msgid "Add member"
+msgstr "Legg til medlem"
+
+msgid "Add message"
+msgstr "Legg til beskjed"
+
+msgid "Add message template"
+msgstr "Legg til meldingsmal"
+
+msgid "Add or reduce credit from manage credit menu"
+msgstr "Legg til eller fjern kreditt fra håndter kreditt-meny"
+
+msgid "Add rate"
+msgstr "Legg til takst"
+
+msgid "Add route"
+msgstr "Legg til rute"
+
+msgid "Add sender ID"
+msgstr "Legg til senderID"
+
+msgid "Add subuser"
+msgstr "Legg til underbruker"
+
+msgid "Additional URL parameter"
+msgstr "Ytterlige URL-parametere"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratorer"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All feature messages"
+msgstr "Alle feature meldinger"
+
+msgid "All inbox"
+msgstr "Alle innbokser"
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "All queues have been removed"
+msgstr "Alle køer har blitt fjernet"
+
+msgid "All reports"
+msgstr "Alle rapporter"
+
+msgid "All sent messages"
+msgstr "Alle sendte beskjeder"
+
+msgid "All users"
+msgstr "Alle brukere"
+
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr "Tillat bruker til å velge SMS-footer på Send SMS-siden"
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr "Tillat brukere til å velge senderID på Send SMS-siden"
+
+msgid "Already a member reply"
+msgstr "Allerede et medlemssvar"
+
+msgid "Always add plus sign"
+msgstr "Legg alltid til plusstegn"
+
+msgid "Always choose to send as unicode"
+msgstr "Send alltid som unicode"
+
+msgid "Always remove plus sign"
+msgstr "Fjern alltid plusstegn"
+
+msgid "Amount"
+msgstr "Beløp"
+
+msgid "Annually"
+msgstr "Årlig"
+
+msgid "Answer"
+msgstr "Svar"
+
+msgid "Anyone"
+msgstr "Alle"
+
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr ""
+"Applikasjonsfooter her. Gå til primærkonfigurasjon eller håndter for å "
+"redigere denne footeren."
+
+msgid "Application options"
+msgstr "Programinnstillinger"
+
+msgid "Approve sender ID"
+msgstr "Godkjenn senderID"
+
+msgid "Are you sure ?"
+msgstr "Er du sikker?"
+
+msgid "Are you sure you want to ban account"
+msgstr "Er du sikker på at du vil bannlyse kontoen"
+
+msgid "Are you sure you want to ban subuser"
+msgstr "Er du sikker på at du vil bannlyse underbrukeren"
+
+msgid "Are you sure you want to delete ACL ?"
+msgstr "Er du sikker på at du vil slette ACL?"
+
+msgid "Are you sure you want to delete ALL queues"
+msgstr "Er du sikker på at du vil slette ALLE køer"
+
+msgid "Are you sure you want to delete SMS autoreply ?"
+msgstr "Er du sikker på at du vil slette SMS-autosvar?"
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr "Er du sikker på at du vil slette SMS-forum og dets meldinger?"
+
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "Er du sikker på at du slette SMS-kommandoen?"
+
+msgid "Are you sure you want to delete SMS custom ?"
+msgstr "Er du sikker på at du vil slette den egendefinerte SMS-en?"
+
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Er du sikker på at du vil slette SMS-poll med alle dets alternativer og "
+"stemmer?"
+
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Er du sikker på at du ønsker å slette SMS-quiz med alle dets valg og stemmer?"
+
+msgid "Are you sure you want to delete SMS schedule ?"
+msgstr "Er du sikker på at du vil slette SMS-tidsplanen?"
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "Er du sikker på at du vil slette SMS-abonnement?"
+
+msgid "Are you sure you want to delete choice ?"
+msgstr "Er du sikker på at du vil slette dette alternativet?"
+
+msgid "Are you sure you want to delete queue"
+msgstr "Er du sikker på at du vil slette køen"
+
+msgid "Are you sure you want to delete rate ?"
+msgstr "Er du sikker på at du vil slette takst?"
+
+msgid "Are you sure you want to delete sender ID"
+msgstr "Er du sikker på at du vil slette denne senderID-en?"
+
+msgid "Are you sure you want to delete subuser"
+msgstr "Er du sikker på at du vil slette underbrukeren"
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr "Er du sikker på at du vil slette underbrukeren?"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Er du sikker på at du vil slette disse emnene?"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Er du sikker på at du ønsker å slette disse transaksjonene?"
+
+msgid "Are you sure you want to delete this SMS autoreply scenario ?"
+msgstr "Er du sikker på at du vil dette SMS-autosvar scenarioet?"
+
+msgid "Are you sure you want to delete this answer ?"
+msgstr "Er du sikker på at du vil slette dette svaret?"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Er du sikker på at du vil slette denne bruker-innboksen?"
+
+msgid "Are you sure you want to delete this member ?"
+msgstr "Er du sikker på at du vil slette denne medlemet?"
+
+msgid "Are you sure you want to delete this message?"
+msgstr "Er du sikker på at du vil slette denne meldingen?"
+
+msgid "Are you sure you want to delete user"
+msgstr "Er du sikker på at du vil slette brukeren"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "Er du sikker på at du vil slette brukeren?"
+
+msgid "Are you sure you want to remove this number from SMS schedule ?"
+msgstr "Er du sikker på at du vil fjerne dette nummeret fra SMS-tidsplanen?"
+
+msgid "Are you sure you want to unban account"
+msgstr "Er du sikker på at du vil fjerne bannlysningen av kontoen"
+
+msgid "Are you sure you want to unban subuser"
+msgstr "Er du sikker på at du vil fjerne bannlysningen til underbrukeren"
+
+msgid "Auth Token"
+msgstr "Auth Token"
+
+msgid "Author"
+msgstr "Forfatter"
+
+msgid "Back"
+msgstr "Tilbake"
+
+msgid "Balance"
+msgstr "Balanse"
+
+msgid "Balance recorded on transaction"
+msgstr "Balanse på transaksjonen"
+
+msgid "Ban"
+msgstr "Bannlys"
+
+msgid "Ban date/time"
+msgstr "Bannlyst dato/tid"
+
+msgid "Banned users list"
+msgstr "Listen over bannlyste brukere"
+
+msgid "Bearerbox hostname or IP"
+msgstr "Bearerbox hostname eller IP"
+
+msgid "Billing"
+msgstr "Fakturering"
+
+msgid "Blocked IP address"
+msgstr "Blokkert IP-adresse"
+
+msgid "Blocked mobile"
+msgstr "Blokkert mobil"
+
+msgid "Bulksms API URL"
+msgstr "BulkSMS API URL"
+
+msgid "Bulksms is a bulk SMS provider"
+msgstr "BulkSMS er en masse-SMS leverandør"
+
+msgid "Bulksms will push DLR and incoming SMS to your callback URL"
+msgstr "Bulksms vil sende DLR og inkommende SMS til din callback URL"
+
+msgid "Buy"
+msgstr "Kjp"
+
+msgid "Buy credit page"
+msgstr "Kjøp kreditt-side"
+
+msgid "CSS URL"
+msgstr "CSS URL"
+
+msgid "CSV file format"
+msgstr "CSV filformat"
+
+msgid "Callback Secret"
+msgstr "Callback-hemmelighet"
+
+msgid "Callback URL"
+msgstr "Callback URL"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Cancel send from file"
+msgstr "Avbryt send fra fil"
+
+msgid "Cannot change status when user have subusers"
+msgstr "Kan ikke endre status når bruker har underbrukere"
+
+msgid "Cannot find PHP PEAR-DB"
+msgstr "Kan ikke finne PHP PEAR-DB"
+
+msgid "Catch-all"
+msgstr "Catch-all"
+
+msgid "Catch-all has been added"
+msgstr "Catch-all har blitt lagt til"
+
+msgid "Catch-all has been deleted"
+msgstr "Catch-all har blitt slettet"
+
+msgid "Catch-all list"
+msgstr "Catch-all liste"
+
+msgid "Changes have been made"
+msgstr "Endringer har blitt gjort"
+
+msgid "Check email sender"
+msgstr "Sjekk emailsenderen"
+
+msgid "Check to enable receiving push messages from SMSSync app"
+msgstr "Marker for å aktivere mottagelse av push-meldinger fra SMSSync app"
+
+msgid "Choice already exists"
+msgstr "Alternativet eksisterer allerede"
+
+msgid "Choice description"
+msgstr "Alternativ-beskrivelse"
+
+msgid "Choice has been added"
+msgstr "Alternativ har blitt lagt til"
+
+msgid "Choice keyword"
+msgstr "Alternativ-nøkkelord"
+
+msgid "City"
+msgstr "By"
+
+msgid "Click the status button to enable or disable status"
+msgstr "Klikk på statusknapp for å aktiverere eller deaktivere status"
+
+msgid "Clickatell API URL"
+msgstr "Clickatell API URL"
+
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell er en masse-SMS leverandør"
+
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgstr "Clickatell vil sende DLR og innkommende SMS til din callback URL"
+
+msgid "Comma separated"
+msgstr "Kommaseparert"
+
+msgid "Comma separated for multiple entries"
+msgstr "Kommaseparert for flere emner"
+
+msgid "Comma separated values for multiple IP addresses"
+msgstr "Kommaseparerte verdier ved flere IP-adresser"
+
+msgid "Comma separated values for multiple mobile numbers"
+msgstr "Kommaseparerte verdier for fler mobilnummere"
+
+msgid "Compose message"
+msgstr "Lag melding"
+
+msgid "Configuration"
+msgstr "Konfigurasjon"
+
+msgid "Confirmation"
+msgstr "Bekreftelse"
+
+msgid "Contact has been added"
+msgstr "Kontakt har blitt lagt til"
+
+msgid "Contact has been edited"
+msgstr "Kontakt har blitt redigert"
+
+msgid "Contacts have been imported"
+msgstr "Kontakter har blitt importert"
+
+msgid "Content"
+msgstr "Innhold"
+
+msgid "Copy the message to user inbox when incoming SMS contains @username"
+msgstr ""
+"Kopier meldingen til bruker-innboks når innkommende SMS innholder @username"
+
+msgid "Core"
+msgstr "Kjerne"
+
+msgid "Count"
+msgstr "Antall"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Created"
+msgstr "Opprettet"
+
+msgid "Credit"
+msgstr "Kreditt"
+
+msgid "Credit has been added"
+msgstr "Kreditt har blitt lagt til"
+
+msgid "Credit has been reduced"
+msgstr "Kreditt har blitt redusert"
+
+msgid "Current IP address"
+msgstr "Nåværende IP-adresse"
+
+msgid "Current catchall"
+msgstr "Nåværende catch-all"
+
+msgid "Current members"
+msgstr "Nåværende medlemmer"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "Nåværende innloggede brukere kan ikke slettes"
+
+msgid "DEFAULT"
+msgstr "STANDARD"
+
+msgid "Daily"
+msgstr "Daglig"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Date and time"
+msgstr "Dato og tid"
+
+msgid "Date/Time"
+msgstr "Dato/Tid"
+
+msgid "Datetime"
+msgstr "Dato-tid"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Default ACL upon registration"
+msgstr "Standard ACL ved registrering"
+
+msgid "Default SMS rate"
+msgstr "Standard SMS-takst"
+
+msgid "Default SMSC"
+msgstr "Standard SMSC"
+
+msgid "Default account status upon registration"
+msgstr "Standard kontostatus ved registrering"
+
+msgid "Default credit upon registration"
+msgstr "Standardkreditt ved registrering"
+
+msgid "Default default_queue directory"
+msgstr ""
+
+msgid "Default language"
+msgstr "Standardspråk"
+
+msgid "Default message footer"
+msgstr "Standard meldings-footer"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+"Standard forelder valgt ved registrering når standard kontostatus ved "
+"registrering er satt til underbruker"
+
+msgid "Default parent upon registration"
+msgstr "Standard forelder valt ved registrering"
+
+msgid "Default prefix or country code"
+msgstr "Standard prefiks eller landskode"
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+"Standard prefiks eller landskode skal erstatte prefiks 0 på "
+"destinasjonsnummer"
+
+msgid "Default sender ID"
+msgstr "Standard senderID"
+
+msgid "Default settings"
+msgstr "Standardinnstillinger"
+
+msgid "Default site configuration"
+msgstr "Standard nettstedsinnstillinger"
+
+msgid "Default timezone"
+msgstr "Standard tidssone"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+"Angi et enkelt tegn som skal brukes som nøkkelordsseperator i stendenfor "
+"mellomrom som seperator"
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Delete ALL queues"
+msgstr "Slett ALLE køer"
+
+msgid "Delete catch-all"
+msgstr "Slett catch-all"
+
+msgid "Delete group inbox"
+msgstr "Slett gruppe-innboks"
+
+msgid "Delete member"
+msgstr "Slett medlem"
+
+msgid "Delete user"
+msgstr "Slett bruker"
+
+msgid "Deleted"
+msgstr "Slettet"
+
+msgid "Delivered"
+msgstr "Levert"
+
+msgid "Delivered to SMSC"
+msgstr "Levert til SMSC"
+
+msgid "Delivered to phone"
+msgstr "Levert til telefon"
+
+msgid "Delivery Report"
+msgstr "Leveranserapport"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Destination"
+msgstr "Destinasjon"
+
+msgid "Destination has been deleted"
+msgstr "Destinasjon har blitt slettet"
+
+msgid "Destination has been edited"
+msgstr "Destinasjon har blitt redigert"
+
+msgid "Destination name"
+msgstr "Destinasjonsnavn"
+
+msgid "Destination number"
+msgstr "Destinasjonsnummer"
+
+msgid "Disable login as subuser"
+msgstr "Deaktiver login som underbruker"
+
+msgid "Domain"
+msgstr "Domene"
+
+msgid "Download SMSSync app for Android from"
+msgstr "Last ned SMSSync app til Android fra"
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Edit ACL"
+msgstr "Rediger ACL"
+
+msgid "Edit SMS autoreply"
+msgstr "Redigerer SMS-autosvar"
+
+msgid "Edit SMS autoreply scenario"
+msgstr "Rediger SMS-autosvar scenario"
+
+msgid "Edit SMS board"
+msgstr "Rediger SMS-forum"
+
+msgid "Edit SMS command"
+msgstr "Rediger SMS-kommando"
+
+msgid "Edit SMS custom"
+msgstr "Rediger egendefinert SMS"
+
+msgid "Edit SMS poll"
+msgstr "Rediger SMS-poll"
+
+msgid "Edit SMS poll choices"
+msgstr "Rediger SMS-poll alternativer"
+
+msgid "Edit SMS quiz"
+msgstr "Rediger SMS-quiz"
+
+msgid "Edit SMS subscribe"
+msgstr "Redigerer SMS-abonnement"
+
+msgid "Edit SMSC"
+msgstr "Rediger SMSC"
+
+msgid "Edit contact"
+msgstr "Rediger kontakt"
+
+msgid "Edit destination"
+msgstr "Rediger destinasjon"
+
+msgid "Edit group"
+msgstr "Rediger gruppe"
+
+msgid "Edit group inbox"
+msgstr "Rediger gruppe-innboks"
+
+msgid "Edit message"
+msgstr "Rediger beskjed"
+
+msgid "Edit message template"
+msgstr "Rediger meldingsmal"
+
+msgid "Edit rate"
+msgstr "Rediger takst"
+
+msgid "Edit route"
+msgstr "Rediger rute"
+
+msgid "Edit schedule"
+msgstr "Rediger tidsplan"
+
+msgid "Edit sender ID"
+msgstr "Rediger senderID"
+
+msgid "Effective SMS sender ID"
+msgstr "Effektivt SMS senderID"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email address is mandatory"
+msgstr "Email-adresse er påkrevd"
+
+msgid "Email footer"
+msgstr "Email-footer"
+
+msgid "Email protocol"
+msgstr "Emailprotokoll"
+
+msgid "Email service"
+msgstr "Email-service"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "Email til SMS-PIN har blitt lagret"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "Email to SMS-PIN har blitt lagret, men tjenesten er deaktivert"
+
+msgid "Email to SMS address"
+msgstr "Email til SMS-adresse"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "Email til SMS-konfigurasjon har blitt lagret og tjenesten deaktivert"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "Email til SMS-konfigurasjon har blitt lagret og tjenesten aktivert"
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr ""
+"Nullstill standard senderID for å tillate brukere å velge deres eget senderID"
+
+msgid "Enable SMS Sync"
+msgstr "Aktiverer SMS Sync"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Aktiver kreditering av unicode SMS som normal SMS"
+
+msgid "Enable fetch new emails"
+msgstr "Aktiver hentning av nye emails"
+
+msgid "Enable forgot password"
+msgstr "Aktiver glemt passord"
+
+msgid "Enable login brute force detection"
+msgstr "Aktiver oppdaging av brute force login"
+
+msgid "Enable logo"
+msgstr "Aktiver logo"
+
+msgid "Enable public registration"
+msgstr "Aktiver offentlig registrering"
+
+msgid "Enable webservices"
+msgstr "Aktiver webservices"
+
+msgid "Enhance privacy for subusers"
+msgstr "Forbedre privatliv for underbrukere"
+
+msgid "Entries in CSV file have been imported"
+msgstr "Innhold is CSV-filen har blitt importert"
+
+#, fuzzy
+msgid "Example of SMS custom URL"
+msgstr "Tilpasset SMS-URL"
+
+msgid "Exclusive"
+msgstr "Eksklusiv"
+
+msgid "Exec"
+msgstr "Kjør"
+
+msgid "Export"
+msgstr "Eksporter"
+
+msgid "FATAL ERROR"
+msgstr "FATAL ERROR"
+
+msgid "Fail to add SMS autoreply"
+msgstr "Kunne ikke legge til SMS-autosvar"
+
+msgid "Fail to add SMS autoreply scenario"
+msgstr "Kunne ikke legge til SMS-autosvar scenario"
+
+msgid "Fail to add SMS board"
+msgstr "Kunne ikke legge til SMS-forum"
+
+msgid "Fail to add SMS command"
+msgstr "Kunne ikke legge til SMS-kommando"
+
+msgid "Fail to add SMS custom"
+msgstr "Kunne ikke legge til egendefinert SMS"
+
+msgid "Fail to add SMS poll"
+msgstr "Kunne ikke legge til SMS-poll"
+
+msgid "Fail to add SMS quiz"
+msgstr "Kunne ikke legge til SMS-quiz"
+
+msgid "Fail to add SMS subscribe"
+msgstr "Kunne ikke legge til SMS-abonnement"
+
+msgid "Fail to add catch-all"
+msgstr "Feil i å legge til catch-all"
+
+msgid "Fail to add credit"
+msgstr "Kunne ikke legge til kreditt"
+
+msgid "Fail to add group inbox"
+msgstr "Feil i å legge til gruppe-innboks"
+
+msgid "Fail to add member"
+msgstr "Feil i å legge til medlem"
+
+msgid "Fail to add message"
+msgstr "Kunne ikke legge til melding"
+
+msgid "Fail to add message template"
+msgstr "Kunne ikke legge til meldingsmal"
+
+msgid "Fail to add new ACL"
+msgstr "Feil ved legge til ny ACL"
+
+msgid "Fail to add new SMS schedule"
+msgstr "Kunne ikke legge til ny SMS-tidsplan"
+
+msgid "Fail to add new SMSC"
+msgstr "Kunne ikke legge til SMSC"
+
+msgid "Fail to add new destination"
+msgstr "Kunne ikke legg til ny destinasjon"
+
+msgid "Fail to add route"
+msgstr "Kunne ikke legge til rute"
+
+msgid "Fail to connect to database"
+msgstr "Fail to connect to database"
+
+msgid "Fail to delete ACL"
+msgstr "Feil ved sletting av ACL"
+
+msgid "Fail to delete SMS autoreply"
+msgstr "Kunne ikke slette SMS-autosvar"
+
+msgid "Fail to delete SMS autoreply scenario"
+msgstr "Kunne ikke slette SMS-autosvar scenario"
+
+msgid "Fail to delete SMS command"
+msgstr "Kunne ikke slette SMS-kommando"
+
+msgid "Fail to delete SMS custom"
+msgstr "Kunne ikke slette egendefinert SMS"
+
+msgid "Fail to delete SMS poll choice"
+msgstr "Kunne ikke slette SMS-poll alternativ"
+
+msgid "Fail to delete SMS schedule"
+msgstr "Kunne ikke slette SMS-tidsplan"
+
+msgid "Fail to delete catch-all"
+msgstr "Feil ved sletting av catch-all"
+
+msgid "Fail to delete destination"
+msgstr "Kunne ikke slette destinasjon"
+
+msgid "Fail to delete group"
+msgstr "Feil ved sletning av gruppe"
+
+msgid "Fail to delete group inbox"
+msgstr "Feil ved sletting av gruppe-innboks"
+
+msgid "Fail to delete member"
+msgstr "Feil ved sletting av medlem"
+
+msgid "Fail to delete rate"
+msgstr "Kunne ikke slette takst"
+
+msgid "Fail to delete route"
+msgstr "Kunne ikke slette rute"
+
+msgid "Fail to disable group inbox"
+msgstr "Feil ved deaktivering av gruppe-innboks"
+
+msgid "Fail to edit ACL"
+msgstr "Feil ved redigering av ACL"
+
+msgid "Fail to edit SMS autoreply scenario"
+msgstr "Kunne ikke redigere SMS-autosvar scenario"
+
+msgid "Fail to edit SMS board"
+msgstr "Kunne ikke redigere SMS-forum"
+
+msgid "Fail to edit SMS quiz"
+msgstr "Kunne ikke redigere SMS-quiz"
+
+msgid "Fail to edit SMS schedule"
+msgstr "Kunne ikke redigere SMS-tidsplan"
+
+msgid "Fail to edit SMS subscribe"
+msgstr "Kunne ikke legge til SMS-abonnement"
+
+msgid "Fail to edit SMSC"
+msgstr "Feil ved redigering av SMSC"
+
+msgid "Fail to edit destination"
+msgstr "Kunne ikke redigere destinasjon"
+
+msgid "Fail to edit group inbox"
+msgstr "Feil ved redigering av gruppe-innboks"
+
+msgid "Fail to edit message"
+msgstr "Kunne ikke redigere melding"
+
+msgid "Fail to edit message template"
+msgstr "Kunne ikke redigerer meldingsmal"
+
+msgid "Fail to enable group inbox"
+msgstr "Feil ved redigering av gruppe-innboks"
+
+msgid "Fail to insert keyword"
+msgstr "Kunne ikke sette inn nøkkelord"
+
+msgid "Fail to load gateway"
+msgstr "Fail to load gateway"
+
+msgid "Fail to load language"
+msgstr "Fail to load language"
+
+msgid "Fail to load main config from registry"
+msgstr "Fail toload main config from registry"
+
+msgid "Fail to load themes"
+msgstr "Kunne ikke laste temaer"
+
+msgid "Fail to recover password"
+msgstr "Feil ved gjenoppretting av passord"
+
+msgid "Fail to reduce credit"
+msgstr "Feil ved redusering av kreditt"
+
+msgid "Fail to register an account"
+msgstr "Kunne ikke registrere en konto"
+
+msgid "Fail to remove SMSC"
+msgstr "Feil ved fjerning av SMSC"
+
+msgid "Fail to save SMS Sync configuration"
+msgstr "Kunne ikke lagre SMS Sync konfigurasjon"
+
+msgid "Fail to save SMS command"
+msgstr "Kunne ikke lagre SMS-kommando"
+
+msgid "Fail to save SMS custom"
+msgstr "Kunne ikke lagre egendefinert SMS"
+
+msgid "Fail to save configuration"
+msgstr "Kunne ikke lagre konfigurasjonen"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Kunne ikke lagre email til SMS-PIN"
+
+#, fuzzy
+msgid "Fail to save gateway module configurations"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+
+msgid "Fail to save preferences"
+msgstr "Kunne ikke lagre innstillingene"
+
+msgid "Fail to save rate"
+msgstr "Kunne ikke lagre takst"
+
+msgid "Fail to save route"
+msgstr "Kunne ikke lagre rute"
+
+msgid "Fail to save temporary password"
+msgstr "Feil ved lagring av midlertidig passord"
+
+msgid "Fail to send SMS"
+msgstr "Kunne ikke sende SMS"
+
+msgid "Fail to send email"
+msgstr "Feil ved sending av email"
+
+msgid "Fail to send message to all destinations"
+msgstr "Kunne ikke sende melding til alle destinasjoner"
+
+msgid "Fail to simulate incoming SMS"
+msgstr "Kunne ikke simuluere inkommende SMS"
+
+msgid "Fail to update SMS autoreply"
+msgstr "Kunne ikke oppdatere SMS-autosvar"
+
+msgid "Fail to update due to invalid sender ID"
+msgstr "Feil ved oppdatering på grunn av ugyldig senderID"
+
+msgid "Fail to upload CSV file"
+msgstr "Kunne ikke opplaste CSV-fil"
+
+msgid "Fail to upload CSV file for phonebook"
+msgstr "Kunne ikke laste opplaste CSV-fil til telefonbok"
+
+msgid "Failed"
+msgstr "Mislykket"
+
+msgid "Feature"
+msgstr "Funksjon"
+
+msgid "Features"
+msgstr "Funksjoner"
+
+msgid "Fill the password field to change password"
+msgstr "Fyll ut passordfeltet for å endre passord"
+
+msgid "Fill to change the API key"
+msgstr "Utfyll for å endre API-nøkkelen"
+
+msgid "Fill to change the API secret"
+msgstr "Utfyll for å endre API-hemmeligheten"
+
+msgid "Fill to change the Auth Token"
+msgstr "Utfyll for å endre Auth Token"
+
+msgid "Fill to change the password"
+msgstr "Fyll ut for å endre passord"
+
+msgid "Fill with zero to disable limit"
+msgstr "Utfyll med null for å deaktivere begrensning"
+
+msgid "Flash message"
+msgstr "Flash-melding"
+
+msgid "Footer"
+msgstr "Bunntekst"
+
+msgid "For example a short code"
+msgstr "En kort kode for eksempel"
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
+
+msgid "Forward"
+msgstr "Videresend"
+
+msgid "Forward message to email"
+msgstr "Videresend melding til email"
+
+msgid "Forward message to inbox"
+msgstr "Videresend melding til innboks"
+
+msgid "Forward message to mobile"
+msgstr "Videresend melding til mobil"
+
+msgid "Forward to email"
+msgstr "Videresend til email"
+
+msgid "Forwarded email footer"
+msgstr "Videresendt email-footer"
+
+msgid "Found invalid entries in uploaded file"
+msgstr "Fant ugyldige oppføringer i opplastet fil"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Fant gyldige oppføringer i opplastet fil"
+
+msgid "From"
+msgstr "Fra"
+
+msgid "Full name"
+msgstr "Fullt navn"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Gateway host"
+msgstr "Gateway-host"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurasjonen er lagret"
+
+msgid "Gateway name"
+msgstr "Gateway-navn"
+
+msgid "Gateway port"
+msgstr "Gateway-port"
+
+msgid "Gateways"
+msgstr "Gateways"
+
+msgid "Go"
+msgstr "Kjr"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+"Gå til hovedkonfigurasjon eller håndter nettside for å redigere denne siden"
+
+msgid "Grand total SMS"
+msgstr "Totalt antall SMS"
+
+msgid "Grand total senders"
+msgstr "Totalt antall sendere"
+
+msgid "Graph output"
+msgstr "Grafisk output"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Group code"
+msgstr "Gruppekode"
+
+msgid "Group code already exists"
+msgstr "Gruppekode eksisterer allerede"
+
+msgid "Group code has been added"
+msgstr "Gruppekode har blitt lagt til"
+
+msgid "Group code may be used to broadcast SMS to this group"
+msgstr "Gruppekode kan brukes til å broadcaste SMS til denne gruppen"
+
+msgid "Group has been edited"
+msgstr "Gruppe har blitt redigert"
+
+msgid ""
+"Group has been edited but unable to set broadcast from members or anyone"
+msgstr ""
+"Gruppen har blitt redigert, men kunne ikke innstille broadcast fra medlemmer "
+"eller andre"
+
+msgid "Group inbox"
+msgstr "Gruppe-innboks"
+
+msgid "Group inbox has been added"
+msgstr "Gruppe-innboks har blitt lagt til"
+
+msgid "Group inbox has been deleted"
+msgstr "Gruppe-innboks har blitt slettet"
+
+msgid "Group inbox has been disabled"
+msgstr "Gruppe-innboks har blitt deaktivert"
+
+msgid "Group inbox has been edited"
+msgstr "Gruppe-innboks har blitt redigert"
+
+msgid "Group inbox has been enabled"
+msgstr "Gruppe-innboks har blitt aktivert"
+
+msgid "Group name"
+msgstr "Gruppenavn"
+
+msgid "HTML output"
+msgstr "HTML output"
+
+msgid "HTTP Kannel admin host"
+msgstr "HTTP Kannel admin host"
+
+msgid "HTTP Kannel admin password"
+msgstr "HTTP Kannel admin passord"
+
+msgid "HTTP Kannel admin port"
+msgstr "HTTP Kannel admin port"
+
+msgid "Home"
+msgstr "Hjem"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP address"
+msgstr "IP-adresse"
+
+msgid "IP addresses"
+msgstr "IP-adresser"
+
+msgid "IP addresses have been blocked"
+msgstr "IP-adresser har blitt blokkert"
+
+msgid "IP addresses have been deleted"
+msgstr "IP-adresser har blitt slettet"
+
+msgid "Idle"
+msgstr "Idle"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "Import above destination entries ?"
+msgstr "Importer destinasjons-innleggene ovenfor?"
+
+msgid "Import above phonebook entries ?"
+msgstr "Importer telefonboksinnføringene over?"
+
+msgid "Import confirmation"
+msgstr "Bekreft import"
+
+msgid "Inbox"
+msgstr "Innboks"
+
+msgid "Incoming SMS route changes has been saved"
+msgstr "Endringer for innkommende SMS-rute har blitt lagret"
+
+msgid "Incoming SMS time is in local time"
+msgstr "Innkommende SMS-tid er i lokal tid"
+
+msgid "Infobip API URL"
+msgstr "Infobip API URl"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip er en masse-SMS leverandør"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr "Infobip vil sende DLR og innkommende SMS til URL-en over"
+
+msgid "Information"
+msgstr "Informasjon"
+
+msgid "Information page"
+msgstr "Informasjonsside"
+
+msgid "Insert keyword"
+msgstr "Sett inn nøkkelord"
+
+msgid "Internal error please contact service provider"
+msgstr "Intern feil, vennligst kontakt tjenesteleverandør"
+
+msgid "Invalid"
+msgstr "Ugyldig"
+
+msgid "Invalid CSV file"
+msgstr "Ugyldig CSV-fil"
+
+msgid "Invalid entries"
+msgstr "Ugyldige linjer"
+
+msgid "Invalid sender ID"
+msgstr "Ugylding senderID"
+
+msgid "Invalid session ID"
+msgstr "Ugyldig session ID"
+
+msgid "Invalid username or password"
+msgstr "Ugyldig brukernavn eller passord"
+
+msgid "JSON output"
+msgstr "JSON output"
+
+msgid "Kannel admin host"
+msgstr "Kannel admin host"
+
+msgid "Kannel admin password"
+msgstr "Kannel admin passord"
+
+msgid "Kannel admin port"
+msgstr "Kannel admin port"
+
+msgid "Kannel specific"
+msgstr "Kannel spesifikt"
+
+msgid "Kannel status"
+msgstr "Kannel status"
+
+msgid "Keyword"
+msgstr "Nøkkelord"
+
+#, php-format
+msgid "Keyword %s is not available"
+msgstr ""
+
+msgid "Keyword separator"
+msgstr "Nøkkelords-separator"
+
+msgid "Keywords"
+msgstr "Nøkkelord"
+
+msgid "Languages"
+msgstr "Språk"
+
+msgid "Last update"
+msgstr "Sist oppdatert"
+
+msgid "Layout footer"
+msgstr "Layout-footer"
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr "Legg igjen en kopi i sandbox SMS-side"
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr ""
+"Å legge en kopi i sandbox SMS-siden kan være nyttig forrevisjon eller "
+"granskning"
+
+msgid "List of accounts"
+msgstr "Liste over kontoer"
+
+msgid "List of administrators"
+msgstr "Liste av administratorer"
+
+msgid "List of destinations"
+msgstr "Liste over destinasjoner"
+
+msgid "List of gateways and SMSCs"
+msgstr "Liste over gateway og SMSCer"
+
+#, php-format
+msgid "List of messages from %s"
+msgstr "Vis alle meldinger fra %s"
+
+msgid "List of my credit transactions"
+msgstr "Liste over mine kreditt-transaksjoner"
+
+#, php-format
+msgid "List of queue %s"
+msgstr "Liste over køen %s"
+
+msgid "List of subusers"
+msgstr "Liste av underbrukere"
+
+msgid "List of transactions"
+msgstr "Liste over transaksjoner"
+
+msgid "List of users"
+msgstr "Liste av brukere"
+
+msgid "Local number length"
+msgstr "Lokalnummer-lengde"
+
+msgid "Logged in as"
+msgstr "Logget inn som"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Login as"
+msgstr "Logg inn som"
+
+msgid "Login information"
+msgstr "Logininformasjon"
+
+msgid "Logo URL"
+msgstr "Logo URL"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Logo vil ved standard vises på login, registrering og glemt passord-side"
+
+msgid "Logout"
+msgstr "Logg ut"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr "Laveste kredittgrense som aktiverer notifikasjon"
+
+msgid "MBOX output"
+msgstr "MBOX output"
+
+msgid "Mail server address"
+msgstr "Postserver-adresse"
+
+msgid "Mail server port"
+msgstr "Postserver-port"
+
+msgid "Mailbox password"
+msgstr "Postkasse-passord"
+
+msgid "Mailbox username"
+msgstr "Postkasse-brukernavn"
+
+msgid "Main configuration"
+msgstr "Hovedkonfigurasjon"
+
+msgid "Main configuration changes has been saved"
+msgstr "Endringer i hovedkonfigurasjon har blitt lagret"
+
+msgid "Main website URL"
+msgstr "Hovednettside-URL"
+
+msgid "Main website name"
+msgstr "Hovednettside-navn"
+
+msgid "Make return as reply"
+msgstr "Gjør returverdi til svar"
+
+msgid "Manage"
+msgstr "Hndter"
+
+msgid "Manage ACL"
+msgstr "Hndter ACL"
+
+msgid "Manage OpenVox"
+msgstr "Håndter OpenVox"
+
+msgid "Manage SMS rate"
+msgstr "Håndter SMS-takst"
+
+msgid "Manage account"
+msgstr "Hndter konto"
+
+msgid "Manage autoreply"
+msgstr "Håndter autosvar"
+
+msgid "Manage blocked"
+msgstr "Håndter blocked"
+
+msgid "Manage board"
+msgstr "Håndter forum"
+
+msgid "Manage bulksms"
+msgstr "Håndter bulkSMS"
+
+msgid "Manage clickatell"
+msgstr "Håndter clickatell"
+
+msgid "Manage command"
+msgstr "Håndter kommando"
+
+msgid "Manage credit"
+msgstr "Håndter kreditt"
+
+msgid "Manage custom"
+msgstr "Håndter egendefinert"
+
+msgid "Manage dev"
+msgstr "Håndter dev"
+
+msgid "Manage email to SMS"
+msgstr "Håndter email til SMS"
+
+msgid "Manage firewall"
+msgstr "Håndter brannmur"
+
+msgid "Manage gammu"
+msgstr "Håndter gammu"
+
+msgid "Manage gateway"
+msgstr "Håndter gateway"
+
+msgid "Manage gateway and SMSC"
+msgstr "Hndter gateway og SMSC"
+
+msgid "Manage infobip"
+msgstr "Håndter infobip"
+
+msgid "Manage kannel"
+msgstr ""
+
+msgid "Manage nexmo"
+msgstr "Håndter nexmo"
+
+msgid "Manage plugin"
+msgstr "Håndter plugin"
+
+msgid "Manage poll"
+msgstr "Håndter poll"
+
+msgid "Manage quiz"
+msgstr "Håndter quiz"
+
+msgid "Manage schedule"
+msgstr "Håndter tidsplan"
+
+msgid "Manage sender ID"
+msgstr "Hndter senderID"
+
+msgid "Manage site"
+msgstr "Hndter side"
+
+msgid "Manage smstools"
+msgstr "Håndter smstools"
+
+msgid "Manage stoplist"
+msgstr "Hndter stoppliste"
+
+msgid "Manage sub-account"
+msgstr "Håndter underkonto"
+
+msgid "Manage sub-accounts"
+msgstr "Håndter underkontoer"
+
+msgid "Manage subscribe"
+msgstr "Håndter abonnement"
+
+msgid "Manage subuser"
+msgstr "Hndter underbruker"
+
+msgid "Manage subusers"
+msgstr "Håndter underbrukere"
+
+msgid "Manage sync"
+msgstr "Håndter sync"
+
+msgid "Manage telerivet"
+msgstr "Håndter telerivet"
+
+msgid "Manage template"
+msgstr "Håndter template"
+
+msgid "Manage twilio"
+msgstr "Håndter twilio"
+
+msgid "Manage uplink"
+msgstr "Håndter uplink"
+
+msgid "Manage user"
+msgstr "Håndter bruker"
+
+msgid "Mandatory fields must not be empty"
+msgstr "Påkrevde felter kan ikke være tomme"
+
+msgid "Master URL"
+msgstr "Master URL"
+
+msgid "Match with all approved sender ID"
+msgstr "Sammenlign med alle godkjente senderID-er"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 nummeriske eler 11 alfanumeriske tegn, tom for å deaktivere"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn"
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "Maks. 30 alfanummeriske tegn"
+
+msgid "Maximum 8 digits numeric only"
+msgstr "Maksimum 8 nummeriske tegn"
+
+msgid "Maximum SMS count"
+msgstr "Maksimum antall SMS"
+
+msgid "Maximum username length"
+msgstr "Maksimum lengde på brukernavn"
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr "Maksimum brukernavns-lengde må være et tall mellom 4 og 100"
+
+msgid "Me only"
+msgstr "Kun meg"
+
+msgid "Member has been added"
+msgstr "Medlem har blitt lagt til"
+
+msgid "Member has been deleted"
+msgstr "Medlem har blitt slettet"
+
+msgid "Member join datetime"
+msgstr "Medlem siden dato-tid"
+
+msgid "Member list"
+msgstr "Medlemsliste"
+
+msgid "Member list for keyword"
+msgstr "Medlemsliste for nøkkelord"
+
+msgid "Members"
+msgstr "Medlemmer"
+
+msgid "Message"
+msgstr "Melding"
+
+#, php-format
+msgid "Message %s has been delivered to queue"
+msgstr "Meldingen %s har blitt sendt til køen"
+
+msgid "Message ID"
+msgstr "Meldings-ID"
+
+msgid "Message body"
+msgstr "Meldings-body"
+
+msgid "Message detail"
+msgstr "Meldingsdetaljer"
+
+msgid "Message footer"
+msgstr "Meldingsfooter"
+
+msgid "Message from"
+msgstr "Melding fra"
+
+msgid "Message has been added"
+msgstr "Melding har blitt lagt til"
+
+msgid "Message has been deleted"
+msgstr "Melding har blitt slettet"
+
+msgid "Message has been edited"
+msgstr "Melding har blitt redigert"
+
+msgid "Message received at"
+msgstr "Melding mottatt kl."
+
+msgid "Message template"
+msgstr "Meldingsmal"
+
+msgid "Message template content"
+msgstr "Meldingsmal-innhold"
+
+msgid "Message template has been edited"
+msgstr "Meldingsmal har blitt redigert"
+
+msgid "Message template has been saved"
+msgstr "Meldignsmal har blitt lagret"
+
+msgid "Message template name"
+msgstr "Meldingsmal-navn"
+
+msgid "Messages"
+msgstr "Meldinger"
+
+msgid "Min length to detect missing country code"
+msgstr "Min. lengde for å oppdage manglende landskode"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Mobile numbers"
+msgstr "Mobilnummere"
+
+msgid "Mobile numbers have been blocked"
+msgstr "Mobilnummere har blitt blokkert"
+
+msgid "Mobile numbers have been deleted"
+msgstr "Mobilnummere har blitt slettet"
+
+msgid "Module sender ID"
+msgstr "SenderID-modul"
+
+msgid "Module timezone"
+msgstr "Tidssone-modul"
+
+msgid "Monthly"
+msgstr "Månedlig"
+
+msgid "Move"
+msgstr "Flytt"
+
+msgid "Move to"
+msgstr "Flytt til"
+
+msgid "Multi"
+msgstr "Flere"
+
+msgid "Multiple IP addresses must be comma-separated"
+msgstr "Flere IP-adresser skal adskilles med komma"
+
+msgid "Multiple entries separated by comma"
+msgstr ""
+
+msgid "Multiple mobile numbers must be comma-separated"
+msgstr "Fler mobilnummer m vre kommaseparert"
+
+msgid "My account"
+msgstr "Min konto"
+
+msgid "My credit transactions"
+msgstr "Mine kreditt-transaksjoner"
+
+msgid "My email to SMS"
+msgstr "Min email til SMS"
+
+msgid "My feature messages"
+msgstr "Mine feature-meldinger"
+
+msgid "My report"
+msgstr "Min rapport"
+
+msgid "My sent messages"
+msgstr "Mine sendte meldinger"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "New ACL been added"
+msgstr "Ny ACL har blitt lagt til"
+
+msgid "New SMS schedule been added"
+msgstr "Ny SMS-tidsplan har blitt lagt til"
+
+msgid "New SMSC has been added"
+msgstr "Ny SMSC har blitt lagt til"
+
+msgid "New account registration"
+msgstr "Registrer ny konto"
+
+msgid "New destination has been added"
+msgstr "Ny destinasjon har blitt lagt til"
+
+msgid "Nexmo URL"
+msgstr "Nexmo-URL"
+
+msgid "Nexmo is a bulk SMS provider"
+msgstr "Nexmo er en masse-SMS leverandør"
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr "Nexmo vil sende DLR og innkommende SMS til din callback URL"
+
+msgid "No"
+msgstr "Nei"
+
+msgid "No changes has been made"
+msgstr "Ingen endringer har blitt gjort"
+
+msgid "No changes have been made"
+msgstr "Ingen endringer har blitt gjort"
+
+msgid "No changes made"
+msgstr "Ingen endringer gjort"
+
+msgid "No changes made!"
+msgstr "Ingen endringer gjort!"
+
+msgid "No group"
+msgstr "Ingen gruppe"
+
+msgid "No route has been saved"
+msgstr "Ingen rute har blitt lagret"
+
+msgid "No trailing slash"
+msgstr "Ingen etterfølgende skråstrek  "
+
+msgid "No validate cert option"
+msgstr "Ingen gyldige cert-innstillinger"
+
+msgid "Non-Delivered to SMSC"
+msgstr "Ikke-levert til SMSC"
+
+msgid "Non-Delivered to phone"
+msgstr "Ikke-levert til telefon"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Notes"
+msgstr "Notater"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Number of sent SMS per hour limit"
+msgstr "Grenste for antall SMS sendt per time"
+
+msgid "Number of votes"
+msgstr "Antall stemmer"
+
+msgid "Offline"
+msgstr "Avlogget"
+
+msgid "Once"
+msgstr "En gang"
+
+msgid "Online"
+msgstr "Plogget"
+
+msgid "Only when the sender ID is approved"
+msgstr "Kun når avsenderID-en er godkjent"
+
+msgid "Options"
+msgstr "Innstillinger"
+
+msgid "PHP serialize output"
+msgstr "PHP serialize output"
+
+msgid "PIN for email to SMS"
+msgstr "PIN-kode for email til SMS"
+
+msgid "PIN is empty"
+msgstr "PIN er tom"
+
+msgid "Page content"
+msgstr "Sideinnhold"
+
+msgid "Page title"
+msgstr "Sidetittel"
+
+msgid "Param"
+msgstr "Param"
+
+msgid "Parent"
+msgstr "Forelder"
+
+msgid "Parent account"
+msgstr "Forelderkonto"
+
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
+msgstr ""
+"Forelderkonto er kun påkrevd for underbrukere. Hvis det ikke angitt en "
+"verdi, vil underbrukeren automatisk tilknyttes til brukeradmin"
+
+msgid "Pass these parameter to command exec field"
+msgstr "Bruk disse parameterene til kommandoen"
+
+msgid "Pass these parameters to custom URL field"
+msgstr "Videresend disse parameterene til egendefinert URL-felt"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Password does not match"
+msgstr "Passord stemmer ikke overens"
+
+msgid "Password has been emailed"
+msgstr "Passord har blitt tilsendt på mail"
+
+msgid "Password recovery"
+msgstr "Passordgjenoppretting"
+
+msgid "Password should be at least 4 characters"
+msgstr "Passord må minst være 4 tegn langt"
+
+msgid "Pending"
+msgstr "Avventer"
+
+msgid "Personal information"
+msgstr "Personlige opplysninger"
+
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+msgid "Phonebook"
+msgstr "Telefonbok"
+
+msgid "Please remove all subusers from this user to delete"
+msgstr "Vennligst fjern alle underbrukere fra denne brukeren for å slette"
+
+msgid "Please run composer.phar update"
+msgstr "Vennligst kjør composer.phar oppdatering"
+
+msgid "Please select"
+msgstr "Vennligst velg"
+
+msgid "Please select CSV file"
+msgstr "Vennligst velg CSV-fil"
+
+msgid "Please select CSV file for phonebook entries"
+msgstr "Velg CSV-fil for kontakter i telefonbok"
+
+msgid "Please select template"
+msgstr "Vennligst velg mal"
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr "Skriv inn den viste captcha-setningen riktig"
+
+msgid "Please use alphanumeric only and make it short"
+msgstr "Vennligst bruk kun alfanummeriske tall og hold det kort"
+
+msgid "Please use uppercase and make it short"
+msgstr "Bruk store bokstaver og hold det kort"
+
+msgid "Post rules"
+msgstr "Etter-regler"
+
+msgid "Pre rules"
+msgstr "Før-regler"
+
+msgid "Preferences"
+msgstr "Preferanse"
+
+msgid "Preferences have been saved"
+msgstr "Innstillnger har blitt lagret"
+
+msgid "Preferences have been saved and password updated"
+msgstr "Innstillinger har blitt lagret og passord oppdatert"
+
+msgid "Preferences have been saved and webservices token updated"
+msgstr "Innstillinger har blitt lagret og webservice token er oppdatert"
+
+msgid "Prefix"
+msgstr "Prefiks"
+
+msgid "Prefix or country code"
+msgstr "Prefiks eller landskode"
+
+msgid "Prefix with # for groups and @ for users"
+msgstr "Prefiks med # for grupper og @ for brukere"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+"Trykk på send-knappen for å legge til valgte bruker til catch-all listen"
+
+msgid "Press submit button to add selected users to member list"
+msgstr "Trykk på send-knappen for å legge til valgte brukere til medlemslisten"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr ""
+"Trykk på send-knappen for å fjerne valgte catch-all fra catch-all listen"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr "Trykk på send-knappen for å slette valgte medlemmer fra medlemslisten"
+
+msgid "Prevent duplicates"
+msgstr "Unngå duplikater"
+
+msgid "Project ID"
+msgstr "Prosjekt-ID"
+
+msgid "Question"
+msgstr "Spørsmål"
+
+msgid "Queue Code"
+msgstr "Kø-kode"
+
+msgid "Queue directory"
+msgstr ""
+
+msgid "Queue has been removed"
+msgstr "Kø har blitt fjernet"
+
+msgid "Queued on SMSC"
+msgstr "I kø på SMSC"
+
+msgid "RSS 0.91 output"
+msgstr "RSS 0.91 output"
+
+msgid "RSS 1.0 output"
+msgstr "RSS 1.0 output"
+
+msgid "RSS 2.0 output"
+msgstr "RSS 2.0 output"
+
+msgid "RSS ATOM output"
+msgstr "RSS ATOM output"
+
+msgid "Rate"
+msgstr "Takst"
+
+msgid "Rate already exists"
+msgstr "Taksten eksisterer allerede"
+
+msgid "Rate has been added"
+msgstr "Taksten har blitt lagt til"
+
+msgid "Rate has been deleted"
+msgstr "Taksten har blitt slettet"
+
+msgid "Rate has been saved"
+msgstr "Taksten har blitt lagret"
+
+msgid "Re-type password"
+msgstr "Tast passord igjen"
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+"Les og tast inn captcha-setningen i feltet. Hvis du ikke kan lese den, så "
+"kontakt administratoren."
+
+msgid "Received answer list for keyword"
+msgstr "Mottatt svarliste for nøkkelord"
+
+msgid "Receiver"
+msgstr "Mottaker"
+
+msgid "Receiver number"
+msgstr "Mottakernummer"
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
+msgstr ""
+"Mottakernummer kan sammenlignes med standard senderID eller med alle "
+"godkjente senderID-er"
+
+msgid "Receiver number does not exist"
+msgstr "Mottakernummer eksisterer ikke"
+
+msgid "Recover password"
+msgstr "Gjenopprett passord"
+
+msgid "Recover password disabled"
+msgstr "Gjennoppretning av passord er deaktivert"
+
+msgid "Reduce"
+msgstr "Reduser"
+
+msgid "Reduce credit"
+msgstr "Reduser kreditt"
+
+msgid "Reduce credit from users"
+msgstr "Reduser kreditt fra brukere"
+
+msgid "Refresh"
+msgstr "Oppdater"
+
+msgid "Register an account"
+msgstr "Registrer konto"
+
+msgid "Registered"
+msgstr "Registrert"
+
+msgid "Renew webservices token"
+msgstr "Forny webservices token"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Erstatt prefiks 0 eller utvid lokale nummere"
+
+msgid "Replace website title with logo"
+msgstr "Ersttat nettsidetittel med logo"
+
+msgid "Reply"
+msgstr "Svar"
+
+msgid "Reply message on correct"
+msgstr "Svarbeskjed ved korrekt"
+
+msgid "Reply message on incorrect"
+msgstr "Svarbeskjed ved feil"
+
+msgid "Reply message on invalid vote"
+msgstr "Svarmelding med ugyldig stemme"
+
+msgid "Reply message on out of vote option"
+msgstr "Svarmelding ved ute av stemmevalg"
+
+msgid "Reply message on valid vote"
+msgstr "Svarmelding ved ved gyldig stemme"
+
+msgid "Report"
+msgstr "Rapport"
+
+msgid "Report all users"
+msgstr "Rapport alle brukere"
+
+msgid "Report banned users"
+msgstr "Rapport bannlyste brukere"
+
+msgid "Report whose online"
+msgstr "Rapport hvem som er online"
+
+msgid "Reports"
+msgstr "Rapporter"
+
+msgid "Resend"
+msgstr "Send p nytt"
+
+msgid "Restart Kannel"
+msgstr "Restart Kanneø"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Begrense sender til normale medlemmer eller kun catch-all medlemmer"
+
+msgid "Result graph"
+msgstr "Resultatgraf"
+
+msgid "Result table"
+msgstr "Resultattabell"
+
+msgid "Return"
+msgstr "Retur"
+
+msgid "Route SMS outgoing"
+msgstr "Diriger utgående SMS"
+
+msgid "Route all sandbox SMS to users"
+msgstr "Diriger alle sandbox SMS til brukere"
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr "Diriger alle sandbox SMS med tilhørende senderID"
+
+msgid "Route has been added"
+msgstr "Rute har blitt lagt til"
+
+msgid "Route has been deleted"
+msgstr "Rute har blitt slettet"
+
+msgid "Route has been saved"
+msgstr "Rute har blitt lagret"
+
+msgid "Route incoming SMS"
+msgstr "Diriger innkommende SMS"
+
+msgid "Route outgoing SMS"
+msgstr "Diriger utgående SMS"
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
+msgstr ""
+"Diriger til bruker-innboks hvis mottakernummer passer med brukers senderID"
+
+msgid "Routed SMSC"
+msgstr "SMSC-rute "
+
+msgid "Row template"
+msgstr "Rad-mal"
+
+msgid "Rules applied after incoming SMS processed"
+msgstr "Regler som brukes etter behandling av innkommende SMS"
+
+msgid "Rules applied before incoming SMS processed"
+msgstr "Regler som brukes før innkommende SMS er behandlet"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "SMS Board"
+msgstr "SMS-forum"
+
+msgid "SMS Sync configuration has been saved"
+msgstr "SMS Sync konfigurasjon har blitt lagret"
+
+msgid "SMS autoreply has been deleted"
+msgstr "SMS-autosvar har blitt slettet"
+
+msgid "SMS autoreply has been updated"
+msgstr "SMS-autosvar har blitt oppdatert"
+
+msgid "SMS autoreply keyword"
+msgstr "SMS-autosvar nøkkelord"
+
+msgid "SMS autoreply keyword has been added"
+msgstr "SMS-autosvar nøkkelord har blitt lagt til"
+
+msgid "SMS autoreply scenario has been added"
+msgstr "SMS-autosvar scenario har blitt lagt til"
+
+msgid "SMS autoreply scenario has been deleted"
+msgstr "SMS-autosvar scenario har blitt slettet"
+
+msgid "SMS autoreply scenario has been edited"
+msgstr "SMS-autosvar scenario har blitt redigert"
+
+msgid "SMS autoreply scenario parameter"
+msgstr "SMS-autosvar scenario parameter"
+
+msgid "SMS autoreply scenario replies with"
+msgstr "SMS-autosvar scenario svarer med"
+
+msgid "SMS board from"
+msgstr "SMS-forum fra"
+
+msgid "SMS board has been added"
+msgstr "SMS-forum har blitt lagt til"
+
+msgid "SMS board has been saved"
+msgstr "SMS-forum har blitt lagret"
+
+msgid "SMS board keyword"
+msgstr "SMS-forum nøkkelord"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "SMS-forum med alle dets meldinger har blitt slettet"
+
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr ""
+"SMS-kommandoen eksisterer allerede, er reservert eller er i bruk av en annen "
+"funksjon"
+
+msgid "SMS command exec"
+msgstr "Kjør SMS-kommando"
+
+msgid "SMS command exec path"
+msgstr "SMS-kommando kjøre-sti"
+
+msgid "SMS command has been added"
+msgstr "SMS-kommando har blitt lagt til"
+
+msgid "SMS command has been deleted"
+msgstr "SMS-kommando har blitt slettet"
+
+msgid "SMS command has been saved"
+msgstr "SMS-kommando har blitt lagret"
+
+msgid "SMS command keyword"
+msgstr "SMS-kommando nøkkelord"
+
+msgid "SMS custom URL"
+msgstr "Tilpasset SMS-URL"
+
+msgid "SMS custom has been deleted"
+msgstr "Egendefinert SMS har blitt slettet"
+
+msgid "SMS custom has been saved"
+msgstr "Egendefinert SMS har blitt lagret"
+
+#, fuzzy
+msgid "SMS custom keywords"
+msgstr "Egendefinert SMS-nøkkelord"
+
+#, fuzzy, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "Egendefinert SMS har blitt lagt til"
+
+msgid "SMS footer"
+msgstr "SMS-footer"
+
+msgid "SMS forward parameter"
+msgstr "Videresend SMS-parameter"
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr "SMS har blitt sendt til gyldige nummere i opplastet fil"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+"SMS nøkkelord eksisterer allerede, reservert eller i bruk av en annen "
+"funksjon"
+
+msgid "SMS messages list for keyword"
+msgstr "SMS meldingsliste for nøkkelord"
+
+msgid "SMS poll access code"
+msgstr "SMS-poll adgangskode"
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr "SMS-poll adgangskode er hovedsakelig brukt av webservices"
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
+"SMS-poll eksisterer allerede, er reservert eller er i bruk av en annen "
+"funksjon"
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "SMS-poll alternativ og alle dets stemmer er slettet"
+
+msgid "SMS poll has been added"
+msgstr "SMS-poll har blitt lagt til"
+
+msgid "SMS poll has been saved"
+msgstr "SMS-poll har blitt lagret"
+
+msgid "SMS poll keyword"
+msgstr "SMS-poll nøkkelord"
+
+msgid "SMS poll status has been changed"
+msgstr "SMS-poll status har blitt endret"
+
+msgid "SMS poll title"
+msgstr "SMS-poll tittel"
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr "SMS-poll med alle dets meldinger har blitt slettet"
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
+"SMS-quiz eksisterer allerede, er reservert eller er i bruk av annen funksjon"
+
+msgid "SMS quiz answer"
+msgstr "SMS-quiz svar"
+
+msgid "SMS quiz answer messages have been deleted"
+msgstr "SMS-quis svarbeskjeder har blitt slettet"
+
+msgid "SMS quiz has been added"
+msgstr "SMS-quiz har blitt lagt til"
+
+msgid "SMS quiz has been saved"
+msgstr "SMS-quiz har blitt lagret"
+
+msgid "SMS quiz keyword"
+msgstr "SMS-quiz nøkkelord"
+
+msgid "SMS quiz question"
+msgstr "SMS-quiz spørsmål"
+
+msgid "SMS quiz status has been changed"
+msgstr "SMS-quiz stats har blitt endret"
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr "SMS-quiz med alle dets meldinger har blitt slettet"
+
+msgid "SMS schedule been saved"
+msgstr "SMS-tidsplan har blitt lagret"
+
+msgid "SMS schedule has been deleted"
+msgstr "SMS-tidsplan har blitt slettet"
+
+msgid "SMS schedule has been disabled"
+msgstr "SMS-tidsplan har blitt deaktivert"
+
+msgid "SMS schedule has been enabled"
+msgstr "SMS-tidsplan har blitt aktivert"
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+"SMS-abonnement eksisterer allerede, er reservert eller er i bruk av en annen "
+"funksjon"
+
+msgid "SMS subscribe has been added"
+msgstr "SMS-abonnement har blitt lagt til"
+
+msgid "SMS subscribe has been saved"
+msgstr "SMS-abonnement har blitt lagret"
+
+msgid "SMS subscribe keyword"
+msgstr "SMS-abonnement nøkkelord"
+
+msgid "SMS subscribe parameter"
+msgstr "SMS-abonnement parameter"
+
+msgid "SMS subscribe reply"
+msgstr "SMS-abonnement svar"
+
+msgid "SMS subscribe status has been changed"
+msgstr "SMS-abonnement status har blitt endret"
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr "SMS-abonnement med alle dets beskjeder og medlemmer har blitt slettet"
+
+msgid "SMS unsubscribe parameter"
+msgstr "SMS avmeldingsparameter"
+
+msgid "SMS unsubscribe reply"
+msgstr "SMS avmeldingssvar"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "SMSC already exists"
+msgstr "SMSC eksisterer allerede"
+
+msgid "SMSC has been edited"
+msgstr "SMSC har blitt redigert"
+
+msgid "SMSC has been removed"
+msgstr ""
+
+msgid "SMSC name"
+msgstr "SMSC-navn"
+
+msgid "SMSCs"
+msgstr "SMSCer"
+
+msgid "Sandbox"
+msgstr "Sandbox"
+
+msgid "Save"
+msgstr "Lagre"
+
+msgid "Scan incoming SMS for #groupcode"
+msgstr "Søk i innkommende SMS etter #gruppekode"
+
+msgid "Scan incoming SMS for @username"
+msgstr "Søk i innkomende SMS for @brukernavn"
+
+msgid "Schedule"
+msgstr "Tidsplan"
+
+msgid "Schedule ID"
+msgstr "TidsplanID"
+
+msgid "Schedule messages"
+msgstr "Planlegg meldinger"
+
+msgid "Schedule name"
+msgstr "Tidsplan-navn"
+
+msgid "Schedule rule"
+msgstr "Tidsplan-regel"
+
+msgid "Scheduled"
+msgstr "Planlagt"
+
+msgid "Scheduled message"
+msgstr "Planlagt melding"
+
+msgid "Search"
+msgstr "Søk"
+
+msgid "Secret key"
+msgstr "Hemmelig nøkkel"
+
+msgid "Secret key is used in SMSSync app"
+msgstr "Hemmelig nøkkel er i bruk i SMSSync app"
+
+msgid "Select"
+msgstr "Velg"
+
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr "Velg nei hvis den innkommende SMS-tiden er i UTC"
+
+msgid "Select username"
+msgstr "Velg brukernavn"
+
+msgid "Select users"
+msgstr "Velg brukere"
+
+msgid "Selected catchall"
+msgstr "Valgte catch-all"
+
+msgid "Selected contact has been deleted"
+msgstr "Valgt gruppe har blitt slettet"
+
+msgid "Selected contact moved to new group"
+msgstr "Valgt kontakt er flyttet til ny gruppe"
+
+msgid "Selected group has been deleted"
+msgstr "Valgt gruppe har blitt slettet"
+
+msgid "Selected incoming message has been deleted"
+msgstr "Valgt innkommende melding har blitt slettet"
+
+msgid "Selected members"
+msgstr "Valgte medlemmer"
+
+msgid "Selected message template has been deleted"
+msgstr "Valgt meldingsmal har blitt slettet"
+
+msgid "Selected outgoing message has been deleted"
+msgstr "Valgt utgående melding har blitt slettet"
+
+msgid "Selected transactions has been deleted"
+msgstr "Valgte transaksjoner har blitt slettet"
+
+msgid "Selected users"
+msgstr "Valgte brukere"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "Send SMS hostname or IP"
+msgstr "SMS-avsender hostname eller IP"
+
+msgid "Send SMS port"
+msgstr "SMS-avsender port"
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr "Send SMS til grupper når gruppekode finnes i innkomende SMS"
+
+msgid "Send SMS to valid entries"
+msgstr "Send SMS til gyldige oppføringer"
+
+msgid "Send from file"
+msgstr "Send fra fil"
+
+msgid "Send from file has been cancelled"
+msgstr "Send fra fil har blitt avbrutt"
+
+msgid "Send message"
+msgstr "Send beskjed"
+
+msgid "Send message failed due to insufficient funds"
+msgstr "Sending av melding har misslykkes på grunn av kredittmangel"
+
+msgid "Send message failed due to unable to create queue"
+msgstr "Sending av melding har misslykkes på grunn av feil i opprettelse av kø"
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr "Sending av melding misslykkes fordi køen %s ikke kunne forberedes"
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
+msgstr "Sending av melding til %s i køen %s har mislykkes"
+
+msgid "Send this message to all members"
+msgstr "Send denne meldingen til alle medlemmer"
+
+msgid "Send to"
+msgstr "Send til"
+
+msgid "Sender"
+msgstr "Sender"
+
+msgid "Sender ID"
+msgstr "SenderID"
+
+msgid "Sender ID description has been added"
+msgstr "SenderID-beskrivelse har blitt lagt til"
+
+msgid "Sender ID description has been updated"
+msgstr "SenderID-beskrivelse har blitt oppdatert"
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr "SenderID har blitt lagt til og venter på godkjenning"
+
+msgid "Sender ID has been removed"
+msgstr "SenderID har blitt fjernet"
+
+msgid "Sender ID is not available"
+msgstr "SenderID er ikke tilgjengelig"
+
+msgid "Sender ID is now approved"
+msgstr "SenderID er nå bekreftet"
+
+msgid "Sender ID is now disabled"
+msgstr "SenderID er nå blitt deaktivert"
+
+msgid "Senders sent multi votes"
+msgstr "Avsender sendte flere stemmer"
+
+msgid "Senders sent multiple votes"
+msgstr "Avsender sendte flere stemmer"
+
+msgid "Senders sent once"
+msgstr "Sender sendte én gang"
+
+msgid "Sent"
+msgstr "Sendt"
+
+msgid "Separate by comma for multiple destinations"
+msgstr "Separer med komme for flere destinasjoner"
+
+msgid "Separate with comma for multiple items"
+msgstr "Flere emner adskilles med komma"
+
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
+
+msgid "Set as default"
+msgstr "Sett som standard"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
+"Sett kredittverdi større enn 0 for å stille inn minstegrense som trigrer "
+"notifikasjon"
+
+msgid "Settings"
+msgstr "Innstillinger"
+
+msgid "Share phonebook and allow broadcast"
+msgstr "Del telefonbok og tillat broadcast"
+
+msgid ""
+"Share this phonebook group and set permission for broadcasting SMS to this "
+"group from mobile phone"
+msgstr ""
+"Del denne telefonboksgruppen og gi adgang til å broadcaste SMS til denne "
+"gruppen fra mobiltelefoner"
+
+msgid "Simulate incoming SMS"
+msgstr "Simulerer innkommende SMS"
+
+msgid "Site configuration"
+msgstr "Sidekonfigurasjon"
+
+msgid "Site configuration has been saved"
+msgstr "Sidekonfigurasjon har blitt lagret"
+
+msgid "Spool folder"
+msgstr ""
+
+msgid "State or Province"
+msgstr "Stat eller provins"
+
+msgid "Statistics"
+msgstr "Statistikk"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Submit"
+msgstr "Innsend"
+
+msgid "Subscribe duration"
+msgstr "Abonnement varighet"
+
+msgid "Subscription expired reply"
+msgstr "Abonnement utløpt svar"
+
+msgid "Subuser"
+msgstr "Underbruker"
+
+msgid "Subuser ACL"
+msgstr "Underbruker ACL"
+
+msgid "Subusers"
+msgstr "Underbrukere"
+
+msgid "Supplied SMSC"
+msgstr "Levert SMSC"
+
+msgid "Sync URL"
+msgstr "Sync URL"
+
+msgid "System error has occured"
+msgstr "Systemfeil har oppstått"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Telerivet URL"
+msgstr "Telerivet-URL"
+
+msgid "Template installation path"
+msgstr "Template installasjonssti"
+
+msgid "The domain is already configured by other user"
+msgstr ""
+
+msgid "Themes"
+msgstr "Temaer"
+
+msgid "This field is required"
+msgstr "Dette feltet er påkrevd"
+
+msgid "This is a test incoming SMS message"
+msgstr "Dette er en innkommende test-SMS"
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+"Dette midlertidige passordet vil bli fjernet når du har logget inntil "
+"tjenesten"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "Timezone"
+msgstr "Tidssone"
+
+msgid "Title"
+msgstr "Tittel"
+
+msgid "To"
+msgstr "Til"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Total invalid SMS"
+msgstr "Totalt antall ugyldige SMS"
+
+msgid "Total multiple votes SMS"
+msgstr "Totalt antall fler-stemme SMS"
+
+msgid "Total one time vote SMS"
+msgstr "Totalt antall enkeltstemme SMS"
+
+msgid "Total valid SMS"
+msgstr "Totalt antall gyldige SMS"
+
+msgid "Transaction datetime"
+msgstr "Transaksjon dato-tid"
+
+msgid "Try to disable SMS footer on master"
+msgstr "Prøv å deaktivere SMS footer på master"
+
+msgid "Twilio URL"
+msgstr "Twilio URL"
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr "URL til playSMS, hvis tom settes den til base-URL"
+
+msgid "URLs"
+msgstr "URLer"
+
+#, fuzzy
+msgid "Unable to add group"
+msgstr "Feil ved sletning av gruppe"
+
+msgid "Unable to ban account"
+msgstr "Kan ikke bannlyse konto"
+
+msgid "Unable to ban subuser"
+msgstr "Kan ikke bannlyse underbruker"
+
+msgid "Unable to delete group until the group is empty"
+msgstr "Kan ikke slette gruppe før den er tom"
+
+msgid "Unable to delete other users"
+msgstr "Kan ikke slette andre brukere"
+
+msgid ""
+"Unable to delete this user until all subusers under this user have been "
+"removed"
+msgstr ""
+"Kan ikke slette denne brukeren før alle underbrukere under denne brukeren "
+"har blitt fjernet"
+
+msgid "Unable to find composer files"
+msgstr "Kan ikke finne composer-filer"
+
+msgid "Unable to login"
+msgstr "Kan ikke logge ut"
+
+msgid "Unable to process subuser addition"
+msgstr "Kan ikke behandle underbruker-tilføyelse"
+
+msgid "Unable to process user addition"
+msgstr "Kan ikke behandle bruker-tilføyelse"
+
+#, fuzzy
+msgid "Unable to save gateway module configurations"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+
+msgid "Unable to unban account"
+msgstr "Kunne ikke fjerne bannlysning av konto"
+
+msgid "Unable to unban subuser"
+msgstr "Kan ikke fjerne bannlysning fra underbruker"
+
+msgid "Unban"
+msgstr "Fjern bannlysning"
+
+msgid "Unicode message"
+msgstr "Unicode-melding"
+
+msgid "Unknown error"
+msgstr "Ukjent feil"
+
+msgid "Unknown error has occurred"
+msgstr "Det oppstod en ukjent feil"
+
+msgid "Unknown format reply"
+msgstr "Ukjent svar-format"
+
+msgid "Unlimited"
+msgstr "Ubegrenset"
+
+msgid "Upload file"
+msgstr "Opplast fil"
+
+msgid "Uploaded file"
+msgstr "Opplastet fil"
+
+msgid "Use JSON format URL"
+msgstr "Bruk JSON-format URL"
+
+msgid "Use SSL"
+msgstr "Bruk SSL"
+
+msgid "User"
+msgstr "Bruker"
+
+msgid "User ID"
+msgstr "BrukerID"
+
+msgid "User agent"
+msgstr "Brukeragent"
+
+msgid "User configuration"
+msgstr "Brukerkonfigurasjon"
+
+msgid "User configuration has been saved"
+msgstr "Brukerkonfigurasjon har blitt lagret"
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr "Brukerkonfigurasjon har blitt lagret og webservice token oppdatert"
+
+msgid "User deletion unavailable"
+msgstr "Brukersletning er ikke tilgjengelig"
+
+msgid "User does not exist"
+msgstr "Bruker eksisterer ikke"
+
+msgid "User is already on banned subusers list"
+msgstr "Brukeren er allerede blitt bannlyst i underbrukerlisten"
+
+msgid "User is already on banned users list"
+msgstr "Bruker er allerede bannlyst på brukerlisten"
+
+msgid "User is immune to deletion"
+msgstr "Bruker er immun mot sletning"
+
+msgid "User is not on banned subusers list"
+msgstr "Bruker er ikke på listen over bannluste underbrukere"
+
+msgid "User is not on banned users list"
+msgstr "Bruker er ikke på bannlyste brukere listen"
+
+msgid "User preference"
+msgstr "Brukerpreferanser"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr "Brukernavn %s med kontoID %d har nådd den laveste kredittgrense på %s"
+
+#, php-format
+msgid "Username %s with account ID %d has requested approval for sender ID %s"
+msgstr "Brukernavn %s med kontoID %d har bedt om godkjennelse av senderID %s"
+
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
+msgstr "Brukernavn må minst være 3 tegn langt og maksimum %d tegn"
+
+msgid "Username or email"
+msgstr "Brukernavn eller email"
+
+msgid "Users"
+msgstr "Brukere"
+
+msgid "Valid"
+msgstr "Gyldig"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+"Gyldige tegn for brukernavn er bokstaver, tall, punktum eller bindestrek"
+
+msgid "Verify captcha"
+msgstr "Verifiser captcha"
+
+msgid "Version"
+msgstr "Versjon"
+
+msgid "View"
+msgstr "Se"
+
+msgid "View SMS queue"
+msgstr "Se SMS-kø"
+
+msgid "View board"
+msgstr "Se forum"
+
+msgid "View log"
+msgstr "Vis logg"
+
+msgid "View members"
+msgstr "Se medlemmer"
+
+msgid "View messages"
+msgstr "Se meldinger"
+
+msgid "View report"
+msgstr "Se rapport"
+
+msgid "Vote option"
+msgstr "Stemme-valg"
+
+msgid "Webservice token"
+msgstr "Webservice token"
+
+msgid "Webservice username"
+msgstr "Webservice brukernavn"
+
+msgid "Webservices IP range"
+msgstr "Webservices IP-område"
+
+msgid "Webservices links"
+msgstr "Webservicelinks"
+
+msgid "Webservices token"
+msgstr "Webservices token"
+
+msgid "Webservices username"
+msgstr "Webservices brukernavn"
+
+msgid "Website URL"
+msgstr "Nettside-URL"
+
+msgid "Website email"
+msgstr "Nettside-email"
+
+msgid "Website title"
+msgstr "Nettside-tittel"
+
+msgid "Weekly"
+msgstr "Ukentlig"
+
+msgid "Whose online"
+msgstr "Hvem er online"
+
+msgid "Wrong amount or user does not exist"
+msgstr "Feil mengde eller brukeren eksisterer ikke"
+
+msgid "XML output"
+msgstr "XML output"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "You have been logged out"
+msgstr "Du har blitt logget ur"
+
+msgid "You have no access to this page"
+msgstr "Du har ikke tilgang til denne siden"
+
+msgid "You have no member"
+msgstr "Du har ingen medlemmer"
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr "Du har nådd den laveste kredittgrense på %s"
+
+msgid "You must fill all field"
+msgstr "Du må utfylle alle felter"
+
+msgid "You must fill all fields"
+msgstr "Du må utfylle alle felter"
+
+msgid "You must fill all mandatory fields"
+msgstr "Du må utfylle alle påkrevde felter"
+
+msgid "You must fill all required fields"
+msgstr "Du må fylle ut all påkrevde felt"
+
+msgid "You must fill mandatory fields"
+msgstr "Du må utfylle alle påkrevde felter"
+
+msgid "You must fill required fields"
+msgstr "Du må utfylle alle påkrevde felter"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Du må velge en mottager og meldingen din kan ikke være tom"
+
+msgid "You or someone else have requested a password recovery"
+msgstr "Du, eller en annen, har sendt forespørsel om passordgjenoppretting"
+
+msgid "Your DLR URL is"
+msgstr "Din DLR URL er"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "Dine SMS har blitt levert til køen"
+
+msgid "Your callback URL is"
+msgstr "Din callback URL er"
+
+msgid "Your callback URL should be accessible from Bulksms"
+msgstr "Din callback URL skal være tilgjenglig fra BulkSMS"
+
+msgid "Your callback URL should be accessible from Clickatell"
+msgstr "Din callback URL skal være tilgjengelig fra Clickatell"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr "Din callback URL skal være tilgjengelig fra Infobip"
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr "Din callback URL skal være tilgjengelig fra Nexmo"
+
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr "Din callback URL skal være tilgjengelig fra OpenVox"
+
+msgid "Your callback URL should be accessible from twilio"
+msgstr "Din callback URL skal være tilgjengelig fra twilio"
+
+msgid "Your choice"
+msgstr "Ditt valg"
+
+msgid "Your credit"
+msgstr "Din kreditt"
+
+msgid "Your email format is invalid"
+msgstr "Ditt email format er ugyldig"
+
+msgid "Your message has been delivered to queue"
+msgstr "Meldingen din har blitt sendt til køen"
+
+msgid "Your message has been delivered to some of the destinations"
+msgstr "Meldingen din har blitt sendt til noen av destinasjonene"
+
+msgid "Your mobile format is invalid"
+msgstr "Ditt mobilformat er ugyldig"
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
+msgstr ""
+"Din underbruker med brukernavn %s og kontoID %d har nådd den laveste "
+"kredittgrense på %s"
+
+msgid "Zipcode"
+msgstr "Postnummer"
+
+msgid "amount"
+msgstr "beløp"
+
+msgid "balance"
+msgstr "balanse"
+
+msgid "blocked"
+msgstr "blokkert"
+
+msgid "chars"
+msgstr "tegn"
+
+msgid "code"
+msgstr "kode"
+
+msgid "correct"
+msgstr "riktig"
+
+msgid "cost"
+msgstr "pris"
+
+msgid "count"
+msgstr "antall"
+
+msgid "create an account to send SMS"
+msgstr "Lag en konto for å sende SMS"
+
+msgid "destination"
+msgstr "destinasjon"
+
+msgid "destination number, message"
+msgstr "destinasjonsnummer, melding"
+
+msgid "destination number, message, username"
+msgstr "destinasjonsnummer, melding, brukernavn"
+
+msgid "domain"
+msgstr "domene"
+
+msgid "email"
+msgstr "email"
+
+msgid "failed"
+msgstr "mislykket"
+
+msgid "for subuser only"
+msgstr "kun til underbruker"
+
+msgid "format"
+msgstr "format"
+
+msgid "free credits are available for testing purposes"
+msgstr "gratis kreditt er tilgjengelig for testformål"
+
+msgid "group"
+msgstr "gruppe"
+
+msgid "incorrect"
+msgstr "feil"
+
+msgid "invalid entries"
+msgstr "ugyldige oppføringer"
+
+msgid "keyword"
+msgstr "nøkkelord"
+
+msgid "mobile"
+msgstr "mobil"
+
+msgid "multiple times"
+msgstr "flere ganger"
+
+msgid "no"
+msgstr "nei"
+
+msgid "of"
+msgstr "av"
+
+msgid "on"
+msgstr "den"
+
+msgid "one time"
+msgstr "én gang"
+
+msgid "one time every 24 hours"
+msgstr "én gang hver 24 time"
+
+msgid "one time every month"
+msgstr "én gang hver måned"
+
+msgid "one time every week"
+msgstr "én gang hver uke"
+
+msgid "playSMS daemon is NOT running"
+msgstr "playSMS-daemon kjører ikke"
+
+msgid "playSMS daemon is running"
+msgstr "playSMS-daemon kjører"
+
+msgid "playSMS daemon status"
+msgstr "playSMS-daemon status"
+
+msgid "playSMS web URL"
+msgstr "playSMS web URL"
+
+msgid "prefix"
+msgstr "prefiks"
+
+msgid "queued"
+msgstr "i kø"
+
+msgid "rate"
+msgstr "frekvens"
+
+msgid "return"
+msgstr "tilbake"
+
+msgid "title"
+msgstr "tittel"
+
+msgid "twilio is a bulk SMS provider"
+msgstr "twilio er en masse-SMS leverandør"
+
+msgid "twilio will push DLR and incoming SMS to your callback URL"
+msgstr "twilio will sende DLR og innkommende SMS til din callback URL"
+
+msgid "user"
+msgstr "bruker"
+
+msgid "username"
+msgstr "brukernavn"
+
+msgid "valid entries"
+msgstr "gyldige oppføringer"
+
+#, php-format
+msgid "view all %d"
+msgstr "se alle %d"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "vil bli erstattet med SMS innkommende dato/tid"
+
+msgid "will be replaced by SMS raw message"
+msgstr "vil bli erstattet med rå SMS-melding"
+
+#, fuzzy
+msgid "will be replaced by actual receiver number"
+msgstr "vil bli ersttatet med avsendernummer"
+
+msgid "will be replaced by command keyword"
+msgstr "vil bli erstattet av kommando-nøkkelord"
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr "vil bli erstattet av kommando-parameter videreført til server fra SMS"
+
+msgid "will be replaced by custom keyword"
+msgstr "vil bli erstattet med egendefinert nøkkelord"
+
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr ""
+"vil bli ersttatet med tilpasset parameter videreført fra server til SMS"
+
+#, fuzzy
+msgid "will be replaced by receiver number"
+msgstr "vil bli ersttatet med avsendernummer"
+
+msgid "will be replaced by sender number"
+msgstr "vil bli ersttatet med avsendernummer"
+
+#, fuzzy
+msgid "will be replaced by service name"
+msgstr "vil bli ersttatet med avsendernummer"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr "vil bli erstattet med navnet i telefonboken"
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr "vil bli erstattet med telefonnummer i telefonboken"
+
+msgid "yes"
+msgstr "ja"

@@ -1231,12 +1231,6 @@ foreach ($core_config[$pc . 'list'] as $pl) {
 	$c_fn1 = $dir . '/' . $pl . '/config.php';
 	$c_fn2 = $dir . '/' . $pl . '/fn.php';
 	if (file_exists($c_fn1) && file_exists($c_fn2)) {
-		if (function_exists('bindtextdomain') && file_exists($dir . '/' . $pl . '/language')) {
-			bindtextdomain('messages', $pl_dir . '/language/');
-			bind_textdomain_codeset('messages', 'UTF-8');
-			textdomain('messages');
-		}
-		
 		// config.php
 		include $c_fn1;
 		

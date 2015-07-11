@@ -65,6 +65,7 @@ switch (_OP_) {
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&op=mailsms_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
+				'SAVE' => _('Save'),
 				'Email to SMS address' => _('Email to SMS address'),
 				'Enable fetch new emails' => _('Enable fetch new emails'),
 				'Check email sender' => _('Check email sender'),

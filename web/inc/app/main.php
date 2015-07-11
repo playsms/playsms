@@ -21,12 +21,6 @@ defined('_SECURE_') or die('Forbidden');
 
 $continue = TRUE;
 
-if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', _APPS_PATH_PLUG_.'/language/');
-	bind_textdomain_codeset('messages', 'UTF-8');
-	textdomain('messages');
-}
-
 // load plugin
 if ($continue && _INC_) {
 	$p = explode('_', _INC_, 2);
@@ -36,19 +30,8 @@ if ($continue && _INC_) {
 	$file_name = ( _ROUTE_ ? _ROUTE_.'.php' : $plugin_name.'.php' );
 	$plugin_file = $plugin_dir.'/'.$file_name;
 	if (file_exists($plugin_file)) {
-		if (function_exists('bindtextdomain')) {
-			bindtextdomain('messages', $plugin_dir.'/language/');
-			bind_textdomain_codeset('messages', 'UTF-8');
-			textdomain('messages');
-		}
 		include_once $plugin_file;
 	}
-}
-
-if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', _APPS_PATH_THEMES_.'/'.core_themes_get().'/language/');
-	bind_textdomain_codeset('messages', 'UTF-8');
-	textdomain('messages');
 }
 
 $content = ob_get_clean();

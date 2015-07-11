@@ -311,18 +311,18 @@ if (!(file_exists($fn1) && file_exists($fn2))) {
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load language') . ' ' . core_lang_get());
 }
 
+if (function_exists('bindtextdomain')) {
+	bindtextdomain('messages', _APPS_PATH_STORAGE_ . '/plugin/language/');
+	bind_textdomain_codeset('messages', 'UTF-8');
+	textdomain('messages');
+}
+
 if (auth_isvalid()) {
 	
 	// set user lang
 	core_setuserlang($_SESSION['username']);
 } else {
 	core_setuserlang();
-}
-
-if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', _APPS_PATH_PLUG_ . '/language/');
-	bind_textdomain_codeset('messages', 'UTF-8');
-	textdomain('messages');
 }
 
 // fixme anton - debug

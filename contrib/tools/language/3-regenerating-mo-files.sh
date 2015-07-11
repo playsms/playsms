@@ -9,7 +9,7 @@ fi
 
 CWD=$(pwd)
 
-cd $PLAYSMS
+cd $PLAYSMS/plugin
 find . -type d -name "language" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
 for i in `cat /tmp/.lang_folders` ; do
 	for j in `ls -1 "$i/language/" | grep '_'` ; do
