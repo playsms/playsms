@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.2\n"
 
 msgid "Action"
 msgstr "Handling"
@@ -103,7 +103,7 @@ msgid "Move to"
 msgstr "Flyt til"
 
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Flere emner adskilt med komma"
 
 msgid "Name"
 msgstr "Navn"
@@ -154,9 +154,8 @@ msgstr ""
 msgid "Tags"
 msgstr "Tags"
 
-#, fuzzy
 msgid "Unable to add group"
-msgstr "Kunne ikke slette gruppe"
+msgstr "Kunne ikke tilføje gruppe"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Kan ikke slette gruppen før den er tom"
