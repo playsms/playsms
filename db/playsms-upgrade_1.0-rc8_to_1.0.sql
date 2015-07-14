@@ -13,7 +13,6 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.0' WHERE `registry_group`
 
 DROP INDEX `uid` ON `playsms_featurePhonebook` ;
 DROP INDEX `mobile` ON `playsms_featurePhonebook` ;
-DROP INDEX `uid_mobile` ON `playsms_featurePhonebook` ;
 
 DROP INDEX `uid` ON `playsms_featurePhonebook_group` ;
 DROP INDEX `flag_sender` ON `playsms_featurePhonebook_group` ;
