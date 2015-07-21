@@ -1,0 +1,170 @@
+msgid "Add"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Ban"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+msgid "Compose message"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete user"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "FATAL ERROR"
+msgstr ""
+
+msgid "Fail to connect to database"
+msgstr ""
+
+msgid "Fail to load gateway"
+msgstr ""
+
+msgid "Fail to load language"
+msgstr ""
+
+msgid "Fail to load main config from registry"
+msgstr ""
+
+msgid "Fail to load themes"
+msgstr ""
+
+msgid "Features"
+msgstr ""
+
+msgid "Forward"
+msgstr ""
+
+msgid "Go"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Idle"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Logged in as"
+msgstr ""
+
+msgid "Login as"
+msgstr ""
+
+msgid "Logout"
+msgstr ""
+
+msgid "Main configuration"
+msgstr ""
+
+msgid "Manage"
+msgstr ""
+
+msgid "Manage ACL"
+msgstr ""
+
+msgid "Manage account"
+msgstr ""
+
+msgid "Manage gateway"
+msgstr ""
+
+msgid "Manage gateway and SMSC"
+msgstr ""
+
+msgid "Manage sender ID"
+msgstr ""
+
+msgid "Manage site"
+msgstr ""
+
+msgid "Manage sub-account"
+msgstr ""
+
+msgid "Manage sub-accounts"
+msgstr ""
+
+msgid "Manage subuser"
+msgstr ""
+
+msgid "Manage subusers"
+msgstr ""
+
+msgid "Manage user"
+msgstr ""
+
+msgid "Move"
+msgstr ""
+
+msgid "My account"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
+
+msgid "Online"
+msgstr ""
+
+msgid "Please run composer.phar update"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Reduce"
+msgstr ""
+
+msgid "Reply"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Resend"
+msgstr ""
+
+msgid "Send message"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Unable to find composer files"
+msgstr ""
+
+msgid "Unban"
+msgstr ""
+
+msgid "User configuration"
+msgstr ""
+
+msgid "User preference"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Your credit"
+msgstr ""
+
+msgid "return"
+msgstr ""

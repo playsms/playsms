@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: id_ID\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -671,8 +669,9 @@ msgstr "Hapus grup kotak masuk"
 msgid "Delete member"
 msgstr "Hapus anggota"
 
+#, fuzzy
 msgid "Delete user"
-msgstr ""
+msgstr "Hapus"
 
 msgid "Deleted"
 msgstr ""
@@ -1362,7 +1361,7 @@ msgid "Kannel status"
 msgstr "Status kannel"
 
 msgid "Keyword"
-msgstr "Kata Kunci"
+msgstr "Kata kunci"
 
 #, php-format
 msgid "Keyword %s is not available"
@@ -1716,7 +1715,7 @@ msgid "Min length to detect missing country code"
 msgstr ""
 
 msgid "Mobile"
-msgstr "Handphone"
+msgstr "Ponsel"
 
 msgid "Mobile numbers"
 msgstr ""
@@ -1728,7 +1727,7 @@ msgid "Mobile numbers have been deleted"
 msgstr ""
 
 msgid "Module sender ID"
-msgstr "Pengirim global"
+msgstr "ID pengirim modul"
 
 msgid "Module timezone"
 msgstr "Zona waktu modul"
@@ -1754,8 +1753,9 @@ msgstr ""
 msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
+#, fuzzy
 msgid "My account"
-msgstr ""
+msgstr "Akun saya"
 
 msgid "My credit transactions"
 msgstr ""
@@ -1864,7 +1864,7 @@ msgid "Options"
 msgstr ""
 
 msgid "PHP serialize output"
-msgstr "Keluaran PHP serialize"
+msgstr "Keluaran PHO serialize"
 
 msgid "PIN for email to SMS"
 msgstr ""
@@ -2138,8 +2138,9 @@ msgstr ""
 msgid "Report whose online"
 msgstr ""
 
+#, fuzzy
 msgid "Reports"
-msgstr ""
+msgstr "Ekspor"
 
 msgid "Resend"
 msgstr ""
@@ -2302,7 +2303,7 @@ msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "Kata kunci SMS sudah digunakan atau dipesan oleh fitur lain"
+msgstr "Kata kunci SMS sudah dipesan atau digunakan oleh fitur lain"
 
 msgid "SMS messages list for keyword"
 msgstr "Kata kunci untuk daftar pesan SMS"
@@ -2856,8 +2857,9 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, fuzzy
 msgid "User preference"
-msgstr ""
+msgstr "Preferensi"
 
 msgid "Username"
 msgstr "Nama pengguna"
@@ -2972,14 +2974,13 @@ msgid "You have reached lowest credit limit of %s"
 msgstr ""
 
 msgid "You must fill all field"
-msgstr "Anda harus mengisi semua isian"
+msgstr "Anda harus mengisi semua kolom"
 
 msgid "You must fill all fields"
-msgstr "Anda harus mengisi semua kolom"
+msgstr "Anda harus mengisi semua isian"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Anda harus mengisi semua kolom"
+msgstr ""
 
 msgid "You must fill all required fields"
 msgstr ""
@@ -3006,7 +3007,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"
 
 msgid "Your callback URL is"
-msgstr "URL balasan anda adalah"
+msgstr "URL callback anda adalah"
 
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""

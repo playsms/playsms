@@ -1,0 +1,66 @@
+msgid "Add sender ID"
+msgstr ""
+
+msgid "Approve sender ID"
+msgstr ""
+
+msgid "Are you sure you want to delete sender ID"
+msgstr ""
+
+msgid "Click the status button to enable or disable status"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Edit sender ID"
+msgstr ""
+
+msgid "Fail to update due to invalid sender ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
+
+msgid "Manage sender ID"
+msgstr ""
+
+msgid "Only when the sender ID is approved"
+msgstr ""
+
+msgid "Sender ID"
+msgstr ""
+
+msgid "Sender ID description has been added"
+msgstr ""
+
+msgid "Sender ID description has been updated"
+msgstr ""
+
+msgid "Sender ID has been added and waiting for approval"
+msgstr ""
+
+msgid "Sender ID has been removed"
+msgstr ""
+
+msgid "Sender ID is not available"
+msgstr ""
+
+msgid "Sender ID is now approved"
+msgstr ""
+
+msgid "Sender ID is now disabled"
+msgstr ""
+
+msgid "Set as default"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+#, php-format
+msgid "Username %s with account ID %d has requested approval for sender ID %s"
+msgstr ""

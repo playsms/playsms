@@ -1,0 +1,68 @@
+msgid "Action"
+msgstr ""
+
+msgid "Add route"
+msgstr ""
+
+msgid "Are you sure ?"
+msgstr ""
+
+msgid "Destination name"
+msgstr ""
+
+msgid "Edit route"
+msgstr ""
+
+msgid "Fail to add route"
+msgstr ""
+
+msgid "Fail to delete route"
+msgstr ""
+
+msgid "Fail to save route"
+msgstr ""
+
+msgid "Maximum 8 digits numeric only"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Route SMS outgoing"
+msgstr ""
+
+msgid "Route has been added"
+msgstr ""
+
+msgid "Route has been deleted"
+msgstr ""
+
+msgid "Route has been saved"
+msgstr ""
+
+msgid "Route outgoing SMS"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "You must fill all mandatory fields"
+msgstr ""
+
+msgid "blocked"
+msgstr ""
+
+msgid "destination"
+msgstr ""
+
+msgid "prefix"
+msgstr ""

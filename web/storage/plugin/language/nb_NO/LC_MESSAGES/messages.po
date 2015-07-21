@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
 "Language-Team: \n"
 "Language: nb_NO\n"
@@ -217,7 +215,7 @@ msgid "Add subuser"
 msgstr "Legg til underbruker"
 
 msgid "Additional URL parameter"
-msgstr "Ytterlige URL-parametere"
+msgstr "Ytterlige URL-parametre"
 
 msgid "Address"
 msgstr "Adresse"
@@ -358,10 +356,10 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Er du sikker på at du vil slette underbrukeren?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Er du sikker på at du vil slette disse emnene?"
+msgstr "Er du sikker på at du vil slette disse malen(e)?"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr "Er du sikker på at du ønsker å slette disse transaksjonene?"
+msgstr "Er du sikker på at du vil slette disse transaksjonene"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Er du sikker på at du vil dette SMS-autosvar scenarioet?"
@@ -409,7 +407,7 @@ msgid "Balance recorded on transaction"
 msgstr "Balanse på transaksjonen"
 
 msgid "Ban"
-msgstr "Bannlys"
+msgstr "Ban"
 
 msgid "Ban date/time"
 msgstr "Bannlyst dato/tid"
@@ -439,7 +437,7 @@ msgid "Bulksms will push DLR and incoming SMS to your callback URL"
 msgstr "Bulksms vil sende DLR og inkommende SMS til din callback URL"
 
 msgid "Buy"
-msgstr "Kjp"
+msgstr "Kjøp"
 
 msgid "Buy credit page"
 msgstr "Kjøp kreditt-side"
@@ -529,7 +527,7 @@ msgid "Comma separated values for multiple mobile numbers"
 msgstr "Kommaseparerte verdier for fler mobilnummere"
 
 msgid "Compose message"
-msgstr "Lag melding"
+msgstr "Send melding"
 
 msgid "Configuration"
 msgstr "Konfigurasjon"
@@ -839,7 +837,7 @@ msgid "Enable SMS Sync"
 msgstr "Aktiverer SMS Sync"
 
 msgid "Enable credit unicode SMS as normal SMS"
-msgstr "Aktiver kreditering av unicode SMS som normal SMS"
+msgstr "Aktiver kreditering av unicode-SMS som normal SMS"
 
 msgid "Enable fetch new emails"
 msgstr "Aktiver hentning av nye emails"
@@ -879,7 +877,7 @@ msgid "Export"
 msgstr "Eksporter"
 
 msgid "FATAL ERROR"
-msgstr "FATAL ERROR"
+msgstr "FATAL FEIL"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Kunne ikke legge til SMS-autosvar"
@@ -1126,7 +1124,7 @@ msgid "Fill to change the Auth Token"
 msgstr "Utfyll for å endre Auth Token"
 
 msgid "Fill to change the password"
-msgstr "Fyll ut for å endre passord"
+msgstr "Utfyll for å endre passord"
 
 msgid "Fill with zero to disable limit"
 msgstr "Utfyll med null for å deaktivere begrensning"
@@ -1141,7 +1139,7 @@ msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
+msgstr "Format: ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1180,7 +1178,7 @@ msgid "Gateway host"
 msgstr "Gateway-host"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Gateway-modul konfigurasjonen er lagret"
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
 
 msgid "Gateway name"
 msgstr "Gateway-navn"
@@ -1192,7 +1190,7 @@ msgid "Gateways"
 msgstr "Gateways"
 
 msgid "Go"
-msgstr "Kjr"
+msgstr "Gå"
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
@@ -1283,7 +1281,7 @@ msgid "IP addresses have been deleted"
 msgstr "IP-adresser har blitt slettet"
 
 msgid "Idle"
-msgstr "Idle"
+msgstr "Inaktiv"
 
 msgid "Import"
 msgstr "Importer"
@@ -1435,7 +1433,7 @@ msgid "Login"
 msgstr "Login"
 
 msgid "Login as"
-msgstr "Logg inn som"
+msgstr "Logget som"
 
 msgid "Login information"
 msgstr "Logininformasjon"
@@ -1485,10 +1483,10 @@ msgid "Make return as reply"
 msgstr "Gjør returverdi til svar"
 
 msgid "Manage"
-msgstr "Hndter"
+msgstr "Håndter"
 
 msgid "Manage ACL"
-msgstr "Hndter ACL"
+msgstr "Håndter ACL"
 
 msgid "Manage OpenVox"
 msgstr "Håndter OpenVox"
@@ -1497,7 +1495,7 @@ msgid "Manage SMS rate"
 msgstr "Håndter SMS-takst"
 
 msgid "Manage account"
-msgstr "Hndter konto"
+msgstr "Håndter konto"
 
 msgid "Manage autoreply"
 msgstr "Håndter autosvar"
@@ -1539,7 +1537,7 @@ msgid "Manage gateway"
 msgstr "Håndter gateway"
 
 msgid "Manage gateway and SMSC"
-msgstr "Hndter gateway og SMSC"
+msgstr "Håndter gateway og SMSC"
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
@@ -1563,10 +1561,10 @@ msgid "Manage schedule"
 msgstr "Håndter tidsplan"
 
 msgid "Manage sender ID"
-msgstr "Hndter senderID"
+msgstr "Håndter senderID"
 
 msgid "Manage site"
-msgstr "Hndter side"
+msgstr "Håndter side"
 
 msgid "Manage smstools"
 msgstr "Håndter smstools"
@@ -1584,7 +1582,7 @@ msgid "Manage subscribe"
 msgstr "Håndter abonnement"
 
 msgid "Manage subuser"
-msgstr "Hndter underbruker"
+msgstr "Håndter underbruker"
 
 msgid "Manage subusers"
 msgstr "Håndter underbrukere"
@@ -1608,7 +1606,7 @@ msgid "Manage user"
 msgstr "Håndter bruker"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Påkrevde felter kan ikke være tomme"
+msgstr "Påkrevde felt kan ikke være tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1617,7 +1615,7 @@ msgid "Match with all approved sender ID"
 msgstr "Sammenlign med alle godkjente senderID-er"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Maks. 16 nummeriske eler 11 alfanumeriske tegn, tom for å deaktivere"
+msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn, tom for å deaktivere"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn"
@@ -1726,7 +1724,7 @@ msgid "Mobile numbers have been deleted"
 msgstr "Mobilnummere har blitt slettet"
 
 msgid "Module sender ID"
-msgstr "SenderID-modul"
+msgstr "senderID-modul"
 
 msgid "Module timezone"
 msgstr "Tidssone-modul"
@@ -1819,7 +1817,7 @@ msgid "No route has been saved"
 msgstr "Ingen rute har blitt lagret"
 
 msgid "No trailing slash"
-msgstr "Ingen etterfølgende skråstrek  "
+msgstr "Ingen etterfølgende skråstrek"
 
 msgid "No validate cert option"
 msgstr "Ingen gyldige cert-innstillinger"
@@ -1849,10 +1847,10 @@ msgid "Offline"
 msgstr "Avlogget"
 
 msgid "Once"
-msgstr "En gang"
+msgstr "Én gang"
 
 msgid "Online"
-msgstr "Plogget"
+msgstr "Pålogget"
 
 msgid "Only when the sender ID is approved"
 msgstr "Kun når avsenderID-en er godkjent"
@@ -1958,7 +1956,7 @@ msgid "Pre rules"
 msgstr "Før-regler"
 
 msgid "Preferences"
-msgstr "Preferanse"
+msgstr "Innstillinger"
 
 msgid "Preferences have been saved"
 msgstr "Innstillnger har blitt lagret"
@@ -2136,7 +2134,7 @@ msgid "Reports"
 msgstr "Rapporter"
 
 msgid "Resend"
-msgstr "Send p nytt"
+msgstr "Send igjen"
 
 msgid "Restart Kannel"
 msgstr "Restart Kanneø"
@@ -2295,8 +2293,7 @@ msgstr "SMS har blitt sendt til gyldige nummere i opplastet fil"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
-"SMS nøkkelord eksisterer allerede, reservert eller i bruk av en annen "
-"funksjon"
+"SMS nøkkelord eksisterer allerede, reservert eller brukt av andre funksjoner"
 
 msgid "SMS messages list for keyword"
 msgstr "SMS meldingsliste for nøkkelord"
@@ -2436,7 +2433,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søk i innkomende SMS for @brukernavn"
 
 msgid "Schedule"
-msgstr "Tidsplan"
+msgstr "Tidsskjema"
 
 msgid "Schedule ID"
 msgstr "TidsplanID"
@@ -2647,7 +2644,7 @@ msgid "Status"
 msgstr "Status"
 
 msgid "Submit"
-msgstr "Innsend"
+msgstr "Send"
 
 msgid "Subscribe duration"
 msgstr "Abonnement varighet"
@@ -2728,7 +2725,7 @@ msgid "Total valid SMS"
 msgstr "Totalt antall gyldige SMS"
 
 msgid "Transaction datetime"
-msgstr "Transaksjon dato-tid"
+msgstr "Transaksjon data-tid"
 
 msgid "Try to disable SMS footer on master"
 msgstr "Prøv å deaktivere SMS footer på master"
@@ -2782,13 +2779,13 @@ msgid "Unable to save gateway module configurations"
 msgstr "Gateway-modul konfigurasjoner har blitt lagret"
 
 msgid "Unable to unban account"
-msgstr "Kunne ikke fjerne bannlysning av konto"
+msgstr "Kan ikke fjerne bannlysning fra konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bannlysning fra underbruker"
 
 msgid "Unban"
-msgstr "Fjern bannlysning"
+msgstr "Fjern ban"
 
 msgid "Unicode message"
 msgstr "Unicode-melding"
@@ -2857,7 +2854,7 @@ msgid "User is not on banned users list"
 msgstr "Bruker er ikke på bannlyste brukere listen"
 
 msgid "User preference"
-msgstr "Brukerpreferanser"
+msgstr "Brukerinnstillinger"
 
 msgid "Username"
 msgstr "Brukernavn"
@@ -2979,7 +2976,7 @@ msgid "You must fill all fields"
 msgstr "Du må utfylle alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du må utfylle alle påkrevde felter"
+msgstr "Du må fylle ut alle krevde felt"
 
 msgid "You must fill all required fields"
 msgstr "Du må fylle ut all påkrevde felt"
@@ -3167,7 +3164,7 @@ msgid "rate"
 msgstr "frekvens"
 
 msgid "return"
-msgstr "tilbake"
+msgstr "Tilbake"
 
 msgid "title"
 msgstr "tittel"

@@ -1,0 +1,44 @@
+msgid "Add blocked IP addresses"
+msgstr ""
+
+msgid "Blocked IP address"
+msgstr ""
+
+msgid "Comma separated values for multiple IP addresses"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "IP address"
+msgstr ""
+
+msgid "IP addresses"
+msgstr ""
+
+msgid "IP addresses have been blocked"
+msgstr ""
+
+msgid "IP addresses have been deleted"
+msgstr ""
+
+msgid "Manage firewall"
+msgstr ""
+
+msgid "Multiple IP addresses must be comma-separated"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Select username"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""

@@ -1,0 +1,99 @@
+msgid "Action"
+msgstr ""
+
+msgid "Add SMS quiz"
+msgstr ""
+
+msgid "Answer"
+msgstr ""
+
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this answer ?"
+msgstr ""
+
+msgid "Datetime"
+msgstr ""
+
+msgid "Edit SMS quiz"
+msgstr ""
+
+msgid "Fail to add SMS quiz"
+msgstr ""
+
+msgid "Fail to edit SMS quiz"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "Manage quiz"
+msgstr ""
+
+msgid "Question"
+msgstr ""
+
+msgid "Received answer list for keyword"
+msgstr ""
+
+msgid "Reply message on correct"
+msgstr ""
+
+msgid "Reply message on incorrect"
+msgstr ""
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS quiz answer"
+msgstr ""
+
+msgid "SMS quiz answer messages have been deleted"
+msgstr ""
+
+msgid "SMS quiz has been added"
+msgstr ""
+
+msgid "SMS quiz has been saved"
+msgstr ""
+
+msgid "SMS quiz keyword"
+msgstr ""
+
+msgid "SMS quiz question"
+msgstr ""
+
+msgid "SMS quiz status has been changed"
+msgstr ""
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "You must fill all field"
+msgstr ""
+
+msgid "correct"
+msgstr ""
+
+msgid "incorrect"
+msgstr ""
+
+msgid "keyword"
+msgstr ""

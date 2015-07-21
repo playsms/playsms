@@ -1,0 +1,149 @@
+msgid "Action"
+msgstr ""
+
+msgid "Add SMS schedule"
+msgstr ""
+
+msgid "Add destination"
+msgstr ""
+
+msgid "Annually"
+msgstr ""
+
+msgid "Are you sure you want to delete SMS schedule ?"
+msgstr ""
+
+msgid "Are you sure you want to remove this number from SMS schedule ?"
+msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Destination has been deleted"
+msgstr ""
+
+msgid "Destination has been edited"
+msgstr ""
+
+msgid "Edit destination"
+msgstr ""
+
+msgid "Edit schedule"
+msgstr ""
+
+msgid "Entries in CSV file have been imported"
+msgstr ""
+
+msgid "Fail to add new SMS schedule"
+msgstr ""
+
+msgid "Fail to add new destination"
+msgstr ""
+
+msgid "Fail to delete SMS schedule"
+msgstr ""
+
+msgid "Fail to delete destination"
+msgstr ""
+
+msgid "Fail to edit SMS schedule"
+msgstr ""
+
+msgid "Fail to edit destination"
+msgstr ""
+
+msgid "Fail to upload CSV file"
+msgstr ""
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import above destination entries ?"
+msgstr ""
+
+msgid "Import confirmation"
+msgstr ""
+
+msgid "List of destinations"
+msgstr ""
+
+msgid "Manage schedule"
+msgstr ""
+
+msgid "Mandatory fields must not be empty"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New SMS schedule been added"
+msgstr ""
+
+msgid "New destination has been added"
+msgstr ""
+
+msgid "Once"
+msgstr ""
+
+msgid "Please select CSV file"
+msgstr ""
+
+msgid "SMS schedule been saved"
+msgstr ""
+
+msgid "SMS schedule has been deleted"
+msgstr ""
+
+msgid "SMS schedule has been disabled"
+msgstr ""
+
+msgid "SMS schedule has been enabled"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Schedule ID"
+msgstr ""
+
+msgid "Schedule messages"
+msgstr ""
+
+msgid "Schedule name"
+msgstr ""
+
+msgid "Schedule rule"
+msgstr ""
+
+msgid "Scheduled message"
+msgstr ""
+
+msgid "Separate by comma for multiple destinations"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Weekly"
+msgstr ""
+
+msgid "format"
+msgstr ""

@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -117,7 +116,7 @@ msgid "Account with this mobile already exists"
 msgstr "A conta com este numero de telemóvel já existe"
 
 msgid "Action"
-msgstr "Ação"
+msgstr "Acção"
 
 msgid "Active language"
 msgstr "Ativar Idioma"
@@ -886,7 +885,7 @@ msgid "Export"
 msgstr "Exportar"
 
 msgid "FATAL ERROR"
-msgstr "ERRO FATAL"
+msgstr "Erro Fatal"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Erro ao adicionar auto-resposta SMS"
@@ -1188,7 +1187,7 @@ msgid "Gateway host"
 msgstr "Host do gateway"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram guardadas"
+msgstr "Configurações do módulo de gateway foram guardas"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
@@ -1302,7 +1301,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importar acima de entradas da agenda?"
 
 msgid "Import confirmation"
-msgstr "Confirmação da importação"
+msgstr "Importação de confirmação"
 
 msgid "Inbox"
 msgstr "Caixa de Entrada"
@@ -1323,7 +1322,7 @@ msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip vai ler DLR e SMS de entrada para URL acima"
 
 msgid "Information"
-msgstr "Informação"
+msgstr "Informações"
 
 msgid "Information page"
 msgstr "InformaÃ§Ãµes da pÃ¡gina"
@@ -1371,7 +1370,7 @@ msgid "Kannel status"
 msgstr "Estado do Kannel"
 
 msgid "Keyword"
-msgstr "Palavra-chave"
+msgstr "palavra-chave"
 
 #, php-format
 msgid "Keyword %s is not available"
@@ -1592,7 +1591,7 @@ msgid "Manage subscribe"
 msgstr "Gerir Subscrições"
 
 msgid "Manage subuser"
-msgstr "Gerir subutilizador"
+msgstr "Gerir sub-utilizador"
 
 msgid "Manage subusers"
 msgstr "Gerir subutilizadores"
@@ -1616,7 +1615,7 @@ msgid "Manage user"
 msgstr "Gerir Utilizadores"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Os campos obrigatórios não devem estar vazio"
+msgstr "Os campos obrigatórios não devem estar vazios"
 
 msgid "Master URL"
 msgstr "URL Principal"
@@ -1626,8 +1625,7 @@ msgstr "Combine com todos ID dos remetentes  aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
-"Máximo 16 números ou 11 caracteres alfanuméricos. Deixar em branco para "
-"desativar"
+"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 numérico ou 11 caracteres alfanuméricos"
@@ -1654,7 +1652,7 @@ msgid "Member has been added"
 msgstr "Membro foi adicionado"
 
 msgid "Member has been deleted"
-msgstr "O membro foi eliminado"
+msgstr "Membro foi removido"
 
 msgid "Member join datetime"
 msgstr "Data de entrada do membro"
@@ -1736,10 +1734,10 @@ msgid "Mobile numbers have been deleted"
 msgstr ""
 
 msgid "Module sender ID"
-msgstr "Módulo ID Remetente"
+msgstr "Módulo ID remetente"
 
 msgid "Module timezone"
-msgstr "Módulo Fuso Horário"
+msgstr "Módulo fuso horário"
 
 msgid "Monthly"
 msgstr "Mensal"
@@ -2661,7 +2659,7 @@ msgid "Status"
 msgstr "Estado"
 
 msgid "Submit"
-msgstr "Enviar"
+msgstr "Submeter"
 
 msgid "Subscribe duration"
 msgstr "Duração da Subscrição"
@@ -2676,7 +2674,7 @@ msgid "Subuser ACL"
 msgstr "Sub-Utilizador ACL"
 
 msgid "Subusers"
-msgstr "Sub-utilizadores"
+msgstr "Subutilizadores"
 
 msgid "Supplied SMSC"
 msgstr "Fornecedor SMSC"
@@ -2992,10 +2990,10 @@ msgid "You have reached lowest credit limit of %s"
 msgstr "O seu crédito é inferior a %s"
 
 msgid "You must fill all field"
-msgstr "Você deve preencher todos os campos"
+msgstr "Preencha todos os campos"
 
 msgid "You must fill all fields"
-msgstr "Preencha todos os campos"
+msgstr "Você deve preencher todos os campos"
 
 msgid "You must fill all mandatory fields"
 msgstr "Deve preencher todos os campos obrigatórios"
@@ -3022,7 +3020,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your callback URL is"
-msgstr "Sua URL de callback é"
+msgstr "Sua URL callback é"
 
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr "Sua URL de callback deve ser acessível pelo  bulksms"
@@ -3146,7 +3144,7 @@ msgid "multiple times"
 msgstr "Vária vezes"
 
 msgid "no"
-msgstr "não"
+msgstr "NÃ£o"
 
 msgid "of"
 msgstr "de"
@@ -3253,4 +3251,4 @@ msgid "will be replaced with the phone number listed in phonebook"
 msgstr "Será substituído com o número de telemóvel que consta na agenda"
 
 msgid "yes"
-msgstr "sim"
+msgstr "Sim"

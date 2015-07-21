@@ -1,0 +1,44 @@
+msgid "Add blocked mobile numbers"
+msgstr ""
+
+msgid "Blocked mobile"
+msgstr ""
+
+msgid "Comma separated values for multiple mobile numbers"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Manage stoplist"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile numbers"
+msgstr ""
+
+msgid "Mobile numbers have been blocked"
+msgstr ""
+
+msgid "Mobile numbers have been deleted"
+msgstr ""
+
+msgid "Multiple mobile numbers must be comma-separated"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""

@@ -1,0 +1,110 @@
+msgid "Action"
+msgstr ""
+
+msgid "Add SMS board"
+msgstr ""
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr ""
+
+msgid "CSS URL"
+msgstr ""
+
+msgid "Date and time"
+msgstr ""
+
+msgid "Edit SMS board"
+msgstr ""
+
+msgid "Fail to add SMS board"
+msgstr ""
+
+msgid "Fail to edit SMS board"
+msgstr ""
+
+msgid "Forward"
+msgstr ""
+
+msgid "Forward to email"
+msgstr ""
+
+msgid "HTML output"
+msgstr ""
+
+msgid "JSON output"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "MBOX output"
+msgstr ""
+
+msgid "Manage board"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "RSS 0.91 output"
+msgstr ""
+
+msgid "RSS 1.0 output"
+msgstr ""
+
+msgid "RSS 2.0 output"
+msgstr ""
+
+msgid "RSS ATOM output"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
+
+msgid "Row template"
+msgstr ""
+
+msgid "SMS Board"
+msgstr ""
+
+msgid "SMS board from"
+msgstr ""
+
+msgid "SMS board has been added"
+msgstr ""
+
+msgid "SMS board has been saved"
+msgstr ""
+
+msgid "SMS board keyword"
+msgstr ""
+
+msgid "SMS board with all its messages has been deleted"
+msgstr ""
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "View board"
+msgstr ""
+
+msgid "XML output"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "keyword"
+msgstr ""

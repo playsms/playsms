@@ -1,0 +1,80 @@
+msgid "Email"
+msgstr ""
+
+msgid "Fail to recover password"
+msgstr ""
+
+msgid "Fail to save temporary password"
+msgstr ""
+
+msgid "Fail to send email"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Invalid username or password"
+msgstr ""
+
+msgid "Login"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password has been emailed"
+msgstr ""
+
+msgid "Password recovery"
+msgstr ""
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr ""
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+
+msgid "Recover password"
+msgstr ""
+
+msgid "Recover password disabled"
+msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
+msgid "Unable to login"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Username or email"
+msgstr ""
+
+msgid "Verify captcha"
+msgstr ""
+
+msgid "You have been logged out"
+msgstr ""
+
+msgid "You have no access to this page"
+msgstr ""
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""

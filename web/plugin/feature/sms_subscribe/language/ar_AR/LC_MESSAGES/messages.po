@@ -1,0 +1,197 @@
+msgid "1 Day"
+msgstr ""
+
+msgid "1 Month"
+msgstr ""
+
+msgid "1 Week"
+msgstr ""
+
+msgid "2 Days"
+msgstr ""
+
+msgid "2 Weeks"
+msgstr ""
+
+msgid "6 Months"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Add SMS subscribe"
+msgstr ""
+
+msgid "Add message"
+msgstr ""
+
+msgid "Already a member reply"
+msgstr ""
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this member ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this message?"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Edit SMS subscribe"
+msgstr ""
+
+msgid "Edit message"
+msgstr ""
+
+msgid "Fail to add SMS subscribe"
+msgstr ""
+
+msgid "Fail to add message"
+msgstr ""
+
+msgid "Fail to edit SMS subscribe"
+msgstr ""
+
+msgid "Fail to edit message"
+msgstr ""
+
+msgid "Fail to send SMS"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
+
+msgid "Manage subscribe"
+msgstr ""
+
+msgid "Member has been deleted"
+msgstr ""
+
+msgid "Member join datetime"
+msgstr ""
+
+msgid "Member list for keyword"
+msgstr ""
+
+msgid "Members"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Message ID"
+msgstr ""
+
+msgid "Message body"
+msgstr ""
+
+msgid "Message detail"
+msgstr ""
+
+msgid "Message has been added"
+msgstr ""
+
+msgid "Message has been deleted"
+msgstr ""
+
+msgid "Message has been edited"
+msgstr ""
+
+msgid "Messages"
+msgstr ""
+
+msgid "Phone number"
+msgstr ""
+
+msgid "SMS forward parameter"
+msgstr ""
+
+msgid "SMS messages list for keyword"
+msgstr ""
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS subscribe has been added"
+msgstr ""
+
+msgid "SMS subscribe has been saved"
+msgstr ""
+
+msgid "SMS subscribe keyword"
+msgstr ""
+
+msgid "SMS subscribe parameter"
+msgstr ""
+
+msgid "SMS subscribe reply"
+msgstr ""
+
+msgid "SMS subscribe status has been changed"
+msgstr ""
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr ""
+
+msgid "SMS unsubscribe parameter"
+msgstr ""
+
+msgid "SMS unsubscribe reply"
+msgstr ""
+
+msgid "SMSC"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Send this message to all members"
+msgstr ""
+
+msgid "Sent"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Subscribe duration"
+msgstr ""
+
+msgid "Subscription expired reply"
+msgstr ""
+
+msgid "Unknown format reply"
+msgstr ""
+
+msgid "Unlimited"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "View members"
+msgstr ""
+
+msgid "View messages"
+msgstr ""
+
+msgid "You have no member"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "Your SMS has been delivered to queue"
+msgstr ""
+
+msgid "keyword"
+msgstr ""

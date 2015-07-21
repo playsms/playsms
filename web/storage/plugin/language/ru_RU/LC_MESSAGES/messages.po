@@ -224,7 +224,7 @@ msgid "Add subuser"
 msgstr "Добавить дочернего пользователя"
 
 msgid "Additional URL parameter"
-msgstr "Дополнительные параметры URL"
+msgstr "Дополнительный параметр URL"
 
 msgid "Address"
 msgstr "Адрес"
@@ -282,7 +282,7 @@ msgid "Always remove plus sign"
 msgstr "Всегда отрезать знак +"
 
 msgid "Amount"
-msgstr "Сумма"
+msgstr "Количество"
 
 msgid "Annually"
 msgstr ""
@@ -367,7 +367,7 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Вы уверены, что хотите удалить дочернего пользователя?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Вы уверены, что хотите удалить эти элементы?"
+msgstr "Вы уверены, что хотите удалить выбранное?"
 
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Вы уверены, что хотите удалить записи об этих транзакциях?"
@@ -415,7 +415,7 @@ msgid "Balance"
 msgstr "Баланс"
 
 msgid "Balance recorded on transaction"
-msgstr "Баланс после транзакции"
+msgstr "Баланс после перевода"
 
 msgid "Ban"
 msgstr "Заблокировать"
@@ -542,8 +542,9 @@ msgstr ""
 msgid "Comma separated values for multiple mobile numbers"
 msgstr ""
 
+#, fuzzy
 msgid "Compose message"
-msgstr ""
+msgstr "содержит русские символы"
 
 msgid "Configuration"
 msgstr ""
@@ -581,7 +582,7 @@ msgid "Created"
 msgstr "Создано"
 
 msgid "Credit"
-msgstr "Баланс"
+msgstr "Средства"
 
 msgid "Credit has been added"
 msgstr "Средства добавлены"
@@ -811,7 +812,7 @@ msgid "Effective SMS sender ID"
 msgstr "Действующее имя отправителя"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Например +0400 для Москвы"
+msgstr "Например, +0300 для Москвы"
 
 msgid "Email"
 msgstr "Email"
@@ -1442,8 +1443,9 @@ msgstr "Список пользователей"
 msgid "Local number length"
 msgstr "Длина местного номера"
 
+#, fuzzy
 msgid "Logged in as"
-msgstr ""
+msgstr "Войти как"
 
 msgid "Login"
 msgstr "Вход"
@@ -1485,7 +1487,7 @@ msgid "Mailbox username"
 msgstr "Имя пользователя ящика"
 
 msgid "Main configuration"
-msgstr "Конфигурация"
+msgstr "Основная конфигурация"
 
 msgid "Main configuration changes has been saved"
 msgstr "Настройки сохранены"
@@ -1554,7 +1556,7 @@ msgid "Manage gateway"
 msgstr "Управление шлюзами"
 
 msgid "Manage gateway and SMSC"
-msgstr "Управление шлюзами и SMS-центрами"
+msgstr "Управление шлюзами и СМС-центрами"
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
@@ -1660,7 +1662,7 @@ msgid "Member has been added"
 msgstr "Участник добавлен"
 
 msgid "Member has been deleted"
-msgstr "Подписчик удалён"
+msgstr "Участник удалён"
 
 msgid "Member join datetime"
 msgstr "Дата подписки"
@@ -1672,10 +1674,10 @@ msgid "Member list for keyword"
 msgstr "Подписчики по ключевому слову"
 
 msgid "Members"
-msgstr "Пользователям"
+msgstr "Участники"
 
 msgid "Message"
-msgstr "Сообщения"
+msgstr "Сообщение"
 
 #, fuzzy, php-format
 msgid "Message %s has been delivered to queue"
@@ -2522,7 +2524,7 @@ msgid "Selected outgoing message has been deleted"
 msgstr "Выбранное исходящее сообщение было удалено"
 
 msgid "Selected transactions has been deleted"
-msgstr "Выбранные транзакции были удалены"
+msgstr "Выбранные записи были удалены"
 
 msgid "Selected users"
 msgstr "Выбранные пользователи"
@@ -2661,7 +2663,7 @@ msgid "Statistics"
 msgstr "СтатистикаСостояние"
 
 msgid "Status"
-msgstr "Состяние"
+msgstr "Состояние"
 
 msgid "Submit"
 msgstr "Принять"
@@ -2796,7 +2798,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Настройки шлюза схранены"
 
 msgid "Unable to unban account"
-msgstr "Не удалось разблокировать пользователя"
+msgstr "Невозможно разблокировать пользователя"
 
 msgid "Unable to unban subuser"
 msgstr "Невозможно разблокировать дочернего пользователя"
@@ -2841,7 +2843,7 @@ msgid "User agent"
 msgstr "User agent пользователя"
 
 msgid "User configuration"
-msgstr "Настройки"
+msgstr "Пользовательские настройки"
 
 msgid "User configuration has been saved"
 msgstr "Пользовательские настройки сохранены"
@@ -2992,7 +2994,7 @@ msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
 msgid "You must fill all mandatory fields"
-msgstr "Необходимо заполнить обязательные поля"
+msgstr "Необходимо заполнить все обязательные поля"
 
 msgid "You must fill all required fields"
 msgstr "Необходимо заполнить все требуемые поля"

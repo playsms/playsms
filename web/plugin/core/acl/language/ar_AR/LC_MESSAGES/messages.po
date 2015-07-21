@@ -1,0 +1,80 @@
+msgid "ACL ID"
+msgstr ""
+
+msgid "ACL been edited"
+msgstr ""
+
+msgid "ACL has been deleted"
+msgstr ""
+
+msgid "ACL name"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Add ACL"
+msgstr ""
+
+msgid "Are you sure you want to delete ACL ?"
+msgstr ""
+
+msgid "Comma separated for multiple entries"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
+msgid "DEFAULT"
+msgstr ""
+
+msgid "Edit ACL"
+msgstr ""
+
+msgid "Fail to add new ACL"
+msgstr ""
+
+msgid "Fail to delete ACL"
+msgstr ""
+
+msgid "Fail to edit ACL"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "List of accounts"
+msgstr ""
+
+msgid "Manage ACL"
+msgstr ""
+
+msgid "Mandatory fields must not be empty"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New ACL been added"
+msgstr ""
+
+msgid "Registered"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Subuser ACL"
+msgstr ""
+
+msgid "URLs"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "View report"
+msgstr ""

@@ -1,0 +1,50 @@
+msgid "Additional URL parameter"
+msgstr ""
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Manage uplink"
+msgstr ""
+
+msgid "Master URL"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Try to disable SMS footer on master"
+msgstr ""
+
+msgid "Unable to save gateway module configurations"
+msgstr ""
+
+msgid "Webservice token"
+msgstr ""
+
+msgid "Webservice username"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

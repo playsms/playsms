@@ -1,7 +1,6 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playSMS\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
@@ -241,7 +240,7 @@ msgid "All inbox"
 msgstr "Alle indbakker"
 
 msgid "All mandatory fields must be filled"
-msgstr ""
+msgstr "Alle obligatoriske felter skal udfyldes"
 
 msgid "All queues have been removed"
 msgstr "Alle køer er blevet fjernet"
@@ -363,10 +362,10 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Er du sikker på at du ønsker at slette underbrugeren?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Er du sikker på at du vil slette disse emner?"
+msgstr "Er du sikker på at du ønsker at slette disse emner ?"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr "Er du sikker på at du ønsker at slette disse transaktioner ?"
+msgstr "Er du sikker på at du ønsker at slette disse transaktioner?"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Er du sikker på at du ønsker at slette dette SMS autosvar system?"
@@ -871,9 +870,8 @@ msgstr "Forbedr privatliv for underbrugere"
 msgid "Entries in CSV file have been imported"
 msgstr "Emnerne i CSV filen er blevet importeret"
 
-#, fuzzy
 msgid "Example of SMS custom URL"
-msgstr "Tilpasset SMS URL"
+msgstr "Eksempel på tilpasset SMS URL"
 
 msgid "Exclusive"
 msgstr "Eksklusiv"
@@ -1070,9 +1068,8 @@ msgstr "Kunne ikke gemme konfigurationen"
 msgid "Fail to save email to SMS PIN"
 msgstr "Kunne ikke gemme email til SMS PIN"
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "Gateway-modul konfigurationen er blevet gemt"
+msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
 msgid "Fail to save preferences"
 msgstr "Kunne ikke gemme indstillingerne"
@@ -1147,7 +1144,7 @@ msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format ÃÂÃÂÃÂÃÂ-MM-DD tt:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1301,7 +1298,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importer ovenstående telefonbogsemner?"
 
 msgid "Import confirmation"
-msgstr "Bekræft import"
+msgstr "BekrÃÂ¦ft import"
 
 msgid "Inbox"
 msgstr "Indbakke"
@@ -1374,7 +1371,7 @@ msgstr "Nøgleord"
 
 #, php-format
 msgid "Keyword %s is not available"
-msgstr ""
+msgstr "Nøgleordet %s er ikke tilgængeligt"
 
 msgid "Keyword separator"
 msgstr "Nøgleords separator"
@@ -1573,7 +1570,7 @@ msgid "Manage sender ID"
 msgstr "Håndter afsender ID"
 
 msgid "Manage site"
-msgstr "Håndter websted"
+msgstr "HÃÂ¥ndter websted"
 
 msgid "Manage smstools"
 msgstr "Håndter smstools"
@@ -1615,7 +1612,7 @@ msgid "Manage user"
 msgstr "Håndter bruger"
 
 msgid "Mandatory fields must not be empty"
-msgstr "KrÃÂ¦vede felter mÃÂ¥ ikke vÃÂ¦re tomme"
+msgstr "Krævede felter må ikke være tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1754,7 +1751,7 @@ msgid "Multiple IP addresses must be comma-separated"
 msgstr "Flere IP adresser skal adskilles med komma"
 
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Flere emner adskilt med komma"
 
 msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
@@ -1856,7 +1853,7 @@ msgid "Offline"
 msgstr "Offline"
 
 msgid "Once"
-msgstr "ÃÂn gang"
+msgstr "Én gang"
 
 msgid "Online"
 msgstr "Online"
@@ -2285,13 +2282,12 @@ msgstr "Tilpasset SMS er blevet slettet"
 msgid "SMS custom has been saved"
 msgstr "Tilpasset SMS er blevet gemt"
 
-#, fuzzy
 msgid "SMS custom keywords"
-msgstr "Tilpasset SMS nøgleord"
+msgstr "Tilpassede SMS nøgleord"
 
-#, fuzzy, php-format
+#, php-format
 msgid "SMS custom with keyword %s has been added"
-msgstr "Tilpasset SMS er blevet tilføjet"
+msgstr "Tilpasset SMS med nøgleordet %s er blevet tilføjet"
 
 msgid "SMS footer"
 msgstr "SMS bundtekst"
@@ -2304,8 +2300,8 @@ msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
-"SMS nøgleord eksisterer allerede, er reserveret eller bruges af en anden "
-"funktion"
+"SMS nøgleord eksisterer allerede, er reserveret eller bruges af andre "
+"funktioner"
 
 msgid "SMS messages list for keyword"
 msgstr "SMS beskedliste for nøgleord"
@@ -2445,7 +2441,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søg i indkommende SMS efter @brugernavn"
 
 msgid "Schedule"
-msgstr "Tidsplan"
+msgstr "Skema"
 
 msgid "Schedule ID"
 msgstr "Tidsplan ID"
@@ -2606,10 +2602,10 @@ msgid "Separate with comma for multiple items"
 msgstr "Flere emner adskilles med komma"
 
 msgid "Service data"
-msgstr ""
+msgstr "Servicedata"
 
 msgid "Service name"
-msgstr ""
+msgstr "Servicenavn"
 
 msgid "Set as default"
 msgstr "Sæt som standard"
@@ -2750,9 +2746,8 @@ msgstr "URL til playSMS, hvis tom sættes den til basis URL"
 msgid "URLs"
 msgstr "URLer"
 
-#, fuzzy
 msgid "Unable to add group"
-msgstr "Kunne ikke slette gruppe"
+msgstr "Kunne ikke tilføje gruppe"
 
 msgid "Unable to ban account"
 msgstr "Kan ikke bandlyse konto"
@@ -2785,12 +2780,11 @@ msgstr "Kan ikke behandle underbruger tilføjelse"
 msgid "Unable to process user addition"
 msgstr "Kan ikke behandle bruger tilføjelse"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Gateway-modul konfigurationen er blevet gemt"
+msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
 msgid "Unable to unban account"
-msgstr "Kunne ikke fjerne bandlysning af konto"
+msgstr "Kan ikke fjerne bandlysning fra konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bandlysning af underbruger"
@@ -2987,7 +2981,7 @@ msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du skal udfylde alle påkrævede felter"
+msgstr "Du skal udfylde alle krævede felter"
 
 msgid "You must fill all required fields"
 msgstr "Du skal udfylde alle påkrævede felter"
@@ -3205,9 +3199,8 @@ msgstr "vil blive erstattet med SMS indkommende dato/tid"
 msgid "will be replaced by SMS raw message"
 msgstr "vil blive erstattet med rå SMS besked"
 
-#, fuzzy
 msgid "will be replaced by actual receiver number"
-msgstr "vil blive erstattet med afsendernummer"
+msgstr "vil blive erstattet med rigtigt modtagernummer"
 
 msgid "will be replaced by command keyword"
 msgstr "vil blive erstattet med kommando nøgleord"
@@ -3223,16 +3216,14 @@ msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
 "vil blive erstattet med tilpasset parameter videreført fra server til SMS"
 
-#, fuzzy
 msgid "will be replaced by receiver number"
-msgstr "vil blive erstattet med afsendernummer"
+msgstr "vil blive erstattet med modtagernummer"
 
 msgid "will be replaced by sender number"
 msgstr "vil blive erstattet med afsendernummer"
 
-#, fuzzy
 msgid "will be replaced by service name"
-msgstr "vil blive erstattet med afsendernummer"
+msgstr "vil blive erstattet med servicenavn"
 
 msgid "will be replaced with the name listed in phonebook"
 msgstr "vil blive erstattet med navnet i telefonbogen"

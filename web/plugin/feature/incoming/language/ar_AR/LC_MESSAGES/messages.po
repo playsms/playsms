@@ -1,0 +1,73 @@
+msgid "Copy the message to user inbox when incoming SMS contains @username"
+msgstr ""
+
+msgid "Fail to insert keyword"
+msgstr ""
+
+msgid "Incoming SMS route changes has been saved"
+msgstr ""
+
+msgid "Insert keyword"
+msgstr ""
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr ""
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr ""
+
+msgid "Match with all approved sender ID"
+msgstr ""
+
+msgid "No route has been saved"
+msgstr ""
+
+msgid "Post rules"
+msgstr ""
+
+msgid "Pre rules"
+msgstr ""
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
+msgstr ""
+
+msgid "Route all sandbox SMS to users"
+msgstr ""
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr ""
+
+msgid "Route incoming SMS"
+msgstr ""
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
+msgstr ""
+
+msgid "Rules applied after incoming SMS processed"
+msgstr ""
+
+msgid "Rules applied before incoming SMS processed"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Scan incoming SMS for #groupcode"
+msgstr ""
+
+msgid "Scan incoming SMS for @username"
+msgstr ""
+
+msgid "Select users"
+msgstr ""
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "keyword"
+msgstr ""

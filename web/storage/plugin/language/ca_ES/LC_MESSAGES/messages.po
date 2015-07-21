@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: ca_ES\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1415,14 +1413,16 @@ msgstr ""
 msgid "Local number length"
 msgstr ""
 
+#, fuzzy
 msgid "Logged in as"
-msgstr ""
+msgstr "Entrar"
 
 msgid "Login"
 msgstr ""
 
+#, fuzzy
 msgid "Login as"
-msgstr ""
+msgstr "Entrar"
 
 msgid "Login information"
 msgstr ""
@@ -1525,8 +1525,9 @@ msgstr "Manage gammu"
 msgid "Manage gateway"
 msgstr "Administrar usuari"
 
+#, fuzzy
 msgid "Manage gateway and SMSC"
-msgstr ""
+msgstr "Gestionar sortida"
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
@@ -1742,8 +1743,9 @@ msgstr ""
 msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
+#, fuzzy
 msgid "My account"
-msgstr ""
+msgstr "El meu compte"
 
 msgid "My credit transactions"
 msgstr ""
@@ -2117,8 +2119,9 @@ msgstr ""
 msgid "Report whose online"
 msgstr ""
 
+#, fuzzy
 msgid "Reports"
-msgstr ""
+msgstr "Exportar"
 
 msgid "Resend"
 msgstr "Reenviar"
@@ -2946,9 +2949,8 @@ msgstr "Heu d'omplir tots els camps"
 msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Heu d'omplir tots els camps"
+msgstr ""
 
 msgid "You must fill all required fields"
 msgstr ""

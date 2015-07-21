@@ -1,0 +1,179 @@
+msgid "Action"
+msgstr ""
+
+msgid "Add catch-all"
+msgstr ""
+
+msgid "Add group inbox"
+msgstr ""
+
+msgid "Add member"
+msgstr ""
+
+msgid "All users"
+msgstr ""
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr ""
+
+msgid "Catch-all"
+msgstr ""
+
+msgid "Catch-all has been added"
+msgstr ""
+
+msgid "Catch-all has been deleted"
+msgstr ""
+
+msgid "Catch-all list"
+msgstr ""
+
+msgid "Current catchall"
+msgstr ""
+
+msgid "Current members"
+msgstr ""
+
+msgid "Delete catch-all"
+msgstr ""
+
+msgid "Delete group inbox"
+msgstr ""
+
+msgid "Delete member"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Edit group inbox"
+msgstr ""
+
+msgid "Exclusive"
+msgstr ""
+
+msgid "Fail to add catch-all"
+msgstr ""
+
+msgid "Fail to add group inbox"
+msgstr ""
+
+msgid "Fail to add member"
+msgstr ""
+
+msgid "Fail to delete catch-all"
+msgstr ""
+
+msgid "Fail to delete group inbox"
+msgstr ""
+
+msgid "Fail to delete member"
+msgstr ""
+
+msgid "Fail to disable group inbox"
+msgstr ""
+
+msgid "Fail to edit group inbox"
+msgstr ""
+
+msgid "Fail to enable group inbox"
+msgstr ""
+
+msgid "For example a short code"
+msgstr ""
+
+msgid "Group inbox"
+msgstr ""
+
+msgid "Group inbox has been added"
+msgstr ""
+
+msgid "Group inbox has been deleted"
+msgstr ""
+
+msgid "Group inbox has been disabled"
+msgstr ""
+
+msgid "Group inbox has been edited"
+msgstr ""
+
+msgid "Group inbox has been enabled"
+msgstr ""
+
+msgid "Keywords"
+msgstr ""
+
+msgid "Member has been added"
+msgstr ""
+
+msgid "Member has been deleted"
+msgstr ""
+
+msgid "Member list"
+msgstr ""
+
+msgid "Members"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr ""
+
+msgid "Press submit button to add selected users to member list"
+msgstr ""
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr ""
+
+msgid "Press submit button to remove selected members from member list"
+msgstr ""
+
+msgid "Receiver number"
+msgstr ""
+
+msgid "Receiver number does not exist"
+msgstr ""
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Selected catchall"
+msgstr ""
+
+msgid "Selected members"
+msgstr ""
+
+msgid "Selected users"
+msgstr ""
+
+msgid "Separate with comma for multiple items"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

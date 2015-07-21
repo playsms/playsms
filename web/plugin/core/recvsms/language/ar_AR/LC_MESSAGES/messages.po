@@ -1,0 +1,11 @@
+msgid "From"
+msgstr ""
+
+msgid "Message from"
+msgstr ""
+
+msgid "Message received at"
+msgstr ""
+
+msgid "on"
+msgstr ""

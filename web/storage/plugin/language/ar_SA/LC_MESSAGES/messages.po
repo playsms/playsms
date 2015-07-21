@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PlaySMS\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
 "Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
@@ -118,7 +117,7 @@ msgid "Account with this mobile already exists"
 msgstr "يوجد حساب بنفس رقم الجوال"
 
 msgid "Action"
-msgstr "إجراءات"
+msgstr "الإجراء"
 
 msgid "Active language"
 msgstr "اللغة الافتراضية"
@@ -360,7 +359,7 @@ msgid "Are you sure you want to delete these items ?"
 msgstr "هل ترغب في حذف هذه العناصر بالتأكيد؟"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr "هل تود بالتأكيد حذف هذه الحوالة؟"
+msgstr "هل تود بالتأكيد حذف هذه الحوالات؟"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "هل تود بالتأكيد حذف سيناريو الرد التلقائي؟"
@@ -2455,7 +2454,7 @@ msgid "Select username"
 msgstr "اختيار اسم المستخدم"
 
 msgid "Select users"
-msgstr "اختيار مستخدمين"
+msgstr "اختيار المستخدمين"
 
 msgid "Selected catchall"
 msgstr "القائمة المحددة"
@@ -2488,7 +2487,7 @@ msgid "Selected users"
 msgstr "المستخدمون المحددون"
 
 msgid "Send"
-msgstr "إرسال"
+msgstr " إرسال"
 
 msgid "Send SMS hostname or IP"
 msgstr ""
