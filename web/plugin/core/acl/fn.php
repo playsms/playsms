@@ -123,7 +123,7 @@ function acl_geturl($acl_id) {
 	$urls = explode(',', $list[0]['url']);
 	foreach ($urls as $key => $val) {
 		if (trim($val)) {
-			$ret[] = trim($val);
+			$ret[] = trim(htmlspecialchars_decode($val));
 		}
 	}
 	
