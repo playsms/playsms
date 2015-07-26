@@ -77,16 +77,17 @@ function outgoing_getsmsc($id) {
 }
 
 function outgoing_prefix2smsc($prefix, $uid = 0) {
-	$prefix = (string) substr($prefix, 0, 8);
+	$prefix = (string) core_sanitize_numeric($prefix);
+	if (strlen($prefix) > 8) {
+		$prefix = substr($prefix, 0, 8);
+	}
 	$uid = ((int) $uid ? (int) $uid : 0);
-	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='$prefix' AND uid='$uid'";
+	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='" . $prefix . "' AND uid='" . $uid . "'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
 	}
-	// _log('prefix: ' . $prefix . ' uid:' . $uid . ' debug:' . print_r($smsc, 1), 3, 'outgoing_hook_sendsms_intercept');
 	
-
 	return $smsc;
 }
 
@@ -145,10 +146,11 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 		if (count($smsc_found) > 0) {
 			$smsc_all = trim($smsc_all);
 			shuffle($smsc_found);
-			_log('found SMSCs:' . $smsc_all, 3, 'outgoing_hook_sendsms_intercept');
-			_log('using prefix based smsc smsc:[' . $smsc_found[0] . '] uid:' . $uid . ' parent_uid:' . $parent_uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
-			$smsc = $smsc_found[0];
-			$next = FALSE;
+			if ($smsc = $smsc_found[0]) {
+				_log('found SMSCs:' . $smsc_all, 3, 'outgoing_hook_sendsms_intercept');
+				_log('using prefix based smsc smsc:[' . $smsc . '] uid:' . $uid . ' parent_uid:' . $parent_uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
+				$next = FALSE;
+			}
 		}
 	}
 	
