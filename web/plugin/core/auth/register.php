@@ -25,7 +25,7 @@ if (_OP_ == 'register') {
 	$ok = FALSE;
 	
 	if (!auth_isvalid()) {
-		if ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
+		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha'])) {
 			$data = array();
 			$data['name'] = $_REQUEST['name'];
 			$data['username'] = $_REQUEST['username'];
