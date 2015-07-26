@@ -18,6 +18,12 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
+function outgoing_display_prefix($prefix) {
+	$prefix = preg_replace('/[\[\]]/', '', $prefix);
+	
+	return $prefix;
+}
+
 function outgoing_getdata($extras = array()) {
 	foreach ($extras as $key => $val) {
 		$extra_sql .= $key . " " . $val . " ";
@@ -58,8 +64,7 @@ function outgoing_getprefix($id) {
 		$db_query = "SELECT prefix FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$prefix = $db_row['prefix'];
-		// $prefix = substr($prefix, 0, 8);
+		$prefix = outgoing_display_prefix($db_row['prefix']);
 	}
 	
 	return $prefix;
@@ -92,7 +97,7 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 }
 
 function outgoing_mobile2smsc($mobile, $uid = 0) {
-	$mobile = core_sanitize_numeric($mobile);	
+	$mobile = core_sanitize_numeric($mobile);
 	if (strlen($mobile) > 8) {
 		$prefix = substr($mobile, 0, 8);
 	} else {

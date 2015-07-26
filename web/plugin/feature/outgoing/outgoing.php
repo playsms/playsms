@@ -51,7 +51,7 @@ switch (_OP_) {
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
 				'username' => ($row['username'] ? $row['username'] : '*'),
-				'prefix' => $row['prefix'],
+				'prefix' => outgoing_display_prefix($row['prefix']),
 				'smsc' => ($row['smsc'] ? $row['smsc'] : _('blocked')),
 				'dst' => $row['dst'],
 				'action' => $c_action 
@@ -139,7 +139,7 @@ switch (_OP_) {
 		foreach ($prefixes as $c_prefix) {
 			$c_prefix = core_sanitize_numeric($c_prefix);
 			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
-				$up_prefix .= $c_prefix . ',';
+				$up_prefix .= '[' . $c_prefix . '],';
 			}
 		}
 		$up_prefix = rtrim(trim($up_prefix), ',');
@@ -148,9 +148,9 @@ switch (_OP_) {
 		if ($rid && $up_dst) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . outgoing_display_prefix($up_prefix) . ")";
 			} else {
-				$_SESSION['dialog']['danger'][] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['danger'][] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . outgoing_display_prefix($up_prefix) . ")";
 			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('You must fill all mandatory fields');
@@ -215,7 +215,7 @@ switch (_OP_) {
 		foreach ($prefixes as $c_prefix) {
 			$c_prefix = core_sanitize_numeric($c_prefix);
 			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
-				$add_prefix .= $c_prefix . ',';
+				$add_prefix .= '[' . $c_prefix . '],';
 			}
 		}
 		$add_prefix = rtrim(trim($add_prefix), ',');
@@ -226,9 +226,9 @@ switch (_OP_) {
 					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (uid,dst,prefix,smsc)
 					VALUES ('$add_uid','$add_dst','$add_prefix','$add_smsc')";
 			if ($new_uid = @dba_insert_id($db_query)) {
-				$_SESSION['dialog']['info'][] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
+				$_SESSION['dialog']['info'][] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . outgoing_display_prefix($add_prefix) . ")";
 			} else {
-				$_SESSION['dialog']['danger'][] = _('Fail to add route') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
+				$_SESSION['dialog']['danger'][] = _('Fail to add route') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . outgoing_display_prefix($add_prefix) . ")";
 			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('You must fill all fields');
