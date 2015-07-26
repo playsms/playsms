@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: fr_FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +28,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "L'ACL DÉFAUT ne restreindra pas l'accès aux menus"
+msgstr "ACL DÉFAUT ne restreindra pas l'accès aux menus"
 
 msgid "ACL ID"
 msgstr "ID de l'ACL"
@@ -363,7 +365,7 @@ msgid "Are you sure you want to delete these items ?"
 msgstr "Êtes-vous sûr de vouloir supprimer ces éléments ?"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr "Êtes-vous sûr de vouloir supprimer ces transactions ?"
+msgstr "Êtes-vous certain de vouloir supprimer ces transactions ?"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce scénario de réponse auto ?"
@@ -1332,7 +1334,7 @@ msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip va faire un push du DLR et du SMS entrant vers l'URL ci-dessus"
 
 msgid "Information"
-msgstr "Informations"
+msgstr "Information"
 
 msgid "Information page"
 msgstr "Page d'information"
@@ -2122,7 +2124,7 @@ msgid "Register an account"
 msgstr "Inscrire un nouveau compte"
 
 msgid "Registered"
-msgstr "Enregistré"
+msgstr "Inscrit"
 
 msgid "Renew webservices token"
 msgstr "Renouveler le token de webservices"
@@ -2816,7 +2818,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Unable to unban account"
-msgstr "Impossible de réintégrer le compte"
+msgstr "Échec de la réintégration du compte"
 
 msgid "Unable to unban subuser"
 msgstr "Impossible de réintégrer le sous-utilisateur"

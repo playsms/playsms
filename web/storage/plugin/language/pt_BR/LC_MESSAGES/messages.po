@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +28,7 @@ msgid "ACL"
 msgstr "Regra"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "REGRA PADRÂO não restringe acecco aos menus"
+msgstr "A Regra Padrão não permite acesso aos menus"
 
 msgid "ACL ID"
 msgstr "ID da regra"
@@ -647,7 +649,7 @@ msgstr ""
 "destinatário"
 
 msgid "Default sender ID"
-msgstr "ID de remetente padrão"
+msgstr "ID de remetende padrão"
 
 msgid "Default settings"
 msgstr "Configurações padrão"
@@ -681,7 +683,7 @@ msgid "Delete member"
 msgstr "Remover membro"
 
 msgid "Delete user"
-msgstr "Excluír usuário"
+msgstr "Excluir usurio"
 
 msgid "Deleted"
 msgstr "Excluído"
@@ -795,7 +797,7 @@ msgid "Effective SMS sender ID"
 msgstr "ID de remetente efetivo para SMS"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex.: +0300 para fuso horário de Brasilia"
+msgstr "Ex: +0300 para fuso horário de Brasília"
 
 msgid "Email"
 msgstr "E-mail"
@@ -1139,7 +1141,7 @@ msgid "For example a short code"
 msgstr "Um código curto, por exemplo"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Formato YYY-MM-DD hh:mm"
+msgstr "Formato YYYY-MM-DD hh:mm"
 
 msgid "Forward"
 msgstr "Encaminhar"
@@ -1262,7 +1264,7 @@ msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
 
 msgid "Home"
-msgstr "Início"
+msgstr "Inicio"
 
 msgid "ID"
 msgstr "ID"
@@ -1468,7 +1470,7 @@ msgid "Mailbox username"
 msgstr "Nome de usuário da caixa de email"
 
 msgid "Main configuration"
-msgstr "Configurações Principais"
+msgstr "Configuração principal"
 
 msgid "Main configuration changes has been saved"
 msgstr "As configurações principais foram salvas"
@@ -1486,7 +1488,7 @@ msgid "Manage"
 msgstr "Gerenciar"
 
 msgid "Manage ACL"
-msgstr "Gerenciar regras"
+msgstr "Gerenciar Regras"
 
 msgid "Manage OpenVox"
 msgstr "Gerenciar OpenVox"
@@ -1495,7 +1497,7 @@ msgid "Manage SMS rate"
 msgstr "Gerenciar taxa de SMS"
 
 msgid "Manage account"
-msgstr "Gerenciar conta"
+msgstr "Gerenciar Contas"
 
 msgid "Manage autoreply"
 msgstr "Gerenciar auto-resposta"
@@ -1537,7 +1539,7 @@ msgid "Manage gateway"
 msgstr "Gerenciar Gateway"
 
 msgid "Manage gateway and SMSC"
-msgstr "Gerenciar gateway e SMSC"
+msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage infobip"
 msgstr "Gerenciar infobip"
@@ -1561,7 +1563,7 @@ msgid "Manage schedule"
 msgstr "Gerenciar agendamento"
 
 msgid "Manage sender ID"
-msgstr "Gerenciar ID do remetente"
+msgstr "Gerenciar ID de destinatário"
 
 msgid "Manage site"
 msgstr "Gerenciar site"
@@ -1606,7 +1608,7 @@ msgid "Manage user"
 msgstr "Gerenciar usuário"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Campos obrigatórios não podem estar em branco"
+msgstr "Os campos obrigatórios no podem estar em branco"
 
 msgid "Master URL"
 msgstr "URL mestre"
@@ -1615,8 +1617,7 @@ msgid "Match with all approved sender ID"
 msgstr "Combinar com todos os ID de remetente aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Máx. 16 caracteres numéricos ou 11 alfanuméricos"
@@ -1643,7 +1644,7 @@ msgid "Member has been added"
 msgstr "Membro foi adicionado"
 
 msgid "Member has been deleted"
-msgstr "Membro foi removido"
+msgstr "O membro foi removido"
 
 msgid "Member join datetime"
 msgstr "Data de entrada do membro"
@@ -1725,10 +1726,10 @@ msgid "Mobile numbers have been deleted"
 msgstr "Os números de celular foram excluídos"
 
 msgid "Module sender ID"
-msgstr "Módulo ID remetente"
+msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
-msgstr "Módulo fuso horário"
+msgstr "Módulo Fuso Horário"
 
 msgid "Monthly"
 msgstr "Mensalmente"
@@ -2497,7 +2498,7 @@ msgid "Selected outgoing message has been deleted"
 msgstr "A mensagem de saída selecionada foi excluída"
 
 msgid "Selected transactions has been deleted"
-msgstr "A transação selecionada foi excluída"
+msgstr "As transações selecionadas foram excluídas"
 
 msgid "Selected users"
 msgstr "Usuários selecionados"
@@ -2552,7 +2553,7 @@ msgid "Sender"
 msgstr "Remetente"
 
 msgid "Sender ID"
-msgstr "ID do Remetente"
+msgstr "ID do remetente"
 
 msgid "Sender ID description has been added"
 msgstr "A descrição para o ID do remetente foi adicionada"
@@ -2585,7 +2586,7 @@ msgid "Senders sent once"
 msgstr "Destinatários enviado uma vez"
 
 msgid "Sent"
-msgstr "Enviada"
+msgstr "Enviado"
 
 msgid "Separate by comma for multiple destinations"
 msgstr "Múltiplos destinos devem ser separados por vírgula"
@@ -2776,7 +2777,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Configurações do módulo de gateway foram salvas"
 
 msgid "Unable to unban account"
-msgstr "Não é possível desbanir conta"
+msgstr "Não é possível desbanir a conta"
 
 msgid "Unable to unban subuser"
 msgstr "Não é possível desbanir sub-usuário"
@@ -2821,7 +2822,7 @@ msgid "User agent"
 msgstr "User agent"
 
 msgid "User configuration"
-msgstr "Configuração de usuário"
+msgstr "Configurações de usuário"
 
 msgid "User configuration has been saved"
 msgstr "As configurações do usuário foram salvas"
@@ -2855,7 +2856,7 @@ msgid "User preference"
 msgstr "Preferências de usuário"
 
 msgid "Username"
-msgstr "Nome de usuário"
+msgstr "Usuário"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
@@ -2969,13 +2970,13 @@ msgid "You have reached lowest credit limit of %s"
 msgstr "Você alcançou o limite mínimo de crédito de %s"
 
 msgid "You must fill all field"
-msgstr "Preencha todos os campos"
-
-msgid "You must fill all fields"
 msgstr "Você deve preencher todos os campos"
 
+msgid "You must fill all fields"
+msgstr "Preencha todos os campos"
+
 msgid "You must fill all mandatory fields"
-msgstr "Você deve preencher todos os campos obrigatórios"
+msgstr "Preencha todos os campos obrigatórios"
 
 msgid "You must fill all required fields"
 msgstr "Você deve preencher todos os campos requeridos"
@@ -2999,7 +3000,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your callback URL is"
-msgstr "Sua URL callback é"
+msgstr "Sua URL de callback é"
 
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr "Sua url de callback deve ser acessível pelo Bulksms"
@@ -3023,7 +3024,7 @@ msgid "Your choice"
 msgstr "Sua escolha"
 
 msgid "Your credit"
-msgstr "Seu crédito"
+msgstr "Seus créditos"
 
 msgid "Your email format is invalid"
 msgstr "Seu formato de email não é válido"
@@ -3121,7 +3122,7 @@ msgid "multiple times"
 msgstr "múltiplas vezes"
 
 msgid "no"
-msgstr "no"
+msgstr "não"
 
 msgid "of"
 msgstr "de"

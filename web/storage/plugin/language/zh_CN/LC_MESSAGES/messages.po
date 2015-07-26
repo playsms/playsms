@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -644,9 +646,8 @@ msgstr ""
 msgid "Delete member"
 msgstr ""
 
-#, fuzzy
 msgid "Delete user"
-msgstr "删除"
+msgstr ""
 
 msgid "Delivered to SMSC"
 msgstr ""
@@ -2752,9 +2753,8 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
-#, fuzzy
 msgid "User preference"
-msgstr "偏好"
+msgstr ""
 
 msgid "Username"
 msgstr "用户名"
@@ -2873,8 +2873,9 @@ msgstr "你必须填满全部空白"
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
+#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "你必须填满全部空白"
 
 msgid "You must fill all required fields"
 msgstr ""

@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: es_VE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -589,9 +591,8 @@ msgstr "Borrar"
 msgid "Delete ALL queues"
 msgstr ""
 
-#, fuzzy
 msgid "Delete user"
-msgstr "Borrar"
+msgstr ""
 
 msgid "Delivered to SMSC"
 msgstr ""
@@ -2033,9 +2034,7 @@ msgid "SMS forward parameter"
 msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr ""
-"La Clave de SMS de auto-respuesta ya existe, está reservada o está utilizada "
-"por otro servicio"
+msgstr "La clave SMS ya existe, está reservada o en uso por otro proceso"
 
 msgid "SMS messages list for keyword"
 msgstr "Lista de mensajes SMS para clave"
@@ -2346,7 +2345,7 @@ msgid "Statistics"
 msgstr "Estatus"
 
 msgid "Status"
-msgstr "Estatus"
+msgstr "Estado"
 
 msgid "Submit"
 msgstr ""
@@ -2538,9 +2537,8 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
-#, fuzzy
 msgid "User preference"
-msgstr "Preferencias"
+msgstr ""
 
 msgid "Username"
 msgstr "Usuario"
@@ -2659,8 +2657,9 @@ msgstr "Ud. debe rellenar todos los campos"
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
 
+#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "Ud. debe rellenar todos los campos"
 
 msgid "You must fill all required fields"
 msgstr ""

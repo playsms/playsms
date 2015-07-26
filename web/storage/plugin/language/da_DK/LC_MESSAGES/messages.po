@@ -1,6 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
@@ -362,10 +363,10 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Er du sikker på at du ønsker at slette underbrugeren?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Er du sikker på at du ønsker at slette disse emner ?"
+msgstr "Er du sikker på at du vil slette disse emner?"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr "Er du sikker på at du ønsker at slette disse transaktioner?"
+msgstr "Er du sikker på at du ønsker at slette disse transaktioner ?"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr "Er du sikker på at du ønsker at slette dette SMS autosvar system?"
@@ -1144,7 +1145,7 @@ msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
+msgstr "Format ÃÂÃÂÃÂÃÂ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1298,7 +1299,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importer ovenstående telefonbogsemner?"
 
 msgid "Import confirmation"
-msgstr "BekrÃÂ¦ft import"
+msgstr "Bekræft import"
 
 msgid "Inbox"
 msgstr "Indbakke"
@@ -1570,7 +1571,7 @@ msgid "Manage sender ID"
 msgstr "Håndter afsender ID"
 
 msgid "Manage site"
-msgstr "HÃÂ¥ndter websted"
+msgstr "Håndter websted"
 
 msgid "Manage smstools"
 msgstr "Håndter smstools"
@@ -1612,7 +1613,7 @@ msgid "Manage user"
 msgstr "Håndter bruger"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Krævede felter må ikke være tomme"
+msgstr "KrÃÂ¦vede felter mÃÂ¥ ikke vÃÂ¦re tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1853,7 +1854,7 @@ msgid "Offline"
 msgstr "Offline"
 
 msgid "Once"
-msgstr "Én gang"
+msgstr "ÃÂn gang"
 
 msgid "Online"
 msgstr "Online"
@@ -2300,8 +2301,8 @@ msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
-"SMS nøgleord eksisterer allerede, er reserveret eller bruges af andre "
-"funktioner"
+"SMS nøgleord eksisterer allerede, er reserveret eller bruges af en anden "
+"funktion"
 
 msgid "SMS messages list for keyword"
 msgstr "SMS beskedliste for nøgleord"
@@ -2441,7 +2442,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søg i indkommende SMS efter @brugernavn"
 
 msgid "Schedule"
-msgstr "Skema"
+msgstr "Tidsplan"
 
 msgid "Schedule ID"
 msgstr "Tidsplan ID"
@@ -2784,7 +2785,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
 msgid "Unable to unban account"
-msgstr "Kan ikke fjerne bandlysning fra konto"
+msgstr "Kunne ikke fjerne bandlysning af konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bandlysning af underbruger"
@@ -2981,7 +2982,7 @@ msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du skal udfylde alle krævede felter"
+msgstr "Du skal udfylde alle påkrævede felter"
 
 msgid "You must fill all required fields"
 msgstr "Du skal udfylde alle påkrævede felter"

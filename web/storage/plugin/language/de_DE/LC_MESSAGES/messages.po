@@ -104,9 +104,8 @@ msgstr ""
 msgid "Click the status button to enable or disable status"
 msgstr ""
 
-#, fuzzy
 msgid "Compose message"
-msgstr "Sende SMS"
+msgstr ""
 
 msgid "Confirmation"
 msgstr "Bestätigung"
@@ -388,13 +387,11 @@ msgstr "Hauptkonfiguration"
 msgid "Manage"
 msgstr "Verwalten"
 
-#, fuzzy
 msgid "Manage ACL"
-msgstr "Verwalten"
+msgstr ""
 
-#, fuzzy
 msgid "Manage account"
-msgstr "Mein Account"
+msgstr ""
 
 #, fuzzy
 msgid "Manage gateway"
@@ -409,9 +406,8 @@ msgstr ""
 msgid "Manage sender ID"
 msgstr ""
 
-#, fuzzy
 msgid "Manage site"
-msgstr "Benutzer verwalten"
+msgstr ""
 
 msgid "Manage smstools"
 msgstr "Verwalte smstools"
@@ -424,9 +420,8 @@ msgstr "Benutzer verwalten"
 msgid "Manage sub-accounts"
 msgstr "Benutzer verwalten"
 
-#, fuzzy
 msgid "Manage subuser"
-msgstr "Benutzer verwalten"
+msgstr ""
 
 #, fuzzy
 msgid "Manage subusers"
@@ -471,9 +466,8 @@ msgstr "Nachrichten-Vorlagen Name"
 msgid "Mobile"
 msgstr "Mobil"
 
-#, fuzzy
 msgid "Move"
-msgstr "Verschieben nach"
+msgstr ""
 
 msgid "Move to"
 msgstr "Verschieben nach"
@@ -481,9 +475,8 @@ msgstr "Verschieben nach"
 msgid "Multiple entries separated by comma"
 msgstr ""
 
-#, fuzzy
 msgid "My account"
-msgstr "Mein Account"
+msgstr ""
 
 msgid "Name"
 msgstr "Name"
@@ -576,9 +569,8 @@ msgstr ""
 msgid "Reply"
 msgstr "Antwort"
 
-#, fuzzy
 msgid "Reports"
-msgstr "Export"
+msgstr ""
 
 msgid "Resend"
 msgstr "Erneut senden"
