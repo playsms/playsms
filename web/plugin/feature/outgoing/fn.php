@@ -87,7 +87,7 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 		$prefix = substr($prefix, 0, 8);
 	}
 	$uid = ((int) $uid ? (int) $uid : 0);
-	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='" . $prefix . "' AND uid='" . $uid . "'";
+	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix LIKE '%[" . $prefix . "]%' AND uid='" . $uid . "'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
