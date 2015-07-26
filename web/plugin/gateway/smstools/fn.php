@@ -191,7 +191,7 @@ function smstools_hook_getsmsinbox() {
 						$label = explode(':', $msg[3]);
 						if (trim($label[0]) == 'Status') {
 							$status_var = explode(',', trim($label[1]));
-							$status = $status_var[0];
+							$status = (int) $status_var[0];
 						}
 						if ($message_id && $status_var[1]) {
 							_log('DLR received message_id:' . $message_id . ' status:' . $status . ' info1:[' . $status_var[1] . '] info2:[' . $status_var[2] . '] smsc:[' . $smsc . ']', 2, 'smstools_hook_getsmsinbox');
