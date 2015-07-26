@@ -59,7 +59,7 @@ function outgoing_getprefix($id) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$prefix = $db_row['prefix'];
-		$prefix = substr($prefix, 0, 8);
+		// $prefix = substr($prefix, 0, 8);
 	}
 	
 	return $prefix;
@@ -92,12 +92,11 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 }
 
 function outgoing_mobile2smsc($mobile, $uid = 0) {
-	$mobile = core_sanitize_numeric($mobile);
-	
-	if (strlen($mobile) < 8) {
-		$prefix = substr($mobile, 0, strlen($mobile));
-	} else {
+	$mobile = core_sanitize_numeric($mobile);	
+	if (strlen($mobile) > 8) {
 		$prefix = substr($mobile, 0, 8);
+	} else {
+		$prefix = $mobile;
 	}
 	
 	for ($i = 8; $i > 0; $i--) {
