@@ -265,31 +265,37 @@ function user_edit_validate($data = array()) {
  *        User data
  * @param boolean $forced
  *        Forced addition
- * @return array $ret('error_string', 'status', 'uid')
+ * @param boolean $send_email
+ *        Send email after successful user addition
+ * @return array $ret['error_string', 'status', 'uid', 'data']
  */
-function user_add($data = array(), $forced = FALSE) {
+function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 	global $core_config, $user_config;
+	
+	// default return values
 	$ret['error_string'] = _('Unknown error has occurred');
 	$ret['status'] = FALSE;
 	$ret['uid'] = 0;
+	$ret['data'] = array();
+	
 	$data = (trim($data['username']) ? $data : $_REQUEST);
 	if ($forced || auth_isadmin() || ($user_config['status'] == 3) || (!auth_isvalid() && $core_config['main']['enable_register'])) {
 		foreach ($data as $key => $val) {
 			$data[$key] = trim($val);
 		}
-
+		
 		// set valid status
 		$data['status'] = (int) $data['status'];
 		if (!(($data['status'] == 2) || ($data['status'] == 3))) {
 			$data['status'] = 4;
 		}
-
+		
 		// ACL exception for admins
 		$data['acl_id'] = ((int) $data['acl_id'] ? (int) $data['acl_id'] : $core_config['main']['default_acl']);
 		if ($data['status'] == 2) {
 			$data['acl_id'] = 0;
 		}
-
+		
 		// default parent_id
 		$data['parent_uid'] = ((int) $data['parent_uid'] ? (int) $data['parent_uid'] : $core_config['main']['default_parent']);
 		if ($parent_status = user_getfieldbyuid($data['parent_uid'], 'status')) {
@@ -304,31 +310,31 @@ function user_add($data = array(), $forced = FALSE) {
 		} else {
 			$data['parent_uid'] = $core_config['main']['default_parent'];
 		}
-
+		
 		$data['username'] = core_sanitize_username($data['username']);
 		$data['password'] = (trim($data['password']) ? trim($data['password']) : core_get_random_string(10));
-		$new_password = $data['password'];
-		$data['password'] = md5($new_password);
+		$register_password = $data['password'];
+		$data['password'] = md5($register_password);
 		$data['token'] = md5(uniqid($data['username'] . $data['password'], true));
-
+		
 		// default credit
 		$supplied_credit = (float) $data['credit'];
 		$data['credit'] = 0;
-
+		
 		// sender set to empty by default
 		// $data['sender'] = ($data['sender'] ? core_sanitize_sender($data['sender']) : '');
 		$data['sender'] = '';
-
+		
 		$dt = core_get_datetime();
 		$data['register_datetime'] = $dt;
 		$data['lastupdate_datetime'] = $dt;
-
+		
 		// fixme anton - these should be configurable on main config
 		$data['footer'] = '@' . $data['username'];
 		$data['enable_webservices'] = 1;
 		// $data['webservices_ip'] = (trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*');
 		$data['webservices_ip'] = '*.*.*.*';
-
+		
 		$v = user_add_validate($data);
 		if ($v['status']) {
 			_log('attempt to register status:' . $data['status'] . ' u:' . $data['username'] . ' email:' . $data['email'], 3, 'user_add');
@@ -336,32 +342,40 @@ function user_add($data = array(), $forced = FALSE) {
 				if ($new_uid = dba_add(_DB_PREF_ . '_tblUser', $data)) {
 					$ret['status'] = TRUE;
 					$ret['uid'] = $new_uid;
-
+					
 					// set credit upon registration
 					$default_credit = ($supplied_credit ? $supplied_credit : (float) $core_config['main']['default_credit']);
 					rate_addusercredit($ret['uid'], $default_credit);
 				} else {
 					$ret['error_string'] = _('Fail to register an account');
 				}
+				
 				if ($ret['status']) {
+					$data['credit'] = user_getfieldbyuid($new_uid, 'credit');
+					$data['register_password'] = $register_password;
+					
 					_log('registered status:' . $data['status'] . ' u:' . $data['username'] . ' uid:' . $ret['uid'] . ' email:' . $data['email'] . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' mobile:' . $data['mobile'] . ' credit:' . $data['credit'], 2, 'user_add');
-					$subject = _('New account registration');
-					$body = $core_config['main']['web_title'] . "\n\n";
-					$body .= _('Username') . ": " . $data['username'] . "\n";
-					$body .= _('Password') . ": " . $new_password . "\n";
-					$body .= _('Mobile') . ": " . $data['mobile'] . "\n";
-					$body .= _('Credit') . ": " . user_getfieldbyuid($new_uid, 'credit') . "\n\n--\n";
-					$body .= $core_config['main']['email_footer'] . "\n\n";
-					$ret['error_string'] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
-					$mail_data = array(
-						'mail_from_name' => $core_config['main']['web_title'],
-						'mail_from' => $core_config['main']['email_service'],
-						'mail_to' => $data['email'],
-						'mail_subject' => $subject,
-						'mail_body' => $body
-					);
-					if (!sendmail($mail_data)) {
-						$ret['error_string'] = _('Account has been added but failed to send email') . " (" . _('username') . ": " . $data['username'] . ")";
+					
+					// default is TRUE, always send email from this function
+					if ($send_email) {
+						$subject = _('New account registration');
+						$body = $core_config['main']['web_title'] . "\n\n";
+						$body .= _('Username') . ": " . $data['username'] . "\n";
+						$body .= _('Password') . ": " . $register_password . "\n";
+						$body .= _('Mobile') . ": " . $data['mobile'] . "\n";
+						$body .= _('Credit') . ": " . $data['credit'] . "\n\n--\n";
+						$body .= $core_config['main']['email_footer'] . "\n\n";
+						$ret['error_string'] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
+						$mail_data = array(
+							'mail_from_name' => $core_config['main']['web_title'],
+							'mail_from' => $core_config['main']['email_service'],
+							'mail_to' => $data['email'],
+							'mail_subject' => $subject,
+							'mail_body' => $body 
+						);
+						if (!sendmail($mail_data)) {
+							$ret['error_string'] = _('Account has been added but failed to send email') . " (" . _('username') . ": " . $data['username'] . ")";
+						}
 					}
 				}
 			} else {
@@ -373,6 +387,11 @@ function user_add($data = array(), $forced = FALSE) {
 	} else {
 		$ret['error_string'] = _('Account registration is not available');
 	}
+	
+	if ($ret['status']) {
+		$ret['data'] = $data;
+	}
+	
 	return $ret;
 }
 
