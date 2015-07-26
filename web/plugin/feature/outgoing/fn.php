@@ -82,15 +82,27 @@ function outgoing_getsmsc($id) {
 }
 
 function outgoing_prefix2smsc($prefix, $uid = 0) {
+	$smsc = array();
+	
 	$prefix = (string) core_sanitize_numeric($prefix);
 	if (strlen($prefix) > 8) {
 		$prefix = substr($prefix, 0, 8);
 	}
 	$uid = ((int) $uid ? (int) $uid : 0);
+	
 	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix LIKE '%[" . $prefix . "]%' AND uid='" . $uid . "'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
+	}
+	
+	// backward compatibility with playSMS 1.1 and below
+	if (!count($smsc)) {
+		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='" . $prefix . "' AND uid='" . $uid . "'";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$smsc[] = $db_row['smsc'];
+		}
 	}
 	
 	return $smsc;
