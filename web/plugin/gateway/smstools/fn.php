@@ -68,7 +68,7 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 						INSERT INTO " . _DB_PREF_ . "_gatewaySmstools_dlr 
 						(c_timestamp,uid,smslog_id,message_id,status) 
 						VALUES 
-						('" . mktime() . "','" . $uid . "','" . $smslog_id . "','" . $message_id . "','-1')";
+						('" . mktime() . "','" . $uid . "','" . $smslog_id . "','" . $message_id . "','1')";
 					$dlr_id = dba_insert_id($db_query);
 					if ($dlr_id) {
 						_log('DLR mapped fn:' . $fn . ' id:' . $dlr_id . ' uid:' . $uid . ' smslog_id:' . $smslog_id . ' message_id:' . $message_id, 2, 'smstools_hook_getsmsstatus');
@@ -194,16 +194,20 @@ function smstools_hook_getsmsinbox() {
 							$status = $status_var[0];
 						}
 						if ($message_id && $status_var[1]) {
-							_log('DLR received message_id:' . $message_id . ' smsc:[' . $smsc . '] status:' . $status . ' info1:' . $status_var[1] . ' info2:' . $status_var[2] . ' smsc:[' . $smsc . ']', 2, 'smstools_hook_getsmsinbox');
-							$db_query = "SELECT uid,smslog_id FROM " . _DB_PREF_ . "_gatewaySmstools_dlr WHERE message_id='" . $message_id . "'";
+							_log('DLR received message_id:' . $message_id . ' status:' . $status . ' info1:[' . $status_var[1] . '] info2:[' . $status_var[2] . '] smsc:[' . $smsc . ']', 2, 'smstools_hook_getsmsinbox');
+							$db_query = "SELECT id,uid,smslog_id FROM " . _DB_PREF_ . "_gatewaySmstools_dlr WHERE message_id='" . $message_id . "' AND status='1' ORDER BY id DESC LIMIT 1";
 							$db_result = dba_query($db_query);
 							$db_row = dba_fetch_array($db_result);
+							$id = $db_row['id'];
 							$uid = $db_row['uid'];
 							$smslog_id = $db_row['smslog_id'];
-							if ($uid && $smslog_id && $status == 0) {
-								$p_status = 3;
-								dlr($smslog_id, $uid, $p_status);
-								_log('DLR smslog_id:' . $smslog_id . ' p_status:' . $p_status . ' smsc:[' . $smsc . ']', 2, 'smstools_hook_getsmsinbox');
+							if ($uid && $smslog_id && $status === 0) {
+								$db_query = "UPDATE " . _DB_PREF_ . "_gatewaySmstools_dlr SET status='2' WHERE id='" . $id . "'";
+								if ($db_result = dba_affected_rows($db_query)) {
+									$p_status = 3;
+									dlr($smslog_id, $uid, $p_status);
+									_log('DLR smslog_id:' . $smslog_id . ' p_status:' . $p_status . ' smsc:[' . $smsc . ']', 2, 'smstools_hook_getsmsinbox');
+								}
 							}
 							$is_dlr = true;
 						}
