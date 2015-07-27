@@ -49,20 +49,23 @@ if (_OP_ == 'register') {
 			$ok = ($ret['status'] ? TRUE : FALSE);
 			if ($ok) {
 				
+				// injected variable
+				$reg_data = $ret['data'];
+				
 				// send email
 				$tpl = array(
 					'name' => 'auth_register_email',
 					'vars' => array(
-						'EMAIL_TITLE' => $core_config['main']['web_title'],
-						'EMAIL_FOOTER' => $core_config['main']['email_footer'],
-						'LOGO_URL' => $core_config['main']['logo_url'],
+						'Name' => _('Name'),
 						'Username' => _('Username'),
 						'Password' => _('Password'),
 						'Mobile' => _('Mobile'),
-						'Credit' => _('Credit') 
+						'Credit' => _('Credit'),
+						'Email' => _('Email') 
 					),
 					'injects' => array(
-						'ret' 
+						'core_config',
+						'reg_data' 
 					) 
 				);
 				$email_body = tpl_apply($tpl);

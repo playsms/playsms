@@ -1,16 +1,17 @@
-{{ EMAIL_TITLE }}
+{{ $core_config['main']['web_title'] }}
 
 
-{{ Username }} : {{ $ret['data']['username'] }}
+{{ Name }} : {{ $reg_data['name'] }}
 
-{{ Password }} : {{ $ret['data']['register_password'] }}
+{{ Username }} : {{ $reg_data['username'] }}
 
-{{ Mobile }} : {{ $ret['data']['mobile'] }}
+{{ Password }} : {{ $reg_data['register_password'] }}
 
-{{ Credit }} : {{ $ret['data']['credit'] }}
+{{ Mobile }} : {{ $reg_data['mobile'] }}
+
+{{ Credit }} : {{ $reg_data['credit'] }}
 
 
 --
-{{ EMAIL_FOOTER }}
-
+{{ $core_config['main']['email_footer'] }}
 
