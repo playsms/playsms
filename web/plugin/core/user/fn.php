@@ -358,22 +358,36 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 					
 					// default is TRUE, always send email from this function
 					if ($send_email) {
-						$subject = _('New account registration');
-						$body = $core_config['main']['web_title'] . "\n\n";
-						$body .= _('Username') . ": " . $data['username'] . "\n";
-						$body .= _('Password') . ": " . $register_password . "\n";
-						$body .= _('Mobile') . ": " . $data['mobile'] . "\n";
-						$body .= _('Credit') . ": " . $data['credit'] . "\n\n--\n";
-						$body .= $core_config['main']['email_footer'] . "\n\n";
-						$ret['error_string'] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
+						
+						// send email
+						$tpl = array(
+							'name' => 'user_add_email',
+							'vars' => array(
+								'EMAIL_TITLE' => $core_config['main']['web_title'],
+								'EMAIL_FOOTER' => $core_config['main']['email_footer'],
+								'LOGO_URL' => $core_config['main']['logo_url'],
+								'Username' => _('Username'),
+								'Password' => _('Password'),
+								'Mobile' => _('Mobile'),
+								'Credit' => _('Credit') 
+							),
+							'injects' => array(
+								'data' 
+							) 
+						);
+						$email_body = tpl_apply($tpl);
+						$email_subject = _('New account registration');
+						
 						$mail_data = array(
 							'mail_from_name' => $core_config['main']['web_title'],
 							'mail_from' => $core_config['main']['email_service'],
 							'mail_to' => $data['email'],
-							'mail_subject' => $subject,
-							'mail_body' => $body 
+							'mail_subject' => $email_subject,
+							'mail_body' => $email_body 
 						);
-						if (!sendmail($mail_data)) {
+						if (sendmail($mail_data)) {
+							$ret['error_string'] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $data['username'] . ")";
+						} else {
 							$ret['error_string'] = _('Account has been added but failed to send email') . " (" . _('username') . ": " . $data['username'] . ")";
 						}
 					}
