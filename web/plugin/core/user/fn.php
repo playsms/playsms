@@ -356,6 +356,9 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 					
 					_log('registered status:' . $data['status'] . ' u:' . $data['username'] . ' uid:' . $ret['uid'] . ' email:' . $data['email'] . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' mobile:' . $data['mobile'] . ' credit:' . $data['credit'], 2, 'user_add');
 					
+					// save $data on returns
+					$ret['data'] = $data;
+					
 					// default is TRUE, always send email from this function
 					if ($send_email) {
 						
@@ -372,7 +375,7 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 							),
 							'injects' => array(
 								'core_config',
-								'data' 
+								'ret' 
 							) 
 						);
 						$email_body = tpl_apply($tpl);
@@ -400,10 +403,6 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 		}
 	} else {
 		$ret['error_string'] = _('Account registration is not available');
-	}
-	
-	if ($ret['status']) {
-		$ret['data'] = $data;
 	}
 	
 	return $ret;
