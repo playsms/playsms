@@ -362,6 +362,10 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 					// default is TRUE, always send email from this function
 					if ($send_email) {
 						
+						// injected variables must be global, need to work on this later
+						global $reg_data;
+						$reg_data = $ret['data'];
+						
 						// send email
 						$tpl = array(
 							'name' => 'user_add_email',
@@ -375,7 +379,7 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 							),
 							'injects' => array(
 								'core_config',
-								'ret' 
+								'reg_data' 
 							) 
 						);
 						$email_body = tpl_apply($tpl);
