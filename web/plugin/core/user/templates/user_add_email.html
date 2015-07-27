@@ -1,18 +1,15 @@
-{{ $core_config['main']['web_title'] }}
-
-
-{{ Name }} : {{ $data['name'] }}
-
-{{ Username }} : {{ $data['username'] }}
-
-{{ Password }} : {{ $data['register_password'] }}
-
-{{ Mobile }} : {{ $data['mobile'] }}
-
-{{ Credit }} : {{ $data['credit'] }}
-
-
---
-{{ $core_config['main']['email_footer'] }}
-
-
+<html>
+<body>
+	<h2>{{ $core_config['main']['web_title'] }}</h2>
+	<br />
+	<p>{{ Name }} : {{ $ret['data']['name'] }}</p>
+	<p>{{ Username }} : {{ $ret['data']['username'] }}</p>
+	<p>{{ Password }} : {{ $ret['data']['register_password'] }}</p>
+	<p>{{ Mobile }} : {{ $ret['data']['mobile'] }}</p>
+	<p>{{ Credit }} : {{ $ret['data']['credit'] }}</p>
+	<br />
+	<p>--</p>
+	<p>{{ $core_config['main']['email_footer'] }}</p>
+	<img src="{{ $core_config['main']['logo_url'] }}">
+</body>
+</html>
