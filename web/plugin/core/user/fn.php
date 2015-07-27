@@ -363,15 +363,15 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 						$tpl = array(
 							'name' => 'user_add_email',
 							'vars' => array(
-								'EMAIL_TITLE' => $core_config['main']['web_title'],
-								'EMAIL_FOOTER' => $core_config['main']['email_footer'],
-								'LOGO_URL' => $core_config['main']['logo_url'],
+								'Name' => _('Name'),
 								'Username' => _('Username'),
 								'Password' => _('Password'),
 								'Mobile' => _('Mobile'),
-								'Credit' => _('Credit') 
+								'Credit' => _('Credit'),
+								'Email' => _('Email') 
 							),
 							'injects' => array(
+								'core_config',
 								'data' 
 							) 
 						);
