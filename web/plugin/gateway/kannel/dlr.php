@@ -47,28 +47,28 @@ logger_print("addr:" . $remote_addr . " host:" . $remote_host . " type:" . $type
 if ($type && $smslog_id && $uid) {
 	$stat = 0;
 	switch ($type) {
-		case 1 :
+		case 1:
 			$stat = 6;
 			break; // delivered to phone = delivered
-		case 2 :
+		case 2:
 			$stat = 5;
 			break; // non delivered to phone = failed
-		case 4 :
+		case 4:
 			$stat = 3;
 			break; // queued on SMSC = pending
-		case 8 :
+		case 8:
 			$stat = 4;
 			break; // delivered to SMSC = sent
-		case 16 :
+		case 16:
 			$stat = 5;
 			break; // non delivered to SMSC = failed
-		case 9 :
+		case 9:
 			$stat = 4;
 			break; // sent
-		case 12 :
+		case 12:
 			$stat = 4;
 			break; // sent
-		case 18 :
+		case 18:
 			$stat = 5;
 			break; // failed
 	}

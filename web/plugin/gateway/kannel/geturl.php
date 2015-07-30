@@ -50,6 +50,7 @@ $a = trim(htmlspecialchars_decode($_REQUEST['a'])); // message
 $Q = trim($_REQUEST['Q']); // sms_receiver
 $smsc = trim($_REQUEST['smsc']); // SMSC
 
+
 logger_print("addr:" . $remote_addr . " host:" . $remote_host . " t:" . $t . " q:" . $q . " a:" . $a . " Q:" . $Q . " smsc:[" . $smsc . "]", 3, "kannel incoming");
 
 if ($t && $q && $a) {

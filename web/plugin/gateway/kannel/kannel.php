@@ -25,7 +25,7 @@ if (!auth_isadmin()) {
 include $core_config['apps_path']['plug'] . "/gateway/kannel/config.php";
 
 switch (_OP_) {
-	case "manage" :
+	case "manage":
 		if ($err = TRUE) {
 			$content = _dialog();
 		}
@@ -124,11 +124,11 @@ switch (_OP_) {
 		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
-	case "manage_save" :
+	case "manage_save":
 		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		// Handle DLR config (emmanuel)
 		if (isset($_POST['dlr_box'])) {
-			for($i = 0, $c = count($_POST['dlr_box']); $i < $c; $i++) {
+			for ($i = 0, $c = count($_POST['dlr_box']); $i < $c; $i++) {
 				$up_playsms_dlr += intval($_POST['dlr_box'][$i]);
 			}
 		}
@@ -158,7 +158,7 @@ switch (_OP_) {
 		exit();
 		break;
 	
-	case "manage_restart" :
+	case "manage_restart":
 		$admin_port = $plugin_config['kannel']['admin_port'];
 		$admin_host = $plugin_config['kannel']['bearerbox_host'];
 		$admin_host = ($admin_port ? $admin_host . ':' . $admin_port : $admin_host);
