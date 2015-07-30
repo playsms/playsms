@@ -34,7 +34,7 @@ $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $plugin_config['kannel']['bearerbox_host'])
 if ($remote_addr != $plugin_config['kannel']['bearerbox_host'] && $remote_host != $plugin_config['kannel']['bearerbox_host']) {
-	logger_print("exit remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " bearerbox_host:" . $plugin_config['kannel']['bearerbox_host'], 2, "kannel dlr");
+	_log("exit remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " bearerbox_host:" . $plugin_config['kannel']['bearerbox_host'], 2, "kannel dlr");
 	exit();
 }
 
@@ -42,7 +42,7 @@ $type = $requests['type'];
 $smslog_id = $requests['smslog_id'];
 $uid = $requests['uid'];
 
-logger_print("addr:" . $remote_addr . " host:" . $remote_host . " type:" . $type . " smslog_id:" . $smslog_id . " uid:" . $uid, 2, "kannel dlr");
+_log("addr:" . $remote_addr . " host:" . $remote_host . " type:" . $type . " smslog_id:" . $smslog_id . " uid:" . $uid, 2, "kannel dlr");
 
 if ($type && $smslog_id && $uid) {
 	$stat = 0;

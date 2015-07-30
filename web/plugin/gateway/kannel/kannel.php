@@ -26,9 +26,6 @@ include $core_config['apps_path']['plug'] . "/gateway/kannel/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
 		// Handle DLR options config (emmanuel)
 		/*
 		 * DLR Kannel value 1: Delivered to phone 2: Non-Delivered to Phone 4: Queued on SMSC 8: Delivered to SMSC 16: Non-Delivered to SMSC
@@ -48,6 +45,7 @@ switch (_OP_) {
 			<option value=1 $selected1>" . _('Yes') . "</option>
 			<option value=0 $selected2>" . _('No') . "</option>
 			";
+		
 		$admin_port = $plugin_config['kannel']['admin_port'];
 		$admin_host = $plugin_config['kannel']['sendsms_host'];
 		$admin_host = ($admin_port ? $admin_host . ':' . $admin_port : $admin_host);
@@ -55,7 +53,7 @@ switch (_OP_) {
 		$url = 'http://' . $admin_host . '/status?password=' . urlencode($admin_password);
 		$kannel_status = file_get_contents($url);
 		
-		$content .= "
+		$content .= _dialog() . "
 			<h2>" . _('Manage kannel') . "</h2>
 			<form action=index.php?app=main&inc=gateway_kannel&op=manage_save method=post>
 			" . _CSRF_FORM_ . "
@@ -120,10 +118,10 @@ switch (_OP_) {
 				<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter-->
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
-			</form>";
-		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
+			</form>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
+	
 	case "manage_save":
 		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		// Handle DLR config (emmanuel)

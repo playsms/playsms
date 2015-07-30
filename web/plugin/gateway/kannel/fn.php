@@ -18,19 +18,31 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-// hook_sendsms
-// called by main sms sender
-// return true for success delivery
-// $smsc : smsc
-// $sms_sender : sender mobile number
-// $sms_footer : sender sms footer or sms sender ID
-// $sms_to : destination sms number
-// $sms_msg : sms message tobe delivered
-// $uid : sender User ID
-// $gpid : group phonebook id (optional)
-// $smslog_id : sms ID
-// $sms_type : type of the message (defaults to text)
-// $unicode : send as unicode (boolean)
+/**
+ * hook_sendsms called by sendsms_process()
+ *
+ * @param string $smsc
+ *        SMSC name
+ * @param unknown $sms_sender
+ *        Sender ID
+ * @param string $sms_footer
+ *        Message footer
+ * @param string $sms_to
+ *        Destination number
+ * @param string $sms_msg
+ *        Message
+ * @param integer $uid
+ *        User ID
+ * @param integer $gpid
+ *        Group ID
+ * @param integer $smslog_id
+ *        SMS Log ID
+ * @param integer $sms_type
+ *        Type of SMS
+ * @param integer $unicode
+ *        Unicode flag
+ * @return boolean
+ */
 function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $core_config, $plugin_config;
 	
