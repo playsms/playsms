@@ -95,11 +95,9 @@ switch (_OP_) {
 							<tr>
 								<td>" . _('Send SMS port') . "</td><td><input type=text maxlength=10 name=up_sendsms_port value=\"" . $plugin_config['kannel']['sendsms_port'] . "\"> " . _hint(_('Kannel specific')) . "</td>
 							</tr>
-							<!-- Handle DLR config (emmanuel) -->
 							<tr>
-								<td>" . _('Delivery Report') . "</td><td>$up_dlr_box</td>
+								<td>" . _('DLR mask') . "</td><td><input type=text maxlength=2 name=up_dlr_mask value=\"" . $plugin_config['kannel']['dlr_mask'] . "\"> " . _hint(_('Kannel dlr-mask option')) . "</td>
 							</tr>
-							<!-- end of Handle DLR config (emmanuel) -->
 							<tr>
 								<td>" . _('Additional URL parameter') . "</td><td><input type=text maxlength=250 name=up_additional_param value=\"" . $plugin_config['kannel']['additional_param'] . "\"></td>
 							</tr>
@@ -160,14 +158,6 @@ switch (_OP_) {
 		break;
 	
 	case "manage_save":
-		$_SESSION['dialog']['info'][] = _('Changes have been made');
-		// Handle DLR config (emmanuel)
-		if (isset($_POST['dlr_box'])) {
-			for ($i = 0, $c = count($_POST['dlr_box']); $i < $c; $i++) {
-				$up_playsms_dlr += intval($_POST['dlr_box'][$i]);
-			}
-		}
-		// end of Handle DLR config (emmanuel)
 		$items = array(
 			'username' => $_POST['up_username'],
 			'module_sender' => $_POST['up_module_sender'],
@@ -177,7 +167,7 @@ switch (_OP_) {
 			'sendsms_port' => $_POST['up_sendsms_port'],
 			'playsms_web' => $_POST['up_playsms_web'],
 			'additional_param' => $_POST['up_additional_param'],
-			'dlr' => $up_playsms_dlr,
+			'dlr_mask' => $_POST['up_dlr_mask'],
 			'admin_host' => $_POST['up_admin_host'],
 			'admin_port' => $_POST['up_admin_port'],
 			'local_time' => $_POST['up_local_time'] 
@@ -189,6 +179,7 @@ switch (_OP_) {
 			$items['admin_password'] = $_POST['up_admin_password'];
 		}
 		registry_update(1, 'gateway', 'kannel', $items);
+		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
 		break;
