@@ -112,13 +112,6 @@ switch (_OP_) {
 							<tr>
 								<td>" . _('Kannel admin password') . "</td><td><input type=password maxlength=250 name=up_admin_password value=\"\"> " . _hint(_('HTTP Kannel admin password')) . "</td>
 							</tr>
-							<tr>
-								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 20em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td><input type='button' value=\"" . _('Restart Kannel') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\"></td>
-							</tr>
 							</tbody>
 							<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter-->
 						</table>
@@ -129,7 +122,7 @@ switch (_OP_) {
 					<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 						<tbody>
 							<tr>
-								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 20em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
+								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 40em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
