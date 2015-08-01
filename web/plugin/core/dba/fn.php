@@ -309,6 +309,7 @@ function dba_add($db_table, $items) {
 			$sets = substr($sets, 0, -1);
 			$vals = substr($vals, 0, -1);
 			$db_query = "INSERT INTO ".$db_table." (".$sets.") VALUES (".$vals.")";
+			_log('q:'.$db_query, 3, 'dba_add');
 			if ($c_id = dba_insert_id($db_query)) {
 				$ret = $c_id;
 			}

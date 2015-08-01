@@ -231,7 +231,17 @@ function playsmsd() {
 	core_call_hook();
 	
 	// plugin gateway
-	core_hook(core_gateway_get(), 'playsmsd');
+	$smscs = gateway_getall_smsc_names();
+	foreach ($smscs as $smsc) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$gateways[] = $smsc_data['gateway'];
+	}
+	if (is_array($gateways)) {
+		$gateways = array_unique($gateways);
+		foreach ($gateways as $gateway) {
+			core_hook($gateway, 'playsmsd');
+		}
+	}
 	
 	// plugin themes
 	core_hook(core_themes_get(), 'playsmsd');
@@ -243,9 +253,19 @@ function playsmsd_once($param) {
 	core_call_hook();
 	
 	// plugin gateway
-	core_hook(core_gateway_get(), 'playsmsd_once', array(
-		$param 
-	));
+	$smscs = gateway_getall_smsc_names();
+	foreach ($smscs as $smsc) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$gateways[] = $smsc_data['gateway'];
+	}
+	if (is_array($gateways)) {
+		$gateways = array_unique($gateways);
+		foreach ($gateways as $gateway) {
+			core_hook($gateway, 'playsmsd_once', array(
+				$param 
+			));
+		}
+	}
 	
 	// plugin themes
 	core_hook(core_themes_get(), 'playsmsd_once', array(
