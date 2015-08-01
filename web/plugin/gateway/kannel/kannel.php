@@ -55,70 +55,111 @@ switch (_OP_) {
 		
 		$content .= _dialog() . "
 			<h2>" . _('Manage kannel') . "</h2>
-			<form action=index.php?app=main&inc=gateway_kannel&op=manage_save method=post>
-			" . _CSRF_FORM_ . "
-			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
-				<tbody>
-				<tr>
-					<td class=label-sizer>" . _('Gateway name') . "</td><td>kannel</td>
-				</tr>
-				<tr>
-					<td>" . _('Username') . "</td><td><input type=text maxlength=30 name=up_username value=\"" . $plugin_config['kannel']['username'] . "\"></td>
-				</tr>
-				<tr>
-					<td>" . _('Password') . "</td><td><input type=password maxlength=30 name=up_password value=\"\"> " . _hint(_('Fill to change the password')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_module_sender value=\"" . $plugin_config['kannel']['module_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_module_timezone value=\"" . $plugin_config['kannel']['module_timezone'] . "\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Incoming SMS time is in local time') . "</td><td><select name=up_local_time>" . $option_local_time . "</select> " . _hint(_('Select no if the incoming SMS time is in UTC')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Bearerbox hostname or IP') . "</td><td><input type=text maxlength=250 name=up_bearerbox_host value=\"" . $plugin_config['kannel']['bearerbox_host'] . "\"> " . _hint(_('Kannel specific')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Send SMS hostname or IP') . "</td><td><input type=text maxlength=250 name=up_sendsms_host value=\"" . $plugin_config['kannel']['sendsms_host'] . "\"> " . _hint(_('Kannel specific')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Send SMS port') . "</td><td><input type=text maxlength=10 name=up_sendsms_port value=\"" . $plugin_config['kannel']['sendsms_port'] . "\"> " . _hint(_('Kannel specific')) . "</td>
-				</tr>
-				<!-- Handle DLR config (emmanuel) -->
-				<tr>
-					<td>" . _('Delivery Report') . "</td><td>$up_dlr_box</td>
-				</tr>
-				<!-- end of Handle DLR config (emmanuel) -->
-				<tr>
-					<td>" . _('Additional URL parameter') . "</td><td><input type=text maxlength=250 name=up_additional_param value=\"" . $plugin_config['kannel']['additional_param'] . "\"></td>
-				</tr>
-				<tr>
-					<td>" . _('playSMS web URL') . "</td><td><input type=text maxlength=250 name=up_playsms_web value=\"" . $plugin_config['kannel']['playsms_web'] . "\"> " . _hint(_('URL to playSMS, empty it to set it to base URL')) . "</td>
-				</tr>
-				<!-- Fixme Edward Added Kanel HTTP Admin Parameter-->
-				<tr>
-					<td>" . _('Kannel admin host') . "</td><td><input type=text maxlength=250 name=up_admin_host value=\"" . $plugin_config['kannel']['admin_host'] . " \"> " . _hint(_('HTTP Kannel admin host')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Kannel admin port') . "</td><td><input type=text maxlength=250 name=up_admin_port value=\"" . $plugin_config['kannel']['admin_port'] . "\"> " . _hint(_('HTTP Kannel admin port')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Kannel admin password') . "</td><td><input type=password maxlength=250 name=up_admin_password value=\"\"> " . _hint(_('HTTP Kannel admin password')) . "</td>
-				</tr>
-				<tr>
-					<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 20em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td><input type='button' value=\"" . _('Restart Kannel') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\"></td>
-				</tr>
-				</tbody>
-				<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter-->
-			</table>
-			<p><input type=submit class=button value=\"" . _('Save') . "\">
-			</form>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
+			<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
+				<li class=active><a href='#tabs-configuration' data-toggle=tab>" . _('Configuration') . "</a></li>
+				<li><a href='#tabs-operational' data-toggle=tab>" . _('Operational') . "</a></li>
+			</ul>
+			<div class=tab-content>
+				<div id='tabs-configuration' class='tab-pane fade in active'>
+					<form action=index.php?app=main&inc=gateway_kannel&op=manage_save method=post>
+						" . _CSRF_FORM_ . "
+						<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
+							<tbody>
+							<tr>
+								<td class=label-sizer>" . _('Gateway name') . "</td><td>kannel</td>
+							</tr>
+							<tr>
+								<td>" . _('Username') . "</td><td><input type=text maxlength=30 name=up_username value=\"" . $plugin_config['kannel']['username'] . "\"></td>
+							</tr>
+							<tr>
+								<td>" . _('Password') . "</td><td><input type=password maxlength=30 name=up_password value=\"\"> " . _hint(_('Fill to change the password')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_module_sender value=\"" . $plugin_config['kannel']['module_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_module_timezone value=\"" . $plugin_config['kannel']['module_timezone'] . "\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Incoming SMS time is in local time') . "</td><td><select name=up_local_time>" . $option_local_time . "</select> " . _hint(_('Select no if the incoming SMS time is in UTC')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Bearerbox hostname or IP') . "</td><td><input type=text maxlength=250 name=up_bearerbox_host value=\"" . $plugin_config['kannel']['bearerbox_host'] . "\"> " . _hint(_('Kannel specific')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Send SMS hostname or IP') . "</td><td><input type=text maxlength=250 name=up_sendsms_host value=\"" . $plugin_config['kannel']['sendsms_host'] . "\"> " . _hint(_('Kannel specific')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Send SMS port') . "</td><td><input type=text maxlength=10 name=up_sendsms_port value=\"" . $plugin_config['kannel']['sendsms_port'] . "\"> " . _hint(_('Kannel specific')) . "</td>
+							</tr>
+							<!-- Handle DLR config (emmanuel) -->
+							<tr>
+								<td>" . _('Delivery Report') . "</td><td>$up_dlr_box</td>
+							</tr>
+							<!-- end of Handle DLR config (emmanuel) -->
+							<tr>
+								<td>" . _('Additional URL parameter') . "</td><td><input type=text maxlength=250 name=up_additional_param value=\"" . $plugin_config['kannel']['additional_param'] . "\"></td>
+							</tr>
+							<tr>
+								<td>" . _('playSMS web URL') . "</td><td><input type=text maxlength=250 name=up_playsms_web value=\"" . $plugin_config['kannel']['playsms_web'] . "\"> " . _hint(_('URL to playSMS, empty it to set it to base URL')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Kannel admin host') . "</td><td><input type=text maxlength=250 name=up_admin_host value=\"" . $plugin_config['kannel']['admin_host'] . " \"> " . _hint(_('HTTP Kannel admin host')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Kannel admin port') . "</td><td><input type=text maxlength=250 name=up_admin_port value=\"" . $plugin_config['kannel']['admin_port'] . "\"> " . _hint(_('HTTP Kannel admin port')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Kannel admin password') . "</td><td><input type=password maxlength=250 name=up_admin_password value=\"\"> " . _hint(_('HTTP Kannel admin password')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 20em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td><input type='button' value=\"" . _('Restart Kannel') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\"></td>
+							</tr>
+							</tbody>
+							<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter-->
+						</table>
+						<p><input type=submit class=button value=\"" . _('Save') . "\">
+					</form>
+				</div>
+				<div id='tabs-operational' class='tab-pane fade'>
+					<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
+						<tbody>
+							<tr>
+								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 20em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td>
+										<input type='button' value=\"" . _('Restart Kannel') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\">
+										<input type='button' value=\"" . _('Refresh status') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_refresh'\">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<script type=\"text/javascript\" src=\"" . $core_config['http_path']['plug'] . "/themes/common/jscss/jquery.cookie.js\"></script>
+				<script type=\"text/javascript\">
+					$(document).ready(function() {
+						$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
+							//save the latest tab using a cookie:
+							$.cookie('gateway_kannel_last_tab', $(e.target).attr('href'));
+						});
+						
+						//activate latest tab, if it exists:
+						var lastTab = $.cookie('gateway_kannel_last_tab');
+						if (lastTab) {
+							$('ul.nav-tabs').children().removeClass('active');
+							$('a[href='+ lastTab +']').parents('li:first').addClass('active');
+							$('div.tab-content').children().removeClass('in active');
+							$(lastTab).addClass('in active');
+						}
+					});
+				</script>
+			</div>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
 	
@@ -164,6 +205,11 @@ switch (_OP_) {
 		$url = 'http://' . $admin_host . '/restart?password=' . $admin_password;
 		$restart = file_get_contents($url);
 		$_SESSION['dialog']['info'][] = _('Restart Kannel') . ' - ' . _('Status') . ': ' . $restart;
+		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
+		exit();
+		break;
+	
+	case "manage_refresh":
 		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
 		break;
