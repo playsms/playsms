@@ -27,13 +27,18 @@ if (!$called_from_hook_call) {
 	chdir("plugin/gateway/kannel");
 }
 
+if ($smsc = $requests['smsc']) {
+	// override plugin gateway configuration by smsc configuration
+	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+}
+
 $remote_addr = $_SERVER['REMOTE_ADDR'];
 // srosa 20100531: added var below
 $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $plugin_config['kannel']['bearerbox_host'])
 if ($remote_addr != $plugin_config['kannel']['bearerbox_host'] && $remote_host != $plugin_config['kannel']['bearerbox_host']) {
-	_log("unable to process incoming SMS. remote_addr:[" . $remote_addr . "] or remote_host:[" . $remote_host . "] does not match with your bearerbox_host config:[" . $plugin_config['kannel']['bearerbox_host'] . "]", 2, "kannel incoming");
+	_log("unable to process incoming SMS. remote_addr:[" . $remote_addr . "] or remote_host:[" . $remote_host . "] does not match with your bearerbox_host config:[" . $plugin_config['kannel']['bearerbox_host'] . "] smsc:[" . $smsc . "]", 2, "kannel incoming");
 	exit();
 }
 
@@ -51,7 +56,7 @@ $Q = trim($_REQUEST['Q']); // sms_receiver
 $smsc = trim($_REQUEST['smsc']); // SMSC
 
 
-_log("remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " t:[" . $t . "] q:[" . $q . "] a:[" . $a . "] Q:[" . $Q . "] smsc:[" . $smsc . "]", 3, "kannel incoming");
+_log("remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " t:[" . $t . "] q:[" . $q . "] a:[" . $a . "] Q:[" . $Q . "] smsc:[" . $smsc . "] smsc:[" . $smsc . "]", 3, "kannel incoming");
 
 if ($t && $q && $a) {
 	// collected:
@@ -60,5 +65,5 @@ if ($t && $q && $a) {
 	$a = addslashes($a);
 	recvsms($t, $q, $a, $Q, $smsc);
 } else {
-	_log("missing parameter t:[" . $t . "] q:[" . $q . "] a:[" . $a . "]", 2, "kannel incoming");
+	_log("missing parameter t:[" . $t . "] q:[" . $q . "] a:[" . $a . "] smsc:[" . $smsc . "]", 2, "kannel incoming");
 }

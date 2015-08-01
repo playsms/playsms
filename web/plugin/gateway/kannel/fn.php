@@ -79,7 +79,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	// prior to 0.9.5.1
 	// $dlr_url = $plugin_config['kannel']['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=".$smslog_id."&uid=".$uid;
 	// since 0.9.5.1
-	$dlr_url = $plugin_config['kannel']['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=" . $smslog_id . "&uid=" . $uid;
+	$dlr_url = $plugin_config['kannel']['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=" . $smslog_id . "&uid=" . $uid . "&smsc=" . $smsc;
 	
 	$URL = "/cgi-bin/sendsms?username=" . urlencode($plugin_config['kannel']['username']) . "&password=" . urlencode(htmlspecialchars_decode($plugin_config['kannel']['password']));
 	$URL .= "&from=" . urlencode($sms_sender) . "&to=" . urlencode($sms_to);
