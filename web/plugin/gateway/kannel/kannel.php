@@ -123,16 +123,13 @@ switch (_OP_) {
 							<tr>
 								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 25em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
 							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td>
-										<input type='button' value=\"" . _('Update status') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_update'\">
-										<input type='button' value=\"" . _('Restart Kannel') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\">
-								</td>
-							</tr>
 						</tbody>
 					</table>
-					<p><input type=submit class=button value=\"" . _('Save') . "\">
+					<p>
+						<input type=submit class=button value=\"" . _('Save') . "\">
+						<input type='button' value=\"" . _('Update status') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_update'\">
+						<input type='button' value=\"" . _('Restart Kannel') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\">
+					</p>
 					</form>
 				</div>
 				<script type=\"text/javascript\" src=\"" . $core_config['http_path']['plug'] . "/themes/common/jscss/jquery.cookie.js\"></script>
