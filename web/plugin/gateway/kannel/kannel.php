@@ -84,9 +84,6 @@ switch (_OP_) {
 								<td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_module_timezone value=\"" . $plugin_config['kannel']['module_timezone'] . "\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td>
 							</tr>
 							<tr>
-								<td>" . _('Incoming SMS time is in local time') . "</td><td><select name=up_local_time>" . $option_local_time . "</select> " . _hint(_('Select no if the incoming SMS time is in UTC')) . "</td>
-							</tr>
-							<tr>
 								<td>" . _('Bearerbox hostname or IP') . "</td><td><input type=text maxlength=250 name=up_bearerbox_host value=\"" . $plugin_config['kannel']['bearerbox_host'] . "\"> " . _hint(_('Kannel specific')) . "</td>
 							</tr>
 							<tr>
@@ -103,6 +100,9 @@ switch (_OP_) {
 							</tr>
 							<tr>
 								<td>" . _('playSMS web URL') . "</td><td><input type=text maxlength=250 name=up_playsms_web value=\"" . $plugin_config['kannel']['playsms_web'] . "\"> " . _hint(_('URL to playSMS, empty it to set it to base URL')) . "</td>
+							</tr>
+							<tr>
+								<td>" . _('Incoming SMS time is in local time') . "</td><td><select name=up_local_time>" . $option_local_time . "</select> " . _hint(_('Select no if the incoming SMS time is in UTC')) . "</td>
 							</tr>
 						</tbody>
 					</table>
