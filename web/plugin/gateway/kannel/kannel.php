@@ -51,7 +51,10 @@ switch (_OP_) {
 		$admin_host = ($admin_port ? $admin_host . ':' . $admin_port : $admin_host);
 		$admin_password = $plugin_config['kannel']['admin_password'];
 		$url = 'http://' . $admin_host . '/status?password=' . urlencode($admin_password);
-		$kannel_status = file_get_contents($url);
+		$kannel_status = @file_get_contents($url);
+		if (!$kannel_status) {
+			$kannel_status = 'Unable to access Kannel admin commands';
+		}
 		
 		$content .= _dialog() . "
 			<h2>" . _('Manage kannel') . "</h2>
@@ -62,9 +65,9 @@ switch (_OP_) {
 			<div class=tab-content>
 				<div id='tabs-configuration' class='tab-pane fade in active'>
 					<form action=index.php?app=main&inc=gateway_kannel&op=manage_save method=post>
-						" . _CSRF_FORM_ . "
-						<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
-							<tbody>
+					" . _CSRF_FORM_ . "
+					<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
+						<tbody>
 							<tr>
 								<td class=label-sizer>" . _('Gateway name') . "</td><td>kannel</td>
 							</tr>
@@ -103,6 +106,13 @@ switch (_OP_) {
 							<tr>
 								<td>" . _('playSMS web URL') . "</td><td><input type=text maxlength=250 name=up_playsms_web value=\"" . $plugin_config['kannel']['playsms_web'] . "\"> " . _hint(_('URL to playSMS, empty it to set it to base URL')) . "</td>
 							</tr>
+						</tbody>
+					</table>
+					<p><input type=submit class=button value=\"" . _('Save') . "\">
+				</div>
+				<div id='tabs-operational' class='tab-pane fade'>
+					<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
+						<tbody>
 							<tr>
 								<td>" . _('Kannel admin host') . "</td><td><input type=text maxlength=250 name=up_admin_host value=\"" . $plugin_config['kannel']['admin_host'] . " \"> " . _hint(_('HTTP Kannel admin host')) . "</td>
 							</tr>
@@ -112,27 +122,20 @@ switch (_OP_) {
 							<tr>
 								<td>" . _('Kannel admin password') . "</td><td><input type=password maxlength=250 name=up_admin_password value=\"\"> " . _hint(_('HTTP Kannel admin password')) . "</td>
 							</tr>
-							</tbody>
-							<!-- End Of Fixme Edward Added Kanel HTTP Admin Parameter-->
-						</table>
-						<p><input type=submit class=button value=\"" . _('Save') . "\">
-					</form>
-				</div>
-				<div id='tabs-operational' class='tab-pane fade'>
-					<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
-						<tbody>
 							<tr>
-								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 40em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
+								<td>" . _('Kannel status') . "</td><td><textarea rows='20' style='height: 25em; width: 100%' disabled>" . $kannel_status . "</textarea></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
 								<td>
+										<input type='button' value=\"" . _('Update status') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_update'\">
 										<input type='button' value=\"" . _('Restart Kannel') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_restart'\">
-										<input type='button' value=\"" . _('Refresh status') . "\" class='button' onClick=\"parent.location.href='index.php?app=main&inc=gateway_kannel&op=manage_refresh'\">
 								</td>
 							</tr>
 						</tbody>
 					</table>
+					<p><input type=submit class=button value=\"" . _('Save') . "\">
+					</form>
 				</div>
 				<script type=\"text/javascript\" src=\"" . $core_config['http_path']['plug'] . "/themes/common/jscss/jquery.cookie.js\"></script>
 				<script type=\"text/javascript\">
@@ -190,6 +193,11 @@ switch (_OP_) {
 		exit();
 		break;
 	
+	case "manage_update":
+		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
+		exit();
+		break;
+	
 	case "manage_restart":
 		$admin_port = $plugin_config['kannel']['admin_port'];
 		$admin_host = $plugin_config['kannel']['bearerbox_host'];
@@ -198,11 +206,6 @@ switch (_OP_) {
 		$url = 'http://' . $admin_host . '/restart?password=' . $admin_password;
 		$restart = file_get_contents($url);
 		$_SESSION['dialog']['info'][] = _('Restart Kannel') . ' - ' . _('Status') . ': ' . $restart;
-		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
-		exit();
-		break;
-	
-	case "manage_refresh":
 		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
 		break;
