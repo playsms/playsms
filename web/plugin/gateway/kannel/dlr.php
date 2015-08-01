@@ -34,7 +34,7 @@ $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $plugin_config['kannel']['bearerbox_host'])
 if ($remote_addr != $plugin_config['kannel']['bearerbox_host'] && $remote_host != $plugin_config['kannel']['bearerbox_host']) {
-	_log("exit remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " bearerbox_host:" . $plugin_config['kannel']['bearerbox_host'], 2, "kannel dlr");
+	_log("unable to process DLR. remote_addr:[" . $remote_addr . "] or remote_host:[" . $remote_host . "] does not match with your bearerbox_host config:[" . $plugin_config['kannel']['bearerbox_host'] . "]", 2, "kannel dlr");
 	exit();
 }
 
@@ -42,7 +42,7 @@ $type = $requests['type'];
 $smslog_id = $requests['smslog_id'];
 $uid = $requests['uid'];
 
-_log("addr:" . $remote_addr . " host:" . $remote_host . " type:" . $type . " smslog_id:" . $smslog_id . " uid:" . $uid, 2, "kannel dlr");
+_log("remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " type:[" . $type . "] smslog_id:[" . $smslog_id . "] uid:[" . $uid . "]", 3, "kannel dlr");
 
 if ($type && $smslog_id && $uid) {
 	$stat = 0;
@@ -77,4 +77,6 @@ if ($type && $smslog_id && $uid) {
 		$p_status = $stat - 3;
 	}
 	dlr($smslog_id, $uid, $p_status);
+} else {
+	_log("missing parameter type:[" . $type . "] smslog_id:[" . $smslog_id . "] uid:[" . $uid . "]", 2, "kannel dlr");
 }

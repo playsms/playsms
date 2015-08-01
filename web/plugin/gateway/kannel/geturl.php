@@ -33,7 +33,7 @@ $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $plugin_config['kannel']['bearerbox_host'])
 if ($remote_addr != $plugin_config['kannel']['bearerbox_host'] && $remote_host != $plugin_config['kannel']['bearerbox_host']) {
-	_log("exit remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " bearerbox_host:" . $plugin_config['kannel']['bearerbox_host'], 2, "kannel incoming");
+	_log("unable to process incoming SMS. remote_addr:[" . $remote_addr . "] or remote_host:[" . $remote_host . "] does not match with your bearerbox_host config:[" . $plugin_config['kannel']['bearerbox_host'] . "]", 2, "kannel incoming");
 	exit();
 }
 
@@ -51,7 +51,7 @@ $Q = trim($_REQUEST['Q']); // sms_receiver
 $smsc = trim($_REQUEST['smsc']); // SMSC
 
 
-_log("addr:" . $remote_addr . " host:" . $remote_host . " t:" . $t . " q:" . $q . " a:" . $a . " Q:" . $Q . " smsc:[" . $smsc . "]", 3, "kannel incoming");
+_log("remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " t:[" . $t . "] q:[" . $q . "] a:[" . $a . "] Q:[" . $Q . "] smsc:[" . $smsc . "]", 3, "kannel incoming");
 
 if ($t && $q && $a) {
 	// collected:
@@ -59,4 +59,6 @@ if ($t && $q && $a) {
 	$q = addslashes($q);
 	$a = addslashes($a);
 	recvsms($t, $q, $a, $Q, $smsc);
+} else {
+	_log("missing parameter t:[" . $t . "] q:[" . $q . "] a:[" . $a . "]", 2, "kannel incoming");
 }
