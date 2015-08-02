@@ -104,7 +104,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 	global $plugin_config;
 	
 	$go = $requests['go'];
-	$smsc = $requests['s'];
+	$smsc = $requests['smsc'];
 	$username = $requests['u'];
 	$password = $requests['p'];
 	
@@ -199,7 +199,7 @@ function playnet_hook_playsmsd() {
 			// fetch from remote
 			$ws = $c_plugin_config['playnet']['remote_playsms_url'] . '/index.php?app=ws&op=playnet';
 			$ws .= '&go=get_outgoing';
-			$ws .= '&s=' . $c_plugin_config['playnet']['remote_playnet_smsc'];
+			$ws .= '&smsc=' . $c_plugin_config['playnet']['remote_playnet_smsc'];
 			$ws .= '&u=' . $c_plugin_config['playnet']['remote_playnet_username'];
 			$ws .= '&p=' . $c_plugin_config['playnet']['remote_playnet_password'];
 			$response_raw = @file_get_contents($ws);
