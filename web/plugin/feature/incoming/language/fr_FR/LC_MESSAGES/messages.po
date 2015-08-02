@@ -10,8 +10,15 @@ msgstr ""
 "Faire une copie du message dans la boîte de réception de l'utilisateur "
 "lorsque un SMS entrant contient @nomutilisateur"
 
+msgid "Example"
+msgstr ""
+
 msgid "Fail to insert keyword"
 msgstr "Échec de l'insertion du mot-clé"
+
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
@@ -46,6 +53,10 @@ msgid ""
 msgstr ""
 "Le numéro de destinataire peut être associé avec le sender ID par défaut ou "
 "avec tous les sender ID approuvés"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"
@@ -86,6 +97,9 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Réglages"
+
+msgid "URL"
+msgstr ""
 
 msgid "keyword"
 msgstr "mot-clé"

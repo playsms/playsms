@@ -22,7 +22,7 @@ msgstr ""
 msgid "Fail to save route"
 msgstr ""
 
-msgid "Maximum 8 digits numeric only"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Prefix"

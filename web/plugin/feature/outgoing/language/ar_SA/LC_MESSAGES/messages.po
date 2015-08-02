@@ -38,8 +38,8 @@ msgstr "فشل حذف المسار"
 msgid "Fail to save route"
 msgstr "فشل حفظ المسار"
 
-msgid "Maximum 8 digits numeric only"
-msgstr "الحد الأقصى 8 خانات رقمية فقط"
+msgid "Multiple entries separated by comma"
+msgstr ""
 
 msgid "Prefix"
 msgstr "المقدمة"

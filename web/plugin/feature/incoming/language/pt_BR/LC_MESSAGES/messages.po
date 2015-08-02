@@ -10,8 +10,15 @@ msgstr ""
 "Copiar a mensagem para a caixa de entrada do usuário quando o SMScontiver "
 "@username"
 
+msgid "Example"
+msgstr ""
+
 msgid "Fail to insert keyword"
 msgstr "Falha ao inserir palavra-chave"
+
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Rotear todos os SMSs do sandbox para usuários"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "Alterações de rota para SMS recebidos foram salvas"
@@ -45,6 +52,10 @@ msgid ""
 msgstr ""
 "O número do destinatário pode combinar com o ID de remetente padrãoou com "
 "todos os IDs de remetente aprovados"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Rotear todos os SMSs do sandbox para usuários"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Rotear todos os SMSs do sandbox para usuários"
@@ -85,6 +96,9 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Configurações"
+
+msgid "URL"
+msgstr ""
 
 msgid "keyword"
 msgstr "palavra-chave"

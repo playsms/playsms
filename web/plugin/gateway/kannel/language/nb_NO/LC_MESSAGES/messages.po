@@ -17,14 +17,17 @@ msgstr "Bearerbox hostname eller IP"
 msgid "Changes have been made"
 msgstr "Endringer har blitt gjort"
 
+msgid "Configuration"
+msgstr ""
+
+msgid "DLR mask"
+msgstr ""
+
 msgid "Delivered to SMSC"
 msgstr "Levert til SMSC"
 
 msgid "Delivered to phone"
 msgstr "Levert til telefon"
-
-msgid "Delivery Report"
-msgstr "Leveranserapport"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
@@ -56,6 +59,10 @@ msgstr "Kannel admin passord"
 msgid "Kannel admin port"
 msgstr "Kannel admin port"
 
+#, fuzzy
+msgid "Kannel dlr-mask option"
+msgstr "Kannel admin host"
+
 msgid "Kannel specific"
 msgstr "Kannel spesifikt"
 
@@ -83,6 +90,9 @@ msgstr "Ikke-levert til SMSC"
 msgid "Non-Delivered to phone"
 msgstr "Ikke-levert til telefon"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Password"
 msgstr "Passord"
 
@@ -109,6 +119,10 @@ msgstr "Status"
 
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL til playSMS, hvis tom settes den til base-URL"
+
+#, fuzzy
+msgid "Update status"
+msgstr "Kannel status"
 
 msgid "Username"
 msgstr "Brukernavn"

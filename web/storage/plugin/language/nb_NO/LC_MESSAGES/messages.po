@@ -589,6 +589,9 @@ msgstr "Nåværende innloggede brukere kan ikke slettes"
 msgid "DEFAULT"
 msgstr "STANDARD"
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr "Daglig"
 
@@ -698,9 +701,6 @@ msgstr "Levert til SMSC"
 
 msgid "Delivered to phone"
 msgstr "Levert til telefon"
-
-msgid "Delivery Report"
-msgstr "Leveranserapport"
 
 msgid "Description"
 msgstr "Beskrivelse"
@@ -865,6 +865,9 @@ msgstr "Forbedre privatliv for underbrukere"
 msgid "Entries in CSV file have been imported"
 msgstr "Innhold is CSV-filen har blitt importert"
 
+msgid "Example"
+msgstr ""
+
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "Tilpasset SMS-URL"
@@ -937,9 +940,6 @@ msgstr "Kunne ikke legg til ny destinasjon"
 
 msgid "Fail to add route"
 msgstr "Kunne ikke legge til rute"
-
-msgid "Fail to connect to database"
-msgstr "Fail to connect to database"
 
 msgid "Fail to delete ACL"
 msgstr "Feil ved sletting av ACL"
@@ -1025,18 +1025,6 @@ msgstr "Feil ved redigering av gruppe-innboks"
 msgid "Fail to insert keyword"
 msgstr "Kunne ikke sette inn nøkkelord"
 
-msgid "Fail to load gateway"
-msgstr "Fail to load gateway"
-
-msgid "Fail to load language"
-msgstr "Fail to load language"
-
-msgid "Fail to load main config from registry"
-msgstr "Fail toload main config from registry"
-
-msgid "Fail to load themes"
-msgstr "Kunne ikke laste temaer"
-
 msgid "Fail to recover password"
 msgstr "Feil ved gjenoppretting av passord"
 
@@ -1064,9 +1052,8 @@ msgstr "Kunne ikke lagre konfigurasjonen"
 msgid "Fail to save email to SMS PIN"
 msgstr "Kunne ikke lagre email til SMS-PIN"
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+msgstr ""
 
 msgid "Fail to save preferences"
 msgstr "Kunne ikke lagre innstillingene"
@@ -1146,6 +1133,10 @@ msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 msgid "Forward"
 msgstr "Videresend"
 
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Diriger alle sandbox SMS til brukere"
+
 msgid "Forward message to email"
 msgstr "Videresend melding til email"
 
@@ -1197,6 +1188,9 @@ msgstr "Kjr"
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Gå til hovedkonfigurasjon eller håndter nettside for å redigere denne siden"
+
+msgid "Go to manage site menu to edit this page"
+msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Totalt antall SMS"
@@ -1357,6 +1351,9 @@ msgstr "Kannel admin passord"
 msgid "Kannel admin port"
 msgstr "Kannel admin port"
 
+msgid "Kannel dlr-mask option"
+msgstr ""
+
 msgid "Kannel specific"
 msgstr "Kannel spesifikt"
 
@@ -1427,6 +1424,12 @@ msgstr "Liste av brukere"
 
 msgid "Local number length"
 msgstr "Lokalnummer-lengde"
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
 
 msgid "Logged in as"
 msgstr "Logget inn som"
@@ -1535,23 +1538,22 @@ msgstr "Håndter brannmur"
 msgid "Manage gammu"
 msgstr "Håndter gammu"
 
-msgid "Manage gateway"
-msgstr "Håndter gateway"
-
 msgid "Manage gateway and SMSC"
 msgstr "Hndter gateway og SMSC"
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
 
+#, fuzzy
 msgid "Manage kannel"
-msgstr ""
+msgstr "Håndter konto"
 
 msgid "Manage nexmo"
 msgstr "Håndter nexmo"
 
+#, fuzzy
 msgid "Manage playnet"
-msgstr ""
+msgstr "Håndter konto"
 
 msgid "Manage plugin"
 msgstr "Håndter plugin"
@@ -1577,20 +1579,11 @@ msgstr "Håndter smstools"
 msgid "Manage stoplist"
 msgstr "Hndter stoppliste"
 
-msgid "Manage sub-account"
-msgstr "Håndter underkonto"
-
-msgid "Manage sub-accounts"
-msgstr "Håndter underkontoer"
-
 msgid "Manage subscribe"
 msgstr "Håndter abonnement"
 
 msgid "Manage subuser"
 msgstr "Hndter underbruker"
-
-msgid "Manage subusers"
-msgstr "Håndter underbrukere"
 
 msgid "Manage sync"
 msgstr "Håndter sync"
@@ -1606,9 +1599,6 @@ msgstr "Håndter twilio"
 
 msgid "Manage uplink"
 msgstr "Håndter uplink"
-
-msgid "Manage user"
-msgstr "Håndter bruker"
 
 msgid "Mandatory fields must not be empty"
 msgstr "Påkrevde felter kan ikke være tomme"
@@ -1627,9 +1617,6 @@ msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Maks. 30 alfanummeriske tegn"
-
-msgid "Maximum 8 digits numeric only"
-msgstr "Maksimum 8 nummeriske tegn"
 
 msgid "Maximum SMS count"
 msgstr "Maksimum antall SMS"
@@ -1860,6 +1847,9 @@ msgstr "Plogget"
 msgid "Only when the sender ID is approved"
 msgstr "Kun når avsenderID-en er godkjent"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr "Innstillinger"
 
@@ -1929,9 +1919,6 @@ msgstr "Telefonbok"
 
 msgid "Please remove all subusers from this user to delete"
 msgstr "Vennligst fjern alle underbrukere fra denne brukeren for å slette"
-
-msgid "Please run composer.phar update"
-msgstr "Vennligst kjør composer.phar oppdatering"
 
 msgid "Please select"
 msgstr "Vennligst velg"
@@ -2096,6 +2083,21 @@ msgstr "Registrer konto"
 msgid "Registered"
 msgstr "Registrert"
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Forny webservices token"
 
@@ -2158,6 +2160,10 @@ msgstr "Retur"
 
 msgid "Route SMS outgoing"
 msgstr "Diriger utgående SMS"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Diriger alle sandbox SMS til brukere"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Diriger alle sandbox SMS til brukere"
@@ -2513,6 +2519,9 @@ msgstr "Valgte brukere"
 msgid "Send"
 msgstr "Send"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "SMS-avsender hostname eller IP"
 
@@ -2530,9 +2539,6 @@ msgstr "Send fra fil"
 
 msgid "Send from file has been cancelled"
 msgstr "Send fra fil har blitt avbrutt"
-
-msgid "Send message"
-msgstr "Send beskjed"
 
 msgid "Send message failed due to insufficient funds"
 msgstr "Sending av melding har misslykkes på grunn av kredittmangel"
@@ -2739,6 +2745,9 @@ msgstr "Prøv å deaktivere SMS footer på master"
 msgid "Twilio URL"
 msgstr "Twilio URL"
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL til playSMS, hvis tom settes den til base-URL"
 
@@ -2768,9 +2777,6 @@ msgstr ""
 "Kan ikke slette denne brukeren før alle underbrukere under denne brukeren "
 "har blitt fjernet"
 
-msgid "Unable to find composer files"
-msgstr "Kan ikke finne composer-filer"
-
 msgid "Unable to login"
 msgstr "Kan ikke logge ut"
 
@@ -2780,9 +2786,8 @@ msgstr "Kan ikke behandle underbruker-tilføyelse"
 msgid "Unable to process user addition"
 msgstr "Kan ikke behandle bruker-tilføyelse"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Gateway-modul konfigurasjoner har blitt lagret"
+msgstr ""
 
 msgid "Unable to unban account"
 msgstr "Kunne ikke fjerne bannlysning av konto"
@@ -2807,6 +2812,9 @@ msgstr "Ukjent svar-format"
 
 msgid "Unlimited"
 msgstr "Ubegrenset"
+
+msgid "Update status"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Opplast fil"
@@ -2949,6 +2957,9 @@ msgstr "Nettside-tittel"
 
 msgid "Weekly"
 msgstr "Ukentlig"
+
+msgid "Welcome information"
+msgstr ""
 
 msgid "Whose online"
 msgstr "Hvem er online"

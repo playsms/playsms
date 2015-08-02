@@ -37,7 +37,7 @@ msgstr "Не удалось удалить маршрут"
 msgid "Fail to save route"
 msgstr "Не удалось сохранить маршрут"
 
-msgid "Maximum 8 digits numeric only"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Prefix"

@@ -1,22 +1,19 @@
-msgid "Additional URL parameter"
-msgstr ""
-
-msgid "All mandatory fields must be filled"
+msgid "Changes have been made"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
-msgid "Gateway module configurations has been saved"
-msgstr ""
-
 msgid "Gateway name"
 msgstr ""
 
-msgid "Manage playnet"
+msgid "Local playnet password"
 msgstr ""
 
-msgid "Master URL"
+msgid "Local playnet username"
+msgstr ""
+
+msgid "Manage playnet"
 msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -28,23 +25,23 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
-msgid "Try to disable SMS footer on master"
-msgstr ""
-
-msgid "Unable to save gateway module configurations"
-msgstr ""
-
-msgid "Webservice token"
-msgstr ""
-
-msgid "Webservice username"
-msgstr ""
-
-msgid "no"
-msgstr ""
-
-msgid "yes"
+msgid "Send SMS from remote using local username"
 msgstr ""

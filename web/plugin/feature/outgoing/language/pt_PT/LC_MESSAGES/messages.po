@@ -37,8 +37,8 @@ msgstr "Erro ao remover a rota"
 msgid "Fail to save route"
 msgstr "Erro ao guardar a rota"
 
-msgid "Maximum 8 digits numeric only"
-msgstr "Máximo 8 dígitos apenas numérico"
+msgid "Multiple entries separated by comma"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Prefixo"

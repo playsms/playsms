@@ -35,7 +35,7 @@ msgstr "删除等级失败"
 msgid "Fail to save route"
 msgstr "保存等级失败"
 
-msgid "Maximum 8 digits numeric only"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Prefix"

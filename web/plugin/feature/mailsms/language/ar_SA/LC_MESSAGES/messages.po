@@ -71,6 +71,9 @@ msgstr "الرقم السري لتوجيه البريد للرسائل القص�
 msgid "PIN is empty"
 msgstr "الرقم السري فارغ."
 
+msgid "Save"
+msgstr ""
+
 msgid "Use SSL"
 msgstr "استخدم SSL"
 

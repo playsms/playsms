@@ -594,6 +594,9 @@ msgstr "Utilizador conectado no momento é imune a eliminação"
 msgid "DEFAULT"
 msgstr "Padrão"
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr "Diariamente"
 
@@ -703,9 +706,6 @@ msgstr "Recebido pelo SMSC"
 
 msgid "Delivered to phone"
 msgstr "Recebido pelo telefone"
-
-msgid "Delivery Report"
-msgstr "Relatório de entrega"
 
 msgid "Description"
 msgstr "Descrição"
@@ -872,6 +872,9 @@ msgstr "Reforçar a privacidade para subutlizador"
 msgid "Entries in CSV file have been imported"
 msgstr "Entradas do ficheiro CSV foram importados"
 
+msgid "Example"
+msgstr ""
+
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "URL do SMS personalizado"
@@ -945,9 +948,6 @@ msgstr "Erro ao adicionar novo destinatário"
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Erro ao guardar a rota"
-
-msgid "Fail to connect to database"
-msgstr "Erro na ligação à base de dados"
 
 msgid "Fail to delete ACL"
 msgstr "Erro ao eliminar ACL"
@@ -1033,18 +1033,6 @@ msgstr "Erro  ao habilitar grupo de caixa de entrada"
 msgid "Fail to insert keyword"
 msgstr "erro ao inserir palavra-chave"
 
-msgid "Fail to load gateway"
-msgstr "Erro ao carregar o gateway"
-
-msgid "Fail to load language"
-msgstr "Erro ao carregar o idioma"
-
-msgid "Fail to load main config from registry"
-msgstr "Erro ao carregar a configuração a partir do registo"
-
-msgid "Fail to load themes"
-msgstr "Erro ao carregar tema"
-
 msgid "Fail to recover password"
 msgstr "Falha ao recuperar a palavra-passe"
 
@@ -1072,9 +1060,8 @@ msgstr "Erro ao salvar as configurações"
 msgid "Fail to save email to SMS PIN"
 msgstr "Erro ao guardar configurações e-mail para SMS"
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "Configurações do módulo de gateway foram guardadas"
+msgstr ""
 
 msgid "Fail to save preferences"
 msgstr "Erro ao gravar as preferências"
@@ -1154,6 +1141,10 @@ msgstr "Formato YYYY-MM-DD hh:mm"
 msgid "Forward"
 msgstr "Encaminhar"
 
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Roteamento de todas as mensagens sandbox para todos os utilizadores "
+
 msgid "Forward message to email"
 msgstr "Reencaminhar mensagem para o email"
 
@@ -1205,6 +1196,9 @@ msgstr "Ir"
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Ir para a configuração principal ou gerir o site para editar esta página"
+
+msgid "Go to manage site menu to edit this page"
+msgstr ""
 
 msgid "Grand total SMS"
 msgstr "SMS Total"
@@ -1364,6 +1358,9 @@ msgstr "Palavra-passe de administrador Kannel"
 msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
 
+msgid "Kannel dlr-mask option"
+msgstr ""
+
 msgid "Kannel specific"
 msgstr "Específico do Kannel"
 
@@ -1434,6 +1431,12 @@ msgstr "Lista de Utilizadores"
 
 msgid "Local number length"
 msgstr "Comprimento número local"
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
 
 msgid "Logged in as"
 msgstr "Logado como"
@@ -1543,9 +1546,6 @@ msgstr "Gerir Firewall"
 msgid "Manage gammu"
 msgstr "Gerir gammu"
 
-msgid "Manage gateway"
-msgstr "Gerir gateway"
-
 msgid "Manage gateway and SMSC"
 msgstr "Gerir gateway e SMSC"
 
@@ -1558,8 +1558,9 @@ msgstr "Gerir kannel"
 msgid "Manage nexmo"
 msgstr "Gerir nexmo"
 
+#, fuzzy
 msgid "Manage playnet"
-msgstr ""
+msgstr "Gerir conta"
 
 msgid "Manage plugin"
 msgstr "Gerir Plugin"
@@ -1585,20 +1586,11 @@ msgstr "Gerir smstools"
 msgid "Manage stoplist"
 msgstr ""
 
-msgid "Manage sub-account"
-msgstr "Gerir subconta"
-
-msgid "Manage sub-accounts"
-msgstr "Gerir subcontas"
-
 msgid "Manage subscribe"
 msgstr "Gerir Subscrições"
 
 msgid "Manage subuser"
 msgstr "Gerir subutilizador"
-
-msgid "Manage subusers"
-msgstr "Gerir subutilizadores"
 
 msgid "Manage sync"
 msgstr "Gerir Sync"
@@ -1614,9 +1606,6 @@ msgstr "Gerir twilio"
 
 msgid "Manage uplink"
 msgstr "Gerir uplink"
-
-msgid "Manage user"
-msgstr "Gerir Utilizadores"
 
 msgid "Mandatory fields must not be empty"
 msgstr "Os campos obrigatórios não devem estar vazio"
@@ -1637,9 +1626,6 @@ msgstr "Max. 16 numérico ou 11 caracteres alfanuméricos"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Max. 30 caracteres alfanuméricos"
-
-msgid "Maximum 8 digits numeric only"
-msgstr "Máximo 8 dígitos apenas numérico"
 
 msgid "Maximum SMS count"
 msgstr "Máximo de SMS por mensagem"
@@ -1674,9 +1660,9 @@ msgstr "Membros"
 msgid "Message"
 msgstr "Mensagem"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Message %s has been delivered to queue"
-msgstr "Sua mensagem foi entregue para a fila"
+msgstr ""
 
 msgid "Message ID"
 msgstr "ID da Mensagem"
@@ -1871,6 +1857,9 @@ msgstr "Online"
 msgid "Only when the sender ID is approved"
 msgstr "Só quando a ID de remetente é aprovado"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr "Opções"
 
@@ -1942,9 +1931,6 @@ msgstr "Agenda"
 msgid "Please remove all subusers from this user to delete"
 msgstr ""
 "Por favor remova todos os sub-utilizadores deste utilizador para poder apagar"
-
-msgid "Please run composer.phar update"
-msgstr "Por favor execute a atualização do composer.phar"
 
 msgid "Please select"
 msgstr "Por favor selecione"
@@ -2113,6 +2099,21 @@ msgstr "Registar uma conta"
 msgid "Registered"
 msgstr "Registado"
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Renovar webservices token"
 
@@ -2175,6 +2176,10 @@ msgstr "Voltar"
 
 msgid "Route SMS outgoing"
 msgstr "Rota de saída de SMS"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Roteamento de todas as mensagens sandbox para todos os utilizadores "
 
 msgid "Route all sandbox SMS to users"
 msgstr "Roteamento de todas as mensagens sandbox para todos os utilizadores "
@@ -2526,6 +2531,9 @@ msgstr "Utilizadores selecionados"
 msgid "Send"
 msgstr "Enviar"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "Enviar hostname do SMS ou IP"
 
@@ -2544,9 +2552,6 @@ msgstr "Enviar de arquivo"
 
 msgid "Send from file has been cancelled"
 msgstr "Enviar de arquivo foi cancelado"
-
-msgid "Send message"
-msgstr "Enviar mensagem"
 
 msgid "Send message failed due to insufficient funds"
 msgstr ""
@@ -2752,6 +2757,9 @@ msgstr "Tentar desativar mensagem rodapé SMS no servidor principal"
 msgid "Twilio URL"
 msgstr "URL Twilio"
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL do playSMS, deixe em branco para usar a URL base"
 
@@ -2781,9 +2789,6 @@ msgstr ""
 "Não é possível excluir esse utilizador até que todos os sub-utilizadores "
 "deste utilizador sejam removidos"
 
-msgid "Unable to find composer files"
-msgstr "Incapaz de encontrar ficheiros composer"
-
 msgid "Unable to login"
 msgstr "Impossível fazer login"
 
@@ -2793,9 +2798,8 @@ msgstr "Não é possível processar o sub-utilizador"
 msgid "Unable to process user addition"
 msgstr "Não é possível processar o utilizador"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Configurações do módulo de gateway foram guardadas"
+msgstr ""
 
 msgid "Unable to unban account"
 msgstr "Não é possível remover ban da conta"
@@ -2820,6 +2824,9 @@ msgstr "Formato de resposta desconhecido"
 
 msgid "Unlimited"
 msgstr "Ilimitado"
+
+msgid "Update status"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Enviar arquivo"
@@ -2969,6 +2976,9 @@ msgstr "Titulo do Site"
 msgid "Weekly"
 msgstr "Semanal"
 
+msgid "Welcome information"
+msgstr ""
+
 msgid "Whose online"
 msgstr "Quem está online"
 
@@ -3039,9 +3049,8 @@ msgstr "O seu URL de callback tem que ser acessível a partir de infobip"
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Sua URL callback deve estar acessível pelo Nexmo"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr "Sua URL callback deve estar acessível pelo Nexmo"
+msgstr ""
 
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Sua URL de callback deve ser acessível pelo Twilio"

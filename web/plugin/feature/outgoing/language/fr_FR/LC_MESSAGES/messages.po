@@ -31,8 +31,8 @@ msgstr "Échec de la suppression de la route"
 msgid "Fail to save route"
 msgstr "Échec de l'enregistrement de la route"
 
-msgid "Maximum 8 digits numeric only"
-msgstr "Maximum 8 chiffres uniquement numériques"
+msgid "Multiple entries separated by comma"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Préfixe"

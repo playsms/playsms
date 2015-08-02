@@ -151,8 +151,9 @@ msgstr "Tambah layanan SMS berlangganan"
 msgid "Add SMSC"
 msgstr ""
 
+#, fuzzy
 msgid "Add account"
-msgstr ""
+msgstr "Akun saya"
 
 msgid "Add blocked IP addresses"
 msgstr ""
@@ -203,11 +204,13 @@ msgstr "Tambah tarif"
 msgid "Add route"
 msgstr "Tambah tarif"
 
+#, fuzzy
 msgid "Add sender ID"
-msgstr ""
+msgstr "ID pengirim SMS"
 
+#, fuzzy
 msgid "Add subuser"
-msgstr ""
+msgstr "Pengaturan pengguna"
 
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
@@ -283,8 +286,9 @@ msgstr ""
 msgid "Application options"
 msgstr ""
 
+#, fuzzy
 msgid "Approve sender ID"
-msgstr ""
+msgstr "ID pengirim SMS"
 
 msgid "Are you sure ?"
 msgstr ""
@@ -420,13 +424,11 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-#, fuzzy
 msgid "Bulksms API URL"
-msgstr "URL Clickatell API"
+msgstr ""
 
-#, fuzzy
 msgid "Bulksms is a bulk SMS provider"
-msgstr "Clickatell adalah penyedia SMS bulk"
+msgstr ""
 
 msgid "Bulksms will push DLR and incoming SMS to your callback URL"
 msgstr ""
@@ -525,8 +527,9 @@ msgstr ""
 msgid "Compose message"
 msgstr ""
 
+#, fuzzy
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigurasi utama"
 
 msgid "Confirmation"
 msgstr "Konfirmasi"
@@ -582,6 +585,9 @@ msgstr ""
 msgid "DEFAULT"
 msgstr ""
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr ""
 
@@ -618,8 +624,9 @@ msgstr ""
 msgid "Default default_queue directory"
 msgstr ""
 
+#, fuzzy
 msgid "Default language"
-msgstr ""
+msgstr "Bahasa default"
 
 msgid "Default message footer"
 msgstr ""
@@ -639,14 +646,16 @@ msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
 
+#, fuzzy
 msgid "Default sender ID"
-msgstr ""
+msgstr "ID pengirim SMS"
 
 msgid "Default settings"
 msgstr ""
 
+#, fuzzy
 msgid "Default site configuration"
-msgstr ""
+msgstr "Konfigurasi utama"
 
 msgid "Default timezone"
 msgstr ""
@@ -686,9 +695,6 @@ msgstr "Dikirim ke SMSC"
 msgid "Delivered to phone"
 msgstr "Dikirim ke telepon"
 
-msgid "Delivery Report"
-msgstr "Laporan terkirim"
-
 msgid "Description"
 msgstr "Deskripsi"
 
@@ -720,8 +726,9 @@ msgstr ""
 msgid "Edit"
 msgstr "Sunting"
 
+#, fuzzy
 msgid "Edit ACL"
-msgstr ""
+msgstr "Sunting"
 
 #, fuzzy
 msgid "Edit SMS autoreply"
@@ -751,8 +758,9 @@ msgstr "Ubah kuis SMS"
 msgid "Edit SMS subscribe"
 msgstr "Ubah langganan SMS"
 
+#, fuzzy
 msgid "Edit SMSC"
-msgstr ""
+msgstr "Sunting"
 
 msgid "Edit contact"
 msgstr "Ubah kontak"
@@ -782,8 +790,9 @@ msgstr "Ubah tarif"
 msgid "Edit schedule"
 msgstr ""
 
+#, fuzzy
 msgid "Edit sender ID"
-msgstr ""
+msgstr "ID pengirim SMS"
 
 msgid "Effective SMS sender ID"
 msgstr ""
@@ -854,6 +863,9 @@ msgstr ""
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Example"
+msgstr ""
+
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "URL SMS kustom"
@@ -912,14 +924,16 @@ msgstr "Gagal tambah pesan"
 msgid "Fail to add message template"
 msgstr "Gagal menambah template pesan"
 
+#, fuzzy
 msgid "Fail to add new ACL"
-msgstr ""
+msgstr "Isi untuk memperbaharui"
 
 msgid "Fail to add new SMS schedule"
 msgstr ""
 
+#, fuzzy
 msgid "Fail to add new SMSC"
-msgstr ""
+msgstr "Isi untuk memperbaharui"
 
 msgid "Fail to add new destination"
 msgstr ""
@@ -927,9 +941,6 @@ msgstr ""
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Gagal menyimpan tarif"
-
-msgid "Fail to connect to database"
-msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1016,21 +1027,6 @@ msgstr "Gagal mengaktifkan grup kotak masuk"
 msgid "Fail to insert keyword"
 msgstr ""
 
-#, fuzzy
-msgid "Fail to load gateway"
-msgstr "Isi untuk memperbaharui"
-
-#, fuzzy
-msgid "Fail to load language"
-msgstr "Bahasa default"
-
-msgid "Fail to load main config from registry"
-msgstr ""
-
-#, fuzzy
-msgid "Fail to load themes"
-msgstr "Gagal mengirim SMS"
-
 msgid "Fail to recover password"
 msgstr ""
 
@@ -1052,18 +1048,19 @@ msgstr "Gagal menyimpan perintah SMS"
 msgid "Fail to save SMS custom"
 msgstr "Gagal menyimpan SMS kustom"
 
+#, fuzzy
 msgid "Fail to save configuration"
-msgstr ""
+msgstr "Konfigurasi utama"
 
 msgid "Fail to save email to SMS PIN"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "Konfigurasi modul gateway telah disimpan"
-
-msgid "Fail to save preferences"
 msgstr ""
+
+#, fuzzy
+msgid "Fail to save preferences"
+msgstr "Preferensi"
 
 msgid "Fail to save rate"
 msgstr "Gagal menyimpan tarif"
@@ -1078,8 +1075,9 @@ msgstr ""
 msgid "Fail to send SMS"
 msgstr "Gagal mengirim SMS"
 
+#, fuzzy
 msgid "Fail to send email"
-msgstr ""
+msgstr "Gagal mengirim SMS"
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1127,8 +1125,9 @@ msgstr "Isi untuk merubah kata sandi"
 msgid "Fill with zero to disable limit"
 msgstr ""
 
+#, fuzzy
 msgid "Flash message"
-msgstr ""
+msgstr "Pesan unicode"
 
 msgid "Footer"
 msgstr ""
@@ -1141,6 +1140,9 @@ msgstr ""
 
 msgid "Forward"
 msgstr "Teruskan"
+
+msgid "Forward all sandbox SMS to a URL"
+msgstr ""
 
 msgid "Forward message to email"
 msgstr ""
@@ -1172,9 +1174,8 @@ msgstr ""
 msgid "Gateway"
 msgstr ""
 
-#, fuzzy
 msgid "Gateway host"
-msgstr "Nama gateway"
+msgstr ""
 
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
@@ -1182,9 +1183,8 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-#, fuzzy
 msgid "Gateway port"
-msgstr "Nama gateway"
+msgstr ""
 
 msgid "Gateways"
 msgstr ""
@@ -1193,6 +1193,9 @@ msgid "Go"
 msgstr "Jalankan"
 
 msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+
+msgid "Go to manage site menu to edit this page"
 msgstr ""
 
 msgid "Grand total SMS"
@@ -1250,9 +1253,8 @@ msgstr "Nama grup"
 msgid "HTML output"
 msgstr "Keluaran HTML"
 
-#, fuzzy
 msgid "HTTP Kannel admin host"
-msgstr "Port admin kannel"
+msgstr ""
 
 msgid "HTTP Kannel admin password"
 msgstr ""
@@ -1333,8 +1335,9 @@ msgstr "File CSV tidak valid"
 msgid "Invalid entries"
 msgstr "Entri tidak valid"
 
+#, fuzzy
 msgid "Invalid sender ID"
-msgstr ""
+msgstr "ID pengirim SMS"
 
 msgid "Invalid session ID"
 msgstr "Sesi ID tidak valid"
@@ -1345,15 +1348,17 @@ msgstr ""
 msgid "JSON output"
 msgstr "Keluaran JSON"
 
-#, fuzzy
 msgid "Kannel admin host"
-msgstr "Port admin kannel"
+msgstr ""
 
 msgid "Kannel admin password"
 msgstr "Password admin kannel"
 
 msgid "Kannel admin port"
 msgstr "Port admin kannel"
+
+msgid "Kannel dlr-mask option"
+msgstr ""
 
 msgid "Kannel specific"
 msgstr ""
@@ -1389,17 +1394,20 @@ msgstr ""
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
 
+#, fuzzy
 msgid "List of accounts"
-msgstr ""
+msgstr "Akun saya"
 
+#, fuzzy
 msgid "List of administrators"
-msgstr ""
+msgstr "Administrator"
 
 msgid "List of destinations"
 msgstr ""
 
+#, fuzzy
 msgid "List of gateways and SMSCs"
-msgstr ""
+msgstr "Pengaturan pengguna"
 
 #, php-format
 msgid "List of messages from %s"
@@ -1424,6 +1432,12 @@ msgstr ""
 msgid "Local number length"
 msgstr ""
 
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
+
 msgid "Logged in as"
 msgstr ""
 
@@ -1433,8 +1447,9 @@ msgstr ""
 msgid "Login as"
 msgstr ""
 
+#, fuzzy
 msgid "Login information"
-msgstr ""
+msgstr "Konfigurasi utama"
 
 msgid "Logo URL"
 msgstr ""
@@ -1467,8 +1482,9 @@ msgstr ""
 msgid "Main configuration"
 msgstr "Konfigurasi utama"
 
+#, fuzzy
 msgid "Main configuration changes has been saved"
-msgstr ""
+msgstr "Konfigurasi utama"
 
 msgid "Main website URL"
 msgstr ""
@@ -1487,7 +1503,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Manage OpenVox"
-msgstr "Pengaturan nexmo"
+msgstr "Pengaturan pengguna"
 
 msgid "Manage SMS rate"
 msgstr "Pengaturan tarif SMS"
@@ -1500,13 +1516,14 @@ msgstr "Pengaturan balas SMS otomatis"
 
 #, fuzzy
 msgid "Manage blocked"
-msgstr "Pengaturan dev"
+msgstr "Pengaturan pengguna"
 
 msgid "Manage board"
 msgstr "Pengaturan papan SMS"
 
+#, fuzzy
 msgid "Manage bulksms"
-msgstr ""
+msgstr "Pengaturan pengguna"
 
 msgid "Manage clickatell"
 msgstr "Pengaturan clickatell"
@@ -1532,10 +1549,6 @@ msgstr ""
 msgid "Manage gammu"
 msgstr "Pengaturan gammu"
 
-#, fuzzy
-msgid "Manage gateway"
-msgstr "Pengaturan pengguna"
-
 msgid "Manage gateway and SMSC"
 msgstr ""
 
@@ -1548,8 +1561,9 @@ msgstr "Pengaturan kannel"
 msgid "Manage nexmo"
 msgstr "Pengaturan nexmo"
 
+#, fuzzy
 msgid "Manage playnet"
-msgstr ""
+msgstr "Akun saya"
 
 msgid "Manage plugin"
 msgstr ""
@@ -1575,29 +1589,18 @@ msgstr "Pengaturan smstools"
 msgid "Manage stoplist"
 msgstr ""
 
-#, fuzzy
-msgid "Manage sub-account"
-msgstr "Pengaturan pengguna"
-
-#, fuzzy
-msgid "Manage sub-accounts"
-msgstr "Pengaturan pengguna"
-
 msgid "Manage subscribe"
 msgstr "Pengaturan SMS berlangganan"
 
 msgid "Manage subuser"
 msgstr ""
 
-#, fuzzy
-msgid "Manage subusers"
-msgstr "Pengaturan pengguna"
-
 msgid "Manage sync"
 msgstr ""
 
+#, fuzzy
 msgid "Manage telerivet"
-msgstr ""
+msgstr "Pengaturan pengguna"
 
 msgid "Manage template"
 msgstr "Pengaturan template"
@@ -1607,9 +1610,6 @@ msgstr "Pengaturan twilio"
 
 msgid "Manage uplink"
 msgstr "Pengaturan uplink"
-
-msgid "Manage user"
-msgstr "Pengaturan pengguna"
 
 msgid "Mandatory fields must not be empty"
 msgstr ""
@@ -1628,9 +1628,6 @@ msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr ""
 
 msgid "Max. 30 alphanumeric characters"
-msgstr ""
-
-msgid "Maximum 8 digits numeric only"
 msgstr ""
 
 msgid "Maximum SMS count"
@@ -1863,6 +1860,9 @@ msgstr ""
 msgid "Only when the sender ID is approved"
 msgstr ""
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr ""
 
@@ -1875,11 +1875,13 @@ msgstr ""
 msgid "PIN is empty"
 msgstr ""
 
+#, fuzzy
 msgid "Page content"
-msgstr ""
+msgstr "Akun saya"
 
+#, fuzzy
 msgid "Page title"
-msgstr ""
+msgstr "Pengaturan pengguna"
 
 msgid "Param"
 msgstr "Param"
@@ -1887,8 +1889,9 @@ msgstr "Param"
 msgid "Parent"
 msgstr ""
 
+#, fuzzy
 msgid "Parent account"
-msgstr ""
+msgstr "Akun saya"
 
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
@@ -1929,9 +1932,6 @@ msgid "Phonebook"
 msgstr "Buku telepon"
 
 msgid "Please remove all subusers from this user to delete"
-msgstr ""
-
-msgid "Please run composer.phar update"
 msgstr ""
 
 msgid "Please select"
@@ -2093,10 +2093,26 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+#, fuzzy
 msgid "Register an account"
-msgstr ""
+msgstr "Akun saya"
 
 msgid "Registered"
+msgstr ""
+
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
 msgstr ""
 
 msgid "Renew webservices token"
@@ -2163,6 +2179,9 @@ msgid "Return"
 msgstr "Kembali"
 
 msgid "Route SMS outgoing"
+msgstr ""
+
+msgid "Route all sandbox SMS to one or more users"
 msgstr ""
 
 msgid "Route all sandbox SMS to users"
@@ -2517,6 +2536,9 @@ msgstr "Pengguna yang dipilih"
 msgid "Send"
 msgstr "Kirim"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "Nama alamat Send SMS atau IP"
 
@@ -2534,10 +2556,6 @@ msgstr "Kirim dari file"
 
 msgid "Send from file has been cancelled"
 msgstr "Kirim dari file telah dibatalkan"
-
-#, fuzzy
-msgid "Send message"
-msgstr "Pesan unicode"
 
 msgid "Send message failed due to insufficient funds"
 msgstr ""
@@ -2562,8 +2580,9 @@ msgstr ""
 msgid "Sender"
 msgstr "Pengirim"
 
+#, fuzzy
 msgid "Sender ID"
-msgstr ""
+msgstr "ID pengirim SMS"
 
 msgid "Sender ID description has been added"
 msgstr ""
@@ -2632,8 +2651,9 @@ msgstr ""
 msgid "Simulate incoming SMS"
 msgstr "Simulasikan SMS masuk"
 
+#, fuzzy
 msgid "Site configuration"
-msgstr ""
+msgstr "Konfigurasi utama"
 
 msgid "Site configuration has been saved"
 msgstr ""
@@ -2741,6 +2761,9 @@ msgstr ""
 msgid "Twilio URL"
 msgstr "twilio URL"
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
@@ -2750,26 +2773,25 @@ msgstr ""
 msgid "Unable to add group"
 msgstr ""
 
+#, fuzzy
 msgid "Unable to ban account"
-msgstr ""
+msgstr "Akun saya"
 
+#, fuzzy
 msgid "Unable to ban subuser"
-msgstr ""
+msgstr "Pengaturan pengguna"
 
 msgid "Unable to delete group until the group is empty"
 msgstr ""
 
+#, fuzzy
 msgid "Unable to delete other users"
-msgstr ""
+msgstr "Tidak dapat memperbaharui sesi login"
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
 msgstr ""
-
-#, fuzzy
-msgid "Unable to find composer files"
-msgstr "Tidak dapat memperbaharui sesi login"
 
 msgid "Unable to login"
 msgstr ""
@@ -2780,9 +2802,8 @@ msgstr ""
 msgid "Unable to process user addition"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Konfigurasi modul gateway telah disimpan"
+msgstr ""
 
 msgid "Unable to unban account"
 msgstr ""
@@ -2793,8 +2814,9 @@ msgstr ""
 msgid "Unban"
 msgstr ""
 
+#, fuzzy
 msgid "Unicode message"
-msgstr ""
+msgstr "Pesan unicode"
 
 msgid "Unknown error"
 msgstr ""
@@ -2806,6 +2828,9 @@ msgid "Unknown format reply"
 msgstr "Balasan format SMS tidak dikenal"
 
 msgid "Unlimited"
+msgstr ""
+
+msgid "Update status"
 msgstr ""
 
 msgid "Upload file"
@@ -2832,8 +2857,9 @@ msgstr ""
 msgid "User configuration"
 msgstr ""
 
+#, fuzzy
 msgid "User configuration has been saved"
-msgstr ""
+msgstr "Konfigurasi utama"
 
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
@@ -2949,6 +2975,9 @@ msgstr ""
 msgid "Weekly"
 msgstr ""
 
+msgid "Welcome information"
+msgstr ""
+
 msgid "Whose online"
 msgstr ""
 
@@ -3001,9 +3030,8 @@ msgstr ""
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
-#, fuzzy
 msgid "Your DLR URL is"
-msgstr "URL balasan anda adalah"
+msgstr ""
 
 msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"
@@ -3023,9 +3051,8 @@ msgstr ""
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
+msgstr ""
 
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Callback URL seharusnya dapat diakses oleh Twilio"

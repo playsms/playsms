@@ -7,13 +7,16 @@ msgstr ""
 msgid "Changes have been made"
 msgstr ""
 
+msgid "Configuration"
+msgstr ""
+
+msgid "DLR mask"
+msgstr ""
+
 msgid "Delivered to SMSC"
 msgstr ""
 
 msgid "Delivered to phone"
-msgstr ""
-
-msgid "Delivery Report"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
@@ -46,6 +49,9 @@ msgstr ""
 msgid "Kannel admin port"
 msgstr ""
 
+msgid "Kannel dlr-mask option"
+msgstr ""
+
 msgid "Kannel specific"
 msgstr ""
 
@@ -73,6 +79,9 @@ msgstr ""
 msgid "Non-Delivered to phone"
 msgstr ""
 
+msgid "Operational"
+msgstr ""
+
 msgid "Password"
 msgstr ""
 
@@ -98,6 +107,9 @@ msgid "Status"
 msgstr ""
 
 msgid "URL to playSMS, empty it to set it to base URL"
+msgstr ""
+
+msgid "Update status"
 msgstr ""
 
 msgid "Username"

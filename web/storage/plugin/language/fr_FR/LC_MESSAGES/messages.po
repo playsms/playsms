@@ -601,6 +601,9 @@ msgstr "L'utilisateur actuellement connecté est immunisé contre la suppression
 msgid "DEFAULT"
 msgstr "DÉFAUT"
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr "Chaque jour"
 
@@ -710,9 +713,6 @@ msgstr "Remis au SMSC"
 
 msgid "Delivered to phone"
 msgstr "Remis au téléphone"
-
-msgid "Delivery Report"
-msgstr "Rapport de livraison"
 
 msgid "Description"
 msgstr "Description"
@@ -879,6 +879,9 @@ msgstr "Améliorer la confidentialité pour les sous-utilisateurs"
 msgid "Entries in CSV file have been imported"
 msgstr "Les entrées dans le fichier CSV ont été importées"
 
+msgid "Example"
+msgstr ""
+
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "URL du script personnalisé"
@@ -952,9 +955,6 @@ msgstr "Échec de l'ajout de la nouvelle destination"
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Échec de l'enregistrement de la route"
-
-msgid "Fail to connect to database"
-msgstr "Échec de la connexion à la base de données"
 
 msgid "Fail to delete ACL"
 msgstr "Échec de la suppression de l'ACL"
@@ -1040,18 +1040,6 @@ msgstr "Échec de l'activation de la boîte de réception de groupe"
 msgid "Fail to insert keyword"
 msgstr "Échec de l'insertion du mot-clé"
 
-msgid "Fail to load gateway"
-msgstr "Échec du chargement de la passerelle"
-
-msgid "Fail to load language"
-msgstr "Échec du chargement de la langue"
-
-msgid "Fail to load main config from registry"
-msgstr "Échec du chargement de la configuration principale depuis le registry"
-
-msgid "Fail to load themes"
-msgstr "Échec du chargement des thèmes"
-
 msgid "Fail to recover password"
 msgstr "Échec de la récupération du mot de passe"
 
@@ -1079,9 +1067,8 @@ msgstr "Échec de l'enregistrement de la configuration"
 msgid "Fail to save email to SMS PIN"
 msgstr "Échec de l'enregistrement du PIN d'email vers SMS"
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "La configuration du module de passerelle a été enregistrée"
+msgstr ""
 
 msgid "Fail to save preferences"
 msgstr "Échec de l'enregistrement des préférences"
@@ -1092,9 +1079,8 @@ msgstr "Échec de l'enregistrement du tarif"
 msgid "Fail to save route"
 msgstr "Échec de l'enregistrement de la route"
 
-#, fuzzy
 msgid "Fail to save temporary password"
-msgstr "Échec de la récupération du mot de passe"
+msgstr ""
 
 msgid "Fail to send SMS"
 msgstr "Échec de l'envoi du SMS"
@@ -1162,6 +1148,10 @@ msgstr "Format AAAA-MM-JJ hh:mm"
 msgid "Forward"
 msgstr "Transfert"
 
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"
+
 msgid "Forward message to email"
 msgstr "Échec du transfert du message vers l'email"
 
@@ -1213,6 +1203,9 @@ msgstr "Aller"
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Aller vers configuration principale ou gérer site pour éditer cette page"
+
+msgid "Go to manage site menu to edit this page"
+msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Total général de SMS"
@@ -1375,6 +1368,9 @@ msgstr "Mot de passe de l'admin Kannel"
 msgid "Kannel admin port"
 msgstr "Port de l'admin Kannel"
 
+msgid "Kannel dlr-mask option"
+msgstr ""
+
 msgid "Kannel specific"
 msgstr "Spécifique à Kannel"
 
@@ -1445,6 +1441,12 @@ msgstr "Liste des utilisateurs"
 
 msgid "Local number length"
 msgstr "Longueur d'un numéro local"
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
 
 msgid "Logged in as"
 msgstr "Connecté en tant que"
@@ -1555,9 +1557,6 @@ msgstr "Gérer pare-feu"
 msgid "Manage gammu"
 msgstr "Gérer gammu"
 
-msgid "Manage gateway"
-msgstr "Gérer passerelle"
-
 msgid "Manage gateway and SMSC"
 msgstr "Gérer passerelle et SMSC"
 
@@ -1570,8 +1569,9 @@ msgstr "Gérer kannel"
 msgid "Manage nexmo"
 msgstr "Gérer nexmo"
 
+#, fuzzy
 msgid "Manage playnet"
-msgstr ""
+msgstr "Gérer compte"
 
 msgid "Manage plugin"
 msgstr "Gérer plugin"
@@ -1597,20 +1597,11 @@ msgstr "Gérer smstools"
 msgid "Manage stoplist"
 msgstr ""
 
-msgid "Manage sub-account"
-msgstr "Gérer sous-compte"
-
-msgid "Manage sub-accounts"
-msgstr "Gérer sous-comptes"
-
 msgid "Manage subscribe"
 msgstr "Gérer abonnement"
 
 msgid "Manage subuser"
 msgstr "Gérer sous-utilisateur"
-
-msgid "Manage subusers"
-msgstr "Gérer sous-utilisateurs"
 
 msgid "Manage sync"
 msgstr "Gérer sync"
@@ -1626,9 +1617,6 @@ msgstr "Gérer twilio"
 
 msgid "Manage uplink"
 msgstr "Gérer l'uplink"
-
-msgid "Manage user"
-msgstr "Gérer utilisateur"
 
 msgid "Mandatory fields must not be empty"
 msgstr "Les champs obligatoires ne doivent pas être vides"
@@ -1648,9 +1636,6 @@ msgstr "Max. 16 caractères numériques ou 11 alphanumériques"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Max. 30 caractères alphanumériques"
-
-msgid "Maximum 8 digits numeric only"
-msgstr "Maximum 8 chiffres uniquement numériques"
 
 msgid "Maximum SMS count"
 msgstr "Nombre maximum de SMS"
@@ -1687,9 +1672,9 @@ msgstr "Membres"
 msgid "Message"
 msgstr "Message"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Message %s has been delivered to queue"
-msgstr "Votre message a été réceptionné dans la file d'attente"
+msgstr ""
 
 msgid "Message ID"
 msgstr "ID du message"
@@ -1884,6 +1869,9 @@ msgstr "Connecté"
 msgid "Only when the sender ID is approved"
 msgstr "Uniquement lorsque le sender ID est approuvé"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr "Options"
 
@@ -1956,9 +1944,6 @@ msgid "Please remove all subusers from this user to delete"
 msgstr ""
 "Veuillez supprimer tous les sous-utilisateurs de cet utilisateur pour le "
 "supprimer"
-
-msgid "Please run composer.phar update"
-msgstr "Veuillez exécuter une mise à jour composer.phar"
 
 msgid "Please select"
 msgstr "Veuillez sélectionner"
@@ -2129,6 +2114,21 @@ msgstr "Inscrire un nouveau compte"
 msgid "Registered"
 msgstr "Inscrit"
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Renouveler le token de webservices"
 
@@ -2193,6 +2193,10 @@ msgstr "Retour"
 
 msgid "Route SMS outgoing"
 msgstr "Route SMS sortant"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Acheminer tous les SMS du bac à sable vers les utilisateurs"
@@ -2547,6 +2551,9 @@ msgstr "Utilisateurs sélectionnés"
 msgid "Send"
 msgstr "Envoyer"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "Hostname ou IP du Send SMS"
 
@@ -2566,9 +2573,6 @@ msgstr "Envoyer depuis un fichier"
 
 msgid "Send from file has been cancelled"
 msgstr "L'envoi depuis un fichier a été annulé"
-
-msgid "Send message"
-msgstr "Envoyer message"
 
 msgid "Send message failed due to insufficient funds"
 msgstr ""
@@ -2775,6 +2779,9 @@ msgstr "Essayer de désactiver le pied de page auprès du master"
 msgid "Twilio URL"
 msgstr "URL de twilio"
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL vers playSMS, ou vide pour réutiliser l'URL de base"
 
@@ -2804,9 +2811,6 @@ msgstr ""
 "Impossible de supprimer cet utilisateur tant que tous ses sous-utilisateurs "
 "n'ont pas été supprimés"
 
-msgid "Unable to find composer files"
-msgstr "Impossible de trouver les fichiers du composer"
-
 msgid "Unable to login"
 msgstr "Impossible de se connecter"
 
@@ -2816,9 +2820,8 @@ msgstr "Échec du traitement de l'ajout du sous-utilisateur"
 msgid "Unable to process user addition"
 msgstr "Échec du traitement de l'ajout de l'utilisateur"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "La configuration du module de passerelle a été enregistrée"
+msgstr ""
 
 msgid "Unable to unban account"
 msgstr "Échec de la réintégration du compte"
@@ -2843,6 +2846,9 @@ msgstr "Réponse avec un format inconnu"
 
 msgid "Unlimited"
 msgstr "Illimité"
+
+msgid "Update status"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Importer le fichier"
@@ -2993,6 +2999,9 @@ msgstr "Titre du site web"
 
 msgid "Weekly"
 msgstr "Chaque semaine"
+
+msgid "Welcome information"
+msgstr ""
 
 msgid "Whose online"
 msgstr "Dont connecté"

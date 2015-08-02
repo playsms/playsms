@@ -12,6 +12,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
+#, fuzzy
+msgid "Account has been added and password has been emailed"
+msgstr "Пароль отправлен по почте"
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
 msgid "Email"
 msgstr "Email"
 
@@ -39,6 +49,9 @@ msgstr "Мобильный"
 
 msgid "Name"
 msgstr "Имя"
+
+msgid "New account registration"
+msgstr ""
 
 msgid "Password"
 msgstr "Пароль"
@@ -95,3 +108,7 @@ msgstr "У Вас нет доступа к этой странице"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Вы или кто-то другой запросил восстановление пароля"
+
+#, fuzzy
+msgid "username"
+msgstr "Имя пользователя"

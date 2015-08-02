@@ -595,6 +595,9 @@ msgstr "Aktuelt indloggede brugere kan ikke slettes"
 msgid "DEFAULT"
 msgstr "STANDARD"
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr "Dagligt"
 
@@ -704,9 +707,6 @@ msgstr "Leveret til SMSC"
 
 msgid "Delivered to phone"
 msgstr "Leveret til telefon"
-
-msgid "Delivery Report"
-msgstr "Afleveringsrapport"
 
 msgid "Description"
 msgstr "Beskrivelse"
@@ -871,6 +871,9 @@ msgstr "Forbedr privatliv for underbrugere"
 msgid "Entries in CSV file have been imported"
 msgstr "Emnerne i CSV filen er blevet importeret"
 
+msgid "Example"
+msgstr ""
+
 msgid "Example of SMS custom URL"
 msgstr "Eksempel på tilpasset SMS URL"
 
@@ -942,9 +945,6 @@ msgstr "Kunne ikke tilfÃÂ¸je ny destination"
 
 msgid "Fail to add route"
 msgstr "Kunne ikke tilføje rute"
-
-msgid "Fail to connect to database"
-msgstr "Kunne ikke tilslutte til databasen"
 
 msgid "Fail to delete ACL"
 msgstr "Kunne ikke slette ACL"
@@ -1029,18 +1029,6 @@ msgstr "Kunne ikke aktivere gruppe-indbakke"
 
 msgid "Fail to insert keyword"
 msgstr "Kunne ikke indsætte nøgleord"
-
-msgid "Fail to load gateway"
-msgstr "Kunne ikke indlæse gateway'en"
-
-msgid "Fail to load language"
-msgstr "Kunne ikke indlæse sproget"
-
-msgid "Fail to load main config from registry"
-msgstr "Kunne ikke indlæse primær konfiguration fra registry"
-
-msgid "Fail to load themes"
-msgstr "Kunne ikke indlæse temaer"
 
 msgid "Fail to recover password"
 msgstr "Kunne ikke gendanne adgangskode"
@@ -1150,6 +1138,10 @@ msgstr "Format ÃÂÃÂÃÂÃÂ-MM-DD tt:mm"
 msgid "Forward"
 msgstr "Videresend"
 
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Diriger alle sandbox SMS til brugere"
+
 msgid "Forward message to email"
 msgstr "Videresend besked til e-mail"
 
@@ -1201,6 +1193,9 @@ msgstr "Gå"
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Gå til primær konfiguration eller håndter sted for at redigere denne side"
+
+msgid "Go to manage site menu to edit this page"
+msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Samlet antal SMS"
@@ -1361,6 +1356,9 @@ msgstr "Kannel admin adgangskode"
 msgid "Kannel admin port"
 msgstr "Kannel admin port"
 
+msgid "Kannel dlr-mask option"
+msgstr ""
+
 msgid "Kannel specific"
 msgstr "Kannel specifikt"
 
@@ -1431,6 +1429,12 @@ msgstr "Liste over brugere"
 
 msgid "Local number length"
 msgstr "Lokalnummer længde"
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
 
 msgid "Logged in as"
 msgstr "Logget ind som"
@@ -1540,9 +1544,6 @@ msgstr "Håndter firewall"
 msgid "Manage gammu"
 msgstr "Håndter gammu"
 
-msgid "Manage gateway"
-msgstr "Håndter gateway"
-
 msgid "Manage gateway and SMSC"
 msgstr "Håndter gateway og SMSC"
 
@@ -1555,8 +1556,9 @@ msgstr "Håndter kannel"
 msgid "Manage nexmo"
 msgstr "Håndter nexmo"
 
+#, fuzzy
 msgid "Manage playnet"
-msgstr ""
+msgstr "Håndter konto"
 
 msgid "Manage plugin"
 msgstr "Håndter udvidelse"
@@ -1582,20 +1584,11 @@ msgstr "Håndter smstools"
 msgid "Manage stoplist"
 msgstr ""
 
-msgid "Manage sub-account"
-msgstr "Håndter underkonto"
-
-msgid "Manage sub-accounts"
-msgstr "Håndter underkonti"
-
 msgid "Manage subscribe"
 msgstr "Håndter abonnement"
 
 msgid "Manage subuser"
 msgstr "Håndter underbruger"
-
-msgid "Manage subusers"
-msgstr "Håndter underbrugere"
 
 msgid "Manage sync"
 msgstr "Håndter sync"
@@ -1611,9 +1604,6 @@ msgstr "Håndter twilio"
 
 msgid "Manage uplink"
 msgstr "Håndter uplink"
-
-msgid "Manage user"
-msgstr "Håndter bruger"
 
 msgid "Mandatory fields must not be empty"
 msgstr "KrÃÂ¦vede felter mÃÂ¥ ikke vÃÂ¦re tomme"
@@ -1632,9 +1622,6 @@ msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Maks. 30 alfanummeriske tegn"
-
-msgid "Maximum 8 digits numeric only"
-msgstr "Maksimum 8 numeriske tegn"
 
 msgid "Maximum SMS count"
 msgstr "Maksimum antal SMS"
@@ -1865,6 +1852,9 @@ msgstr "Online"
 msgid "Only when the sender ID is approved"
 msgstr "Kun når afsender ID er godkendt"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr "Indstillinger"
 
@@ -1934,9 +1924,6 @@ msgstr "Telefonbog"
 
 msgid "Please remove all subusers from this user to delete"
 msgstr "Fjern venligst alle underbrugere fra denne bruger før sletning"
-
-msgid "Please run composer.phar update"
-msgstr "Kør venligst composer.phar opdatering"
 
 msgid "Please select"
 msgstr "Vælg venligst"
@@ -2102,6 +2089,21 @@ msgstr "Registrer en konto"
 msgid "Registered"
 msgstr "Registreret"
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Forny webservices token"
 
@@ -2164,6 +2166,10 @@ msgstr "Retur"
 
 msgid "Route SMS outgoing"
 msgstr "Diriger udgående SMS"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Diriger alle sandbox SMS til brugere"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Diriger alle sandbox SMS til brugere"
@@ -2519,6 +2525,9 @@ msgstr "Valgte brugere"
 msgid "Send"
 msgstr "Send"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "SMS afsender værtsnavn eller IP"
 
@@ -2536,9 +2545,6 @@ msgstr "Send fra fil"
 
 msgid "Send from file has been cancelled"
 msgstr "Send fra fil er blevet anulleret"
-
-msgid "Send message"
-msgstr "Send besked"
 
 msgid "Send message failed due to insufficient funds"
 msgstr "Afsendelse af besked mislykkedes på grund af manglende kredit"
@@ -2744,6 +2750,9 @@ msgstr "Prøv at deaktivere SMS bundtekst på master"
 msgid "Twilio URL"
 msgstr "Twilio URL"
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL til playSMS, hvis tom sættes den til basis URL"
 
@@ -2771,9 +2780,6 @@ msgid ""
 msgstr ""
 "Kan ikke slette denne bruger før alle underbrugere under denne bruger er "
 "blevet fjernet"
-
-msgid "Unable to find composer files"
-msgstr "Kunne ikke finde composer filer"
 
 msgid "Unable to login"
 msgstr "Kan ikke logge ind"
@@ -2810,6 +2816,9 @@ msgstr "Ukendt svar-format"
 
 msgid "Unlimited"
 msgstr "Ubegrænset"
+
+msgid "Update status"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Upload fil"
@@ -2952,6 +2961,9 @@ msgstr "Websted titel"
 
 msgid "Weekly"
 msgstr "Ugentligt"
+
+msgid "Welcome information"
+msgstr ""
 
 msgid "Whose online"
 msgstr "Hvem er online"

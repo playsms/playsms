@@ -567,6 +567,9 @@ msgstr ""
 msgid "DEFAULT"
 msgstr ""
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr ""
 
@@ -669,9 +672,6 @@ msgid "Delivered to SMSC"
 msgstr ""
 
 msgid "Delivered to phone"
-msgstr ""
-
-msgid "Delivery Report"
 msgstr ""
 
 msgid "Description"
@@ -836,6 +836,9 @@ msgstr ""
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Example"
+msgstr ""
+
 msgid "Example of SMS custom URL"
 msgstr ""
 
@@ -906,9 +909,6 @@ msgid "Fail to add new destination"
 msgstr ""
 
 msgid "Fail to add route"
-msgstr ""
-
-msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -993,18 +993,6 @@ msgid "Fail to enable group inbox"
 msgstr ""
 
 msgid "Fail to insert keyword"
-msgstr ""
-
-msgid "Fail to load gateway"
-msgstr ""
-
-msgid "Fail to load language"
-msgstr ""
-
-msgid "Fail to load main config from registry"
-msgstr ""
-
-msgid "Fail to load themes"
 msgstr ""
 
 msgid "Fail to recover password"
@@ -1115,6 +1103,9 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
+msgid "Forward all sandbox SMS to a URL"
+msgstr ""
+
 msgid "Forward message to email"
 msgstr ""
 
@@ -1164,6 +1155,9 @@ msgid "Go"
 msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+
+msgid "Go to manage site menu to edit this page"
 msgstr ""
 
 msgid "Grand total SMS"
@@ -1323,6 +1317,9 @@ msgstr ""
 msgid "Kannel admin port"
 msgstr ""
 
+msgid "Kannel dlr-mask option"
+msgstr ""
+
 msgid "Kannel specific"
 msgstr ""
 
@@ -1390,6 +1387,12 @@ msgid "List of users"
 msgstr ""
 
 msgid "Local number length"
+msgstr ""
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
 msgstr ""
 
 msgid "Logged in as"
@@ -1498,9 +1501,6 @@ msgstr ""
 msgid "Manage gammu"
 msgstr ""
 
-msgid "Manage gateway"
-msgstr ""
-
 msgid "Manage gateway and SMSC"
 msgstr ""
 
@@ -1540,19 +1540,10 @@ msgstr ""
 msgid "Manage stoplist"
 msgstr ""
 
-msgid "Manage sub-account"
-msgstr ""
-
-msgid "Manage sub-accounts"
-msgstr ""
-
 msgid "Manage subscribe"
 msgstr ""
 
 msgid "Manage subuser"
-msgstr ""
-
-msgid "Manage subusers"
 msgstr ""
 
 msgid "Manage sync"
@@ -1568,9 +1559,6 @@ msgid "Manage twilio"
 msgstr ""
 
 msgid "Manage uplink"
-msgstr ""
-
-msgid "Manage user"
 msgstr ""
 
 msgid "Mandatory fields must not be empty"
@@ -1589,9 +1577,6 @@ msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr ""
 
 msgid "Max. 30 alphanumeric characters"
-msgstr ""
-
-msgid "Maximum 8 digits numeric only"
 msgstr ""
 
 msgid "Maximum SMS count"
@@ -1823,6 +1808,9 @@ msgstr ""
 msgid "Only when the sender ID is approved"
 msgstr ""
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr ""
 
@@ -1889,9 +1877,6 @@ msgid "Phonebook"
 msgstr ""
 
 msgid "Please remove all subusers from this user to delete"
-msgstr ""
-
-msgid "Please run composer.phar update"
 msgstr ""
 
 msgid "Please select"
@@ -2051,6 +2036,21 @@ msgstr ""
 msgid "Registered"
 msgstr ""
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr ""
 
@@ -2112,6 +2112,9 @@ msgid "Return"
 msgstr ""
 
 msgid "Route SMS outgoing"
+msgstr ""
+
+msgid "Route all sandbox SMS to one or more users"
 msgstr ""
 
 msgid "Route all sandbox SMS to users"
@@ -2457,6 +2460,9 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr ""
 
@@ -2473,9 +2479,6 @@ msgid "Send from file"
 msgstr ""
 
 msgid "Send from file has been cancelled"
-msgstr ""
-
-msgid "Send message"
 msgstr ""
 
 msgid "Send message failed due to insufficient funds"
@@ -2677,6 +2680,9 @@ msgstr ""
 msgid "Twilio URL"
 msgstr ""
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
@@ -2701,9 +2707,6 @@ msgstr ""
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
-msgstr ""
-
-msgid "Unable to find composer files"
 msgstr ""
 
 msgid "Unable to login"
@@ -2740,6 +2743,9 @@ msgid "Unknown format reply"
 msgstr ""
 
 msgid "Unlimited"
+msgstr ""
+
+msgid "Update status"
 msgstr ""
 
 msgid "Upload file"
@@ -2881,6 +2887,9 @@ msgid "Website title"
 msgstr ""
 
 msgid "Weekly"
+msgstr ""
+
+msgid "Welcome information"
 msgstr ""
 
 msgid "Whose online"
