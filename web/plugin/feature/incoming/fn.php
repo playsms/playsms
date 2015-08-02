@@ -64,7 +64,7 @@ function incoming_post_rules_get() {
 	
 	// sandbox forward to url
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to_url');
-	$post_rules['forward_to_url'] = trim($data['feature']['incoming']['sandbox_forward_to_url']);
+	$post_rules['forward_to_url'] = trim(htmlspecialchars_decode($data['feature']['incoming']['sandbox_forward_to_url']));
 	
 	return $post_rules;
 }
