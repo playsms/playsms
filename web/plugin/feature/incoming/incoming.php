@@ -27,6 +27,7 @@ switch (_OP_) {
 		
 		// form pre rules
 		
+
 		$pre_rules = incoming_pre_rules_get();
 		
 		// scan message for @username
@@ -52,6 +53,7 @@ switch (_OP_) {
 		
 		// form post rules
 		
+
 		$post_rules = incoming_post_rules_get();
 		
 		// sandbox match receiver number and sender ID
@@ -74,6 +76,15 @@ switch (_OP_) {
 		);
 		$select_users = themes_select_users_multi('uids', $post_rules['forward_to'], $params, 'playsms-route-to-users');
 		
+		// sandbox forward to URL
+		unset($params);
+		$params = array(
+			'size' => '100%',
+			'maxlength' => 255,
+			'placeholder' => _('URL') 
+		);
+		$input_url = _input('text', 'forward_to_url', $post_rules['forward_to_url'], $params, 'playsms-forward-to-url', 'form-control');
+		
 		$form_post_rules = array(
 			array(
 				'id' => 'playsms-sandbox-match-sender-id',
@@ -93,12 +104,19 @@ switch (_OP_) {
 				'id' => 'playsms-route-to-users',
 				'label' => _('Route all sandbox SMS to users'),
 				'input' => $select_users,
-				'help' => '' 
+				'help' => _('Route all sandbox SMS to one or more users') 
+			),
+			array(
+				'id' => 'playsms-forward-to-url',
+				'label' => _('Forward all sandbox SMS to a URL'),
+				'input' => $input_url,
+				'help' => _('Example') . ' : http://playsms.id/index.php?app=ws&op=playnet&go=set_incoming&incoming={INCOMING_DATA_JSON}' 
 			) 
 		);
 		
 		// form settings
 		
+
 		$settings = incoming_settings_get();
 		
 		// settings to leave copy on sandbox
@@ -152,6 +170,7 @@ switch (_OP_) {
 		
 		// form pre rules
 		
+
 		// scan message for @username
 		$pre_rules['match_username'] = (int) $_REQUEST['incoming_match_username'];
 		$items['incoming_match_username'] = $pre_rules['match_username'];
@@ -162,6 +181,7 @@ switch (_OP_) {
 		
 		// form post rules
 		
+
 		// sandbox match receiver number and sender ID
 		$post_rules['match_sender_id'] = (int) $_REQUEST['sandbox_match_sender_id'];
 		$items['sandbox_match_sender_id'] = $post_rules['match_sender_id'];
@@ -178,8 +198,13 @@ switch (_OP_) {
 		$post_rules['forward_to'] = serialize(array_unique($_REQUEST['uids']));
 		$items['sandbox_forward_to'] = $post_rules['forward_to'];
 		
+		// sandbox forward to url
+		$post_rules['forward_to_url'] = $_REQUEST['forward_to_url'];
+		$items['sandbox_forward_to_url'] = $post_rules['forward_to_url'];
+		
 		// form settings
 		
+
 		// settings to leave copy on sandbox
 		$items['settings_leave_copy_sandbox'] = (int) $_REQUEST['settings_leave_copy_sandbox'];
 		
