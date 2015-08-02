@@ -173,8 +173,8 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 			}
 			break;
 		
-		case 'set_incoming':			
-			$incoming_data_json = json_decode($requests['incoming_data_json'], 1);
+		case 'set_incoming':
+			$incoming_data_json = json_decode(stripslashes($requests['incoming_data_json']), 1);
 			
 			if ($incoming_data_json['message']) {
 				$sms_sender = $incoming_data_json['sms_sender'];
