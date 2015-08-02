@@ -199,6 +199,10 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 	$returns['param']['content'] = json_encode($content);
 	$returns['param']['content-type'] = 'text/json';
 	
+	if ($content['status'] == 'OK') {
+		_log('accessed param_go:[' . $go . '] param_smsc:[' . $smsc . '] param_u:[' . $username . '] param_p:[' . $password . ']', 3, 'playnet_hook_webservices_output');
+	}
+	
 	return $returns;
 }
 
