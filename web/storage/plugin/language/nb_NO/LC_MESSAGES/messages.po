@@ -1550,6 +1550,9 @@ msgstr ""
 msgid "Manage nexmo"
 msgstr "Håndter nexmo"
 
+msgid "Manage playnet"
+msgstr ""
+
 msgid "Manage plugin"
 msgstr "Håndter plugin"
 

@@ -1558,6 +1558,9 @@ msgstr "Gerir kannel"
 msgid "Manage nexmo"
 msgstr "Gerir nexmo"
 
+msgid "Manage playnet"
+msgstr ""
+
 msgid "Manage plugin"
 msgstr "Gerir Plugin"
 

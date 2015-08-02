@@ -1544,6 +1544,9 @@ msgstr ""
 msgid "Manage nexmo"
 msgstr ""
 
+msgid "Manage playnet"
+msgstr ""
+
 msgid "Manage plugin"
 msgstr "إدارة الإضافات"
 

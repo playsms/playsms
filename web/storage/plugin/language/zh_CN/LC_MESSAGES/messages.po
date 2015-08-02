@@ -1500,6 +1500,9 @@ msgstr "管理kannel"
 msgid "Manage nexmo"
 msgstr ""
 
+msgid "Manage playnet"
+msgstr ""
+
 msgid "Manage plugin"
 msgstr ""
 
