@@ -169,11 +169,11 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				$content['data'] = $rows;
 			} else {
 				$content['status'] = 'ERROR';
-				$content['error_string'] = 'No data';
+				$content['error_string'] = 'No outgoing data';
 			}
 			break;
 		
-		case 'set_incoming':
+		case 'set_incoming':			
 			$incoming_data_json = json_decode($requests['incoming_data_json'], 1);
 			
 			if ($incoming_data_json['message']) {
@@ -191,7 +191,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				}
 			} else {
 				$content['status'] = 'ERROR';
-				$content['error_string'] = 'No data';
+				$content['error_string'] = 'No incoming data';
 			}
 	}
 	
