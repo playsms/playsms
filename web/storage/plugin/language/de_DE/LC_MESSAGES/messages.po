@@ -7,52 +7,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "1 Day"
-msgstr ""
+msgstr "1 Tag"
 
 msgid "1 Month"
-msgstr ""
+msgstr "1 Monat"
 
 msgid "1 Week"
-msgstr ""
+msgstr "1 Woche"
 
 msgid "2 Days"
-msgstr ""
+msgstr "2 Tage"
 
 msgid "2 Weeks"
-msgstr ""
+msgstr "2 Wochen"
 
 msgid "6 Months"
-msgstr ""
+msgstr "6 Monate"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr ""
+msgstr "ACL DEFAULT verhindert keinen Zugriff auf das Menü"
 
 msgid "ACL ID"
-msgstr ""
+msgstr "ACL ID"
 
 msgid "ACL been edited"
-msgstr ""
+msgstr "ACL wurde geändert"
 
 msgid "ACL has been deleted"
-msgstr ""
+msgstr "ACL wurde gelöscht"
 
 msgid "ACL name"
-msgstr ""
+msgstr "ACL Name"
 
 msgid "API ID"
-msgstr ""
+msgstr "API ID"
 
 msgid "API key"
-msgstr ""
+msgstr "API Key"
 
 msgid "API secret"
-msgstr ""
+msgstr "API Secret"
 
 msgid "Access Control List"
-msgstr ""
+msgstr "Access Control List"
 
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
@@ -62,201 +62,195 @@ msgstr ""
 
 #, php-format
 msgid "Account %s is currently banned to use services"
-msgstr ""
+msgstr "Account %s ist für diesen Dienst gesperrt"
 
 msgid "Account SID"
-msgstr ""
+msgstr "Account SID"
 
 msgid "Account admin or currently logged in administrator cannot be banned"
-msgstr ""
+msgstr "Account Admin or gerade eingeloggter Administrator kann nicht gesperrt werden"
 
 msgid "Account admin or currently logged in administrator cannot be unbanned"
-msgstr ""
+msgstr "Account Admin or gerade eingeloggter Administrator kann nicht entsperrt werden"
 
 msgid "Account already exists"
-msgstr ""
+msgstr "Account existiert bereits"
 
 msgid "Account has been added and password has been emailed"
-msgstr ""
+msgstr "Account wurde hinzugefügt und Passwort per Email versandt"
 
 msgid "Account has been added but failed to send email"
-msgstr ""
+msgstr "Account wurde hinzugefügt, aber Email konnte nicht versandt werden"
 
 msgid "Account has been banned"
-msgstr ""
+msgstr "Account wurde gesperrt"
 
 msgid "Account has been removed"
-msgstr ""
+msgstr "Account wurde gelsöcht"
 
 msgid "Account has been unbanned"
-msgstr ""
+msgstr "Account wurde entsperrt"
 
 msgid "Account name is mandatory"
-msgstr ""
+msgstr "Account Name ist Pflicht"
 
 msgid "Account registration is not available"
-msgstr ""
+msgstr "Account Registrierung ist nicht verfügbar"
 
 msgid "Account status"
-msgstr ""
+msgstr "Account Status"
 
 msgid "Account with this email already exists"
-msgstr ""
+msgstr "Account mit dieser Email-Adresse existiert bereits"
 
 msgid "Account with this mobile already exists"
-msgstr ""
+msgstr "Account mit dieser Mobilfunknummer existiert bereits"
 
 msgid "Action"
 msgstr "Aktion"
 
 msgid "Active language"
-msgstr ""
+msgstr "Aktivierte Sprache"
 
 msgid "Active themes"
-msgstr ""
+msgstr "Aktiviertes Theme"
 
 msgid "Add"
 msgstr "Hinzufügen"
 
 msgid "Add ACL"
-msgstr ""
+msgstr "ACL Hinzufügen"
 
 msgid "Add SMS autoreply"
-msgstr ""
+msgstr "SMS Autoreply hinzufügen"
 
 msgid "Add SMS autoreply scenario"
-msgstr ""
+msgstr "SMS Autoreply Szenario hinzufügen"
 
 msgid "Add SMS board"
-msgstr ""
+msgstr "SMS Board hinzufügen"
 
 msgid "Add SMS command"
-msgstr ""
+msgstr "SMS Befehl hinzufügen"
 
 msgid "Add SMS custom"
-msgstr ""
+msgstr "SMS Custom hinzufügen"
 
 msgid "Add SMS poll"
-msgstr ""
+msgstr "SMS Poll hinzufügen"
 
 msgid "Add SMS quiz"
-msgstr ""
+msgstr "SMS Quiz hinzufügen"
 
 msgid "Add SMS schedule"
-msgstr ""
+msgstr "SMS Zeitplan hinzufügen"
 
 msgid "Add SMS subscribe"
-msgstr ""
+msgstr "SMS Subscribe hinzufügen"
 
 msgid "Add SMSC"
-msgstr ""
+msgstr "SMSC hinzufügen"
 
-#, fuzzy
 msgid "Add account"
-msgstr "Mein Account"
+msgstr "Account hinzufügen"
 
 msgid "Add blocked IP addresses"
-msgstr ""
+msgstr "Gesperrte IP-Adressen hinzufügen"
 
 msgid "Add blocked mobile numbers"
-msgstr ""
+msgstr "Gesperrte Mobilfunknummern hinzufügen"
 
 msgid "Add catch-all"
 msgstr "Hinzufügen Catch-All"
 
 msgid "Add choice to this poll"
-msgstr ""
+msgstr "Wahl für Poll hinzufügen"
 
 msgid "Add contact"
 msgstr "Kontakt hinzufügen"
 
 msgid "Add credit"
-msgstr ""
+msgstr "Credit hinzufügen"
 
 msgid "Add credit to users"
-msgstr ""
+msgstr "Credit zu Benutzern hinzufügen"
 
 msgid "Add destination"
-msgstr ""
+msgstr "Ziel hinzufügen"
 
 msgid "Add group"
 msgstr "Gruppe hinzufügen"
 
 msgid "Add group inbox"
-msgstr "Hinzufügen Gruppen-Inbox"
+msgstr "Gruppen-Inbox hinzufügen"
 
 msgid "Add member"
-msgstr "Hinzufügen Mitglied"
+msgstr "Mitglied hinzufügen"
 
-#, fuzzy
 msgid "Add message"
-msgstr "Sende SMS"
+msgstr "Nachricht hinzufügen"
 
 msgid "Add message template"
 msgstr "Nachrichten-Vorlage hinzufügen"
 
 msgid "Add or reduce credit from manage credit menu"
-msgstr ""
+msgstr "Erhöhe oder verringere Credit über das Credit-Menü"
 
 msgid "Add rate"
-msgstr ""
+msgstr "Rate hinzufügen"
 
 msgid "Add route"
-msgstr ""
+msgstr "Route hinzufügen"
 
-#, fuzzy
+
 msgid "Add sender ID"
-msgstr "SMS Absender-ID"
+msgstr "SMS Absender-ID hinzufügen"
 
-#, fuzzy
 msgid "Add subuser"
-msgstr "Benutzer verwalten"
+msgstr "Sub-Benutzer hinzufügen"
 
 msgid "Additional URL parameter"
-msgstr ""
+msgstr "Zusätzliche URL Parameter"
 
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 msgid "Administrator"
 msgstr "Administrator"
 
-#, fuzzy
 msgid "Administrators"
-msgstr "Administrator"
+msgstr "Administratoren"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid "All feature messages"
-msgstr ""
+msgstr "Alle feature messages"
 
 msgid "All inbox"
-msgstr ""
+msgstr "Alle Inbox"
 
 msgid "All mandatory fields must be filled"
-msgstr ""
+msgstr "Alle Pflichtfelder müssen ausgefüllt sein"
 
-#, fuzzy
 msgid "All queues have been removed"
-msgstr "Queue wurde gelscht"
+msgstr "Alle Queue wurden gelöscht"
 
-#, fuzzy
 msgid "All reports"
-msgstr "Export"
+msgstr "Alle Berichte"
 
-#, fuzzy
+
 msgid "All sent messages"
-msgstr "Sende SMS"
+msgstr "Alle gesendeten Nachrichten"
 
 msgid "All users"
 msgstr "Alle Benutzer"
 
 msgid "Allow users to select SMS footer while on Send SMS page"
-msgstr ""
+msgstr "Erlaube Benutzern die Auswahl der SMS-Fußzeile auf der Seite -Sende SMS-"
 
 msgid "Allow users to select sender ID while on Send SMS page"
-msgstr ""
+msgstr "Erlaube Benutzern die Auswahl der Sender-ID auf der Seite -Sende SMS-"
 
 msgid "Already a member reply"
 msgstr ""
