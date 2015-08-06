@@ -68,10 +68,13 @@ msgid "Account SID"
 msgstr "Account SID"
 
 msgid "Account admin or currently logged in administrator cannot be banned"
-msgstr "Account Admin or gerade eingeloggter Administrator kann nicht gesperrt werden"
+msgstr ""
+"Account Admin or gerade eingeloggter Administrator kann nicht gesperrt werden"
 
 msgid "Account admin or currently logged in administrator cannot be unbanned"
-msgstr "Account Admin or gerade eingeloggter Administrator kann nicht entsperrt werden"
+msgstr ""
+"Account Admin or gerade eingeloggter Administrator kann nicht entsperrt "
+"werden"
 
 msgid "Account already exists"
 msgstr "Account existiert bereits"
@@ -202,7 +205,6 @@ msgstr "Rate hinzufügen"
 msgid "Add route"
 msgstr "Route hinzufügen"
 
-
 msgid "Add sender ID"
 msgstr "SMS Absender-ID hinzufügen"
 
@@ -239,7 +241,6 @@ msgstr "Alle Queue wurden gelöscht"
 msgid "All reports"
 msgstr "Alle Berichte"
 
-
 msgid "All sent messages"
 msgstr "Alle gesendeten Nachrichten"
 
@@ -247,7 +248,8 @@ msgid "All users"
 msgstr "Alle Benutzer"
 
 msgid "Allow users to select SMS footer while on Send SMS page"
-msgstr "Erlaube Benutzern die Auswahl der SMS-Fußzeile auf der Seite -Sende SMS-"
+msgstr ""
+"Erlaube Benutzern die Auswahl der SMS-Fußzeile auf der Seite -Sende SMS-"
 
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr "Erlaube Benutzern die Auswahl der Sender-ID auf der Seite -Sende SMS-"
@@ -316,11 +318,14 @@ msgstr "Sind Sie sicher, SMS custom zu löschen?"
 
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
-msgstr "Sind Sie sicher, SMS poll mit allen seinen Wahlmöglichkeiten zu löschen?"
+msgstr ""
+"Sind Sie sicher, SMS poll mit allen seinen Wahlmöglichkeiten zu löschen?"
 
 msgid ""
 "Are you sure you want to delete SMS quiz with all its choices and answers ?"
-msgstr "Sind Sie sicher, SMS Quiz mit allen seinen Wahlmöglichkeiten und Antworten zu löschen?"
+msgstr ""
+"Sind Sie sicher, SMS Quiz mit allen seinen Wahlmöglichkeiten und Antworten "
+"zu löschen?"
 
 msgid "Are you sure you want to delete SMS schedule ?"
 msgstr "Sind Sie sicher, den SMS Zeitplan zu löschen?"
@@ -452,7 +457,9 @@ msgid "Cancel send from file"
 msgstr "Aus Datei senden abbrechen"
 
 msgid "Cannot change status when user have subusers"
-msgstr "Status kann nicht geändert werden, wenn dem Benutzer Sub-Benutzer zugeordnet sind"
+msgstr ""
+"Status kann nicht geändert werden, wenn dem Benutzer Sub-Benutzer zugeordnet "
+"sind"
 
 msgid "Cannot find PHP PEAR-DB"
 msgstr "Kann PHP PEAR-DB nicht finden"
@@ -539,7 +546,9 @@ msgid "Content"
 msgstr "Inhalt"
 
 msgid "Copy the message to user inbox when incoming SMS contains @username"
-msgstr "Kopiere die Nachricht in Benutzer-Inbox, wenn die eingehende SMS @username enthält"
+msgstr ""
+"Kopiere die Nachricht in Benutzer-Inbox, wenn die eingehende SMS @username "
+"enthält"
 
 msgid "Core"
 msgstr "Core"
@@ -636,7 +645,8 @@ msgstr "Standard Prefix oder Ländercode"
 
 msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
-msgstr "Standard Prefix oder Ländercode, der eine führende 0 der Zielnummer ersetzt"
+msgstr ""
+"Standard Prefix oder Ländercode, der eine führende 0 der Zielnummer ersetzt"
 
 #, fuzzy
 msgid "Default sender ID"
@@ -823,7 +833,9 @@ msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "Email zu SMS Konfigurationwurde gespeichert und der Dienst aktiviert"
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
-msgstr "Leere Standard Absender-ID erlaubt den Benutzern die Verwendung einer eigenen Absender-ID"
+msgstr ""
+"Leere Standard Absender-ID erlaubt den Benutzern die Verwendung einer "
+"eigenen Absender-ID"
 
 msgid "Enable SMS Sync"
 msgstr "Aktiviere SMS Sync"
@@ -1035,7 +1047,6 @@ msgstr "Fehler beim Speichern von SMS command"
 msgid "Fail to save SMS custom"
 msgstr "Fehler beim Speichern von SMS custom"
 
-
 msgid "Fail to save configuration"
 msgstr "Fehler beim Speichern der Konfiguration"
 
@@ -1175,7 +1186,8 @@ msgid "Go"
 msgstr "Los"
 
 msgid "Go to main configuration or manage site to edit this page"
-msgstr "Gehe zur -Hauptkonfiguration- oder zu -manage sites- um diese Seite zu ändern"
+msgstr ""
+"Gehe zur -Hauptkonfiguration- oder zu -manage sites- um diese Seite zu ändern"
 
 msgid "Go to manage site menu to edit this page"
 msgstr "Gehe zu -manage sites- um diese Seite zu ändern"
@@ -1202,14 +1214,18 @@ msgid "Group code has been added"
 msgstr "Gruppenkürzel wurde hinzugefügt"
 
 msgid "Group code may be used to broadcast SMS to this group"
-msgstr "Gruppenkürzel wird möglicherweise verwendet, um SMS in diese Gruppe zu broadcasten"
+msgstr ""
+"Gruppenkürzel wird möglicherweise verwendet, um SMS in diese Gruppe zu "
+"broadcasten"
 
 msgid "Group has been edited"
 msgstr "Gruppe wurde geändert"
 
 msgid ""
 "Group has been edited but unable to set broadcast from members or anyone"
-msgstr "Gruppe wurde geändert, broadcast konnte aber nicht auf Mitglieder oder jeder geändert werden"
+msgstr ""
+"Gruppe wurde geändert, broadcast konnte aber nicht auf Mitglieder oder jeder "
+"geändert werden"
 
 msgid "Group inbox"
 msgstr "Gruppen-Inbox"
@@ -1372,7 +1388,9 @@ msgid "Leave a copy in sandbox SMS page"
 msgstr "Hinterlasse eine Kopie in Sandbox SMS Seite"
 
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
-msgstr "Hinterlassen einer Kopie in Sandbox SMS Seite kann zu Audit oder Review Zwecken hilfreich sein"
+msgstr ""
+"Hinterlassen einer Kopie in Sandbox SMS Seite kann zu Audit oder Review "
+"Zwecken hilfreich sein"
 
 msgid "List of accounts"
 msgstr "Liste der Accounts"
@@ -1432,7 +1450,9 @@ msgstr "Logo URL"
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
-msgstr "Logo wird standardmäßig bei Login, Registrierung und Passwort vergessen angezeigt"
+msgstr ""
+"Logo wird standardmäßig bei Login, Registrierung und Passwort vergessen "
+"angezeigt"
 
 msgid "Logout"
 msgstr "Abmelden"
@@ -1591,7 +1611,9 @@ msgid "Match with all approved sender ID"
 msgstr "Treffer mit allen bestötgten Absender-IDs"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Max. 16 numerische oder 11 alphanumerische Zeichen. Leer lassen zum Deaktivieren"
+msgstr ""
+"Max. 16 numerische oder 11 alphanumerische Zeichen. Leer lassen zum "
+"Deaktivieren"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 numerische oder 11 alphanumerische Zeichen"
@@ -1695,7 +1717,6 @@ msgstr "Mobilfunknummern wurden geblockt"
 
 msgid "Mobile numbers have been deleted"
 msgstr "Mobilfunknummern wurden gelöscht"
-
 
 msgid "Module sender ID"
 msgstr "Modul Absender-ID"
@@ -1863,7 +1884,10 @@ msgstr "Eltern Account"
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
-msgstr "Eltern Account is nur für Sub-Benutzer verpflichtend. Wenn kein WErt angegeben ist, wird der Sub-Benutzer automatisch zum Benutzer Admin hinzugefügt"
+msgstr ""
+"Eltern Account is nur für Sub-Benutzer verpflichtend. Wenn kein WErt "
+"angegeben ist, wird der Sub-Benutzer automatisch zum Benutzer Admin "
+"hinzugefügt"
 
 msgid "Pass these parameter to command exec field"
 msgstr ""
@@ -1899,7 +1923,8 @@ msgid "Phonebook"
 msgstr "Telefonbuch"
 
 msgid "Please remove all subusers from this user to delete"
-msgstr "Bitte zuerst alle Sub-Benutzer entfernen, um diesen Benutzer zu löschen"
+msgstr ""
+"Bitte zuerst alle Sub-Benutzer entfernen, um diesen Benutzer zu löschen"
 
 msgid "Please select"
 msgstr "Bitte auswählen"
@@ -1938,7 +1963,8 @@ msgid "Preferences have been saved and password updated"
 msgstr "Voreinstellungen wurden gespeichert und das Passwort aktualisiert"
 
 msgid "Preferences have been saved and webservices token updated"
-msgstr "Voreinstellungen wurden gespeichert und der webservice token aktualisiert"
+msgstr ""
+"Voreinstellungen wurden gespeichert und der webservice token aktualisiert"
 
 msgid "Prefix"
 msgstr "Prefix"
@@ -2033,7 +2059,9 @@ msgstr "Empfängernummer"
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
 "sender ID"
-msgstr "Empfängernummer kann mit Standard Absender-ID oder allen bestätigten Absender-IDs übereinstimmen"
+msgstr ""
+"Empfängernummer kann mit Standard Absender-ID oder allen bestätigten "
+"Absender-IDs übereinstimmen"
 
 msgid "Receiver number does not exist"
 msgstr "Empfängernummer existiert nicht"
@@ -2165,7 +2193,8 @@ msgid "Route outgoing SMS"
 msgstr "Route abgehende SMS"
 
 msgid "Route to user inbox if receiver number matched with user sender ID"
-msgstr "Route an Benutzer Inbox, wenn Empfängernummer mit Absender-ID übereinstimmt"
+msgstr ""
+"Route an Benutzer Inbox, wenn Empfängernummer mit Absender-ID übereinstimmt"
 
 msgid "Routed SMSC"
 msgstr "Geroutete SMSC"
@@ -2231,7 +2260,9 @@ msgid "SMS board with all its messages has been deleted"
 msgstr "SMS board mit all seinen Nachrichten wurde gelöscht"
 
 msgid "SMS command already exists, reserved or use by other feature"
-msgstr "SMS command existiert bereits oder ist von einem anderen Feature reserviert oder in Benutzung"
+msgstr ""
+"SMS command existiert bereits oder ist von einem anderen Feature reserviert "
+"oder in Benutzung"
 
 msgid "SMS command exec"
 msgstr "SMS command exec"
@@ -2277,7 +2308,9 @@ msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "SMS Schlagwort existiert bereits oder ist von einem anderen Feature reserviert oder in Benutzung"
+msgstr ""
+"SMS Schlagwort existiert bereits oder ist von einem anderen Feature "
+"reserviert oder in Benutzung"
 
 msgid "SMS messages list for keyword"
 msgstr "SMS Nachrichten Liste für Schlagwort"
@@ -2289,7 +2322,9 @@ msgid "SMS poll access code used mainly by webservices"
 msgstr "SMS poll Zugangscode hauptsächlich verwendet von webservices"
 
 msgid "SMS poll already exists, reserved or use by other feature"
-msgstr "SMS poll existiert bereits oder ist von einem anderen Feature reserviert oder in Benutzung"
+msgstr ""
+"SMS poll existiert bereits oder ist von einem anderen Feature reserviert "
+"oder in Benutzung"
 
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "SMS poll Wahlmöglichkeit und alle seine Wähler wurden gelöscht"
@@ -2312,9 +2347,10 @@ msgstr "SMS poll Titel"
 msgid "SMS poll with all its messages has been deleted"
 msgstr "SMS poll mit all seinen Nachrichten wurden gelöscht"
 
-
 msgid "SMS quiz already exists, reserved or use by other feature"
-msgstr "SMS Quiz existiert bereits oder ist von einem anderen Feature reserviert oder in Benutzung"
+msgstr ""
+"SMS Quiz existiert bereits oder ist von einem anderen Feature reserviert "
+"oder in Benutzung"
 
 msgid "SMS quiz answer"
 msgstr "SMS Quiz Antwort"
@@ -2353,7 +2389,9 @@ msgid "SMS schedule has been enabled"
 msgstr "SMS Zeitplan wurde aktiviert"
 
 msgid "SMS subscribe already exists, reserved or use by other feature"
-msgstr "SMS subscribe existiert bereits oder ist von einem anderen Feature reserviert oder in Benutzung"
+msgstr ""
+"SMS subscribe existiert bereits oder ist von einem anderen Feature "
+"reserviert oder in Benutzung"
 
 msgid "SMS subscribe has been added"
 msgstr "SMS subscribe wurde hinzugefügt"
@@ -2374,7 +2412,8 @@ msgid "SMS subscribe status has been changed"
 msgstr "SMS subscribe Status wurde geändert"
 
 msgid "SMS subscribe with all its messages and members has been deleted"
-msgstr "SMS subscribe mit all seinen Nachrichten und Mitgliedern wurde gelöscht"
+msgstr ""
+"SMS subscribe mit all seinen Nachrichten und Mitgliedern wurde gelöscht"
 
 msgid "SMS unsubscribe parameter"
 msgstr "SMS unsubscribe Parameter"
@@ -2497,7 +2536,8 @@ msgid "Send SMS port"
 msgstr "Sende SMS Port"
 
 msgid "Send SMS to groups with found group codes in the incoming SMS"
-msgstr "Sende SMS an Gruppen mit dem in der eingehenden SMS gefundenen Gruppenkürzel"
+msgstr ""
+"Sende SMS an Gruppen mit dem in der eingehenden SMS gefundenen Gruppenkürzel"
 
 msgid "Send SMS to valid entries"
 msgstr "Sende SMS an gültige Einträge"
@@ -2512,11 +2552,14 @@ msgid "Send message failed due to insufficient funds"
 msgstr "Senden der Nachricht fehlgeschlagen mangels Geld"
 
 msgid "Send message failed due to unable to create queue"
-msgstr "Senden der Nachricht fehlgeschlagen aufgrund Fehler bei Erstellung der Queue"
+msgstr ""
+"Senden der Nachricht fehlgeschlagen aufgrund Fehler bei Erstellung der Queue"
 
 #, php-format
 msgid "Send message failed due to unable to prepare queue %s"
-msgstr "Senden der Nachricht fehlgeschlagen aufgrund Fehler bei Vorbereiten der Queue %s"
+msgstr ""
+"Senden der Nachricht fehlgeschlagen aufgrund Fehler bei Vorbereiten der "
+"Queue %s"
 
 #, php-format
 msgid "Send message to %s in queue %s has failed"
@@ -2596,7 +2639,9 @@ msgstr "Teile Telefonbuch und erlaube broadcast"
 msgid ""
 "Share this phonebook group and set permission for broadcasting SMS to this "
 "group from mobile phone"
-msgstr "Teile dieses Telefonbuch und setze Berechtigung, um SMS an diese Gruppe vom Mobiltelefon zu broadcasten"
+msgstr ""
+"Teile dieses Telefonbuch und setze Berechtigung, um SMS an diese Gruppe vom "
+"Mobiltelefon zu broadcasten"
 
 msgid "Simulate incoming SMS"
 msgstr "Simuliere eingehende SMS"
@@ -2671,7 +2716,9 @@ msgstr "Dies ist eine eingehenede Test-SMS"
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
-msgstr "Dieses temporäre Passwort wird gelöscht, sobald Sie sich erfolgreich angemeldet haben"
+msgstr ""
+"Dieses temporäre Passwort wird gelöscht, sobald Sie sich erfolgreich "
+"angemeldet haben"
 
 msgid "Time"
 msgstr "Zeit"
@@ -2730,14 +2777,15 @@ msgstr "Nicht möglich Sub-Benutzer zu sperren"
 msgid "Unable to delete group until the group is empty"
 msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
 
-
 msgid "Unable to delete other users"
 msgstr "Login Session kann nicht aktualisiert werden"
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
-msgstr "Benutzer kann nicht gelöscht werden bis alle Sub-Benutzer dieses Benutzers gelöscht sind"
+msgstr ""
+"Benutzer kann nicht gelöscht werden bis alle Sub-Benutzer dieses Benutzers "
+"gelöscht sind"
 
 msgid "Unable to login"
 msgstr "Anmeldung nicht möglich"
@@ -2806,7 +2854,9 @@ msgid "User configuration has been saved"
 msgstr "Benutzerkonfiguration wurde gespeichert"
 
 msgid "User configuration has been saved and webservices token updated"
-msgstr "Benutzerkonfiguration wurde gespeichert und der Webservices Token aktualisiert"
+msgstr ""
+"Benutzerkonfiguration wurde gespeichert und der Webservices Token "
+"aktualisiert"
 
 msgid "User deletion unavailable"
 msgstr "Benutzer löschen ncht verfügbar"
@@ -2835,12 +2885,18 @@ msgstr "Benutzer Voreinstellungen"
 msgid "Username"
 msgstr "Benutzername"
 
+#, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr "Benutzername %s mit Account ID %d hat das untere Kreditlimit von %s erreicht"
+msgstr ""
+"Benutzername %s mit Account ID %d hat das untere Kreditlimit von %s erreicht"
 
+#, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
-msgstr "Benutzername %s mit Account ID %d hat die Freigabe der Absender-ID %s angefordert"
+msgstr ""
+"Benutzername %s mit Account ID %d hat die Freigabe der Absender-ID %s "
+"angefordert"
 
+#, php-format
 msgid "Username must be at least 3 characters and maximum %d characters"
 msgstr "Benutzername muss mindestens 3 und maximal %d Zeichen lang sein"
 
@@ -2854,7 +2910,9 @@ msgid "Valid"
 msgstr "Gültig"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr "Gültige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Minus"
+msgstr ""
+"Gültige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder "
+"Minus"
 
 msgid "Verify captcha"
 msgstr "Überprüfungs-Captcha"
@@ -2940,6 +2998,7 @@ msgstr "Sie haben keine Bereichtigung zu dieser Seite"
 msgid "You have no member"
 msgstr "Sie haben keine Mitglieder"
 
+#, php-format
 msgid "You have reached lowest credit limit of %s"
 msgstr "Sie haben die untere Credit-Grenze von %s erreicht"
 
@@ -2962,7 +3021,8 @@ msgid "You must fill required fields"
 msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
+msgstr ""
+"Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Sie oder jemand anders habe eine Passwort-Rücksetzung angefordert."
@@ -3016,7 +3076,9 @@ msgstr "Ihr Mobilrufnummern-Format ist ungültig"
 msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
-msgstr "Ihr Sub-Benutzer mit Benutzernamen %s und Account ID %d hat die untere Credit-Grenze von %s erreicht"
+msgstr ""
+"Ihr Sub-Benutzer mit Benutzernamen %s und Account ID %d hat die untere "
+"Credit-Grenze von %s erreicht"
 
 msgid "Zipcode"
 msgstr "PLZ"
@@ -3173,13 +3235,17 @@ msgid "will be replaced by command keyword"
 msgstr "wird ersetzt durch das command Schlagwort"
 
 msgid "will be replaced by command parameter passed to server from SMS"
-msgstr "wird ersetzt durch command Parameter die durch die SMS an den Server übergeben werden"
+msgstr ""
+"wird ersetzt durch command Parameter die durch die SMS an den Server "
+"übergeben werden"
 
 msgid "will be replaced by custom keyword"
 msgstr "wird ersetzt durch custom Schlagwort"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
-msgstr "wird ersetzt durch custom Parameter die durch die SMS an den Server übergeben werden"
+msgstr ""
+"wird ersetzt durch custom Parameter die durch die SMS an den Server "
+"übergeben werden"
 
 msgid "will be replaced by receiver number"
 msgstr "wird ersetzt durch die Empfängernummer"
