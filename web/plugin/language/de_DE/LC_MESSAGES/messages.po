@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"POT-Creation-Date: 2015-08-06 13:10+0200\n"
 "Language: de_DE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2737,48 +2737,46 @@ msgstr "Login Session kann nicht aktualisiert werden"
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
-msgstr ""
+msgstr "Benutzer kann nicht gelöscht werden bis alle Sub-Benutzer dieses Benutzers gelöscht sind"
 
 msgid "Unable to login"
-msgstr ""
+msgstr "Anmeldung nicht möglich"
 
 msgid "Unable to process subuser addition"
-msgstr ""
+msgstr "Hinzufügen des Sub-Benutzers nicht möglich"
 
 msgid "Unable to process user addition"
-msgstr ""
+msgstr "Hinzufügen des Benutzers nicht möglich"
 
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Speichern der Konfiguration des Gateway-Moduls nicht möglich"
 
-#, fuzzy
 msgid "Unable to unban account"
-msgstr "Benutzer verwalten"
+msgstr "Entsperren des Accounts nicht möglich"
 
 msgid "Unable to unban subuser"
-msgstr ""
+msgstr "Entsperren des Sub-Benutzers nicht möglich"
 
 msgid "Unban"
-msgstr ""
+msgstr "Entsperren"
 
-#, fuzzy
 msgid "Unicode message"
-msgstr "Sende SMS"
+msgstr "Unicode Nachricht"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
 
 msgid "Unknown error has occurred"
-msgstr ""
+msgstr "Unbekannter Fehler aufgetreten"
 
 msgid "Unknown format reply"
-msgstr ""
+msgstr "Unbekanntes Format der Antwort"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Unbegrenzt"
 
 msgid "Update status"
-msgstr ""
+msgstr "Update Status"
 
 msgid "Upload file"
 msgstr "Datei hochladen"
@@ -2787,86 +2785,82 @@ msgid "Uploaded file"
 msgstr "Datei hochgeladen"
 
 msgid "Use JSON format URL"
-msgstr ""
+msgstr "Benutze JSON Format URL"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Benutze SSL"
 
 msgid "User"
 msgstr "Benutzer"
 
 msgid "User ID"
-msgstr ""
+msgstr "Benutzer ID"
 
 msgid "User agent"
-msgstr ""
+msgstr "Benutzer Agent"
 
 msgid "User configuration"
 msgstr "Benutzerkonfiguration"
 
-#, fuzzy
 msgid "User configuration has been saved"
-msgstr "Benutzerkonfiguration"
+msgstr "Benutzerkonfiguration wurde gespeichert"
 
 msgid "User configuration has been saved and webservices token updated"
-msgstr ""
+msgstr "Benutzerkonfiguration wurde gespeichert und der Webservices Token aktualisiert"
 
 msgid "User deletion unavailable"
-msgstr ""
+msgstr "Benutzer löschen ncht verfügbar"
 
 msgid "User does not exist"
-msgstr ""
+msgstr "Bentzer existiert nicht"
 
 msgid "User is already on banned subusers list"
-msgstr ""
+msgstr "Benutzer ist bereits auf der Liste der gesperrten Sub-Benutzer"
 
 msgid "User is already on banned users list"
-msgstr ""
+msgstr "Benutzer ist bereits auf der Liste der gesperrten Benutzer"
 
 msgid "User is immune to deletion"
-msgstr ""
+msgstr "Benutzer darf nicht gelöscht werden"
 
 msgid "User is not on banned subusers list"
-msgstr ""
+msgstr "Benutzer befindet sich nicht auf der Liste der gesperrten Sub-Benutzer"
 
 msgid "User is not on banned users list"
-msgstr ""
+msgstr "Benutzer befindet sich nicht auf der Liste der gesperrten Benutzer"
 
 msgid "User preference"
-msgstr "Benutzereinstellungen"
+msgstr "Benutzer Voreinstellungen"
 
 msgid "Username"
 msgstr "Benutzername"
 
-#, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr ""
+msgstr "Benutzername %s mit Account ID %d hat das untere Kreditlimit von %s erreicht"
 
-#, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
-msgstr ""
+msgstr "Benutzername %s mit Account ID %d hat die Freigabe der Absender-ID %s angefordert"
 
-#, php-format
 msgid "Username must be at least 3 characters and maximum %d characters"
-msgstr ""
+msgstr "Benutzername muss mindestens 3 und maximal %d Zeichen lang sein"
 
 msgid "Username or email"
-msgstr ""
+msgstr "Benutzername oder Email-Adresse"
 
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 msgid "Valid"
-msgstr ""
+msgstr "Gültig"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
+msgstr "Gültige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder Minus"
 
 msgid "Verify captcha"
-msgstr ""
+msgstr "Überprüfungs-Captcha"
 
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 msgid "View"
 msgstr "Anzeigen"
@@ -2875,82 +2869,79 @@ msgid "View SMS queue"
 msgstr "Zeige SMS Queue"
 
 msgid "View board"
-msgstr ""
+msgstr "Zeige Board"
 
-#, fuzzy
 msgid "View log"
-msgstr "Anzeigen"
+msgstr "Log ansehen"
 
 msgid "View members"
-msgstr ""
+msgstr "Mitglieder ansehen"
 
-#, fuzzy
 msgid "View messages"
-msgstr "Sende SMS"
+msgstr "Nachrichten ansehen"
 
 msgid "View report"
-msgstr ""
+msgstr "Report ansehen"
 
 msgid "Vote option"
-msgstr ""
+msgstr "Wahl Option"
 
 msgid "Webservice token"
-msgstr ""
+msgstr "Webservice Token"
 
 msgid "Webservice username"
-msgstr ""
+msgstr "Webservice Benutzername"
 
 msgid "Webservices IP range"
-msgstr ""
+msgstr "Webserivces IP-Bereich"
 
 msgid "Webservices links"
-msgstr ""
+msgstr "Webservices Links"
 
 msgid "Webservices token"
-msgstr ""
+msgstr "Webservices Token"
 
 msgid "Webservices username"
-msgstr ""
+msgstr "Webservices Benutzername"
 
 msgid "Website URL"
-msgstr ""
+msgstr "Webseiten URL"
 
 msgid "Website email"
-msgstr ""
+msgstr "Webseiten Email"
 
 msgid "Website title"
-msgstr ""
+msgstr "Webseiten Titel"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Wöchentlich"
 
 msgid "Welcome information"
-msgstr ""
+msgstr "Willkommens-Information"
 
 msgid "Whose online"
-msgstr ""
+msgstr "Wer ist online"
 
 msgid "Wrong amount or user does not exist"
-msgstr ""
+msgstr "Falscher Betrag oder Bnutzer existiert nicht"
 
 msgid "XML output"
-msgstr ""
+msgstr "XML Ausgabe"
 
 msgid "Yes"
 msgstr "ja"
 
 msgid "You have been logged out"
-msgstr ""
+msgstr "Sie wurden abgemeldet"
 
 msgid "You have no access to this page"
-msgstr ""
+msgstr "Sie haben keine Bereichtigung zu dieser Seite"
 
 msgid "You have no member"
-msgstr ""
+msgstr "Sie haben keine Mitglieder"
 
-#, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr ""
+msgstr "Sie haben die untere Credit-Grenze von %s erreicht"
 
 msgid "You must fill all field"
 msgstr "Es müssen alle Felder ausgefüllt werden"
@@ -2959,10 +2950,10 @@ msgid "You must fill all fields"
 msgstr "Es müssen alle Felder ausgefüllt werden"
 
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
 
 msgid "You must fill all required fields"
-msgstr ""
+msgstr "Es müssen alle benötigten Felder ausgefüllt werden"
 
 msgid "You must fill mandatory fields"
 msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
@@ -2971,140 +2962,136 @@ msgid "You must fill required fields"
 msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr ""
+msgstr "Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
 
 msgid "You or someone else have requested a password recovery"
-msgstr ""
+msgstr "Sie oder jemand anders habe eine Passwort-Rücksetzung angefordert."
 
 msgid "Your DLR URL is"
-msgstr ""
+msgstr "Ihre DLR URL ist"
 
 msgid "Your SMS has been delivered to queue"
-msgstr ""
+msgstr "Die SMS wurde an die Queue übermittelt"
 
 msgid "Your callback URL is"
-msgstr ""
+msgstr "Ihre callback URL ist"
 
 msgid "Your callback URL should be accessible from Bulksms"
-msgstr ""
+msgstr "Ihre callback URL solle von Bulksms erreichbar sein"
 
 msgid "Your callback URL should be accessible from Clickatell"
-msgstr ""
+msgstr "Ihre callback URL solle von Clickatell erreichbar sein"
 
 msgid "Your callback URL should be accessible from Infobip"
-msgstr ""
+msgstr "Ihre callback URL solle von Infobip erreichbar sein"
 
 msgid "Your callback URL should be accessible from Nexmo"
-msgstr ""
+msgstr "Ihre callback URL solle von Nexmo erreichbar sein"
 
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr ""
+msgstr "Ihre callback URL solle von OpenVox erreichbar sein"
 
 msgid "Your callback URL should be accessible from twilio"
-msgstr ""
+msgstr "Ihre callback URL solle von Twilio erreichbar sein"
 
 msgid "Your choice"
 msgstr "Ihre Auswahl"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Ihre Credits"
 
 msgid "Your email format is invalid"
-msgstr ""
+msgstr "Ihr Email-Format ist ungültig"
 
 msgid "Your message has been delivered to queue"
-msgstr ""
+msgstr "Ihre Nachricht wurde an die Queue übermittelt"
 
 msgid "Your message has been delivered to some of the destinations"
-msgstr ""
+msgstr "Ihre Nachricht wurde an einige der angegebenen Ziele übermittelt"
 
 msgid "Your mobile format is invalid"
-msgstr ""
+msgstr "Ihr Mobilrufnummern-Format ist ungültig"
 
 #, php-format
 msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
-msgstr ""
+msgstr "Ihr Sub-Benutzer mit Benutzernamen %s und Account ID %d hat die untere Credit-Grenze von %s erreicht"
 
 msgid "Zipcode"
-msgstr ""
+msgstr "PLZ"
 
-#, fuzzy
 msgid "amount"
-msgstr "Mein Account"
+msgstr "Betrag"
 
 msgid "balance"
-msgstr ""
+msgstr "Kontostand"
 
 msgid "blocked"
-msgstr ""
+msgstr "gesperrt"
 
 msgid "chars"
-msgstr ""
+msgstr "Zeichen"
 
 msgid "code"
 msgstr "Kürzel"
 
 msgid "correct"
-msgstr ""
+msgstr "korrekt"
 
 msgid "cost"
-msgstr ""
+msgstr "Kosten"
 
-#, fuzzy
 msgid "count"
-msgstr "Mein Account"
+msgstr "Menge"
 
 msgid "create an account to send SMS"
-msgstr ""
+msgstr "Erstellen Sie einen Account zum Senden von SMS"
 
 msgid "destination"
-msgstr ""
+msgstr "Ziel"
 
-#, fuzzy
 msgid "destination number, message"
-msgstr "Format: Zielrufnummer, Nachricht"
+msgstr "Zielrufnummer, Nachricht"
 
-#, fuzzy
 msgid "destination number, message, username"
-msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
+msgstr "Zielrufnummer, Nachricht, Benutzername"
 
 msgid "domain"
-msgstr ""
+msgstr "Domäne"
 
 msgid "email"
-msgstr ""
+msgstr "Email"
 
 msgid "failed"
-msgstr ""
+msgstr "fehlgeschlagen"
 
 msgid "for subuser only"
-msgstr ""
+msgstr "Nur für Sub-Benutzer"
 
 msgid "format"
-msgstr ""
+msgstr "Format"
 
 msgid "free credits are available for testing purposes"
-msgstr ""
+msgstr "Freie Credits sind zu Testzwecken verfügbar"
 
 msgid "group"
 msgstr "Gruppe"
 
 msgid "incorrect"
-msgstr ""
+msgstr "nicht korrekt"
 
 msgid "invalid entries"
 msgstr "Ungültige Einträge"
 
 msgid "keyword"
-msgstr ""
+msgstr "Schlagwort"
 
 msgid "mobile"
-msgstr ""
+msgstr "Mobilnummer"
 
 msgid "multiple times"
-msgstr ""
+msgstr "mehrmals"
 
 msgid "no"
 msgstr "nein"
@@ -3113,95 +3100,95 @@ msgid "of"
 msgstr "von"
 
 msgid "on"
-msgstr ""
+msgstr "an"
 
 msgid "one time"
-msgstr ""
+msgstr "einmal"
 
 msgid "one time every 24 hours"
-msgstr ""
+msgstr "einmal pro 24 Stunden"
 
 msgid "one time every month"
-msgstr ""
+msgstr "einmal pro Monat"
 
 msgid "one time every week"
-msgstr ""
+msgstr "einmal pro Woche"
 
 msgid "playSMS daemon is NOT running"
-msgstr ""
+msgstr "playSMS Dienst läuft NICHT"
 
 msgid "playSMS daemon is running"
-msgstr ""
+msgstr "playSMS Dienst läuft"
 
 msgid "playSMS daemon status"
-msgstr ""
+msgstr "playSMS Dienst Status"
 
 msgid "playSMS web URL"
-msgstr ""
+msgstr "playSMS Web URL"
 
 msgid "prefix"
-msgstr ""
+msgstr "Prefix"
 
 msgid "queued"
-msgstr ""
+msgstr "Queued"
 
 msgid "rate"
-msgstr ""
+msgstr "Rate"
 
 msgid "return"
-msgstr ""
+msgstr "Zurück"
 
 msgid "title"
-msgstr ""
+msgstr "Titel"
 
 msgid "twilio is a bulk SMS provider"
-msgstr ""
+msgstr "Twilio ist ein SMSMassenversand Provider"
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Twilio liefert DLR und eingehende SMS an Ihre callback URL"
 
 msgid "user"
-msgstr ""
+msgstr "Benutzer"
 
 msgid "username"
-msgstr ""
+msgstr "Benutzername"
 
 msgid "valid entries"
 msgstr "Gültige Einträge"
 
 #, php-format
 msgid "view all %d"
-msgstr ""
+msgstr "Zeige alle %d"
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr ""
+msgstr "wilrd ersetzt durch Eingangszeit der SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr ""
+msgstr "wird eretzt durch die SMS-Nachricht (raw)"
 
 msgid "will be replaced by actual receiver number"
-msgstr ""
+msgstr "wird ersetzt durch die tatsächliche Empfängernummer"
 
 msgid "will be replaced by command keyword"
-msgstr ""
+msgstr "wird ersetzt durch das command Schlagwort"
 
 msgid "will be replaced by command parameter passed to server from SMS"
-msgstr ""
+msgstr "wird ersetzt durch command Parameter die durch die SMS an den Server übergeben werden"
 
 msgid "will be replaced by custom keyword"
-msgstr ""
+msgstr "wird ersetzt durch custom Schlagwort"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
-msgstr ""
+msgstr "wird ersetzt durch custom Parameter die durch die SMS an den Server übergeben werden"
 
 msgid "will be replaced by receiver number"
-msgstr ""
+msgstr "wird ersetzt durch die Empfängernummer"
 
 msgid "will be replaced by sender number"
-msgstr ""
+msgstr "wird ersetzt durch die Absendernummer"
 
 msgid "will be replaced by service name"
-msgstr ""
+msgstr "wird ersetzt durch den Dienste-Namen"
 
 msgid "will be replaced with the name listed in phonebook"
 msgstr "wird durch Name aus dem Telefonbuch ersetzt"
