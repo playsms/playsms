@@ -183,7 +183,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				if ($id = recvsms(core_get_datetime(), $sms_sender, $message, $sms_receiver, $smsc)) {
 					$content['status'] = 'OK';
 					$content['data'] = array(
-						'remote_recvsms_id' => $id 
+						'recvsms_id' => $id 
 					);
 				} else {
 					$content['status'] = 'ERROR';
