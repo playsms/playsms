@@ -625,7 +625,6 @@ msgstr "Standard Credit bei Registrierung"
 msgid "Default default_queue directory"
 msgstr "Standard default_queue Verzeichnis"
 
-#, fuzzy
 msgid "Default language"
 msgstr "Standard Sprache"
 
@@ -648,14 +647,12 @@ msgid ""
 msgstr ""
 "Standard Prefix oder Ländercode, der eine führende 0 der Zielnummer ersetzt"
 
-#, fuzzy
 msgid "Default sender ID"
 msgstr "Standard SMS Absender-ID"
 
 msgid "Default settings"
 msgstr "Standardeinstellungen"
 
-#, fuzzy
 msgid "Default site configuration"
 msgstr "Standard Site-Konfiguration"
 
@@ -685,7 +682,6 @@ msgstr "Lösche Mitglied"
 msgid "Delete user"
 msgstr "Benutzer löschen"
 
-#, fuzzy
 msgid "Deleted"
 msgstr "Gelöscht"
 
@@ -728,7 +724,6 @@ msgstr "Download SMSSync app für Android von"
 msgid "Edit"
 msgstr "Ändern"
 
-#, fuzzy
 msgid "Edit ACL"
 msgstr "ACL ändern"
 
@@ -759,7 +754,6 @@ msgstr "SMS Quiz ändern"
 msgid "Edit SMS subscribe"
 msgstr "SMS subscribe ändern"
 
-#, fuzzy
 msgid "Edit SMSC"
 msgstr "SMSC ändern"
 
@@ -775,14 +769,12 @@ msgstr "Gruppe ändern"
 msgid "Edit group inbox"
 msgstr "Gruppen-Inbox ändern"
 
-#, fuzzy
 msgid "Edit message"
 msgstr "Nachricht ändern"
 
 msgid "Edit message template"
 msgstr "Nachrichten-Vorlage ändern"
 
-#, fuzzy
 msgid "Edit rate"
 msgstr "Rate ändern"
 
@@ -792,7 +784,6 @@ msgstr "Route ändern"
 msgid "Edit schedule"
 msgstr "Zeitplan ändern"
 
-#, fuzzy
 msgid "Edit sender ID"
 msgstr "Absender-ID ändern"
 
@@ -1500,7 +1491,7 @@ msgid "Manage OpenVox"
 msgstr "OpenVox verwalten"
 
 msgid "Manage SMS rate"
-msgstr "Benutzer verwalten"
+msgstr "SMS Rate verwalten"
 
 msgid "Manage account"
 msgstr "Account verwalten"
@@ -1877,7 +1868,6 @@ msgstr "Param"
 msgid "Parent"
 msgstr ""
 
-#, fuzzy
 msgid "Parent account"
 msgstr "Eltern Account"
 
@@ -2646,7 +2636,6 @@ msgstr ""
 msgid "Simulate incoming SMS"
 msgstr "Simuliere eingehende SMS"
 
-#, fuzzy
 msgid "Site configuration"
 msgstr "Site Konfiguration"
 
@@ -2680,7 +2669,6 @@ msgstr "Sub-Benutzer"
 msgid "Subuser ACL"
 msgstr "Sub-Benutzer ACL"
 
-#, fuzzy
 msgid "Subusers"
 msgstr "Sub-Benutzer"
 
