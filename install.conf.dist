@@ -45,6 +45,10 @@ PATHBIN="/usr/local/bin"
 # Path to playSMS log files
 PATHLOG="/var/log/playsms"
 
+# Path to playSMS daemon configuration file
+# note: this example will create playsmsd.conf in /etc
+PATHCONF="/etc"
+
 
 # END OF INSTALL DATA
 # ===================
