@@ -19,23 +19,39 @@
  */
 
 // Usage:
-// playsmsd <COMMAND> <LOOP_FLAG> <CMD_PARAM>
+// playsmsd [<PLAYSMSD_CONF>] <COMMAND> <LOOP_FLAG> <CMD_PARAM>
 set_time_limit(0);
 
 error_reporting(0);
 
+$PLAYSMSD_CONF = '';
+$argument = $argv;
+
+// check if 1st argv is playsmsd.conf path and command in 2nd argv is not empty
+if (file_exists($argument[1]) && $argument[2]) {
+	$p = pathinfo($argument[1]);
+	if ($p['extension'] == 'conf') {
+		$PLAYSMSD_CONF = $argument[1];
+		array_shift($argument);
+	}
+}
+
 $ini = array();
 
 $ini_files = array(
+	$PLAYSMSD_CONF,
 	'./playsmsd.conf',
 	'~/playsmsd.conf',
+	'~/etc/playsmsd.conf',
 	'/etc/playsmsd.conf',
-	'/usr/local/etc/playsmsd.conf' 
+	'/usr/local/etc/playsmsd.conf',
+	'/usr/bin/playsmsd.conf',
+	'/usr/local/bin/playsmsd.conf' 
 );
 
 $continue = FALSE;
 foreach ($ini_files as $PLAYSMSD_CONF) {
-	if (file_exists($PLAYSMSD_CONF)) {
+	if ($PLAYSMSD_CONF && file_exists($PLAYSMSD_CONF)) {
 		$ini = @parse_ini_file($PLAYSMSD_CONF);
 		if ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'] && $ini['PLAYSMS_LOG']) {
 			$continue = TRUE;
@@ -45,7 +61,7 @@ foreach ($ini_files as $PLAYSMSD_CONF) {
 }
 
 if (!$continue) {
-	echo "Unable to find playsmsd.conf in current directory, home directory, /etc or in /usr/local/etc\n";
+	echo "Unable to find playsmsd.conf\n";
 	exit();
 }
 
@@ -72,16 +88,17 @@ error_reporting($ERROR_REPORTING);
 $core_config['daemon'] = $ini;
 
 // Daemon service
-$COMMAND = strtolower($argv[1]);
+$COMMAND = strtolower($argument[1]);
 
 // Loop flag: loop => execute in a loop, once => execute only once
-$LOOP_FLAG = (strtolower($argv[2]) ? strtolower($argv[2]) : 'loop');
+$LOOP_FLAG = (strtolower($argument[2]) ? strtolower($argument[2]) : 'loop');
 
 // Service parameters
-$CMD_PARAM = $argv[3];
+$CMD_PARAM = $argument[3];
 
 // playsmsd
 $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
+$PLAYSMSD_COMMAND = $PLAYSMSD_BIN . ' ' . $PLAYSMSD_CONF;
 
 switch ($COMMAND) {
 	case 'watchdog':
@@ -145,7 +162,7 @@ switch ($COMMAND) {
 	case 'log':
 		
 		// View log
-		$debug_file = ($argv[2] ? $argv[2] : '');
+		$debug_file = ($argument[2] ? $argument[2] : '');
 		playsmsd_log($debug_file);
 		
 		exit();
@@ -259,7 +276,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 						foreach ($queue as $q) {
 							$is_sending = (playsmsd_pid_get($q) ? TRUE : FALSE);
 							if (!$is_sending) {
-								$RUN_THIS = "nohup $PLAYSMSD_BIN sendqueue once $q >/dev/null 2>&1 &";
+								$RUN_THIS = "nohup $PLAYSMSD_COMMAND sendqueue once $q >/dev/null 2>&1 &";
 								echo $COMMAND . " execute: " . $RUN_THIS . "\n";
 								shell_exec($RUN_THIS);
 							}
@@ -299,7 +316,9 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
  * @return integer PID
  */
 function playsmsd_pid_get($process) {
-	return trim(shell_exec("ps -eo pid,command | grep " . $process . " | grep -v grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '"));
+	global $PLAYSMSD_CONF;
+	
+	return trim(shell_exec("ps -eo pid,command | grep '" . $PLAYSMSD_CONF . " " . $process . "' | grep -v grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '"));
 }
 
 /**
@@ -348,7 +367,7 @@ function playsmsd_isrunning() {
  * Start playsmsd scripts
  */
 function playsmsd_start() {
-	global $PLAYSMSD_BIN;
+	global $PLAYSMSD_COMMAND;
 	
 	if (playsmsd_isrunning()) {
 		echo "playsmsd is already running\n";
@@ -357,14 +376,14 @@ function playsmsd_start() {
 	}
 	
 	// stop all daemons
-	shell_exec("$PLAYSMSD_BIN stop >/dev/null 2>&1");
+	shell_exec("$PLAYSMSD_COMMAND stop >/dev/null 2>&1");
 	sleep(2);
 	
 	// run playsmsd services
-	shell_exec("nohup $PLAYSMSD_BIN schedule >/dev/null 2>&1 &");
-	shell_exec("nohup $PLAYSMSD_BIN dlrssmsd >/dev/null 2>&1 &");
-	shell_exec("nohup $PLAYSMSD_BIN recvsmsd >/dev/null 2>&1 &");
-	shell_exec("nohup $PLAYSMSD_BIN sendsmsd >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND schedule >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND dlrssmsd >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND recvsmsd >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND sendsmsd >/dev/null 2>&1 &");
 	
 	if (playsmsd_isrunning()) {
 		echo "playsmsd has been started\n";
