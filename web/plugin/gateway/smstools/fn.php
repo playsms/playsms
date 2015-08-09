@@ -33,7 +33,8 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 	$gpid = ((int) $gpid ? (int) $gpid : 0);
 	$uid = ((int) $uid ? (int) $uid : 0);
 	$smslog_id = ((int) $smslog_id ? (int) $smslog_id : 0);
-	$sms_id = $gpid . '.' . $uid . '.' . $smslog_id;
+	$sms_datetime = core_sanitize_numeric($p_datetime);
+	$sms_id = $sms_datetime . '.' . $gpid . '.' . $uid . '.' . $smslog_id;
 	$outfile = 'out.' . $sms_id;
 	
 	$fn = $plugin_config['smstools']['default_queue'] . '/sent/' . $outfile;
@@ -263,7 +264,9 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	$gpid = ((int) $gpid ? (int) $gpid : 0);
 	$uid = ((int) $uid ? (int) $uid : 0);
 	$smslog_id = ((int) $smslog_id ? (int) $smslog_id : 0);
-	$sms_id = $gpid . '.' . $uid . '.' . $smslog_id;
+	$d = sendsms_get_sms($smslog_id);
+	$sms_datetime = core_sanitize_numeric($d['p_datetime']);	
+	$sms_id = $sms_datetime. '.' . $gpid . '.' . $uid . '.' . $smslog_id;
 	$outfile = 'out.' . $sms_id;
 	
 	$fn = $plugin_config['smstools']['queue'] . '/' . $outfile;
