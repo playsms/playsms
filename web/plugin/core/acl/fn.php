@@ -186,10 +186,23 @@ function acl_checkurl($url, $uid = 0) {
 		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {
 			$data_acl = acl_getdata($acl_id);
 			if ($data_acl['flag_disallowed']) {
+				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
 				foreach ($acl_urls as $acl_url) {
+					if (substr($acl_url, 0, 1) == '!') {
+						$acl_url = substr($acl_url, 1);
+						$is_exception = TRUE;
+					} else {
+						$is_exception = FALSE;
+					}
+					
 					$pos = strpos($url, $acl_url);
 					if ($pos !== FALSE) {
-						return FALSE;
+						// check whether its an exception or not
+						if ($is_exception) {
+							return TRUE;
+						} else {
+							return FALSE;
+						}
 					}
 				}
 				
@@ -201,10 +214,23 @@ function acl_checkurl($url, $uid = 0) {
 				$acl_urls[] = 'app=webservices';
 				$acl_urls[] = 'inc=core_auth';
 				$acl_urls[] = 'inc=core_welcome';
+				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
 				foreach ($acl_urls as $acl_url) {
+					if (substr($acl_url, 0, 1) == '!') {
+						$acl_url = substr($acl_url, 1);
+						$is_exception = TRUE;
+					} else {
+						$is_exception = FALSE;
+					}
+					
 					$pos = strpos($url, $acl_url);
 					if ($pos !== FALSE) {
-						return TRUE;
+						// check whether its an exception or not
+						if ($is_exception) {
+							return FALSE;
+						} else {
+							return TRUE;
+						}
 					}
 				}
 				
