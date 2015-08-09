@@ -28,3 +28,6 @@ CREATE TABLE `playsms_gatewayPlaynet_outgoing` (
   `unicode` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- core ACL
+ALTER TABLE `playsms_tblACL` ADD `flag_disallowed` INT(11) NOT NULL DEFAULT '0' AFTER `url`;

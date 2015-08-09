@@ -74,6 +74,9 @@ switch (_OP_) {
 				<td>" . _('Subuser ACL') . "</td><td><input type=text name=acl_subuser> " . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			<tr>
+				<td>" . _('Disallowed URLs') . "</td><td>" . _yesno('acl_disallowed', FALSE) . " " . _hint(_('Decide if this ACL is containing disallowed URLs rather than allowed URLs')) . "</td>
+			</tr>
+			<tr>
 				<td>" . _('URLs') . "</td><td><textarea rows=5 name=url></textarea><br />" . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			</table>
@@ -90,11 +93,12 @@ switch (_OP_) {
 			$acl_subuser .= ' ' . trim(strtoupper($item)) . ',';
 		}
 		$acl_subuser = trim(substr($acl_subuser, 0, -1));
+		$acl_disallowed = (int) $_REQUEST['acl_disallowed'];
 		$url = trim($_POST['url']);
 		if ($name) {
 			$db_query = "
-				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,acl_subuser,url,flag_deleted)
-				VALUES ('" . mktime() . "','" . $name . "','" . $acl_subuser . "','" . $url . "','0')";
+				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,acl_subuser,url,flag_disallowed,flag_deleted)
+				VALUES ('" . mktime() . "','" . $name . "','" . $acl_subuser . "','" . $url . "'," . $acl_disallowed . ",'0')";
 			if ($new_id = @dba_insert_id($db_query)) {
 				$_SESSION['dialog']['info'][] = _('New ACL been added');
 			} else {
@@ -129,6 +133,9 @@ switch (_OP_) {
 				<td>" . _('Subuser ACL') . "</td><td><input type=text name=acl_subuser value='" . strtoupper($db_row['acl_subuser']) . "'> " . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			<tr>
+				<td>" . _('Disallowed URLs') . "</td><td>" . _yesno('acl_disallowed', $db_row['flag_disallowed']) . " " . _hint(_('Decide if this ACL is containing disallowed URLs rather than allowed URLs')) . "</td>
+			</tr>
+			<tr>
 				<td>" . _('URLs') . "</td><td><textarea rows=5 name=url>" . $db_row['url'] . "</textarea><br />" . _hint(_('Comma separated for multiple entries')) . "</td>
 			</tr>
 			</table>
@@ -146,10 +153,11 @@ switch (_OP_) {
 			$acl_subuser .= ' ' . trim(strtoupper($item)) . ',';
 		}
 		$acl_subuser = trim(substr($acl_subuser, 0, -1));
+		$acl_disallowed = (int) $_REQUEST['acl_disallowed'];
 		$url = trim($_POST['url']);
 		if ($id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "'
+				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "',flag_disallowed='" . $acl_disallowed . "'
 				WHERE id='" . $id . "'";
 			if ($new_id = @dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('ACL been edited');

@@ -183,24 +183,40 @@ function acl_checkurl($url, $uid = 0) {
 	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
 	$acl_id = acl_getidbyuid($uid);
 	if ($acl_urls = acl_geturl($acl_id)) {
-		$acl_urls[] = 'app=ws';
-		$acl_urls[] = 'app=webservice';
-		$acl_urls[] = 'app=webservices';
-		$acl_urls[] = 'inc=core_auth';
-		$acl_urls[] = 'inc=core_welcome';
 		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {
-			foreach ($acl_urls as $acl_url) {
-				$pos = strpos($url, $acl_url);
-				if ($pos !== FALSE) {
-					return TRUE;
+			$data_acl = acl_getdata($acl_id);
+			if ($data_acl['flag_disallowed']) {
+				foreach ($acl_urls as $acl_url) {
+					$pos = strpos($url, $acl_url);
+					if ($pos !== FALSE) {
+						return FALSE;
+					}
 				}
+				
+				// no match with disallowed URLs
+				return TRUE;
+			} else {
+				$acl_urls[] = 'app=ws';
+				$acl_urls[] = 'app=webservice';
+				$acl_urls[] = 'app=webservices';
+				$acl_urls[] = 'inc=core_auth';
+				$acl_urls[] = 'inc=core_welcome';
+				foreach ($acl_urls as $acl_url) {
+					$pos = strpos($url, $acl_url);
+					if ($pos !== FALSE) {
+						return TRUE;
+					}
+				}
+				
+				// no match with allowed URLs
+				return FALSE;
 			}
 		} else {
+			// fixme anton: this probably should be FALSE, later we will need to fix this
 			return TRUE;
 		}
 	} else {
+		// fixme anton: this probably should be FALSE, later we will need to fix this
 		return TRUE;
 	}
-	
-	return FALSE;
 }
