@@ -51,7 +51,7 @@ if ($plugin_config['kannel']['local_time']) {
 }
 
 $q = trim($_REQUEST['q']); // sms_sender
-$a = trim(htmlspecialchars_decode($_REQUEST['a'])); // message
+$a = trim(htmlspecialchars_decode(urldecode($_REQUEST['a']))); // message
 $Q = trim($_REQUEST['Q']); // sms_receiver
 $smsc = trim($_REQUEST['smsc']); // SMSC
 

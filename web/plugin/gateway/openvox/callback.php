@@ -46,5 +46,7 @@ $sms_receiver = core_sanitize_sender($requests['port']);
 $smsc = $requests['smsc'];
 if ($message) {
 	logger_print("incoming smsc:" . $smsc . " from:" . $sms_sender . " port:" . $sms_receiver . " m:[" . $message . "] smsc:[" . $smsc . "]", 2, "openvox callback");
+	$sms_sender = addslashes($sms_sender);
+	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 }
