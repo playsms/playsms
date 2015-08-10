@@ -6,7 +6,7 @@
 	<tbody>
 		<tr><td class=label-sizer>{{ Gateway name }}</td><td>jasmin</td></tr>
 		<tr><td>{{ Jasmin send SMS URL }}</td><td><input type=text maxlength=250 name=up_url value="{{ jasmin_param_url }}"></td></tr>
-		<tr><td>{{ Callback URL }}</td><td><input type=text maxlength=250 name=up_callback_url value="{{ jasmin_param_callback_url }}"></td></tr>
+		<tr><td>{{ Callback URL }}</td><td><input type=text maxlength=250 name=up_callback_url value="{{ jasmin_param_callback_url }}">  {{ HINT_CALLBACK_URL }}</td></tr>
 		<tr><td>{{ API username }}</td><td><input type=text maxlength=30 name=up_api_username value="{{ jasmin_param_api_username }}"></td></tr>
 		<tr><td>{{ API password }}</td><td><input type=password maxlength=30 name=up_api_password value=""> {{ HINT_FILL_PASSWORD }}</td></tr>
 		<tr><td>{{ Module sender ID }}</td><td><input type=text maxlength=16 name=up_module_sender value="{{ jasmin_param_module_sender }}"> {{ HINT_MODULE_SENDER }}</td></tr>

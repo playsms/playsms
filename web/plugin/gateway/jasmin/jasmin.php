@@ -43,6 +43,7 @@ switch (_OP_) {
 				'Module timezone' => _('Module timezone'),
 				'Save' => _('Save'),
 				'Notes' => _('Notes'),
+				'HINT_CALLBACK_URL' => _hint(_('Empty callback URL to set default')),
 				'HINT_FILL_PASSWORD' => _hint(_('Fill to change the API password')),
 				'HINT_MODULE_SENDER' => _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')),
 				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
@@ -60,6 +61,7 @@ switch (_OP_) {
 		);
 		_p(tpl_apply($tpl));
 		break;
+	
 	case "manage_save":
 		$up_url = $_POST['up_url'];
 		$up_callback_url = $_POST['up_callback_url'];
@@ -68,19 +70,17 @@ switch (_OP_) {
 		$up_module_sender = $_POST['up_module_sender'];
 		$up_datetime_timezone = $_POST['up_datetime_timezone'];
 		if ($up_url && $up_api_username) {
+			$items = array(
+				'url' => $up_url,
+				'callback_url' => $up_callback_url,
+				'api_username' => $up_api_username,
+				'module_sender' => $up_module_sender,
+				'datetime_timezone' => $up_datetime_timezone 
+			);
 			if ($up_api_password) {
-				$api_password_change = "api_password='$up_api_password',";
+				$items['api_password'] = $up_api_password;
 			}
-			$db_query = "
-				UPDATE " . _DB_PREF_ . "_gatewayJasmin_config
-				SET c_timestamp='" . mktime() . "',
-				url='$up_url',
-				callback_url='$callback_url',
-				api_username='$up_api_username',
-				" . $api_password_change . "
-				module_sender='$up_module_sender',
-				datetime_timezone='$up_datetime_timezone'";
-			if (@dba_affected_rows($db_query)) {
+			if (registry_update(0, 'gateway', 'jasmin', $items)) {
 				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			} else {
 				$_SESSION['dialog']['info'][] = _('No changes have been made');

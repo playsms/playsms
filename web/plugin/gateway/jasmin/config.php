@@ -5,16 +5,14 @@ $callback_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin
 $callback_url = str_replace("//", "/", $callback_url);
 $callback_url = "http://" . $callback_url;
 
-$db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayJasmin_config";
-$db_result = dba_query($db_query);
-if ($db_row = dba_fetch_array($db_result)) {
-	$plugin_config['jasmin']['name'] = 'jasmin';
-	$plugin_config['jasmin']['url'] = ($db_row['url'] ? $db_row['url'] : 'https://127.0.0.1:1401/send');
-	$plugin_config['jasmin']['callback_url'] = ($db_row['callback_url'] ? $db_row['callback_url'] : $callback_url);
-	$plugin_config['jasmin']['api_username'] = $db_row['api_username'];
-	$plugin_config['jasmin']['api_password'] = $db_row['api_password'];
-	$plugin_config['jasmin']['module_sender'] = $db_row['module_sender'];
-	$plugin_config['jasmin']['datetime_timezone'] = $db_row['datetime_timezone'];
+$data = registry_search(0, 'gateway', 'jasmin');
+$plugin_config['jasmin'] = $data['gateway']['jasmin'];
+$plugin_config['jasmin']['name'] = 'jasmin';
+if (!$plugin_config['jasmin']['url']) {
+	$plugin_config['jasmin']['url'] = 'https://127.0.0.1:1401/send';
+}
+if (!$plugin_config['jasmin']['callback_url']) {
+	$plugin_config['jasmin']['callback_url'] = $callback_url;
 }
 
 // smsc configuration
