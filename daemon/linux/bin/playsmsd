@@ -24,6 +24,198 @@ set_time_limit(0);
 
 error_reporting(0);
 
+// functions
+
+
+/**
+ * Get pid for certain playsmsd process
+ *
+ * @param string $process
+ *        process name
+ * @return integer PID
+ */
+function playsmsd_pid_get($process) {
+	global $PLAYSMSD_CONF;
+	
+	return trim(shell_exec("ps -eo pid,command | grep '" . $PLAYSMSD_CONF . " " . $process . "' | grep -v grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '"));
+}
+
+/**
+ * Get pids for all playsmsd main process
+ *
+ * @return array PIDs
+ */
+function playsmsd_pids() {
+	$pids['schedule'] = playsmsd_pid_get('schedule');
+	$pids['dlrssmsd'] = playsmsd_pid_get('dlrssmsd');
+	$pids['recvsmsd'] = playsmsd_pid_get('recvsmsd');
+	$pids['sendsmsd'] = playsmsd_pid_get('sendsmsd');
+	return $pids;
+}
+
+/**
+ * Show pids
+ */
+function playsmsd_pids_show() {
+	$pids = playsmsd_pids();
+	echo "schedule at pid " . $pids['schedule'] . "\n";
+	echo "dlrssmsd at pid " . $pids['dlrssmsd'] . "\n";
+	echo "recvsmsd at pid " . $pids['recvsmsd'] . "\n";
+	echo "sendsmsd at pid " . $pids['sendsmsd'] . "\n";
+}
+
+/**
+ * Check whether or not playsmsd processes are running
+ *
+ * @return boolean TRUE if all processes are running
+ */
+function playsmsd_isrunning() {
+	$pids = playsmsd_pids();
+	foreach ($pids as $pid) {
+		if ($pid) {
+			$isrunning = TRUE;
+		} else {
+			$isrunning = FALSE;
+			break;
+		}
+	}
+	return $isrunning;
+}
+
+/**
+ * Start playsmsd scripts
+ */
+function playsmsd_start() {
+	global $PLAYSMSD_COMMAND;
+	
+	if (playsmsd_isrunning()) {
+		echo "playsmsd is already running\n";
+		playsmsd_pids_show();
+		exit();
+	}
+	
+	// stop all daemons
+	shell_exec("$PLAYSMSD_COMMAND stop >/dev/null 2>&1");
+	sleep(2);
+	
+	// run playsmsd services
+	shell_exec("nohup $PLAYSMSD_COMMAND schedule >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND dlrssmsd >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND recvsmsd >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND sendsmsd >/dev/null 2>&1 &");
+	
+	if (playsmsd_isrunning()) {
+		echo "playsmsd has been started\n";
+		playsmsd_pids_show();
+	} else {
+		echo "Unable to start playsmsd\n";
+	}
+}
+
+/**
+ * Stop playsmsd scripts
+ */
+function playsmsd_stop() {
+	$pids = playsmsd_pids();
+	foreach ($pids as $key => $val) {
+		if ($key && $val) {
+			echo $key . " at pid " . $val . " will be killed..\n";
+			shell_exec("kill " . $val . " >/dev/null 2>&1");
+		}
+	}
+	
+	if (playsmsd_isrunning()) {
+		echo "Unable to stop playsmsd\n";
+		playsmsd_pids_show();
+	} else {
+		echo "playsmsd has been stopped\n";
+	}
+}
+
+/**
+ * Stop child scripts
+ */
+function playsmsd_stop_childs() {
+	$pids['sendqueue'] = playsmsd_pid_get('sendqueue');
+	foreach ($pids as $key => $val) {
+		if ($key && $val) {
+			echo $key . " at pid " . $val . " will be killed..\n";
+			shell_exec("kill " . $val . " >/dev/null 2>&1");
+		}
+	}
+}
+
+/**
+ * Check variables and states of playsmsd
+ *
+ * @param boolean $json
+ *        TRUE for json output
+ * @return string
+ */
+function playsmsd_check($json) {
+	global $PLAYSMSD_CONF, $DAEMON_SLEEP, $ERROR_REPORTING;
+	global $PLAYSMS_INSTALL_PATH, $PLAYSMS_LIB_PATH, $PLAYSMS_DAEMON_PATH, $PLAYSMS_LOG_PATH;
+	
+	$data = array(
+		'PLAYSMSD_CONF' => $PLAYSMSD_CONF,
+		'PLAYSMS_PATH' => $PLAYSMS_INSTALL_PATH,
+		'PLAYSMS_LIB' => $PLAYSMS_LIB_PATH,
+		'PLAYSMS_BIN' => $PLAYSMS_DAEMON_PATH,
+		'PLAYSMS_LOG' => $PLAYSMS_LOG_PATH,
+		'DAEMON_SLEEP' => $DAEMON_SLEEP,
+		'ERROR_REPORTING' => $ERROR_REPORTING,
+		'IS_RUNNING' => playsmsd_isrunning(),
+		'PIDS' => playsmsd_pids() 
+	);
+	
+	if ($json) {
+		echo json_encode($data);
+	} else {
+		foreach ($data as $key => $val) {
+			if (is_array($val)) {
+				foreach ($val as $k => $v) {
+					echo $key . " " . $k . " = " . $v . "\n";
+				}
+			} else {
+				echo $key . " = " . $val . "\n";
+			}
+		}
+	}
+}
+
+/**
+ * View log
+ *
+ * @param string $debug_file
+ *        Save log to debug file
+ */
+function playsmsd_log($debug_file = '') {
+	global $PLAYSMS_LOG_PATH;
+	
+	$log = $PLAYSMS_LOG_PATH . '/playsms.log';
+	if (file_exists($log)) {
+		
+		$process = 'tail -n 0 -f ' . $log . ' 2>&1';
+		if ($debug_file) {
+			@shell_exec('touch ' . $debug_file);
+			if (file_exists($debug_file)) {
+				$process .= '| tee ' . $debug_file;
+			}
+		}
+		
+		$handle = popen($process, 'r');
+		while (!feof($handle)) {
+			$buffer = fgets($handle);
+			echo $buffer;
+			flush();
+		}
+		pclose($handle);
+	}
+}
+
+// main procedure
+
+
 $PLAYSMSD_CONF = '';
 $argument = $argv;
 
@@ -302,194 +494,5 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		}
 		
 		// while TRUE
-	}
-}
-
-// functions
-
-
-/**
- * Get pid for certain playsmsd process
- *
- * @param string $process
- *        process name
- * @return integer PID
- */
-function playsmsd_pid_get($process) {
-	global $PLAYSMSD_CONF;
-	
-	return trim(shell_exec("ps -eo pid,command | grep '" . $PLAYSMSD_CONF . " " . $process . "' | grep -v grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '"));
-}
-
-/**
- * Get pids for all playsmsd main process
- *
- * @return array PIDs
- */
-function playsmsd_pids() {
-	$pids['schedule'] = playsmsd_pid_get('schedule');
-	$pids['dlrssmsd'] = playsmsd_pid_get('dlrssmsd');
-	$pids['recvsmsd'] = playsmsd_pid_get('recvsmsd');
-	$pids['sendsmsd'] = playsmsd_pid_get('sendsmsd');
-	return $pids;
-}
-
-/**
- * Show pids
- */
-function playsmsd_pids_show() {
-	$pids = playsmsd_pids();
-	echo "schedule at pid " . $pids['schedule'] . "\n";
-	echo "dlrssmsd at pid " . $pids['dlrssmsd'] . "\n";
-	echo "recvsmsd at pid " . $pids['recvsmsd'] . "\n";
-	echo "sendsmsd at pid " . $pids['sendsmsd'] . "\n";
-}
-
-/**
- * Check whether or not playsmsd processes are running
- *
- * @return boolean TRUE if all processes are running
- */
-function playsmsd_isrunning() {
-	$pids = playsmsd_pids();
-	foreach ($pids as $pid) {
-		if ($pid) {
-			$isrunning = TRUE;
-		} else {
-			$isrunning = FALSE;
-			break;
-		}
-	}
-	return $isrunning;
-}
-
-/**
- * Start playsmsd scripts
- */
-function playsmsd_start() {
-	global $PLAYSMSD_COMMAND;
-	
-	if (playsmsd_isrunning()) {
-		echo "playsmsd is already running\n";
-		playsmsd_pids_show();
-		exit();
-	}
-	
-	// stop all daemons
-	shell_exec("$PLAYSMSD_COMMAND stop >/dev/null 2>&1");
-	sleep(2);
-	
-	// run playsmsd services
-	shell_exec("nohup $PLAYSMSD_COMMAND schedule >/dev/null 2>&1 &");
-	shell_exec("nohup $PLAYSMSD_COMMAND dlrssmsd >/dev/null 2>&1 &");
-	shell_exec("nohup $PLAYSMSD_COMMAND recvsmsd >/dev/null 2>&1 &");
-	shell_exec("nohup $PLAYSMSD_COMMAND sendsmsd >/dev/null 2>&1 &");
-	
-	if (playsmsd_isrunning()) {
-		echo "playsmsd has been started\n";
-		playsmsd_pids_show();
-	} else {
-		echo "Unable to start playsmsd\n";
-	}
-}
-
-/**
- * Stop playsmsd scripts
- */
-function playsmsd_stop() {
-	$pids = playsmsd_pids();
-	foreach ($pids as $key => $val) {
-		if ($key && $val) {
-			echo $key . " at pid " . $val . " will be killed..\n";
-			shell_exec("kill " . $val . " >/dev/null 2>&1");
-		}
-	}
-	
-	if (playsmsd_isrunning()) {
-		echo "Unable to stop playsmsd\n";
-		playsmsd_pids_show();
-	} else {
-		echo "playsmsd has been stopped\n";
-	}
-}
-
-/**
- * Stop child scripts
- */
-function playsmsd_stop_childs() {
-	$pids['sendqueue'] = playsmsd_pid_get('sendqueue');
-	foreach ($pids as $key => $val) {
-		if ($key && $val) {
-			echo $key . " at pid " . $val . " will be killed..\n";
-			shell_exec("kill " . $val . " >/dev/null 2>&1");
-		}
-	}
-}
-
-/**
- * Check variables and states of playsmsd
- *
- * @param boolean $json
- *        TRUE for json output
- * @return string
- */
-function playsmsd_check($json) {
-	global $PLAYSMSD_CONF, $DAEMON_SLEEP, $ERROR_REPORTING;
-	global $PLAYSMS_INSTALL_PATH, $PLAYSMS_LIB_PATH, $PLAYSMS_DAEMON_PATH, $PLAYSMS_LOG_PATH;
-	
-	$data = array(
-		'PLAYSMSD_CONF' => $PLAYSMSD_CONF,
-		'PLAYSMS_PATH' => $PLAYSMS_INSTALL_PATH,
-		'PLAYSMS_LIB' => $PLAYSMS_LIB_PATH,
-		'PLAYSMS_BIN' => $PLAYSMS_DAEMON_PATH,
-		'PLAYSMS_LOG' => $PLAYSMS_LOG_PATH,
-		'DAEMON_SLEEP' => $DAEMON_SLEEP,
-		'ERROR_REPORTING' => $ERROR_REPORTING,
-		'IS_RUNNING' => playsmsd_isrunning(),
-		'PIDS' => playsmsd_pids() 
-	);
-	
-	if ($json) {
-		echo json_encode($data);
-	} else {
-		foreach ($data as $key => $val) {
-			if (is_array($val)) {
-				foreach ($val as $k => $v) {
-					echo $key . " " . $k . " = " . $v . "\n";
-				}
-			} else {
-				echo $key . " = " . $val . "\n";
-			}
-		}
-	}
-}
-
-/**
- * View log
- *
- * @param string $debug_file
- *        Save log to debug file
- */
-function playsmsd_log($debug_file = '') {
-	global $PLAYSMS_LOG_PATH;
-	
-	$log = $PLAYSMS_LOG_PATH . '/playsms.log';
-	if (file_exists($log)) {
-		
-		$process = 'tail -n 0 -f ' . $log . ' 2>&1';
-		if ($debug_file) {
-			@shell_exec('touch ' . $debug_file);
-			if (file_exists($debug_file)) {
-				$process .= '| tee ' . $debug_file;
-			}
-		}
-		
-		$handle = popen($process, 'r');
-		while (!feof($handle)) {
-			$buffer = fgets($handle);
-			echo $buffer;
-			flush();
-		}
-		pclose($handle);
 	}
 }
