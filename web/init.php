@@ -325,6 +325,24 @@ if (auth_isvalid()) {
 	core_setuserlang();
 }
 
+// daemon's queue default values
+
+
+// limit the number of DLR processed by dlrd in one time
+$core_config['dlrd_limit'] = ($core_config['dlrd_limit'] ? $core_config['dlrd_limit'] : 1000);
+
+// limit the number of incoming SMS processed by recvsmsd in one time
+$core_config['recvsmsd_limit'] = ($core_config['recvsmsd_limit'] ? $core_config['recvsmsd_limit'] : 1000);
+
+// limit the length of each queue processed by sendsmsd in one time
+$core_config['sendsmsd_limit'] = ($core_config['sendsmsd_limit'] ? $core_config['sendsmsd_limit'] : 1000);
+
+// limit the number of queue processed by sendsmsd in one time
+$core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config['sendsmsd_queue'] : 10);
+
+// limit the number of chunk per queue
+$core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 20);
+
 // fixme anton - debug
 //print_r($icon_config); die();
 //print_r($menu_config); die();
