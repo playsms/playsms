@@ -273,11 +273,11 @@ function _gateway_display_smsc() {
 			<tbody>";
 	foreach ($smsc_list as $smsc) {
 		
-		$c_link_manage = '';
+		$c_link_edit = '';
 		$c_link_del = '';
 		if (!(($smsc['gateway'] == 'dev') || ($smsc['gateway'] == 'blocked'))) {
-			$smsc['link_manage'] = "index.php?app=main&inc=core_gateway&op=edit_smsc&id=" . $smsc['id'];
-			$c_link_manage = "<a href='" . _u($smsc['link_manage']) . "'>" . $icon_config['manage'] . "</a>";
+			$smsc['link_edit'] = "index.php?app=main&inc=core_gateway&op=edit_smsc&id=" . $smsc['id'];
+			$c_link_edit = "<a href='" . _u($smsc['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
 			
 			$smsc['link_del'] = "index.php?app=main&inc=core_gateway&op=del_smsc&id=" . $smsc['id'];
 			$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($smsc['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
@@ -288,7 +288,7 @@ function _gateway_display_smsc() {
 				<td>" . $smsc['name'] . "</td>
 				<td>" . $smsc['gateway'] . "</td>
 				<td>
-					" . $c_link_manage . "
+					" . $c_link_edit . "
 					" . $c_link_del . "
 				</td>
 			</tr>";
