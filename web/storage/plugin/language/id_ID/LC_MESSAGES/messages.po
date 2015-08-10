@@ -48,8 +48,15 @@ msgstr "API ID"
 msgid "API key"
 msgstr "Kunci API"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "Kata rahasia API"
+
+#, fuzzy
+msgid "API username"
+msgstr "Hapus"
 
 msgid "Access Control List"
 msgstr ""
@@ -603,6 +610,10 @@ msgstr "Tanggal/Jam"
 msgid "Datetime"
 msgstr "Waktu dan Tanggal"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr ""
 
@@ -715,6 +726,9 @@ msgid "Destination number"
 msgstr "Nomor tujuan"
 
 msgid "Disable login as subuser"
+msgstr ""
+
+msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
@@ -1113,6 +1127,9 @@ msgstr ""
 msgid "Fill to change the API key"
 msgstr ""
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr ""
 
@@ -1348,6 +1365,12 @@ msgstr ""
 msgid "JSON output"
 msgstr "Keluaran JSON"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr ""
 
@@ -1554,6 +1577,10 @@ msgstr ""
 
 msgid "Manage infobip"
 msgstr "Pengaturan infobip"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Pengaturan pengguna"
 
 msgid "Manage kannel"
 msgstr "Pengaturan kannel"
@@ -3048,6 +3075,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
 
@@ -3061,6 +3091,9 @@ msgid "Your choice"
 msgstr "Pilihan Anda"
 
 msgid "Your credit"
+msgstr ""
+
+msgid "Your current callback URL is"
 msgstr ""
 
 msgid "Your email format is invalid"

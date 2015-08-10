@@ -1,7 +1,10 @@
+msgid "API password"
+msgstr ""
+
 msgid "API username"
 msgstr ""
 
-msgid "API password"
+msgid "Callback URL"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
@@ -16,6 +19,12 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Manage jasmin"
 msgstr ""
 
@@ -28,15 +37,6 @@ msgstr ""
 msgid "Module timezone"
 msgstr ""
 
-msgid "Jasmin URL"
-msgstr ""
-
-msgid "Jasmin is a bulk SMS provider"
-msgstr ""
-
-msgid "Jasmin will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "No changes have been made"
 msgstr ""
 
@@ -46,14 +46,8 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-msgid "Use JSON format URL"
-msgstr ""
-
-msgid "Your callback URL is"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Jasmin"
 msgstr ""
 
-msgid "free credits are available for testing purposes"
+msgid "Your current callback URL is"
 msgstr ""

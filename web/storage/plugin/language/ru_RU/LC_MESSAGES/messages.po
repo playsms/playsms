@@ -53,8 +53,15 @@ msgstr "API ID"
 msgid "API key"
 msgstr "API key"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "API secret"
+
+#, fuzzy
+msgid "API username"
+msgstr "Удалить пользователя"
 
 msgid "Access Control List"
 msgstr ""
@@ -617,6 +624,10 @@ msgstr "Дата/Время"
 msgid "Datetime"
 msgstr "Дата время"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -726,6 +737,9 @@ msgstr "Номер получателя"
 
 msgid "Disable login as subuser"
 msgstr "Отключить вход от имени другого пользователя"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr ""
@@ -1114,6 +1128,9 @@ msgstr "Заполните поле чтобы изменить пароль"
 msgid "Fill to change the API key"
 msgstr ""
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr "Заполните для изменения API secret"
 
@@ -1349,6 +1366,12 @@ msgstr "Неправильное имя пользователя или паро
 msgid "JSON output"
 msgstr "JSON формат"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr "Cервер администрирования Kannel"
 
@@ -1553,6 +1576,10 @@ msgstr "Управление шлюзами и SMS-центрами"
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Управление пользователями"
 
 msgid "Manage kannel"
 msgstr "Управление Kannel"
@@ -3037,6 +3064,9 @@ msgstr "Ваш callback URL должен быть доступен со стор
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Ваш callback URL должен быть доступен с стороны Nexmo"
 
@@ -3050,6 +3080,9 @@ msgid "Your choice"
 msgstr "Ваш выбор"
 
 msgid "Your credit"
+msgstr ""
+
+msgid "Your current callback URL is"
 msgstr ""
 
 msgid "Your email format is invalid"

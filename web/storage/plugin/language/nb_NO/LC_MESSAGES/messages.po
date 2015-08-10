@@ -50,8 +50,15 @@ msgstr "API ID"
 msgid "API key"
 msgstr "API-nøkkel"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "API-hemmelighet"
+
+#, fuzzy
+msgid "API username"
+msgstr "Slett bruker"
 
 msgid "Access Control List"
 msgstr "Adgangskontroll-liste"
@@ -607,6 +614,10 @@ msgstr "Dato/Tid"
 msgid "Datetime"
 msgstr "Dato-tid"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "Standard"
 
@@ -722,6 +733,9 @@ msgstr "Destinasjonsnummer"
 
 msgid "Disable login as subuser"
 msgstr "Deaktiver login som underbruker"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domene"
@@ -1106,6 +1120,9 @@ msgstr "Fyll ut passordfeltet for å endre passord"
 msgid "Fill to change the API key"
 msgstr "Utfyll for å endre API-nøkkelen"
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr "Utfyll for å endre API-hemmeligheten"
 
@@ -1342,6 +1359,12 @@ msgstr "Ugyldig brukernavn eller passord"
 msgid "JSON output"
 msgstr "JSON output"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr "Kannel admin host"
 
@@ -1543,6 +1566,10 @@ msgstr "Hndter gateway og SMSC"
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Håndter nettsted"
 
 #, fuzzy
 msgid "Manage kannel"
@@ -3028,6 +3055,9 @@ msgstr "Din callback URL skal være tilgjengelig fra Clickatell"
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgjengelig fra Infobip"
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Din callback URL skal være tilgjengelig fra Nexmo"
 
@@ -3042,6 +3072,9 @@ msgstr "Ditt valg"
 
 msgid "Your credit"
 msgstr "Din kreditt"
+
+msgid "Your current callback URL is"
+msgstr ""
 
 msgid "Your email format is invalid"
 msgstr "Ditt email format er ugyldig"

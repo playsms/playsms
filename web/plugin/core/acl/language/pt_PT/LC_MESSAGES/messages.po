@@ -42,6 +42,13 @@ msgstr "Créditos"
 msgid "DEFAULT"
 msgstr "Padrão"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
+msgid "Disallowed URLs"
+msgstr ""
+
 msgid "Edit ACL"
 msgstr "Editar ACL"
 

@@ -48,8 +48,15 @@ msgstr "ID de l'API"
 msgid "API key"
 msgstr "Clé de l'API"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "Secret de l'API"
+
+#, fuzzy
+msgid "API username"
+msgstr "Supprimer l'utilisateur"
 
 msgid "Access Control List"
 msgstr "Access Control List"
@@ -619,6 +626,10 @@ msgstr "Date/Heure"
 msgid "Datetime"
 msgstr "Date"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "Par défaut"
 
@@ -734,6 +745,9 @@ msgstr "Numéro du destinataire"
 
 msgid "Disable login as subuser"
 msgstr "Désactiver la connexion en tant que sous-utilisateur"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domaine"
@@ -1121,6 +1135,9 @@ msgstr "Veuillez saisir le champ du mot de passe pour le changer"
 msgid "Fill to change the API key"
 msgstr "Veuillez saisir pour changer la clé de l'API"
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr "Veuillez saisir pour changer le secret de l'API"
 
@@ -1359,6 +1376,12 @@ msgstr "Nom d'utilisateur ou mot de passe erroné"
 msgid "JSON output"
 msgstr "Output JSON"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr "Host de l'admin Kannel"
 
@@ -1562,6 +1585,10 @@ msgstr "Gérer passerelle et SMSC"
 
 msgid "Manage infobip"
 msgstr "Gérer infobip"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Gérer site"
 
 msgid "Manage kannel"
 msgstr "Gérer kannel"
@@ -3073,6 +3100,9 @@ msgstr "Votre URL de callback doit être accessible par Clickatell"
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Votre URL de callback doit être accessible par Infobip"
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Votre URL de callback doit être accessible par Nexmo"
 
@@ -3087,6 +3117,9 @@ msgstr "Votre choix"
 
 msgid "Your credit"
 msgstr "Votre crédit"
+
+msgid "Your current callback URL is"
+msgstr ""
 
 msgid "Your email format is invalid"
 msgstr "Votre format d'email est erroné"

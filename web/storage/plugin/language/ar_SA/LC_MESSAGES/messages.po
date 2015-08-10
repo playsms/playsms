@@ -56,8 +56,15 @@ msgstr ""
 msgid "API key"
 msgstr ""
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr ""
+
+#, fuzzy
+msgid "API username"
+msgstr "هل تود بالتأكيد المستخدم؟"
 
 msgid "Access Control List"
 msgstr "قائمة تحكم الوصول"
@@ -606,6 +613,10 @@ msgstr ""
 msgid "Datetime"
 msgstr "الوقت"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "الافتراضي"
 
@@ -720,6 +731,9 @@ msgstr "الوجهة"
 
 msgid "Disable login as subuser"
 msgstr "تعطيل الدخول كمستخدم فرعي"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "عنوان الموقع"
@@ -1104,6 +1118,9 @@ msgstr "الرجاء كتابة كلمة المرور"
 msgid "Fill to change the API key"
 msgstr ""
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr ""
 
@@ -1338,6 +1355,12 @@ msgstr "اسم المستخدم أو كلمة المرور غير صحيحين"
 msgid "JSON output"
 msgstr "مخرجات JSON"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr ""
 
@@ -1542,6 +1565,10 @@ msgstr "إدارة البوابات ومراكز الرسائل"
 
 #, fuzzy
 msgid "Manage infobip"
+msgstr " إدارة الموقع"
+
+#, fuzzy
+msgid "Manage jasmin"
 msgstr " إدارة الموقع"
 
 #, fuzzy
@@ -3012,6 +3039,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
 
@@ -3026,6 +3056,9 @@ msgstr "خيارك"
 
 msgid "Your credit"
 msgstr "رصيدك"
+
+msgid "Your current callback URL is"
+msgstr ""
 
 msgid "Your email format is invalid"
 msgstr "بريد الكتروني غير صالح"

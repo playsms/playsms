@@ -54,8 +54,15 @@ msgstr "ID da API"
 msgid "API key"
 msgstr "Chave API"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "Secreto API"
+
+#, fuzzy
+msgid "API username"
+msgstr "Eliminar utilizador"
 
 msgid "Access Control List"
 msgstr "Lista de controlo de acesso"
@@ -612,6 +619,10 @@ msgstr "Data/Hora"
 msgid "Datetime"
 msgstr "Data/hora"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "Padrão"
 
@@ -727,6 +738,9 @@ msgstr "Número de destino"
 
 msgid "Disable login as subuser"
 msgstr "Desativar login de subutilizadores"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "DomÃ­nio"
@@ -1114,6 +1128,9 @@ msgstr "Preencher o campo palavra-passe para alterar a palavra-passe"
 msgid "Fill to change the API key"
 msgstr "Preencha para alterar a chave API"
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr "Preencha para alterar o secreto API"
 
@@ -1349,6 +1366,12 @@ msgstr "Nome de Utilizador ou password incorrecta"
 msgid "JSON output"
 msgstr "Saída JSON"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr "host de administração Kannel"
 
@@ -1551,6 +1574,10 @@ msgstr "Gerir gateway e SMSC"
 
 msgid "Manage infobip"
 msgstr "Gerir infobip"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Gerir Site"
 
 msgid "Manage kannel"
 msgstr "Gerir kannel"
@@ -3046,6 +3073,9 @@ msgstr "Sua URL de callback deve ser acessível pelo Clickatell"
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "O seu URL de callback tem que ser acessível a partir de infobip"
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Sua URL callback deve estar acessível pelo Nexmo"
 
@@ -3060,6 +3090,9 @@ msgstr "Sua escolha"
 
 msgid "Your credit"
 msgstr "Meus Créditos"
+
+msgid "Your current callback URL is"
+msgstr ""
 
 msgid "Your email format is invalid"
 msgstr "O formato do email é inválido"

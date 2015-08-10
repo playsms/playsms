@@ -48,8 +48,15 @@ msgstr ""
 msgid "API key"
 msgstr ""
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr ""
+
+#, fuzzy
+msgid "API username"
+msgstr "Esborrar usuari"
 
 msgid "Access Control List"
 msgstr ""
@@ -601,6 +608,10 @@ msgstr ""
 msgid "Datetime"
 msgstr ""
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr ""
 
@@ -713,6 +724,9 @@ msgid "Destination number"
 msgstr "Número de destí"
 
 msgid "Disable login as subuser"
+msgstr ""
+
+msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
@@ -1109,6 +1123,9 @@ msgstr ""
 msgid "Fill to change the API key"
 msgstr ""
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr ""
 
@@ -1344,6 +1361,12 @@ msgstr ""
 msgid "JSON output"
 msgstr ""
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr ""
 
@@ -1552,6 +1575,10 @@ msgstr ""
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Administrar usuari"
 
 msgid "Manage kannel"
 msgstr "Manage kannel"
@@ -3027,6 +3054,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
 
@@ -3040,6 +3070,9 @@ msgid "Your choice"
 msgstr "La vostra tria"
 
 msgid "Your credit"
+msgstr ""
+
+msgid "Your current callback URL is"
 msgstr ""
 
 msgid "Your email format is invalid"

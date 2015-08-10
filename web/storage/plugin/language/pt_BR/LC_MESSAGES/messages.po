@@ -48,8 +48,15 @@ msgstr "ID da API"
 msgid "API key"
 msgstr "Chave API"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "Segredo API"
+
+#, fuzzy
+msgid "API username"
+msgstr "Excluír usuário"
 
 msgid "Access Control List"
 msgstr "Regras de Acesso"
@@ -605,6 +612,10 @@ msgstr "Data/Hora"
 msgid "Datetime"
 msgstr "Data/hora"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "Padrão"
 
@@ -720,6 +731,9 @@ msgstr "Número de destinatário"
 
 msgid "Disable login as subuser"
 msgstr "Desabilitar login como sub-usuário"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domínio"
@@ -1106,6 +1120,9 @@ msgstr "Preencha o campo senha para alterar a senha"
 msgid "Fill to change the API key"
 msgstr "Preencha para alterar a chave API"
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr "Preencha para alterar o segredo API"
 
@@ -1341,6 +1358,12 @@ msgstr "Usuário ou senha inválidos"
 msgid "JSON output"
 msgstr "Saída JSON"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr "Host do administrador Kannel"
 
@@ -1543,6 +1566,10 @@ msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage infobip"
 msgstr "Gerenciar infobip"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Gerenciar Site"
 
 msgid "Manage kannel"
 msgstr "Gerenciar kannel"
@@ -3024,6 +3051,9 @@ msgstr "Sua url de callback deve ser acessível pelo Clickatell"
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Sua URL de callback deve ser acessível pelo Infobip"
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Sua URL callback deve estar acessível pelo Nexmo"
 
@@ -3038,6 +3068,9 @@ msgstr "Sua escolha"
 
 msgid "Your credit"
 msgstr "Seus créditos"
+
+msgid "Your current callback URL is"
+msgstr ""
 
 msgid "Your email format is invalid"
 msgstr "Seu formato de email não é válido"

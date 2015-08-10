@@ -48,8 +48,16 @@ msgstr "API ID"
 msgid "API key"
 msgstr "API Key"
 
+#, fuzzy
+msgid "API password"
+msgstr "Passwort"
+
 msgid "API secret"
 msgstr "API Secret"
+
+#, fuzzy
+msgid "API username"
+msgstr "Benutzername"
 
 msgid "Access Control List"
 msgstr "Access Control List"
@@ -604,6 +612,10 @@ msgstr "Datum/Uhrzeit"
 msgid "Datetime"
 msgstr "Zeitstempel"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "Standard"
 
@@ -714,6 +726,9 @@ msgstr "Zielrufnummer"
 
 msgid "Disable login as subuser"
 msgstr "Deaktiviere Login als Sub-Benutzer"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domäne"
@@ -1098,6 +1113,10 @@ msgstr "Passwort-Feld ausfüllen um Passwort zu ändern"
 msgid "Fill to change the API key"
 msgstr "Ausfüllen um API key zu ändern"
 
+#, fuzzy
+msgid "Fill to change the API password"
+msgstr "Ausfüllen um Passwort zu ändern"
+
 msgid "Fill to change the API secret"
 msgstr "Ausfüllen um API secret zu ändern"
 
@@ -1335,6 +1354,14 @@ msgstr "Ungültiger Benutzername oder Passwort"
 msgid "JSON output"
 msgstr "JSN Ausgabe"
 
+#, fuzzy
+msgid "Jasmin send SMS URL"
+msgstr "Fehler beim Senden der SMS"
+
+#, fuzzy
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr "Bulksms sendet DLR und eingehende SMS an die callback URL"
+
 msgid "Kannel admin host"
 msgstr "Kannel Admin Host"
 
@@ -1537,6 +1564,10 @@ msgstr "Gateway und SMSC verwalten"
 
 msgid "Manage infobip"
 msgstr "infobip verwalten"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Site verwalten"
 
 msgid "Manage kannel"
 msgstr "kannel verwalten"
@@ -3033,6 +3064,10 @@ msgstr "Ihre callback URL solle von Clickatell erreichbar sein"
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ihre callback URL solle von Infobip erreichbar sein"
 
+#, fuzzy
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr "Ihre callback URL solle von Bulksms erreichbar sein"
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Ihre callback URL solle von Nexmo erreichbar sein"
 
@@ -3047,6 +3082,10 @@ msgstr "Ihre Auswahl"
 
 msgid "Your credit"
 msgstr "Ihre Credits"
+
+#, fuzzy
+msgid "Your current callback URL is"
+msgstr "Ihre callback URL ist"
 
 msgid "Your email format is invalid"
 msgstr "Ihr Email-Format ist ungültig"
