@@ -35,9 +35,9 @@ switch (_OP_) {
 				'DIALOG_DISPLAY' => $error_content,
 				'Manage jasmin' => _('Manage jasmin'),
 				'Gateway name' => _('Gateway name'),
-				'Jasmin send SMS URL' => _('Jasmin send SMS URL'),
+				'Jasmin send SMS URL' => _mandatory(_('Jasmin send SMS URL')),
 				'Callback URL' => _('Callback URL'),
-				'API username' => _('API username'),
+				'API username' => _mandatory(_('API username')),
 				'API password' => _('API password'),
 				'Module sender ID' => _('Module sender ID'),
 				'Module timezone' => _('Module timezone'),
@@ -63,12 +63,12 @@ switch (_OP_) {
 		break;
 	
 	case "manage_save":
-		$up_url = $_POST['up_url'];
-		$up_callback_url = $_POST['up_callback_url'];
-		$up_api_username = $_POST['up_api_username'];
-		$up_api_password = $_POST['up_api_password'];
-		$up_module_sender = $_POST['up_module_sender'];
-		$up_datetime_timezone = $_POST['up_datetime_timezone'];
+		$up_url = ($_REQUEST['up_url'] ? $_REQUEST['up_url'] : $plugin_config['jasmin']['default_url']);
+		$up_callback_url = ($_REQUEST['up_callback_url'] ? $_REQUEST['up_callback_url'] : $plugin_config['jasmin']['default_callback_url']);
+		$up_api_username = $_REQUEST['up_api_username'];
+		$up_api_password = $_REQUEST['up_api_password'];
+		$up_module_sender = $_REQUEST['up_module_sender'];
+		$up_datetime_timezone = $_REQUEST['up_datetime_timezone'];
 		if ($up_url && $up_api_username) {
 			$items = array(
 				'url' => $up_url,
@@ -83,10 +83,10 @@ switch (_OP_) {
 			if (registry_update(0, 'gateway', 'jasmin', $items)) {
 				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			} else {
-				$_SESSION['dialog']['info'][] = _('No changes have been made');
+				$_SESSION['dialog']['danger'][] = _('Fail to save gateway module configurations');
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('No changes have been made');
+			$_SESSION['dialog']['danger'][] = _('All mandatory fields must be filled');
 		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_jasmin&op=manage'));
 		exit();

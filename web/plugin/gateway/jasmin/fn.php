@@ -62,8 +62,8 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 			}
 		}
 		
-		$query_string = "username=" . $plugin_config['jasmin']['api_username'] . "&password=" . $plugin_config['jasmin']['api_password'] . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
-		$query_string .= "&dlr=yes&dlr-level=2&dlr-url=" . $plugin_config['jasmin']['callback_url'];
+		$query_string = "username=" . urlencode($plugin_config['jasmin']['api_username']) . "&password=" . urlencode($plugin_config['jasmin']['api_password']) . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
+		$query_string .= "&dlr=yes&dlr-level=2&dlr-url=" . urlencode($plugin_config['jasmin']['callback_url']);
 		$url = $plugin_config['jasmin']['url'] . "?" . $query_string;
 		
 		_log("send url:[" . $url . "]", 3, "jasmin_hook_sendsms");
@@ -77,18 +77,18 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 			) 
 		);
 		$context = stream_context_create($opts);
-		$resp = file_get_contents($plugin_config['jasmin']['url'], FALSE, $context);
+		$response = file_get_contents($plugin_config['jasmin']['url'], FALSE, $context);
 		
 		// Success "07033084-5cfd-4812-90a4-e4d24ffb6e3d"
 		// Error "No route found"
-		$resp = explode(' ', $resp, 2);
+		$resp = explode(' ', $response, 2);
 		
 		if ($resp[0] == 'Success') {
 			$c_message_id = $resp[1];
 			$c_message_id = str_replace('"', '', $c_message_id);
 			_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " smsc:" . $smsc, 2, "jasmin_hook_sendsms");
 			$db_query = "
-				INSERT INTO " . _DB_PREF_ . "_gatewayJasmin (local_smslog_id, remote_smslog_id)
+				INSERT INTO " . _DB_PREF_ . "_gatewayJasmin_log (local_smslog_id, remote_smslog_id)
 				VALUES ('$smslog_id', '$c_message_id')";
 			$id = @dba_insert_id($db_query);
 			if ($id) {
@@ -100,10 +100,8 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 			// even when the response is not what we expected we still print it out for debug purposes
 			if ($resp[0] == 'Error') {
 				$resp = $resp[1];
-				$resp = str_replace('"', '', $resp);
 			} else {
-				$resp = str_replace("\n", " ", $resp);
-				$resp = str_replace("\r", " ", $resp);
+				$resp = $response;
 			}
 			_log("failed smslog_id:" . $smslog_id . " resp:[" . $resp . "] smsc:" . $smsc, 2, "jasmin_hook_sendsms");
 		}
