@@ -40,13 +40,14 @@ fi
 
 clear
 echo
-echo "playSMS Install Script for Ubuntu"
+echo "playSMS Install Script for Ubuntu (Debian based)"
 echo
 echo "=================================================================="
 echo "WARNING:"
 echo "- This install script WILL NOT upgrade currently installed playSMS"
 echo "- This install script WILL REMOVE your current playSMS database"
-echo "- Please backup before proceeding"
+echo "- This install script is compatible ONLY with playSMS version 1.2"
+echo "- Please BACKUP before proceeding"
 echo "=================================================================="
 echo
 
@@ -165,7 +166,7 @@ echo "=================================================================="
 echo
 echo "Installation is in progress"
 echo
-echo "Do not press [Control+C] until this script ends"
+echo "DO NOT press [Control+C] until this script ends"
 echo
 echo "=================================================================="
 echo
