@@ -57,7 +57,7 @@ if [ "$USERID" = "0" ]; then
 	echo
 	echo "=================================================================="
 	echo
-	echo "Do you understand that ?"
+	echo "Proceed ?"
 	echo
 	confirm=
 	while [ -z $confirm ]
@@ -81,7 +81,7 @@ else
 	echo
 	echo "=================================================================="
 	echo
-	echo "Do you understand that ?"
+	echo "Proceed ?"
 	echo
 	confirm=
 	while [ -z $confirm ]
@@ -250,8 +250,10 @@ echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
 echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
 echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
 echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> $PATHCONF/playsmsd.conf
+chmod 644 $PATHCONF/playsmsd.conf
 echo -n .
-cp -rR daemon/linux/bin/playsmsd $PATHBIN
+cp -rR daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
+chmod 755 $PATHBIN/playsmsd
 echo -n .
 echo "end"
 echo
