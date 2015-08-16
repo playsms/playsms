@@ -222,7 +222,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 		
 		// sandbox forward to URL
 		if ($url = trim($post_rules['forward_to_url'])) {
-			$incoming_data_json = array(
+			$payload = array(
 				'datetime' => core_get_datetime(),
 				'sms_datetime' => $sms_datetime,
 				'sms_sender' => $sms_sender,
@@ -230,8 +230,8 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 				'sms_receiver' => $sms_receiver,
 				'smsc' => $smsc 
 			);
-			$json = json_encode($incoming_data_json);
-			$url = str_replace('{INCOMING_DATA_JSON}', urlencode($json), $url);
+			$json = json_encode($payload);
+			$url = str_replace('{SANDBOX_PAYLOAD}', urlencode($json), $url);
 			_log("sandbox forward to URL start url:[" . $url . "]", 3, 'incoming recvsms_intercept_after');
 			$response = @file_get_contents($url);
 			_log("sandbox forward to URL end response:[" . $response . "]", 3, 'incoming recvsms_intercept_after');

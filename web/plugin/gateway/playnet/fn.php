@@ -174,12 +174,12 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 			break;
 		
 		case 'set_incoming':
-			$incoming_data_json = json_decode(stripslashes($requests['incoming_data_json']), 1);
+			$payload = json_decode(stripslashes($requests['payload']), 1);
 			
-			if ($incoming_data_json['message']) {
-				$sms_sender = $incoming_data_json['sms_sender'];
-				$message = $incoming_data_json['message'];
-				$sms_receiver = $incoming_data_json['sms_receiver'];
+			if ($payload['message']) {
+				$sms_sender = $payload['sms_sender'];
+				$message = $payload['message'];
+				$sms_receiver = $payload['sms_receiver'];
 				if ($id = recvsms(core_get_datetime(), $sms_sender, $message, $sms_receiver, $smsc)) {
 					$content['status'] = 'OK';
 					$content['data'] = array(
