@@ -26,13 +26,11 @@ Optional hardware or infrastructure:
 * PHP 5.3 or latest stable release (must be at least version 5.3)
 * PHP MySQL module must be installed and enabled
 * PHP CLI must be installed
-* PHP PEAR and PHP PEAR-DB must be installed correctly
 * PHP gettext extension must be installed and enabled for text translation
 * PHP mbstring extension must be installed and enabled for unicode detection
 * PHP GD extension must be installed and enabled to draw graphs
 * Access to SMTP server to send Email
-* At least one console browser such as lynx, wget or curl should be installed
-* Downloaded playSMS package from SF.net or latest source code from Github
+* Downloaded playSMS official release package from SF.net or master version from Github
 * Properly installed composer from https://getcomposer.org
 
 **Minimum required server administrator (or developer):**
