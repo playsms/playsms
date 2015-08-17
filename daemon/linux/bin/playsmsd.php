@@ -362,7 +362,7 @@ switch ($COMMAND) {
 }
 
 if (!$COMMAND) {
-	echo "Usage: playsmsd <start|stop|restart|status|check|check_json|log>\n";
+	echo "Usage: playsmsd <start|stop|restart|status|check|check_json|log|version>\n";
 	exit();
 }
 
@@ -384,7 +384,11 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		}
 	}
 	
-	if ($continue && $LOOP_FLAG == 'once') {
+	if ($continue && $COMMAND == 'version') {
+		echo $core_config['version'] . PHP_EOL;
+		
+		exit();
+	} else if ($continue && $LOOP_FLAG == 'once') {
 		
 		// execute one time only
 		

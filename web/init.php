@@ -212,6 +212,10 @@ if (!$core_config['main']) {
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config from registry'));
 }
 
+// get version
+$result = registry_search(1, 'core', 'config', 'playsms_version');
+$core_config['version'] = $result['core']['config']['playsms_version'];
+
 // set global date/time variables
 $date_format = 'Y-m-d';
 $time_format = 'H:i:s';
