@@ -69,6 +69,9 @@ msgstr "PIN kode for email til SMS"
 msgid "PIN is empty"
 msgstr "PIN er tom"
 
+msgid "Save"
+msgstr ""
+
 msgid "Use SSL"
 msgstr "Brug SSL"
 

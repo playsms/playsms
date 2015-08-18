@@ -28,13 +28,18 @@ if (!$called_from_hook_call) {
 	$requests = $_REQUEST;
 }
 
+if ($smsc = $requests['smsc']) {
+	// override plugin gateway configuration by smsc configuration
+	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+}
+
 $remote_addr = $_SERVER['REMOTE_ADDR'];
 // srosa 20100531: added var below
 $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
 // if ($remote_addr != $plugin_config['kannel']['bearerbox_host'])
 if ($remote_addr != $plugin_config['kannel']['bearerbox_host'] && $remote_host != $plugin_config['kannel']['bearerbox_host']) {
-	logger_print("exit remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " bearerbox_host:" . $plugin_config['kannel']['bearerbox_host'], 2, "kannel dlr");
+	_log("unable to process DLR. remote_addr:[" . $remote_addr . "] or remote_host:[" . $remote_host . "] does not match with your bearerbox_host config:[" . $plugin_config['kannel']['bearerbox_host'] . "] smsc:[" . $smsc . "]", 2, "kannel dlr");
 	exit();
 }
 
@@ -42,33 +47,33 @@ $type = $requests['type'];
 $smslog_id = $requests['smslog_id'];
 $uid = $requests['uid'];
 
-logger_print("addr:" . $remote_addr . " host:" . $remote_host . " type:" . $type . " smslog_id:" . $smslog_id . " uid:" . $uid, 2, "kannel dlr");
+_log("remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " type:[" . $type . "] smslog_id:[" . $smslog_id . "] uid:[" . $uid . "] smsc:[" . $smsc . "]", 3, "kannel dlr");
 
 if ($type && $smslog_id && $uid) {
 	$stat = 0;
 	switch ($type) {
-		case 1 :
+		case 1:
 			$stat = 6;
 			break; // delivered to phone = delivered
-		case 2 :
+		case 2:
 			$stat = 5;
 			break; // non delivered to phone = failed
-		case 4 :
+		case 4:
 			$stat = 3;
 			break; // queued on SMSC = pending
-		case 8 :
+		case 8:
 			$stat = 4;
 			break; // delivered to SMSC = sent
-		case 16 :
+		case 16:
 			$stat = 5;
 			break; // non delivered to SMSC = failed
-		case 9 :
+		case 9:
 			$stat = 4;
 			break; // sent
-		case 12 :
+		case 12:
 			$stat = 4;
 			break; // sent
-		case 18 :
+		case 18:
 			$stat = 5;
 			break; // failed
 	}
@@ -77,4 +82,6 @@ if ($type && $smslog_id && $uid) {
 		$p_status = $stat - 3;
 	}
 	dlr($smslog_id, $uid, $p_status);
+} else {
+	_log("missing parameter type:[" . $type . "] smslog_id:[" . $smslog_id . "] uid:[" . $uid . "] smsc:[" . $smsc . "]", 2, "kannel dlr");
 }

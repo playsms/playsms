@@ -40,21 +40,65 @@ fi
 
 clear
 echo
-echo "playSMS Install Script for Ubuntu"
+echo "playSMS Install Script for Ubuntu (Debian based)"
 echo
 echo "=================================================================="
 echo "WARNING:"
 echo "- This install script WILL NOT upgrade currently installed playSMS"
 echo "- This install script WILL REMOVE your current playSMS database"
-echo "- Please backup before proceeding"
+echo "- This install script is compatible ONLY with playSMS version 1.2"
+echo "- Please BACKUP before proceeding"
 echo "=================================================================="
 echo
 
 USERID=$(id -u)
-if [ "$USERID" != "0" ]; then
-	echo "ERROR: You need to run this script as root"
+if [ "$USERID" = "0" ]; then
+	echo "You ARE running this installation script as root"
+	echo "That means you need to make sure that you know what you're doing"
 	echo
-	exit 1
+	echo "=================================================================="
+	echo
+	echo "Proceed ?"
+	echo
+	confirm=
+	while [ -z $confirm ]
+	do
+		read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+		if [[ $confirm == 'y' ]]; then
+			break
+		fi
+		if [[ $confirm == 'Y' ]]; then
+			break
+		fi
+		confirm=
+	done
+	echo
+	echo "=================================================================="
+	echo
+else
+	echo "You are NOT running this installation script as root"
+	echo "That means you need to make sure that this Linux user has"
+	echo "permission to create necessary directories"
+	echo
+	echo "=================================================================="
+	echo
+	echo "Proceed ?"
+	echo
+	confirm=
+	while [ -z $confirm ]
+	do
+		read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+		if [[ $confirm == 'y' ]]; then
+			break
+		fi
+		if [[ $confirm == 'Y' ]]; then
+			break
+		fi
+		confirm=
+	done
+	echo
+	echo "=================================================================="
+	echo
 fi
 
 echo "INSTALL DATA:"
@@ -75,6 +119,8 @@ echo "playSMS web path    = $PATHWEB"
 echo "playSMS lib path    = $PATHLIB"
 echo "playSMS bin path    = $PATHBIN"
 echo "playSMS log path    = $PATHLOG"
+echo
+echo "playSMS conf path   = $PATHCONF"
 echo
 
 echo "=================================================================="
@@ -120,7 +166,7 @@ echo "=================================================================="
 echo
 echo "Installation is in progress"
 echo
-echo "Do not press [Control+C] until this script ends"
+echo "DO NOT press [Control+C] until this script ends"
 echo
 echo "=================================================================="
 echo
@@ -132,34 +178,37 @@ echo
 echo "Please wait while the install script downloading composer"
 echo
 
-cd /tmp/
-
 php -r "readfile('https://getcomposer.org/installer');" | php >/dev/null 2>&1
 
-if [ -e "composer.phar" ]; then
-	rm -f /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
-	ln -s composer.phar composer >/dev/null 2>&1
-	mv composer composer.phar /usr/local/bin/ >/dev/null 2>&1
-	chmod +x /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
-fi
+if [ -e "./composer.phar" ]; then
+	#rm -f /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
+	rm -f ./composer >/dev/null 2>&1
+	ln -s ./composer.phar ./composer >/dev/null 2>&1
+	#mv composer composer.phar /usr/local/bin/ >/dev/null 2>&1
+	#chmod +x /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
+	chmod +x ./composer.phar >/dev/null 2>&1
 
-echo "Composer has been installed"
-echo
-echo "Pleas wait while composer getting and updating required packages"
-echo
+	echo "Composer is ready in this folder"
+	echo
+	echo "Pleas wait while composer getting and updating required packages"
+	echo
 
-if [ -x "/usr/local/bin/composer.phar" ]; then
-	cd "$PATHSRC"
-	/usr/local/bin/composer.phar update
+	if [ -x "./composer.phar" ]; then
+		./composer.phar update
+	else
+		echo "ERROR: unable to get composer from https://getcomposer.com"
+		echo
+		exit 1
+	fi
+
+	echo
+	echo "Composer has been installed and packages has been updated"
+	echo
 else
 	echo "ERROR: unable to get composer from https://getcomposer.com"
 	echo
 	exit 1
 fi
-
-echo
-echo "Composer has been installed and packages has been updated"
-echo
 
 sleep 3
 
@@ -192,44 +241,56 @@ sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
 echo -n .
 chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLIB $PATHLOG
 echo -n .
-mkdir -p /etc $PATHBIN
+mkdir -p $PATHCONF $PATHBIN
 echo -n .
-touch /etc/playsmsd.conf
+touch $PATHCONF/playsmsd.conf
 echo -n .
-echo "PLAYSMS_PATH=\"$PATHWEB\"" > /etc/playsmsd.conf
-echo "PLAYSMS_LIB=\"$PATHLIB\"" >> /etc/playsmsd.conf
-echo "PLAYSMS_BIN=\"$PATHBIN\"" >> /etc/playsmsd.conf
-echo "PLAYSMS_LOG=\"$PATHLOG\"" >> /etc/playsmsd.conf
-echo "DAEMON_SLEEP=\"1\"" >> /etc/playsmsd.conf
-echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> /etc/playsmsd.conf
+echo "PLAYSMS_PATH=\"$PATHWEB\"" > $PATHCONF/playsmsd.conf
+echo "PLAYSMS_LIB=\"$PATHLIB\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
+echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
+echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> $PATHCONF/playsmsd.conf
+chmod 644 $PATHCONF/playsmsd.conf
 echo -n .
-cp -rR daemon/linux/bin/playsmsd $PATHBIN
+cp -rR daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
+chmod 755 $PATHBIN/playsmsd
 echo -n .
 echo "end"
 echo
-$PATHBIN/playsmsd check
+$PATHBIN/playsmsd $PATHCONF/playsmsd.conf check
 sleep 3
 echo
-$PATHBIN/playsmsd start
+$PATHBIN/playsmsd $PATHCONF/playsmsd.conf start
 sleep 3
 echo
-$PATHBIN/playsmsd status
+$PATHBIN/playsmsd $PATHCONF/playsmsd.conf status
 sleep 3
 echo
 
 echo
 echo "playSMS has been installed on your system"
 echo
+echo
+echo "Your playSMS daemon script operational guide:"
+echo 
+echo "- To start it : playsmsd $PATHCONF/playsmsd.conf start"
+echo "- To stop it  : playsmsd $PATHCONF/playsmsd.conf stop"
+echo "- To check it : playsmsd $PATHCONF/playsmsd.conf check"
+echo
 
 cp install.conf install.conf.backup >/dev/null 2>&1
 
 echo
-echo "Attention"
+echo
+echo "ATTENTION"
+echo "========="
 echo
 echo "When message \"unable to start playsmsd\" occurred above, please check:"
 echo
-echo "1. Possibly theres an issue with composer updates, try to run: \"composer update\""
-echo "2. Manually run playsmsd, eg: \"playsmsd start\", and then \"playsmsd status\""
+echo "1. Possibly theres an issue with composer updates, try to run: \"./composer update\""
+echo "2. Manually run playsmsd, \"playsmsd $PATHCONF/playsmsd.conf start\", and then \"playsmsd $PATHCONF/playsmsd.conf status\""
+echo
 echo
 
 exit 0

@@ -251,7 +251,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 	if ($sendsmsd_offset > 0) {
 		$sql_offset = "OFFSET " . $sendsmsd_offset;
 	}
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='0' " . $queue_sql . " " . $sql_limit . " " . $sql_offset;
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='0' " . $queue_sql;
 	
 	// _log("q: ".$db_query, 3, "sendsmsd");
 	$db_result = dba_query($db_query);
@@ -298,7 +298,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 			
 			$counter = 0;
 			
-			$db_query2 = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'";
+			$db_query2 = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'" . " " . $sql_limit . " " . $sql_offset;
 			$db_result2 = dba_query($db_query2);
 			while ($db_row2 = dba_fetch_array($db_result2)) {
 				

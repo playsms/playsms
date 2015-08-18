@@ -123,7 +123,7 @@ function acl_geturl($acl_id) {
 	$urls = explode(',', $list[0]['url']);
 	foreach ($urls as $key => $val) {
 		if (trim($val)) {
-			$ret[] = trim($val);
+			$ret[] = trim(htmlspecialchars_decode($val));
 		}
 	}
 	
@@ -183,24 +183,66 @@ function acl_checkurl($url, $uid = 0) {
 	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
 	$acl_id = acl_getidbyuid($uid);
 	if ($acl_urls = acl_geturl($acl_id)) {
-		$acl_urls[] = 'app=ws';
-		$acl_urls[] = 'app=webservice';
-		$acl_urls[] = 'app=webservices';
-		$acl_urls[] = 'inc=core_auth';
-		$acl_urls[] = 'inc=core_welcome';
 		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {
-			foreach ($acl_urls as $acl_url) {
-				$pos = strpos($url, $acl_url);
-				if ($pos !== FALSE) {
-					return TRUE;
+			$data_acl = acl_getdata($acl_id);
+			if ($data_acl['flag_disallowed']) {
+				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
+				foreach ($acl_urls as $acl_url) {
+					if (substr($acl_url, 0, 1) == '!') {
+						$acl_url = substr($acl_url, 1);
+						$is_exception = TRUE;
+					} else {
+						$is_exception = FALSE;
+					}
+					
+					$pos = strpos($url, $acl_url);
+					if ($pos !== FALSE) {
+						// check whether its an exception or not
+						if ($is_exception) {
+							return TRUE;
+						} else {
+							return FALSE;
+						}
+					}
 				}
+				
+				// no match with disallowed URLs
+				return TRUE;
+			} else {
+				$acl_urls[] = 'app=ws';
+				$acl_urls[] = 'app=webservice';
+				$acl_urls[] = 'app=webservices';
+				$acl_urls[] = 'inc=core_auth';
+				$acl_urls[] = 'inc=core_welcome';
+				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
+				foreach ($acl_urls as $acl_url) {
+					if (substr($acl_url, 0, 1) == '!') {
+						$acl_url = substr($acl_url, 1);
+						$is_exception = TRUE;
+					} else {
+						$is_exception = FALSE;
+					}
+					
+					$pos = strpos($url, $acl_url);
+					if ($pos !== FALSE) {
+						// check whether its an exception or not
+						if ($is_exception) {
+							return FALSE;
+						} else {
+							return TRUE;
+						}
+					}
+				}
+				
+				// no match with allowed URLs
+				return FALSE;
 			}
 		} else {
+			// fixme anton: this probably should be FALSE, later we will need to fix this
 			return TRUE;
 		}
 	} else {
+		// fixme anton: this probably should be FALSE, later we will need to fix this
 		return TRUE;
 	}
-	
-	return FALSE;
 }

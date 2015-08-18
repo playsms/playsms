@@ -32,7 +32,7 @@ if (!$called_from_hook_call) {
 
 $log = '';
 if (is_array($requests)) {
-	foreach ($requests as $key => $val ) {
+	foreach ($requests as $key => $val) {
 		$log .= $key . ':' . $val . ' ';
 	}
 	logger_print("pushed " . $log, 2, "nexmo callback");
@@ -55,11 +55,11 @@ if ($remote_smslog_id && $client_ref && $status) {
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($status) {
-			case "delivered" :
+			case "delivered":
 				$p_status = 3;
 				break; // delivered
-			case "buffered" :
-			case "accepted" :
+			case "buffered":
+			case "accepted":
 				$p_status = 1;
 				break; // sent
 			default :
@@ -81,5 +81,7 @@ $sms_receiver = $requests['to'];
 $smsc = $requests['smsc'];
 if ($remote_smslog_id && $message) {
 	logger_print("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "nexmo callback");
+	$sms_sender = addslashes($sms_sender);
+	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 }

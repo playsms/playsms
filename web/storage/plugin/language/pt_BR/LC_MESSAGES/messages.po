@@ -48,8 +48,15 @@ msgstr "ID da API"
 msgid "API key"
 msgstr "Chave API"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "Segredo API"
+
+#, fuzzy
+msgid "API username"
+msgstr "Excluír usuário"
 
 msgid "Access Control List"
 msgstr "Regras de Acesso"
@@ -587,6 +594,9 @@ msgstr "O usuário atualmente logado é imune à exclusão"
 msgid "DEFAULT"
 msgstr "PADRÃO"
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr "Diariamente"
 
@@ -601,6 +611,10 @@ msgstr "Data/Hora"
 
 msgid "Datetime"
 msgstr "Data/hora"
+
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
 
 msgid "Default"
 msgstr "Padrão"
@@ -697,9 +711,6 @@ msgstr "Recebido pelo SMSC"
 msgid "Delivered to phone"
 msgstr "Recebido pelo telefone"
 
-msgid "Delivery Report"
-msgstr "Confirmação de recebimento"
-
 msgid "Description"
 msgstr "Descrição"
 
@@ -720,6 +731,9 @@ msgstr "Número de destinatário"
 
 msgid "Disable login as subuser"
 msgstr "Desabilitar login como sub-usuário"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "Domínio"
@@ -866,6 +880,9 @@ msgstr "Elevar a privacidade para sub-usuários"
 msgid "Entries in CSV file have been imported"
 msgstr "As entradas do arquivo CSV foram importadas"
 
+msgid "Example"
+msgstr ""
+
 msgid "Example of SMS custom URL"
 msgstr "Exemplo de URL de SMS personalizado"
 
@@ -937,9 +954,6 @@ msgstr "Falha ao adicionar novo destino"
 
 msgid "Fail to add route"
 msgstr "Falha ao salvar a rota"
-
-msgid "Fail to connect to database"
-msgstr "Falha ao conectar ao banco de dados"
 
 msgid "Fail to delete ACL"
 msgstr "Falha ao excluír regra"
@@ -1025,18 +1039,6 @@ msgstr "Falha ao habilitar grupo de caixa de entrada"
 msgid "Fail to insert keyword"
 msgstr "Falha ao inserir palavra-chave"
 
-msgid "Fail to load gateway"
-msgstr "Falha ao carregar gateway"
-
-msgid "Fail to load language"
-msgstr "Falha ao carregar idioma"
-
-msgid "Fail to load main config from registry"
-msgstr "Falha ao carregar as configurações principais do registro"
-
-msgid "Fail to load themes"
-msgstr "Falha ao carregar temas"
-
 msgid "Fail to recover password"
 msgstr "Falha ao recuperar senha"
 
@@ -1064,9 +1066,8 @@ msgstr "Falha ao salvara as configurações"
 msgid "Fail to save email to SMS PIN"
 msgstr "Falha ao salvar o PIN de Email para SMS"
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "Configurações do módulo de gateway foram salvas"
+msgstr ""
 
 msgid "Fail to save preferences"
 msgstr "Falha ao salvar as preferências"
@@ -1119,6 +1120,9 @@ msgstr "Preencha o campo senha para alterar a senha"
 msgid "Fill to change the API key"
 msgstr "Preencha para alterar a chave API"
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr "Preencha para alterar o segredo API"
 
@@ -1145,6 +1149,10 @@ msgstr "Formato YYYY-MM-DD hh:mm"
 
 msgid "Forward"
 msgstr "Encaminhar"
+
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Rotear todos os SMSs do sandbox para usuários"
 
 msgid "Forward message to email"
 msgstr "Encaminhar mensagem para email"
@@ -1197,6 +1205,9 @@ msgstr "Ir"
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Vá para as Configurações Principais ou Gerenciar Site para editar essa página"
+
+msgid "Go to manage site menu to edit this page"
+msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Total de SMS"
@@ -1347,6 +1358,12 @@ msgstr "Usuário ou senha inválidos"
 msgid "JSON output"
 msgstr "Saída JSON"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr "Host do administrador Kannel"
 
@@ -1355,6 +1372,9 @@ msgstr "Senha de administrador Kannel"
 
 msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
+
+msgid "Kannel dlr-mask option"
+msgstr ""
 
 msgid "Kannel specific"
 msgstr "Específico do Kannel"
@@ -1426,6 +1446,12 @@ msgstr "Lista de usuários"
 
 msgid "Local number length"
 msgstr "Comprimento do número local"
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
 
 msgid "Logged in as"
 msgstr "Logado como"
@@ -1535,20 +1561,25 @@ msgstr "Gerenciar firewall"
 msgid "Manage gammu"
 msgstr "Gerenciar gammu"
 
-msgid "Manage gateway"
-msgstr "Gerenciar Gateway"
-
 msgid "Manage gateway and SMSC"
 msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage infobip"
 msgstr "Gerenciar infobip"
 
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Gerenciar Site"
+
 msgid "Manage kannel"
 msgstr "Gerenciar kannel"
 
 msgid "Manage nexmo"
 msgstr "Gerenciar nexmo"
+
+#, fuzzy
+msgid "Manage playnet"
+msgstr "Gerenciar conta"
 
 msgid "Manage plugin"
 msgstr "Gerenciar plugins"
@@ -1574,20 +1605,11 @@ msgstr "Gerenciar smstools"
 msgid "Manage stoplist"
 msgstr "Gerenciar stoplist"
 
-msgid "Manage sub-account"
-msgstr "Gerenciar sub-conta"
-
-msgid "Manage sub-accounts"
-msgstr "Gerenciar sub Contas"
-
 msgid "Manage subscribe"
 msgstr "Gerenciar assinaturas"
 
 msgid "Manage subuser"
 msgstr "Gerenciar sub-usuário"
-
-msgid "Manage subusers"
-msgstr "Gerenciar sub-usuários"
 
 msgid "Manage sync"
 msgstr "Gerenciar Sync"
@@ -1603,9 +1625,6 @@ msgstr "Gerenciar twilio"
 
 msgid "Manage uplink"
 msgstr "Gerenciar uplink"
-
-msgid "Manage user"
-msgstr "Gerenciar usuário"
 
 msgid "Mandatory fields must not be empty"
 msgstr "Os campos obrigatórios no podem estar em branco"
@@ -1624,9 +1643,6 @@ msgstr "Máx. 16 caracteres numéricos ou 11 alfanuméricos"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Máx. 30 caracteres alcanuméricos"
-
-msgid "Maximum 8 digits numeric only"
-msgstr "Máximo 8 números apenas"
 
 msgid "Maximum SMS count"
 msgstr "Número máximo de SMS"
@@ -1857,6 +1873,9 @@ msgstr "Online"
 msgid "Only when the sender ID is approved"
 msgstr "Somente quando o ID do remetente for aprovado"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr "Opções"
 
@@ -1926,9 +1945,6 @@ msgstr "Contatos"
 
 msgid "Please remove all subusers from this user to delete"
 msgstr "Por favor remova todos os sub-usuários deste para excluír"
-
-msgid "Please run composer.phar update"
-msgstr "Por favor execute composer.phar update"
 
 msgid "Please select"
 msgstr "Por favor selecione"
@@ -2097,6 +2113,21 @@ msgstr "Registrar uma conta"
 msgid "Registered"
 msgstr "Registrado"
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Renovar o token de webservice"
 
@@ -2159,6 +2190,10 @@ msgstr "Retorna"
 
 msgid "Route SMS outgoing"
 msgstr "Rota para SMS de saída"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Rotear todos os SMSs do sandbox para usuários"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Rotear todos os SMSs do sandbox para usuários"
@@ -2506,6 +2541,9 @@ msgstr "Usuários selecionados"
 msgid "Send"
 msgstr "Enviar"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "Enviar hostname do SMS ou IP"
 
@@ -2525,9 +2563,6 @@ msgstr "Enviar de arquivo"
 
 msgid "Send from file has been cancelled"
 msgstr "Enviar de arquivo foi cancelado"
-
-msgid "Send message"
-msgstr "Enviar mensagem"
 
 msgid "Send message failed due to insufficient funds"
 msgstr "Você não possui créditos suficientes para enviar a mensagem"
@@ -2732,6 +2767,9 @@ msgstr "Tente desabilitar o rodapé de SMS no principal"
 msgid "Twilio URL"
 msgstr "URL Twilio"
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL do playSMS, deixe em branco para usar a URL base"
 
@@ -2760,9 +2798,6 @@ msgstr ""
 "Não é possível excluir esse usuário até que todos os sub-usuáriosdeste "
 "tenham sido removidos"
 
-msgid "Unable to find composer files"
-msgstr "Incapaz de localizar os arquivos do composer"
-
 msgid "Unable to login"
 msgstr "Não foi possível logar"
 
@@ -2772,9 +2807,8 @@ msgstr "Não é possível processar a adição do sub-usuário"
 msgid "Unable to process user addition"
 msgstr "Não é possível processar adição de usuário"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Configurações do módulo de gateway foram salvas"
+msgstr ""
 
 msgid "Unable to unban account"
 msgstr "Não é possível desbanir a conta"
@@ -2799,6 +2833,9 @@ msgstr "Formato de resposta desconhecido"
 
 msgid "Unlimited"
 msgstr "Ilimitado"
+
+msgid "Update status"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Enviar arquivo"
@@ -2944,6 +2981,9 @@ msgstr "Título do site"
 msgid "Weekly"
 msgstr "Semanalmente"
 
+msgid "Welcome information"
+msgstr ""
+
 msgid "Whose online"
 msgstr "Quem está online"
 
@@ -3011,6 +3051,9 @@ msgstr "Sua url de callback deve ser acessível pelo Clickatell"
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Sua URL de callback deve ser acessível pelo Infobip"
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Sua URL callback deve estar acessível pelo Nexmo"
 
@@ -3025,6 +3068,9 @@ msgstr "Sua escolha"
 
 msgid "Your credit"
 msgstr "Seus créditos"
+
+msgid "Your current callback URL is"
+msgstr ""
 
 msgid "Your email format is invalid"
 msgstr "Seu formato de email não é válido"

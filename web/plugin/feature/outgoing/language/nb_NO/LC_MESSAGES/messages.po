@@ -32,8 +32,8 @@ msgstr "Kunne ikke slette rute"
 msgid "Fail to save route"
 msgstr "Kunne ikke lagre rute"
 
-msgid "Maximum 8 digits numeric only"
-msgstr "Maksimum 8 nummeriske tegn"
+msgid "Multiple entries separated by comma"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Prefiks"

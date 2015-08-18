@@ -30,13 +30,15 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 	$cb_datetime = date($datetime_format, $cb_timestamp);
 	$sms_datetime = trim($cb_datetime);
 	$sms_sender = trim($cb_from);
-	$message = trim(htmlspecialchars_decode($cb_text));
+	$message = trim(htmlspecialchars_decode(urldecode($cb_text)));
 	$sms_receiver = trim($cb_to);
 	
-	logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:" . $message, 3, "infobip incoming");
+	logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:[" . $message . "]", 3, "infobip incoming");
 	
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
+	$sms_sender = addslashes($sms_sender);
+	$message = addslashes($message);
 	recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver, $cb_smsc);
 }
 

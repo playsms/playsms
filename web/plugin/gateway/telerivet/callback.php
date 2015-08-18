@@ -95,7 +95,7 @@ if ($_POST['event'] == 'incoming_message') {
 	$c_smsc = 'telerivet';
 	$c_remote_id = $_POST['id'];
 	$c_message_type = $_POST['message_type'];
-	$c_content = htmlspecialchars_decode($_POST['content']);
+	$c_content = htmlspecialchars_decode(urldecode($_POST['content']));
 	$c_from_number = $_POST['from_number'];
 	$c_to_number = $_POST['to_number'];
 	$c_time_created = $_POST['time_created'];
@@ -109,6 +109,8 @@ if ($_POST['event'] == 'incoming_message') {
 	$c_time = date('Y-m-d H:i:s', $c_time_sent);
 	
 	logger_print("incoming smsc:" . $c_smsc . " message_id:" . $c_remote_slid . " s:" . $c_from_number . " d:" . $c_to_number, 2, "telerivet callback");
+	$c_from_number = addslashes($c_from_number);
+	$c_content = addslashes($c_content);
 	recvsms($c_time, $c_from_number, $c_content, $c_to_number, $c_smsc);
 	
 	# Clean buffers and exit

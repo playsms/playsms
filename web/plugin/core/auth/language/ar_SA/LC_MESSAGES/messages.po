@@ -14,6 +14,16 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
+#, fuzzy
+msgid "Account has been added and password has been emailed"
+msgstr "تم إرسال كلمة المرور إلى البريد الالكتروني"
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
 msgid "Email"
 msgstr "البريد الالكتروني"
 
@@ -40,6 +50,9 @@ msgstr "الجوال"
 
 msgid "Name"
 msgstr "الاسم"
+
+msgid "New account registration"
+msgstr ""
 
 msgid "Password"
 msgstr "كلمة المرور"
@@ -95,3 +108,7 @@ msgstr "لايوجد لديك صلاحية للوصول إلى هذه الصفح
 
 msgid "You or someone else have requested a password recovery"
 msgstr "لقد طلبت أنت أو شخص ما استعادة كلمة المرور."
+
+#, fuzzy
+msgid "username"
+msgstr "اسم المستخدم"

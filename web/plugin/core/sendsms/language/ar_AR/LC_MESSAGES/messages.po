@@ -1,0 +1,93 @@
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Compose message"
+msgstr ""
+
+msgid "Fail to send message to all destinations"
+msgstr ""
+
+msgid "Flash message"
+msgstr ""
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr ""
+
+msgid "Internal error please contact service provider"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+#, php-format
+msgid "Message %s has been delivered to queue"
+msgstr ""
+
+msgid "Message footer"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Please select template"
+msgstr ""
+
+msgid "Prefix with # for groups and @ for users"
+msgstr ""
+
+msgid "SMS"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Send message failed due to insufficient funds"
+msgstr ""
+
+msgid "Send message failed due to unable to create queue"
+msgstr ""
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr ""
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
+msgstr ""
+
+msgid "Send to"
+msgstr ""
+
+msgid "Sender ID"
+msgstr ""
+
+msgid "System error has occured"
+msgstr ""
+
+msgid "Unicode message"
+msgstr ""
+
+msgid "You must select receiver and your message should not be empty"
+msgstr ""
+
+msgid "Your message has been delivered to queue"
+msgstr ""
+
+msgid "Your message has been delivered to some of the destinations"
+msgstr ""
+
+msgid "chars"
+msgstr ""
+
+msgid "failed"
+msgstr ""
+
+msgid "queued"
+msgstr ""

@@ -35,7 +35,7 @@ msgstr "Gagal menghapus tarif"
 msgid "Fail to save route"
 msgstr "Gagal menyimpan tarif"
 
-msgid "Maximum 8 digits numeric only"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Prefix"

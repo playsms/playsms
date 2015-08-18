@@ -53,8 +53,15 @@ msgstr "API ID"
 msgid "API key"
 msgstr "API key"
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr "API secret"
+
+#, fuzzy
+msgid "API username"
+msgstr "Удалить пользователя"
 
 msgid "Access Control List"
 msgstr ""
@@ -85,9 +92,8 @@ msgstr ""
 "Пользователь admin или вошедший в систему администратор не может быть "
 "заблокирован"
 
-#, fuzzy
 msgid "Account already exists"
-msgstr "Пользователь уже существует"
+msgstr ""
 
 msgid "Account has been added and password has been emailed"
 msgstr "Пользователь добавлен, пароль отправлен по почте"
@@ -113,13 +119,11 @@ msgstr "Регистрация не доступна"
 msgid "Account status"
 msgstr "Состояние пользователя"
 
-#, fuzzy
 msgid "Account with this email already exists"
-msgstr "Пользователь с таким email уже существует"
+msgstr ""
 
-#, fuzzy
 msgid "Account with this mobile already exists"
-msgstr "Мользователь с таким номером телефона уже существует"
+msgstr ""
 
 msgid "Action"
 msgstr "Действие"
@@ -438,17 +442,14 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-#, fuzzy
 msgid "Bulksms API URL"
-msgstr "Clickatell API URL"
+msgstr ""
 
-#, fuzzy
 msgid "Bulksms is a bulk SMS provider"
-msgstr "Clickatell это массовый СМС провайдер"
+msgstr ""
 
-#, fuzzy
 msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell отправит DLR и входящие SMS на Ваш callback URL"
+msgstr ""
 
 msgid "Buy"
 msgstr "Купить"
@@ -545,8 +546,9 @@ msgstr ""
 msgid "Compose message"
 msgstr ""
 
+#, fuzzy
 msgid "Configuration"
-msgstr ""
+msgstr "Конфигурация"
 
 msgid "Confirmation"
 msgstr "Подтверждение"
@@ -604,6 +606,9 @@ msgstr "Вошедшего в систему пользователя невоз
 msgid "DEFAULT"
 msgstr ""
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr ""
 
@@ -619,12 +624,15 @@ msgstr "Дата/Время"
 msgid "Datetime"
 msgstr "Дата время"
 
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
 msgid "Default"
 msgstr "По умолчанию"
 
-#, fuzzy
 msgid "Default ACL upon registration"
-msgstr "Тип пользователя при регистрации"
+msgstr ""
 
 msgid "Default SMS rate"
 msgstr "Тариф за СМС по умолчанию"
@@ -632,9 +640,8 @@ msgstr "Тариф за СМС по умолчанию"
 msgid "Default SMSC"
 msgstr "SMSC по умолчанию"
 
-#, fuzzy
 msgid "Default account status upon registration"
-msgstr "Тип пользователя при регистрации"
+msgstr ""
 
 msgid "Default credit upon registration"
 msgstr ""
@@ -653,9 +660,8 @@ msgid ""
 "registration setting set to Subuser"
 msgstr ""
 
-#, fuzzy
 msgid "Default parent upon registration"
-msgstr "Тип пользователя при регистрации"
+msgstr ""
 
 msgid "Default prefix or country code"
 msgstr ""
@@ -711,9 +717,6 @@ msgstr "Доставлено на SMSC"
 msgid "Delivered to phone"
 msgstr "Доставлено на телефон"
 
-msgid "Delivery Report"
-msgstr "Отчёты о доставке"
-
 msgid "Description"
 msgstr "Описание"
 
@@ -735,6 +738,9 @@ msgstr "Номер получателя"
 msgid "Disable login as subuser"
 msgstr "Отключить вход от имени другого пользователя"
 
+msgid "Disallowed URLs"
+msgstr ""
+
 msgid "Domain"
 msgstr ""
 
@@ -744,8 +750,9 @@ msgstr "Скачать SMSSync для Android с"
 msgid "Edit"
 msgstr "Редактировать"
 
+#, fuzzy
 msgid "Edit ACL"
-msgstr ""
+msgstr "Редактировать"
 
 msgid "Edit SMS autoreply"
 msgstr "Редактировать автоответ"
@@ -878,6 +885,9 @@ msgstr "Повысить кофиденциальность дочерних п�
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Example"
+msgstr ""
+
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "URL адрес"
@@ -936,8 +946,9 @@ msgstr "Не удалось добавить сообщение"
 msgid "Fail to add message template"
 msgstr "Не удалось добавить шаблон"
 
+#, fuzzy
 msgid "Fail to add new ACL"
-msgstr ""
+msgstr "Не удалось загрузить шлюз"
 
 msgid "Fail to add new SMS schedule"
 msgstr ""
@@ -951,9 +962,6 @@ msgstr ""
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Не удалось сохранить маршрут"
-
-msgid "Fail to connect to database"
-msgstr "Не удалось подключиться к БД"
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1039,18 +1047,6 @@ msgstr "Не удалось включить общий ящик"
 msgid "Fail to insert keyword"
 msgstr "Не удалось вставить ключевое слово"
 
-msgid "Fail to load gateway"
-msgstr "Не удалось загрузить шлюз"
-
-msgid "Fail to load language"
-msgstr "Не удалось загрузить язык"
-
-msgid "Fail to load main config from registry"
-msgstr "Не удалось загрузить конфигурацию из реестра"
-
-msgid "Fail to load themes"
-msgstr "Не удалось загрузить темы"
-
 msgid "Fail to recover password"
 msgstr "Не удалось восстановить пароль"
 
@@ -1078,9 +1074,8 @@ msgstr "Не удалось сохранить конфигурацию"
 msgid "Fail to save email to SMS PIN"
 msgstr "Не удалось сохранить персональный код"
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "Настройки шлюза сохранены"
+msgstr ""
 
 msgid "Fail to save preferences"
 msgstr "Не удалось сохранить настройки"
@@ -1091,9 +1086,8 @@ msgstr "Не удалось сохранить тариф"
 msgid "Fail to save route"
 msgstr "Не удалось сохранить маршрут"
 
-#, fuzzy
 msgid "Fail to save temporary password"
-msgstr "Не удалось восстановить пароль"
+msgstr ""
 
 msgid "Fail to send SMS"
 msgstr "Не удалось отправитьь сообщение"
@@ -1134,6 +1128,9 @@ msgstr "Заполните поле чтобы изменить пароль"
 msgid "Fill to change the API key"
 msgstr ""
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr "Заполните для изменения API secret"
 
@@ -1160,6 +1157,10 @@ msgstr "Формат ГГГГ-ММ-ДД чч:мм"
 
 msgid "Forward"
 msgstr "Переадресация"
+
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Перенаправлять все необработанные сообщения пользователям"
 
 msgid "Forward message to email"
 msgstr "Отправлять принятые на email"
@@ -1211,6 +1212,9 @@ msgstr "Вперёд"
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr "Измените этот текст на странице конфигурации"
+
+msgid "Go to manage site menu to edit this page"
+msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Общее количество СМС"
@@ -1362,6 +1366,12 @@ msgstr "Неправильное имя пользователя или паро
 msgid "JSON output"
 msgstr "JSON формат"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr "Cервер администрирования Kannel"
 
@@ -1370,6 +1380,9 @@ msgstr "Пароль администратора Kannel"
 
 msgid "Kannel admin port"
 msgstr "Порт для администрирования Kannel"
+
+msgid "Kannel dlr-mask option"
+msgstr ""
 
 msgid "Kannel specific"
 msgstr "Настройки Kannel"
@@ -1407,8 +1420,9 @@ msgstr ""
 "Оставлять копию в Необработанных сообщениях может быть полезно для ревизии "
 "или контроля"
 
+#, fuzzy
 msgid "List of accounts"
-msgstr ""
+msgstr "Мой профиль"
 
 msgid "List of administrators"
 msgstr "Список администраторов"
@@ -1441,6 +1455,12 @@ msgstr "Список пользователей"
 
 msgid "Local number length"
 msgstr "Длина местного номера"
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
 
 msgid "Logged in as"
 msgstr ""
@@ -1523,8 +1543,9 @@ msgstr "Закрытый шлюз"
 msgid "Manage board"
 msgstr "Доски объявлений"
 
+#, fuzzy
 msgid "Manage bulksms"
-msgstr ""
+msgstr "Управление дочерними пользователями"
 
 msgid "Manage clickatell"
 msgstr "Сlickatell"
@@ -1550,20 +1571,25 @@ msgstr ""
 msgid "Manage gammu"
 msgstr "Gammu"
 
-msgid "Manage gateway"
-msgstr "Управление шлюзами"
-
 msgid "Manage gateway and SMSC"
 msgstr "Управление шлюзами и SMS-центрами"
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
 
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Управление пользователями"
+
 msgid "Manage kannel"
 msgstr "Управление Kannel"
 
 msgid "Manage nexmo"
 msgstr "Управление nexmo"
+
+#, fuzzy
+msgid "Manage playnet"
+msgstr "Управление пользователями"
 
 msgid "Manage plugin"
 msgstr "Управление модулями"
@@ -1589,26 +1615,18 @@ msgstr "Управление smstools"
 msgid "Manage stoplist"
 msgstr ""
 
-msgid "Manage sub-account"
-msgstr "Управление дочерним пользователем"
-
-msgid "Manage sub-accounts"
-msgstr "Управление дочерними пользователями"
-
 msgid "Manage subscribe"
 msgstr "Рассылки"
 
 msgid "Manage subuser"
 msgstr "Управление дочерними пользователями"
 
-msgid "Manage subusers"
-msgstr "Управление дочерними пользователями"
-
 msgid "Manage sync"
 msgstr "SMS Sync"
 
+#, fuzzy
 msgid "Manage telerivet"
-msgstr ""
+msgstr "Управление пользователями"
 
 msgid "Manage template"
 msgstr "Шаблонный"
@@ -1618,9 +1636,6 @@ msgstr "Управление twilio"
 
 msgid "Manage uplink"
 msgstr "Управление uplink"
-
-msgid "Manage user"
-msgstr "Управление пользователями"
 
 msgid "Mandatory fields must not be empty"
 msgstr ""
@@ -1640,9 +1655,6 @@ msgstr "Макс. 16 цифр или 11 символов"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "Макс. 30 символов"
-
-msgid "Maximum 8 digits numeric only"
-msgstr ""
 
 msgid "Maximum SMS count"
 msgstr "Максимальное количество сегментов"
@@ -1677,9 +1689,9 @@ msgstr "Пользователям"
 msgid "Message"
 msgstr "Сообщения"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Message %s has been delivered to queue"
-msgstr "Сообщение успешно принято к отправке"
+msgstr ""
 
 msgid "Message ID"
 msgstr "ID сообщения"
@@ -1875,6 +1887,9 @@ msgstr "Онлайн"
 msgid "Only when the sender ID is approved"
 msgstr "Только для утверждённых имён отправителей"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr "Параметры"
 
@@ -1947,9 +1962,6 @@ msgid "Please remove all subusers from this user to delete"
 msgstr ""
 "Пожалуйста, снимите всех дочерних пользователей с этого пользователя, чтобы "
 "удалить"
-
-msgid "Please run composer.phar update"
-msgstr "Пожалуйста, выполните composer.phar update"
 
 msgid "Please select"
 msgstr "Выберите"
@@ -2115,6 +2127,21 @@ msgstr "Регистрация пользователя"
 msgid "Registered"
 msgstr "Зарегистрирован"
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Обновить токен для webservices"
 
@@ -2177,6 +2204,10 @@ msgstr "Ответ"
 
 msgid "Route SMS outgoing"
 msgstr "Маршрутизация исходящих СМС"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Перенаправлять все необработанные сообщения пользователям"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Перенаправлять все необработанные сообщения пользователям"
@@ -2530,6 +2561,9 @@ msgstr "Выбранные пользователи"
 msgid "Send"
 msgstr "Отправить"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr "IP адрес или имя сервера sendsms"
 
@@ -2547,9 +2581,6 @@ msgstr "Отправка из файла"
 
 msgid "Send from file has been cancelled"
 msgstr "Отправка из файла была отменена"
-
-msgid "Send message"
-msgstr "Отправить сообщение"
 
 msgid "Send message failed due to insufficient funds"
 msgstr ""
@@ -2645,8 +2676,9 @@ msgstr "Разрешить рассылку группе с мобильного
 msgid "Simulate incoming SMS"
 msgstr "Симулировать входящее СМС"
 
+#, fuzzy
 msgid "Site configuration"
-msgstr ""
+msgstr "Конфигурация"
 
 msgid "Site configuration has been saved"
 msgstr ""
@@ -2751,6 +2783,9 @@ msgstr "Попытаться отключить подпись сообщени�
 msgid "Twilio URL"
 msgstr "Twilio URL"
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL playSMS сервера, оставьте пустым для использования базового URL"
 
@@ -2779,9 +2814,6 @@ msgid ""
 msgstr ""
 "Невозможно удалить этого пользователя пока у него есть дочерние пользователи"
 
-msgid "Unable to find composer files"
-msgstr "Не удалось нати файлы composer"
-
 msgid "Unable to login"
 msgstr "Не удалось войти"
 
@@ -2791,9 +2823,8 @@ msgstr "Невозможно произвести добавление доче�
 msgid "Unable to process user addition"
 msgstr "Невозможно произвести добавление пользователя"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Настройки шлюза схранены"
+msgstr ""
 
 msgid "Unable to unban account"
 msgstr "Не удалось разблокировать пользователя"
@@ -2818,6 +2849,9 @@ msgstr "Ответ о неизвестном формате"
 
 msgid "Unlimited"
 msgstr "Неограниченно"
+
+msgid "Update status"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Загрузить файл"
@@ -2884,9 +2918,9 @@ msgstr ""
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Username must be at least 3 characters and maximum %d characters"
-msgstr "Минимальная длина имени 3 знака"
+msgstr ""
 
 msgid "Username or email"
 msgstr "Имя пользователя или пароль"
@@ -2960,6 +2994,9 @@ msgstr "Заголовок сайта"
 msgid "Weekly"
 msgstr ""
 
+msgid "Welcome information"
+msgstr ""
+
 msgid "Whose online"
 msgstr "Пользователи в системе"
 
@@ -3018,15 +3055,17 @@ msgstr "Ваше СМС поставлено в очередь"
 msgid "Your callback URL is"
 msgstr "Ваш callback URL"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Ваш callback URL должен быть доступен со стороны Clickatell"
+msgstr ""
 
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Ваш callback URL должен быть доступен со стороны Clickatell"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"
+
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
 
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Ваш callback URL должен быть доступен с стороны Nexmo"
@@ -3043,15 +3082,17 @@ msgstr "Ваш выбор"
 msgid "Your credit"
 msgstr ""
 
+msgid "Your current callback URL is"
+msgstr ""
+
 msgid "Your email format is invalid"
 msgstr "Неправильный формат email адреса"
 
 msgid "Your message has been delivered to queue"
 msgstr "Сообщение успешно принято к отправке"
 
-#, fuzzy
 msgid "Your message has been delivered to some of the destinations"
-msgstr "Сообщение успешно принято к отправке"
+msgstr ""
 
 msgid "Your mobile format is invalid"
 msgstr "Неправильный формат номера телефона"

@@ -12,6 +12,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.4\n"
 
+#, fuzzy
+msgid "Account has been added and password has been emailed"
+msgstr "Adgangskode er blevet e-mailet"
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
 msgid "Email"
 msgstr "E-mail"
 
@@ -38,6 +48,9 @@ msgstr "Mobil"
 
 msgid "Name"
 msgstr "Navn"
+
+msgid "New account registration"
+msgstr ""
 
 msgid "Password"
 msgstr "Adgangskode"
@@ -95,3 +108,7 @@ msgstr "Du har ikke adgang til denne side"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Du, eller en anden, har bedt om at gendanne adgangskoden"
+
+#, fuzzy
+msgid "username"
+msgstr "Brugernavn"

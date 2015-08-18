@@ -1,0 +1,5 @@
+msgid "Gateway name"
+msgstr ""
+
+msgid "Manage blocked"
+msgstr ""

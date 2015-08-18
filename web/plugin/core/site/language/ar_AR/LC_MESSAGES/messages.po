@@ -1,0 +1,87 @@
+msgid "Active themes"
+msgstr ""
+
+msgid "Buy credit page"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Default credit upon registration"
+msgstr ""
+
+msgid "Default language"
+msgstr ""
+
+msgid "Domain"
+msgstr ""
+
+msgid "Email footer"
+msgstr ""
+
+msgid "Email service"
+msgstr ""
+
+msgid "Enable forgot password"
+msgstr ""
+
+msgid "Enable logo"
+msgstr ""
+
+msgid "Enable public registration"
+msgstr ""
+
+msgid "Information page"
+msgstr ""
+
+msgid "Layout footer"
+msgstr ""
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+
+msgid "Main website URL"
+msgstr ""
+
+msgid "Main website name"
+msgstr ""
+
+msgid "Manage site"
+msgstr ""
+
+msgid "Page content"
+msgstr ""
+
+msgid "Page title"
+msgstr ""
+
+msgid "Replace website title with logo"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Site configuration"
+msgstr ""
+
+msgid "Site configuration has been saved"
+msgstr ""
+
+msgid "The domain is already configured by other user"
+msgstr ""
+
+msgid "Website title"
+msgstr ""
+
+msgid "domain"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

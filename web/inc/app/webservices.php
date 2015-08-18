@@ -383,6 +383,11 @@ if (_OP_) {
 				$json['error'] = '100';
 			}
 			$log_this = TRUE;
+
+			// ignore no data on log
+			if ($json['error'] == '400') {
+				$log_this = FALSE;
+			}
 			break;
 		
 		case "IN":
@@ -413,6 +418,11 @@ if (_OP_) {
 				$json['error'] = '100';
 			}
 			$log_this = TRUE;
+	
+			// ignore no data on log
+			if ($json['error'] == '501') {
+				$log_this = FALSE;
+			}
 			break;
 		
 		case "CR":
@@ -607,7 +617,7 @@ $json['error_string'] = $ws_error_string[$json['error']];
 $json['timestamp'] = mktime();
 
 if ($log_this) {
-	logger_print("u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_ . ' timestamp:' . $json['timestamp'] . ' error_string:' . $json['error_string'], 3, "webservices");
+	logger_print("u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_ . ' timestamp:' . $json['timestamp'] . ' status:' . $json['status'] . ' error:' . $json['error'] . ' error_string:' . $json['error_string'], 3, "webservices");
 }
 
 if ($format == 'SERIALIZE') {

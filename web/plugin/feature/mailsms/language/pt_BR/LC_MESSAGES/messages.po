@@ -64,6 +64,9 @@ msgstr "PIN de Email para SMS"
 msgid "PIN is empty"
 msgstr "o PIN está em branco"
 
+msgid "Save"
+msgstr ""
+
 msgid "Use SSL"
 msgstr "Usar SSL"
 

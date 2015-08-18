@@ -1,0 +1,412 @@
+msgid "ACL"
+msgstr ""
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
+msgid "Access Control List"
+msgstr ""
+
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr ""
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+
+msgid "Account already exists"
+msgstr ""
+
+msgid "Account has been added and password has been emailed"
+msgstr ""
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Account has been banned"
+msgstr ""
+
+msgid "Account has been removed"
+msgstr ""
+
+msgid "Account has been unbanned"
+msgstr ""
+
+msgid "Account name is mandatory"
+msgstr ""
+
+msgid "Account registration is not available"
+msgstr ""
+
+msgid "Account status"
+msgstr ""
+
+msgid "Account with this email already exists"
+msgstr ""
+
+msgid "Account with this mobile already exists"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Active language"
+msgstr ""
+
+msgid "Add account"
+msgstr ""
+
+msgid "Add or reduce credit from manage credit menu"
+msgstr ""
+
+msgid "Add subuser"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Administrators"
+msgstr ""
+
+msgid "Always choose to send as unicode"
+msgstr ""
+
+msgid "Application options"
+msgstr ""
+
+msgid "Are you sure you want to ban account"
+msgstr ""
+
+msgid "Are you sure you want to ban subuser"
+msgstr ""
+
+msgid "Are you sure you want to delete subuser"
+msgstr ""
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr ""
+
+msgid "Are you sure you want to delete user"
+msgstr ""
+
+msgid "Are you sure you want to delete user ?"
+msgstr ""
+
+msgid "Are you sure you want to unban account"
+msgstr ""
+
+msgid "Are you sure you want to unban subuser"
+msgstr ""
+
+msgid "Cannot change status when user have subusers"
+msgstr ""
+
+msgid "City"
+msgstr ""
+
+msgid "Comma separated"
+msgstr ""
+
+msgid "Country"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
+msgid "Currently logged in user is immune to deletion"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Default message footer"
+msgstr ""
+
+msgid "Default sender ID"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Effective SMS sender ID"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Email address is mandatory"
+msgstr ""
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr ""
+
+msgid "Enable webservices"
+msgstr ""
+
+msgid "Fail to register an account"
+msgstr ""
+
+msgid "Fail to save configuration"
+msgstr ""
+
+msgid "Fail to save preferences"
+msgstr ""
+
+msgid "Forward message to email"
+msgstr ""
+
+msgid "Forward message to inbox"
+msgstr ""
+
+msgid "Forward message to mobile"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "Invalid sender ID"
+msgstr ""
+
+msgid "List of administrators"
+msgstr ""
+
+msgid "List of subusers"
+msgstr ""
+
+msgid "List of users"
+msgstr ""
+
+msgid "Local number length"
+msgstr ""
+
+msgid "Login information"
+msgstr ""
+
+msgid "Manage account"
+msgstr ""
+
+msgid "Manage subuser"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr ""
+
+msgid "Max. 30 alphanumeric characters"
+msgstr ""
+
+msgid "Min length to detect missing country code"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "New account registration"
+msgstr ""
+
+msgid "No changes made"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Parent"
+msgstr ""
+
+msgid "Parent account"
+msgstr ""
+
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Password does not match"
+msgstr ""
+
+msgid "Password should be at least 4 characters"
+msgstr ""
+
+msgid "Personal information"
+msgstr ""
+
+msgid "Please remove all subusers from this user to delete"
+msgstr ""
+
+msgid "Please select"
+msgstr ""
+
+msgid "Preferences"
+msgstr ""
+
+msgid "Preferences have been saved"
+msgstr ""
+
+msgid "Preferences have been saved and password updated"
+msgstr ""
+
+msgid "Preferences have been saved and webservices token updated"
+msgstr ""
+
+msgid "Prefix or country code"
+msgstr ""
+
+msgid "Re-type password"
+msgstr ""
+
+msgid "Registered"
+msgstr ""
+
+msgid "Renew webservices token"
+msgstr ""
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr ""
+
+msgid "SMS footer"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "State or Province"
+msgstr ""
+
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "Unable to ban account"
+msgstr ""
+
+msgid "Unable to ban subuser"
+msgstr ""
+
+msgid "Unable to delete other users"
+msgstr ""
+
+msgid ""
+"Unable to delete this user until all subusers under this user have been "
+"removed"
+msgstr ""
+
+msgid "Unable to process subuser addition"
+msgstr ""
+
+msgid "Unable to process user addition"
+msgstr ""
+
+msgid "Unable to unban account"
+msgstr ""
+
+msgid "Unable to unban subuser"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""
+
+msgid "Unknown error has occurred"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "User configuration"
+msgstr ""
+
+msgid "User configuration has been saved"
+msgstr ""
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr ""
+
+msgid "User deletion unavailable"
+msgstr ""
+
+msgid "User does not exist"
+msgstr ""
+
+msgid "User is already on banned subusers list"
+msgstr ""
+
+msgid "User is already on banned users list"
+msgstr ""
+
+msgid "User is immune to deletion"
+msgstr ""
+
+msgid "User is not on banned subusers list"
+msgstr ""
+
+msgid "User is not on banned users list"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
+msgid "Webservices IP range"
+msgstr ""
+
+msgid "Webservices token"
+msgstr ""
+
+msgid "Webservices username"
+msgstr ""
+
+msgid "You must fill all mandatory fields"
+msgstr ""
+
+msgid "You must fill all required fields"
+msgstr ""
+
+msgid "Your email format is invalid"
+msgstr ""
+
+msgid "Your mobile format is invalid"
+msgstr ""
+
+msgid "Zipcode"
+msgstr ""
+
+msgid "email"
+msgstr ""
+
+msgid "for subuser only"
+msgstr ""
+
+msgid "mobile"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "username"
+msgstr ""
+
+msgid "yes"
+msgstr ""

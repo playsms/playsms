@@ -17,8 +17,15 @@ msgstr ""
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr "نسخ الرسالة للوارد عند وجود @اسم_المستخدم في محتوى الرسالة"
 
+msgid "Example"
+msgstr ""
+
 msgid "Fail to insert keyword"
 msgstr "فشل إضافة الكلمة المفتاحية"
+
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "توجيه كافة رسائل الصندوق الرملي للمستخدمين"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "تم حفظ مسار الرسالة الواردة"
@@ -50,6 +57,10 @@ msgid ""
 msgstr ""
 "يمكن مطابقة رقم المستلم مع اسم المرسل الافتراضي أو مع كافة اسماء المرسل "
 "المفعلة"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "توجيه كافة رسائل الصندوق الرملي للمستخدمين"
 
 msgid "Route all sandbox SMS to users"
 msgstr "توجيه كافة رسائل الصندوق الرملي للمستخدمين"
@@ -86,6 +97,9 @@ msgstr "إرسال رسالة للمجموعات مطابقة لنتيجة ال�
 
 msgid "Settings"
 msgstr "الإعدادات"
+
+msgid "URL"
+msgstr ""
 
 msgid "keyword"
 msgstr "الكلمات المفتاحية"

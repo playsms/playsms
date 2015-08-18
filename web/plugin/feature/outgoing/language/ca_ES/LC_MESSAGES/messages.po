@@ -43,7 +43,7 @@ msgstr "Error esborrant tarifa"
 msgid "Fail to save route"
 msgstr "Error guardant tarifa"
 
-msgid "Maximum 8 digits numeric only"
+msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Prefix"

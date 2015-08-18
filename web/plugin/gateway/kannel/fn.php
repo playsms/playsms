@@ -18,19 +18,31 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-// hook_sendsms
-// called by main sms sender
-// return true for success delivery
-// $smsc : smsc
-// $sms_sender : sender mobile number
-// $sms_footer : sender sms footer or sms sender ID
-// $sms_to : destination sms number
-// $sms_msg : sms message tobe delivered
-// $uid : sender User ID
-// $gpid : group phonebook id (optional)
-// $smslog_id : sms ID
-// $sms_type : type of the message (defaults to text)
-// $unicode : send as unicode (boolean)
+/**
+ * hook_sendsms called by sendsms_process()
+ *
+ * @param string $smsc
+ *        SMSC name
+ * @param unknown $sms_sender
+ *        Sender ID
+ * @param string $sms_footer
+ *        Message footer
+ * @param string $sms_to
+ *        Destination number
+ * @param string $sms_msg
+ *        Message
+ * @param integer $uid
+ *        User ID
+ * @param integer $gpid
+ *        Group ID
+ * @param integer $smslog_id
+ *        SMS Log ID
+ * @param integer $sms_type
+ *        Type of SMS
+ * @param integer $unicode
+ *        Unicode flag
+ * @return boolean
+ */
 function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $core_config, $plugin_config;
 	
@@ -67,7 +79,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	// prior to 0.9.5.1
 	// $dlr_url = $plugin_config['kannel']['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=".$smslog_id."&uid=".$uid;
 	// since 0.9.5.1
-	$dlr_url = $plugin_config['kannel']['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=" . $smslog_id . "&uid=" . $uid;
+	$dlr_url = $plugin_config['kannel']['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=" . $smslog_id . "&uid=" . $uid . "&smsc=" . $smsc;
 	
 	$URL = "/cgi-bin/sendsms?username=" . urlencode($plugin_config['kannel']['username']) . "&password=" . urlencode(htmlspecialchars_decode($plugin_config['kannel']['password']));
 	$URL .= "&from=" . urlencode($sms_sender) . "&to=" . urlencode($sms_to);
@@ -102,7 +114,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$URL .= $additional_param;
 	$URL = str_replace("&&", "&", $URL);
 	
-	logger_print("URL: http://" . $plugin_config['kannel']['sendsms_host'] . ":" . $plugin_config['kannel']['sendsms_port'] . $URL, 3, "kannel_hook_sendsms");
+	_log("URL: http://" . $plugin_config['kannel']['sendsms_host'] . ":" . $plugin_config['kannel']['sendsms_port'] . $URL, 3, "kannel_hook_sendsms");
 	
 	// srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
 	// One issue is that Kannel responds with HTTP 202 whereas file_get_contents expect HTTP 200
@@ -120,7 +132,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 		while (!feof($connection)) {
 			$rv = fgets($connection, 128);
 			if (($rv == "Sent.") || ($rv == "0: Accepted for delivery") || ($rv == "3: Queued for later delivery")) {
-				logger_print("smslog_id:" . $smslog_id . " response:" . $rv, 3, "kannel outgoing");
+				_log("smslog_id:" . $smslog_id . " response:" . $rv, 3, "kannel outgoing");
 				// set pending
 				$p_status = 0;
 				$ok = true;
@@ -134,26 +146,26 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 		$ok = true; // return true eventhough failed
 	}
 	dlr($smslog_id, $uid, $p_status);
-	logger_print("end smslog_id:" . $smslog_id . " p_status:" . $p_status, 3, "kannel outgoing");
-	// good or bad, print it on the log
+	_log("end smslog_id:" . $smslog_id . " p_status:" . $p_status, 3, "kannel outgoing");
+	
 	return $ok;
 }
 
 function kannel_hook_call($requests) {
-	// please note that we must globalize these 2 variables
 	global $core_config, $plugin_config;
+	
 	$called_from_hook_call = true;
 	$access = $requests['access'];
 	if ($access == 'dlr') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/kannel/dlr.php';
-		logger_print("start load:" . $fn, 2, "kannel call");
+		_log("start load:" . $fn, 2, "kannel call");
 		include $fn;
-		logger_print("end load dlr", 2, "kannel call");
+		_log("end load dlr", 2, "kannel call");
 	}
 	if ($access == 'geturl') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/kannel/geturl.php';
-		logger_print("start load:" . $fn, 2, "kannel call");
+		_log("start load:" . $fn, 2, "kannel call");
 		include $fn;
-		logger_print("end load geturl", 2, "kannel call");
+		_log("end load geturl", 2, "kannel call");
 	}
 }

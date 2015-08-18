@@ -14,8 +14,9 @@ if (!$called_from_hook_call) {
 	chdir("plugin/gateway/bulksms/");
 }
 
-$cb_from = $_REQUEST['source_id'];
+$cb_from = $_REQUEST['sender'];
 $cb_to = $_REQUEST['msisdn'];
+$cb_message = $_REQUEST['message'];
 $cb_completed_time = $_REQUEST['completed_time'];  //r check format  yy-MM-dd HH:mm:ss
 $cb_status = $_REQUEST['status'];
 $cb_apimsgid = $_REQUEST['batch_id'];
@@ -26,13 +27,15 @@ if ($cb_completed_time && $cb_from && $$cb_apimsgid) {
 	$sms_datetime = trim($cb_datetime);
 	$sms_sender = trim($cb_from);
 	$sms_receiver = trim($cb_to);
+	$message = trim(htmlspecialchars_decode(urldecode($cb_message)));
 	$apimsgid = trim($cb_apimsgid);
-	$message = "not given";
 	
-	logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " batchid:" . $apimsgid." message:".$message, 3, "bulksms incoming");
+	logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " batchid:" . $apimsgid." message:[" . $message . "]", 3, "bulksms incoming");
 	
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
+	$sms_sender = addslashes($sms_sender);
+	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $cb_smsc);
 }
 

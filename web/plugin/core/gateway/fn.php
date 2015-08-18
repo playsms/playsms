@@ -198,13 +198,13 @@ function _gateway_display() {
 			$gateway_info['status'] = $subdir_tab[$l]['status'];
 		}
 		if ($gateway_info['name']) {
-			$c_link_edit = "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage";
+			$c_link_manage = "index.php?app=main&inc=gateway_" . $c_gateway . "&op=manage";
 			$c_link_add = '';
 			if (!(($c_gateway == 'dev') || ($c_gateway == 'blocked'))) {
 				$c_link_add = "index.php?app=main&inc=core_gateway&op=add_smsc&gateway=" . $c_gateway;
 			}
 			$gw_list[$gateway_info['name']] = array(
-				'link_edit' => $c_link_edit,
+				'link_manage' => $c_link_manage,
 				'link_add' => $c_link_add,
 				'name' => $gateway_info['name'],
 				'description' => $gateway_info['description'],
@@ -224,9 +224,9 @@ function _gateway_display() {
 			</tr></thead>
 			<tbody>";
 	foreach ($gw_list as $gw) {
-		$c_link_edit = '';
-		if ($gw['link_edit']) {
-			$c_link_edit = "<a href='" . _u($gw['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
+		$c_link_manage = '';
+		if ($gw['link_manage']) {
+			$c_link_manage = "<a href='" . _u($gw['link_manage']) . "'>" . $icon_config['manage'] . "</a>";
 		}
 		$c_link_add = '';
 		if ($gw['link_add']) {
@@ -237,7 +237,7 @@ function _gateway_display() {
 				<td>" . $gw['name'] . "</td>
 				<td>" . $gw['description'] . "</td>
 				<td>
-					" . $c_link_edit . "
+					" . $c_link_manage . "
 					" . $c_link_add . "
 				</td>
 			</tr>";

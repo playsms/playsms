@@ -1,0 +1,23 @@
+{{ DIALOG_DISPLAY }}
+<h2>{{ Manage jasmin }}</h2>
+<form action=index.php?app=main&inc=gateway_jasmin&op=manage_save method=post>
+{{ CSRF_FORM }}
+<table class=playsms-table>
+	<tbody>
+		<tr><td class=label-sizer>{{ Gateway name }}</td><td>jasmin</td></tr>
+		<tr><td>{{ Jasmin send SMS URL }}</td><td><input type=text maxlength=250 name=up_url value="{{ jasmin_param_url }}"></td></tr>
+		<tr><td>{{ Callback URL }}</td><td><input type=text maxlength=250 name=up_callback_url value="{{ jasmin_param_callback_url }}">  {{ HINT_CALLBACK_URL }}</td></tr>
+		<tr><td>{{ API username }}</td><td><input type=text maxlength=30 name=up_api_username value="{{ jasmin_param_api_username }}"></td></tr>
+		<tr><td>{{ API password }}</td><td><input type=password maxlength=30 name=up_api_password value=""> {{ HINT_FILL_PASSWORD }}</td></tr>
+		<tr><td>{{ Module sender ID }}</td><td><input type=text maxlength=16 name=up_module_sender value="{{ jasmin_param_module_sender }}"> {{ HINT_MODULE_SENDER }}</td></tr>
+		<tr><td>{{ Module timezone }}</td><td><input type=text size=5 maxlength=5 name=up_datetime_timezone value="{{ jasmin_param_datetime_timezone }}"> {{ HINT_TIMEZONE }}</td></tr>
+	</tbody>
+</table>
+<p><input type=submit class=button value="{{ Save }}">
+</form>
+<br />
+{{ Notes }}:<br />
+- {{ CALLBACK_URL_IS }} {{ jasmin_param_callback_url }}<br />
+- {{ CALLBACK_URL_ACCESSIBLE }}<br />
+- {{ JASMIN_PUSH_DLR }}<br />
+<p>{{ BUTTON_BACK }}

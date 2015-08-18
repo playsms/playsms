@@ -56,8 +56,15 @@ msgstr ""
 msgid "API key"
 msgstr ""
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
 msgstr ""
+
+#, fuzzy
+msgid "API username"
+msgstr "هل تود بالتأكيد المستخدم؟"
 
 msgid "Access Control List"
 msgstr "قائمة تحكم الوصول"
@@ -588,6 +595,9 @@ msgstr "لايمكن حذف مستخدم متصل"
 msgid "DEFAULT"
 msgstr "الافتراضي"
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr "يوميًا"
 
@@ -602,6 +612,10 @@ msgstr ""
 
 msgid "Datetime"
 msgstr "الوقت"
+
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
 
 msgid "Default"
 msgstr "الافتراضي"
@@ -697,9 +711,6 @@ msgstr ""
 msgid "Delivered to phone"
 msgstr ""
 
-msgid "Delivery Report"
-msgstr ""
-
 msgid "Description"
 msgstr "الوصف"
 
@@ -720,6 +731,9 @@ msgstr "الوجهة"
 
 msgid "Disable login as subuser"
 msgstr "تعطيل الدخول كمستخدم فرعي"
+
+msgid "Disallowed URLs"
+msgstr ""
 
 msgid "Domain"
 msgstr "عنوان الموقع"
@@ -863,6 +877,9 @@ msgstr "تحسين الخصوصية للمستخدمين الفرعيين"
 msgid "Entries in CSV file have been imported"
 msgstr "تم استيراد الإدخالات من الملف"
 
+msgid "Example"
+msgstr ""
+
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "رابط الرسالة المخصصة"
@@ -935,9 +952,6 @@ msgstr "فشل إضافة وجهة جديدة"
 
 msgid "Fail to add route"
 msgstr "اضف مسار"
-
-msgid "Fail to connect to database"
-msgstr "فشل الاتصال بقواعد البيانات"
 
 msgid "Fail to delete ACL"
 msgstr "فشل الحذف"
@@ -1023,18 +1037,6 @@ msgstr "فشل التمكين"
 msgid "Fail to insert keyword"
 msgstr "فشل إضافة الكلمة المفتاحية"
 
-msgid "Fail to load gateway"
-msgstr "بوابة الإرسال"
-
-msgid "Fail to load language"
-msgstr "اللغة الافتراضية"
-
-msgid "Fail to load main config from registry"
-msgstr "فشل تحميل الإعدادات من السجل"
-
-msgid "Fail to load themes"
-msgstr "السمات"
-
 msgid "Fail to recover password"
 msgstr "فشل استعادة كلمة المرور"
 
@@ -1116,6 +1118,9 @@ msgstr "الرجاء كتابة كلمة المرور"
 msgid "Fill to change the API key"
 msgstr ""
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr ""
 
@@ -1142,6 +1147,10 @@ msgstr "الصيغة YYYY-MM-DD hh:mm"
 
 msgid "Forward"
 msgstr "إعادة توجيه"
+
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "توجيه كافة رسائل الصندوق الرملي للمستخدمين"
 
 msgid "Forward message to email"
 msgstr "التوجيه للبريد الالكتروني"
@@ -1193,6 +1202,9 @@ msgstr "انتقل للإعدادات العامة أو إدارة الموقع 
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr "انتقل للإعدادات العامة أو إدارة الموقع لتحرير هذه الصفحة"
+
+msgid "Go to manage site menu to edit this page"
+msgstr ""
 
 msgid "Grand total SMS"
 msgstr "مجموع الرسائل"
@@ -1343,6 +1355,12 @@ msgstr "اسم المستخدم أو كلمة المرور غير صحيحين"
 msgid "JSON output"
 msgstr "مخرجات JSON"
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr ""
 
@@ -1350,6 +1368,9 @@ msgid "Kannel admin password"
 msgstr ""
 
 msgid "Kannel admin port"
+msgstr ""
+
+msgid "Kannel dlr-mask option"
 msgstr ""
 
 msgid "Kannel specific"
@@ -1421,6 +1442,12 @@ msgstr "قائمة المستخدمين "
 msgid "Local number length"
 msgstr "طول الرقم المحلي"
 
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
+msgstr ""
+
 msgid "Logged in as"
 msgstr "تم تسجيل الخروج"
 
@@ -1484,8 +1511,9 @@ msgstr "المستخدمون الفرعيون"
 msgid "Manage ACL"
 msgstr "إدارة ACL"
 
+#, fuzzy
 msgid "Manage OpenVox"
-msgstr ""
+msgstr " إدارة الموقع"
 
 msgid "Manage SMS rate"
 msgstr "إدارة التعرفة"
@@ -1505,8 +1533,9 @@ msgstr "إدارة اللوح"
 msgid "Manage bulksms"
 msgstr "المستخدمون الفرعيون"
 
+#, fuzzy
 msgid "Manage clickatell"
-msgstr ""
+msgstr " إدارة الموقع"
 
 msgid "Manage command"
 msgstr "إدارة الأوامر"
@@ -1517,8 +1546,9 @@ msgstr "إدارة الرصيد"
 msgid "Manage custom"
 msgstr "إدارة الرسائل المخصصة"
 
+#, fuzzy
 msgid "Manage dev"
-msgstr ""
+msgstr " إدارة الموقع"
 
 msgid "Manage email to SMS"
 msgstr "إدارة توجيه البريد للرسائل القصيرة"
@@ -1526,23 +1556,32 @@ msgstr "إدارة توجيه البريد للرسائل القصيرة"
 msgid "Manage firewall"
 msgstr "إدارة الجدار الناري"
 
+#, fuzzy
 msgid "Manage gammu"
-msgstr ""
-
-msgid "Manage gateway"
-msgstr "إدارة البوابات ومراكز الرسائل"
+msgstr "المستخدم"
 
 msgid "Manage gateway and SMSC"
 msgstr "إدارة البوابات ومراكز الرسائل"
 
+#, fuzzy
 msgid "Manage infobip"
-msgstr ""
+msgstr " إدارة الموقع"
 
+#, fuzzy
+msgid "Manage jasmin"
+msgstr " إدارة الموقع"
+
+#, fuzzy
 msgid "Manage kannel"
-msgstr ""
+msgstr "إدارة حساب"
 
+#, fuzzy
 msgid "Manage nexmo"
-msgstr ""
+msgstr " إدارة الموقع"
+
+#, fuzzy
+msgid "Manage playnet"
+msgstr "إدارة حساب"
 
 msgid "Manage plugin"
 msgstr "إدارة الإضافات"
@@ -1562,17 +1601,12 @@ msgstr "إدارة اسم المرسل"
 msgid "Manage site"
 msgstr " إدارة الموقع"
 
+#, fuzzy
 msgid "Manage smstools"
-msgstr ""
+msgstr " إدارة الموقع"
 
 msgid "Manage stoplist"
 msgstr "المستخدمون الفرعيون"
-
-msgid "Manage sub-account"
-msgstr "إدارة حساب"
-
-msgid "Manage sub-accounts"
-msgstr "قائمة الحسابات"
 
 msgid "Manage subscribe"
 msgstr "إدارة الاشتراك"
@@ -1580,25 +1614,22 @@ msgstr "إدارة الاشتراك"
 msgid "Manage subuser"
 msgstr "إدارة المستخدم الفرعي"
 
-msgid "Manage subusers"
-msgstr "المستخدمون الفرعيون"
-
 msgid "Manage sync"
 msgstr "إدارة المزامنة"
 
+#, fuzzy
 msgid "Manage telerivet"
-msgstr ""
+msgstr " إدارة الموقع"
 
 msgid "Manage template"
 msgstr "قالب الرسائل"
 
+#, fuzzy
 msgid "Manage twilio"
-msgstr ""
+msgstr "إدارة البوابات ومراكز الرسائل"
 
+#, fuzzy
 msgid "Manage uplink"
-msgstr ""
-
-msgid "Manage user"
 msgstr "المستخدم"
 
 msgid "Mandatory fields must not be empty"
@@ -1618,9 +1649,6 @@ msgstr "الحد الأقصى 16 رقم أو 11 حرف رقمي"
 
 msgid "Max. 30 alphanumeric characters"
 msgstr "الحد الأقصى 30 حرف رقمي"
-
-msgid "Maximum 8 digits numeric only"
-msgstr "الحد الأقصى 8 خانات رقمية فقط"
 
 msgid "Maximum SMS count"
 msgstr "العدد الأقصى لمقاطع الرسالة"
@@ -1851,6 +1879,9 @@ msgstr "المتصلون"
 msgid "Only when the sender ID is approved"
 msgstr "فقط عند المصادقة على اسم المرسل"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr "خيارات"
 
@@ -1920,9 +1951,6 @@ msgstr " دليل الهاتف"
 
 msgid "Please remove all subusers from this user to delete"
 msgstr "الرجاء إزالة كافة المستخدمين الفرعيين من هذا المستخدم للحذف"
-
-msgid "Please run composer.phar update"
-msgstr "الرجاء تشغيل composer.phar  للتحديث"
 
 msgid "Please select"
 msgstr "الرجاء اختيار  "
@@ -2083,6 +2111,21 @@ msgstr "إنشاء حساب"
 msgid "Registered"
 msgstr "مسجل"
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "تجديد شفرة خدمات الويب"
 
@@ -2145,6 +2188,10 @@ msgstr "العودة"
 
 msgid "Route SMS outgoing"
 msgstr "تسيير الرسائل الصادرة"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "توجيه كافة رسائل الصندوق الرملي للمستخدمين"
 
 msgid "Route all sandbox SMS to users"
 msgstr "توجيه كافة رسائل الصندوق الرملي للمستخدمين"
@@ -2490,6 +2537,9 @@ msgstr "المستخدمون المحددون"
 msgid "Send"
 msgstr "إرسال"
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr ""
 
@@ -2507,9 +2557,6 @@ msgstr "إرسال من ملف"
 
 msgid "Send from file has been cancelled"
 msgstr "تم إلغاء الإرسال من ملف"
-
-msgid "Send message"
-msgstr "فشل الإرسال لكافة الأرقام"
 
 msgid "Send message failed due to insufficient funds"
 msgstr "فشل إرسال رسالة بسبب عدم وجود رصيد كافي"
@@ -2711,6 +2758,9 @@ msgstr ""
 msgid "Twilio URL"
 msgstr ""
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
@@ -2738,9 +2788,6 @@ msgid ""
 "removed"
 msgstr ""
 "غير قادر على حذف هذا المستخدم حتى يتم إزالة كافة المستخدمين الفرعيين منه"
-
-msgid "Unable to find composer files"
-msgstr "غير قادر على العثور على ملفات composer"
 
 msgid "Unable to login"
 msgstr "غير قادر على تسجيل الدخول"
@@ -2777,6 +2824,9 @@ msgstr "رد الصيغة الباطلة"
 
 msgid "Unlimited"
 msgstr "غير محدودة"
+
+msgid "Update status"
+msgstr ""
 
 msgid "Upload file"
 msgstr "تحميل الملف "
@@ -2919,6 +2969,9 @@ msgstr "عنوان الموقع"
 msgid "Weekly"
 msgstr "أسبوعيًا"
 
+msgid "Welcome information"
+msgstr ""
+
 msgid "Whose online"
 msgstr "المتصلون"
 
@@ -2986,6 +3039,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
 
@@ -3000,6 +3056,9 @@ msgstr "خيارك"
 
 msgid "Your credit"
 msgstr "رصيدك"
+
+msgid "Your current callback URL is"
+msgstr ""
 
 msgid "Your email format is invalid"
 msgstr "بريد الكتروني غير صالح"

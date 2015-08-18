@@ -1,0 +1,32 @@
+msgid "Check to enable receiving push messages from SMSSync app"
+msgstr ""
+
+msgid "Download SMSSync app for Android from"
+msgstr ""
+
+msgid "Enable SMS Sync"
+msgstr ""
+
+msgid "Fail to save SMS Sync configuration"
+msgstr ""
+
+msgid "Manage sync"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "SMS Sync configuration has been saved"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Secret key"
+msgstr ""
+
+msgid "Secret key is used in SMSSync app"
+msgstr ""
+
+msgid "Sync URL"
+msgstr ""

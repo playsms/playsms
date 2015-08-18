@@ -51,7 +51,7 @@ switch (_OP_) {
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
 				'username' => ($row['username'] ? $row['username'] : '*'),
-				'prefix' => $row['prefix'],
+				'prefix' => outgoing_display_prefix($row['prefix']),
 				'smsc' => ($row['smsc'] ? $row['smsc'] : _('blocked')),
 				'dst' => $row['dst'],
 				'action' => $c_action 
@@ -106,13 +106,13 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
+				<td>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Prefix')) . "</td><td><input type='text' maxlength=8 name='up_prefix' value=\"$prefix\" required> " . _hint(_('Maximum 8 digits numeric only')) . "</td>
+				<td>" . _mandatory(_('Prefix')) . "</td><td><input type='text' name='up_prefix' value=\"$prefix\" required> " . _hint(_('Multiple entries separated by comma')) . "</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
+				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
 			</tr>
 			</table>
 			<p><input type='submit' class='button' value='" . _('Save') . "'></p>
@@ -131,16 +131,26 @@ switch (_OP_) {
 			}
 		}
 		$up_dst = $_POST['up_dst'];
+		
+		// sanitize prefixes
 		$up_prefix = $_POST['up_prefix'];
-		$up_prefix = core_sanitize_numeric($up_prefix);
-		$up_prefix = (string) substr($up_prefix, 0, 8);
+		$prefixes = explode(',', $up_prefix);
+		$up_prefix = '';
+		foreach ($prefixes as $c_prefix) {
+			$c_prefix = core_sanitize_numeric($c_prefix);
+			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
+				$up_prefix .= '[' . $c_prefix . '],';
+			}
+		}
+		$up_prefix = rtrim(trim($up_prefix), ',');
+		
 		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
 		if ($rid && $up_dst) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . outgoing_display_prefix($up_prefix) . ")";
 			} else {
-				$_SESSION['dialog']['danger'][] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
+				$_SESSION['dialog']['danger'][] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . outgoing_display_prefix($up_prefix) . ")";
 			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('You must fill all mandatory fields');
@@ -173,13 +183,13 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
+				<td>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Prefix')) . "</td><td><input type='text' maxlength=8 name='add_prefix' value=\"$add_prefix\" required> " . _hint(_('Maximum 8 digits numeric only')) . "</td>
+				<td>" . _mandatory(_('Prefix')) . "</td><td><input type='text' name='add_prefix' value=\"$add_prefix\" required> " . _hint(_('Multiple entries separated by comma')) . "</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
+				<td>" . _('SMSC') . "</td><td>" . $select_smsc . "</td>
 			</tr>
 			</table>
 			<input type='submit' class='button' value='" . _('Save') . "'>
@@ -197,21 +207,31 @@ switch (_OP_) {
 		}
 		
 		$add_dst = $_POST['add_dst'];
+		
+		// sanitize prefixes
 		$add_prefix = $_POST['add_prefix'];
-		$add_prefix = core_sanitize_numeric($add_prefix);
-		$add_prefix = (string) substr($add_prefix, 0, 8);
+		$prefixes = explode(',', $add_prefix);
+		$add_prefix = '';
+		foreach ($prefixes as $c_prefix) {
+			$c_prefix = core_sanitize_numeric($c_prefix);
+			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
+				$add_prefix .= '[' . $c_prefix . '],';
+			}
+		}
+		$add_prefix = rtrim(trim($add_prefix), ',');
+		
 		$add_smsc = ($_POST['add_smsc'] ? $_POST['add_smsc'] : 'blocked');
 		if ($add_dst) {
 			$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (uid,dst,prefix,smsc)
 					VALUES ('$add_uid','$add_dst','$add_prefix','$add_smsc')";
 			if ($new_uid = @dba_insert_id($db_query)) {
-				$_SESSION['dialog']['info'][] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
+				$_SESSION['dialog']['info'][] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . outgoing_display_prefix($add_prefix) . ")";
 			} else {
-				$_SESSION['dialog']['danger'][] = _('Fail to add route') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
+				$_SESSION['dialog']['danger'][] = _('Fail to add route') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . outgoing_display_prefix($add_prefix) . ")";
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('You must fill all fields');
+			$_SESSION['dialog']['danger'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_add'));
 		exit();

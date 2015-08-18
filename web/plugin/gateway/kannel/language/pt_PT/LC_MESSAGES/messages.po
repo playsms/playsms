@@ -21,14 +21,17 @@ msgstr "Hostname ou IP do bearerbox"
 msgid "Changes have been made"
 msgstr "Nenhuma alteração foi efectuada"
 
+msgid "Configuration"
+msgstr ""
+
+msgid "DLR mask"
+msgstr ""
+
 msgid "Delivered to SMSC"
 msgstr "Recebido pelo SMSC"
 
 msgid "Delivered to phone"
 msgstr "Recebido pelo telefone"
-
-msgid "Delivery Report"
-msgstr "Relatório de entrega"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
@@ -60,6 +63,10 @@ msgstr "Palavra-passe de administrador Kannel"
 msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
 
+#, fuzzy
+msgid "Kannel dlr-mask option"
+msgstr "host de administração Kannel"
+
 msgid "Kannel specific"
 msgstr "Específico do Kannel"
 
@@ -87,6 +94,9 @@ msgstr "Não entregue ao SMSC"
 msgid "Non-Delivered to phone"
 msgstr "Não entregue ao telemóvel"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Password"
 msgstr "Palavra-passe"
 
@@ -113,6 +123,10 @@ msgstr "Estado"
 
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL do playSMS, deixe em branco para usar a URL base"
+
+#, fuzzy
+msgid "Update status"
+msgstr "Estado do Kannel"
 
 msgid "Username"
 msgstr "Nome de utilizador:"

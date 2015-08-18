@@ -1,0 +1,35 @@
+msgid "Author"
+msgstr ""
+
+msgid "Core"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Features"
+msgstr ""
+
+msgid "Gateways"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Manage plugin"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Themes"
+msgstr ""
+
+msgid "Version"
+msgstr ""

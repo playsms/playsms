@@ -1,0 +1,17 @@
+msgid "Changes have been made"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Manage gammu"
+msgstr ""
+
+msgid "Receiver number"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Spool folder"
+msgstr ""

@@ -8,7 +8,13 @@ msgstr ""
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
 
+msgid "Example"
+msgstr ""
+
 msgid "Fail to insert keyword"
+msgstr ""
+
+msgid "Forward all sandbox SMS to a URL"
 msgstr ""
 
 msgid "Incoming SMS route changes has been saved"
@@ -38,6 +44,9 @@ msgstr ""
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
 "sender ID"
+msgstr ""
+
+msgid "Route all sandbox SMS to one or more users"
 msgstr ""
 
 msgid "Route all sandbox SMS to users"
@@ -74,6 +83,9 @@ msgid "Send SMS to groups with found group codes in the incoming SMS"
 msgstr ""
 
 msgid "Settings"
+msgstr ""
+
+msgid "URL"
 msgstr ""
 
 msgid "keyword"

@@ -25,7 +25,7 @@ if (_OP_ == 'register') {
 	$ok = FALSE;
 	
 	if (!auth_isvalid()) {
-		if ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
+		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha'])) {
 			$data = array();
 			$data['name'] = $_REQUEST['name'];
 			$data['username'] = $_REQUEST['username'];
@@ -45,10 +45,44 @@ if (_OP_ == 'register') {
 				$data['parent_uid'] = ($data['status'] == 4 ? $core_config['main']['default_parent'] : 0);
 			}
 			
-			$ret = user_add($data);
+			$ret = user_add($data, FALSE, FALSE);
 			$ok = ($ret['status'] ? TRUE : FALSE);
 			if ($ok) {
-				$_SESSION['dialog']['info'][] = $ret['error_string'];
+				
+				// injected variable
+				$reg_data = $ret['data'];
+				
+				// send email
+				$tpl = array(
+					'name' => 'auth_register_email',
+					'vars' => array(
+						'Name' => _('Name'),
+						'Username' => _('Username'),
+						'Password' => _('Password'),
+						'Mobile' => _('Mobile'),
+						'Credit' => _('Credit'),
+						'Email' => _('Email') 
+					),
+					'injects' => array(
+						'core_config',
+						'reg_data' 
+					) 
+				);
+				$email_body = tpl_apply($tpl);
+				$email_subject = _('New account registration');
+				
+				$mail_data = array(
+					'mail_from_name' => $core_config['main']['web_title'],
+					'mail_from' => $core_config['main']['email_service'],
+					'mail_to' => $ret['data']['email'],
+					'mail_subject' => $email_subject,
+					'mail_body' => $email_body 
+				);
+				if (sendmail($mail_data)) {
+					$_SESSION['dialog']['info'][] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $ret['data']['username'] . ")";
+				} else {
+					$_SESSION['dialog']['info'][] = _('Account has been added but failed to send email') . " (" . _('username') . ": " . $ret['data']['username'] . ")";
+				}
 			} else {
 				$_SESSION['dialog']['danger'][] = $ret['error_string'];
 			}

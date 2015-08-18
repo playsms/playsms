@@ -59,6 +59,8 @@ $smsc = $requests['smsc'];
 // ref: https://www.twilio.com/docs/api/rest/sms#list
 if ($remote_smslog_id && $message && ($status == 'received')) {
 	logger_print("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "twilio callback");
+	$sms_sender = addslashes($sms_sender);
+	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 }
 

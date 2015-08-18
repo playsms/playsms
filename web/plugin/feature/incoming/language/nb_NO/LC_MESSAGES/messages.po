@@ -12,8 +12,15 @@ msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
 "Kopier meldingen til bruker-innboks når innkommende SMS innholder @username"
 
+msgid "Example"
+msgstr ""
+
 msgid "Fail to insert keyword"
 msgstr "Kunne ikke sette inn nøkkelord"
+
+#, fuzzy
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Diriger alle sandbox SMS til brukere"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "Endringer for innkommende SMS-rute har blitt lagret"
@@ -47,6 +54,10 @@ msgid ""
 msgstr ""
 "Mottakernummer kan sammenlignes med standard senderID eller med alle "
 "godkjente senderID-er"
+
+#, fuzzy
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Diriger alle sandbox SMS til brukere"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Diriger alle sandbox SMS til brukere"
@@ -84,6 +95,9 @@ msgstr "Send SMS til grupper når gruppekode finnes i innkomende SMS"
 
 msgid "Settings"
 msgstr "Innstillinger"
+
+msgid "URL"
+msgstr ""
 
 msgid "keyword"
 msgstr "nøkkelord"

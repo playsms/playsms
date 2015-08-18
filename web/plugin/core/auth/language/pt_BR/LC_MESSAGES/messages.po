@@ -5,6 +5,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, fuzzy
+msgid "Account has been added and password has been emailed"
+msgstr "A senha foi enviada para o e-mail"
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
 msgid "Email"
 msgstr "E-mail"
 
@@ -31,6 +41,9 @@ msgstr "Celular"
 
 msgid "Name"
 msgstr "Nome"
+
+msgid "New account registration"
+msgstr ""
 
 msgid "Password"
 msgstr "Senha"
@@ -87,3 +100,7 @@ msgstr "Você não tem acesso à essa página"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Você ou alguém solicitou a recuperação de senha"
+
+#, fuzzy
+msgid "username"
+msgstr "Nome de usuário"

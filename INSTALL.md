@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.1**
+This document explains about how to install and setup playSMS version **1.2**
 
 
 ## Requirements
@@ -26,13 +26,11 @@ Optional hardware or infrastructure:
 * PHP 5.3 or latest stable release (must be at least version 5.3)
 * PHP MySQL module must be installed and enabled
 * PHP CLI must be installed
-* PHP PEAR and PHP PEAR-DB must be installed correctly
 * PHP gettext extension must be installed and enabled for text translation
 * PHP mbstring extension must be installed and enabled for unicode detection
 * PHP GD extension must be installed and enabled to draw graphs
 * Access to SMTP server to send Email
-* At least one console browser such as lynx, wget or curl should be installed
-* Downloaded playSMS package from SF.net or latest source code from Github
+* Downloaded playSMS official release package from SF.net or master version from Github
 * Properly installed composer from https://getcomposer.org
 
 **Minimum required server administrator (or developer):**
@@ -61,9 +59,9 @@ Install playSMS using install script `install-playsms.sh`
 1.  Extract playSMS package and go there (For example in /usr/local/src)
 
     ```
-    tar -zxf playsms-1.1.tar.gz -C /usr/local/src
+    tar -zxf playsms-1.2.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.1/
+    cd /usr/local/src/playsms-1.2/
     ```
 
 2.  Copy install.conf.dist to install.conf and edit install.conf
@@ -99,10 +97,10 @@ Note:
 
   ```
   ps ax | grep playsms
-  4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd schedule
-  4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd dlrssmsd
-  4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd recvsmsd
-  4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd sendsmsd
+  4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf schedule
+  4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf dlrssmsd
+  4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf recvsmsd
+  4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf sendsmsd
   ```
 
 * Run several checks
@@ -130,9 +128,9 @@ Install playSMS by following step-by-step:
 1.  Extract playSMS package and go there (For example in /usr/local/src)
 
     ```
-    tar -zxf playsms-1.1.tar.gz -C /usr/local/src
+    tar -zxf playsms-1.2.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.1/
+    cd /usr/local/src/playsms-1.2/
     ```
 
 2.  Run getcomposer.sh
@@ -182,11 +180,13 @@ Install playSMS by following step-by-step:
 
     Please read and fill all fields with correct values
 
-7.  Enter daemon/linux directory, copy files and folder inside
+7.  Enter daemon/linux directory, copy files and folder, and set correct permission
 
     ```
     cp daemon/linux/etc/playsmsd.conf /etc/playsmsd.conf
-    cp daemon/linux/bin/playsmsd /usr/local/bin/playsmsd
+    cp daemon/linux/bin/playsmsd.php /usr/local/bin/playsmsd
+    chmod 644 /etc/playsmsd.conf
+    chmod 755 /usr/local/bin/playsmsd
     ```
 
 8.  Just to make sure every paths are correct, please edit /etc/playsmsd.conf
@@ -223,10 +223,10 @@ Note:
 
   ```
   ps ax | grep playsms
-  4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd schedule
-  4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd dlrssmsd
-  4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd recvsmsd
-  4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd sendsmsd
+  4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf schedule
+  4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf dlrssmsd
+  4073 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf recvsmsd
+  4075 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf sendsmsd
   ```
 
 * Run several checks

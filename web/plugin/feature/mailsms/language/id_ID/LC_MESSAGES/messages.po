@@ -62,6 +62,9 @@ msgstr ""
 msgid "PIN is empty"
 msgstr ""
 
+msgid "Save"
+msgstr ""
+
 msgid "Use SSL"
 msgstr ""
 

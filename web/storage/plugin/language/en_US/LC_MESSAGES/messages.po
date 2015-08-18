@@ -48,7 +48,13 @@ msgstr ""
 msgid "API key"
 msgstr ""
 
+msgid "API password"
+msgstr ""
+
 msgid "API secret"
+msgstr ""
+
+msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
@@ -575,6 +581,9 @@ msgstr ""
 msgid "DEFAULT"
 msgstr ""
 
+msgid "DLR mask"
+msgstr ""
+
 msgid "Daily"
 msgstr ""
 
@@ -588,6 +597,10 @@ msgid "Date/Time"
 msgstr ""
 
 msgid "Datetime"
+msgstr ""
+
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
 msgstr ""
 
 msgid "Default"
@@ -679,9 +692,6 @@ msgstr ""
 msgid "Delivered to phone"
 msgstr ""
 
-msgid "Delivery Report"
-msgstr ""
-
 msgid "Description"
 msgstr ""
 
@@ -701,6 +711,9 @@ msgid "Destination number"
 msgstr ""
 
 msgid "Disable login as subuser"
+msgstr ""
+
+msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
@@ -844,6 +857,9 @@ msgstr ""
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Example"
+msgstr ""
+
 msgid "Example of SMS custom URL"
 msgstr ""
 
@@ -914,9 +930,6 @@ msgid "Fail to add new destination"
 msgstr ""
 
 msgid "Fail to add route"
-msgstr ""
-
-msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1003,18 +1016,6 @@ msgstr ""
 msgid "Fail to insert keyword"
 msgstr ""
 
-msgid "Fail to load gateway"
-msgstr ""
-
-msgid "Fail to load language"
-msgstr ""
-
-msgid "Fail to load main config from registry"
-msgstr ""
-
-msgid "Fail to load themes"
-msgstr ""
-
 msgid "Fail to recover password"
 msgstr ""
 
@@ -1096,6 +1097,9 @@ msgstr ""
 msgid "Fill to change the API key"
 msgstr ""
 
+msgid "Fill to change the API password"
+msgstr ""
+
 msgid "Fill to change the API secret"
 msgstr ""
 
@@ -1121,6 +1125,9 @@ msgid "Format YYYY-MM-DD hh:mm"
 msgstr ""
 
 msgid "Forward"
+msgstr ""
+
+msgid "Forward all sandbox SMS to a URL"
 msgstr ""
 
 msgid "Forward message to email"
@@ -1172,6 +1179,9 @@ msgid "Go"
 msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+
+msgid "Go to manage site menu to edit this page"
 msgstr ""
 
 msgid "Grand total SMS"
@@ -1322,6 +1332,12 @@ msgstr ""
 msgid "JSON output"
 msgstr ""
 
+msgid "Jasmin send SMS URL"
+msgstr ""
+
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Kannel admin host"
 msgstr ""
 
@@ -1329,6 +1345,9 @@ msgid "Kannel admin password"
 msgstr ""
 
 msgid "Kannel admin port"
+msgstr ""
+
+msgid "Kannel dlr-mask option"
 msgstr ""
 
 msgid "Kannel specific"
@@ -1398,6 +1417,12 @@ msgid "List of users"
 msgstr ""
 
 msgid "Local number length"
+msgstr ""
+
+msgid "Local playnet password"
+msgstr ""
+
+msgid "Local playnet username"
 msgstr ""
 
 msgid "Logged in as"
@@ -1506,19 +1531,22 @@ msgstr ""
 msgid "Manage gammu"
 msgstr ""
 
-msgid "Manage gateway"
-msgstr ""
-
 msgid "Manage gateway and SMSC"
 msgstr ""
 
 msgid "Manage infobip"
 msgstr ""
 
+msgid "Manage jasmin"
+msgstr ""
+
 msgid "Manage kannel"
 msgstr ""
 
 msgid "Manage nexmo"
+msgstr ""
+
+msgid "Manage playnet"
 msgstr ""
 
 msgid "Manage plugin"
@@ -1545,19 +1573,10 @@ msgstr ""
 msgid "Manage stoplist"
 msgstr ""
 
-msgid "Manage sub-account"
-msgstr ""
-
-msgid "Manage sub-accounts"
-msgstr ""
-
 msgid "Manage subscribe"
 msgstr ""
 
 msgid "Manage subuser"
-msgstr ""
-
-msgid "Manage subusers"
 msgstr ""
 
 msgid "Manage sync"
@@ -1573,9 +1592,6 @@ msgid "Manage twilio"
 msgstr ""
 
 msgid "Manage uplink"
-msgstr ""
-
-msgid "Manage user"
 msgstr ""
 
 msgid "Mandatory fields must not be empty"
@@ -1594,9 +1610,6 @@ msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr ""
 
 msgid "Max. 30 alphanumeric characters"
-msgstr ""
-
-msgid "Maximum 8 digits numeric only"
 msgstr ""
 
 msgid "Maximum SMS count"
@@ -1828,6 +1841,9 @@ msgstr ""
 msgid "Only when the sender ID is approved"
 msgstr ""
 
+msgid "Operational"
+msgstr ""
+
 msgid "Options"
 msgstr ""
 
@@ -1894,9 +1910,6 @@ msgid "Phonebook"
 msgstr ""
 
 msgid "Please remove all subusers from this user to delete"
-msgstr ""
-
-msgid "Please run composer.phar update"
 msgstr ""
 
 msgid "Please select"
@@ -2056,6 +2069,21 @@ msgstr ""
 msgid "Registered"
 msgstr ""
 
+msgid "Remote is on"
+msgstr ""
+
+msgid "Remote playSMS URL"
+msgstr ""
+
+msgid "Remote playnet SMSC name"
+msgstr ""
+
+msgid "Remote playnet password"
+msgstr ""
+
+msgid "Remote playnet username"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr ""
 
@@ -2117,6 +2145,9 @@ msgid "Return"
 msgstr ""
 
 msgid "Route SMS outgoing"
+msgstr ""
+
+msgid "Route all sandbox SMS to one or more users"
 msgstr ""
 
 msgid "Route all sandbox SMS to users"
@@ -2462,6 +2493,9 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
+msgid "Send SMS from remote using local username"
+msgstr ""
+
 msgid "Send SMS hostname or IP"
 msgstr ""
 
@@ -2478,9 +2512,6 @@ msgid "Send from file"
 msgstr ""
 
 msgid "Send from file has been cancelled"
-msgstr ""
-
-msgid "Send message"
 msgstr ""
 
 msgid "Send message failed due to insufficient funds"
@@ -2682,6 +2713,9 @@ msgstr ""
 msgid "Twilio URL"
 msgstr ""
 
+msgid "URL"
+msgstr ""
+
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
 
@@ -2706,9 +2740,6 @@ msgstr ""
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
-msgstr ""
-
-msgid "Unable to find composer files"
 msgstr ""
 
 msgid "Unable to login"
@@ -2745,6 +2776,9 @@ msgid "Unknown format reply"
 msgstr ""
 
 msgid "Unlimited"
+msgstr ""
+
+msgid "Update status"
 msgstr ""
 
 msgid "Upload file"
@@ -2888,6 +2922,9 @@ msgstr ""
 msgid "Weekly"
 msgstr ""
 
+msgid "Welcome information"
+msgstr ""
+
 msgid "Whose online"
 msgstr ""
 
@@ -2955,6 +2992,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
 
@@ -2968,6 +3008,9 @@ msgid "Your choice"
 msgstr ""
 
 msgid "Your credit"
+msgstr ""
+
+msgid "Your current callback URL is"
 msgstr ""
 
 msgid "Your email format is invalid"

@@ -1,0 +1,70 @@
+msgid "Action"
+msgstr ""
+
+msgid "Add rate"
+msgstr ""
+
+msgid "Are you sure you want to delete rate ?"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Edit rate"
+msgstr ""
+
+msgid "Fail to delete rate"
+msgstr ""
+
+msgid "Fail to save rate"
+msgstr ""
+
+msgid "Manage SMS rate"
+msgstr ""
+
+msgid "No changes made!"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Rate"
+msgstr ""
+
+msgid "Rate already exists"
+msgstr ""
+
+msgid "Rate has been added"
+msgstr ""
+
+msgid "Rate has been deleted"
+msgstr ""
+
+msgid "Rate has been saved"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr ""
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr ""
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
+msgstr ""
+
+msgid "destination"
+msgstr ""
+
+msgid "prefix"
+msgstr ""

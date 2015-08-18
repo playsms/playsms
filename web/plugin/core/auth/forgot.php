@@ -23,21 +23,33 @@ if (_OP_ == 'forgot') {
 							if (registry_update(1, 'auth', 'tmp_password', array(
 								$username => $tmp_password_coded 
 							))) {
-								$subject = _('Password recovery');
-								$body = $core_config['main']['web_title'] . "\n\n";
-								$body .= _('You or someone else have requested a password recovery') . "\n\n";
-								$body .= _('This temporary password will be removed once you have logged in successfully') . "\n\n";
-								$body .= _('Username') . "\t: " . $username . "\n";
-								$body .= _('Password') . "\t: " . $tmp_password . "\n\n--\n";
-								$body .= $core_config['main']['email_footer'] . "\n\n";
-								$data = array(
+								
+								// send email
+								$tpl = array(
+									'name' => 'auth_forgot_email',
+									'vars' => array(
+										'INFO1' => _('You or someone else have requested a password recovery'),
+										'INFO2' => _('This temporary password will be removed once you have logged in successfully'),
+										'Username' => _('Username'),
+										'Password' => _('Password'),
+										'username' => $username,
+										'temporary_password' => $tmp_password 
+									),
+									'injects' => array(
+										'core_config' 
+									) 
+								);
+								$email_body = tpl_apply($tpl);
+								$email_subject = _('Password recovery');
+								
+								$mail_data = array(
 									'mail_from_name' => $core_config['main']['web_title'],
 									'mail_from' => $core_config['main']['email_service'],
 									'mail_to' => $email,
-									'mail_subject' => $subject,
-									'mail_body' => $body 
+									'mail_subject' => $email_subject,
+									'mail_body' => $email_body 
 								);
-								if (sendmail($data)) {
+								if (sendmail($mail_data)) {
 									$error_string = _('Password has been emailed') . " (" . _('Username') . ": " . $username . ")";
 									$_SESSION['dialog']['info'][] = $error_string;
 									$ok = TRUE;

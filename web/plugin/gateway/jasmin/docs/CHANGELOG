@@ -1,0 +1,5 @@
+Version 1.1
+- add addslashes() on incoming SMS to handle SMS with single quotes
+
+Version 1.0
+- changelog started

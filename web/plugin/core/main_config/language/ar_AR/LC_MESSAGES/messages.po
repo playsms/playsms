@@ -1,0 +1,201 @@
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr ""
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
+msgid "Active themes"
+msgstr ""
+
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr ""
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr ""
+
+msgid "Always add plus sign"
+msgstr ""
+
+msgid "Always remove plus sign"
+msgstr ""
+
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
+msgstr ""
+
+msgid "Buy credit page"
+msgstr ""
+
+msgid "Default ACL upon registration"
+msgstr ""
+
+msgid "Default SMS rate"
+msgstr ""
+
+msgid "Default SMSC"
+msgstr ""
+
+msgid "Default account status upon registration"
+msgstr ""
+
+msgid "Default credit upon registration"
+msgstr ""
+
+msgid "Default language"
+msgstr ""
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+msgid "Default parent upon registration"
+msgstr ""
+
+msgid "Default prefix or country code"
+msgstr ""
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+
+msgid "Default sender ID"
+msgstr ""
+
+msgid "Default settings"
+msgstr ""
+
+msgid "Default site configuration"
+msgstr ""
+
+msgid "Default timezone"
+msgstr ""
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
+msgstr ""
+
+msgid "Disable login as subuser"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr ""
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr ""
+
+msgid "Enable forgot password"
+msgstr ""
+
+msgid "Enable login brute force detection"
+msgstr ""
+
+msgid "Enable logo"
+msgstr ""
+
+msgid "Enable public registration"
+msgstr ""
+
+msgid "Enhance privacy for subusers"
+msgstr ""
+
+msgid "Fill with zero to disable limit"
+msgstr ""
+
+msgid "Forwarded email footer"
+msgstr ""
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Information page"
+msgstr ""
+
+msgid "Keyword separator"
+msgstr ""
+
+msgid "Layout footer"
+msgstr ""
+
+msgid "Logo URL"
+msgstr ""
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+
+msgid "Lowest credit limit to trigger notification"
+msgstr ""
+
+msgid "Main configuration"
+msgstr ""
+
+msgid "Main configuration changes has been saved"
+msgstr ""
+
+msgid "Main website URL"
+msgstr ""
+
+msgid "Main website name"
+msgstr ""
+
+msgid "Maximum SMS count"
+msgstr ""
+
+msgid "Maximum username length"
+msgstr ""
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr ""
+
+msgid "Number of sent SMS per hour limit"
+msgstr ""
+
+msgid "Page content"
+msgstr ""
+
+msgid "Page title"
+msgstr ""
+
+msgid "Replace website title with logo"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
+msgstr ""
+
+msgid "Subuser"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Website URL"
+msgstr ""
+
+msgid "Website email"
+msgstr ""
+
+msgid "Website title"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

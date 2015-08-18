@@ -1,0 +1,44 @@
+msgid "Administrator"
+msgstr ""
+
+msgid "Administrators"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Compose message"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Please select"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Select users"
+msgstr ""
+
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "This field is required"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "yes"
+msgstr ""

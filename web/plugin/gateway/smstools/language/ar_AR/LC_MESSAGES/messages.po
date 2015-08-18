@@ -1,0 +1,20 @@
+msgid "Changes have been made"
+msgstr ""
+
+msgid "Default default_queue directory"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Manage smstools"
+msgstr ""
+
+msgid "Queue directory"
+msgstr ""
+
+msgid "Receiver number"
+msgstr ""
+
+msgid "Save"
+msgstr ""

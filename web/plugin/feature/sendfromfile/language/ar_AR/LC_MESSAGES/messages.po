@@ -1,0 +1,74 @@
+msgid "CSV file format"
+msgstr ""
+
+msgid "Cancel send from file"
+msgstr ""
+
+msgid "Confirmation"
+msgstr ""
+
+msgid "Destination number"
+msgstr ""
+
+msgid "Found invalid entries in uploaded file"
+msgstr ""
+
+msgid "Found valid entries in uploaded file"
+msgstr ""
+
+msgid "Invalid CSV file"
+msgstr ""
+
+msgid "Invalid entries"
+msgstr ""
+
+msgid "Invalid session ID"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Please select CSV file"
+msgstr ""
+
+msgid "Prevent duplicates"
+msgstr ""
+
+msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr ""
+
+msgid "Send SMS to valid entries"
+msgstr ""
+
+msgid "Send from file"
+msgstr ""
+
+msgid "Send from file has been cancelled"
+msgstr ""
+
+msgid "Upload file"
+msgstr ""
+
+msgid "Uploaded file"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Your choice"
+msgstr ""
+
+msgid "destination number, message"
+msgstr ""
+
+msgid "destination number, message, username"
+msgstr ""
+
+msgid "invalid entries"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+msgid "valid entries"
+msgstr ""

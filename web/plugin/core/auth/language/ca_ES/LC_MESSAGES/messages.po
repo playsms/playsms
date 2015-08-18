@@ -14,6 +14,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
+msgid "Account has been added and password has been emailed"
+msgstr ""
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Credit"
+msgstr ""
+
 msgid "Email"
 msgstr ""
 
@@ -39,6 +48,9 @@ msgid "Mobile"
 msgstr ""
 
 msgid "Name"
+msgstr ""
+
+msgid "New account registration"
 msgstr ""
 
 msgid "Password"
@@ -93,4 +105,7 @@ msgid "You have no access to this page"
 msgstr ""
 
 msgid "You or someone else have requested a password recovery"
+msgstr ""
+
+msgid "username"
 msgstr ""

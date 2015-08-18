@@ -70,6 +70,9 @@ msgstr "Настройки Email to SMS"
 msgid "PIN is empty"
 msgstr "Персональны код пустой"
 
+msgid "Save"
+msgstr ""
+
 msgid "Use SSL"
 msgstr "Использовать SSL"
 

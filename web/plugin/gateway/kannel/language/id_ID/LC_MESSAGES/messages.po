@@ -15,14 +15,17 @@ msgstr "Nama alamat Bearerbox atau IP"
 msgid "Changes have been made"
 msgstr "Tidak ada perubahan yang terjadi"
 
+msgid "Configuration"
+msgstr ""
+
+msgid "DLR mask"
+msgstr ""
+
 msgid "Delivered to SMSC"
 msgstr "Dikirim ke SMSC"
 
 msgid "Delivered to phone"
 msgstr "Dikirim ke telepon"
-
-msgid "Delivery Report"
-msgstr "Laporan terkirim"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
@@ -56,6 +59,10 @@ msgstr "Password admin kannel"
 msgid "Kannel admin port"
 msgstr "Port admin kannel"
 
+#, fuzzy
+msgid "Kannel dlr-mask option"
+msgstr "Port admin kannel"
+
 msgid "Kannel specific"
 msgstr ""
 
@@ -83,6 +90,9 @@ msgstr "Tidak dikirim ke SMSC"
 msgid "Non-Delivered to phone"
 msgstr "Tidak dikirim ke telepon"
 
+msgid "Operational"
+msgstr ""
+
 msgid "Password"
 msgstr "Kata sandi"
 
@@ -109,6 +119,10 @@ msgstr "Status"
 
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr ""
+
+#, fuzzy
+msgid "Update status"
+msgstr "Status kannel"
 
 msgid "Username"
 msgstr "Nama Pengguna"

@@ -6,20 +6,188 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "1 Day"
+msgstr "1 Tag"
+
+msgid "1 Month"
+msgstr "1 Monat"
+
+msgid "1 Week"
+msgstr "1 Woche"
+
+msgid "2 Days"
+msgstr "2 Tage"
+
+msgid "2 Weeks"
+msgstr "2 Wochen"
+
+msgid "6 Months"
+msgstr "6 Monate"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "ACL DEFAULT will not restrict access to menus"
+msgstr "ACL DEFAULT verhindert keinen Zugriff auf das Menü"
+
+msgid "ACL ID"
+msgstr "ACL ID"
+
+msgid "ACL been edited"
+msgstr "ACL wurde geändert"
+
+msgid "ACL has been deleted"
+msgstr "ACL wurde gelöscht"
+
+msgid "ACL name"
+msgstr "ACL Name"
+
+msgid "API ID"
+msgstr "API ID"
+
+msgid "API key"
+msgstr "API Key"
+
+#, fuzzy
+msgid "API password"
+msgstr "Passwort"
+
+msgid "API secret"
+msgstr "API Secret"
+
+#, fuzzy
+msgid "API username"
+msgstr "Benutzername"
+
+msgid "Access Control List"
+msgstr "Access Control List"
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected "
+"to this website URL. This website URL should be the primary address for the "
+"service."
+msgstr ""
+
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr "Account %s ist für diesen Dienst gesperrt"
+
+msgid "Account SID"
+msgstr "Account SID"
+
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr ""
+"Account Admin or gerade eingeloggter Administrator kann nicht gesperrt werden"
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr ""
+"Account Admin or gerade eingeloggter Administrator kann nicht entsperrt "
+"werden"
+
+msgid "Account already exists"
+msgstr "Account existiert bereits"
+
+msgid "Account has been added and password has been emailed"
+msgstr "Account wurde hinzugefügt und Passwort per Email versandt"
+
+msgid "Account has been added but failed to send email"
+msgstr "Account wurde hinzugefügt, aber Email konnte nicht versandt werden"
+
+msgid "Account has been banned"
+msgstr "Account wurde gesperrt"
+
+msgid "Account has been removed"
+msgstr "Account wurde gelsöcht"
+
+msgid "Account has been unbanned"
+msgstr "Account wurde entsperrt"
+
+msgid "Account name is mandatory"
+msgstr "Account Name ist Pflicht"
+
+msgid "Account registration is not available"
+msgstr "Account Registrierung ist nicht verfügbar"
+
+msgid "Account status"
+msgstr "Account Status"
+
+msgid "Account with this email already exists"
+msgstr "Account mit dieser Email-Adresse existiert bereits"
+
+msgid "Account with this mobile already exists"
+msgstr "Account mit dieser Mobilfunknummer existiert bereits"
+
 msgid "Action"
 msgstr "Aktion"
+
+msgid "Active language"
+msgstr "Aktivierte Sprache"
+
+msgid "Active themes"
+msgstr "Aktiviertes Theme"
 
 msgid "Add"
 msgstr "Hinzufügen"
 
+msgid "Add ACL"
+msgstr "ACL Hinzufügen"
+
+msgid "Add SMS autoreply"
+msgstr "SMS Autoreply hinzufügen"
+
+msgid "Add SMS autoreply scenario"
+msgstr "SMS Autoreply Szenario hinzufügen"
+
+msgid "Add SMS board"
+msgstr "SMS Board hinzufügen"
+
+msgid "Add SMS command"
+msgstr "SMS command hinzufügen"
+
+msgid "Add SMS custom"
+msgstr "SMS Custom hinzufügen"
+
+msgid "Add SMS poll"
+msgstr "SMS Poll hinzufügen"
+
+msgid "Add SMS quiz"
+msgstr "SMS Quiz hinzufügen"
+
+msgid "Add SMS schedule"
+msgstr "SMS Zeitplan hinzufügen"
+
+msgid "Add SMS subscribe"
+msgstr "SMS Subscribe hinzufügen"
+
 msgid "Add SMSC"
-msgstr ""
+msgstr "SMSC hinzufügen"
+
+msgid "Add account"
+msgstr "Account hinzufügen"
+
+msgid "Add blocked IP addresses"
+msgstr "Gesperrte IP-Adressen hinzufügen"
+
+msgid "Add blocked mobile numbers"
+msgstr "Gesperrte Mobilfunknummern hinzufügen"
 
 msgid "Add catch-all"
 msgstr "Hinzufügen Catch-All"
 
+msgid "Add choice to this poll"
+msgstr "Wahl für Poll hinzufügen"
+
 msgid "Add contact"
 msgstr "Kontakt hinzufügen"
+
+msgid "Add credit"
+msgstr "Credit hinzufügen"
+
+msgid "Add credit to users"
+msgstr "Credit zu Benutzern hinzufügen"
+
+msgid "Add destination"
+msgstr "Ziel hinzufügen"
 
 msgid "Add group"
 msgstr "Gruppe hinzufügen"
@@ -30,61 +198,279 @@ msgstr "Hinzufügen Gruppen-Inbox"
 msgid "Add member"
 msgstr "Hinzufügen Mitglied"
 
+msgid "Add message"
+msgstr "Nachricht hinzufügen"
+
 msgid "Add message template"
 msgstr "Nachrichten-Vorlage hinzufügen"
 
+msgid "Add or reduce credit from manage credit menu"
+msgstr "Erhöhe oder reduziere Credit über das Credit-Menü"
+
+msgid "Add rate"
+msgstr "Rate hinzufügen"
+
+msgid "Add route"
+msgstr "Route hinzufügen"
+
 msgid "Add sender ID"
-msgstr ""
+msgstr "SMS Absender-ID hinzufügen"
+
+msgid "Add subuser"
+msgstr "Sub-Benutzer hinzufügen"
+
+msgid "Additional URL parameter"
+msgstr "Zusätzliche URL Parameter"
+
+msgid "Address"
+msgstr "Adresse"
 
 msgid "Administrator"
 msgstr "Administrator"
 
-#, fuzzy
+msgid "Administrators"
+msgstr "Administratoren"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All feature messages"
+msgstr "Alle feature messages"
+
+msgid "All inbox"
+msgstr "Alle Inbox"
+
+msgid "All mandatory fields must be filled"
+msgstr "Alle Pflichtfelder müssen ausgefüllt sein"
+
 msgid "All queues have been removed"
-msgstr "Queue wurde gelscht"
+msgstr "Alle Queue wurden gelöscht"
+
+msgid "All reports"
+msgstr "Alle Berichte"
+
+msgid "All sent messages"
+msgstr "Alle gesendeten Nachrichten"
 
 msgid "All users"
 msgstr "Alle Benutzer"
 
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr ""
+"Erlaube Benutzern die Auswahl der SMS-Fußzeile auf der Seite -Sende SMS-"
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr "Erlaube Benutzern die Auswahl der Sender-ID auf der Seite -Sende SMS-"
+
+msgid "Already a member reply"
+msgstr ""
+
+msgid "Always add plus sign"
+msgstr "Immer + hinzufügen"
+
+msgid "Always choose to send as unicode"
+msgstr "Immer als unicode senden"
+
+msgid "Always remove plus sign"
+msgstr "Immer + entfernen"
+
+msgid "Amount"
+msgstr "Anzahl"
+
+msgid "Annually"
+msgstr "Jährlich"
+
+msgid "Answer"
+msgstr "Antwort"
+
 msgid "Anyone"
 msgstr "Jeder"
 
-msgid "Approve sender ID"
+msgid ""
+"Application footer here. Go to main configuration or manage site to edit "
+"this footer."
 msgstr ""
+
+msgid "Application options"
+msgstr "Anwendungsoptionen"
+
+msgid "Approve sender ID"
+msgstr "Absender-ID genehmigen"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Sind Sie sicher?"
 
-#, fuzzy
+msgid "Are you sure you want to ban account"
+msgstr "Sind Sie sicher, den Account zu sperren?"
+
+msgid "Are you sure you want to ban subuser"
+msgstr "Sind Sie sicher, den Sub-Benutzer zu sperren?"
+
+msgid "Are you sure you want to delete ACL ?"
+msgstr "Sind Sie sicher, die ACL zu löschen?"
+
 msgid "Are you sure you want to delete ALL queues"
-msgstr "Mchten Sie wirklich die Warteschlange lschen?"
+msgstr "Sind Sie sicher, ALLE Queues löschen?"
+
+msgid "Are you sure you want to delete SMS autoreply ?"
+msgstr "Sind Sie sicher, SMS autoreply zu löschen?"
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr "Sind Sie sicher, SMS Board mit allen seinen Nachrichten zu löschen?"
+
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "Sind Sie sicher, SMS command zu löschen?"
+
+msgid "Are you sure you want to delete SMS custom ?"
+msgstr "Sind Sie sicher, SMS custom zu löschen?"
+
+msgid ""
+"Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+"Sind Sie sicher, SMS poll mit allen seinen Wahlmöglichkeiten zu löschen?"
+
+msgid ""
+"Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+"Sind Sie sicher, SMS Quiz mit allen seinen Wahlmöglichkeiten und Antworten "
+"zu löschen?"
+
+msgid "Are you sure you want to delete SMS schedule ?"
+msgstr "Sind Sie sicher, den SMS Zeitplan zu löschen?"
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "Sind Sie sicher, SMS subscribe zu löschen?"
+
+msgid "Are you sure you want to delete choice ?"
+msgstr "Sind Sie sicher, die Wahlmöglichkeit zu löschen?"
 
 msgid "Are you sure you want to delete queue"
 msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 
+msgid "Are you sure you want to delete rate ?"
+msgstr "Sind Sie sicher, die Rate zu löschen?"
+
 msgid "Are you sure you want to delete sender ID"
-msgstr ""
+msgstr "Sind Sie sicher, die Sender-ID zu löschen?"
+
+msgid "Are you sure you want to delete subuser"
+msgstr "Sind Sie sicher, den Sub-Benutzer zu löschen?"
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr "Sind Sie sicher, den Sub-Benutzer zu löschen?"
 
 msgid "Are you sure you want to delete these items ?"
 msgstr "Mchten Sie diese Elemente wirklich löchen?"
 
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Sind Sie sicher, diese Transaktionen zu löschen?"
+
+msgid "Are you sure you want to delete this SMS autoreply scenario ?"
+msgstr "Sind Sie sicher, diesesSMS autoreply Szenario zu löschen?"
+
+msgid "Are you sure you want to delete this answer ?"
+msgstr "Sind Sie sicher, diese Antwort zu löschen?"
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Gruppen-Inbox wirklich löschen?"
 
+msgid "Are you sure you want to delete this member ?"
+msgstr "Sind Sie sicher, dieses Mitglied zu löschen?"
+
+msgid "Are you sure you want to delete this message?"
+msgstr "Sind Sie sicher, diese Nachricht zu löschen?"
+
+msgid "Are you sure you want to delete user"
+msgstr "Sind Sie sicher, diesen Benutzer zu löschen?"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "Sind Sie sicher, diesen Benutzer zu löschen?"
+
+msgid "Are you sure you want to remove this number from SMS schedule ?"
+msgstr "Sind Sie sicher, diese Nummer aus dem SMS Zeitplan zu löschen?"
+
+msgid "Are you sure you want to unban account"
+msgstr "Sind Sie sicher, diesen Account zu entsperren?"
+
+msgid "Are you sure you want to unban subuser"
+msgstr "Sind Sie sicher, diesen Sub-Benutzer zu entsperren?"
+
+msgid "Auth Token"
+msgstr "Auth Token"
+
 msgid "Author"
-msgstr ""
+msgstr "Autor"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Balance recorded on transaction"
+msgstr "Saldo der Transaktion"
 
 msgid "Ban"
+msgstr "Sperre"
+
+msgid "Ban date/time"
+msgstr "Sperrzeit"
+
+msgid "Banned users list"
+msgstr "Gesperrte Benutzer"
+
+msgid "Bearerbox hostname or IP"
 msgstr ""
+
+msgid "Billing"
+msgstr "Rechnung"
+
+msgid "Blocked IP address"
+msgstr "Gesperrte IP-Adressen"
+
+msgid "Blocked mobile"
+msgstr "Gesperrte Mobilfunknummern"
+
+msgid "Bulksms API URL"
+msgstr "Massen-SMS API URL"
+
+msgid "Bulksms is a bulk SMS provider"
+msgstr "Bulksms ist ein Provider für den Versand von Massen-SMS"
+
+msgid "Bulksms will push DLR and incoming SMS to your callback URL"
+msgstr "Bulksms sendet DLR und eingehende SMS an die callback URL"
 
 msgid "Buy"
-msgstr ""
+msgstr "Kaufen"
+
+msgid "Buy credit page"
+msgstr "Credit Kauf"
+
+msgid "CSS URL"
+msgstr "CSS URL"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "CSV Datei Format"
+
+msgid "Callback Secret"
+msgstr "Callback Secret"
+
+msgid "Callback URL"
+msgstr "Callback URL"
+
+msgid "Cancel"
+msgstr "Abbrechen"
 
 msgid "Cancel send from file"
 msgstr "Aus Datei senden abbrechen"
+
+msgid "Cannot change status when user have subusers"
+msgstr ""
+"Status kann nicht geändert werden, wenn dem Benutzer Sub-Benutzer zugeordnet "
+"sind"
+
+msgid "Cannot find PHP PEAR-DB"
+msgstr "Kann PHP PEAR-DB nicht finden"
 
 msgid "Catch-all"
 msgstr "Catch-All"
@@ -99,13 +485,58 @@ msgid "Catch-all list"
 msgstr "Catch-All Liste"
 
 msgid "Changes have been made"
-msgstr ""
+msgstr "Änderungen wurden übernommen"
+
+msgid "Check email sender"
+msgstr "Prüfe Email-Absender"
+
+msgid "Check to enable receiving push messages from SMSSync app"
+msgstr "Einschalten, um Push-Meldungen von der SMSSync App zu erhalten"
+
+msgid "Choice already exists"
+msgstr "Wahlmöglichkeit besteht bereits"
+
+msgid "Choice description"
+msgstr "Beschreibung der Wahlmöglichkeit"
+
+msgid "Choice has been added"
+msgstr "Wahlmöglichkeit wurde hinzugefügt"
+
+msgid "Choice keyword"
+msgstr "Wahlmöglichkeit Schlagwort"
+
+msgid "City"
+msgstr "Stadt"
 
 msgid "Click the status button to enable or disable status"
-msgstr ""
+msgstr "Statusbutton klicken, um den Status zu ativieren oder zu deaktivieren"
+
+msgid "Clickatell API URL"
+msgstr "Clickatell API URL"
+
+msgid "Clickatell is a bulk SMS provider"
+msgstr "Clickatell ist ein Provider für den Versand von Massen-SMS"
+
+msgid "Clickatell will push DLR and incoming SMS to your callback URL"
+msgstr "Clickatell sendet DLR und eingehende SMS an die callback URL"
+
+msgid "Comma separated"
+msgstr "Komma-separiert"
+
+msgid "Comma separated for multiple entries"
+msgstr "Komma-separiert für mehrere Einträge"
+
+msgid "Comma separated values for multiple IP addresses"
+msgstr "Komma-separierte Werte für mehrere IP-Adressen"
+
+msgid "Comma separated values for multiple mobile numbers"
+msgstr "Komma-separierte Werte für mehrere Mobilfunknummern"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Verfasse Nachricht"
+
+msgid "Configuration"
+msgstr "Konfiguration"
 
 msgid "Confirmation"
 msgstr "Bestätigung"
@@ -122,11 +553,34 @@ msgstr "Kontakte wurden importiert"
 msgid "Content"
 msgstr "Inhalt"
 
-msgid "Core"
+msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
+"Kopiere die Nachricht in Benutzer-Inbox, wenn die eingehende SMS @username "
+"enthält"
+
+msgid "Core"
+msgstr "Core"
 
 msgid "Count"
 msgstr "Anzahl"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Created"
+msgstr "Erstellt"
+
+msgid "Credit"
+msgstr "Credit"
+
+msgid "Credit has been added"
+msgstr "Credit wurde hinzugefügt"
+
+msgid "Credit has been reduced"
+msgstr "Credit wurde reduziert"
+
+msgid "Current IP address"
+msgstr "Aktuelle IP-Adresse"
 
 msgid "Current catchall"
 msgstr "Aktuelle Catch-All"
@@ -134,17 +588,99 @@ msgstr "Aktuelle Catch-All"
 msgid "Current members"
 msgstr "Aktuelle Mitglieder"
 
+msgid "Currently logged in user is immune to deletion"
+msgstr "Aktuell angemeldeter Benutzer kann nicht gelöscht werden"
+
+msgid "DEFAULT"
+msgstr "DEFAULT"
+
+msgid "DLR mask"
+msgstr "DLR Maske"
+
+msgid "Daily"
+msgstr "Täglich"
+
 msgid "Date"
+msgstr "Datum"
+
+msgid "Date and time"
+msgstr "Datum und Uhrzeit"
+
+msgid "Date/Time"
+msgstr "Datum/Uhrzeit"
+
+msgid "Datetime"
+msgstr "Zeitstempel"
+
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
 msgstr ""
 
+msgid "Default"
+msgstr "Standard"
+
+msgid "Default ACL upon registration"
+msgstr "Standard ACL bei Registrierung"
+
+msgid "Default SMS rate"
+msgstr "Standard SMS-Rate"
+
+msgid "Default SMSC"
+msgstr "Standard SMSC"
+
+msgid "Default account status upon registration"
+msgstr "Standard Account Status bei Registrierung"
+
+msgid "Default credit upon registration"
+msgstr "Standard Credit bei Registrierung"
+
 msgid "Default default_queue directory"
+msgstr "Standard default_queue Verzeichnis"
+
+msgid "Default language"
+msgstr "Standard Sprache"
+
+msgid "Default message footer"
+msgstr "Standard Nachrichten-Fußzeile"
+
+msgid ""
+"Default parent selected upon registration when the default account status on "
+"registration setting set to Subuser"
+msgstr ""
+
+msgid "Default parent upon registration"
+msgstr ""
+
+msgid "Default prefix or country code"
+msgstr "Standard Prefix oder Ländercode"
+
+msgid ""
+"Default prefix or country code to replace prefix 0 on destination number"
+msgstr ""
+"Standard Prefix oder Ländercode, der eine führende 0 der Zielnummer ersetzt"
+
+msgid "Default sender ID"
+msgstr "Standard SMS Absender-ID"
+
+msgid "Default settings"
+msgstr "Standardeinstellungen"
+
+msgid "Default site configuration"
+msgstr "Standard Site-Konfiguration"
+
+msgid "Default timezone"
+msgstr "Standard Zeitzone"
+
+msgid ""
+"Define a single character as keyword separator replacing default keyword "
+"separator a space"
 msgstr ""
 
 msgid "Delete"
 msgstr "Entfernen"
 
 msgid "Delete ALL queues"
-msgstr ""
+msgstr "Lösche ALLE Queues"
 
 msgid "Delete catch-all"
 msgstr "Lösche Catch-All"
@@ -158,20 +694,89 @@ msgstr "Lösche Mitglied"
 msgid "Delete user"
 msgstr "Benutzer löschen"
 
+msgid "Deleted"
+msgstr "Gelöscht"
+
+msgid "Delivered"
+msgstr "Übermittelt"
+
+msgid "Delivered to SMSC"
+msgstr "Übermittelt an SMSC"
+
+msgid "Delivered to phone"
+msgstr "Übermittelt an Telefon"
+
 msgid "Description"
 msgstr "Beschreibung"
+
+msgid "Destination"
+msgstr "Ziel"
+
+msgid "Destination has been deleted"
+msgstr "Ziel wurde gelöscht"
+
+msgid "Destination has been edited"
+msgstr "Ziel wurde geändert"
+
+msgid "Destination name"
+msgstr "Name des Ziels"
 
 msgid "Destination number"
 msgstr "Zielrufnummer"
 
+msgid "Disable login as subuser"
+msgstr "Deaktiviere Login als Sub-Benutzer"
+
+msgid "Disallowed URLs"
+msgstr ""
+
+msgid "Domain"
+msgstr "Domäne"
+
+msgid "Download SMSSync app for Android from"
+msgstr "Download SMSSync app für Android von"
+
 msgid "Edit"
 msgstr "Ändern"
 
+msgid "Edit ACL"
+msgstr "ACL ändern"
+
+msgid "Edit SMS autoreply"
+msgstr "SMS autoreply ändern"
+
+msgid "Edit SMS autoreply scenario"
+msgstr "SMS autoreply Szenarion ändern"
+
+msgid "Edit SMS board"
+msgstr "SMS board ändern"
+
+msgid "Edit SMS command"
+msgstr "SMS command ändern"
+
+msgid "Edit SMS custom"
+msgstr "SMS custom ändern"
+
+msgid "Edit SMS poll"
+msgstr "SMS Poll ändern"
+
+msgid "Edit SMS poll choices"
+msgstr "SMS poll Wahlmöglichkeiten ändern"
+
+msgid "Edit SMS quiz"
+msgstr "SMS Quiz ändern"
+
+msgid "Edit SMS subscribe"
+msgstr "SMS subscribe ändern"
+
 msgid "Edit SMSC"
-msgstr ""
+msgstr "SMSC ändern"
 
 msgid "Edit contact"
 msgstr "Kontakt editieren"
+
+msgid "Edit destination"
+msgstr "Ziel ändern"
 
 msgid "Edit group"
 msgstr "Gruppe editieren"
@@ -179,26 +784,142 @@ msgstr "Gruppe editieren"
 msgid "Edit group inbox"
 msgstr "Editiere Gruppen-Inbox"
 
+msgid "Edit message"
+msgstr "Nachricht ändern"
+
 msgid "Edit message template"
 msgstr "Editiere Nachrichten-Vorlage"
 
+msgid "Edit rate"
+msgstr "Rate ändern"
+
+msgid "Edit route"
+msgstr "Route ändern"
+
+msgid "Edit schedule"
+msgstr "Zeitplan ändern"
+
 msgid "Edit sender ID"
-msgstr ""
+msgstr "Absender-ID ändern"
+
+msgid "Effective SMS sender ID"
+msgstr "Effektive SMS Absender-ID"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Bsp.: +0100 für Europa/Berlin"
 
 msgid "Email"
 msgstr "Email"
 
+msgid "Email address is mandatory"
+msgstr "Email Adresse ist ein Pflichtfeld"
+
+msgid "Email footer"
+msgstr "Email Fußzeile"
+
+msgid "Email protocol"
+msgstr "Email Protokoll"
+
+msgid "Email service"
+msgstr "Email Dienst"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "Email zu SMS PIN wurde gespeichert"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "Email zu SMS PIN wurde gespeichert, aber Dienst ist deaktiviert"
+
+msgid "Email to SMS address"
+msgstr "Email zu SMS Adresse"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "Email zu SMS Konfigurationwurde gespeichert und der Dienst deaktiviert"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "Email zu SMS Konfigurationwurde gespeichert und der Dienst aktiviert"
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr ""
+"Leere Standard Absender-ID erlaubt den Benutzern die Verwendung einer "
+"eigenen Absender-ID"
+
+msgid "Enable SMS Sync"
+msgstr "Aktiviere SMS Sync"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Aktiviere Kostengleichheit von unicode SMS und normaler SMS"
+
+msgid "Enable fetch new emails"
+msgstr "Aktiviere sammeln neuer Emails"
+
+msgid "Enable forgot password"
+msgstr "Aktiviere Passwort vergessen"
+
+msgid "Enable login brute force detection"
+msgstr "Aktiviere Brute-Force Erkennung beim Login"
+
+msgid "Enable logo"
+msgstr "Aktiviere Logo"
+
+msgid "Enable public registration"
+msgstr "Aktiviere öffentliche Registrierung"
+
+msgid "Enable webservices"
+msgstr "Aktiviere Webservices"
+
+msgid "Enhance privacy for subusers"
+msgstr "Erweitere Privatsphäre für Sub-Benutzer"
+
+msgid "Entries in CSV file have been imported"
+msgstr "Einträge aus CSV-Datei wurden importiert"
+
+msgid "Example"
+msgstr "Beispiel"
+
+msgid "Example of SMS custom URL"
+msgstr "Beispiel einer SMS custom URL"
+
 msgid "Exclusive"
 msgstr "Exklusiv"
+
+msgid "Exec"
+msgstr "Ausführen"
 
 msgid "Export"
 msgstr "Export"
 
 msgid "FATAL ERROR"
-msgstr ""
+msgstr "FATALER FEHLER"
+
+msgid "Fail to add SMS autoreply"
+msgstr "Fehler beim Hinzufügen von SMS autoreply"
+
+msgid "Fail to add SMS autoreply scenario"
+msgstr "Fehler beim Hinzufügen von SMS autoreply Szenario"
+
+msgid "Fail to add SMS board"
+msgstr "Fehler beim Hinzufügen von SMS board"
+
+msgid "Fail to add SMS command"
+msgstr "Fehler beim Hinzufügen von SMS command"
+
+msgid "Fail to add SMS custom"
+msgstr "Fehler beim Hinzufügen von SMS custom"
+
+msgid "Fail to add SMS poll"
+msgstr "Fehler beim Hinzufügen von SMS Poll"
+
+msgid "Fail to add SMS quiz"
+msgstr "Fehler beim Hinzufügen von SMS Quiz"
+
+msgid "Fail to add SMS subscribe"
+msgstr "Fehler beim Hinzufügen von SMS subscribe"
 
 msgid "Fail to add catch-all"
 msgstr "Fehler beim Catch-All Hinzufügen"
+
+msgid "Fail to add credit"
+msgstr "Fehler beim Senden der Email"
 
 msgid "Fail to add group inbox"
 msgstr "Fehler beim Hinzufügen der Gruppen-Inbox"
@@ -206,17 +927,53 @@ msgstr "Fehler beim Hinzufügen der Gruppen-Inbox"
 msgid "Fail to add member"
 msgstr "Fehler beim Hinzufügen des Mitglieds"
 
+msgid "Fail to add message"
+msgstr "Fehler beim Hinzufügen der Nachricht"
+
 msgid "Fail to add message template"
 msgstr "Fehler beim Hinzufügen der Nachrichten-Vorlage"
 
-msgid "Fail to add new SMSC"
-msgstr ""
+msgid "Fail to add new ACL"
+msgstr "Fehler beim Hinzufügen der neuen ACL"
 
-msgid "Fail to connect to database"
-msgstr ""
+msgid "Fail to add new SMS schedule"
+msgstr "Fehler beim Hinzufügen des SMS Zeitplans"
+
+msgid "Fail to add new SMSC"
+msgstr "Fehler beim Hinzufügen des neuen SMSC"
+
+msgid "Fail to add new destination"
+msgstr "Fehler beim Hinzufügen des neuen Ziels"
+
+msgid "Fail to add route"
+msgstr "Fehler beim Hinzufügen der Route"
+
+msgid "Fail to delete ACL"
+msgstr "Fehler beim Löschen der ACL"
+
+msgid "Fail to delete SMS autoreply"
+msgstr "Fehler beim Löschen des SMS autoreply"
+
+msgid "Fail to delete SMS autoreply scenario"
+msgstr "Fehler beim Löschen des SMS autoreply Szenario"
+
+msgid "Fail to delete SMS command"
+msgstr "Fehler beim Löschen des SMS command"
+
+msgid "Fail to delete SMS custom"
+msgstr "Fehler beim Löschen von SMS custom"
+
+msgid "Fail to delete SMS poll choice"
+msgstr "Fehler beim Löschen der SMS Poll Wahlmöglichkeit"
+
+msgid "Fail to delete SMS schedule"
+msgstr "Fehler beim Löschen des SMS Zeitplans"
 
 msgid "Fail to delete catch-all"
 msgstr "Fehler beim Catch-All Löschen"
+
+msgid "Fail to delete destination"
+msgstr "Fehler beim Löschen des Ziels"
 
 msgid "Fail to delete group"
 msgstr "Fehler beim Löschen der Gruppe"
@@ -227,14 +984,44 @@ msgstr "Fehler beim Löschen der Gruppen-Inbox"
 msgid "Fail to delete member"
 msgstr "Fehler beim Löschen des Mitglieds"
 
+msgid "Fail to delete rate"
+msgstr "Fehler beim Löschen des Rate"
+
+msgid "Fail to delete route"
+msgstr "Fehler beim Löschen Route"
+
 msgid "Fail to disable group inbox"
 msgstr "Fehler beim deaktivieren der Gruppen-Inbox"
 
+msgid "Fail to edit ACL"
+msgstr "Fehler beim Ändern der ACL"
+
+msgid "Fail to edit SMS autoreply scenario"
+msgstr "Fehler beim Ändern des SMS autoreply Szenario"
+
+msgid "Fail to edit SMS board"
+msgstr "Fehler beim Ändern von SMS board"
+
+msgid "Fail to edit SMS quiz"
+msgstr "Fehler beim Ändern des SMS Quiz"
+
+msgid "Fail to edit SMS schedule"
+msgstr "Fehler beim Ändern des SMS Zeitplans"
+
+msgid "Fail to edit SMS subscribe"
+msgstr "Fehler beim Ändern von SMS subscribe"
+
 msgid "Fail to edit SMSC"
-msgstr ""
+msgstr "Fehler beim Ändern des SMSC"
+
+msgid "Fail to edit destination"
+msgstr "Fehler beim Ändern des Ziels"
 
 msgid "Fail to edit group inbox"
 msgstr "Fehler beim editieren der Grupen-Inbox"
+
+msgid "Fail to edit message"
+msgstr "Fehler beim Ändern der Nachricht"
 
 msgid "Fail to edit message template"
 msgstr "Fehler beim Editieren der Nachrichten-Vorlage"
@@ -242,38 +1029,138 @@ msgstr "Fehler beim Editieren der Nachrichten-Vorlage"
 msgid "Fail to enable group inbox"
 msgstr "Fehler beim aktivieren der Gruppen-Inbox"
 
-#, fuzzy
-msgid "Fail to load gateway"
-msgstr "Ausfüllen zum Aktualisieren"
+msgid "Fail to insert keyword"
+msgstr "Fehler beim Einfügen des Schlagworts"
 
-#, fuzzy
-msgid "Fail to load language"
-msgstr "Standard Sprache"
+msgid "Fail to recover password"
+msgstr "Fehler bei der Passwort-Wiederherstellung"
 
-msgid "Fail to load main config from registry"
-msgstr ""
+msgid "Fail to reduce credit"
+msgstr "Fehler beim Reduzieren des Credit"
 
-#, fuzzy
-msgid "Fail to load themes"
-msgstr "Fehler beim Senden der Email"
+msgid "Fail to register an account"
+msgstr "Fehler beim Registrieren des Accounts"
 
 msgid "Fail to remove SMSC"
-msgstr ""
+msgstr "Fehler beim Löschen des SMSC"
+
+msgid "Fail to save SMS Sync configuration"
+msgstr "Fehler beim Speichern der SMS Sync Konfiguration"
+
+msgid "Fail to save SMS command"
+msgstr "Fehler beim Speichern von SMS command"
+
+msgid "Fail to save SMS custom"
+msgstr "Fehler beim Speichern von SMS custom"
+
+msgid "Fail to save configuration"
+msgstr "Fehler beim Speichern der Konfiguration"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Fehler beim Speichern der Email zu SMS PIN"
+
+msgid "Fail to save gateway module configurations"
+msgstr "Fehler beim Speichern der Gateway-Modul Konfiguration"
+
+msgid "Fail to save preferences"
+msgstr "Fehler beim Speichern der Voreinstellungen"
+
+msgid "Fail to save rate"
+msgstr "Fehler beim Speichern der Rate"
+
+msgid "Fail to save route"
+msgstr "Fehler beim Speichern der Route"
+
+msgid "Fail to save temporary password"
+msgstr "Fehler beim Speichern des temporären Passworts"
+
+msgid "Fail to send SMS"
+msgstr "Fehler beim Senden der SMS"
+
+msgid "Fail to send email"
+msgstr "Fehler beim Senden der Email"
+
+msgid "Fail to send message to all destinations"
+msgstr "Fehler beim Senden der Nachricht an alle Ziele"
+
+msgid "Fail to simulate incoming SMS"
+msgstr "Fehler beim Simulieren einer eingehenden SMS"
+
+msgid "Fail to update SMS autoreply"
+msgstr "Fehler beim Aktualisieren von SMS autoreply"
 
 msgid "Fail to update due to invalid sender ID"
-msgstr ""
+msgstr "Fehler beim Aktualisieren aufgrund ungültiger Absender-ID"
+
+msgid "Fail to upload CSV file"
+msgstr "Fehler beim Hochladen der CSV-Datei"
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Fehler beim Hochladen der CSV-Datei für Telefonbuch"
 
+msgid "Failed"
+msgstr "fehlgeschlagen"
+
+msgid "Feature"
+msgstr "Erweiterung"
+
 msgid "Features"
-msgstr ""
+msgstr "Erweiterungen"
+
+msgid "Fill the password field to change password"
+msgstr "Passwort-Feld ausfüllen um Passwort zu ändern"
+
+msgid "Fill to change the API key"
+msgstr "Ausfüllen um API key zu ändern"
+
+#, fuzzy
+msgid "Fill to change the API password"
+msgstr "Ausfüllen um Passwort zu ändern"
+
+msgid "Fill to change the API secret"
+msgstr "Ausfüllen um API secret zu ändern"
+
+msgid "Fill to change the Auth Token"
+msgstr "Ausfüllen um Auth token zu ändern"
+
+msgid "Fill to change the password"
+msgstr "Ausfüllen um Passwort zu ändern"
+
+msgid "Fill with zero to disable limit"
+msgstr "0 deaktiviert Limit"
+
+msgid "Flash message"
+msgstr "Flash-SMS"
+
+msgid "Footer"
+msgstr "Fußzeile"
 
 msgid "For example a short code"
 msgstr "Als Beispiel ein kurzer Code"
 
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Format YYYY-MM-DD hh:mm"
+
 msgid "Forward"
 msgstr "Weiterleiten"
+
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Leite alle Sandbox-SMS an URL weiter"
+
+msgid "Forward message to email"
+msgstr "Nachricht per Email weiterleiten"
+
+msgid "Forward message to inbox"
+msgstr "Nachricht an Inbox weiterleiten"
+
+msgid "Forward message to mobile"
+msgstr "Nachricht an Mobilfunknummer weiterleiten"
+
+msgid "Forward to email"
+msgstr "Weiterleiten an Email"
+
+msgid "Forwarded email footer"
+msgstr "Fußzeile für weitergeleitete Email"
 
 msgid "Found invalid entries in uploaded file"
 msgstr "Ungültige Einträge in hochgeladener Datei gefunden"
@@ -281,17 +1168,48 @@ msgstr "Ungültige Einträge in hochgeladener Datei gefunden"
 msgid "Found valid entries in uploaded file"
 msgstr "Gültige Einträge in hochgeladener Datei gefunden"
 
+msgid "From"
+msgstr "Von"
+
+msgid "Full name"
+msgstr "Vollständiger Name"
+
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
+
+msgid "Gateway host"
+msgstr "Gateway Host"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-Modul Konfiguration wurde gespeichert"
 
 msgid "Gateway name"
 msgstr "Gateway Name"
 
+msgid "Gateway port"
+msgstr "Gateway Port"
+
 msgid "Gateways"
-msgstr ""
+msgstr "Gateways"
 
 msgid "Go"
 msgstr "Los"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr ""
+"Gehe zur -Hauptkonfiguration- oder zu -manage sites- um diese Seite zu ändern"
+
+msgid "Go to manage site menu to edit this page"
+msgstr "Gehe zu -manage sites- um diese Seite zu ändern"
+
+msgid "Grand total SMS"
+msgstr "Gesamt SMS"
+
+msgid "Grand total senders"
+msgstr ""
+
+msgid "Graph output"
+msgstr ""
 
 msgid "Group"
 msgstr "Gruppe"
@@ -307,6 +1225,8 @@ msgstr "Gruppenkürzel wurde hinzugefügt"
 
 msgid "Group code may be used to broadcast SMS to this group"
 msgstr ""
+"Gruppenkürzel wird möglicherweise verwendet, um SMS in diese Gruppe zu "
+"broadcasten"
 
 msgid "Group has been edited"
 msgstr "Gruppe wurde geändert"
@@ -314,6 +1234,8 @@ msgstr "Gruppe wurde geändert"
 msgid ""
 "Group has been edited but unable to set broadcast from members or anyone"
 msgstr ""
+"Gruppe wurde geändert, broadcast konnte aber nicht auf Mitglieder oder jeder "
+"geändert werden"
 
 msgid "Group inbox"
 msgstr "Gruppen-Inbox"
@@ -336,14 +1258,44 @@ msgstr "Gruppen-Inbox wurde aktiviert"
 msgid "Group name"
 msgstr "Gruppenname"
 
+msgid "HTML output"
+msgstr "HTML Ausgabe"
+
+msgid "HTTP Kannel admin host"
+msgstr "HTTP Kannel Admin Host"
+
+msgid "HTTP Kannel admin password"
+msgstr "HTTP Kannel Admin Passwort"
+
+msgid "HTTP Kannel admin port"
+msgstr "HTTP Kannel Admin Port"
+
 msgid "Home"
 msgstr "Startseite"
 
+msgid "ID"
+msgstr "ID"
+
+msgid "IP address"
+msgstr "IP Adresse"
+
+msgid "IP addresses"
+msgstr "IP Adressen"
+
+msgid "IP addresses have been blocked"
+msgstr "IP Adressen wurden geblockt"
+
+msgid "IP addresses have been deleted"
+msgstr "IP Adressen wurden gelöscht"
+
 msgid "Idle"
-msgstr ""
+msgstr "Leerlauf"
 
 msgid "Import"
 msgstr "Import"
+
+msgid "Import above destination entries ?"
+msgstr "Importiere obige Zieleinträge?"
 
 msgid "Import above phonebook entries ?"
 msgstr "Importiere obige Telefonbucheinträge?"
@@ -351,84 +1303,354 @@ msgstr "Importiere obige Telefonbucheinträge?"
 msgid "Import confirmation"
 msgstr "Import-Bestätigung"
 
+msgid "Inbox"
+msgstr "Inbox"
+
+msgid "Incoming SMS route changes has been saved"
+msgstr "Eingehende SMS Route Änderungen wurden gespeichert"
+
+msgid "Incoming SMS time is in local time"
+msgstr "Eingehende SMS Zeit ist die lokale Zeit"
+
+msgid "Infobip API URL"
+msgstr "Infobip API URL"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip ist ein Provider für den Versand von Massen-SMS"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr "Infobip sendet DLR und eingehende SMS an die callback URL"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Information page"
+msgstr "Informationsseite"
+
+msgid "Insert keyword"
+msgstr "Füge Schlagwort ein"
+
+msgid "Internal error please contact service provider"
+msgstr "Interner Fehler, bitte Service Provider kontaktieren"
+
+msgid "Invalid"
+msgstr "Ungültig"
+
 msgid "Invalid CSV file"
 msgstr "Ungültige CSV-Datei"
 
 msgid "Invalid entries"
 msgstr "Ungültige Einträge"
 
+msgid "Invalid sender ID"
+msgstr "Ungültige Absender-ID"
+
 msgid "Invalid session ID"
 msgstr "Ungültige Session-ID"
+
+msgid "Invalid username or password"
+msgstr "Ungültiger Benutzername oder Passwort"
+
+msgid "JSON output"
+msgstr "JSN Ausgabe"
+
+#, fuzzy
+msgid "Jasmin send SMS URL"
+msgstr "Fehler beim Senden der SMS"
+
+#, fuzzy
+msgid "Jasmin will push DLR and incoming SMS to your callback URL"
+msgstr "Bulksms sendet DLR und eingehende SMS an die callback URL"
+
+msgid "Kannel admin host"
+msgstr "Kannel Admin Host"
+
+msgid "Kannel admin password"
+msgstr "Kannel Admin Passwort"
+
+msgid "Kannel admin port"
+msgstr "Kannel Admin Port"
+
+msgid "Kannel dlr-mask option"
+msgstr "Kannel DLR-Masken Option"
+
+msgid "Kannel specific"
+msgstr "Kannel spezifisch"
+
+msgid "Kannel status"
+msgstr "Kannel Status"
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+#, php-format
+msgid "Keyword %s is not available"
+msgstr "Schlagwort %s ist nicht verfügbar"
+
+msgid "Keyword separator"
+msgstr "Schlagwort Separator"
 
 msgid "Keywords"
 msgstr "Schlagworte"
 
 msgid "Languages"
-msgstr ""
+msgstr "Sprache"
 
 msgid "Last update"
+msgstr "Letztes Update"
+
+msgid "Layout footer"
+msgstr "Layout Fußzeile"
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr "Hinterlasse eine Kopie in Sandbox SMS Seite"
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
+"Hinterlassen einer Kopie in Sandbox SMS Seite kann zu Audit oder Review "
+"Zwecken hilfreich sein"
+
+msgid "List of accounts"
+msgstr "Liste der Accounts"
+
+msgid "List of administrators"
+msgstr "Liste der Administratoren"
+
+msgid "List of destinations"
+msgstr "Liste der Ziele"
 
 msgid "List of gateways and SMSCs"
-msgstr ""
+msgstr "Liste der Gateways und SMSCs"
+
+#, php-format
+msgid "List of messages from %s"
+msgstr "Liste der Nachrichten von %s"
+
+msgid "List of my credit transactions"
+msgstr "Liste meiner Credit Transaktionen"
+
+#, php-format
+msgid "List of queue %s"
+msgstr "Liste der Queues von %s"
+
+msgid "List of subusers"
+msgstr "Liste der Sub-Benutzer"
+
+msgid "List of transactions"
+msgstr "Liste der Transaktionen"
+
+msgid "List of users"
+msgstr "Liste der Benutzer"
+
+msgid "Local number length"
+msgstr "Lokale Nummernlänge"
+
+msgid "Local playnet password"
+msgstr "Lokales playnet Passwort"
+
+msgid "Local playnet username"
+msgstr "Lokaler playner Benutzername"
 
 msgid "Logged in as"
-msgstr ""
+msgstr "Eingeloggt als"
+
+msgid "Login"
+msgstr "Login"
 
 msgid "Login as"
+msgstr "Login als"
+
+msgid "Login information"
+msgstr "Login Information"
+
+msgid "Logo URL"
+msgstr "Logo URL"
+
+msgid ""
+"Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
+"Logo wird standardmäßig bei Login, Registrierung und Passwort vergessen "
+"angezeigt"
 
 msgid "Logout"
 msgstr "Abmelden"
 
+msgid "Lowest credit limit to trigger notification"
+msgstr "Niedrigste Credit-Grenze, um eine Benachrichtigung zu initiieren"
+
+msgid "MBOX output"
+msgstr "MBOX Ausgabe"
+
+msgid "Mail server address"
+msgstr "Mailserver Adresse"
+
+msgid "Mail server port"
+msgstr "Mailserver Port"
+
+msgid "Mailbox password"
+msgstr "Mailbox Passwort"
+
+msgid "Mailbox username"
+msgstr "Mailbox Benutzername"
+
 msgid "Main configuration"
 msgstr "Hauptkonfiguration"
+
+msgid "Main configuration changes has been saved"
+msgstr "Änderungen der Hauptkonfiguration wurden gespeichert"
+
+msgid "Main website URL"
+msgstr "URL der Hauptseite"
+
+msgid "Main website name"
+msgstr "Name der Hauptseite"
+
+msgid "Make return as reply"
+msgstr ""
 
 msgid "Manage"
 msgstr "Verwalten"
 
 msgid "Manage ACL"
-msgstr ""
+msgstr "Verwalte ACL"
+
+msgid "Manage OpenVox"
+msgstr "OpenVox verwalten"
+
+msgid "Manage SMS rate"
+msgstr "SMS Rate verwalten"
 
 msgid "Manage account"
-msgstr ""
+msgstr "Account verwalten"
 
-#, fuzzy
-msgid "Manage gateway"
-msgstr "Benutzer verwalten"
+msgid "Manage autoreply"
+msgstr "Autoreply verwalten"
+
+msgid "Manage blocked"
+msgstr "Gesperrt verwalten"
+
+msgid "Manage board"
+msgstr "Board verwalten"
+
+msgid "Manage bulksms"
+msgstr "Bulksms verwalten"
+
+msgid "Manage clickatell"
+msgstr "Clickatell verwalten"
+
+msgid "Manage command"
+msgstr "command verwalten"
+
+msgid "Manage credit"
+msgstr "Credit verwalten"
+
+msgid "Manage custom"
+msgstr "custom verwalten"
+
+msgid "Manage dev"
+msgstr "dev verwalten"
+
+msgid "Manage email to SMS"
+msgstr "Email zu SMS verwalten"
+
+msgid "Manage firewall"
+msgstr "Firewall verwalten"
+
+msgid "Manage gammu"
+msgstr "gammu verwalten"
 
 msgid "Manage gateway and SMSC"
-msgstr ""
+msgstr "Gateway und SMSC verwalten"
+
+msgid "Manage infobip"
+msgstr "infobip verwalten"
+
+#, fuzzy
+msgid "Manage jasmin"
+msgstr "Site verwalten"
+
+msgid "Manage kannel"
+msgstr "kannel verwalten"
+
+msgid "Manage nexmo"
+msgstr "nexmo verwalten"
+
+msgid "Manage playnet"
+msgstr "playnet verwalten"
 
 msgid "Manage plugin"
-msgstr ""
+msgstr "plugin verwalten"
+
+msgid "Manage poll"
+msgstr "Poll verwalten"
+
+msgid "Manage quiz"
+msgstr "Quiz verwalten"
+
+msgid "Manage schedule"
+msgstr "Zeitplan verwalten"
 
 msgid "Manage sender ID"
-msgstr ""
+msgstr "Absender-ID verwalten"
 
 msgid "Manage site"
-msgstr ""
+msgstr "Site verwalten"
 
 msgid "Manage smstools"
-msgstr "Verwalte smstools"
+msgstr "smstools verwalten"
 
-#, fuzzy
-msgid "Manage sub-account"
-msgstr "Benutzer verwalten"
+msgid "Manage stoplist"
+msgstr "stoplist verwalten"
 
-#, fuzzy
-msgid "Manage sub-accounts"
-msgstr "Benutzer verwalten"
+msgid "Manage subscribe"
+msgstr "subscribe verwalten"
 
 msgid "Manage subuser"
+msgstr "Sub-Benutzer verwalten"
+
+msgid "Manage sync"
+msgstr "Sync verwalten"
+
+msgid "Manage telerivet"
+msgstr "telerivet verwalten"
+
+msgid "Manage template"
+msgstr "Vorlage verwalten"
+
+msgid "Manage twilio"
+msgstr "twilio verwalten"
+
+msgid "Manage uplink"
+msgstr "uplink verwalten"
+
+msgid "Mandatory fields must not be empty"
+msgstr "Pflichtfelder dürfen nicht leer sein"
+
+msgid "Master URL"
+msgstr "Master URL"
+
+msgid "Match with all approved sender ID"
+msgstr "Treffer mit allen bestötgten Absender-IDs"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Max. 16 numerische oder 11 alphanumerische Zeichen. Leer lassen zum "
+"Deaktivieren"
 
-#, fuzzy
-msgid "Manage subusers"
-msgstr "Benutzer verwalten"
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Max. 16 numerische oder 11 alphanumerische Zeichen"
 
-msgid "Manage user"
-msgstr "Benutzer verwalten"
+msgid "Max. 30 alphanumeric characters"
+msgstr "Max. 30 alphanumerische Zeichen"
+
+msgid "Maximum SMS count"
+msgstr "Maximale SMS Menge"
+
+msgid "Maximum username length"
+msgstr "Maximale Länge des Benutzernamens"
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr "Maximale Länge des Benutzernamens muss zwischen 4 und 100 liegen"
 
 msgid "Me only"
 msgstr "Nur ich"
@@ -439,14 +1661,51 @@ msgstr "Mitglied wurde hinzugefügt"
 msgid "Member has been deleted"
 msgstr "Mitglied wurde gelöscht"
 
+msgid "Member join datetime"
+msgstr "Mitglied seit"
+
 msgid "Member list"
 msgstr "Mitgliederliste"
+
+msgid "Member list for keyword"
+msgstr "Mitgliederliste für Schlagwort"
 
 msgid "Members"
 msgstr "Mitglieder"
 
 msgid "Message"
 msgstr "Nachricht"
+
+#, php-format
+msgid "Message %s has been delivered to queue"
+msgstr "Nachricht %s ist an Queue übergeben worden"
+
+msgid "Message ID"
+msgstr "Nachricht ID"
+
+msgid "Message body"
+msgstr "Nachricht Text"
+
+msgid "Message detail"
+msgstr "Nachricht Details"
+
+msgid "Message footer"
+msgstr "Nachricht Fußzeile"
+
+msgid "Message from"
+msgstr "Nachricht von"
+
+msgid "Message has been added"
+msgstr "Nachricht wurde hinzugefügt"
+
+msgid "Message has been deleted"
+msgstr "Nachricht wurde gelöscht"
+
+msgid "Message has been edited"
+msgstr "Nachricht wurde geändert"
+
+msgid "Message received at"
+msgstr "Nachricht erhalten am"
 
 msgid "Message template"
 msgstr "Nachrichten-Vorlage"
@@ -463,33 +1722,131 @@ msgstr "Nachrichten-Vorlage wurde gespeichert"
 msgid "Message template name"
 msgstr "Nachrichten-Vorlagen Name"
 
+msgid "Messages"
+msgstr "Nachrichten"
+
+msgid "Min length to detect missing country code"
+msgstr "Minimale Länge um fehlenden Ländercode zu erkennen"
+
 msgid "Mobile"
 msgstr "Mobil"
 
+msgid "Mobile numbers"
+msgstr "Mobilfunknummern"
+
+msgid "Mobile numbers have been blocked"
+msgstr "Mobilfunknummern wurden geblockt"
+
+msgid "Mobile numbers have been deleted"
+msgstr "Mobilfunknummern wurden gelöscht"
+
+msgid "Module sender ID"
+msgstr "Modul Absender-ID"
+
+msgid "Module timezone"
+msgstr "Modul Zeitzone"
+
+msgid "Monthly"
+msgstr "Monatlich"
+
 msgid "Move"
-msgstr ""
+msgstr "Verschieben"
 
 msgid "Move to"
 msgstr "Verschieben nach"
 
+msgid "Multi"
+msgstr "Mehrere"
+
+msgid "Multiple IP addresses must be comma-separated"
+msgstr "Mehrere IP Adressen müssen Komma-separiert sein"
+
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Mehrere Einträge separiert durch Komma"
+
+msgid "Multiple mobile numbers must be comma-separated"
+msgstr "Mehrere Mobilfunknummern müssen Komma-separiert sein"
 
 msgid "My account"
-msgstr ""
+msgstr "Mein Account"
+
+msgid "My credit transactions"
+msgstr "Meine Credit Transaktionen"
+
+msgid "My email to SMS"
+msgstr "Meine Email zu SMS"
+
+msgid "My feature messages"
+msgstr "Meine Feature Nachrichten"
+
+msgid "My report"
+msgstr "Mein Bericht"
+
+msgid "My sent messages"
+msgstr "Meine gesendeten Nachrichten"
 
 msgid "Name"
 msgstr "Name"
 
+msgid "New ACL been added"
+msgstr "Neue ACL wurde hinzugefügt"
+
+msgid "New SMS schedule been added"
+msgstr "Neuer SMS Zeitplan wurde hinzugefügt"
+
 msgid "New SMSC has been added"
+msgstr "Neuer SMSC wurde hinzugefügt"
+
+msgid "New account registration"
+msgstr "Neuen Account registrieren"
+
+msgid "New destination has been added"
+msgstr "Neues Ziel wurde hinzugefügt"
+
+msgid "Nexmo URL"
+msgstr "Nexmo URL"
+
+msgid "Nexmo is a bulk SMS provider"
 msgstr ""
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
+msgid "No"
+msgstr "Nein"
+
+msgid "No changes has been made"
+msgstr "Es wurden keine Änderungen vorgenommen"
 
 msgid "No changes have been made"
 msgstr "Es wurden KEINE Änderungen vorgenommen"
 
-#, fuzzy
+msgid "No changes made"
+msgstr "Keine Änderungen durchgeführt"
+
+msgid "No changes made!"
+msgstr "Keine Änderungen durchgeführt!"
+
 msgid "No group"
-msgstr "Gruppe"
+msgstr "Keine Gruppe"
+
+msgid "No route has been saved"
+msgstr "Keine Route wurde gepsiechert"
+
+msgid "No trailing slash"
+msgstr "Kein führender slash"
+
+msgid "No validate cert option"
+msgstr "Keine validierte Cert-Option"
+
+msgid "Non-Delivered to SMSC"
+msgstr "Nicht übermittelt an SMSC"
+
+msgid "Non-Delivered to phone"
+msgstr "Nicht übermittelt an Telefon"
+
+msgid "None"
+msgstr "Keine"
 
 msgid "Notes"
 msgstr "Anmerkungen"
@@ -497,20 +1854,101 @@ msgstr "Anmerkungen"
 msgid "Number"
 msgstr "Nummer"
 
+msgid "Number of sent SMS per hour limit"
+msgstr "Begrenzung der Anzahl der gesendeten SMS pro Stunde"
+
+msgid "Number of votes"
+msgstr "Anzahl der Stimmen"
+
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
+
+msgid "Once"
+msgstr "Einmal"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Only when the sender ID is approved"
+msgstr "Nur wenn Absender-ID geprüft ist"
+
+msgid "Operational"
+msgstr "Betrieblich"
+
+msgid "Options"
+msgstr "Optionen"
+
+msgid "PHP serialize output"
+msgstr "PHP serialisierte Ausgabe"
+
+msgid "PIN for email to SMS"
+msgstr "PIN für Email zu SMS"
+
+msgid "PIN is empty"
+msgstr "PIN ist leer"
+
+msgid "Page content"
+msgstr "Seiteninhalt"
+
+msgid "Page title"
+msgstr "Seitentitel"
+
+msgid "Param"
+msgstr "Param"
+
+msgid "Parent"
 msgstr ""
+
+msgid "Parent account"
+msgstr "Eltern Account"
+
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the "
+"subuser will be automatically assigned to user admin"
+msgstr ""
+"Eltern Account is nur für Sub-Benutzer verpflichtend. Wenn kein WErt "
+"angegeben ist, wird der Sub-Benutzer automatisch zum Benutzer Admin "
+"hinzugefügt"
+
+msgid "Pass these parameter to command exec field"
+msgstr ""
+
+msgid "Pass these parameters to custom URL field"
+msgstr ""
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password does not match"
+msgstr "Passwort stimmt nicht überein"
+
+msgid "Password has been emailed"
+msgstr "Passwort wurde per Email verschickt"
+
+msgid "Password recovery"
+msgstr "Passwort zurücksetzen"
+
+msgid "Password should be at least 4 characters"
+msgstr "Passwort sollte mindestens 4 Zeichen beinhalten"
+
+msgid "Pending"
+msgstr ""
+
+msgid "Personal information"
+msgstr "Persönliche Information"
+
+msgid "Phone number"
+msgstr "Telefonnummer"
 
 msgid "Phonebook"
 msgstr "Telefonbuch"
 
-msgid "Please run composer.phar update"
+msgid "Please remove all subusers from this user to delete"
 msgstr ""
+"Bitte zuerst alle Sub-Benutzer entfernen, um diesen Benutzer zu löschen"
+
+msgid "Please select"
+msgstr "Bitte auswählen"
 
 msgid "Please select CSV file"
 msgstr "Bitte CSV-Datei auswählen"
@@ -518,16 +1956,45 @@ msgstr "Bitte CSV-Datei auswählen"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Bitte CSV-Datei für Telefonbuch-Einträge auswählen"
 
-#, fuzzy
-msgid "Please use alphanumeric only and make it short"
-msgstr "Bitte in Großbuchstaben und kurz"
+msgid "Please select template"
+msgstr "Bitte Vorlage auswählen"
 
-#, fuzzy
+msgid "Please type the displayed captcha phrase correctly"
+msgstr "Bitte Captcha korrekt eingeben"
+
+msgid "Please use alphanumeric only and make it short"
+msgstr "Bitte alphanumerisch und kurz"
+
 msgid "Please use uppercase and make it short"
 msgstr "Bitte in Großbuchstaben und kurz"
 
+msgid "Post rules"
+msgstr "Post-Regeln"
+
+msgid "Pre rules"
+msgstr "Pre-Regeln"
+
 msgid "Preferences"
-msgstr "Einstellungen"
+msgstr "Voreinstellungen"
+
+msgid "Preferences have been saved"
+msgstr "Voreinstellungen wurden gespeichert"
+
+msgid "Preferences have been saved and password updated"
+msgstr "Voreinstellungen wurden gespeichert und das Passwort aktualisiert"
+
+msgid "Preferences have been saved and webservices token updated"
+msgstr ""
+"Voreinstellungen wurden gespeichert und der webservice token aktualisiert"
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "Prefix or country code"
+msgstr "Prefix oder Ländercode"
+
+msgid "Prefix with # for groups and @ for users"
+msgstr "Prefix mit # für Gruppen oder @ für Benutzer"
 
 msgid "Press submit button to add selected users to catch-all list"
 msgstr ""
@@ -546,67 +2013,506 @@ msgstr ""
 "Drücke Ausführen, um ausgewählte Mitglieder von Mitgliederliste zu streichen"
 
 msgid "Prevent duplicates"
-msgstr ""
+msgstr "Verhindere Duplikate"
+
+msgid "Project ID"
+msgstr "Projekt ID"
+
+msgid "Question"
+msgstr "Frage"
 
 msgid "Queue Code"
 msgstr "Queue Code"
 
 msgid "Queue directory"
-msgstr ""
+msgstr "Queue Verzeichns"
 
 msgid "Queue has been removed"
 msgstr "Queue wurde gelscht"
 
+msgid "Queued on SMSC"
+msgstr "Queued im SMSC"
+
+msgid "RSS 0.91 output"
+msgstr "RSS 0.91 Ausgabe"
+
+msgid "RSS 1.0 output"
+msgstr "RSS 1.0 Ausgabe"
+
+msgid "RSS 2.0 output"
+msgstr "RSS 2.0 Ausgabe"
+
+msgid "RSS ATOM output"
+msgstr "RSS ATOM output"
+
+msgid "Rate"
+msgstr "Rate"
+
+msgid "Rate already exists"
+msgstr "Rate existiert bereits"
+
+msgid "Rate has been added"
+msgstr "Rate wurde hinzugefügt"
+
+msgid "Rate has been deleted"
+msgstr "Rate wurde gelöscht"
+
+msgid "Rate has been saved"
+msgstr "Rate wurde gespeichert"
+
+msgid "Re-type password"
+msgstr "Passwort erneut eingeben"
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr "Captcha Phrase im Verifizieren-Feld eingeben."
+
+msgid "Received answer list for keyword"
+msgstr "Antwortenliste für Schlagwort erhalten"
+
+msgid "Receiver"
+msgstr "Empfänger"
+
 msgid "Receiver number"
 msgstr "Empfängernummer"
+
+msgid ""
+"Receiver number can be matched with default sender ID or with all approved "
+"sender ID"
+msgstr ""
+"Empfängernummer kann mit Standard Absender-ID oder allen bestätigten "
+"Absender-IDs übereinstimmen"
 
 msgid "Receiver number does not exist"
 msgstr "Empfängernummer existiert nicht"
 
+msgid "Recover password"
+msgstr "Password wiederherstellen"
+
+msgid "Recover password disabled"
+msgstr "Passwort wiederherstellen deaktiviert"
+
 msgid "Reduce"
-msgstr ""
+msgstr "Reduzieren"
+
+msgid "Reduce credit"
+msgstr "Credit reduzieren"
+
+msgid "Reduce credit from users"
+msgstr "Reduziere Credit von Benutzern"
+
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+msgid "Register an account"
+msgstr "Einen Account registrieren"
+
+msgid "Registered"
+msgstr "Registriert"
+
+msgid "Remote is on"
+msgstr "Remote ist an"
+
+msgid "Remote playSMS URL"
+msgstr "Remote playSMS URL"
+
+msgid "Remote playnet SMSC name"
+msgstr "Remote playnet SMSC Name"
+
+msgid "Remote playnet password"
+msgstr "Remote playnet Passwort"
+
+msgid "Remote playnet username"
+msgstr "Remote playnet Benutzername"
+
+msgid "Renew webservices token"
+msgstr "Erneuere webservice token"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Ersetze Prefix 0 or fülle lokale Nummern auf"
+
+msgid "Replace website title with logo"
+msgstr "Ersetze Webseiten Titel mit Logo"
 
 msgid "Reply"
 msgstr "Antwort"
 
+msgid "Reply message on correct"
+msgstr "Beantworte Nachricht wenn korrekt"
+
+msgid "Reply message on incorrect"
+msgstr "Beantworte Nachricht wenn nicht korrekt"
+
+msgid "Reply message on invalid vote"
+msgstr "Beantworte Nachricht bei falscher Wahl"
+
+msgid "Reply message on out of vote option"
+msgstr "Beantworte Nachricht bei ungültiger Wahl"
+
+msgid "Reply message on valid vote"
+msgstr "Beantworte Nachricht bei gültiger Wahl"
+
+msgid "Report"
+msgstr "Bericht"
+
+msgid "Report all users"
+msgstr "Bericht alle Benutzer"
+
+msgid "Report banned users"
+msgstr "Bericht geblockte Benutzer"
+
+msgid "Report whose online"
+msgstr "Bericht wer ist online"
+
 msgid "Reports"
-msgstr ""
+msgstr "Berichte"
 
 msgid "Resend"
 msgstr "Erneut senden"
 
+msgid "Restart Kannel"
+msgstr "Restart Kannel"
+
 msgid "Restrict sender to regular members or catch-all members only"
 msgstr "Sender auf gültige Mitglieder oder Catch-All-Mitglieder beschränken"
 
-msgid "Routed SMSC"
+msgid "Result graph"
+msgstr "Ergebnis Graph"
+
+msgid "Result table"
+msgstr "Ergebnis Tabelle"
+
+msgid "Return"
+msgstr "Zurückkehren"
+
+msgid "Route SMS outgoing"
+msgstr "Route SMS abgehend"
+
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Route alle Sandbox SMS an einen oder mehrere Benutzer"
+
+msgid "Route all sandbox SMS to users"
+msgstr "Route alle Sandbox SMS an Benutzer"
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr "Route alle Sandbox SMS mit übereinstimmender Absender-ID"
+
+msgid "Route has been added"
+msgstr "Route wurde hinzugefügt"
+
+msgid "Route has been deleted"
+msgstr "Route wurde gelöscht"
+
+msgid "Route has been saved"
+msgstr "Route wurde gepseichert"
+
+msgid "Route incoming SMS"
+msgstr "Route eingehende SMS"
+
+msgid "Route outgoing SMS"
+msgstr "Route abgehende SMS"
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
+"Route an Benutzer Inbox, wenn Empfängernummer mit Absender-ID übereinstimmt"
+
+msgid "Routed SMSC"
+msgstr "Geroutete SMSC"
+
+msgid "Row template"
+msgstr "Zeilen Vorlage"
+
+msgid "Rules applied after incoming SMS processed"
+msgstr "Regeln nach Bearbeitung eingehender SMS"
+
+msgid "Rules applied before incoming SMS processed"
+msgstr "Regeln vor Bearbeitung eingehender SMS"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "SMS Board"
+msgstr "SMS Board"
+
+msgid "SMS Sync configuration has been saved"
+msgstr "SMS Sync Konfiguration wurde gespeichert"
+
+msgid "SMS autoreply has been deleted"
+msgstr "SMS autoreply wurde gespeichert"
+
+msgid "SMS autoreply has been updated"
+msgstr "SMS autoreply wurde geändert"
+
+msgid "SMS autoreply keyword"
+msgstr "SMS autoreply Schlagwort"
+
+msgid "SMS autoreply keyword has been added"
+msgstr "SMS autoreply Schlagwort wurde hinzugefügt"
+
+msgid "SMS autoreply scenario has been added"
+msgstr "SMS autoreply Szenario wurde hinzugefügt"
+
+msgid "SMS autoreply scenario has been deleted"
+msgstr "SMS autoreply Szenario wurde gelöscht"
+
+msgid "SMS autoreply scenario has been edited"
+msgstr "SMS autoreply Szenario wurde geändert"
+
+msgid "SMS autoreply scenario parameter"
+msgstr "SMS autoreply Szenario Parameter"
+
+msgid "SMS autoreply scenario replies with"
+msgstr "SMS autoreply Szenario antwortet mit"
+
+msgid "SMS board from"
+msgstr "SMS board von"
+
+msgid "SMS board has been added"
+msgstr "SMS board wurde gelöscht"
+
+msgid "SMS board has been saved"
+msgstr "SMS board wurde gespeichert"
+
+msgid "SMS board keyword"
+msgstr "SMS board Schlagwort"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "SMS board mit all seinen Nachrichten wurde gelöscht"
+
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr ""
+"SMS command existiert bereits oder ist von einem anderen Feature reserviert "
+"oder in Benutzung"
+
+msgid "SMS command exec"
+msgstr "SMS command exec"
+
+msgid "SMS command exec path"
+msgstr "SMS command exec Pfad"
+
+msgid "SMS command has been added"
+msgstr "SMS command wurde hinzugefügt"
+
+msgid "SMS command has been deleted"
+msgstr "SMS command wurde gelöscht"
+
+msgid "SMS command has been saved"
+msgstr "SMS command wurde gespeichert"
+
+msgid "SMS command keyword"
+msgstr "SMS command Schlagwort"
+
+msgid "SMS custom URL"
+msgstr "SMS custom URL"
+
+msgid "SMS custom has been deleted"
+msgstr "SMS custom wurde gelöscht"
+
+msgid "SMS custom has been saved"
+msgstr "SMS custom wurde gespeichert"
+
+msgid "SMS custom keywords"
+msgstr "SMS custom Schlagworte"
+
+#, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "SMS custom mit Schlagwort %s wude hinzugefügt"
+
+msgid "SMS footer"
+msgstr "SMS Fußzeile"
+
+msgid "SMS forward parameter"
+msgstr "SMS Weiterleitungs-Parameter"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
 
-msgid "SMSC already exists"
+msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
+"SMS Schlagwort existiert bereits oder ist von einem anderen Feature "
+"reserviert oder in Benutzung"
+
+msgid "SMS messages list for keyword"
+msgstr "SMS Nachrichten Liste für Schlagwort"
+
+msgid "SMS poll access code"
+msgstr "SMS poll Zugangscode"
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr "SMS poll Zugangscode hauptsächlich verwendet von webservices"
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
+"SMS poll existiert bereits oder ist von einem anderen Feature reserviert "
+"oder in Benutzung"
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr "SMS poll Wahlmöglichkeit und alle seine Wähler wurden gelöscht"
+
+msgid "SMS poll has been added"
+msgstr "SMS poll wurde hinzugefügt"
+
+msgid "SMS poll has been saved"
+msgstr "SMS poll wurde gespeichert"
+
+msgid "SMS poll keyword"
+msgstr "SMS poll Schlagwort"
+
+msgid "SMS poll status has been changed"
+msgstr "SMS poll Status wurde geändert"
+
+msgid "SMS poll title"
+msgstr "SMS poll Titel"
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr "SMS poll mit all seinen Nachrichten wurden gelöscht"
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
+"SMS Quiz existiert bereits oder ist von einem anderen Feature reserviert "
+"oder in Benutzung"
+
+msgid "SMS quiz answer"
+msgstr "SMS Quiz Antwort"
+
+msgid "SMS quiz answer messages have been deleted"
+msgstr "SMS Quiz Antwort wurde gelöscht"
+
+msgid "SMS quiz has been added"
+msgstr "SMS Quiz wurde hinzugefügt"
+
+msgid "SMS quiz has been saved"
+msgstr "SMS Quiz wurde gespeichert"
+
+msgid "SMS quiz keyword"
+msgstr "SMS Quiz Schlagwort"
+
+msgid "SMS quiz question"
+msgstr "SMS Quiz Frage"
+
+msgid "SMS quiz status has been changed"
+msgstr "SMS Quiz Status wurde geändert"
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr "SMS Quiz mit all seinen Nachrichten wurde gelöscht"
+
+msgid "SMS schedule been saved"
+msgstr "SMS Zeitplan wurde gespeichert"
+
+msgid "SMS schedule has been deleted"
+msgstr "SMS Zeitplan wurde gelöscht"
+
+msgid "SMS schedule has been disabled"
+msgstr "SMS Zeitplan wurde deaktiviert"
+
+msgid "SMS schedule has been enabled"
+msgstr "SMS Zeitplan wurde aktiviert"
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+"SMS subscribe existiert bereits oder ist von einem anderen Feature "
+"reserviert oder in Benutzung"
+
+msgid "SMS subscribe has been added"
+msgstr "SMS subscribe wurde hinzugefügt"
+
+msgid "SMS subscribe has been saved"
+msgstr "SMS subscribe wurde gespeichert"
+
+msgid "SMS subscribe keyword"
+msgstr "SMS subscribe Schlagwort"
+
+msgid "SMS subscribe parameter"
+msgstr "SMS subscribe Parameter"
+
+msgid "SMS subscribe reply"
+msgstr "SMS subscribe Antwort"
+
+msgid "SMS subscribe status has been changed"
+msgstr "SMS subscribe Status wurde geändert"
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr ""
+"SMS subscribe mit all seinen Nachrichten und Mitgliedern wurde gelöscht"
+
+msgid "SMS unsubscribe parameter"
+msgstr "SMS unsubscribe Parameter"
+
+msgid "SMS unsubscribe reply"
+msgstr "SMS unsubscribe Antwort"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "SMSC already exists"
+msgstr "SMSC existiert bereits"
 
 msgid "SMSC has been edited"
-msgstr ""
+msgstr "SMSC wurde geändert"
 
 msgid "SMSC has been removed"
-msgstr ""
+msgstr "SMSC wurde entfernt"
 
 msgid "SMSC name"
-msgstr ""
+msgstr "SMSC Name"
 
 msgid "SMSCs"
-msgstr ""
+msgstr "SMSCs"
+
+msgid "Sandbox"
+msgstr "Sandbox"
 
 msgid "Save"
 msgstr "Speichern"
 
+msgid "Scan incoming SMS for #groupcode"
+msgstr "Untersuche eingehende SMS auf #Gruppenkürzel"
+
+msgid "Scan incoming SMS for @username"
+msgstr "Untersuche eingehende SMS auf @benutzername"
+
+msgid "Schedule"
+msgstr "Zeitplan"
+
+msgid "Schedule ID"
+msgstr "Zeitplan ID"
+
+msgid "Schedule messages"
+msgstr "Zeitgesteuerte SMS"
+
+msgid "Schedule name"
+msgstr "Zeitplan Name"
+
+msgid "Schedule rule"
+msgstr "Zeitplan Regel"
+
 msgid "Scheduled"
 msgstr "Geplant"
 
+msgid "Scheduled message"
+msgstr "Zeitgestuerte Nachricht"
+
+msgid "Search"
+msgstr "Suche"
+
+msgid "Secret key"
+msgstr "Geheimer Schlüssel"
+
+msgid "Secret key is used in SMSSync app"
+msgstr "Geheimer Schlüssel wird von der SMSSync App verwendet"
+
 msgid "Select"
 msgstr "Auswählen"
+
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr "Nein wählen, falls Zeit der eingehenden SMS in UTC"
+
+msgid "Select username"
+msgstr "Benutzername wählen"
+
+msgid "Select users"
+msgstr "Benutzer wählen"
 
 msgid "Selected catchall"
 msgstr "Ausgewählter Catch-All"
@@ -620,14 +2526,39 @@ msgstr "Gewählter Kontakt wurde in neue Gruppe verschoben"
 msgid "Selected group has been deleted"
 msgstr "Gewählte Grupppe wurde geändert"
 
+msgid "Selected incoming message has been deleted"
+msgstr "Gewählte eingehende Nachricht wurde gelöscht"
+
 msgid "Selected members"
 msgstr "Ausgewählte Mitglieder"
 
 msgid "Selected message template has been deleted"
 msgstr "Gewählte Nachrichten-Vorlage wurde gelöscht"
 
+msgid "Selected outgoing message has been deleted"
+msgstr "Gewählte ausgehende Nachricht wurde gelöscht"
+
+msgid "Selected transactions has been deleted"
+msgstr "Gewählte Transaktion wurde gelöscht"
+
 msgid "Selected users"
 msgstr "Ausgewählte Benutzer"
+
+msgid "Send"
+msgstr "Senden"
+
+msgid "Send SMS from remote using local username"
+msgstr "Sende SMS remote unter Nutzung des lokalen Benutzernamens"
+
+msgid "Send SMS hostname or IP"
+msgstr "Sende SMS Hostname oder IP"
+
+msgid "Send SMS port"
+msgstr "Sende SMS Port"
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr ""
+"Sende SMS an Gruppen mit dem in der eingehenden SMS gefundenen Gruppenkürzel"
 
 msgid "Send SMS to valid entries"
 msgstr "Sende SMS an gültige Einträge"
@@ -638,78 +2569,281 @@ msgstr "Sende SMS aus Datei"
 msgid "Send from file has been cancelled"
 msgstr "Sende aus Datei wurde abgebrochen"
 
-msgid "Send message"
-msgstr "Sende SMS"
+msgid "Send message failed due to insufficient funds"
+msgstr "Senden der Nachricht fehlgeschlagen mangels Geld"
+
+msgid "Send message failed due to unable to create queue"
+msgstr ""
+"Senden der Nachricht fehlgeschlagen aufgrund Fehler bei Erstellung der Queue"
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr ""
+"Senden der Nachricht fehlgeschlagen aufgrund Fehler bei Vorbereiten der "
+"Queue %s"
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
+msgstr "Senden der Nachricht an %s in Queue %s ist fehlgeschlagen"
+
+msgid "Send this message to all members"
+msgstr "Sende diese Nachricht an alle Mitglieder"
+
+msgid "Send to"
+msgstr "Senden an"
+
+msgid "Sender"
+msgstr "Absender"
 
 msgid "Sender ID"
-msgstr ""
+msgstr "Absender-ID"
 
 msgid "Sender ID description has been added"
-msgstr ""
+msgstr "Absender-ID Beschreibung wurde hinzugefügt"
 
 msgid "Sender ID description has been updated"
-msgstr ""
+msgstr "Absender-ID Beschreibung wurde aktualisiert"
 
 msgid "Sender ID has been added and waiting for approval"
-msgstr ""
+msgstr "Absender-ID Beschreibung wurde hinzugefügt und wartet auf Freigabe"
 
 msgid "Sender ID has been removed"
-msgstr ""
+msgstr "Absender-ID wurde gelöscht"
 
 msgid "Sender ID is not available"
-msgstr ""
+msgstr "Absender-ID ist nicht verfügbar"
 
 msgid "Sender ID is now approved"
-msgstr ""
+msgstr "Absender-ID ist nun freigegeben"
 
 msgid "Sender ID is now disabled"
-msgstr ""
+msgstr "Absender-ID ist nun deaktiviert"
+
+msgid "Senders sent multi votes"
+msgstr "Absender sendete mehrere Abstimmungen"
+
+msgid "Senders sent multiple votes"
+msgstr "Absender sendeten mehrere Abstimmungen"
+
+msgid "Senders sent once"
+msgstr "Absender sendete einmal"
+
+msgid "Sent"
+msgstr "Gesendet"
+
+msgid "Separate by comma for multiple destinations"
+msgstr "Durch Komma separieren für mehrere Ziele"
 
 msgid "Separate with comma for multiple items"
 msgstr "Mit Komma trennen für mehrere Objekte"
 
+msgid "Service data"
+msgstr "Service Daten"
+
+msgid "Service name"
+msgstr "Service Name"
+
 msgid "Set as default"
+msgstr "Setze als Standard"
+
+msgid ""
+"Set credit value bigger than 0 to set credit lowest limit that will trigger "
+"notification"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Share phonebook and allow broadcast"
-msgstr ""
+msgstr "Teile Telefonbuch und erlaube broadcast"
 
 msgid ""
 "Share this phonebook group and set permission for broadcasting SMS to this "
 "group from mobile phone"
 msgstr ""
+"Teile dieses Telefonbuch und setze Berechtigung, um SMS an diese Gruppe vom "
+"Mobiltelefon zu broadcasten"
+
+msgid "Simulate incoming SMS"
+msgstr "Simuliere eingehende SMS"
+
+msgid "Site configuration"
+msgstr "Site Konfiguration"
+
+msgid "Site configuration has been saved"
+msgstr "Site Konfiguration wurde gespeichert"
+
+msgid "Spool folder"
+msgstr "Spool Verzeichnis"
+
+msgid "State or Province"
+msgstr "Staat oder Provinz"
+
+msgid "Statistics"
+msgstr "Statistiken"
 
 msgid "Status"
 msgstr "Status"
 
+msgid "Submit"
+msgstr "Übermitteln"
+
+msgid "Subscribe duration"
+msgstr "Subscribe Dauer"
+
+msgid "Subscription expired reply"
+msgstr "Subscription Antwort Zeitüberschreitung"
+
+msgid "Subuser"
+msgstr "Sub-Benutzer"
+
+msgid "Subuser ACL"
+msgstr "Sub-Benutzer ACL"
+
+msgid "Subusers"
+msgstr "Sub-Benutzer"
+
 msgid "Supplied SMSC"
-msgstr ""
+msgstr "Unterstützte SMSC"
+
+msgid "Sync URL"
+msgstr "Sync URL"
+
+msgid "System error has occured"
+msgstr "Ein Systemfehler ist aufgetreten"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
+
+msgid "Telerivet URL"
+msgstr "Telerivet URL"
+
+msgid "Template installation path"
+msgstr "Vorlagen Instalations-Pfad"
+
+msgid "The domain is already configured by other user"
+msgstr "Die Domäne ist bereits von einem anderen Benutzer konfiguriert worden"
 
 msgid "Themes"
-msgstr ""
+msgstr "Themes"
 
-#, fuzzy
+msgid "This field is required"
+msgstr "Dieses Feld wird benötigt"
+
+msgid "This is a test incoming SMS message"
+msgstr "Dies ist eine eingehenede Test-SMS"
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+"Dieses temporäre Passwort wird gelöscht, sobald Sie sich erfolgreich "
+"angemeldet haben"
+
+msgid "Time"
+msgstr "Zeit"
+
+msgid "Timezone"
+msgstr "Zeitzone"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "To"
+msgstr "An"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "Total invalid SMS"
+msgstr "Gesamt ungülgite SMS"
+
+msgid "Total multiple votes SMS"
+msgstr "Gesamt mehrfach Votes SMS"
+
+msgid "Total one time vote SMS"
+msgstr "Gesamt einmal Vote SMS"
+
+msgid "Total valid SMS"
+msgstr "Gesamt gültige SMS"
+
+msgid "Transaction datetime"
+msgstr "Transaktion Zeitstempel"
+
+msgid "Try to disable SMS footer on master"
+msgstr "Versuche SMS Fußzeile zu deaktivieren auf master"
+
+msgid "Twilio URL"
+msgstr "Twilio URL"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr "URL von playSMS, leer lassen um Base-URL zu verwenden"
+
+msgid "URLs"
+msgstr "URLs"
+
 msgid "Unable to add group"
-msgstr "Fehler beim Löschen der Gruppe"
+msgstr "Nicht möglich Gruppe hinzuzufügen"
+
+msgid "Unable to ban account"
+msgstr "Nicht möglich Account zu sperren"
+
+msgid "Unable to ban subuser"
+msgstr "Nicht möglich Sub-Benutzer zu sperren"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Gruppe kann nicht gelöscht werden bevor sie nicht leer ist"
 
-#, fuzzy
-msgid "Unable to find composer files"
+msgid "Unable to delete other users"
 msgstr "Login Session kann nicht aktualisiert werden"
 
-msgid "Unban"
+msgid ""
+"Unable to delete this user until all subusers under this user have been "
+"removed"
 msgstr ""
+"Benutzer kann nicht gelöscht werden bis alle Sub-Benutzer dieses Benutzers "
+"gelöscht sind"
+
+msgid "Unable to login"
+msgstr "Anmeldung nicht möglich"
+
+msgid "Unable to process subuser addition"
+msgstr "Hinzufügen des Sub-Benutzers nicht möglich"
+
+msgid "Unable to process user addition"
+msgstr "Hinzufügen des Benutzers nicht möglich"
+
+msgid "Unable to save gateway module configurations"
+msgstr "Speichern der Konfiguration des Gateway-Moduls nicht möglich"
+
+msgid "Unable to unban account"
+msgstr "Entsperren des Accounts nicht möglich"
+
+msgid "Unable to unban subuser"
+msgstr "Entsperren des Sub-Benutzers nicht möglich"
+
+msgid "Unban"
+msgstr "Entsperren"
+
+msgid "Unicode message"
+msgstr "Unicode Nachricht"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
+
+msgid "Unknown error has occurred"
+msgstr "Unbekannter Fehler aufgetreten"
+
+msgid "Unknown format reply"
+msgstr "Unbekanntes Format der Antwort"
+
+msgid "Unlimited"
+msgstr "Unbegrenzt"
+
+msgid "Update status"
+msgstr "Update Status"
 
 msgid "Upload file"
 msgstr "Datei hochladen"
@@ -717,24 +2851,93 @@ msgstr "Datei hochladen"
 msgid "Uploaded file"
 msgstr "Datei hochgeladen"
 
+msgid "Use JSON format URL"
+msgstr "Benutze JSON Format URL"
+
+msgid "Use SSL"
+msgstr "Benutze SSL"
+
 msgid "User"
 msgstr "Benutzer"
+
+msgid "User ID"
+msgstr "Benutzer ID"
+
+msgid "User agent"
+msgstr "Benutzer Agent"
 
 msgid "User configuration"
 msgstr "Benutzerkonfiguration"
 
+msgid "User configuration has been saved"
+msgstr "Benutzerkonfiguration wurde gespeichert"
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr ""
+"Benutzerkonfiguration wurde gespeichert und der Webservices Token "
+"aktualisiert"
+
+msgid "User deletion unavailable"
+msgstr "Benutzer löschen ncht verfügbar"
+
+msgid "User does not exist"
+msgstr "Bentzer existiert nicht"
+
+msgid "User is already on banned subusers list"
+msgstr "Benutzer ist bereits auf der Liste der gesperrten Sub-Benutzer"
+
+msgid "User is already on banned users list"
+msgstr "Benutzer ist bereits auf der Liste der gesperrten Benutzer"
+
+msgid "User is immune to deletion"
+msgstr "Benutzer darf nicht gelöscht werden"
+
+msgid "User is not on banned subusers list"
+msgstr "Benutzer befindet sich nicht auf der Liste der gesperrten Sub-Benutzer"
+
+msgid "User is not on banned users list"
+msgstr "Benutzer befindet sich nicht auf der Liste der gesperrten Benutzer"
+
 msgid "User preference"
-msgstr "Benutzereinstellungen"
+msgstr "Benutzer Voreinstellungen"
 
 msgid "Username"
 msgstr "Benutzername"
 
 #, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr ""
+"Benutzername %s mit Account ID %d hat das untere Kreditlimit von %s erreicht"
+
+#, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
 msgstr ""
+"Benutzername %s mit Account ID %d hat die Freigabe der Absender-ID %s "
+"angefordert"
+
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
+msgstr "Benutzername muss mindestens 3 und maximal %d Zeichen lang sein"
+
+msgid "Username or email"
+msgstr "Benutzername oder Email-Adresse"
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "Valid"
+msgstr "Gültig"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+"Gültige Zeichen für den Benutzernamen sind Buchstaben, Zahlen, Punkt oder "
+"Minus"
+
+msgid "Verify captcha"
+msgstr "Überprüfungs-Captcha"
 
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 msgid "View"
 msgstr "Anzeigen"
@@ -742,8 +2945,81 @@ msgstr "Anzeigen"
 msgid "View SMS queue"
 msgstr "Zeige SMS Queue"
 
+msgid "View board"
+msgstr "Zeige Board"
+
+msgid "View log"
+msgstr "Log ansehen"
+
+msgid "View members"
+msgstr "Mitglieder ansehen"
+
+msgid "View messages"
+msgstr "Nachrichten ansehen"
+
+msgid "View report"
+msgstr "Report ansehen"
+
+msgid "Vote option"
+msgstr "Wahl Option"
+
+msgid "Webservice token"
+msgstr "Webservice Token"
+
+msgid "Webservice username"
+msgstr "Webservice Benutzername"
+
+msgid "Webservices IP range"
+msgstr "Webserivces IP-Bereich"
+
+msgid "Webservices links"
+msgstr "Webservices Links"
+
+msgid "Webservices token"
+msgstr "Webservices Token"
+
+msgid "Webservices username"
+msgstr "Webservices Benutzername"
+
+msgid "Website URL"
+msgstr "Webseiten URL"
+
+msgid "Website email"
+msgstr "Webseiten Email"
+
+msgid "Website title"
+msgstr "Webseiten Titel"
+
+msgid "Weekly"
+msgstr "Wöchentlich"
+
+msgid "Welcome information"
+msgstr "Willkommens-Information"
+
+msgid "Whose online"
+msgstr "Wer ist online"
+
+msgid "Wrong amount or user does not exist"
+msgstr "Falscher Betrag oder Bnutzer existiert nicht"
+
+msgid "XML output"
+msgstr "XML Ausgabe"
+
 msgid "Yes"
 msgstr "ja"
+
+msgid "You have been logged out"
+msgstr "Sie wurden abgemeldet"
+
+msgid "You have no access to this page"
+msgstr "Sie haben keine Bereichtigung zu dieser Seite"
+
+msgid "You have no member"
+msgstr "Sie haben keine Mitglieder"
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr "Sie haben die untere Credit-Grenze von %s erreicht"
 
 msgid "You must fill all field"
 msgstr "Es müssen alle Felder ausgefüllt werden"
@@ -751,34 +3027,160 @@ msgstr "Es müssen alle Felder ausgefüllt werden"
 msgid "You must fill all fields"
 msgstr "Es müssen alle Felder ausgefüllt werden"
 
+msgid "You must fill all mandatory fields"
+msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
+
+msgid "You must fill all required fields"
+msgstr "Es müssen alle benötigten Felder ausgefüllt werden"
+
 msgid "You must fill mandatory fields"
 msgstr "Es müssen alle Pflichtfelder ausgefüllt werden"
 
 msgid "You must fill required fields"
 msgstr "Es müssen die Pflichtfelder ausgefüllt werden"
 
+msgid "You must select receiver and your message should not be empty"
+msgstr ""
+"Sie müssen den Empfänger auswählen und die Nachricht darf nicht leer sein"
+
+msgid "You or someone else have requested a password recovery"
+msgstr "Sie oder jemand anders habe eine Passwort-Rücksetzung angefordert."
+
+msgid "Your DLR URL is"
+msgstr "Ihre DLR URL ist"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "Die SMS wurde an die Queue übermittelt"
+
+msgid "Your callback URL is"
+msgstr "Ihre callback URL ist"
+
+msgid "Your callback URL should be accessible from Bulksms"
+msgstr "Ihre callback URL solle von Bulksms erreichbar sein"
+
+msgid "Your callback URL should be accessible from Clickatell"
+msgstr "Ihre callback URL solle von Clickatell erreichbar sein"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr "Ihre callback URL solle von Infobip erreichbar sein"
+
+#, fuzzy
+msgid "Your callback URL should be accessible from Jasmin"
+msgstr "Ihre callback URL solle von Bulksms erreichbar sein"
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr "Ihre callback URL solle von Nexmo erreichbar sein"
+
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr "Ihre callback URL solle von OpenVox erreichbar sein"
+
+msgid "Your callback URL should be accessible from twilio"
+msgstr "Ihre callback URL solle von Twilio erreichbar sein"
+
 msgid "Your choice"
 msgstr "Ihre Auswahl"
 
 msgid "Your credit"
+msgstr "Ihre Credits"
+
+#, fuzzy
+msgid "Your current callback URL is"
+msgstr "Ihre callback URL ist"
+
+msgid "Your email format is invalid"
+msgstr "Ihr Email-Format ist ungültig"
+
+msgid "Your message has been delivered to queue"
+msgstr "Ihre Nachricht wurde an die Queue übermittelt"
+
+msgid "Your message has been delivered to some of the destinations"
+msgstr "Ihre Nachricht wurde an einige der angegebenen Ziele übermittelt"
+
+msgid "Your mobile format is invalid"
+msgstr "Ihr Mobilrufnummern-Format ist ungültig"
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
 msgstr ""
+"Ihr Sub-Benutzer mit Benutzernamen %s und Account ID %d hat die untere "
+"Credit-Grenze von %s erreicht"
+
+msgid "Zipcode"
+msgstr "PLZ"
+
+msgid "amount"
+msgstr "Betrag"
+
+msgid "balance"
+msgstr "Kontostand"
+
+msgid "blocked"
+msgstr "gesperrt"
+
+msgid "chars"
+msgstr "Zeichen"
 
 msgid "code"
 msgstr "Kürzel"
 
-#, fuzzy
-msgid "destination number, message"
-msgstr "Format: Zielrufnummer, Nachricht"
+msgid "correct"
+msgstr "korrekt"
 
-#, fuzzy
+msgid "cost"
+msgstr "Kosten"
+
+msgid "count"
+msgstr "Menge"
+
+msgid "create an account to send SMS"
+msgstr "Erstellen Sie einen Account zum Senden von SMS"
+
+msgid "destination"
+msgstr "Ziel"
+
+msgid "destination number, message"
+msgstr "Zielrufnummer, Nachricht"
+
 msgid "destination number, message, username"
-msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
+msgstr "Zielrufnummer, Nachricht, Benutzername"
+
+msgid "domain"
+msgstr "Domäne"
+
+msgid "email"
+msgstr "Email"
+
+msgid "failed"
+msgstr "fehlgeschlagen"
+
+msgid "for subuser only"
+msgstr "Nur für Sub-Benutzer"
+
+msgid "format"
+msgstr "Format"
+
+msgid "free credits are available for testing purposes"
+msgstr "Freie Credits sind zu Testzwecken verfügbar"
 
 msgid "group"
 msgstr "Gruppe"
 
+msgid "incorrect"
+msgstr "nicht korrekt"
+
 msgid "invalid entries"
 msgstr "Ungültige Einträge"
+
+msgid "keyword"
+msgstr "Schlagwort"
+
+msgid "mobile"
+msgstr "Mobilnummer"
+
+msgid "multiple times"
+msgstr "mehrmals"
 
 msgid "no"
 msgstr "nein"
@@ -786,11 +3188,100 @@ msgstr "nein"
 msgid "of"
 msgstr "von"
 
+msgid "on"
+msgstr "an"
+
+msgid "one time"
+msgstr "einmal"
+
+msgid "one time every 24 hours"
+msgstr "einmal pro 24 Stunden"
+
+msgid "one time every month"
+msgstr "einmal pro Monat"
+
+msgid "one time every week"
+msgstr "einmal pro Woche"
+
+msgid "playSMS daemon is NOT running"
+msgstr "playSMS Dienst läuft NICHT"
+
+msgid "playSMS daemon is running"
+msgstr "playSMS Dienst läuft"
+
+msgid "playSMS daemon status"
+msgstr "playSMS Dienst Status"
+
+msgid "playSMS web URL"
+msgstr "playSMS Web URL"
+
+msgid "prefix"
+msgstr "Prefix"
+
+msgid "queued"
+msgstr "Queued"
+
+msgid "rate"
+msgstr "Rate"
+
 msgid "return"
-msgstr ""
+msgstr "Zurück"
+
+msgid "title"
+msgstr "Titel"
+
+msgid "twilio is a bulk SMS provider"
+msgstr "Twilio ist ein SMSMassenversand Provider"
+
+msgid "twilio will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio liefert DLR und eingehende SMS an Ihre callback URL"
+
+msgid "user"
+msgstr "Benutzer"
+
+msgid "username"
+msgstr "Benutzername"
 
 msgid "valid entries"
 msgstr "Gültige Einträge"
+
+#, php-format
+msgid "view all %d"
+msgstr "Zeige alle %d"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "wilrd ersetzt durch Eingangszeit der SMS"
+
+msgid "will be replaced by SMS raw message"
+msgstr "wird eretzt durch die SMS-Nachricht (raw)"
+
+msgid "will be replaced by actual receiver number"
+msgstr "wird ersetzt durch die tatsächliche Empfängernummer"
+
+msgid "will be replaced by command keyword"
+msgstr "wird ersetzt durch das command Schlagwort"
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr ""
+"wird ersetzt durch command Parameter die durch die SMS an den Server "
+"übergeben werden"
+
+msgid "will be replaced by custom keyword"
+msgstr "wird ersetzt durch custom Schlagwort"
+
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr ""
+"wird ersetzt durch custom Parameter die durch die SMS an den Server "
+"übergeben werden"
+
+msgid "will be replaced by receiver number"
+msgstr "wird ersetzt durch die Empfängernummer"
+
+msgid "will be replaced by sender number"
+msgstr "wird ersetzt durch die Absendernummer"
+
+msgid "will be replaced by service name"
+msgstr "wird ersetzt durch den Dienste-Namen"
 
 msgid "will be replaced with the name listed in phonebook"
 msgstr "wird durch Name aus dem Telefonbuch ersetzt"

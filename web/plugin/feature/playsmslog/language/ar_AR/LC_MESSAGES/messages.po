@@ -1,0 +1,14 @@
+msgid "Refresh"
+msgstr ""
+
+msgid "View log"
+msgstr ""
+
+msgid "playSMS daemon is NOT running"
+msgstr ""
+
+msgid "playSMS daemon is running"
+msgstr ""
+
+msgid "playSMS daemon status"
+msgstr ""
