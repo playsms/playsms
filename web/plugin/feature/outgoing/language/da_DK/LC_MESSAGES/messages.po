@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "Action"
 msgstr "Handling"
@@ -37,7 +37,7 @@ msgid "Fail to save route"
 msgstr "Kunne ikke slette rute"
 
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Flere emner adskilt med komma"
 
 msgid "Prefix"
 msgstr "Præfiks"

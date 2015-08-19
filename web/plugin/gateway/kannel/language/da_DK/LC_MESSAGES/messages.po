@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "Additional URL parameter"
 msgstr "Yderligere URL parametre"
@@ -22,10 +22,10 @@ msgid "Changes have been made"
 msgstr "Ændringer er blevet foretaget"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Konfiguration"
 
 msgid "DLR mask"
-msgstr ""
+msgstr "DLR maske"
 
 msgid "Delivered to SMSC"
 msgstr "Leveret til SMSC"
@@ -63,9 +63,8 @@ msgstr "Kannel admin adgangskode"
 msgid "Kannel admin port"
 msgstr "Kannel admin port"
 
-#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr "Kannel admin vært"
+msgstr "Kannel dlr-mask indstilling"
 
 msgid "Kannel specific"
 msgstr "Kannel specifikt"
@@ -95,7 +94,7 @@ msgid "Non-Delivered to phone"
 msgstr "Ikke-leveret til telefon"
 
 msgid "Operational"
-msgstr ""
+msgstr "Kørende"
 
 msgid "Password"
 msgstr "Adgangskode"
@@ -124,9 +123,8 @@ msgstr "Status"
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL til playSMS, hvis tom sættes den til basis URL"
 
-#, fuzzy
 msgid "Update status"
-msgstr "Kannel status"
+msgstr "Opdater status"
 
 msgid "Username"
 msgstr "Brugernavn"

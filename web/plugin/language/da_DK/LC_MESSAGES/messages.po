@@ -11,895 +11,893 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "1 Day"
-msgstr ""
+msgstr "1 dag"
 
 msgid "1 Month"
-msgstr ""
+msgstr "1 måned"
 
 msgid "1 Week"
-msgstr ""
+msgstr "1 uge"
 
 msgid "2 Days"
-msgstr ""
+msgstr "2 dage"
 
 msgid "2 Weeks"
-msgstr ""
+msgstr "2 uger"
 
 msgid "6 Months"
-msgstr ""
+msgstr "6 måneder"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr ""
+msgstr "ACL DEFAULT vil ikke begrænse adgang til menuer"
 
 msgid "ACL ID"
-msgstr ""
+msgstr "ACL ID"
 
 msgid "ACL been edited"
-msgstr ""
+msgstr "ACL er blevet redigeret"
 
 msgid "ACL has been deleted"
-msgstr ""
+msgstr "ACL er blevet slettet"
 
 msgid "ACL name"
-msgstr ""
+msgstr "ACL navn"
 
 msgid "API ID"
-msgstr ""
+msgstr "API ID"
 
 msgid "API key"
-msgstr ""
+msgstr "API nøgle"
 
 msgid "API password"
-msgstr ""
+msgstr "API adgangskode"
 
 msgid "API secret"
-msgstr ""
+msgstr "API hemmelighed"
 
-#, fuzzy
 msgid "API username"
-msgstr "Slet bruger"
+msgstr "API brugernavn"
 
 msgid "Access Control List"
-msgstr ""
+msgstr "Access Control List"
 
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
 "service."
 msgstr ""
+"Adgang til ukendt domæne som er mappet til denne servers IP adresse, vil "
+"blive omdirigeret til denne websteds-URL. Dette websteds-URL bør være den "
+"primære adresse for servicen."
 
 #, php-format
 msgid "Account %s is currently banned to use services"
-msgstr ""
+msgstr "Kontoen %s er i øjeblikket bandlyst fra at bruge services"
 
 msgid "Account SID"
-msgstr ""
+msgstr "Konto SID"
 
 msgid "Account admin or currently logged in administrator cannot be banned"
-msgstr ""
+msgstr "Kontoadmin eller aktuelt indlogget administrator kan ikke bandlyses"
 
 msgid "Account admin or currently logged in administrator cannot be unbanned"
 msgstr ""
+"Kontoadmin eller aktuelt indlogget administrator kan ikke få fjernet "
+"bandlysning"
 
 msgid "Account already exists"
-msgstr ""
+msgstr "Kontoen eksisterer allerede"
 
 msgid "Account has been added and password has been emailed"
-msgstr ""
+msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
 
 msgid "Account has been added but failed to send email"
-msgstr ""
+msgstr "Konto er blevet tilføjet men kunne ikke sende e-mail"
 
 msgid "Account has been banned"
-msgstr ""
+msgstr "Konto er blevet bandlyst"
 
 msgid "Account has been removed"
-msgstr ""
+msgstr "Konto er blevet fjernet"
 
 msgid "Account has been unbanned"
-msgstr ""
+msgstr "Konto er ikke længere bandlyst"
 
 msgid "Account name is mandatory"
-msgstr ""
+msgstr "Kontonavn er krævet"
 
 msgid "Account registration is not available"
-msgstr ""
+msgstr "Konto registrering er ikke tilgængeligt"
 
 msgid "Account status"
-msgstr ""
+msgstr "Kontostatus"
 
 msgid "Account with this email already exists"
-msgstr ""
+msgstr "Konto med denne e-mail eksisterer allerede"
 
 msgid "Account with this mobile already exists"
-msgstr ""
+msgstr "Konto med dette mobilnr eksisterer allerede"
 
 msgid "Action"
-msgstr ""
+msgstr "Handling"
 
 msgid "Active language"
-msgstr ""
+msgstr "Aktivt sprog"
 
 msgid "Active themes"
-msgstr ""
+msgstr "Aktive temaer"
 
 msgid "Add"
 msgstr "Tilføj"
 
 msgid "Add ACL"
-msgstr ""
+msgstr "Tilføj ACL"
 
 msgid "Add SMS autoreply"
-msgstr ""
+msgstr "Tilføj SMS autosvar"
 
 msgid "Add SMS autoreply scenario"
-msgstr ""
+msgstr "Tilføj SMS autosvar system"
 
 msgid "Add SMS board"
-msgstr ""
+msgstr "Tilføj SMS forum"
 
 msgid "Add SMS command"
-msgstr ""
+msgstr "Tilføj SMS kommando"
 
 msgid "Add SMS custom"
-msgstr ""
+msgstr "Tilføj tilpasset SMS"
 
 msgid "Add SMS poll"
-msgstr ""
+msgstr "Tilføj SMS afstemning"
 
 msgid "Add SMS quiz"
-msgstr ""
+msgstr "Tilføj SMS quiz"
 
 msgid "Add SMS schedule"
-msgstr ""
+msgstr "Tilføj SMS tidsplan"
 
 msgid "Add SMS subscribe"
-msgstr ""
+msgstr "Tilføj SMS abonnement"
 
 msgid "Add SMSC"
-msgstr ""
+msgstr "Tilføj SMSC"
 
-#, fuzzy
 msgid "Add account"
-msgstr "Min konto"
+msgstr "Tilføj konto"
 
 msgid "Add blocked IP addresses"
-msgstr ""
+msgstr "Tilføj blokerede IP adresser"
 
 msgid "Add blocked mobile numbers"
-msgstr ""
+msgstr "Tilføj blokerede mobilnumre"
 
 msgid "Add catch-all"
-msgstr ""
+msgstr "Tilføj catch-all"
 
 msgid "Add choice to this poll"
-msgstr ""
+msgstr "Tilføj valg til denne afstemning"
 
 msgid "Add contact"
-msgstr ""
+msgstr "Tilføj kontakt"
 
-#, fuzzy
 msgid "Add credit"
-msgstr "Din kredit"
+msgstr "Tilføj kredit"
 
 msgid "Add credit to users"
-msgstr ""
+msgstr "Tilføj kredit til brugere"
 
 msgid "Add destination"
-msgstr ""
+msgstr "Tilføj destination"
 
 msgid "Add group"
-msgstr ""
+msgstr "Tilføj gruppe"
 
 msgid "Add group inbox"
-msgstr ""
+msgstr "Tilføj gruppe-indbakke"
 
 msgid "Add member"
-msgstr ""
+msgstr "Tilføj medlem"
 
-#, fuzzy
 msgid "Add message"
-msgstr "Send besked"
+msgstr "Tilføj besked"
 
 msgid "Add message template"
-msgstr ""
+msgstr "Tilføj beskedskabelon"
 
 msgid "Add or reduce credit from manage credit menu"
-msgstr ""
+msgstr "Tilføj eller fjern kredit fra håndter kredit menuen"
 
 msgid "Add rate"
-msgstr ""
+msgstr "Tilføj takst"
 
 msgid "Add route"
-msgstr ""
+msgstr "Tilføj rute"
 
-#, fuzzy
 msgid "Add sender ID"
-msgstr "Håndter afsender ID"
+msgstr "Tilføj afsender ID"
 
-#, fuzzy
 msgid "Add subuser"
-msgstr "Håndter underbruger"
+msgstr "Tilføj underbruger"
 
 msgid "Additional URL parameter"
-msgstr ""
+msgstr "Yderligere URL parametre"
 
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 msgid "Administrator"
 msgstr "Administrator"
 
-#, fuzzy
 msgid "Administrators"
-msgstr "Administrator"
+msgstr "Administratorer"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid "All feature messages"
-msgstr ""
+msgstr "Alle feature beskeder"
 
 msgid "All inbox"
-msgstr ""
+msgstr "Alle indbakker"
 
 msgid "All mandatory fields must be filled"
-msgstr ""
+msgstr "Alle obligatoriske felter skal udfyldes"
 
 msgid "All queues have been removed"
-msgstr ""
+msgstr "Alle køer er blevet fjernet"
 
-#, fuzzy
 msgid "All reports"
-msgstr "Rapporter"
+msgstr "Alle rapporter"
 
-#, fuzzy
 msgid "All sent messages"
-msgstr "Send besked"
+msgstr "Alle sendte beskeder"
 
-#, fuzzy
 msgid "All users"
-msgstr "Slet bruger"
+msgstr "Alle brugere"
 
 msgid "Allow users to select SMS footer while on Send SMS page"
-msgstr ""
+msgstr "Tillad brugere at vælge SMS bundtekst på Send SMS siden"
 
 msgid "Allow users to select sender ID while on Send SMS page"
-msgstr ""
+msgstr "Tillad brugere at vælge afsender ID på Send SMS siden"
 
 msgid "Already a member reply"
-msgstr ""
+msgstr "Allerede medlem svar"
 
 msgid "Always add plus sign"
-msgstr ""
+msgstr "Tilføj altid plustegn"
 
 msgid "Always choose to send as unicode"
-msgstr ""
+msgstr "Send altid som unicode"
 
 msgid "Always remove plus sign"
-msgstr ""
+msgstr "Fjern altid plustegn"
 
 msgid "Amount"
-msgstr ""
+msgstr "Beløb"
 
 msgid "Annually"
-msgstr ""
+msgstr "Årligt"
 
 msgid "Answer"
-msgstr ""
+msgstr "Svar"
 
 msgid "Anyone"
-msgstr ""
+msgstr "Alle"
 
 msgid ""
 "Application footer here. Go to main configuration or manage site to edit "
 "this footer."
 msgstr ""
+"Programbundtekst skal være her. Gå til primær konfiguration eller håndter "
+"websted for at redigere denne bundtekst."
 
 msgid "Application options"
-msgstr ""
+msgstr "Programindstillinger"
 
-#, fuzzy
 msgid "Approve sender ID"
-msgstr "Håndter afsender ID"
+msgstr "Godkend afsenders ID"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Er du sikker?"
 
 msgid "Are you sure you want to ban account"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at bandlyse kontoen"
 
 msgid "Are you sure you want to ban subuser"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at bandlyse underbrugeren"
 
 msgid "Are you sure you want to delete ACL ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette ACL?"
 
 msgid "Are you sure you want to delete ALL queues"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette ALLE køer"
 
 msgid "Are you sure you want to delete SMS autoreply ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette SMS autosvar?"
 
 msgid "Are you sure you want to delete SMS board with all its messages ?"
 msgstr ""
+"Er du sikker på at du ønsker at slette SMS forum med alle dets beskeder?"
 
 msgid "Are you sure you want to delete SMS command ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slettet SMS kommandoen?"
 
 msgid "Are you sure you want to delete SMS custom ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette tilpasset SMS"
 
 msgid ""
 "Are you sure you want to delete SMS poll with all its choices and votes ?"
 msgstr ""
+"Er du sikker på at du ønsker at slette SMS afstemningen med alle denne valg "
+"og stemmer?"
 
 msgid ""
 "Are you sure you want to delete SMS quiz with all its choices and answers ?"
 msgstr ""
+"Er du sikker på at du ønsker at slette SMS quiz med alle dennes valg og "
+"stemmer?"
 
 msgid "Are you sure you want to delete SMS schedule ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette SMS tidsplanen?"
 
 msgid "Are you sure you want to delete SMS subscribe ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette SMS abonnement?"
 
 msgid "Are you sure you want to delete choice ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette valget?"
 
 msgid "Are you sure you want to delete queue"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette køen"
 
 msgid "Are you sure you want to delete rate ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette takst?"
 
 msgid "Are you sure you want to delete sender ID"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette afsender ID"
 
 msgid "Are you sure you want to delete subuser"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette underbrugeren"
 
 msgid "Are you sure you want to delete subuser ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette underbrugeren?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette disse emner?"
 
 msgid "Are you sure you want to delete these transactions ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette disse transaktioner?"
 
 msgid "Are you sure you want to delete this SMS autoreply scenario ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette dette SMS autosvar system?"
 
 msgid "Are you sure you want to delete this answer ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette dette svar?"
 
 msgid "Are you sure you want to delete this group inbox ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette denne gruppe-indbakke?"
 
 msgid "Are you sure you want to delete this member ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette dette medlem?"
 
 msgid "Are you sure you want to delete this message?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette denne besked?"
 
 msgid "Are you sure you want to delete user"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette brugeren"
 
 msgid "Are you sure you want to delete user ?"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at slette brugeren?"
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
+"Er du sikker på at du ønsker at fjerne dette nummer fra SMS tidsplanen?"
 
 msgid "Are you sure you want to unban account"
-msgstr ""
+msgstr "Er du sikker på at du ønsker at fjerne bandlysningen af kontoen"
 
 msgid "Are you sure you want to unban subuser"
-msgstr ""
+msgstr "Er du sikker på at du vil fjerne bandlysningen af underbrugeren"
 
 msgid "Auth Token"
-msgstr ""
+msgstr "Auth token"
 
 msgid "Author"
-msgstr ""
+msgstr "Forfatter"
 
 msgid "Back"
-msgstr ""
+msgstr "Tilbage"
 
 msgid "Balance"
-msgstr ""
+msgstr "Balance"
 
 msgid "Balance recorded on transaction"
-msgstr ""
+msgstr "Balance på transaktionen"
 
 msgid "Ban"
 msgstr "Bandlys"
 
 msgid "Ban date/time"
-msgstr ""
+msgstr "Bandlyst dato/tid"
 
 msgid "Banned users list"
-msgstr ""
+msgstr "Listen over bandlyste brugere"
 
 msgid "Bearerbox hostname or IP"
-msgstr ""
+msgstr "Bearerbox værtsnavn eller IP"
 
 msgid "Billing"
-msgstr ""
+msgstr "Afregning"
 
 msgid "Blocked IP address"
-msgstr ""
+msgstr "Blokeret IP adresse"
 
 msgid "Blocked mobile"
-msgstr ""
+msgstr "Blokeret mobilnr"
 
 msgid "Bulksms API URL"
-msgstr ""
+msgstr "Bulksms API URL"
 
 msgid "Bulksms is a bulk SMS provider"
-msgstr ""
+msgstr "Bulksms er en masse-SMS leverandør"
 
 msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Bulksms vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Buy"
 msgstr "Køb"
 
-#, fuzzy
 msgid "Buy credit page"
-msgstr "Din kredit"
+msgstr "Køb kredit side"
 
 msgid "CSS URL"
-msgstr ""
+msgstr "CSS URL"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "CSV filformat"
 
 msgid "Callback Secret"
-msgstr ""
+msgstr "Callback hemmelighed"
 
 msgid "Callback URL"
-msgstr ""
+msgstr "Callback URL"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuller"
 
 msgid "Cancel send from file"
-msgstr ""
+msgstr "Anuller send fra fil"
 
 msgid "Cannot change status when user have subusers"
-msgstr ""
+msgstr "Kan ikke ændre status når bruger har underbrugere"
 
 msgid "Cannot find PHP PEAR-DB"
-msgstr ""
+msgstr "Kan ikke finde PHP PEAR-DB"
 
 msgid "Catch-all"
-msgstr ""
+msgstr "Catch-all"
 
 msgid "Catch-all has been added"
-msgstr ""
+msgstr "Catch-all er blevet tilføjet"
 
 msgid "Catch-all has been deleted"
-msgstr ""
+msgstr "Catch-all er blevet slettet"
 
 msgid "Catch-all list"
-msgstr ""
+msgstr "Catch-all liste"
 
 msgid "Changes have been made"
-msgstr ""
+msgstr "Ændringer er blevet foretaget"
 
 msgid "Check email sender"
-msgstr ""
+msgstr "Tjek e-mail afsender"
 
 msgid "Check to enable receiving push messages from SMSSync app"
-msgstr ""
+msgstr "Marker for at aktivere modtagelse af push beskeder fra SMSSync app"
 
 msgid "Choice already exists"
-msgstr ""
+msgstr "Valget eksisterer allerede"
 
 msgid "Choice description"
-msgstr ""
+msgstr "Valg beskrivelse"
 
 msgid "Choice has been added"
-msgstr ""
+msgstr "Valget er blevet tilføjet"
 
 msgid "Choice keyword"
-msgstr ""
+msgstr "Valg nøgleord"
 
 msgid "City"
-msgstr ""
+msgstr "By"
 
 msgid "Click the status button to enable or disable status"
-msgstr ""
+msgstr "Klik på statusknappen for at aktivere eller deaktivere status"
 
 msgid "Clickatell API URL"
-msgstr ""
+msgstr "Clickatell API URL"
 
 msgid "Clickatell is a bulk SMS provider"
-msgstr ""
+msgstr "Clickatell er en mass-SMS leverandør"
 
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Clickatell vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Comma separated"
-msgstr ""
+msgstr "Kommasepareret"
 
 msgid "Comma separated for multiple entries"
-msgstr ""
+msgstr "Kommasepareret ved flere emner"
 
 msgid "Comma separated values for multiple IP addresses"
-msgstr ""
+msgstr "Kommaseparerede værdier ved flere IP adresser"
 
 msgid "Comma separated values for multiple mobile numbers"
-msgstr ""
+msgstr "Kommaseparerede værdier ved flere mobilnumre"
 
 msgid "Compose message"
 msgstr "Lav besked"
 
-#, fuzzy
 msgid "Configuration"
-msgstr "Primær konfiguration"
+msgstr "Konfiguration"
 
-#, fuzzy
 msgid "Confirmation"
-msgstr "Primær konfiguration"
+msgstr "Bekræftelse"
 
 msgid "Contact has been added"
-msgstr ""
+msgstr "Kontakt er blevet tilføjet"
 
 msgid "Contact has been edited"
-msgstr ""
+msgstr "Kontakt er blevet redigeret"
 
 msgid "Contacts have been imported"
-msgstr ""
+msgstr "Kontakter er blevet importeret"
 
 msgid "Content"
-msgstr ""
+msgstr "Indhold"
 
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
+"Kopier beskeden til brugers indbakke når indkommende SMS indeholder @username"
 
 msgid "Core"
-msgstr ""
+msgstr "Kerne"
 
 msgid "Count"
-msgstr ""
+msgstr "Antal"
 
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 msgid "Created"
-msgstr ""
+msgstr "Oprettet"
 
 msgid "Credit"
-msgstr ""
+msgstr "Kredit"
 
 msgid "Credit has been added"
-msgstr ""
+msgstr "Der er tilføjet kredit"
 
 msgid "Credit has been reduced"
-msgstr ""
+msgstr "Der er reduceret kredit"
 
 msgid "Current IP address"
-msgstr ""
+msgstr "Aktuel IP-adresser"
 
 msgid "Current catchall"
-msgstr ""
+msgstr "Aktuel catch-all"
 
 msgid "Current members"
-msgstr ""
+msgstr "Aktuelle medlemmer"
 
 msgid "Currently logged in user is immune to deletion"
-msgstr ""
+msgstr "Aktuelt indloggede brugere kan ikke slettes"
 
 msgid "DEFAULT"
-msgstr ""
+msgstr "STANDARD"
 
 msgid "DLR mask"
-msgstr ""
+msgstr "DLR maske"
 
 msgid "Daily"
-msgstr ""
+msgstr "Dagligt"
 
 msgid "Date"
-msgstr ""
+msgstr "Dato"
 
 msgid "Date and time"
-msgstr ""
+msgstr "Dato og tid"
 
 msgid "Date/Time"
-msgstr ""
+msgstr "Dato/tid"
 
 msgid "Datetime"
-msgstr ""
+msgstr "Dato-tid"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
 msgstr ""
+"Vælg om denne ACL indeholder ikke tilladte URL'er i stedet for tilladte "
+"URL'er"
 
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 msgid "Default ACL upon registration"
-msgstr ""
+msgstr "Standard ACL ved registrering"
 
 msgid "Default SMS rate"
-msgstr ""
+msgstr "Standard SMS takst"
 
 msgid "Default SMSC"
-msgstr ""
+msgstr "Standard SMSC"
 
 msgid "Default account status upon registration"
-msgstr ""
+msgstr "Standard kontostatus ved registrering"
 
 msgid "Default credit upon registration"
-msgstr ""
+msgstr "Standard kredit ved registrering"
 
 msgid "Default default_queue directory"
-msgstr ""
+msgstr "Standard default_queue mappe"
 
-#, fuzzy
 msgid "Default language"
-msgstr "Kunne ikke indlæse sproget"
+msgstr "Standard sprog"
 
 msgid "Default message footer"
-msgstr ""
+msgstr "Standard besked bundtekst"
 
 msgid ""
 "Default parent selected upon registration when the default account status on "
 "registration setting set to Subuser"
 msgstr ""
+"Standard forælder valgt ved registrering, når standard kontostatus er sat "
+"til underbruger"
 
 msgid "Default parent upon registration"
-msgstr ""
+msgstr "Standatd forælder ved registrering"
 
 msgid "Default prefix or country code"
-msgstr ""
+msgstr "Standard præfiks eller landekode"
 
 msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
+"Standard præfiks eller landekode der skal erstatte præfiks 0 på "
+"destinationsnummer"
 
-#, fuzzy
 msgid "Default sender ID"
-msgstr "Håndter afsender ID"
+msgstr "Standard afsender ID"
 
 msgid "Default settings"
-msgstr ""
+msgstr "Standardindstillinger"
 
-#, fuzzy
 msgid "Default site configuration"
-msgstr "Primær konfiguration"
+msgstr "Standard site konfiguration"
 
 msgid "Default timezone"
-msgstr ""
+msgstr "Standard tidszone"
 
 msgid ""
 "Define a single character as keyword separator replacing default keyword "
 "separator a space"
 msgstr ""
+"Angiv et enkelt tegn der skal bruges som nøgleords separator i stedet for "
+"mellemrum som separator"
 
 msgid "Delete"
 msgstr "Slet"
 
-#, fuzzy
 msgid "Delete ALL queues"
-msgstr "Slet bruger"
+msgstr "Slet ALLE køer"
 
 msgid "Delete catch-all"
-msgstr ""
+msgstr "Slet catch-all"
 
 msgid "Delete group inbox"
-msgstr ""
+msgstr "Slet gruppe-indbakke"
 
-#, fuzzy
 msgid "Delete member"
-msgstr "Slet bruger"
+msgstr "Slet medlem"
 
 msgid "Delete user"
 msgstr "Slet bruger"
 
-#, fuzzy
 msgid "Deleted"
-msgstr "Slet"
+msgstr "Slettet"
 
 msgid "Delivered"
-msgstr ""
+msgstr "Leveret"
 
 msgid "Delivered to SMSC"
-msgstr ""
+msgstr "Leveret til SMSC"
 
 msgid "Delivered to phone"
-msgstr ""
+msgstr "Leveret til telefon"
 
 msgid "Description"
-msgstr ""
+msgstr "Beskrivelse"
 
 msgid "Destination"
-msgstr ""
+msgstr "Destination"
 
 msgid "Destination has been deleted"
-msgstr ""
+msgstr "Destinationen er blevet slettet"
 
 msgid "Destination has been edited"
-msgstr ""
+msgstr "Destinationen er blevet redigeret"
 
 msgid "Destination name"
-msgstr ""
+msgstr "Destinationsnavn"
 
 msgid "Destination number"
-msgstr ""
+msgstr "Destinationsnummer"
 
 msgid "Disable login as subuser"
-msgstr ""
+msgstr "Deaktiver login som underbruger"
 
 msgid "Disallowed URLs"
-msgstr ""
+msgstr "Ikke tilladte URL'er"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domæne"
 
 msgid "Download SMSSync app for Android from"
-msgstr ""
+msgstr "Download SMSSync app til Android fra"
 
 msgid "Edit"
 msgstr "Rediger"
 
-#, fuzzy
 msgid "Edit ACL"
-msgstr "Rediger"
+msgstr "Rediger ACL"
 
 msgid "Edit SMS autoreply"
-msgstr ""
+msgstr "Rediger SMS autosvar"
 
 msgid "Edit SMS autoreply scenario"
-msgstr ""
+msgstr "Rediger SMS autosvar system"
 
 msgid "Edit SMS board"
-msgstr ""
+msgstr "Rediger SMS forum"
 
 msgid "Edit SMS command"
-msgstr ""
+msgstr "Rediger SMS kommando"
 
 msgid "Edit SMS custom"
-msgstr ""
+msgstr "Rediger tilpasset SMS"
 
 msgid "Edit SMS poll"
-msgstr ""
+msgstr "Rediger SMS afstemning"
 
 msgid "Edit SMS poll choices"
-msgstr ""
+msgstr "Rediger SMS afstemning valg"
 
 msgid "Edit SMS quiz"
-msgstr ""
+msgstr "Rediger SMS quiz"
 
 msgid "Edit SMS subscribe"
-msgstr ""
+msgstr "Rediger SMS abonnement"
 
-#, fuzzy
 msgid "Edit SMSC"
-msgstr "Rediger"
+msgstr "Rediger SMSC"
 
 msgid "Edit contact"
-msgstr ""
+msgstr "Rediger kontakt"
 
 msgid "Edit destination"
-msgstr ""
+msgstr "Rediger destination"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Rediger gruppe"
 
 msgid "Edit group inbox"
-msgstr ""
+msgstr "Rediger grupper-indbakke"
 
-#, fuzzy
 msgid "Edit message"
-msgstr "Send besked"
+msgstr "Rediger besked"
 
 msgid "Edit message template"
-msgstr ""
+msgstr "Rediger beskedskabelon"
 
-#, fuzzy
 msgid "Edit rate"
-msgstr "Rediger"
+msgstr "Rediger pris"
 
 msgid "Edit route"
-msgstr ""
+msgstr "Rediger rute"
 
 msgid "Edit schedule"
-msgstr ""
+msgstr "Rediger tidsplan"
 
-#, fuzzy
 msgid "Edit sender ID"
-msgstr "Håndter afsender ID"
+msgstr "Rediger afsender ID"
 
 msgid "Effective SMS sender ID"
-msgstr ""
+msgstr "Effektivt SMS afsender ID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "F.eks: +0700 til Jakarta/Bangkok tidszone"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "Email address is mandatory"
-msgstr ""
+msgstr "E-mailadressen er påkrævet"
 
 msgid "Email footer"
-msgstr ""
+msgstr "E-mail footer"
 
 msgid "Email protocol"
-msgstr ""
+msgstr "E-mail protokol"
 
 msgid "Email service"
-msgstr ""
+msgstr "E-mail service"
 
 msgid "Email to SMS PIN has been saved"
-msgstr ""
+msgstr "E-mail til SMS PIN er blevet gemt"
 
 msgid "Email to SMS PIN has been saved but service is disabled"
-msgstr ""
+msgstr "E-mail til SMS PIN er blevet gemt men servicen er deaktiveret"
 
 msgid "Email to SMS address"
-msgstr ""
+msgstr "E-mail til SMS adresse"
 
 msgid "Email to SMS configuration has been saved and service disabled"
-msgstr ""
+msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er deaktiveret"
 
 msgid "Email to SMS configuration has been saved and service enabled"
-msgstr ""
+msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er aktiveret"
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
+"Nulstil standard afsender ID for at lade brugere vælge deres eget afsender ID"
 
 msgid "Enable SMS Sync"
-msgstr ""
+msgstr "Aktiver SMS Sync"
 
 msgid "Enable credit unicode SMS as normal SMS"
-msgstr ""
+msgstr "Aktiver kreditering af unicode SMS som normal SMS"
 
 msgid "Enable fetch new emails"
-msgstr ""
+msgstr "Aktiver hentning af nye e-mails"
 
 msgid "Enable forgot password"
-msgstr ""
+msgstr "Aktiver glemt adgangskode"
 
 msgid "Enable login brute force detection"
-msgstr ""
+msgstr "Aktiver opdagelse af brute force login"
 
 msgid "Enable logo"
-msgstr ""
+msgstr "Aktiver logo"
 
 msgid "Enable public registration"
-msgstr ""
+msgstr "Aktiver offentlig registrering"
 
 msgid "Enable webservices"
-msgstr ""
+msgstr "Aktiver webservices"
 
 msgid "Enhance privacy for subusers"
-msgstr ""
+msgstr "Forbedr privatliv for underbrugere"
 
 msgid "Entries in CSV file have been imported"
-msgstr ""
+msgstr "Emnerne i CSV filen er blevet importeret"
 
 msgid "Example"
-msgstr ""
+msgstr "Eksempel"
 
 msgid "Example of SMS custom URL"
-msgstr ""
+msgstr "Eksempel på tilpasset SMS URL"
 
 msgid "Exclusive"
-msgstr ""
+msgstr "Eksklusiv"
 
 msgid "Exec"
-msgstr ""
+msgstr "Kør"
 
 msgid "Export"
 msgstr "Eksporter"
@@ -907,424 +905,399 @@ msgstr "Eksporter"
 msgid "FATAL ERROR"
 msgstr "FATAL FEJL"
 
-#, fuzzy
 msgid "Fail to add SMS autoreply"
-msgstr "Kunne ikke indlæse gateway'en"
+msgstr "Kunne ikke tilføje SMS autosvar"
 
 msgid "Fail to add SMS autoreply scenario"
-msgstr ""
+msgstr "Kunne ikke tilføje SMS autosvar system"
 
 msgid "Fail to add SMS board"
-msgstr ""
+msgstr "Kunne ikke tilføje SMS forum"
 
 msgid "Fail to add SMS command"
-msgstr ""
+msgstr "Kunne ikke sende SMS kommando"
 
-#, fuzzy
 msgid "Fail to add SMS custom"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke tilføje tilpasset SMS"
 
 msgid "Fail to add SMS poll"
-msgstr ""
+msgstr "Kunne ikke tilføje SMS afstemning"
 
 msgid "Fail to add SMS quiz"
-msgstr ""
+msgstr "Kunne ikke tilføje SMS quiz"
 
 msgid "Fail to add SMS subscribe"
-msgstr ""
+msgstr "Kunne ikke tilføje SMS abonnement"
 
-#, fuzzy
 msgid "Fail to add catch-all"
-msgstr "Kunne ikke indlæse gateway'en"
+msgstr "Kunne ikke tilføje catch-all"
 
-#, fuzzy
 msgid "Fail to add credit"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke tilføje kredit"
 
 msgid "Fail to add group inbox"
-msgstr ""
+msgstr "Kunne ikke tilføje gruppe-indbakke"
 
-#, fuzzy
 msgid "Fail to add member"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke tilføje medlem"
 
-#, fuzzy
 msgid "Fail to add message"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke tilføje besked"
 
-#, fuzzy
 msgid "Fail to add message template"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke tilføje besked skabelon"
 
-#, fuzzy
 msgid "Fail to add new ACL"
-msgstr "Kunne ikke indlæse gateway'en"
+msgstr "Kunne ikke tilføje ny ACL"
 
 msgid "Fail to add new SMS schedule"
-msgstr ""
+msgstr "Kunne ikke tilføje ny SMS tidsplan"
 
-#, fuzzy
 msgid "Fail to add new SMSC"
-msgstr "Kunne ikke indlæse gateway'en"
+msgstr "Kunne ikke tilføje ny SMSC"
 
-#, fuzzy
 msgid "Fail to add new destination"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke tilføje ny destination"
 
-#, fuzzy
 msgid "Fail to add route"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke tilføje rute"
 
 msgid "Fail to delete ACL"
-msgstr ""
+msgstr "Kunne ikke slette ACL"
 
 msgid "Fail to delete SMS autoreply"
-msgstr ""
+msgstr "Kunne ikke slette SMS autosvar"
 
 msgid "Fail to delete SMS autoreply scenario"
-msgstr ""
+msgstr "Kunne ikke tilføje SMS autosvar system"
 
 msgid "Fail to delete SMS command"
-msgstr ""
+msgstr "Kunne ikke slettte SMS kommando"
 
 msgid "Fail to delete SMS custom"
-msgstr ""
+msgstr "Kunne ikke slette tilpasset SMS"
 
 msgid "Fail to delete SMS poll choice"
-msgstr ""
+msgstr "Kunne ikke slette SMS afstemnings-valg"
 
 msgid "Fail to delete SMS schedule"
-msgstr ""
+msgstr "Kunne ikke slette SMS tidsplan"
 
 msgid "Fail to delete catch-all"
-msgstr ""
+msgstr "Kunne ikke slette catch-all"
 
 msgid "Fail to delete destination"
-msgstr ""
+msgstr "Kunne ikke slettte destination"
 
 msgid "Fail to delete group"
-msgstr ""
+msgstr "Kunne ikke slette gruppe"
 
 msgid "Fail to delete group inbox"
-msgstr ""
+msgstr "Kunne ikke slette gruppe-indbakke"
 
-#, fuzzy
 msgid "Fail to delete member"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke slette medlem"
 
-#, fuzzy
 msgid "Fail to delete rate"
-msgstr "Kunne ikke indlæse gateway'en"
+msgstr "Kunne ikke slette prit"
 
-#, fuzzy
 msgid "Fail to delete route"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke slette rute"
 
 msgid "Fail to disable group inbox"
-msgstr ""
+msgstr "Kunne ikke deaktivere gruppe-indbakke"
 
 msgid "Fail to edit ACL"
-msgstr ""
+msgstr "Kunne ikke redigere ACL"
 
 msgid "Fail to edit SMS autoreply scenario"
-msgstr ""
+msgstr "Kunne ikke redigere SMS autosvar system"
 
 msgid "Fail to edit SMS board"
-msgstr ""
+msgstr "Kunne ikke redigere SMS forum"
 
 msgid "Fail to edit SMS quiz"
-msgstr ""
+msgstr "Kunne ikke redigere SMS quiz"
 
 msgid "Fail to edit SMS schedule"
-msgstr ""
+msgstr "Kunne ikke redigere SMS tidsplan"
 
 msgid "Fail to edit SMS subscribe"
-msgstr ""
+msgstr "Kunne ikke redigere SMS abonnement"
 
 msgid "Fail to edit SMSC"
-msgstr ""
+msgstr "Kunne ikke redigere SMSC"
 
 msgid "Fail to edit destination"
-msgstr ""
+msgstr "Kunne ikke redigere destinationen"
 
 msgid "Fail to edit group inbox"
-msgstr ""
+msgstr "Kunne ikke redigere gruppe-indbakke"
 
-#, fuzzy
 msgid "Fail to edit message"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke redigere besked"
 
 msgid "Fail to edit message template"
-msgstr ""
+msgstr "Kunne ikke redigere beskedskabelon"
 
 msgid "Fail to enable group inbox"
-msgstr ""
+msgstr "Kunne ikke aktivere gruppe-indbakke"
 
 msgid "Fail to insert keyword"
-msgstr ""
+msgstr "Kunne ikke indsætte nøgleord"
 
 msgid "Fail to recover password"
-msgstr ""
+msgstr "Kunne ikke gendanne adgangskode"
 
 msgid "Fail to reduce credit"
-msgstr ""
+msgstr "Kunne ikke reducere kredit"
 
 msgid "Fail to register an account"
-msgstr ""
+msgstr "Kunne ikke registrere en konto"
 
 msgid "Fail to remove SMSC"
-msgstr ""
+msgstr "Kunne ikke fjerne SMSC"
 
-#, fuzzy
 msgid "Fail to save SMS Sync configuration"
-msgstr "Primær konfiguration"
+msgstr "Kunne ikke gemme SMS Sync konfiguration"
 
 msgid "Fail to save SMS command"
-msgstr ""
+msgstr "Kunne ikke gemme SMS kommando"
 
 msgid "Fail to save SMS custom"
-msgstr ""
+msgstr "Kunne ikke gemme tilpasset SMS"
 
-#, fuzzy
 msgid "Fail to save configuration"
-msgstr "Primær konfiguration"
+msgstr "Kunne ikke gemme konfiguration"
 
 msgid "Fail to save email to SMS PIN"
-msgstr ""
+msgstr "Kunne ikke gemme email til SMS PIN"
 
 msgid "Fail to save gateway module configurations"
-msgstr ""
+msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
-#, fuzzy
 msgid "Fail to save preferences"
-msgstr "Brugerindstillinger"
+msgstr "Kunne ikke gemme indstillinger"
 
-#, fuzzy
 msgid "Fail to save rate"
-msgstr "Kunne ikke indlæse gateway'en"
+msgstr "Kunne ikke gemme pris"
 
-#, fuzzy
 msgid "Fail to save route"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke gemme rute"
 
 msgid "Fail to save temporary password"
-msgstr ""
+msgstr "Kunne ikke gemme midlertidig adgangskode"
 
 msgid "Fail to send SMS"
-msgstr ""
+msgstr "Kunne ikke sende SMS"
 
-#, fuzzy
 msgid "Fail to send email"
-msgstr "Kunne ikke indlæse temaer"
+msgstr "Kunne ikke sende e-mail"
 
 msgid "Fail to send message to all destinations"
-msgstr ""
+msgstr "Kunne ikke sende besked til alle destinationer"
 
 msgid "Fail to simulate incoming SMS"
-msgstr ""
+msgstr "Kunne ikke simulere inkommende SMS"
 
 msgid "Fail to update SMS autoreply"
-msgstr ""
+msgstr "Kunne ikke opdatere SMS autosvar"
 
 msgid "Fail to update due to invalid sender ID"
-msgstr ""
+msgstr "Kunne ikke opdatere grundet ugyldigt afsender ID"
 
-#, fuzzy
 msgid "Fail to upload CSV file"
-msgstr "Kunne ikke indlæse sproget"
+msgstr "Kunne ikke uploade CSV-fil"
 
 msgid "Fail to upload CSV file for phonebook"
-msgstr ""
+msgstr "Kunne ikke uploade CSV fil til telefonbog"
 
 msgid "Failed"
-msgstr ""
+msgstr "Mislykket"
 
-#, fuzzy
 msgid "Feature"
-msgstr "Funktioner"
+msgstr "Funktion"
 
 msgid "Features"
 msgstr "Funktioner"
 
 msgid "Fill the password field to change password"
-msgstr ""
+msgstr "Udfyld adgangskodefeltet for at skifte adgangskode"
 
 msgid "Fill to change the API key"
-msgstr ""
+msgstr "Udfyld for at ændre API nøglen"
 
 msgid "Fill to change the API password"
-msgstr ""
+msgstr "Udfyld for at ændre API adgangskoden"
 
 msgid "Fill to change the API secret"
-msgstr ""
+msgstr "Udfyld for at ændre API hemmeligheden"
 
 msgid "Fill to change the Auth Token"
-msgstr ""
+msgstr "Udfyld for at ændre auth token"
 
 msgid "Fill to change the password"
-msgstr ""
+msgstr "Udfyld for at ændre adgangskoden"
 
 msgid "Fill with zero to disable limit"
-msgstr ""
+msgstr "Udfyld med nul for at deaktivere begrænsning"
 
-#, fuzzy
 msgid "Flash message"
-msgstr "Lav besked"
+msgstr "Flash besked"
 
 msgid "Footer"
-msgstr ""
+msgstr "Bundtekst"
 
 msgid "For example a short code"
-msgstr ""
+msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr ""
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
 
 msgid "Forward all sandbox SMS to a URL"
-msgstr ""
+msgstr "Videresend alle sandbox SMS til en URL"
 
 msgid "Forward message to email"
-msgstr ""
+msgstr "Videresend besked til e-mail"
 
 msgid "Forward message to inbox"
-msgstr ""
+msgstr "Videresend besked til en indbakke"
 
 msgid "Forward message to mobile"
-msgstr ""
+msgstr "Videresend besked til mobil"
 
-#, fuzzy
 msgid "Forward to email"
-msgstr "Videresend"
+msgstr "Videresend til e-mail"
 
 msgid "Forwarded email footer"
-msgstr ""
+msgstr "Videresendt e-mail bundtekst"
 
 msgid "Found invalid entries in uploaded file"
-msgstr ""
+msgstr "Fandt ugyldige emner i den uploadede fil"
 
 msgid "Found valid entries in uploaded file"
-msgstr ""
+msgstr "Fandt gyldige emner i den uploadede fil"
 
 msgid "From"
-msgstr ""
+msgstr "Fra"
 
 msgid "Full name"
-msgstr ""
+msgstr "Fulde navn"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Gateway host"
-msgstr ""
+msgstr "Gateway vært:"
 
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "Gateway-modul konfigurationen er blevet gemt"
 
 msgid "Gateway name"
-msgstr ""
+msgstr "Gateway navn"
 
 msgid "Gateway port"
-msgstr ""
+msgstr "Gateway port"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Gateways"
 
 msgid "Go"
 msgstr "Gå"
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
+"Gå til primær konfiguration eller håndter sted for at redigere denne side"
 
 msgid "Go to manage site menu to edit this page"
-msgstr ""
+msgstr "Gå til håndter websted menuen for at redigere denne side"
 
 msgid "Grand total SMS"
-msgstr ""
+msgstr "Samlet antal SMS"
 
 msgid "Grand total senders"
-msgstr ""
+msgstr "Samlet antal afsendere"
 
 msgid "Graph output"
-msgstr ""
+msgstr "Grafisk output"
 
 msgid "Group"
 msgstr "Gruppe"
 
-#, fuzzy
 msgid "Group code"
-msgstr "Gruppe"
+msgstr "Gruppekode"
 
 msgid "Group code already exists"
-msgstr ""
+msgstr "Gruppekode eksisterer allerede"
 
 msgid "Group code has been added"
-msgstr ""
+msgstr "Gruppekode er blevet tilføjet"
 
 msgid "Group code may be used to broadcast SMS to this group"
-msgstr ""
+msgstr "Gruppekode kan bruges til at broadcaste SMS til denne gruppe"
 
 msgid "Group has been edited"
-msgstr ""
+msgstr "Gruppe er blevet redigeret"
 
 msgid ""
 "Group has been edited but unable to set broadcast from members or anyone"
 msgstr ""
+"Grippen er blevet redigeret men kunne ikke indstille broadcast fra medlemmer "
+"eller andre"
 
-#, fuzzy
 msgid "Group inbox"
-msgstr "Gruppe"
+msgstr "Gruppeindboks"
 
 msgid "Group inbox has been added"
-msgstr ""
+msgstr "Gruppe-indbakke er blevet tilføjet"
 
 msgid "Group inbox has been deleted"
-msgstr ""
+msgstr "Gruppe-indbakke er blevet slettet"
 
 msgid "Group inbox has been disabled"
-msgstr ""
+msgstr "Gruppe-indbakke er blevet deaktiveret"
 
 msgid "Group inbox has been edited"
-msgstr ""
+msgstr "Gruppe-indbakke er blevet redigeret"
 
 msgid "Group inbox has been enabled"
-msgstr ""
+msgstr "Gruppe-indbakke er blevet aktiveret"
 
-#, fuzzy
 msgid "Group name"
-msgstr "Gruppe"
+msgstr "Gruppenavn"
 
 msgid "HTML output"
-msgstr ""
+msgstr "HTML output"
 
 msgid "HTTP Kannel admin host"
-msgstr ""
+msgstr "HTTP Kannel admin vært"
 
 msgid "HTTP Kannel admin password"
-msgstr ""
+msgstr "HTTP Kannel admin adgangskode"
 
 msgid "HTTP Kannel admin port"
-msgstr ""
+msgstr "HTTP Kannel admin port"
 
 msgid "Home"
 msgstr "Hjem"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "IP address"
-msgstr ""
+msgstr "IP adresse"
 
 msgid "IP addresses"
-msgstr ""
+msgstr "IP adresser"
 
 msgid "IP addresses have been blocked"
-msgstr ""
+msgstr "IP adresser er blevet blokeret"
 
 msgid "IP addresses have been deleted"
-msgstr ""
+msgstr "IP adresse er blevet slettet"
 
 msgid "Idle"
 msgstr "Ledig"
@@ -1333,220 +1306,216 @@ msgid "Import"
 msgstr "Importer"
 
 msgid "Import above destination entries ?"
-msgstr ""
+msgstr "Importer ovenstÃ¥ende destinations-emner?"
 
 msgid "Import above phonebook entries ?"
-msgstr ""
+msgstr "Importer ovenstående telefonbogsemner?"
 
-#, fuzzy
 msgid "Import confirmation"
-msgstr "Brugerkonfiguration"
+msgstr "Import bekræftelse"
 
 msgid "Inbox"
-msgstr ""
+msgstr "Indbakke"
 
 msgid "Incoming SMS route changes has been saved"
-msgstr ""
+msgstr "Indkommende SMS rute ændringer er blevet gemt"
 
 msgid "Incoming SMS time is in local time"
-msgstr ""
+msgstr "Indkommende SMS tid er i lokal tid"
 
 msgid "Infobip API URL"
-msgstr ""
+msgstr "Infobip API URL"
 
 msgid "Infobip is a bulk SMS provider"
-msgstr ""
+msgstr "Infobip er en masse-SMS leverandør"
 
 msgid "Infobip will push DLR and incoming SMS to above URL"
-msgstr ""
+msgstr "Infobip vil sende DLR og indkommende SMS til ovenstående URL"
 
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 msgid "Information page"
-msgstr ""
+msgstr "Informationsside"
 
 msgid "Insert keyword"
-msgstr ""
+msgstr "Indsæt nøgleord"
 
 msgid "Internal error please contact service provider"
-msgstr ""
+msgstr "Intern fejl, kontakt venligst serviceleverandør"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Ugyldig"
 
 msgid "Invalid CSV file"
-msgstr ""
+msgstr "Ugyldig CSV fil"
 
 msgid "Invalid entries"
-msgstr ""
+msgstr "Ugyldige emner"
 
-#, fuzzy
 msgid "Invalid sender ID"
-msgstr "Håndter afsender ID"
+msgstr "Ugyldig afsender ID"
 
 msgid "Invalid session ID"
-msgstr ""
+msgstr "Ugyldigt session ID"
 
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Ugyldigt brugernavn eller adgangskode"
 
 msgid "JSON output"
-msgstr ""
+msgstr "JSON output"
 
 msgid "Jasmin send SMS URL"
-msgstr ""
+msgstr "Jasmin afsend SMS URL"
 
 msgid "Jasmin will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Jasmin vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Kannel admin host"
-msgstr ""
+msgstr "Kannel admin vært"
 
 msgid "Kannel admin password"
-msgstr ""
+msgstr "Kannel admin adgangskode"
 
 msgid "Kannel admin port"
-msgstr ""
+msgstr "Kannel admin port"
 
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Kannel dlr-mask indstilling"
 
 msgid "Kannel specific"
-msgstr ""
+msgstr "Kannel specifikt"
 
 msgid "Kannel status"
-msgstr ""
+msgstr "Kannel status"
 
 msgid "Keyword"
-msgstr ""
+msgstr "Nøgleord"
 
 #, php-format
 msgid "Keyword %s is not available"
-msgstr ""
+msgstr "Nøgleordet %s er ikke tilgængeligt"
 
 msgid "Keyword separator"
-msgstr ""
+msgstr "Nøgleords separator"
 
 msgid "Keywords"
-msgstr ""
+msgstr "Nøgleord"
 
 msgid "Languages"
-msgstr ""
+msgstr "Sprog"
 
 msgid "Last update"
-msgstr ""
+msgstr "Sidst opdateret"
 
 msgid "Layout footer"
-msgstr ""
+msgstr "Layout footer"
 
 msgid "Leave a copy in sandbox SMS page"
-msgstr ""
+msgstr "Læg en kopi i sandbox SMS siden"
 
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
+"At lægge en kopi i sandbox SMS siden kan være godt til auditering eller "
+"gennemgange"
 
-#, fuzzy
 msgid "List of accounts"
-msgstr "Min konto"
+msgstr "Kontoliste"
 
-#, fuzzy
 msgid "List of administrators"
-msgstr "Administrator"
+msgstr "Administratorliste"
 
 msgid "List of destinations"
-msgstr ""
+msgstr "Liste over destinationer"
 
-#, fuzzy
 msgid "List of gateways and SMSCs"
-msgstr "Håndter gateway og SMSC"
+msgstr "Gateway og SMSC liste"
 
 #, php-format
 msgid "List of messages from %s"
-msgstr ""
+msgstr "Vis alle beskeder fra %s"
 
 msgid "List of my credit transactions"
-msgstr ""
+msgstr "Liste over mine kredit transaktioner"
 
 #, php-format
 msgid "List of queue %s"
-msgstr ""
+msgstr "Liste over køen %s"
 
 msgid "List of subusers"
-msgstr ""
+msgstr "Liste over underbrugere"
 
 msgid "List of transactions"
-msgstr ""
+msgstr "Liste over transaktioner"
 
 msgid "List of users"
-msgstr ""
+msgstr "Liste over brugere"
 
 msgid "Local number length"
-msgstr ""
+msgstr "Lokalnummer længde"
 
 msgid "Local playnet password"
-msgstr ""
+msgstr "Lokal playnet adgangskode"
 
 msgid "Local playnet username"
-msgstr ""
+msgstr "Lokal playnet brugernavn"
 
 msgid "Logged in as"
 msgstr "Logget ind som"
 
-#, fuzzy
 msgid "Login"
-msgstr "Login som"
+msgstr "Login"
 
 msgid "Login as"
 msgstr "Login som"
 
-#, fuzzy
 msgid "Login information"
-msgstr "Primær konfiguration"
+msgstr "Login information"
 
 msgid "Logo URL"
-msgstr ""
+msgstr "Logo URL"
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
+"Logo vil som standard blive vist på login, registrering og glemt adgangskode "
+"siderne"
 
 msgid "Logout"
 msgstr "Log ud"
 
 msgid "Lowest credit limit to trigger notification"
-msgstr ""
+msgstr "Laveste kredritgrænse der aktiverer besked"
 
 msgid "MBOX output"
-msgstr ""
+msgstr "MBOX output"
 
 msgid "Mail server address"
-msgstr ""
+msgstr "Postserver adresse"
 
 msgid "Mail server port"
-msgstr ""
+msgstr "Postserver port"
 
 msgid "Mailbox password"
-msgstr ""
+msgstr "Postkasse adgangskode"
 
 msgid "Mailbox username"
-msgstr ""
+msgstr "Postkasse brugernavn"
 
 msgid "Main configuration"
 msgstr "Primær konfiguration"
 
-#, fuzzy
 msgid "Main configuration changes has been saved"
-msgstr "Primær konfiguration"
+msgstr "Primær konfigurationsændringer er blevet gemt"
 
 msgid "Main website URL"
-msgstr ""
+msgstr "PrimÃ¦r webside URL"
 
 msgid "Main website name"
-msgstr ""
+msgstr "PrimÃ¦r webside navn"
 
 msgid "Make return as reply"
-msgstr ""
+msgstr "Gør returværdi til svar"
 
 msgid "Manage"
 msgstr "Håndter"
@@ -1554,103 +1523,80 @@ msgstr "Håndter"
 msgid "Manage ACL"
 msgstr "Håndter ACL"
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "Håndter websted"
+msgstr "Håndter OpenVox"
 
-#, fuzzy
 msgid "Manage SMS rate"
-msgstr "Håndter websted"
+msgstr "Håndter SMS pris"
 
 msgid "Manage account"
 msgstr "Håndter konto"
 
-#, fuzzy
 msgid "Manage autoreply"
-msgstr "Håndter gateway"
+msgstr "Håndter autosvar"
 
-#, fuzzy
 msgid "Manage blocked"
-msgstr "Håndter underbruger"
+msgstr "Håndter blokeret"
 
-#, fuzzy
 msgid "Manage board"
-msgstr "Håndter bruger"
+msgstr "Håndter forum"
 
-#, fuzzy
 msgid "Manage bulksms"
-msgstr "Håndter underbrugere"
+msgstr "Håndter masse-sms"
 
-#, fuzzy
 msgid "Manage clickatell"
-msgstr "Håndter websted"
+msgstr "Håndter clickatell"
 
-#, fuzzy
 msgid "Manage command"
-msgstr "Håndter konto"
+msgstr "Håndter kommando"
 
-#, fuzzy
 msgid "Manage credit"
-msgstr "Håndter websted"
+msgstr "Håndter kredit"
 
-#, fuzzy
 msgid "Manage custom"
-msgstr "Håndter websted"
+msgstr "Håndter tilpasset"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "Håndter websted"
+msgstr "Håndter dev"
 
-#, fuzzy
 msgid "Manage email to SMS"
-msgstr "Håndter gateway og SMSC"
+msgstr "Håndter email til SMS"
 
-#, fuzzy
 msgid "Manage firewall"
-msgstr "Håndter websted"
+msgstr "Håndter firewall"
 
-#, fuzzy
 msgid "Manage gammu"
-msgstr "Håndter bruger"
+msgstr "Håndter gammu"
 
 msgid "Manage gateway and SMSC"
 msgstr "Håndter gateway og SMSC"
 
-#, fuzzy
 msgid "Manage infobip"
-msgstr "Håndter websted"
+msgstr "Håndter infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Håndter websted"
+msgstr "Håndter jasmin"
 
-#, fuzzy
 msgid "Manage kannel"
-msgstr "Håndter konto"
+msgstr "Håndter kannel"
 
-#, fuzzy
 msgid "Manage nexmo"
-msgstr "Håndter websted"
+msgstr "Håndter nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Håndter konto"
+msgstr "Håndter playnet"
 
-#, fuzzy
 msgid "Manage plugin"
-msgstr "Håndter konto"
+msgstr "Håndter udvidelse"
 
-#, fuzzy
 msgid "Manage poll"
-msgstr "Håndter"
+msgstr "Håndter afstemning"
 
-#, fuzzy
 msgid "Manage quiz"
-msgstr "Håndter websted"
+msgstr "Håndter quiz"
 
-#, fuzzy
 msgid "Manage schedule"
-msgstr "Håndter afsender ID"
+msgstr "Håndter tidsplan"
 
 msgid "Manage sender ID"
 msgstr "Håndter afsender ID"
@@ -1658,583 +1604,570 @@ msgstr "Håndter afsender ID"
 msgid "Manage site"
 msgstr "Håndter websted"
 
-#, fuzzy
 msgid "Manage smstools"
-msgstr "Håndter websted"
+msgstr "Håndter smstools"
 
-#, fuzzy
 msgid "Manage stoplist"
-msgstr "Håndter websted"
+msgstr "Håndter stopliste"
 
-#, fuzzy
 msgid "Manage subscribe"
-msgstr "Håndter underbruger"
+msgstr "Håndter abonnement"
 
 msgid "Manage subuser"
 msgstr "Håndter underbruger"
 
-#, fuzzy
 msgid "Manage sync"
-msgstr "Håndter websted"
+msgstr "Håndter synk"
 
-#, fuzzy
 msgid "Manage telerivet"
-msgstr "Håndter websted"
+msgstr "Håndter telerivet"
 
-#, fuzzy
 msgid "Manage template"
-msgstr "Håndter websted"
+msgstr "Håndter skabelon"
 
-#, fuzzy
 msgid "Manage twilio"
-msgstr "Håndter gateway"
+msgstr "Håndter twilio"
 
-#, fuzzy
 msgid "Manage uplink"
-msgstr "Håndter bruger"
+msgstr "Håndter uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr ""
+msgstr "Krævede felter må ikke være tomme"
 
 msgid "Master URL"
-msgstr ""
+msgstr "Master URL"
 
 msgid "Match with all approved sender ID"
-msgstr ""
+msgstr "Sammenlign med alle godkendte afsender ID'er"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
+msgstr "Maks. 16 nummeriske eller 11 alfanumeriske tegn, tom for at deaktivere"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
-msgstr ""
+msgstr "Maks. 16 nummeriske eller 11 alfanummeriske tegn"
 
 msgid "Max. 30 alphanumeric characters"
-msgstr ""
+msgstr "Maks. 30 alfanummeriske tegn"
 
 msgid "Maximum SMS count"
-msgstr ""
+msgstr "Maksimum antal SMS"
 
 msgid "Maximum username length"
-msgstr ""
+msgstr "Maksimum brugernavns længde"
 
 msgid "Maximum username length must be a number between 4 to 100"
-msgstr ""
+msgstr "Maksimum brugernavns længde skal være et tal mellem 4 og 100"
 
 msgid "Me only"
-msgstr ""
+msgstr "Kun mig"
 
 msgid "Member has been added"
-msgstr ""
+msgstr "Medlem er blevet tilføjet"
 
 msgid "Member has been deleted"
-msgstr ""
+msgstr "Medlem er blevet slettet"
 
 msgid "Member join datetime"
-msgstr ""
+msgstr "Medlem deltaget datotid"
 
 msgid "Member list"
-msgstr ""
+msgstr "Medlemsliste"
 
 msgid "Member list for keyword"
-msgstr ""
+msgstr "Medlemsliste for nøgleord"
 
 msgid "Members"
-msgstr ""
+msgstr "Medlemmer"
 
-#, fuzzy
 msgid "Message"
-msgstr "Send besked"
+msgstr "Besked"
 
 #, php-format
 msgid "Message %s has been delivered to queue"
-msgstr ""
+msgstr "Beskeden %s er afleveret til køen"
 
 msgid "Message ID"
-msgstr ""
+msgstr "Besked ID"
 
 msgid "Message body"
-msgstr ""
+msgstr "Besked body"
 
 msgid "Message detail"
-msgstr ""
+msgstr "Besked detalje"
 
 msgid "Message footer"
-msgstr ""
+msgstr "Besked bundtekst"
 
 msgid "Message from"
-msgstr ""
+msgstr "Besked fra"
 
 msgid "Message has been added"
-msgstr ""
+msgstr "Besked er blevet tilføjet"
 
 msgid "Message has been deleted"
-msgstr ""
+msgstr "Besked er blevet slettet"
 
 msgid "Message has been edited"
-msgstr ""
+msgstr "Besked er blevet redigeret"
 
 msgid "Message received at"
-msgstr ""
+msgstr "Besked modtaget kl"
 
 msgid "Message template"
-msgstr ""
+msgstr "Beskedskabelon"
 
 msgid "Message template content"
-msgstr ""
+msgstr "Beskedskabelon indhold"
 
 msgid "Message template has been edited"
-msgstr ""
+msgstr "Beskedskabelon er blevet redigeret"
 
 msgid "Message template has been saved"
-msgstr ""
+msgstr "Beskedskabelon er blevet gemt"
 
 msgid "Message template name"
-msgstr ""
+msgstr "Beskedskabelon navn"
 
-#, fuzzy
 msgid "Messages"
-msgstr "Send besked"
+msgstr "Beskeder"
 
 msgid "Min length to detect missing country code"
-msgstr ""
+msgstr "Min. længde til at opdage manglende landekode"
 
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 msgid "Mobile numbers"
-msgstr ""
+msgstr "Mobilnumre"
 
 msgid "Mobile numbers have been blocked"
-msgstr ""
+msgstr "Mobilnumre er blevet blokeret"
 
 msgid "Mobile numbers have been deleted"
-msgstr ""
+msgstr "Mobilnumre er blevet slettet"
 
-#, fuzzy
 msgid "Module sender ID"
-msgstr "Håndter afsender ID"
+msgstr "Modul afsender ID"
 
 msgid "Module timezone"
-msgstr ""
+msgstr "Modul tidszone"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Månedligt"
 
 msgid "Move"
 msgstr "Flyt"
 
-#, fuzzy
 msgid "Move to"
-msgstr "Flyt"
+msgstr "Flyt til"
 
 msgid "Multi"
-msgstr ""
+msgstr "Flere"
 
 msgid "Multiple IP addresses must be comma-separated"
-msgstr ""
+msgstr "Flere IP adresser skal adskilles med komma"
 
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Flere emner adskilt med komma"
 
 msgid "Multiple mobile numbers must be comma-separated"
-msgstr ""
+msgstr "Flere mobilnumre skal være kommaseparerede"
 
 msgid "My account"
 msgstr "Min konto"
 
 msgid "My credit transactions"
-msgstr ""
+msgstr "Mine kredit transaktioner"
 
 msgid "My email to SMS"
-msgstr ""
+msgstr "Min e-mail til SMS"
 
 msgid "My feature messages"
-msgstr ""
+msgstr "Mine feature beskeder"
 
-#, fuzzy
 msgid "My report"
-msgstr "Rapporter"
+msgstr "Min rapport"
 
-#, fuzzy
 msgid "My sent messages"
-msgstr "Send besked"
+msgstr "Mine sendte beskeder"
 
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 msgid "New ACL been added"
-msgstr ""
+msgstr "Ny ACL er blevet tilføjet"
 
 msgid "New SMS schedule been added"
-msgstr ""
+msgstr "Ny SMS tidsplan er blevet tilfÃ¸jet"
 
 msgid "New SMSC has been added"
-msgstr ""
+msgstr "Ny SMSC er blevet tilføjet"
 
 msgid "New account registration"
-msgstr ""
+msgstr "Ny konto registrering"
 
 msgid "New destination has been added"
-msgstr ""
+msgstr "Ny destination er blevet tilfÃ¸jet"
 
 msgid "Nexmo URL"
-msgstr ""
+msgstr "Nexmo URL"
 
 msgid "Nexmo is a bulk SMS provider"
-msgstr ""
+msgstr "Nexmo er en masse-SMS leverandør"
 
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 msgid "No changes has been made"
-msgstr ""
+msgstr "Ingen ændringer er foretaget"
 
 msgid "No changes have been made"
-msgstr ""
+msgstr "Ingen ændringer foretaget"
 
 msgid "No changes made"
-msgstr ""
+msgstr "Ingen ændringer foretaget"
 
 msgid "No changes made!"
-msgstr ""
+msgstr "Ingen ændringer foretaget!"
 
-#, fuzzy
 msgid "No group"
-msgstr "Gruppe"
+msgstr "Ingen gruppe"
 
 msgid "No route has been saved"
-msgstr ""
+msgstr "Ingen rute er blevet gemt"
 
 msgid "No trailing slash"
-msgstr ""
+msgstr "Ingen efterfølgende skråstreg"
 
 msgid "No validate cert option"
-msgstr ""
+msgstr "Ingen gyldige cert indstillinger"
 
 msgid "Non-Delivered to SMSC"
-msgstr ""
+msgstr "Ikke-leveret til SMSC"
 
 msgid "Non-Delivered to phone"
-msgstr ""
+msgstr "Ikke-leveret til telefon"
 
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 msgid "Notes"
-msgstr ""
+msgstr "Noter"
 
 msgid "Number"
-msgstr ""
+msgstr "Nummer"
 
 msgid "Number of sent SMS per hour limit"
-msgstr ""
+msgstr "Grænse for antal sendte SMS per time"
 
 msgid "Number of votes"
-msgstr ""
+msgstr "Antal stemmer"
 
 msgid "Offline"
 msgstr "Offline"
 
 msgid "Once"
-msgstr ""
+msgstr "Ãn gang"
 
 msgid "Online"
 msgstr "Online"
 
 msgid "Only when the sender ID is approved"
-msgstr ""
+msgstr "Kun når afsender ID er godkendt"
 
 msgid "Operational"
-msgstr ""
+msgstr "Kørende"
 
 msgid "Options"
-msgstr ""
+msgstr "Indstillinger"
 
 msgid "PHP serialize output"
-msgstr ""
+msgstr "PHP serialize output"
 
 msgid "PIN for email to SMS"
-msgstr ""
+msgstr "PIN kode for email til SMS"
 
 msgid "PIN is empty"
-msgstr ""
+msgstr "PIN er tom"
 
-#, fuzzy
 msgid "Page content"
-msgstr "Håndter konto"
+msgstr "Sideindhold"
 
-#, fuzzy
 msgid "Page title"
-msgstr "Håndter websted"
+msgstr "Sidetitel"
 
 msgid "Param"
-msgstr ""
+msgstr "Param"
 
 msgid "Parent"
-msgstr ""
+msgstr "Forælder"
 
-#, fuzzy
 msgid "Parent account"
-msgstr "Håndter konto"
+msgstr "Overliggende konto"
 
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
 "subuser will be automatically assigned to user admin"
 msgstr ""
+"Forælderkonto er kun påkrævet for underbrugere. Hvis der ikke er angivet en "
+"værdi vil underbrugeren automatisk tilknyttes til bruger admin"
 
 msgid "Pass these parameter to command exec field"
-msgstr ""
+msgstr "Brug disse parametre til kommandoen"
 
 msgid "Pass these parameters to custom URL field"
-msgstr ""
+msgstr "Videresend disse parametre til tilpasset URL felt"
 
 msgid "Password"
-msgstr ""
+msgstr "Adgangskode"
 
 msgid "Password does not match"
-msgstr ""
+msgstr "Adgangskoderne er ikke ens"
 
 msgid "Password has been emailed"
-msgstr ""
+msgstr "Adgangskode er blevet e-mailet"
 
 msgid "Password recovery"
-msgstr ""
+msgstr "Adgangskode gendannelse"
 
 msgid "Password should be at least 4 characters"
-msgstr ""
+msgstr "Adgangskoden skal være mindst 4 tegn"
 
 msgid "Pending"
-msgstr ""
+msgstr "Afventer"
 
 msgid "Personal information"
-msgstr ""
+msgstr "Personlige oplysninger"
 
 msgid "Phone number"
-msgstr ""
+msgstr "Telefonnummer"
 
 msgid "Phonebook"
-msgstr ""
+msgstr "Telefonbog"
 
 msgid "Please remove all subusers from this user to delete"
-msgstr ""
+msgstr "Fjern venligst alle underbrugere fra denne bruger før sletning"
 
 msgid "Please select"
-msgstr ""
+msgstr "Vælg venligst"
 
 msgid "Please select CSV file"
-msgstr ""
+msgstr "VÃ¦lg venligst en CSV fil"
 
 msgid "Please select CSV file for phonebook entries"
-msgstr ""
+msgstr "Vælg CSV fil med telefonbogsemner"
 
 msgid "Please select template"
-msgstr ""
+msgstr "Vælg venligst skabelon"
 
 msgid "Please type the displayed captcha phrase correctly"
-msgstr ""
+msgstr "Indtast venligst den viste captcha sætning korrekt"
 
 msgid "Please use alphanumeric only and make it short"
-msgstr ""
+msgstr "Brug venligst kun alfanumeriske tegn og gør det kort"
 
 msgid "Please use uppercase and make it short"
-msgstr ""
+msgstr "Brug venligst store bogstaver og gør det kort"
 
 msgid "Post rules"
-msgstr ""
+msgstr "Efter regler"
 
 msgid "Pre rules"
-msgstr ""
+msgstr "Før regler"
 
 msgid "Preferences"
 msgstr "Indstillinger"
 
 msgid "Preferences have been saved"
-msgstr ""
+msgstr "Dine indstillinger er blevet gemt"
 
 msgid "Preferences have been saved and password updated"
-msgstr ""
+msgstr "Indstillingerne er blevet gemt og adgangskoden er opdateret"
 
 msgid "Preferences have been saved and webservices token updated"
-msgstr ""
+msgstr "Indstillingerne er blevet gemt og webservice token er opdateret"
 
 msgid "Prefix"
-msgstr ""
+msgstr "Præfiks"
 
 msgid "Prefix or country code"
-msgstr ""
+msgstr "Præfiks eller landekode"
 
 msgid "Prefix with # for groups and @ for users"
-msgstr ""
+msgstr "Præfiks med # for grupper og @ for brugere"
 
 msgid "Press submit button to add selected users to catch-all list"
 msgstr ""
+"Tryk på knappen indsend for at tilføje valgte brugere til catch-all listen"
 
 msgid "Press submit button to add selected users to member list"
 msgstr ""
+"Tryk på knappen indsend for at tilføje valgte brugere til medlemslisten"
 
 msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr ""
+"Tryk på knappen indsend for at fjerne valgte brugere fra catch-all listen"
 
 msgid "Press submit button to remove selected members from member list"
-msgstr ""
+msgstr "Tryk på knappen indsend for at fjerne valgte brugere fra medlemslisten"
 
 msgid "Prevent duplicates"
-msgstr ""
+msgstr "Forhindre dubletter"
 
 msgid "Project ID"
-msgstr ""
+msgstr "Projekt ID"
 
 msgid "Question"
-msgstr ""
+msgstr "Spørgsmål"
 
 msgid "Queue Code"
-msgstr ""
+msgstr "Kø-kode"
 
 msgid "Queue directory"
-msgstr ""
+msgstr "Kø mappe"
 
 msgid "Queue has been removed"
-msgstr ""
+msgstr "Køen er blevet fjernet"
 
 msgid "Queued on SMSC"
-msgstr ""
+msgstr "I kø på SMSC"
 
 msgid "RSS 0.91 output"
-msgstr ""
+msgstr "RSS 0.91 output"
 
 msgid "RSS 1.0 output"
-msgstr ""
+msgstr "RSS 1.0 output"
 
 msgid "RSS 2.0 output"
-msgstr ""
+msgstr "RSS 2.0 output"
 
 msgid "RSS ATOM output"
-msgstr ""
+msgstr "RSS ATOM output"
 
 msgid "Rate"
-msgstr ""
+msgstr "Takst"
 
 msgid "Rate already exists"
-msgstr ""
+msgstr "Taksten eksisterer allerede"
 
 msgid "Rate has been added"
-msgstr ""
+msgstr "Taksten er allerede tilføjet"
 
 msgid "Rate has been deleted"
-msgstr ""
+msgstr "Taksten er blevet slettet"
 
 msgid "Rate has been saved"
-msgstr ""
+msgstr "Taksten er blevet gemt"
 
 msgid "Re-type password"
-msgstr ""
+msgstr "Gen-indtast adgangskode"
 
 msgid ""
 "Read and type the captcha phrase on verify captcha field. If you cannot read "
 "them please contact administrator."
 msgstr ""
+"Læs og indtast captcha sætningen i feltet. Hvis du ikke kan læse dem, så "
+"kontakt administratoren."
 
 msgid "Received answer list for keyword"
-msgstr ""
+msgstr "Modtagne svar liste for nøgleord"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Modtager"
 
 msgid "Receiver number"
-msgstr ""
+msgstr "Modtagernummer"
 
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
 "sender ID"
 msgstr ""
+"Modtagernummer kan sammenlignes med standard afsender ID eller med alle "
+"godkendte afsender ID'er"
 
 msgid "Receiver number does not exist"
-msgstr ""
+msgstr "Modtagernummer eksisterer ikke"
 
 msgid "Recover password"
-msgstr ""
+msgstr "Gendan adgangskode"
 
 msgid "Recover password disabled"
-msgstr ""
+msgstr "Gendan adgangskode er deaktiveret"
 
 msgid "Reduce"
 msgstr "Reducer"
 
-#, fuzzy
 msgid "Reduce credit"
-msgstr "Din kredit"
+msgstr "Reducer kredit"
 
 msgid "Reduce credit from users"
-msgstr ""
+msgstr "Reducer kredit fra brugere"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Opfrisk"
 
-#, fuzzy
 msgid "Register an account"
-msgstr "Håndter konto"
+msgstr "Registrer en konto"
 
 msgid "Registered"
-msgstr ""
+msgstr "Registreret"
 
 msgid "Remote is on"
-msgstr ""
+msgstr "Fjernsystem er tændt"
 
 msgid "Remote playSMS URL"
-msgstr ""
+msgstr "Fjernsystem playSMS URL"
 
 msgid "Remote playnet SMSC name"
-msgstr ""
+msgstr "Fjernsystem playnet SMSC navn"
 
 msgid "Remote playnet password"
-msgstr ""
+msgstr "Fjernsystem playnet adgangskode"
 
 msgid "Remote playnet username"
-msgstr ""
+msgstr "Fjernsystem playnet brugernavn"
 
 msgid "Renew webservices token"
-msgstr ""
+msgstr "Forny webservices token"
 
 msgid "Replace prefix 0 or padding local numbers"
-msgstr ""
+msgstr "Erstat præfiks 0 eller udvid lokale numre"
 
 msgid "Replace website title with logo"
-msgstr ""
+msgstr "Erstat webstedstitel med logo"
 
 msgid "Reply"
 msgstr "Svar"
 
 msgid "Reply message on correct"
-msgstr ""
+msgstr "Svarbesked ved korrekt"
 
 msgid "Reply message on incorrect"
-msgstr ""
+msgstr "Svarbesked ved forkert"
 
 msgid "Reply message on invalid vote"
-msgstr ""
+msgstr "Svarbesked ved ugyldig stemme"
 
 msgid "Reply message on out of vote option"
-msgstr ""
+msgstr "Svarbesked ved ude or afstemning valg"
 
 msgid "Reply message on valid vote"
-msgstr ""
+msgstr "Svarbesked ved gyldig stemme"
 
-#, fuzzy
 msgid "Report"
-msgstr "Rapporter"
+msgstr "Rapport"
 
-#, fuzzy
 msgid "Report all users"
-msgstr "Rapporter"
+msgstr "Rapporter alle brugere"
 
 msgid "Report banned users"
-msgstr ""
+msgstr "Rapport bandlyste brugere"
 
 msgid "Report whose online"
-msgstr ""
+msgstr "Rapport hvem er online"
 
 msgid "Reports"
 msgstr "Rapporter"
@@ -2243,1105 +2176,1107 @@ msgid "Resend"
 msgstr "Gensend"
 
 msgid "Restart Kannel"
-msgstr ""
+msgstr "Genstart Kannel"
 
 msgid "Restrict sender to regular members or catch-all members only"
-msgstr ""
+msgstr "Begræns afsender til normale medlemmer eller catch-all medlemmer"
 
 msgid "Result graph"
-msgstr ""
+msgstr "Resultatgraf"
 
 msgid "Result table"
-msgstr ""
+msgstr "Resultattabel"
 
-#, fuzzy
 msgid "Return"
-msgstr "tilbage"
+msgstr "Tilbage"
 
 msgid "Route SMS outgoing"
-msgstr ""
+msgstr "Diriger udgående SMS"
 
 msgid "Route all sandbox SMS to one or more users"
-msgstr ""
+msgstr "Diriger alle sandbox SMS til en eller flere brugere"
 
 msgid "Route all sandbox SMS to users"
-msgstr ""
+msgstr "Diriger alle sandbox SMS til brugere"
 
 msgid "Route all sandbox SMS with matched sender ID"
-msgstr ""
+msgstr "Diriger alle sandbox SMS med sammenlignet afsender ID"
 
 msgid "Route has been added"
-msgstr ""
+msgstr "Rute er blevet tilføjet"
 
 msgid "Route has been deleted"
-msgstr ""
+msgstr "Rute er blevet slettet"
 
 msgid "Route has been saved"
-msgstr ""
+msgstr "Rute er blevet slettet"
 
 msgid "Route incoming SMS"
-msgstr ""
+msgstr "Diriger indkommende SMS"
 
 msgid "Route outgoing SMS"
-msgstr ""
+msgstr "Diriger udgående SMS"
 
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
+"Diriger til brugerindbakke hvis modtager nummer passer med brugers afsender "
+"ID"
 
 msgid "Routed SMSC"
-msgstr ""
+msgstr "Routet SMSC"
 
 msgid "Row template"
-msgstr ""
+msgstr "Række skabelon"
 
 msgid "Rules applied after incoming SMS processed"
-msgstr ""
+msgstr "Regler der anvendes efter behandling af indkommende SMS"
 
 msgid "Rules applied before incoming SMS processed"
-msgstr ""
+msgstr "Regler der anvendes før behandling af indkommende SMS"
 
 msgid "SMS"
-msgstr ""
+msgstr "SMS"
 
 msgid "SMS Board"
-msgstr ""
+msgstr "SMS forum"
 
 msgid "SMS Sync configuration has been saved"
-msgstr ""
+msgstr "SMS Sync konfiguration er blevet gemt"
 
 msgid "SMS autoreply has been deleted"
-msgstr ""
+msgstr "SMS autosvar er blevet slettet"
 
 msgid "SMS autoreply has been updated"
-msgstr ""
+msgstr "SMS autosvar er blevet opdateret"
 
 msgid "SMS autoreply keyword"
-msgstr ""
+msgstr "SMS autosvar nøgleord"
 
 msgid "SMS autoreply keyword has been added"
-msgstr ""
+msgstr "SMS autosvar nøgleord er blevet tilføjet"
 
 msgid "SMS autoreply scenario has been added"
-msgstr ""
+msgstr "SMS autosvar system er blevet tilføjet"
 
 msgid "SMS autoreply scenario has been deleted"
-msgstr ""
+msgstr "SMS autosvar system er blevet slettet"
 
 msgid "SMS autoreply scenario has been edited"
-msgstr ""
+msgstr "SMS autosvar system er blevet redigeret"
 
 msgid "SMS autoreply scenario parameter"
-msgstr ""
+msgstr "SMS autosvar system parameter"
 
 msgid "SMS autoreply scenario replies with"
-msgstr ""
+msgstr "SMS autosvar system svarer med"
 
 msgid "SMS board from"
-msgstr ""
+msgstr "SMS forum fra"
 
 msgid "SMS board has been added"
-msgstr ""
+msgstr "SMS forum er blevet tilføjet"
 
 msgid "SMS board has been saved"
-msgstr ""
+msgstr "SMS forum er blevet gemt"
 
 msgid "SMS board keyword"
-msgstr ""
+msgstr "SMS forum nøgleord"
 
 msgid "SMS board with all its messages has been deleted"
-msgstr ""
+msgstr "SMS forum med alle dets beskeder er blevet slettet"
 
 msgid "SMS command already exists, reserved or use by other feature"
 msgstr ""
+"SMS kommandoen eksisterer allerede, er reserveret eller bruges af en anden "
+"funtion"
 
 msgid "SMS command exec"
-msgstr ""
+msgstr "SMS kommando"
 
 msgid "SMS command exec path"
-msgstr ""
+msgstr "SMS kommando sti"
 
 msgid "SMS command has been added"
-msgstr ""
+msgstr "SMS kommando er blevet tilføjet"
 
 msgid "SMS command has been deleted"
-msgstr ""
+msgstr "SMS kommando er blevet slettet"
 
 msgid "SMS command has been saved"
-msgstr ""
+msgstr "SMS kommando er blevet gemt"
 
 msgid "SMS command keyword"
-msgstr ""
+msgstr "SMS kommando nøgleord"
 
 msgid "SMS custom URL"
-msgstr ""
+msgstr "Tilpasset SMS URL"
 
 msgid "SMS custom has been deleted"
-msgstr ""
+msgstr "Tilpasset SMS er blevet slettet"
 
 msgid "SMS custom has been saved"
-msgstr ""
+msgstr "Tilpasset SMS er blevet gemt"
 
 msgid "SMS custom keywords"
-msgstr ""
+msgstr "Tilpassede SMS nøgleord"
 
 #, php-format
 msgid "SMS custom with keyword %s has been added"
-msgstr ""
+msgstr "Tilpasset SMS med nøgleordet %s er blevet tilføjet"
 
 msgid "SMS footer"
-msgstr ""
+msgstr "SMS bundtekst"
 
 msgid "SMS forward parameter"
-msgstr ""
+msgstr "SMS videresend paramter"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr ""
+msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
+"SMS nøgleord eksisterer allerede, er reserveret eller bruges af andre "
+"funktioner"
 
 msgid "SMS messages list for keyword"
-msgstr ""
+msgstr "SMS beskedliste for nøgleord"
 
 msgid "SMS poll access code"
-msgstr ""
+msgstr "SMS afstemning adgangskode"
 
 msgid "SMS poll access code used mainly by webservices"
-msgstr ""
+msgstr "SMS afstemningskode primært brugt af webservices"
 
 msgid "SMS poll already exists, reserved or use by other feature"
 msgstr ""
+"SMS afstemning eksisterer allerede, er reserveret eller bruges af en anden "
+"funktion"
 
 msgid "SMS poll choice and all its voters has been deleted"
-msgstr ""
+msgstr "SMS afstemingsvalg og alle dets stemmer er blevet slettet"
 
 msgid "SMS poll has been added"
-msgstr ""
+msgstr "SMS afstemning er blevet tilføjet"
 
 msgid "SMS poll has been saved"
-msgstr ""
+msgstr "SMS afstemning er blevet gemt"
 
 msgid "SMS poll keyword"
-msgstr ""
+msgstr "SMS afstemning nøgleord"
 
 msgid "SMS poll status has been changed"
-msgstr ""
+msgstr "SMS afsteming status er blevet ændret"
 
 msgid "SMS poll title"
-msgstr ""
+msgstr "SMS afstemningstitel"
 
 msgid "SMS poll with all its messages has been deleted"
-msgstr ""
+msgstr "SMS afstemning med alle dets beskeder er blevet slettet"
 
 msgid "SMS quiz already exists, reserved or use by other feature"
 msgstr ""
+"SMS quiz eksisterer allerede, er reserveret eller bruges af anden funktion"
 
 msgid "SMS quiz answer"
-msgstr ""
+msgstr "SMS quiz svar"
 
 msgid "SMS quiz answer messages have been deleted"
-msgstr ""
+msgstr "SMS quiz svar-beskeder er blevet slettet"
 
 msgid "SMS quiz has been added"
-msgstr ""
+msgstr "SMS quiz er blevet tilføjet"
 
 msgid "SMS quiz has been saved"
-msgstr ""
+msgstr "SMS quiz er blevet gemt"
 
 msgid "SMS quiz keyword"
-msgstr ""
+msgstr "SMS quiz nøgleord"
 
 msgid "SMS quiz question"
-msgstr ""
+msgstr "SMS quiz spørgsmål"
 
 msgid "SMS quiz status has been changed"
-msgstr ""
+msgstr "SMS quiz status er blevet ændret"
 
 msgid "SMS quiz with all its messages has been deleted"
-msgstr ""
+msgstr "SMS quiz med alle dets beskeder er blevet slettet"
 
 msgid "SMS schedule been saved"
-msgstr ""
+msgstr "SMS tidsplan er blevet gemt"
 
 msgid "SMS schedule has been deleted"
-msgstr ""
+msgstr "SMS tidsplan er blevet slettet"
 
 msgid "SMS schedule has been disabled"
-msgstr ""
+msgstr "SMS tidsplan er blevet deaktiveret"
 
 msgid "SMS schedule has been enabled"
-msgstr ""
+msgstr "SMS tidsplan er blevet aktiveret"
 
 msgid "SMS subscribe already exists, reserved or use by other feature"
 msgstr ""
+"SMS abonnement eksisterer allerede, er reserveret eller bruges af en anden "
+"funktion"
 
 msgid "SMS subscribe has been added"
-msgstr ""
+msgstr "SMS abonnement er blevet tilføjet"
 
 msgid "SMS subscribe has been saved"
-msgstr ""
+msgstr "SMS abonnement er blevet gemt"
 
 msgid "SMS subscribe keyword"
-msgstr ""
+msgstr "SMS abonnement nøgleord"
 
 msgid "SMS subscribe parameter"
-msgstr ""
+msgstr "SMS abonnement parameter"
 
 msgid "SMS subscribe reply"
-msgstr ""
+msgstr "SMS abonnement svar"
 
 msgid "SMS subscribe status has been changed"
-msgstr ""
+msgstr "SMS abonnement status er blevet ændret"
 
 msgid "SMS subscribe with all its messages and members has been deleted"
-msgstr ""
+msgstr "SMS abonnement med alle dens beskeder og medlemmer er blevet slettet"
 
 msgid "SMS unsubscribe parameter"
-msgstr ""
+msgstr "SMS afmeld parameter"
 
 msgid "SMS unsubscribe reply"
-msgstr ""
+msgstr "SMS afmeld svar"
 
 msgid "SMSC"
-msgstr ""
+msgstr "SMSC"
 
 msgid "SMSC already exists"
-msgstr ""
+msgstr "SMSC eksisterer allerede"
 
 msgid "SMSC has been edited"
-msgstr ""
+msgstr "SMSC er blevet redigeret"
 
 msgid "SMSC has been removed"
-msgstr ""
+msgstr "SMSC er blevet fjernet"
 
 msgid "SMSC name"
-msgstr ""
+msgstr "SMSC navn"
 
 msgid "SMSCs"
-msgstr ""
+msgstr "SMSC'er"
 
 msgid "Sandbox"
-msgstr ""
+msgstr "Sandbox"
 
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgid "Scan incoming SMS for #groupcode"
-msgstr ""
+msgstr "Søg i indkommende SMS efter #gruppekode"
 
 msgid "Scan incoming SMS for @username"
-msgstr ""
+msgstr "Søg i indkommende SMS efter @brugernavn"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Skema"
 
 msgid "Schedule ID"
-msgstr ""
+msgstr "Tidsplan ID"
 
-#, fuzzy
 msgid "Schedule messages"
-msgstr "Send besked"
+msgstr "Planlæg beskeder"
 
 msgid "Schedule name"
-msgstr ""
+msgstr "Tidsplan-navn"
 
 msgid "Schedule rule"
-msgstr ""
+msgstr "Tidsplan regel"
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Planlagt"
 
-#, fuzzy
 msgid "Scheduled message"
-msgstr "Send besked"
+msgstr "Planlagt besked"
 
 msgid "Search"
-msgstr ""
+msgstr "Søg"
 
 msgid "Secret key"
-msgstr ""
+msgstr "Hemmelig nøgle"
 
 msgid "Secret key is used in SMSSync app"
-msgstr ""
+msgstr "Hemmelig nøgle bruges i SMSSync app"
 
 msgid "Select"
-msgstr ""
+msgstr "Vælg"
 
 msgid "Select no if the incoming SMS time is in UTC"
-msgstr ""
+msgstr "Vælg nej, hvis de indkommende SMS tider er i UTC"
 
-#, fuzzy
 msgid "Select username"
-msgstr "Slet bruger"
+msgstr "Vælg brugernavn"
 
-#, fuzzy
 msgid "Select users"
-msgstr "Slet bruger"
+msgstr "Vælg brugere"
 
 msgid "Selected catchall"
-msgstr ""
+msgstr "Valgte catch-all"
 
 msgid "Selected contact has been deleted"
-msgstr ""
+msgstr "Valgt kontakt er blevet slettet"
 
 msgid "Selected contact moved to new group"
-msgstr ""
+msgstr "Valgt kontakt er flyttet til ny gruppe"
 
 msgid "Selected group has been deleted"
-msgstr ""
+msgstr "Valgt gruppe er blevet slettet"
 
 msgid "Selected incoming message has been deleted"
-msgstr ""
+msgstr "Valgte indkommende besked er blevet slettet"
 
 msgid "Selected members"
-msgstr ""
+msgstr "Valgte medlemmer"
 
 msgid "Selected message template has been deleted"
-msgstr ""
+msgstr "Valgt beskedskabelon er blevet slettet"
 
 msgid "Selected outgoing message has been deleted"
-msgstr ""
+msgstr "Valgte udgående besked er blevet slettet"
 
 msgid "Selected transactions has been deleted"
-msgstr ""
+msgstr "Valgte transaktioner er blevet slettet"
 
-#, fuzzy
 msgid "Selected users"
-msgstr "Slet bruger"
+msgstr "Valgte brugere"
 
 msgid "Send"
-msgstr ""
+msgstr "Send"
 
 msgid "Send SMS from remote using local username"
-msgstr ""
+msgstr "Send SMS fra fjernsystem ved brug af lokalt brugernavn"
 
 msgid "Send SMS hostname or IP"
-msgstr ""
+msgstr "SMS afsender værtsnavn eller IP"
 
 msgid "Send SMS port"
-msgstr ""
+msgstr "SMS afsender port"
 
 msgid "Send SMS to groups with found group codes in the incoming SMS"
-msgstr ""
+msgstr "Send SMS til grupper når gruppekode findes i indkommende SMS"
 
 msgid "Send SMS to valid entries"
-msgstr ""
+msgstr "Send SMS til gyldige emner"
 
 msgid "Send from file"
-msgstr ""
+msgstr "Send fra fil"
 
 msgid "Send from file has been cancelled"
-msgstr ""
+msgstr "Send fra fil er blevet anulleret"
 
 msgid "Send message failed due to insufficient funds"
-msgstr ""
+msgstr "Afsendelse af besked mislykkedes på grund af manglende kredit"
 
 msgid "Send message failed due to unable to create queue"
-msgstr ""
+msgstr "Afsendelse af besked mislykkedes da køen ikke kunne oprettes"
 
 #, php-format
 msgid "Send message failed due to unable to prepare queue %s"
-msgstr ""
+msgstr "Afsendelse af besked mislykkedes da køen %s ikke kunne forberedes"
 
 #, php-format
 msgid "Send message to %s in queue %s has failed"
-msgstr ""
+msgstr "Afsendelse af besked til %s i køen %s mislykkedes"
 
 msgid "Send this message to all members"
-msgstr ""
+msgstr "Send denne besked til alle medlemmer"
 
 msgid "Send to"
-msgstr ""
+msgstr "Send til"
 
 msgid "Sender"
-msgstr ""
+msgstr "Afsender"
 
-#, fuzzy
 msgid "Sender ID"
-msgstr "Håndter afsender ID"
+msgstr "Afsender ID"
 
 msgid "Sender ID description has been added"
-msgstr ""
+msgstr "Afsender ID beskrivelse er blevet tilføjet"
 
 msgid "Sender ID description has been updated"
-msgstr ""
+msgstr "Afsender ID beskrivelse er blevet opdateret"
 
 msgid "Sender ID has been added and waiting for approval"
-msgstr ""
+msgstr "Afsender ID er blevet tilføjet og afventer godkendelse"
 
 msgid "Sender ID has been removed"
-msgstr ""
+msgstr "Afsender ID er blevet fjernet"
 
 msgid "Sender ID is not available"
-msgstr ""
+msgstr "Afsender ID er ikke tilgængeligt"
 
 msgid "Sender ID is now approved"
-msgstr ""
+msgstr "Afsender ID er nu godkendt"
 
 msgid "Sender ID is now disabled"
-msgstr ""
+msgstr "Afsender ID er nu deaktiveret"
 
 msgid "Senders sent multi votes"
-msgstr ""
+msgstr "Afsender sendte flere stemmer"
 
 msgid "Senders sent multiple votes"
-msgstr ""
+msgstr "Afsender sendte flere stemmer"
 
 msgid "Senders sent once"
-msgstr ""
+msgstr "Afsender sendte én gang"
 
 msgid "Sent"
-msgstr ""
+msgstr "Sendt"
 
 msgid "Separate by comma for multiple destinations"
-msgstr ""
+msgstr "Adskil med komma ved flere destinationer"
 
 msgid "Separate with comma for multiple items"
-msgstr ""
+msgstr "Flere emner adskilles med komma"
 
 msgid "Service data"
-msgstr ""
+msgstr "Servicedata"
 
 msgid "Service name"
-msgstr ""
+msgstr "Servicenavn"
 
 msgid "Set as default"
-msgstr ""
+msgstr "Angiv som standard"
 
 msgid ""
 "Set credit value bigger than 0 to set credit lowest limit that will trigger "
 "notification"
 msgstr ""
+"Sæt kredit værdien større end 0 for at indstille den midste grænse der vil "
+"aktivere en besked"
 
 msgid "Settings"
 msgstr "Indstillinger"
 
 msgid "Share phonebook and allow broadcast"
-msgstr ""
+msgstr "Del telefonbog og tillad broadcast"
 
 msgid ""
 "Share this phonebook group and set permission for broadcasting SMS to this "
 "group from mobile phone"
 msgstr ""
+"Del denne telefonbogsgruppe og giv adgang til at broadcaste SMS til denne "
+"gruppe fra mobiltelefoner"
 
 msgid "Simulate incoming SMS"
-msgstr ""
+msgstr "Simulér indkommende SMS"
 
-#, fuzzy
 msgid "Site configuration"
-msgstr "Primær konfiguration"
+msgstr "Websted konfiguration"
 
 msgid "Site configuration has been saved"
-msgstr ""
+msgstr "Websted konfiguration er blevet gemt"
 
 msgid "Spool folder"
-msgstr ""
+msgstr "Spool mappe"
 
 msgid "State or Province"
-msgstr ""
+msgstr "Stat eller provis"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Statistik"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Submit"
-msgstr ""
+msgstr "Indsend"
 
 msgid "Subscribe duration"
-msgstr ""
+msgstr "Abonnement varighed"
 
 msgid "Subscription expired reply"
-msgstr ""
+msgstr "Abonnement udløbet svar"
 
 msgid "Subuser"
-msgstr ""
+msgstr "Underbruger"
 
 msgid "Subuser ACL"
-msgstr ""
+msgstr "Underbruger ACL"
 
-#, fuzzy
 msgid "Subusers"
-msgstr "Håndter underbrugere"
+msgstr "Underbrugere"
 
 msgid "Supplied SMSC"
-msgstr ""
+msgstr "Leveret SMSC"
 
 msgid "Sync URL"
-msgstr ""
+msgstr "Sync URL"
 
 msgid "System error has occured"
-msgstr ""
+msgstr "Der opstod en systemfejl"
 
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 msgid "Telerivet URL"
-msgstr ""
+msgstr "Telerivet URL"
 
 msgid "Template installation path"
-msgstr ""
+msgstr "Skabelon installationssti"
 
 msgid "The domain is already configured by other user"
-msgstr ""
+msgstr "DomÃ¦net er allerede konfigureret af en anden bruger"
 
 msgid "Themes"
-msgstr ""
+msgstr "Temaer"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Dette felt er påkrævet"
 
 msgid "This is a test incoming SMS message"
-msgstr ""
+msgstr "Dette er en indkommende SMS besked test"
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
 msgstr ""
+"Denne midlertidige adgangskode vil blive fjernet når du er korrekt logget ind"
 
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Tidszone"
 
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 msgid "To"
-msgstr ""
+msgstr "Til"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Total invalid SMS"
-msgstr ""
+msgstr "Total antal ugyldige SMS"
 
 msgid "Total multiple votes SMS"
-msgstr ""
+msgstr "Total antal flerstemme SMS"
 
 msgid "Total one time vote SMS"
-msgstr ""
+msgstr "Total antal enkeltstemme SMS"
 
 msgid "Total valid SMS"
-msgstr ""
+msgstr "Total antal gyldig SMS"
 
 msgid "Transaction datetime"
-msgstr ""
+msgstr "Transaktion dato-tid"
 
 msgid "Try to disable SMS footer on master"
-msgstr ""
+msgstr "Prøv at deaktivere SMS bundtekst på master"
 
 msgid "Twilio URL"
-msgstr ""
+msgstr "Twilio URL"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "URL to playSMS, empty it to set it to base URL"
-msgstr ""
+msgstr "URL til playSMS, hvis tom sættes den til basis URL"
 
 msgid "URLs"
-msgstr ""
+msgstr "URLer"
 
 msgid "Unable to add group"
-msgstr ""
+msgstr "Kunne ikke tilføje gruppe"
 
-#, fuzzy
 msgid "Unable to ban account"
-msgstr "Håndter konto"
+msgstr "Kan ikke bandlyse konto"
 
-#, fuzzy
 msgid "Unable to ban subuser"
-msgstr "Håndter underbruger"
+msgstr "Kan ikke bandlyse underbruger"
 
 msgid "Unable to delete group until the group is empty"
-msgstr ""
+msgstr "Kan ikke slette gruppen før den er tom"
 
-#, fuzzy
 msgid "Unable to delete other users"
-msgstr "Kunne ikke finde composer filer"
+msgstr "Kan ikke slette andre brugere"
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
 "removed"
 msgstr ""
+"Kan ikke slette denne bruger før alle underbrugere under denne bruger er "
+"blevet fjernet"
 
 msgid "Unable to login"
-msgstr ""
+msgstr "Kan ikke logge ind"
 
 msgid "Unable to process subuser addition"
-msgstr ""
+msgstr "Kan ikke behandle underbruger tilføjelse"
 
 msgid "Unable to process user addition"
-msgstr ""
+msgstr "Kan ikke behandle bruger tilføjelse"
 
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
-#, fuzzy
 msgid "Unable to unban account"
-msgstr "Håndter underkonto"
+msgstr "Kan ikke fjerne bandlysning af konto"
 
 msgid "Unable to unban subuser"
-msgstr ""
+msgstr "Kan ikke fjerne bandlysning af underbruger"
 
 msgid "Unban"
 msgstr "Fjern bandlysning"
 
-#, fuzzy
 msgid "Unicode message"
-msgstr "Send besked"
+msgstr "Unicode besked"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Ukendt fejl"
 
 msgid "Unknown error has occurred"
-msgstr ""
+msgstr "Der opstod en ukendt fejl"
 
 msgid "Unknown format reply"
-msgstr ""
+msgstr "Ukendt svar-format"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Ubegrænset"
 
 msgid "Update status"
-msgstr ""
+msgstr "Opdater status"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Upload fil"
 
 msgid "Uploaded file"
-msgstr ""
+msgstr "Uploadet fil"
 
 msgid "Use JSON format URL"
-msgstr ""
+msgstr "Brug JSON format URL"
 
 msgid "Use SSL"
-msgstr ""
+msgstr "Brug SSL"
 
 msgid "User"
-msgstr ""
+msgstr "Bruger"
 
 msgid "User ID"
-msgstr ""
+msgstr "Bruger ID"
 
 msgid "User agent"
-msgstr ""
+msgstr "Brugeragent"
 
 msgid "User configuration"
 msgstr "Brugerkonfiguration"
 
-#, fuzzy
 msgid "User configuration has been saved"
-msgstr "Brugerkonfiguration"
+msgstr "Brugerkonfiguration er blevet gemt"
 
 msgid "User configuration has been saved and webservices token updated"
-msgstr ""
+msgstr "Brugerkonfiguration er blevet gemt og webservice token er opdateret"
 
 msgid "User deletion unavailable"
-msgstr ""
+msgstr "Brugersletning ikke tilgængelig"
 
 msgid "User does not exist"
-msgstr ""
+msgstr "Brugeren eksisterer ikke"
 
 msgid "User is already on banned subusers list"
-msgstr ""
+msgstr "Brugeren er allerede på listen over bandlyste underbrugere"
 
 msgid "User is already on banned users list"
-msgstr ""
+msgstr "Brugeren er allerede på listen over bandlyste brugere"
 
 msgid "User is immune to deletion"
-msgstr ""
+msgstr "Brugeren er imun overfor sletning"
 
 msgid "User is not on banned subusers list"
-msgstr ""
+msgstr "Brugeren er ikke på listen over bandlyste underbrugere"
 
 msgid "User is not on banned users list"
-msgstr ""
+msgstr "Brugeren er ikke på listen over bandlyste brugere"
 
 msgid "User preference"
 msgstr "Brugerindstillinger"
 
 msgid "Username"
-msgstr ""
+msgstr "Brugernavn"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
 msgstr ""
+"Brugernavnet %s med konto ID %d har nået den laveste kreditgrænse på %s"
 
 #, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
-msgstr ""
+msgstr "Brugeren %s med kontoID %d har bedt om godkendelse af afsenderID %s"
 
 #, php-format
 msgid "Username must be at least 3 characters and maximum %d characters"
-msgstr ""
+msgstr "Brugernavn skal være mindst 3 tegn maksimum %d tegn"
 
 msgid "Username or email"
-msgstr ""
+msgstr "Brugernavn eller e-mail"
 
 msgid "Users"
-msgstr ""
+msgstr "Brugere"
 
 msgid "Valid"
-msgstr ""
+msgstr "Gyldig"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
-msgstr ""
+msgstr "Gyldige tegn brugernavn er bogstaver, tal, punktum og bindestreg"
 
 msgid "Verify captcha"
-msgstr ""
+msgstr "Verificer captcha"
 
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 msgid "View"
 msgstr "Se"
 
 msgid "View SMS queue"
-msgstr ""
+msgstr "Se SMS kø"
 
 msgid "View board"
-msgstr ""
+msgstr "Se forum"
 
-#, fuzzy
 msgid "View log"
-msgstr "Se"
+msgstr "Vis log"
 
 msgid "View members"
-msgstr ""
+msgstr "Se medlemmer"
 
-#, fuzzy
 msgid "View messages"
-msgstr "Send besked"
+msgstr "Se beskeder"
 
 msgid "View report"
-msgstr ""
+msgstr "Vis rapport"
 
 msgid "Vote option"
-msgstr ""
+msgstr "Stemme-valg"
 
 msgid "Webservice token"
-msgstr ""
+msgstr "Webservice token"
 
 msgid "Webservice username"
-msgstr ""
+msgstr "Webservice brugernavn"
 
 msgid "Webservices IP range"
-msgstr ""
+msgstr "Webservices IP område"
 
 msgid "Webservices links"
-msgstr ""
+msgstr "Webservicelinks"
 
 msgid "Webservices token"
-msgstr ""
+msgstr "Webservice token"
 
 msgid "Webservices username"
-msgstr ""
+msgstr "Webservices brugernavn"
 
 msgid "Website URL"
-msgstr ""
+msgstr "Webside URL"
 
 msgid "Website email"
-msgstr ""
+msgstr "Webside e-mail"
 
 msgid "Website title"
-msgstr ""
+msgstr "Websted titel"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Ugentligt"
 
 msgid "Welcome information"
-msgstr ""
+msgstr "Velkomst information"
 
 msgid "Whose online"
-msgstr ""
+msgstr "Hvem er online"
 
 msgid "Wrong amount or user does not exist"
-msgstr ""
+msgstr "Forkert beløb eller brugeren eksisterer ikke"
 
 msgid "XML output"
-msgstr ""
+msgstr "XML output"
 
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 msgid "You have been logged out"
-msgstr ""
+msgstr "Du er blevet logget ud"
 
 msgid "You have no access to this page"
-msgstr ""
+msgstr "Du har ikke adgang til denne side"
 
 msgid "You have no member"
-msgstr ""
+msgstr "Du har ikke nogen medlemmer"
 
 #, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr ""
+msgstr "Du har nået den laveste kreditgrænse på %s"
 
 msgid "You must fill all field"
-msgstr ""
+msgstr "Du skal udfylde alle felter"
 
 msgid "You must fill all fields"
-msgstr ""
+msgstr "Du skal udfylde alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "Du skal udfylde alle påkrævede felter"
 
 msgid "You must fill all required fields"
-msgstr ""
+msgstr "Du skal udfylde alle påkrævede felter"
 
 msgid "You must fill mandatory fields"
-msgstr ""
+msgstr "Du skal udfylde alle påkrævede felter"
 
 msgid "You must fill required fields"
-msgstr ""
+msgstr "Du skal udfylde alle påkrævede felter"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr ""
+msgstr "Du skal vælge en modtager og din besked bør ikke være tom"
 
 msgid "You or someone else have requested a password recovery"
-msgstr ""
+msgstr "Du, eller en anden, har bedt om at gendanne adgangskoden"
 
 msgid "Your DLR URL is"
-msgstr ""
+msgstr "Din DLR URL er"
 
 msgid "Your SMS has been delivered to queue"
-msgstr ""
+msgstr "Din SMS er afleveret til køen"
 
 msgid "Your callback URL is"
-msgstr ""
+msgstr "Din callback URL er"
 
 msgid "Your callback URL should be accessible from Bulksms"
-msgstr ""
+msgstr "Din callback URL skal være tilgængelig fra Bulksms"
 
 msgid "Your callback URL should be accessible from Clickatell"
-msgstr ""
+msgstr "Din callback URL skal være tilgængelig fra Clickatell"
 
 msgid "Your callback URL should be accessible from Infobip"
-msgstr ""
+msgstr "Din callback URL skal være tilgængelig fra infobip"
 
 msgid "Your callback URL should be accessible from Jasmin"
-msgstr ""
+msgstr "Din callback URL skal være tilgængelig fra Jasmin"
 
 msgid "Your callback URL should be accessible from Nexmo"
-msgstr ""
+msgstr "Din callback URL skal være tilgængelig fra Nexmo"
 
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr ""
+msgstr "Din callback URL skal være tilgængelig fra OpenVox"
 
 msgid "Your callback URL should be accessible from twilio"
-msgstr ""
+msgstr "Din callback URL skal være tilgængelig fra twilio"
 
-#, fuzzy
 msgid "Your choice"
-msgstr "Din kredit"
+msgstr "Dit valg"
 
 msgid "Your credit"
 msgstr "Din kredit"
 
 msgid "Your current callback URL is"
-msgstr ""
+msgstr "Din aktuelle callback URL er"
 
 msgid "Your email format is invalid"
-msgstr ""
+msgstr "Dit e-mail format er ugyldigt"
 
 msgid "Your message has been delivered to queue"
-msgstr ""
+msgstr "Din besked er afleveret til køen"
 
 msgid "Your message has been delivered to some of the destinations"
-msgstr ""
+msgstr "Din besked er afleveret til nogen af destinationerne"
 
 msgid "Your mobile format is invalid"
-msgstr ""
+msgstr "Dit mobil format er ugyldigt"
 
 #, php-format
 msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
+"Din underbruger med brugernavnet %s og konto ID %d har nået den laveste "
+"kreditgrænse på %s"
 
 msgid "Zipcode"
-msgstr ""
+msgstr "Postnummer"
 
-#, fuzzy
 msgid "amount"
-msgstr "Min konto"
+msgstr "beløb"
 
 msgid "balance"
-msgstr ""
+msgstr "balance"
 
 msgid "blocked"
-msgstr ""
+msgstr "blokeret"
 
 msgid "chars"
-msgstr ""
+msgstr "tegn"
 
 msgid "code"
-msgstr ""
+msgstr "kode"
 
 msgid "correct"
-msgstr ""
+msgstr "rigtigt"
 
 msgid "cost"
-msgstr ""
+msgstr "pris"
 
-#, fuzzy
 msgid "count"
-msgstr "Min konto"
+msgstr "antal"
 
 msgid "create an account to send SMS"
-msgstr ""
+msgstr "opret en konto for at sende SMS"
 
 msgid "destination"
-msgstr ""
+msgstr "destination"
 
 msgid "destination number, message"
-msgstr ""
+msgstr "destinationsnummer, besked"
 
 msgid "destination number, message, username"
-msgstr ""
+msgstr "destinationsnummer, besked, brugernavn"
 
 msgid "domain"
-msgstr ""
+msgstr "domÃ¦ne"
 
 msgid "email"
-msgstr ""
+msgstr "e-mail"
 
 msgid "failed"
-msgstr ""
+msgstr "mislykket"
 
 msgid "for subuser only"
-msgstr ""
+msgstr "kun til underbruger"
 
 msgid "format"
-msgstr ""
+msgstr "format"
 
 msgid "free credits are available for testing purposes"
-msgstr ""
+msgstr "gratis kredit er tilgængelig til testformål"
 
-#, fuzzy
 msgid "group"
-msgstr "Gruppe"
+msgstr "gruppe"
 
 msgid "incorrect"
-msgstr ""
+msgstr "forkert"
 
 msgid "invalid entries"
-msgstr ""
+msgstr "ugyldige emner"
 
 msgid "keyword"
-msgstr ""
+msgstr "nøgleord"
 
 msgid "mobile"
-msgstr ""
+msgstr "mobil"
 
 msgid "multiple times"
-msgstr ""
+msgstr "flere gange"
 
 msgid "no"
-msgstr ""
+msgstr "nej"
 
 msgid "of"
-msgstr ""
+msgstr "af"
 
 msgid "on"
-msgstr ""
+msgstr "den"
 
 msgid "one time"
-msgstr ""
+msgstr "én gang"
 
 msgid "one time every 24 hours"
-msgstr ""
+msgstr "én gang hver 24 timer"
 
 msgid "one time every month"
-msgstr ""
+msgstr "én gang om måneden"
 
 msgid "one time every week"
-msgstr ""
+msgstr "én gang om ugen"
 
 msgid "playSMS daemon is NOT running"
-msgstr ""
+msgstr "playSMS daemon kører IKKE"
 
 msgid "playSMS daemon is running"
-msgstr ""
+msgstr "playSMS daemon kører"
 
 msgid "playSMS daemon status"
-msgstr ""
+msgstr "playSMS daemon status"
 
 msgid "playSMS web URL"
-msgstr ""
+msgstr "playSMS web URL"
 
 msgid "prefix"
-msgstr ""
+msgstr "præfiks"
 
 msgid "queued"
-msgstr ""
+msgstr "i kø"
 
 msgid "rate"
-msgstr ""
+msgstr "frekvens"
 
 msgid "return"
 msgstr "tilbage"
 
 msgid "title"
-msgstr ""
+msgstr "titel"
 
 msgid "twilio is a bulk SMS provider"
-msgstr ""
+msgstr "twilio er en masse-SMS leverandør"
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "twilio vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "user"
-msgstr ""
+msgstr "bruger"
 
 msgid "username"
-msgstr ""
+msgstr "brugernavn"
 
 msgid "valid entries"
-msgstr ""
+msgstr "gyldige emner"
 
 #, php-format
 msgid "view all %d"
-msgstr ""
+msgstr "se alle %d"
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr ""
+msgstr "vil blive erstattet med SMS indkommende dato/tid"
 
 msgid "will be replaced by SMS raw message"
-msgstr ""
+msgstr "vil blive erstattet med rå SMS besked"
 
 msgid "will be replaced by actual receiver number"
-msgstr ""
+msgstr "vil blive erstattet med rigtigt modtagernummer"
 
 msgid "will be replaced by command keyword"
-msgstr ""
+msgstr "vil blive erstattet med kommando nøgleord"
 
 msgid "will be replaced by command parameter passed to server from SMS"
 msgstr ""
+"vil blive erstattet med kommando parameter videreført fra server til SMS"
 
 msgid "will be replaced by custom keyword"
-msgstr ""
+msgstr "vil blive erstattet med tilpasset nøgleord"
 
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr ""
+"vil blive erstattet med tilpasset parameter videreført fra server til SMS"
 
 msgid "will be replaced by receiver number"
-msgstr ""
+msgstr "vil blive erstattet med modtagernummer"
 
 msgid "will be replaced by sender number"
-msgstr ""
+msgstr "vil blive erstattet med afsendernummer"
 
 msgid "will be replaced by service name"
-msgstr ""
+msgstr "vil blive erstattet med servicenavn"
 
 msgid "will be replaced with the name listed in phonebook"
-msgstr ""
+msgstr "vil blive erstattet med navnet i telefonbogen"
 
 msgid "will be replaced with the phone number listed in phonebook"
-msgstr ""
+msgstr "vil blive erstattet med telefonnummeret i telefonbogen"
 
 msgid "yes"
-msgstr ""
+msgstr "ja"
