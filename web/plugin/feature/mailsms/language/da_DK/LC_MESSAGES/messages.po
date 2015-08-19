@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "Check email sender"
 msgstr "Tjek e-mail afsender"
@@ -70,7 +70,7 @@ msgid "PIN is empty"
 msgstr "PIN er tom"
 
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgid "Use SSL"
 msgstr "Brug SSL"
