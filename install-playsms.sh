@@ -217,13 +217,13 @@ set -e
 echo -n .
 mkdir -p $PATHWEB $PATHLIB $PATHLOG
 echo -n .
-cp -rR web/* $PATHWEB
+cp -rf web/* $PATHWEB
 set +e
 echo -n .
 mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null 2>&1
 set -e
 echo -n .
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < db/playsms.sql
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < db/playsms.sql >/dev/null 2>&1
 echo -n .
 cp $PATHWEB/config-dist.php $PATHWEB/config.php
 echo -n .
