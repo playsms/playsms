@@ -845,6 +845,9 @@ msgid "Email to SMS configuration has been saved and service enabled"
 msgstr ""
 "As configurações de Email para SMS foram salvas e o serviço está habilitado"
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Deixar o ID de Remetente em branco para permitir que usuários coloquem seu "

@@ -843,6 +843,9 @@ msgstr "تم حفظ الإعدادات و تعطيل الخدمة."
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "تم حفظ الإعدادات وتمكين الخدمة."
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "اترك اسم المرسل الافتراضي فارغ لتمكين المستخدمين من تعيين أسماء مرسل خاصة بهم"

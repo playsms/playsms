@@ -853,6 +853,9 @@ msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er deaktiveret"
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er aktiveret"
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Nulstil standard afsender ID for at lade brugere vælge deres eget afsender ID"

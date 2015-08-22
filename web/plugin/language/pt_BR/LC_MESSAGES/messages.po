@@ -848,6 +848,9 @@ msgstr ""
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr ""
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 

@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.7.4\n"
 
 msgid "1 Day"
 msgstr "1 dag"
@@ -64,7 +64,7 @@ msgid "API username"
 msgstr "API brugernavn"
 
 msgid "Access Control List"
-msgstr "Adgangskontrol liste"
+msgstr "Access Control List"
 
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
@@ -97,7 +97,7 @@ msgid "Account has been added and password has been emailed"
 msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
 
 msgid "Account has been added but failed to send email"
-msgstr "Konto er blevet tilføjet, men e-mail kunne ikke sendes"
+msgstr "Konto er blevet tilføjet men kunne ikke sende e-mail"
 
 msgid "Account has been banned"
 msgstr "Konto er blevet bandlyst"
@@ -295,14 +295,14 @@ msgid ""
 "Application footer here. Go to main configuration or manage site to edit "
 "this footer."
 msgstr ""
-"Programbundtekst skal være ger. Gå til primær konfiguration eller håndter "
+"Programbundtekst skal være her. Gå til primær konfiguration eller håndter "
 "websted for at redigere denne bundtekst."
 
 msgid "Application options"
 msgstr "Programindstillinger"
 
 msgid "Approve sender ID"
-msgstr "Godkend afsender ID"
+msgstr "Godkend afsenders ID"
 
 msgid "Are you sure ?"
 msgstr "Er du sikker?"
@@ -454,7 +454,7 @@ msgid "Buy"
 msgstr "Køb"
 
 msgid "Buy credit page"
-msgstr "KÃÂ¸b kredit siden"
+msgstr "Køb kredit side"
 
 msgid "CSS URL"
 msgstr "CSS URL"
@@ -493,7 +493,7 @@ msgid "Catch-all list"
 msgstr "Catch-all liste"
 
 msgid "Changes have been made"
-msgstr "Der er foretaget ændringer"
+msgstr "Ændringer er blevet foretaget"
 
 msgid "Check email sender"
 msgstr "Tjek e-mail afsender"
@@ -678,7 +678,7 @@ msgid "Default settings"
 msgstr "Standardindstillinger"
 
 msgid "Default site configuration"
-msgstr "Standard webstedskonfiguration"
+msgstr "Standard site konfiguration"
 
 msgid "Default timezone"
 msgstr "Standard tidszone"
@@ -745,7 +745,7 @@ msgid "Disallowed URLs"
 msgstr "Ikke tilladte URL'er"
 
 msgid "Domain"
-msgstr "DomÃÂ¦ne"
+msgstr "Domæne"
 
 msgid "Download SMSSync app for Android from"
 msgstr "Download SMSSync app til Android fra"
@@ -820,7 +820,7 @@ msgid "Effective SMS sender ID"
 msgstr "Effektivt SMS afsender ID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
+msgstr "F.eks: +0700 til Jakarta/Bangkok tidszone"
 
 msgid "Email"
 msgstr "E-mail"
@@ -851,6 +851,9 @@ msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er deaktiveret"
 
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er aktiveret"
+
+msgid "Empty callback URL to set default"
+msgstr ""
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
@@ -1067,7 +1070,7 @@ msgid "Fail to save SMS custom"
 msgstr "Kunne ikke gemme tilpasset SMS"
 
 msgid "Fail to save configuration"
-msgstr "Kunne ikke gemme konfigurationen"
+msgstr "Kunne ikke gemme konfiguration"
 
 msgid "Fail to save email to SMS PIN"
 msgstr "Kunne ikke gemme email til SMS PIN"
@@ -1076,7 +1079,7 @@ msgid "Fail to save gateway module configurations"
 msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
 msgid "Fail to save preferences"
-msgstr "Kunne ikke gemme indstillingerne"
+msgstr "Kunne ikke gemme indstillinger"
 
 msgid "Fail to save rate"
 msgstr "Kunne ikke gemme rate"
@@ -1419,16 +1422,16 @@ msgstr ""
 "gennemgange"
 
 msgid "List of accounts"
-msgstr "Liste over konti"
+msgstr "Kontoliste"
 
 msgid "List of administrators"
-msgstr "Liste over administratorer"
+msgstr "Administratorliste"
 
 msgid "List of destinations"
 msgstr "Liste over destinationer"
 
 msgid "List of gateways and SMSCs"
-msgstr "Liste over gateways og SMSC'er"
+msgstr "Gateway og SMSC liste"
 
 #, php-format
 msgid "List of messages from %s"
@@ -1469,7 +1472,7 @@ msgid "Login as"
 msgstr "Login som"
 
 msgid "Login information"
-msgstr "Login oplysninger"
+msgstr "Login information"
 
 msgid "Logo URL"
 msgstr "Logo URL"
@@ -1477,8 +1480,8 @@ msgstr "Logo URL"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Logo vil som standard blive vist pÃ¥ login, registrering og glemt "
-"adgangskode siderne"
+"Logo vil som standard blive vist på login, registrering og glemt adgangskode "
+"siderne"
 
 msgid "Logout"
 msgstr "Log ud"
@@ -1505,13 +1508,13 @@ msgid "Main configuration"
 msgstr "Primær konfiguration"
 
 msgid "Main configuration changes has been saved"
-msgstr "Ændringer i primær konfiguration er blevet gemt"
+msgstr "Primær konfigurationsændringer er blevet gemt"
 
 msgid "Main website URL"
-msgstr "PrimÃÂ¦r webside URL"
+msgstr "PrimÃ¦r webside URL"
 
 msgid "Main website name"
-msgstr "PrimÃÂ¦r webside navn"
+msgstr "PrimÃ¦r webside navn"
 
 msgid "Make return as reply"
 msgstr "Gør returværdi til svar"
@@ -1535,13 +1538,13 @@ msgid "Manage autoreply"
 msgstr "Håndter autosvar"
 
 msgid "Manage blocked"
-msgstr "Håndter blocked"
+msgstr "Håndter blokeret"
 
 msgid "Manage board"
 msgstr "Håndter forum"
 
 msgid "Manage bulksms"
-msgstr "Håndter Bulksms"
+msgstr "Håndter masse-sms"
 
 msgid "Manage clickatell"
 msgstr "Håndter clickatell"
@@ -1746,7 +1749,7 @@ msgid "Mobile numbers have been deleted"
 msgstr "Mobilnumre er blevet slettet"
 
 msgid "Module sender ID"
-msgstr "Modul afsenderID"
+msgstr "Modul afsender ID"
 
 msgid "Module timezone"
 msgstr "Modul tidszone"
@@ -1803,7 +1806,7 @@ msgid "New SMSC has been added"
 msgstr "Ny SMSC er blevet tilføjet"
 
 msgid "New account registration"
-msgstr "Registrer ny konto"
+msgstr "Ny konto registrering"
 
 msgid "New destination has been added"
 msgstr "Ny destination er blevet tilfÃÂ¸jet"
@@ -1905,7 +1908,7 @@ msgid "Parent"
 msgstr "Forælder"
 
 msgid "Parent account"
-msgstr "Forælderkonto"
+msgstr "Overliggende konto"
 
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
@@ -1981,7 +1984,7 @@ msgid "Preferences"
 msgstr "Indstillinger"
 
 msgid "Preferences have been saved"
-msgstr "Indstillingerne er blevet gemt"
+msgstr "Dine indstillinger er blevet gemt"
 
 msgid "Preferences have been saved and password updated"
 msgstr "Indstillingerne er blevet gemt og adgangskoden er opdateret"
@@ -2642,7 +2645,7 @@ msgid "Service name"
 msgstr "Servicenavn"
 
 msgid "Set as default"
-msgstr "Sæt som standard"
+msgstr "Angiv som standard"
 
 msgid ""
 "Set credit value bigger than 0 to set credit lowest limit that will trigger "
@@ -2722,7 +2725,7 @@ msgid "Template installation path"
 msgstr "Skabelon installationssti"
 
 msgid "The domain is already configured by other user"
-msgstr "DomÃÂ¦net er allerede konfigureret af en anden bruger"
+msgstr "DomÃ¦net er allerede konfigureret af en anden bruger"
 
 msgid "Themes"
 msgstr "Temaer"
@@ -3137,7 +3140,7 @@ msgid "destination number, message, username"
 msgstr "destinationsnummer, besked, brugernavn"
 
 msgid "domain"
-msgstr "domÃÂ¦ne"
+msgstr "domÃ¦ne"
 
 msgid "email"
 msgstr "e-mail"

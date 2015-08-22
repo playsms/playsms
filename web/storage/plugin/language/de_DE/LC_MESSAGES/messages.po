@@ -838,6 +838,9 @@ msgstr "Email zu SMS Konfigurationwurde gespeichert und der Dienst deaktiviert"
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "Email zu SMS Konfigurationwurde gespeichert und der Dienst aktiviert"
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Leere Standard Absender-ID erlaubt den Benutzern die Verwendung einer "

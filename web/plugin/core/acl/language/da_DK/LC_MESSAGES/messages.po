@@ -42,8 +42,11 @@ msgstr "Kredit"
 msgid "DEFAULT"
 msgstr "STANDARD"
 
-msgid "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
-msgstr "Vælg om denne ACL indeholder ikke tilladte URL'er i stedet for tilladte URL'er"
+msgid ""
+"Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+"Vælg om denne ACL indeholder ikke tilladte URL'er i stedet for tilladte "
+"URL'er"
 
 msgid "Disallowed URLs"
 msgstr "Ikke tilladte URL'er"
