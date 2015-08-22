@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.2**
+This document explains about how to install and setup playSMS version **1.2.1**
 
 
 ## Requirements
@@ -59,9 +59,9 @@ Install playSMS using install script `install-playsms.sh`
 1.  Extract playSMS package and go there (For example in /usr/local/src)
 
     ```
-    tar -zxf playsms-1.2.tar.gz -C /usr/local/src
+    tar -zxf playsms-1.2.1.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.2/
+    cd /usr/local/src/playsms-1.2.1/
     ```
 
 2.  Copy install.conf.dist to install.conf and edit install.conf
@@ -128,9 +128,9 @@ Install playSMS by following step-by-step:
 1.  Extract playSMS package and go there (For example in /usr/local/src)
 
     ```
-    tar -zxf playsms-1.2.tar.gz -C /usr/local/src
+    tar -zxf playsms-1.2.1.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.2/
+    cd /usr/local/src/playsms-1.2.1/
     ```
 
 2.  Run getcomposer.sh

@@ -239,8 +239,12 @@ sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
 echo -n .
 sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
 echo -n .
-chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLIB $PATHLOG
-echo -n .
+
+if [ "$USERID" = "0" ]; then
+	chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLIB $PATHLOG
+	echo -n .
+fi
+
 mkdir -p $PATHCONF $PATHBIN
 echo -n .
 touch $PATHCONF/playsmsd.conf
