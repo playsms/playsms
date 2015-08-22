@@ -10,21 +10,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "Copy the message to user inbox when incoming SMS contains @username"
 msgstr ""
 "Kopier beskeden til brugers indbakke når indkommende SMS indeholder @username"
 
 msgid "Example"
-msgstr ""
+msgstr "Eksempel"
 
 msgid "Fail to insert keyword"
 msgstr "Kunne ikke indsætte nøgleord"
 
-#, fuzzy
 msgid "Forward all sandbox SMS to a URL"
-msgstr "Diriger alle sandbox SMS til brugere"
+msgstr "Videresend alle sandbox SMS til en URL"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "Indkommende SMS rute ændringer er blevet gemt"
@@ -59,9 +58,8 @@ msgstr ""
 "Modtagernummer kan sammenlignes med standard afsender ID eller med alle "
 "godkendte afsender ID'er"
 
-#, fuzzy
 msgid "Route all sandbox SMS to one or more users"
-msgstr "Diriger alle sandbox SMS til brugere"
+msgstr "Diriger alle sandbox SMS til en eller flere brugere"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Diriger alle sandbox SMS til brugere"
@@ -102,7 +100,7 @@ msgid "Settings"
 msgstr "Indstillinger"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "keyword"
 msgstr "nøgleord"

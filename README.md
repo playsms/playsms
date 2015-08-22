@@ -2,8 +2,6 @@
 
 playSMS version **1.2**
 
-Upcoming (approx.) release date **150817**
-
 Official project website:
 
 * http://playsms.org
@@ -28,11 +26,11 @@ communication tools
 
 ## Feature Highlights
 
-* Multiple database engine supported (through PHP PEAR DB, included in this package)
+* Multiple database engine supported (using included PHP PEAR DB)
 * Send SMS to single mobile phone
 * Send SMS broadcasted to a group of mobile phones, or SMS bulk
 * Support sending text, flash and unicode messages
-* Capable of handling large amount of SMS (user reported 500k SMS monthly)
+* Capable of handling large amount of SMS (a user tested 200k SMS a day)
 * Receive private SMS to Inbox and forward it to email (mobile2web) and user's mobile phone
 * Forward single SMS from mobile to a group of mobile phones 
 * Provides SMS to email and email to SMS by polling mailbox
@@ -46,11 +44,12 @@ communication tools
 * SMS sync to utilize SMSSync app from http://smssync.ushahidi.com
 * Blacklist, stoplist and firewall plugin for SMS services protections
 * Create your own features, tools, themes and gateway modules as a plugin
-* Supports Gammu, Kannel, SMS Server Tools, Uplink, Nexmo, Twilio, Infobip and Clickatell
+* Supports Gammu, Kannel, SMS Server Tools, Jasmin, Playnet, Uplink, Nexmo, Twilio, Infobip and Clickatell
 * Supports multiple active SMSC
 * Supports simulation gateway for testing incoming and outgoing SMS
 * Route outgoing SMS by prefix
 * Route outgoing SMS per user
+* Route incoming SMS to users or URL
 * Webservices for sending SMS, retrieving delivery reports, checking credits and more
 * Long SMS support, length of text is configurable
 * Rate SMS by destination prefix
