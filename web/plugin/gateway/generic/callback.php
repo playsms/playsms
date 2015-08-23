@@ -52,7 +52,10 @@ if ($remote_smslog_id && $message_status) {
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($message_status) {
-			case "ESME_ROK":
+			case "1":
+				$p_status = 1;
+				break; // sent
+			case "3":
 				$p_status = 3;
 				break; // delivered
 			default :
@@ -63,7 +66,7 @@ if ($remote_smslog_id && $message_status) {
 		dlr($smslog_id, $uid, $p_status);
 		
 		ob_end_clean();
-		echo "ACK/Generic";
+		echo "OK" . _PID_;
 		exit();
 	}
 }
@@ -71,9 +74,9 @@ if ($remote_smslog_id && $message_status) {
 // incoming message
 $sms_datetime = core_get_datetime();
 $sms_sender = $requests['from'];
-$message = htmlspecialchars_decode(urldecode($requests['content']));
+$message = htmlspecialchars_decode(urldecode($requests['message']));
 $sms_receiver = $requests['to'];
-$smsc = $requests['origin-connector'];
+$smsc = $requests['smsc'];
 if ($remote_smslog_id && $message) {
 	_log("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
 	$sms_sender = addslashes($sms_sender);
@@ -81,6 +84,6 @@ if ($remote_smslog_id && $message) {
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 	
 	ob_end_clean();
-	echo "ACK/Generic";
+	echo "OK" . _PID_;
 	exit();
 }

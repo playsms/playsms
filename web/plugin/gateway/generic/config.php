@@ -11,7 +11,7 @@ if (!$core_config['daemon_process']) {
 $data = registry_search(0, 'gateway', 'generic');
 $plugin_config['generic'] = $data['gateway']['generic'];
 $plugin_config['generic']['name'] = 'generic';
-$plugin_config['generic']['default_url'] = '{GENERIC_API_URL}/user={GENERIC_API_USERNAME}&pwd={GENERIC_API_PASSWORD}&sender={GENERIC_SENDER}&msisdn={GENERIC_MSISDN}&message={GENERIC_MESSAGE}';
+$plugin_config['generic']['default_url'] = 'http://example.api.url/handler.php?user={GENERIC_API_USERNAME}&pwd={GENERIC_API_PASSWORD}&sender={GENERIC_SENDER}&msisdn={GENERIC_TO}&message={GENERIC_MESSAGE}';
 $plugin_config['generic']['default_callback_url'] = $callback_url;
 if (!trim($plugin_config['generic']['url'])) {
 	$plugin_config['generic']['url'] = $plugin_config['generic']['default_url'];

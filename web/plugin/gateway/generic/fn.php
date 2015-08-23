@@ -62,30 +62,26 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			}
 		}
 		
-		$query_string = "username=" . urlencode($plugin_config['generic']['api_username']) . "&password=" . urlencode($plugin_config['generic']['api_password']) . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
-		$query_string .= "&dlr=yes&dlr-level=2&dlr-url=" . urlencode($plugin_config['generic']['callback_url']);
-		$url = $plugin_config['generic']['url'] . "?" . $query_string;
+		// $plugin_config['generic']['default_url'] = 'http://example.api.url/handler.php?user={GENERIC_API_USERNAME}&pwd={GENERIC_API_PASSWORD}&sender={GENERIC_SENDER}&msisdn={GENERIC_TO}&message={GENERIC_MESSAGE}&dlr-url={GENERIC_CALLBACK_URL}';
+		$url = htmlspecialchars_decode($plugin_config['generic']['url']);
+		$url = str_replace('{GENERIC_API_USERNAME}', urlencode($plugin_config['generic']['api_username']), $url);
+		$url = str_replace('{GENERIC_API_PASSWORD}', urlencode($plugin_config['generic']['api_password']), $url);
+		$url = str_replace('{GENERIC_SENDER}', urlencode($sms_sender), $url);
+		$url = str_replace('{GENERIC_TO}', urlencode($sms_to), $url);
+		$url = str_replace('{GENERIC_MESSAGE}', urlencode($sms_msg), $url);
+		$url = str_replace('{GENERIC_CALLBACK_URL}', urlencode($plugin_config['generic']['callback_url']), $url);
 		
 		_log("send url:[" . $url . "]", 3, "generic_hook_sendsms");
 		
-		// new way
-		$opts = array(
-			'http' => array(
-				'method' => 'POST',
-				'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n",
-				'content' => $query_string 
-			) 
-		);
-		$context = stream_context_create($opts);
-		$response = file_get_contents($plugin_config['generic']['url'], FALSE, $context);
+		// send it
+		$response = file_get_contents($url);
 		
-		// Success "07033084-5cfd-4812-90a4-e4d24ffb6e3d"
-		// Error "No route found"
+		// 14395227002806904200 SENT
+		// 0 User Not Found
 		$resp = explode(' ', $response, 2);
 		
-		if ($resp[0] == 'Success') {
-			$c_message_id = $resp[1];
-			$c_message_id = str_replace('"', '', $c_message_id);
+		if ($resp[0] && $resp[1]) {
+			$c_message_id = $resp[0];
 			_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " smsc:" . $smsc, 2, "generic_hook_sendsms");
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_gatewayGeneric_log (local_smslog_id, remote_smslog_id)
@@ -98,7 +94,7 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			}
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
-			if ($resp[0] == 'Error') {
+			if ($resp[0] === '0') {
 				$resp = $resp[1];
 			} else {
 				$resp = $response;
