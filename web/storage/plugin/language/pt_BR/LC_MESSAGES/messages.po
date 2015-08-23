@@ -1202,6 +1202,12 @@ msgstr "Porta do gateway"
 msgid "Gateways"
 msgstr "Gateways"
 
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Go"
 msgstr "Ir"
 
@@ -1566,6 +1572,10 @@ msgstr "Gerenciar gammu"
 
 msgid "Manage gateway and SMSC"
 msgstr "Gerenciar Gateway e SMSC"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "Gerenciar ID de Remetente"
 
 msgid "Manage infobip"
 msgstr "Gerenciar infobip"
@@ -3050,6 +3060,9 @@ msgstr "Sua url de callback deve ser acessível pelo Bulksms"
 
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Sua url de callback deve ser acessível pelo Clickatell"
+
+msgid "Your callback URL should be accessible from Generic"
+msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Sua URL de callback deve ser acessível pelo Infobip"

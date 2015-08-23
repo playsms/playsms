@@ -1207,6 +1207,14 @@ msgstr "Gateway port"
 msgid "Gateways"
 msgstr "Gateways"
 
+#, fuzzy
+msgid "Generic send SMS URL"
+msgstr "Jasmin afsend SMS URL"
+
+#, fuzzy
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
+
 msgid "Go"
 msgstr "Gå"
 
@@ -1572,6 +1580,10 @@ msgstr "Håndter gammu"
 
 msgid "Manage gateway and SMSC"
 msgstr "Håndter gateway og SMSC"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "Håndter afsender ID"
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
@@ -3055,6 +3067,10 @@ msgstr "Din callback URL skal være tilgængelig fra Bulksms"
 
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Din callback URL skal være tilgængelig fra Clickatell"
+
+#, fuzzy
+msgid "Your callback URL should be accessible from Generic"
+msgstr "Din callback URL skal være tilgængelig fra infobip"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgængelig fra infobip"

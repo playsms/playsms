@@ -1200,6 +1200,12 @@ msgstr ""
 msgid "Gateways"
 msgstr "البوابات"
 
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Go"
 msgstr "انتقل للإعدادات العامة أو إدارة الموقع لتحرير هذه الصفحة"
 
@@ -1565,6 +1571,10 @@ msgstr "المستخدم"
 
 msgid "Manage gateway and SMSC"
 msgstr "إدارة البوابات ومراكز الرسائل"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "إدارة اسم المرسل"
 
 #, fuzzy
 msgid "Manage infobip"
@@ -3037,6 +3047,9 @@ msgid "Your callback URL should be accessible from Bulksms"
 msgstr "رابط الاستدعاء يجب أن يكون قابل للوصول من قبل BulkSMS"
 
 msgid "Your callback URL should be accessible from Clickatell"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Generic"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"

@@ -1228,6 +1228,12 @@ msgstr ""
 msgid "Gateways"
 msgstr ""
 
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Go"
 msgstr "运行"
 
@@ -1612,6 +1618,10 @@ msgstr "管理用户"
 #, fuzzy
 msgid "Manage gateway and SMSC"
 msgstr "管理用户"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "短信发件人"
 
 #, fuzzy
 msgid "Manage infobip"
@@ -3113,6 +3123,9 @@ msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Clickatell"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Generic"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
