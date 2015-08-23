@@ -9,7 +9,7 @@ msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
 
 msgid "All mandatory fields must be filled"
-msgstr ""
+msgstr "Todos os campos obrigatórios devem ser preenchidos"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0300 para fuso horário de Brasília"
@@ -41,9 +41,8 @@ msgstr "Salvar"
 msgid "Try to disable SMS footer on master"
 msgstr "Tente desabilitar o rodapé de SMS no principal"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Configurações do módulo de gateway foram salvas"
+msgstr "Não foi possível salvar as configurações do módulo de gateway"
 
 msgid "Webservice token"
 msgstr "Token de webservice"

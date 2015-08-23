@@ -37,10 +37,10 @@ msgstr "PADRÃO"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
-msgstr ""
+msgstr "Decidir se essa ACL contém URL bloqueadas ao invés de URLs permitidas"
 
 msgid "Disallowed URLs"
-msgstr ""
+msgstr "URL bloqueadas"
 
 msgid "Edit ACL"
 msgstr "Editar regra"
