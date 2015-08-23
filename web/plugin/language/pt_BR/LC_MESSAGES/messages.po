@@ -1,10 +1,3 @@
-msgid ""
-msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-11 22:14+0700\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 msgid "1 Day"
 msgstr ""
 
@@ -53,9 +46,8 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-#, fuzzy
 msgid "API username"
-msgstr "Excluír usuário"
+msgstr ""
 
 msgid "Access Control List"
 msgstr ""
@@ -122,7 +114,7 @@ msgid "Active themes"
 msgstr ""
 
 msgid "Add"
-msgstr "Adicionar"
+msgstr ""
 
 msgid "Add ACL"
 msgstr ""
@@ -157,9 +149,8 @@ msgstr ""
 msgid "Add SMSC"
 msgstr ""
 
-#, fuzzy
 msgid "Add account"
-msgstr "Minha conta"
+msgstr ""
 
 msgid "Add blocked IP addresses"
 msgstr ""
@@ -176,9 +167,8 @@ msgstr ""
 msgid "Add contact"
 msgstr ""
 
-#, fuzzy
 msgid "Add credit"
-msgstr "Seu crédito"
+msgstr ""
 
 msgid "Add credit to users"
 msgstr ""
@@ -195,9 +185,8 @@ msgstr ""
 msgid "Add member"
 msgstr ""
 
-#, fuzzy
 msgid "Add message"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "Add message template"
 msgstr ""
@@ -211,13 +200,11 @@ msgstr ""
 msgid "Add route"
 msgstr ""
 
-#, fuzzy
 msgid "Add sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
-#, fuzzy
 msgid "Add subuser"
-msgstr "Gerenciar sub-usuário"
+msgstr ""
 
 msgid "Additional URL parameter"
 msgstr ""
@@ -226,11 +213,10 @@ msgid "Address"
 msgstr ""
 
 msgid "Administrator"
-msgstr "Administrador"
+msgstr ""
 
-#, fuzzy
 msgid "Administrators"
-msgstr "Administrador"
+msgstr ""
 
 msgid "All"
 msgstr ""
@@ -247,17 +233,14 @@ msgstr ""
 msgid "All queues have been removed"
 msgstr ""
 
-#, fuzzy
 msgid "All reports"
-msgstr "Relatórios"
+msgstr ""
 
-#, fuzzy
 msgid "All sent messages"
-msgstr "Enviar mensagem"
+msgstr ""
 
-#, fuzzy
 msgid "All users"
-msgstr "Excluír usuário"
+msgstr ""
 
 msgid "Allow users to select SMS footer while on Send SMS page"
 msgstr ""
@@ -297,9 +280,8 @@ msgstr ""
 msgid "Application options"
 msgstr ""
 
-#, fuzzy
 msgid "Approve sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Are you sure ?"
 msgstr ""
@@ -412,7 +394,7 @@ msgid "Balance recorded on transaction"
 msgstr ""
 
 msgid "Ban"
-msgstr "Banir"
+msgstr ""
 
 msgid "Ban date/time"
 msgstr ""
@@ -442,11 +424,10 @@ msgid "Bulksms will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Buy"
-msgstr "Comprar"
+msgstr ""
 
-#, fuzzy
 msgid "Buy credit page"
-msgstr "Seu crédito"
+msgstr ""
 
 msgid "CSS URL"
 msgstr ""
@@ -533,15 +514,13 @@ msgid "Comma separated values for multiple mobile numbers"
 msgstr ""
 
 msgid "Compose message"
-msgstr "Compor mensagem"
+msgstr ""
 
-#, fuzzy
 msgid "Configuration"
-msgstr "Configurações principais"
+msgstr ""
 
-#, fuzzy
 msgid "Confirmation"
-msgstr "Configurações principais"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr ""
@@ -637,9 +616,8 @@ msgstr ""
 msgid "Default default_queue directory"
 msgstr ""
 
-#, fuzzy
 msgid "Default language"
-msgstr "Falha ao carregar idioma"
+msgstr ""
 
 msgid "Default message footer"
 msgstr ""
@@ -659,16 +637,14 @@ msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
 
-#, fuzzy
 msgid "Default sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Default settings"
 msgstr ""
 
-#, fuzzy
 msgid "Default site configuration"
-msgstr "Configurações principais"
+msgstr ""
 
 msgid "Default timezone"
 msgstr ""
@@ -679,11 +655,10 @@ msgid ""
 msgstr ""
 
 msgid "Delete"
-msgstr "Excluír"
+msgstr ""
 
-#, fuzzy
 msgid "Delete ALL queues"
-msgstr "Excluír usuário"
+msgstr ""
 
 msgid "Delete catch-all"
 msgstr ""
@@ -691,16 +666,14 @@ msgstr ""
 msgid "Delete group inbox"
 msgstr ""
 
-#, fuzzy
 msgid "Delete member"
-msgstr "Excluír usuário"
+msgstr ""
 
 msgid "Delete user"
-msgstr "Excluír usuário"
+msgstr ""
 
-#, fuzzy
 msgid "Deleted"
-msgstr "Excluír"
+msgstr ""
 
 msgid "Delivered"
 msgstr ""
@@ -742,11 +715,10 @@ msgid "Download SMSSync app for Android from"
 msgstr ""
 
 msgid "Edit"
-msgstr "Editar"
+msgstr ""
 
-#, fuzzy
 msgid "Edit ACL"
-msgstr "Editar"
+msgstr ""
 
 msgid "Edit SMS autoreply"
 msgstr ""
@@ -775,9 +747,8 @@ msgstr ""
 msgid "Edit SMS subscribe"
 msgstr ""
 
-#, fuzzy
 msgid "Edit SMSC"
-msgstr "Editar"
+msgstr ""
 
 msgid "Edit contact"
 msgstr ""
@@ -791,16 +762,14 @@ msgstr ""
 msgid "Edit group inbox"
 msgstr ""
 
-#, fuzzy
 msgid "Edit message"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "Edit message template"
 msgstr ""
 
-#, fuzzy
 msgid "Edit rate"
-msgstr "Editar"
+msgstr ""
 
 msgid "Edit route"
 msgstr ""
@@ -808,9 +777,8 @@ msgstr ""
 msgid "Edit schedule"
 msgstr ""
 
-#, fuzzy
 msgid "Edit sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Effective SMS sender ID"
 msgstr ""
@@ -846,6 +814,9 @@ msgid "Email to SMS configuration has been saved and service disabled"
 msgstr ""
 
 msgid "Email to SMS configuration has been saved and service enabled"
+msgstr ""
+
+msgid "Empty callback URL to set default"
 msgstr ""
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
@@ -894,14 +865,13 @@ msgid "Exec"
 msgstr ""
 
 msgid "Export"
-msgstr "Exportar"
+msgstr ""
 
 msgid "FATAL ERROR"
-msgstr "ERRO FATAL"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to add SMS autoreply"
-msgstr "Falha ao carregar gateway"
+msgstr ""
 
 msgid "Fail to add SMS autoreply scenario"
 msgstr ""
@@ -912,9 +882,8 @@ msgstr ""
 msgid "Fail to add SMS command"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to add SMS custom"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
 msgid "Fail to add SMS poll"
 msgstr ""
@@ -925,47 +894,38 @@ msgstr ""
 msgid "Fail to add SMS subscribe"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to add catch-all"
-msgstr "Falha ao carregar gateway"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to add credit"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
 msgid "Fail to add group inbox"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to add member"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to add message"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to add message template"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to add new ACL"
-msgstr "Falha ao carregar gateway"
+msgstr ""
 
 msgid "Fail to add new SMS schedule"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to add new SMSC"
-msgstr "Falha ao carregar gateway"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to add new destination"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to add route"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1000,17 +960,14 @@ msgstr ""
 msgid "Fail to delete group inbox"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to delete member"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to delete rate"
-msgstr "Falha ao carregar gateway"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to delete route"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr ""
@@ -1042,9 +999,8 @@ msgstr ""
 msgid "Fail to edit group inbox"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to edit message"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
 msgid "Fail to edit message template"
 msgstr ""
@@ -1067,9 +1023,8 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to save SMS Sync configuration"
-msgstr "Configurações principais"
+msgstr ""
 
 msgid "Fail to save SMS command"
 msgstr ""
@@ -1077,9 +1032,8 @@ msgstr ""
 msgid "Fail to save SMS custom"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to save configuration"
-msgstr "Configurações principais"
+msgstr ""
 
 msgid "Fail to save email to SMS PIN"
 msgstr ""
@@ -1087,17 +1041,14 @@ msgstr ""
 msgid "Fail to save gateway module configurations"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to save preferences"
-msgstr "Preferências de usuário"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to save rate"
-msgstr "Falha ao carregar gateway"
+msgstr ""
 
-#, fuzzy
 msgid "Fail to save route"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
 msgid "Fail to save temporary password"
 msgstr ""
@@ -1105,9 +1056,8 @@ msgstr ""
 msgid "Fail to send SMS"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to send email"
-msgstr "Falha ao carregar temas"
+msgstr ""
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1121,9 +1071,8 @@ msgstr ""
 msgid "Fail to update due to invalid sender ID"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to upload CSV file"
-msgstr "Falha ao carregar idioma"
+msgstr ""
 
 msgid "Fail to upload CSV file for phonebook"
 msgstr ""
@@ -1131,12 +1080,11 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
-#, fuzzy
 msgid "Feature"
-msgstr "Recursos"
+msgstr ""
 
 msgid "Features"
-msgstr "Recursos"
+msgstr ""
 
 msgid "Fill the password field to change password"
 msgstr ""
@@ -1159,9 +1107,8 @@ msgstr ""
 msgid "Fill with zero to disable limit"
 msgstr ""
 
-#, fuzzy
 msgid "Flash message"
-msgstr "Compor mensagem"
+msgstr ""
 
 msgid "Footer"
 msgstr ""
@@ -1173,7 +1120,7 @@ msgid "Format YYYY-MM-DD hh:mm"
 msgstr ""
 
 msgid "Forward"
-msgstr "Encaminhar"
+msgstr ""
 
 msgid "Forward all sandbox SMS to a URL"
 msgstr ""
@@ -1187,9 +1134,8 @@ msgstr ""
 msgid "Forward message to mobile"
 msgstr ""
 
-#, fuzzy
 msgid "Forward to email"
-msgstr "Encaminhar"
+msgstr ""
 
 msgid "Forwarded email footer"
 msgstr ""
@@ -1225,7 +1171,7 @@ msgid "Gateways"
 msgstr ""
 
 msgid "Go"
-msgstr "Ir"
+msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
@@ -1243,11 +1189,10 @@ msgid "Graph output"
 msgstr ""
 
 msgid "Group"
-msgstr "Grupo"
+msgstr ""
 
-#, fuzzy
 msgid "Group code"
-msgstr "Grupo"
+msgstr ""
 
 msgid "Group code already exists"
 msgstr ""
@@ -1265,9 +1210,8 @@ msgid ""
 "Group has been edited but unable to set broadcast from members or anyone"
 msgstr ""
 
-#, fuzzy
 msgid "Group inbox"
-msgstr "Grupo"
+msgstr ""
 
 msgid "Group inbox has been added"
 msgstr ""
@@ -1284,9 +1228,8 @@ msgstr ""
 msgid "Group inbox has been enabled"
 msgstr ""
 
-#, fuzzy
 msgid "Group name"
-msgstr "Grupo"
+msgstr ""
 
 msgid "HTML output"
 msgstr ""
@@ -1301,7 +1244,7 @@ msgid "HTTP Kannel admin port"
 msgstr ""
 
 msgid "Home"
-msgstr "Início"
+msgstr ""
 
 msgid "ID"
 msgstr ""
@@ -1319,10 +1262,10 @@ msgid "IP addresses have been deleted"
 msgstr ""
 
 msgid "Idle"
-msgstr "Inativo"
+msgstr ""
 
 msgid "Import"
-msgstr "Importar"
+msgstr ""
 
 msgid "Import above destination entries ?"
 msgstr ""
@@ -1330,9 +1273,8 @@ msgstr ""
 msgid "Import above phonebook entries ?"
 msgstr ""
 
-#, fuzzy
 msgid "Import confirmation"
-msgstr "Configurações de usuário"
+msgstr ""
 
 msgid "Inbox"
 msgstr ""
@@ -1373,9 +1315,8 @@ msgstr ""
 msgid "Invalid entries"
 msgstr ""
 
-#, fuzzy
 msgid "Invalid sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Invalid session ID"
 msgstr ""
@@ -1438,20 +1379,17 @@ msgstr ""
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
 
-#, fuzzy
 msgid "List of accounts"
-msgstr "Minha conta"
+msgstr ""
 
-#, fuzzy
 msgid "List of administrators"
-msgstr "Administrador"
+msgstr ""
 
 msgid "List of destinations"
 msgstr ""
 
-#, fuzzy
 msgid "List of gateways and SMSCs"
-msgstr "Gerenciar Gateway e SMSC"
+msgstr ""
 
 #, php-format
 msgid "List of messages from %s"
@@ -1483,18 +1421,16 @@ msgid "Local playnet username"
 msgstr ""
 
 msgid "Logged in as"
-msgstr "Logado como"
+msgstr ""
 
-#, fuzzy
 msgid "Login"
-msgstr "Logar como"
+msgstr ""
 
 msgid "Login as"
-msgstr "Logar como"
+msgstr ""
 
-#, fuzzy
 msgid "Login information"
-msgstr "Configurações principais"
+msgstr ""
 
 msgid "Logo URL"
 msgstr ""
@@ -1504,7 +1440,7 @@ msgid ""
 msgstr ""
 
 msgid "Logout"
-msgstr "Sair"
+msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
 msgstr ""
@@ -1525,11 +1461,10 @@ msgid "Mailbox username"
 msgstr ""
 
 msgid "Main configuration"
-msgstr "Configurações principais"
+msgstr ""
 
-#, fuzzy
 msgid "Main configuration changes has been saved"
-msgstr "Configurações principais"
+msgstr ""
 
 msgid "Main website URL"
 msgstr ""
@@ -1541,149 +1476,118 @@ msgid "Make return as reply"
 msgstr ""
 
 msgid "Manage"
-msgstr "Gerenciar"
+msgstr ""
 
 msgid "Manage ACL"
-msgstr "Gerenciar Regras"
+msgstr ""
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage SMS rate"
-msgstr "Gerenciar Site"
+msgstr ""
 
 msgid "Manage account"
-msgstr "Gerenciar conta"
+msgstr ""
 
-#, fuzzy
 msgid "Manage autoreply"
-msgstr "Gerenciar Gateway"
+msgstr ""
 
-#, fuzzy
 msgid "Manage blocked"
-msgstr "Gerenciar sub-usuário"
+msgstr ""
 
-#, fuzzy
 msgid "Manage board"
-msgstr "Gerenciar usuário"
+msgstr ""
 
-#, fuzzy
 msgid "Manage bulksms"
-msgstr "Gerenciar sub-usuários"
+msgstr ""
 
-#, fuzzy
 msgid "Manage clickatell"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage command"
-msgstr "Gerenciar conta"
+msgstr ""
 
-#, fuzzy
 msgid "Manage credit"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage custom"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage email to SMS"
-msgstr "Gerenciar Gateway e SMSC"
+msgstr ""
 
-#, fuzzy
 msgid "Manage firewall"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage gammu"
-msgstr "Gerenciar usuário"
+msgstr ""
 
 msgid "Manage gateway and SMSC"
-msgstr "Gerenciar Gateway e SMSC"
+msgstr ""
 
-#, fuzzy
 msgid "Manage infobip"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage kannel"
-msgstr "Gerenciar conta"
+msgstr ""
 
-#, fuzzy
 msgid "Manage nexmo"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Gerenciar conta"
+msgstr ""
 
-#, fuzzy
 msgid "Manage plugin"
-msgstr "Gerenciar conta"
+msgstr ""
 
-#, fuzzy
 msgid "Manage poll"
-msgstr "Gerenciar"
+msgstr ""
 
-#, fuzzy
 msgid "Manage quiz"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage schedule"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Manage sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Manage site"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage smstools"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage stoplist"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage subscribe"
-msgstr "Gerenciar sub-usuário"
+msgstr ""
 
 msgid "Manage subuser"
-msgstr "Gerenciar sub-usuário"
+msgstr ""
 
-#, fuzzy
 msgid "Manage sync"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage telerivet"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage template"
-msgstr "Gerenciar Site"
+msgstr ""
 
-#, fuzzy
 msgid "Manage twilio"
-msgstr "Gerenciar Gateway"
+msgstr ""
 
-#, fuzzy
 msgid "Manage uplink"
-msgstr "Gerenciar usuário"
+msgstr ""
 
 msgid "Mandatory fields must not be empty"
 msgstr ""
@@ -1733,9 +1637,8 @@ msgstr ""
 msgid "Members"
 msgstr ""
 
-#, fuzzy
 msgid "Message"
-msgstr "Enviar mensagem"
+msgstr ""
 
 #, php-format
 msgid "Message %s has been delivered to queue"
@@ -1783,9 +1686,8 @@ msgstr ""
 msgid "Message template name"
 msgstr ""
 
-#, fuzzy
 msgid "Messages"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "Min length to detect missing country code"
 msgstr ""
@@ -1802,9 +1704,8 @@ msgstr ""
 msgid "Mobile numbers have been deleted"
 msgstr ""
 
-#, fuzzy
 msgid "Module sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Module timezone"
 msgstr ""
@@ -1813,11 +1714,10 @@ msgid "Monthly"
 msgstr ""
 
 msgid "Move"
-msgstr "Mover"
+msgstr ""
 
-#, fuzzy
 msgid "Move to"
-msgstr "Mover"
+msgstr ""
 
 msgid "Multi"
 msgstr ""
@@ -1832,7 +1732,7 @@ msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "My account"
-msgstr "Minha conta"
+msgstr ""
 
 msgid "My credit transactions"
 msgstr ""
@@ -1843,13 +1743,11 @@ msgstr ""
 msgid "My feature messages"
 msgstr ""
 
-#, fuzzy
 msgid "My report"
-msgstr "Relatórios"
+msgstr ""
 
-#, fuzzy
 msgid "My sent messages"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "Name"
 msgstr ""
@@ -1893,9 +1791,8 @@ msgstr ""
 msgid "No changes made!"
 msgstr ""
 
-#, fuzzy
 msgid "No group"
-msgstr "Grupo"
+msgstr ""
 
 msgid "No route has been saved"
 msgstr ""
@@ -1928,13 +1825,13 @@ msgid "Number of votes"
 msgstr ""
 
 msgid "Offline"
-msgstr "Offline"
+msgstr ""
 
 msgid "Once"
 msgstr ""
 
 msgid "Online"
-msgstr "Online"
+msgstr ""
 
 msgid "Only when the sender ID is approved"
 msgstr ""
@@ -1954,13 +1851,11 @@ msgstr ""
 msgid "PIN is empty"
 msgstr ""
 
-#, fuzzy
 msgid "Page content"
-msgstr "Gerenciar conta"
+msgstr ""
 
-#, fuzzy
 msgid "Page title"
-msgstr "Gerenciar Site"
+msgstr ""
 
 msgid "Param"
 msgstr ""
@@ -1968,9 +1863,8 @@ msgstr ""
 msgid "Parent"
 msgstr ""
 
-#, fuzzy
 msgid "Parent account"
-msgstr "Gerenciar conta"
+msgstr ""
 
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
@@ -2041,7 +1935,7 @@ msgid "Pre rules"
 msgstr ""
 
 msgid "Preferences"
-msgstr "Preferências"
+msgstr ""
 
 msgid "Preferences have been saved"
 msgstr ""
@@ -2153,11 +2047,10 @@ msgid "Recover password disabled"
 msgstr ""
 
 msgid "Reduce"
-msgstr "Reduzir"
+msgstr ""
 
-#, fuzzy
 msgid "Reduce credit"
-msgstr "Seu crédito"
+msgstr ""
 
 msgid "Reduce credit from users"
 msgstr ""
@@ -2165,9 +2058,8 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#, fuzzy
 msgid "Register an account"
-msgstr "Gerenciar conta"
+msgstr ""
 
 msgid "Registered"
 msgstr ""
@@ -2197,7 +2089,7 @@ msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
-msgstr "Responder"
+msgstr ""
 
 msgid "Reply message on correct"
 msgstr ""
@@ -2214,13 +2106,11 @@ msgstr ""
 msgid "Reply message on valid vote"
 msgstr ""
 
-#, fuzzy
 msgid "Report"
-msgstr "Relatórios"
+msgstr ""
 
-#, fuzzy
 msgid "Report all users"
-msgstr "Relatórios"
+msgstr ""
 
 msgid "Report banned users"
 msgstr ""
@@ -2229,10 +2119,10 @@ msgid "Report whose online"
 msgstr ""
 
 msgid "Reports"
-msgstr "Relatórios"
+msgstr ""
 
 msgid "Resend"
-msgstr "Reenviar"
+msgstr ""
 
 msgid "Restart Kannel"
 msgstr ""
@@ -2246,9 +2136,8 @@ msgstr ""
 msgid "Result table"
 msgstr ""
 
-#, fuzzy
 msgid "Return"
-msgstr "voltar"
+msgstr ""
 
 msgid "Route SMS outgoing"
 msgstr ""
@@ -2530,9 +2419,8 @@ msgstr ""
 msgid "Schedule ID"
 msgstr ""
 
-#, fuzzy
 msgid "Schedule messages"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "Schedule name"
 msgstr ""
@@ -2543,9 +2431,8 @@ msgstr ""
 msgid "Scheduled"
 msgstr ""
 
-#, fuzzy
 msgid "Scheduled message"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "Search"
 msgstr ""
@@ -2562,13 +2449,11 @@ msgstr ""
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
-#, fuzzy
 msgid "Select username"
-msgstr "Excluír usuário"
+msgstr ""
 
-#, fuzzy
 msgid "Select users"
-msgstr "Excluír usuário"
+msgstr ""
 
 msgid "Selected catchall"
 msgstr ""
@@ -2597,9 +2482,8 @@ msgstr ""
 msgid "Selected transactions has been deleted"
 msgstr ""
 
-#, fuzzy
 msgid "Selected users"
-msgstr "Excluír usuário"
+msgstr ""
 
 msgid "Send"
 msgstr ""
@@ -2648,9 +2532,8 @@ msgstr ""
 msgid "Sender"
 msgstr ""
 
-#, fuzzy
 msgid "Sender ID"
-msgstr "Gerenciar ID de Remetente"
+msgstr ""
 
 msgid "Sender ID description has been added"
 msgstr ""
@@ -2706,7 +2589,7 @@ msgid ""
 msgstr ""
 
 msgid "Settings"
-msgstr "Configurações"
+msgstr ""
 
 msgid "Share phonebook and allow broadcast"
 msgstr ""
@@ -2719,9 +2602,8 @@ msgstr ""
 msgid "Simulate incoming SMS"
 msgstr ""
 
-#, fuzzy
 msgid "Site configuration"
-msgstr "Configurações principais"
+msgstr ""
 
 msgid "Site configuration has been saved"
 msgstr ""
@@ -2753,9 +2635,8 @@ msgstr ""
 msgid "Subuser ACL"
 msgstr ""
 
-#, fuzzy
 msgid "Subusers"
-msgstr "Gerenciar sub-usuários"
+msgstr ""
 
 msgid "Supplied SMSC"
 msgstr ""
@@ -2839,20 +2720,17 @@ msgstr ""
 msgid "Unable to add group"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to ban account"
-msgstr "Gerenciar conta"
+msgstr ""
 
-#, fuzzy
 msgid "Unable to ban subuser"
-msgstr "Gerenciar sub-usuário"
+msgstr ""
 
 msgid "Unable to delete group until the group is empty"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to delete other users"
-msgstr "Incapaz de localizar os arquivos do composer"
+msgstr ""
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
@@ -2871,19 +2749,17 @@ msgstr ""
 msgid "Unable to save gateway module configurations"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to unban account"
-msgstr "Gerenciar sub-conta"
+msgstr ""
 
 msgid "Unable to unban subuser"
 msgstr ""
 
 msgid "Unban"
-msgstr "Desbanir"
+msgstr ""
 
-#, fuzzy
 msgid "Unicode message"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "Unknown error"
 msgstr ""
@@ -2922,11 +2798,10 @@ msgid "User agent"
 msgstr ""
 
 msgid "User configuration"
-msgstr "Configurações de usuário"
+msgstr ""
 
-#, fuzzy
 msgid "User configuration has been saved"
-msgstr "Configurações de usuário"
+msgstr ""
 
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
@@ -2953,7 +2828,7 @@ msgid "User is not on banned users list"
 msgstr ""
 
 msgid "User preference"
-msgstr "Preferências de usuário"
+msgstr ""
 
 msgid "Username"
 msgstr ""
@@ -2989,7 +2864,7 @@ msgid "Version"
 msgstr ""
 
 msgid "View"
-msgstr "Visualizar"
+msgstr ""
 
 msgid "View SMS queue"
 msgstr ""
@@ -2997,16 +2872,14 @@ msgstr ""
 msgid "View board"
 msgstr ""
 
-#, fuzzy
 msgid "View log"
-msgstr "Visualizar"
+msgstr ""
 
 msgid "View members"
 msgstr ""
 
-#, fuzzy
 msgid "View messages"
-msgstr "Enviar mensagem"
+msgstr ""
 
 msgid "View report"
 msgstr ""
@@ -3126,12 +2999,11 @@ msgstr ""
 msgid "Your callback URL should be accessible from twilio"
 msgstr ""
 
-#, fuzzy
 msgid "Your choice"
-msgstr "Seu crédito"
+msgstr ""
 
 msgid "Your credit"
-msgstr "Seu crédito"
+msgstr ""
 
 msgid "Your current callback URL is"
 msgstr ""
@@ -3157,9 +3029,8 @@ msgstr ""
 msgid "Zipcode"
 msgstr ""
 
-#, fuzzy
 msgid "amount"
-msgstr "Minha conta"
+msgstr ""
 
 msgid "balance"
 msgstr ""
@@ -3179,9 +3050,8 @@ msgstr ""
 msgid "cost"
 msgstr ""
 
-#, fuzzy
 msgid "count"
-msgstr "Minha conta"
+msgstr ""
 
 msgid "create an account to send SMS"
 msgstr ""
@@ -3213,9 +3083,8 @@ msgstr ""
 msgid "free credits are available for testing purposes"
 msgstr ""
 
-#, fuzzy
 msgid "group"
-msgstr "Grupo"
+msgstr ""
 
 msgid "incorrect"
 msgstr ""
@@ -3275,7 +3144,7 @@ msgid "rate"
 msgstr ""
 
 msgid "return"
-msgstr "voltar"
+msgstr ""
 
 msgid "title"
 msgstr ""

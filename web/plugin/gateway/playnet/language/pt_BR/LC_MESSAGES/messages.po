@@ -1,47 +1,56 @@
-msgid "Changes have been made"
+msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Changes have been made"
+msgstr "As alterações foram salvas"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para fusorário de Brasília"
 
 msgid "Gateway name"
-msgstr ""
+msgstr "Nome do Gateway"
 
 msgid "Local playnet password"
-msgstr ""
+msgstr "Senha local do playnet"
 
 msgid "Local playnet username"
-msgstr ""
+msgstr "Usuário local do playnet"
 
 msgid "Manage playnet"
-msgstr ""
+msgstr "Gerenciar playnet"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Máximo 16 caracteres numéricos ou 11 alfanuméricos. Deixe em branco para "
+"desabilitar"
 
 msgid "Module sender ID"
-msgstr ""
+msgstr "ID do remetente"
 
 msgid "Module timezone"
-msgstr ""
+msgstr "Fusorário do módulo"
 
 msgid "Remote is on"
-msgstr ""
+msgstr "Remoto está ligado"
 
 msgid "Remote playSMS URL"
-msgstr ""
+msgstr "URL remota do playSMS"
 
 msgid "Remote playnet SMSC name"
-msgstr ""
+msgstr "Nome remoto do SMSC do playnet"
 
 msgid "Remote playnet password"
-msgstr ""
+msgstr "Senha remota do playnet"
 
 msgid "Remote playnet username"
-msgstr ""
+msgstr "Usuário remoto do playnet"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Send SMS from remote using local username"
-msgstr ""
+msgstr "Enviar SMS remotamente utilizando usuário local"

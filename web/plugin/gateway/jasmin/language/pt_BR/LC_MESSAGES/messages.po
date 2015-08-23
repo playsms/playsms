@@ -1,53 +1,69 @@
-msgid "API password"
+msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "API password"
+msgstr "Senha do API"
 
 msgid "API username"
-msgstr ""
+msgstr "Usuário do API"
+
+msgid "All mandatory fields must be filled"
+msgstr "Todos os campos obrigatórios devem ser preenchidos"
 
 msgid "Callback URL"
-msgstr ""
+msgstr "URL de Callback"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr ""
+msgstr "Ex: +0300 para fusorário de Brasília"
+
+msgid "Empty callback URL to set default"
+msgstr "Deixe a URL Callback em banco para user o padrão"
+
+msgid "Fail to save gateway module configurations"
+msgstr "Falha ao salvar as configurações do módulo"
 
 msgid "Fill to change the API password"
-msgstr ""
+msgstr "Preencha para alterar a senha do API"
 
 msgid "Gateway module configurations has been saved"
-msgstr ""
+msgstr "Alterações do módulo de gateway foram salvas"
 
 msgid "Gateway name"
-msgstr ""
+msgstr "Nome do gateway"
 
 msgid "Jasmin send SMS URL"
-msgstr ""
+msgstr "URL de envio Jasmin"
 
 msgid "Jasmin will push DLR and incoming SMS to your callback URL"
 msgstr ""
+"Jasmil irá encaminhar DLR e mensagens recebidas para sua URL de callback"
 
 msgid "Manage jasmin"
-msgstr ""
+msgstr "Gerenciar jasmin"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
+"Máximo 16 caracteres numéricos ou 11 alfanuméricos. Em branco para "
+"desabilitar"
 
 msgid "Module sender ID"
-msgstr ""
+msgstr "ID do remetente"
 
 msgid "Module timezone"
-msgstr ""
-
-msgid "No changes have been made"
-msgstr ""
+msgstr "Fusorário do módulo"
 
 msgid "Notes"
-msgstr ""
+msgstr "Anotações"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Your callback URL should be accessible from Jasmin"
-msgstr ""
+msgstr "Sua URL de callback deve estar acessível pelo Jasmin"
 
 msgid "Your current callback URL is"
-msgstr ""
+msgstr "Sua URL de callback atual é"
