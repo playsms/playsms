@@ -1,0 +1,59 @@
+msgid "API password"
+msgstr ""
+
+msgid "API username"
+msgstr ""
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "Callback URL"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Empty callback URL to set default"
+msgstr ""
+
+msgid "Fail to save gateway module configurations"
+msgstr ""
+
+msgid "Fill to change the API password"
+msgstr ""
+
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
+msgid "Manage generic"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Generic"
+msgstr ""
+
+msgid "Your current callback URL is"
+msgstr ""
