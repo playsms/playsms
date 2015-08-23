@@ -573,13 +573,16 @@ function core_sanitize_numeric($string) {
 /**
  * Sanitize SMS sender
  */
-function core_sanitize_sender($text) {
-	$text = core_sanitize_alphanumeric($text);
-	$text = substr($text, 0, 16);
-	if (preg_match("/^[A-Za-z]/", $text) == TRUE) {
-		$text = substr($text, 0, 11);
+function core_sanitize_sender($string) {
+	// $string = core_sanitize_alphanumeric($string);
+	// allows alphanumeric, space, dash, underscore
+	$string = trim(preg_replace('/[^\p{L}\p{N}]\s-_+/u', '', $string));
+	$string = substr($string, 0, 16);
+	if (preg_match('/[^\p{L}\p{N}]\s-_+/u', $string) == TRUE) {
+		$string = substr($string, 0, 11);
 	}
-	return $text;
+	
+	return $string;
 }
 
 /**
