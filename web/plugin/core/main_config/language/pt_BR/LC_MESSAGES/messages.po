@@ -6,7 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "REGRA PADRÂO não restringe acecco aos menus"
+msgstr "REGRA PADRÃO não restrine acesso aos menus"
 
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "

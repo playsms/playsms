@@ -15,10 +15,10 @@ msgid "Changes have been made"
 msgstr "Alterações foram realizadas"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configuração"
 
 msgid "DLR mask"
-msgstr ""
+msgstr "Máscara DLR"
 
 msgid "Delivered to SMSC"
 msgstr "Recebido pelo SMSC"
@@ -56,9 +56,8 @@ msgstr "Senha de administrador Kannel"
 msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
 
-#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr "Host do administrador Kannel"
+msgstr "Opção Máscara DLR do Kannel"
 
 msgid "Kannel specific"
 msgstr "Específico do Kannel"
@@ -88,7 +87,7 @@ msgid "Non-Delivered to phone"
 msgstr "Não entregue ao celular"
 
 msgid "Operational"
-msgstr ""
+msgstr "Operacional"
 
 msgid "Password"
 msgstr "Senha"
@@ -117,9 +116,8 @@ msgstr "Status"
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL do playSMS, deixe em branco para usar a URL base"
 
-#, fuzzy
 msgid "Update status"
-msgstr "Status do Kannel"
+msgstr "Atualizar Status"
 
 msgid "Username"
 msgstr "Usuário"
