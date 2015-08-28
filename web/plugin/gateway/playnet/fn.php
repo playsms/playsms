@@ -65,9 +65,9 @@ function playnet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	}
 	
 	$unicode = (trim($unicode) ? 1 : 0);
-	if (!$unicode) {
-		$unicode = core_detect_unicode($sms_msg);
-	}
+	//if (!$unicode) {
+	//	$unicode = core_detect_unicode($sms_msg);
+	//}
 	
 	if ($sms_to && $sms_msg) {
 		$now = core_get_datetime();

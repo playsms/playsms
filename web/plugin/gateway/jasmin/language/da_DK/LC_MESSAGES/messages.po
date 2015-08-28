@@ -4,10 +4,19 @@ msgstr ""
 msgid "API username"
 msgstr ""
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Callback URL"
 msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Empty callback URL to set default"
+msgstr ""
+
+msgid "Fail to save gateway module configurations"
 msgstr ""
 
 msgid "Fill to change the API password"
@@ -35,9 +44,6 @@ msgid "Module sender ID"
 msgstr ""
 
 msgid "Module timezone"
-msgstr ""
-
-msgid "No changes have been made"
 msgstr ""
 
 msgid "Notes"

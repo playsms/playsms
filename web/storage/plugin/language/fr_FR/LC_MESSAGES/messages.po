@@ -858,6 +858,9 @@ msgstr ""
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "La configuration email vers SMS a été enregistrée et le service activé"
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Sender ID vide par défaut pour permettre aux utilisateurs de définir leur "
@@ -1213,6 +1216,12 @@ msgstr "Port de la passerelle"
 
 msgid "Gateways"
 msgstr "Passerelles"
+
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Go"
 msgstr "Aller"
@@ -1582,6 +1591,10 @@ msgstr "Gérer gammu"
 
 msgid "Manage gateway and SMSC"
 msgstr "Gérer passerelle et SMSC"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "Gérer sender ID"
 
 msgid "Manage infobip"
 msgstr "Gérer infobip"
@@ -3096,6 +3109,9 @@ msgstr "Votre URL de callback doit être accessible par Bulksms"
 
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Votre URL de callback doit être accessible par Clickatell"
+
+msgid "Your callback URL should be accessible from Generic"
+msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Votre URL de callback doit être accessible par Infobip"

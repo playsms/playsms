@@ -9,7 +9,7 @@ msgid "Account SID"
 msgstr "SID da conta"
 
 msgid "All mandatory fields must be filled"
-msgstr ""
+msgstr "Todos os campos obrigatórios devem ser preenchidos"
 
 msgid "Auth Token"
 msgstr "Token de autenticação"
@@ -20,9 +20,8 @@ msgstr "URL de callback"
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0300 para fuso horário de Brasília"
 
-#, fuzzy
 msgid "Fail to save gateway module configurations"
-msgstr "Configurações do módulo de gateway foram salvas"
+msgstr "Não foi possível salvar as configurações do módulo de gateway"
 
 msgid "Fill to change the Auth Token"
 msgstr "Preencha para alterar o Token de autenticação"

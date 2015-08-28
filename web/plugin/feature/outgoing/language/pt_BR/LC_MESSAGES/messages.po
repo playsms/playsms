@@ -30,7 +30,7 @@ msgid "Fail to save route"
 msgstr "Falha ao salvar a rota"
 
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Multiplas entradas devem ser separadas por vírgula"
 
 msgid "Prefix"
 msgstr "Prefixo"

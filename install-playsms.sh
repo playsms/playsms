@@ -217,13 +217,13 @@ set -e
 echo -n .
 mkdir -p $PATHWEB $PATHLIB $PATHLOG
 echo -n .
-cp -rR web/* $PATHWEB
+cp -rf web/* $PATHWEB
 set +e
 echo -n .
 mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null 2>&1
 set -e
 echo -n .
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < db/playsms.sql
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < db/playsms.sql >/dev/null 2>&1
 echo -n .
 cp $PATHWEB/config-dist.php $PATHWEB/config.php
 echo -n .
@@ -239,8 +239,12 @@ sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
 echo -n .
 sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
 echo -n .
-chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLIB $PATHLOG
-echo -n .
+
+if [ "$USERID" = "0" ]; then
+	chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLIB $PATHLOG
+	echo -n .
+fi
+
 mkdir -p $PATHCONF $PATHBIN
 echo -n .
 touch $PATHCONF/playsmsd.conf

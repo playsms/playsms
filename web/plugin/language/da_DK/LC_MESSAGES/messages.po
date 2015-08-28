@@ -853,6 +853,9 @@ msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er deaktiveret"
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er aktiveret"
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Nulstil standard afsender ID for at lade brugere vælge deres eget afsender ID"
@@ -1204,6 +1207,14 @@ msgstr "Gateway port"
 
 msgid "Gateways"
 msgstr "Gateways"
+
+#, fuzzy
+msgid "Generic send SMS URL"
+msgstr "Jasmin afsend SMS URL"
+
+#, fuzzy
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Go"
 msgstr "Gå"
@@ -1570,6 +1581,10 @@ msgstr "Håndter gammu"
 
 msgid "Manage gateway and SMSC"
 msgstr "Håndter gateway og SMSC"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "Håndter afsender ID"
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
@@ -3053,6 +3068,10 @@ msgstr "Din callback URL skal være tilgængelig fra Bulksms"
 
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Din callback URL skal være tilgængelig fra Clickatell"
+
+#, fuzzy
+msgid "Your callback URL should be accessible from Generic"
+msgstr "Din callback URL skal være tilgængelig fra infobip"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgængelig fra infobip"

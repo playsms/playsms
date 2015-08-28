@@ -130,9 +130,9 @@ function bulksms_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	}
 	
 	// Automatically setting the unicode flag if necessary
-	if (!$unicode) {		
-		$unicode = core_detect_unicode($sms_msg);
-	}
+	//if (!$unicode) {		
+	//	$unicode = core_detect_unicode($sms_msg);
+	//}
 	
 	if ($unicode) {
 		$unicode = 1;

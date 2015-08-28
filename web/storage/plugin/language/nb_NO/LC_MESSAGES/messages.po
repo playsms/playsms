@@ -845,6 +845,9 @@ msgstr "Email til SMS-konfigurasjon har blitt lagret og tjenesten deaktivert"
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "Email til SMS-konfigurasjon har blitt lagret og tjenesten aktivert"
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Nullstill standard senderID for å tillate brukere å velge deres eget senderID"
@@ -1198,6 +1201,12 @@ msgstr "Gateway-port"
 
 msgid "Gateways"
 msgstr "Gateways"
+
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Go"
 msgstr "Kjr"
@@ -1563,6 +1572,10 @@ msgstr "Håndter gammu"
 
 msgid "Manage gateway and SMSC"
 msgstr "Hndter gateway og SMSC"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "Håndter sender-ID"
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
@@ -3051,6 +3064,9 @@ msgstr "Din callback URL skal være tilgjenglig fra BulkSMS"
 
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Din callback URL skal være tilgjengelig fra Clickatell"
+
+msgid "Your callback URL should be accessible from Generic"
+msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgjengelig fra Infobip"

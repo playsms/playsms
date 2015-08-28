@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +28,7 @@ msgid "ACL"
 msgstr "Regra"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "A Regra Padrão não permite acesso aos menus"
+msgstr "REGRA PADRÃO não restrine acesso aos menus"
 
 msgid "ACL ID"
 msgstr "ID da regra"
@@ -49,14 +49,13 @@ msgid "API key"
 msgstr "Chave API"
 
 msgid "API password"
-msgstr ""
+msgstr "Senha do API"
 
 msgid "API secret"
 msgstr "Segredo API"
 
-#, fuzzy
 msgid "API username"
-msgstr "Excluír usuário"
+msgstr "Usuário do API"
 
 msgid "Access Control List"
 msgstr "Regras de Acesso"
@@ -412,9 +411,6 @@ msgstr "Saldo"
 msgid "Balance recorded on transaction"
 msgstr "Saldo gravado na transação"
 
-msgid "Ban"
-msgstr "Banir"
-
 msgid "Ban date/time"
 msgstr "Dia/hora do banimento"
 
@@ -442,11 +438,8 @@ msgstr "Bulksms é um provedor de SMS em massa"
 msgid "Bulksms will push DLR and incoming SMS to your callback URL"
 msgstr "Bulksms irá enviar DLR ou SMS recebido para sua URL de callback"
 
-msgid "Buy"
-msgstr "Comprar"
-
 msgid "Buy credit page"
-msgstr "Página para compra de créditos"
+msgstr "Página Comprar Créditos"
 
 msgid "CSS URL"
 msgstr "URL do CSS"
@@ -458,7 +451,7 @@ msgid "Callback Secret"
 msgstr "Segredo do Callback"
 
 msgid "Callback URL"
-msgstr "URL do callback"
+msgstr "URL de Callback"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -536,7 +529,7 @@ msgid "Compose message"
 msgstr "Compor mensagem"
 
 msgid "Configuration"
-msgstr "Configurações"
+msgstr "Configuração"
 
 msgid "Confirmation"
 msgstr "Confirmação"
@@ -595,7 +588,7 @@ msgid "DEFAULT"
 msgstr "PADRÃO"
 
 msgid "DLR mask"
-msgstr ""
+msgstr "Máscara DLR"
 
 msgid "Daily"
 msgstr "Diariamente"
@@ -614,7 +607,7 @@ msgstr "Data/hora"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
-msgstr ""
+msgstr "Decidir se essa ACL contém URL bloqueadas ao invés de URLs permitidas"
 
 msgid "Default"
 msgstr "Padrão"
@@ -663,7 +656,7 @@ msgstr ""
 "destinatário"
 
 msgid "Default sender ID"
-msgstr "ID de remetende padrão"
+msgstr "ID de remetente padrão"
 
 msgid "Default settings"
 msgstr "Configurações padrão"
@@ -682,7 +675,7 @@ msgstr ""
 "como separador"
 
 msgid "Delete"
-msgstr "Excluír"
+msgstr "Excluir"
 
 msgid "Delete ALL queues"
 msgstr "Excluír TODAS as filas"
@@ -695,9 +688,6 @@ msgstr "Remover grupo de caixa de entrada"
 
 msgid "Delete member"
 msgstr "Remover membro"
-
-msgid "Delete user"
-msgstr "Excluir usurio"
 
 msgid "Deleted"
 msgstr "Excluído"
@@ -733,16 +723,13 @@ msgid "Disable login as subuser"
 msgstr "Desabilitar login como sub-usuário"
 
 msgid "Disallowed URLs"
-msgstr ""
+msgstr "URL bloqueadas"
 
 msgid "Domain"
 msgstr "Domínio"
 
 msgid "Download SMSSync app for Android from"
 msgstr "Baixar app SMSSync para Android de"
-
-msgid "Edit"
-msgstr "Editar"
 
 msgid "Edit ACL"
 msgstr "Editar regra"
@@ -814,7 +801,7 @@ msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0300 para fuso horário de Brasília"
 
 msgid "Email"
-msgstr "E-mail"
+msgstr "Email"
 
 msgid "Email address is mandatory"
 msgstr "Campo email é obrigatório"
@@ -845,6 +832,9 @@ msgid "Email to SMS configuration has been saved and service enabled"
 msgstr ""
 "As configurações de Email para SMS foram salvas e o serviço está habilitado"
 
+msgid "Empty callback URL to set default"
+msgstr "Deixe a URL Callback em banco para user o padrão"
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Deixar o ID de Remetente em branco para permitir que usuários coloquem seu "
@@ -860,7 +850,7 @@ msgid "Enable fetch new emails"
 msgstr "Habilitar recebimento de novos emails"
 
 msgid "Enable forgot password"
-msgstr "Habilitar recuperação de senha"
+msgstr "Habilitar Recuperação de senha"
 
 msgid "Enable login brute force detection"
 msgstr "Habilitar detecção de login por força bruta"
@@ -881,7 +871,7 @@ msgid "Entries in CSV file have been imported"
 msgstr "As entradas do arquivo CSV foram importadas"
 
 msgid "Example"
-msgstr ""
+msgstr "Exemplo"
 
 msgid "Example of SMS custom URL"
 msgstr "Exemplo de URL de SMS personalizado"
@@ -891,9 +881,6 @@ msgstr "Exclusivo"
 
 msgid "Exec"
 msgstr "Executar"
-
-msgid "Export"
-msgstr "Exportar"
 
 msgid "FATAL ERROR"
 msgstr "ERRO FATAL"
@@ -1067,7 +1054,7 @@ msgid "Fail to save email to SMS PIN"
 msgstr "Falha ao salvar o PIN de Email para SMS"
 
 msgid "Fail to save gateway module configurations"
-msgstr ""
+msgstr "Falha ao salvar as configurações do módulo"
 
 msgid "Fail to save preferences"
 msgstr "Falha ao salvar as preferências"
@@ -1121,7 +1108,7 @@ msgid "Fill to change the API key"
 msgstr "Preencha para alterar a chave API"
 
 msgid "Fill to change the API password"
-msgstr ""
+msgstr "Preencha para alterar a senha do API"
 
 msgid "Fill to change the API secret"
 msgstr "Preencha para alterar o segredo API"
@@ -1150,9 +1137,8 @@ msgstr "Formato YYYY-MM-DD hh:mm"
 msgid "Forward"
 msgstr "Encaminhar"
 
-#, fuzzy
 msgid "Forward all sandbox SMS to a URL"
-msgstr "Rotear todos os SMSs do sandbox para usuários"
+msgstr "Rotear todos os SMSs do sandbox para uma URL"
 
 msgid "Forward message to email"
 msgstr "Encaminhar mensagem para email"
@@ -1199,8 +1185,11 @@ msgstr "Porta do gateway"
 msgid "Gateways"
 msgstr "Gateways"
 
-msgid "Go"
-msgstr "Ir"
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
@@ -1275,7 +1264,7 @@ msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
 
 msgid "Home"
-msgstr "Inicio"
+msgstr "Início"
 
 msgid "ID"
 msgstr "ID"
@@ -1291,9 +1280,6 @@ msgstr "O endereço IP foi bloqueado"
 
 msgid "IP addresses have been deleted"
 msgstr "Os endereços IP foram excluídos"
-
-msgid "Idle"
-msgstr "Inativo"
 
 msgid "Import"
 msgstr "Importar"
@@ -1329,7 +1315,7 @@ msgid "Information"
 msgstr "Informações"
 
 msgid "Information page"
-msgstr "Página de informações"
+msgstr "Página de Informação"
 
 msgid "Insert keyword"
 msgstr "Insira palavra-chave"
@@ -1359,10 +1345,11 @@ msgid "JSON output"
 msgstr "Saída JSON"
 
 msgid "Jasmin send SMS URL"
-msgstr ""
+msgstr "URL de envio Jasmin"
 
 msgid "Jasmin will push DLR and incoming SMS to your callback URL"
 msgstr ""
+"Jasmil irá encaminhar DLR e mensagens recebidas para sua URL de callback"
 
 msgid "Kannel admin host"
 msgstr "Host do administrador Kannel"
@@ -1374,7 +1361,7 @@ msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
 
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Opção Máscara DLR do Kannel"
 
 msgid "Kannel specific"
 msgstr "Específico do Kannel"
@@ -1448,19 +1435,13 @@ msgid "Local number length"
 msgstr "Comprimento do número local"
 
 msgid "Local playnet password"
-msgstr ""
+msgstr "Senha local do playnet"
 
 msgid "Local playnet username"
-msgstr ""
-
-msgid "Logged in as"
-msgstr "Logado como"
+msgstr "Usuário local do playnet"
 
 msgid "Login"
 msgstr "Login"
-
-msgid "Login as"
-msgstr "Logar como"
 
 msgid "Login information"
 msgstr "Informações de Login"
@@ -1471,11 +1452,8 @@ msgstr "URL da logo"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Por padrão a logo será exibida nas páginas de login, registro e recuperação "
+"Por padrão, a logo será exibida nas páginas de login, registro e recuperação "
 "de senha"
-
-msgid "Logout"
-msgstr "Sair"
 
 msgid "Lowest credit limit to trigger notification"
 msgstr "Limite mínimo de crédito para ativar notificação"
@@ -1496,13 +1474,13 @@ msgid "Mailbox username"
 msgstr "Nome de usuário da caixa de email"
 
 msgid "Main configuration"
-msgstr "Configuração principal"
+msgstr "Configurações Principais"
 
 msgid "Main configuration changes has been saved"
 msgstr "As configurações principais foram salvas"
 
 msgid "Main website URL"
-msgstr "URL Principal"
+msgstr "URL principal do site"
 
 msgid "Main website name"
 msgstr "Nome principal do site"
@@ -1510,11 +1488,8 @@ msgstr "Nome principal do site"
 msgid "Make return as reply"
 msgstr "Enviar return como resposta"
 
-msgid "Manage"
-msgstr "Gerenciar"
-
 msgid "Manage ACL"
-msgstr "Gerenciar Regras"
+msgstr "Gerenciar regras"
 
 msgid "Manage OpenVox"
 msgstr "Gerenciar OpenVox"
@@ -1523,7 +1498,7 @@ msgid "Manage SMS rate"
 msgstr "Gerenciar taxa de SMS"
 
 msgid "Manage account"
-msgstr "Gerenciar Contas"
+msgstr "Gerenciar conta"
 
 msgid "Manage autoreply"
 msgstr "Gerenciar auto-resposta"
@@ -1562,14 +1537,16 @@ msgid "Manage gammu"
 msgstr "Gerenciar gammu"
 
 msgid "Manage gateway and SMSC"
-msgstr "Gerenciar Gateway e SMSC"
+msgstr "Gerenciar gateway e SMSC"
+
+msgid "Manage generic"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Gerenciar infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Gerenciar Site"
+msgstr "Gerenciar jasmin"
 
 msgid "Manage kannel"
 msgstr "Gerenciar kannel"
@@ -1577,9 +1554,8 @@ msgstr "Gerenciar kannel"
 msgid "Manage nexmo"
 msgstr "Gerenciar nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Gerenciar conta"
+msgstr "Gerenciar playnet"
 
 msgid "Manage plugin"
 msgstr "Gerenciar plugins"
@@ -1594,7 +1570,7 @@ msgid "Manage schedule"
 msgstr "Gerenciar agendamento"
 
 msgid "Manage sender ID"
-msgstr "Gerenciar ID de destinatário"
+msgstr "Gerenciar ID do remetente"
 
 msgid "Manage site"
 msgstr "Gerenciar site"
@@ -1672,7 +1648,7 @@ msgid "Member list for keyword"
 msgstr "Lista de membros pra palavra-chave"
 
 msgid "Members"
-msgstr "Membros"
+msgstr "Ver membros"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -1750,9 +1726,6 @@ msgstr "Módulo Fuso Horário"
 msgid "Monthly"
 msgstr "Mensalmente"
 
-msgid "Move"
-msgstr "Mover"
-
 msgid "Move to"
 msgstr "Mover para"
 
@@ -1767,9 +1740,6 @@ msgstr "Multiplas entradas separadas por vírgula (,)"
 
 msgid "Multiple mobile numbers must be comma-separated"
 msgstr "Múltiplos números de celular devem ser separados por vírgula"
-
-msgid "My account"
-msgstr "Minha conta"
 
 msgid "My credit transactions"
 msgstr "Minhas transações de crédito"
@@ -1861,20 +1831,14 @@ msgstr "Limite de SMSs enviados por hora"
 msgid "Number of votes"
 msgstr "Número de votos"
 
-msgid "Offline"
-msgstr "Offline"
-
 msgid "Once"
 msgstr "Uma vez"
-
-msgid "Online"
-msgstr "Online"
 
 msgid "Only when the sender ID is approved"
 msgstr "Somente quando o ID do remetente for aprovado"
 
 msgid "Operational"
-msgstr ""
+msgstr "Operacional"
 
 msgid "Options"
 msgstr "Opções"
@@ -1892,7 +1856,7 @@ msgid "Page content"
 msgstr "Conteúdo da página"
 
 msgid "Page title"
-msgstr "Título da página"
+msgstr "Título da Página"
 
 msgid "Param"
 msgstr "Parâmetro"
@@ -2095,9 +2059,6 @@ msgstr "Recuperar senha"
 msgid "Recover password disabled"
 msgstr "Recuperação de senha desabilitado"
 
-msgid "Reduce"
-msgstr "Reduzir"
-
 msgid "Reduce credit"
 msgstr "Reduzir crédito"
 
@@ -2114,19 +2075,19 @@ msgid "Registered"
 msgstr "Registrado"
 
 msgid "Remote is on"
-msgstr ""
+msgstr "Remoto está ligado"
 
 msgid "Remote playSMS URL"
-msgstr ""
+msgstr "URL remota do playSMS"
 
 msgid "Remote playnet SMSC name"
-msgstr ""
+msgstr "Nome remoto do SMSC do playnet"
 
 msgid "Remote playnet password"
-msgstr ""
+msgstr "Senha remota do playnet"
 
 msgid "Remote playnet username"
-msgstr ""
+msgstr "Usuário remoto do playnet"
 
 msgid "Renew webservices token"
 msgstr "Renovar o token de webservice"
@@ -2135,10 +2096,7 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr "Substituir o prefixo 0 ou o DDD"
 
 msgid "Replace website title with logo"
-msgstr "Substituir título da página pela logo"
-
-msgid "Reply"
-msgstr "Responder"
+msgstr "Substituir o título do site pela logo"
 
 msgid "Reply message on correct"
 msgstr "Mensagem de resposta quando estiver correto"
@@ -2167,12 +2125,6 @@ msgstr "Relatório de usuários banidos"
 msgid "Report whose online"
 msgstr "Relatório de quem está online"
 
-msgid "Reports"
-msgstr "Relatórios"
-
-msgid "Resend"
-msgstr "Reenviar"
-
 msgid "Restart Kannel"
 msgstr "Reiniciar Kannel"
 
@@ -2191,9 +2143,8 @@ msgstr "Retorna"
 msgid "Route SMS outgoing"
 msgstr "Rota para SMS de saída"
 
-#, fuzzy
 msgid "Route all sandbox SMS to one or more users"
-msgstr "Rotear todos os SMSs do sandbox para usuários"
+msgstr "Rotear todos os SMSs do sandbox para um ou mais usuários"
 
 msgid "Route all sandbox SMS to users"
 msgstr "Rotear todos os SMSs do sandbox para usuários"
@@ -2533,7 +2484,7 @@ msgid "Selected outgoing message has been deleted"
 msgstr "A mensagem de saída selecionada foi excluída"
 
 msgid "Selected transactions has been deleted"
-msgstr "As transações selecionadas foram excluídas"
+msgstr "A transação selecionada foi excluída"
 
 msgid "Selected users"
 msgstr "Usuários selecionados"
@@ -2542,7 +2493,7 @@ msgid "Send"
 msgstr "Enviar"
 
 msgid "Send SMS from remote using local username"
-msgstr ""
+msgstr "Enviar SMS remotamente utilizando usuário local"
 
 msgid "Send SMS hostname or IP"
 msgstr "Enviar hostname do SMS ou IP"
@@ -2768,7 +2719,7 @@ msgid "Twilio URL"
 msgstr "URL Twilio"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "URL to playSMS, empty it to set it to base URL"
 msgstr "URL do playSMS, deixe em branco para usar a URL base"
@@ -2808,16 +2759,13 @@ msgid "Unable to process user addition"
 msgstr "Não é possível processar adição de usuário"
 
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Não foi possível salvar as configurações do módulo de gateway"
 
 msgid "Unable to unban account"
 msgstr "Não é possível desbanir a conta"
 
 msgid "Unable to unban subuser"
 msgstr "Não é possível desbanir sub-usuário"
-
-msgid "Unban"
-msgstr "Desbanir"
 
 msgid "Unicode message"
 msgstr "Mensagem unicode"
@@ -2835,7 +2783,7 @@ msgid "Unlimited"
 msgstr "Ilimitado"
 
 msgid "Update status"
-msgstr ""
+msgstr "Atualizar Status"
 
 msgid "Upload file"
 msgstr "Enviar arquivo"
@@ -2859,7 +2807,7 @@ msgid "User agent"
 msgstr "User agent"
 
 msgid "User configuration"
-msgstr "Configurações de usuário"
+msgstr "Configuração de usuário"
 
 msgid "User configuration has been saved"
 msgstr "As configurações do usuário foram salvas"
@@ -2888,9 +2836,6 @@ msgstr "O usuário não está na lista de sub-usuários banidos"
 
 msgid "User is not on banned users list"
 msgstr "O usuário não está na lista de usuários banidos"
-
-msgid "User preference"
-msgstr "Preferências de usuário"
 
 msgid "Username"
 msgstr "Usuário"
@@ -2926,9 +2871,6 @@ msgstr "Verificar captcha"
 
 msgid "Version"
 msgstr "Versão"
-
-msgid "View"
-msgstr "Visualizar"
 
 msgid "View SMS queue"
 msgstr "Visualizar fila de SMS"
@@ -3010,7 +2952,7 @@ msgid "You have reached lowest credit limit of %s"
 msgstr "Você alcançou o limite mínimo de crédito de %s"
 
 msgid "You must fill all field"
-msgstr "Você deve preencher todos os campos"
+msgstr "Preencha todos os campos"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
@@ -3048,11 +2990,14 @@ msgstr "Sua url de callback deve ser acessível pelo Bulksms"
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Sua url de callback deve ser acessível pelo Clickatell"
 
+msgid "Your callback URL should be accessible from Generic"
+msgstr ""
+
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Sua URL de callback deve ser acessível pelo Infobip"
 
 msgid "Your callback URL should be accessible from Jasmin"
-msgstr ""
+msgstr "Sua URL de callback deve estar acessível pelo Jasmin"
 
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Sua URL callback deve estar acessível pelo Nexmo"
@@ -3066,11 +3011,8 @@ msgstr "Sua URL de callback deve ser acessível pelo Twilio"
 msgid "Your choice"
 msgstr "Sua escolha"
 
-msgid "Your credit"
-msgstr "Seus créditos"
-
 msgid "Your current callback URL is"
-msgstr ""
+msgstr "Sua URL de callback atual é"
 
 msgid "Your email format is invalid"
 msgstr "Seu formato de email não é válido"
@@ -3209,9 +3151,6 @@ msgstr "na fila"
 msgid "rate"
 msgstr "taxa"
 
-msgid "return"
-msgstr "voltar"
-
 msgid "title"
 msgstr "título"
 
@@ -3273,3 +3212,75 @@ msgstr "será substituído com o telefone listado no catálogo"
 
 msgid "yes"
 msgstr "sim"
+
+#~ msgid "Ban"
+#~ msgstr "Banir"
+
+#~ msgid "Buy"
+#~ msgstr "Comprar"
+
+#~ msgid "Delete user"
+#~ msgstr "Excluir usurio"
+
+#~ msgid "Edit"
+#~ msgstr "Editar"
+
+#~ msgid "Export"
+#~ msgstr "Exportar"
+
+#~ msgid "Go"
+#~ msgstr "Ir"
+
+#~ msgid "Idle"
+#~ msgstr "Inativo"
+
+#~ msgid "Logged in as"
+#~ msgstr "Logado como"
+
+#~ msgid "Login as"
+#~ msgstr "Logar como"
+
+#~ msgid "Logout"
+#~ msgstr "Sair"
+
+#~ msgid "Manage"
+#~ msgstr "Gerenciar"
+
+#~ msgid "Move"
+#~ msgstr "Mover"
+
+#~ msgid "My account"
+#~ msgstr "Minha conta"
+
+#~ msgid "Offline"
+#~ msgstr "Offline"
+
+#~ msgid "Online"
+#~ msgstr "Online"
+
+#~ msgid "Reduce"
+#~ msgstr "Reduzir"
+
+#~ msgid "Reply"
+#~ msgstr "Responder"
+
+#~ msgid "Reports"
+#~ msgstr "Relatórios"
+
+#~ msgid "Resend"
+#~ msgstr "Reenviar"
+
+#~ msgid "Unban"
+#~ msgstr "Desbanir"
+
+#~ msgid "User preference"
+#~ msgstr "Preferências de usuário"
+
+#~ msgid "View"
+#~ msgstr "Visualizar"
+
+#~ msgid "Your credit"
+#~ msgstr "Seus créditos"
+
+#~ msgid "return"
+#~ msgstr "voltar"

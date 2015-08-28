@@ -599,7 +599,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 				$members = phonebook_getdatabyid($c_gpid);
 				foreach ($members as $member) {
 					if ($c_sms_to = trim($member['p_num'])) {
-						$array_sms_to[] = $c_sms_to;
+						$array_sms_to[] = trim($c_sms_to);
 					}
 				}
 			}
@@ -617,7 +617,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	}
 	
 	// remove duplicates destinations
-	$array_sms_to = array_unique($array_sms_to);
+	$array_sms_to = array_unique($array_sms_to, SORT_STRING);
 	
 	$sms_queued = 0;
 	$sms_failed = 0;
@@ -780,7 +780,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	}
 	
 	// remove double entries
-	$all_sms_to = array_unique($all_sms_to);
+	$all_sms_to = array_unique($all_sms_to, SORT_STRING);
 	
 	// calculate total sms and charges
 	$total_count = 0;

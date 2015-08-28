@@ -850,6 +850,9 @@ msgstr "Конфигурация сохранена, служба отключе
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "Конфигурация сохранена, служба включена"
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Оставьте пустым чтобы разрешить пользователям задавать собственное имя "
@@ -1206,6 +1209,12 @@ msgstr "Порт шлюза"
 
 msgid "Gateways"
 msgstr "Шлюзы"
+
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Go"
 msgstr "Вперёд"
@@ -1573,6 +1582,10 @@ msgstr "Gammu"
 
 msgid "Manage gateway and SMSC"
 msgstr "Управление шлюзами и SMS-центрами"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "Управление именами отправителей"
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
@@ -3060,6 +3073,9 @@ msgstr ""
 
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Ваш callback URL должен быть доступен со стороны Clickatell"
+
+msgid "Your callback URL should be accessible from Generic"
+msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"

@@ -843,6 +843,9 @@ msgstr "تم حفظ الإعدادات و تعطيل الخدمة."
 msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "تم حفظ الإعدادات وتمكين الخدمة."
 
+msgid "Empty callback URL to set default"
+msgstr ""
+
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "اترك اسم المرسل الافتراضي فارغ لتمكين المستخدمين من تعيين أسماء مرسل خاصة بهم"
@@ -1196,6 +1199,12 @@ msgstr ""
 
 msgid "Gateways"
 msgstr "البوابات"
+
+msgid "Generic send SMS URL"
+msgstr ""
+
+msgid "Generic will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Go"
 msgstr "انتقل للإعدادات العامة أو إدارة الموقع لتحرير هذه الصفحة"
@@ -1562,6 +1571,10 @@ msgstr "المستخدم"
 
 msgid "Manage gateway and SMSC"
 msgstr "إدارة البوابات ومراكز الرسائل"
+
+#, fuzzy
+msgid "Manage generic"
+msgstr "إدارة اسم المرسل"
 
 #, fuzzy
 msgid "Manage infobip"
@@ -3034,6 +3047,9 @@ msgid "Your callback URL should be accessible from Bulksms"
 msgstr "رابط الاستدعاء يجب أن يكون قابل للوصول من قبل BulkSMS"
 
 msgid "Your callback URL should be accessible from Clickatell"
+msgstr ""
+
+msgid "Your callback URL should be accessible from Generic"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
