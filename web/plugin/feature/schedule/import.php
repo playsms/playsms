@@ -92,7 +92,7 @@ switch (_OP_) {
 					}
 					$i++;
 				}
-				array_unique($entries);
+				$entries = array_unique($entries);
 				$session_import = 'schedule_' . _PID_;
 				$_SESSION['tmp'][$session_import] = array();
 				$i = 0;

@@ -501,7 +501,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 							// single chunk
 							$queue[] = 'Q_' . $db_row['queue_code'] . '_0_0';
 						}
-						array_unique($queue);
+						$queue = array_unique($queue);
 					}
 					if (count($queue) > 0) {
 						foreach ($queue as $q) {

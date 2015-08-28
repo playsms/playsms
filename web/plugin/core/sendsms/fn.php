@@ -617,7 +617,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	}
 	
 	// remove duplicates destinations
-	array_unique($array_sms_to);
+	$array_sms_to = array_unique($array_sms_to);
 	
 	$sms_queued = 0;
 	$sms_failed = 0;

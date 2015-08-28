@@ -171,7 +171,7 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 						$usernames[] = $user['username'];
 					}
 					
-					array_unique($usernames);
+					$usernames = array_unique($usernames);
 					
 					foreach ($usernames as $username) {
 						if ($username) {
