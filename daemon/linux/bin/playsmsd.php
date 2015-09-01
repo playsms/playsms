@@ -37,7 +37,7 @@ error_reporting(0);
 function playsmsd_pid_get($process) {
 	global $PLAYSMSD_CONF;
 	
-	return trim(shell_exec("ps -eo pid,command | grep '" . $PLAYSMSD_CONF . " " . $process . "' | grep -v grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '"));
+	return trim(shell_exec("ps -eo pid,command | grep '" . $PLAYSMSD_CONF . "' | grep '" . $process . "' | grep -v grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '"));
 }
 
 /**
@@ -403,9 +403,8 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			if ($CMD_PARAM) {
 				$param = explode('_', $CMD_PARAM);
 				if (($param[0] == 'Q') && ($queue = $param[1])) {
-					$limit = ((int) $param[2] ? (int) $param[2] : 0);
-					$offset = ((int) $param[3] ? (int) $param[3] : 0);
-					sendsmsd($queue, $limit, $offset);
+					$chunk = ((int) $param[2] ? (int) $param[2] : 0);
+					sendsmsd($queue, $chunk);
 				}
 			}
 		}
@@ -457,52 +456,58 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					break;
 				
 				case 'sendsmsd':
+					
+					// init step
 					// $core_config['sendsmsd_limit'] = number of SMS per queue
 					// $core_config['sendsmsd_queue'] = number of simultaneous queues
 					// $core_config['sendsmsd_chunk'] = number of chunk per queue
-					$queue = array();
 					$extras = '';
 					if ((int) $core_config['sendsmsd_queue'] > 0) {
 						$extras = array(
 							'LIMIT' => (int) $core_config['sendsmsd_queue'] 
 						);
 					}
-					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id, queue_code', array(
+					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
 						'flag' => '0' 
 					), '', $extras);
 					foreach ($list as $db_row) {
 						// $db_row['queue_code'] = queue code
 						// $db_row['queue_count'] = number of entries in a queue
 						// $db_row['sms_count'] = number of SMS in an entry
-						
-
-						// $sum_sms = total SMS in the queue destination that hasn't been processed
-						$db_query2 = "SELECT id FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "' AND flag='0'";
-						$sum_sms = dba_num_rows($db_query2);
-						
-						// $max_sms = maximum SMS that will be processed
-						if ($sum_sms > $core_config['sendsmsd_limit']) {
-							$max_sms = $core_config['sendsmsd_limit'];
-						} else {
-							$max_sms = $sum_sms;
-						}
-						
-						// $sms_per_chunk = number of SMS per chunk
-						$sms_per_chunk = (int) floor($max_sms / $core_config['sendsmsd_chunk']);
-						
-						if ($sms_per_chunk > 0) {
-							// multi chunk
-							for ($i = 0; $i < $core_config['sendsmsd_chunk']; $i++) {
-								$limit = $sms_per_chunk;
-								$offset = $i * $sms_per_chunk;
-								$queue[] = 'Q_' . $db_row['queue_code'] . '_' . $limit . '_' . $offset;
+						$num = 0;
+						$db_query2 = "SELECT id FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "'";
+						$db_result2 = dba_query($db_query2);
+						while ($db_row2 = dba_fetch_array($db_result2)) {
+							$num++;
+							if ($chunk = floor($num / $core_config['sendsmsd_chunk_size'])) {
+								$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET chunk='" . $chunk . "' WHERE id='" . $db_row2['id'] . "'";
+								$db_result3 = dba_query($db_query3);
 							}
-						} else {
-							// single chunk
-							$queue[] = 'Q_' . $db_row['queue_code'] . '_0_0';
 						}
-						$queue = array_unique($queue);
+						
+						// update queue to process step
+						$db_query4 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue SET flag='3' WHERE id='" . $db_row['id'] . "'";
+						$db_result4 = dba_query($db_query4);
 					}
+					
+					// process step
+					$queue = array();
+					
+					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id, queue_code', array(
+						'flag' => '3' 
+					), '', $extras);
+					foreach ($list as $db_row) {
+						// get chunks
+						$db_query2 = "SELECT chunk FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "' AND flag='0' GROUP BY chunk LIMIT " . $core_config['sendsmsd_chunk'];
+						$db_result2 = dba_query($db_query2);
+						while ($db_row2 = dba_fetch_array($db_result2)) {
+							$c_chunk = (int) $db_row2['chunk'];
+							$queue[] = 'Q_' . $db_row['queue_code'] . '_' . $c_chunk;
+						}
+					}
+					
+					// execute step
+					$queue = array_unique($queue);
 					if (count($queue) > 0) {
 						foreach ($queue as $q) {
 							$is_sending = (playsmsd_pid_get($q) ? TRUE : FALSE);

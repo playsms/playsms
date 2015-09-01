@@ -347,6 +347,9 @@ $core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config[
 // limit the number of chunk per queue
 $core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 20);
 
+// chunk size
+$core_config['sendsmsd_chunk'] = 100;
+
 // fixme anton - debug
 //print_r($icon_config); die();
 //print_r($menu_config); die();

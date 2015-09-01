@@ -235,7 +235,7 @@ function sendsms_queue_update($queue_code, $updates) {
 	return $ret;
 }
 
-function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0) {
+function sendsmsd($single_queue = '', $chunk = 0) {
 	global $core_config;
 	
 	if ($single_queue) {
@@ -243,15 +243,7 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		
 		// _log("single queue queue_code:".$single_queue, 2, "sendsmsd");
 	}
-	$sendsmsd_limit = (int) $sendsmsd_limit;
-	if ($sendsmsd_limit > 0) {
-		$sql_limit = "LIMIT " . $sendsmsd_limit;
-	}
-	$sendsmsd_offset = (int) $sendsmsd_offset;
-	if ($sendsmsd_offset > 0) {
-		$sql_offset = "OFFSET " . $sendsmsd_offset;
-	}
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='0' " . $queue_sql;
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='3' " . $queue_sql;
 	
 	// _log("q: ".$db_query, 3, "sendsmsd");
 	$db_result = dba_query($db_query);
@@ -294,18 +286,18 @@ function sendsmsd($single_queue = '', $sendsmsd_limit = 0, $sendsmsd_offset = 0)
 		
 		// process queue
 		if ($continue) {
-			_log("start processing queue_code:" . $c_queue_code . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " scheduled:" . core_display_datetime($c_schedule) . " uid:" . $c_uid . " gpid:" . $c_gpid . " sender_id:" . $c_sender_id, 2, "sendsmsd");
+			_log("start processing queue_code:" . $c_queue_code . " chunk:" . $chunk . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " scheduled:" . core_display_datetime($c_schedule) . " uid:" . $c_uid . " gpid:" . $c_gpid . " sender_id:" . $c_sender_id, 2, "sendsmsd");
 			
 			$counter = 0;
 			
-			$db_query2 = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND flag='0'" . " " . $sql_limit . " " . $sql_offset;
+			$db_query2 = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='$c_queue_id' AND chunk='" . $chunk . "' AND flag='0'";
 			$db_result2 = dba_query($db_query2);
 			while ($db_row2 = dba_fetch_array($db_result2)) {
 				
 				// make sure the queue is still there
-				// if the queue_code with flag=0 is not exists then break, stop sendqueue
+				// if the queue_code with flag=3 is not exists then break, stop sendqueue
 				if (!dba_isexists(_DB_PREF_ . "_tblSMSOutgoing_queue", array(
-					'flag' => 0,
+					'flag' => 3,
 					'queue_code' => $c_queue_code 
 				), 'AND')) {
 					break;
