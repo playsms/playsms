@@ -348,7 +348,7 @@ $core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config[
 $core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 20);
 
 // chunk size
-$core_config['sendsmsd_chunk'] = 100;
+$core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ? $core_config['sendsmsd_chunk_size'] : 100);
 
 // fixme anton - debug
 //print_r($icon_config); die();

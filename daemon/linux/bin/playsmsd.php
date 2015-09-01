@@ -458,7 +458,6 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 				case 'sendsmsd':
 					
 					// init step
-					// $core_config['sendsmsd_limit'] = number of SMS per queue
 					// $core_config['sendsmsd_queue'] = number of simultaneous queues
 					// $core_config['sendsmsd_chunk'] = number of chunk per queue
 					$extras = '';

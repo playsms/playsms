@@ -67,14 +67,14 @@ $core_config['recvsmsd_limit']	= 1000;
 // are we using sendsmsd or not. the default is using sendsmsd
 $core_config['issendsmsd']	= true;
 
-// limit the length of each queue processed by sendsmsd in one time
-$core_config['sendsmsd_limit']	= 1000;
-
 // limit the number of queue processed by sendsmsd in one time
 $core_config['sendsmsd_queue']	= 10;
 
 // limit the number of chunk per queue
 $core_config['sendsmsd_chunk']	= 20;
+
+// chunk size
+$core_config['sendsmsd_chunk_size'] = 100;
 
 // webservices require username
 $core_config['webservices_username']	= true;
