@@ -19,7 +19,15 @@ if (!$plugin_config['clickatell']['additional_param']) {
 }
 
 // smsc configuration
-$plugin_config['clickatell']['_smsc_config_'] = array();
+$plugin_config['clickatell']['_smsc_config_'] = array(
+	'api_id' => _('API ID'),
+	'username' => _('Username'),
+	'password' => _('Password'),
+	'send_url' => _('Clickatell API URL'),
+	'additional_param' => _('Additional URL parameter'),
+	'module_sender' => _('Module sender ID'),
+	'datetime_timezone' => _('Module timezone')
+);
 
 // $gateway_number = $plugin_config['clickatell']['sender'];
 
