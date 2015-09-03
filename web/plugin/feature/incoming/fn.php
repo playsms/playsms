@@ -232,6 +232,11 @@ function incoming_hook_recvsms_intercept_after($sms_datetime, $sms_sender, $mess
 			);
 			$json = json_encode($payload);
 			$url = str_replace('{SANDBOX_PAYLOAD}', urlencode($json), $url);
+			$url = str_replace('{SANDBOX_DATETIME}', urlencode($sms_datetime), $url);
+			$url = str_replace('{SANDBOX_SENDER}', urlencode($sms_sender), $url);
+			$url = str_replace('{SANDBOX_MESSAGE}', urlencode($message), $url);
+			$url = str_replace('{SANDBOX_RECEIVER}', urlencode($sms_receiver), $url);
+			$url = str_replace('{SANDBOX_SMSC}', urlencode($smsc), $url);
 			_log("sandbox forward to URL start url:[" . $url . "]", 3, 'incoming recvsms_intercept_after');
 			$response = @file_get_contents($url);
 			_log("sandbox forward to URL end response:[" . $response . "]", 3, 'incoming recvsms_intercept_after');
