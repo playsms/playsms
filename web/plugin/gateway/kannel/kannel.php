@@ -26,16 +26,6 @@ include $core_config['apps_path']['plug'] . "/gateway/kannel/config.php";
 
 switch (_OP_) {
 	case "manage":
-		// Handle DLR options config (emmanuel)
-		/*
-		 * DLR Kannel value 1: Delivered to phone 2: Non-Delivered to Phone 4: Queued on SMSC 8: Delivered to SMSC 16: Non-Delivered to SMSC
-		 */
-		$up_dlr_box = "<input type='checkbox' name='dlr_box[]' value='1' " . $checked[0] . "> " . _('Delivered to phone') . "<br />";
-		$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='2' " . $checked[1] . "> " . _('Non-Delivered to phone') . "<br />";
-		$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='4' " . $checked[2] . "> " . _('Queued on SMSC') . "<br />";
-		$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='8' " . $checked[3] . "> " . _('Delivered to SMSC') . "<br />";
-		$up_dlr_box .= "<input type='checkbox' name='dlr_box[]' value='16' " . $checked[4] . "> " . _('Non-Delivered to SMSC') . "<br />";
-		// end of Handle DLR options config (emmanuel)
 		if ($plugin_config['kannel']['local_time']) {
 			$selected1 = 'selected';
 		} else {

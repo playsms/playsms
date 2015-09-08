@@ -85,7 +85,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$URL .= "&from=" . urlencode($sms_sender) . "&to=" . urlencode($sms_to);
 	// Handle DLR options config (emmanuel)
 	// $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
-	$URL .= "&dlr-mask=" . $plugin_config['kannel']['dlr'] . "&dlr-url=" . urlencode($dlr_url);
+	$URL .= "&dlr-mask=" . $plugin_config['kannel']['dlr_mask'] . "&dlr-url=" . urlencode($dlr_url);
 	// end of Handle DLR options config (emmanuel)
 	
 
