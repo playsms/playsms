@@ -91,6 +91,10 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 				$ok = true;
 				$p_status = 1;
 				dlr($smslog_id, $uid, $p_status);
+			} else {
+				$ok = true;
+				$p_status = 0;
+				dlr($smslog_id, $uid, $p_status);
 			}
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
