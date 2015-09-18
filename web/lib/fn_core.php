@@ -744,24 +744,19 @@ function core_string_to_gsm($string) {
  */
 function core_detect_unicode($text) {
 	$unicode = 0;
+	$textgsm = core_string_to_gsm($text);
 	
-	//$textgsm = core_string_to_gsm($text);
-	
-
-	// $match = preg_match_all('/([\\xC0-\\xDF].)|([\\xE0-\\xEF]..)|([\\xF0-\\xFF]...)/m', $textgsm, $matches);
-	// try to match with GSM alphabet, just like in common.js isGSMAlphabet()
-	$match = preg_match("^[A-Za-z0-9 \\r\\n@£$¥èéùìòÇØøÅå\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EÆæßÉ!\"#$%&'()*+,\\-./:;<=>?¡ÄÖÑÜ§¿äöñüà^{}\\\\\\[~\\]|\u20AC]*$", $text);
+	$match = preg_match_all('/([\\xC0-\\xDF].)|([\\xE0-\\xEF]..)|([\\xF0-\\xFF]...)/m', $textgsm, $matches);
 	if ($match !== FALSE) {
 		if ($match == 0) {
-			$unicode = 1; // no match, then its unicode
+			$unicode = 0;
 		} else {
-			$unicode = 0; // match, then it is GSM7
+			$unicode = 1;
 		}
 	} else {
 		
-		//if for some reason the preg_match failed, FALSE, then we do nothing, the default is unicode=0
+		//TODO broken regexp in this case, warn user
 	}
-	
 	return $unicode;
 }
 
