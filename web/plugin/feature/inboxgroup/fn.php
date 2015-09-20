@@ -38,7 +38,7 @@ function inboxgroup_hook_recvsms_intercept($sms_datetime, $sms_sender, $message,
 	if ($message && $sms_receiver) {
 		// extract message to keyword and content, use keyword part only
 		$msg = inboxgroup_extractmessage($message);
-		if (($keyword = $msg['keyword']) && $msg['content']) {
+		if (($keyword = $msg['keyword']) && $msg['content'] && $msg['full']) {
 			// get data from the combination of $sms_receiver and $keyword
 			$data = inboxgroup_getdata($sms_receiver, $keyword);
 			if ($data['id']) {
@@ -59,9 +59,9 @@ function inboxgroup_hook_recvsms_intercept($sms_datetime, $sms_sender, $message,
 				if ($data['id'] && $data['status']) {
 					// forward to catch all users (if any)
 					// save incoming SMS in log
-					if ($log_in_id = inboxgroup_saveinlog($data['id'], $sms_datetime, $sms_sender, $keyword, $msg['content'], $sms_receiver)) {
+					if ($log_in_id = inboxgroup_saveinlog($data['id'], $sms_datetime, $sms_sender, $keyword, $msg['full'], $sms_receiver)) {
 						// forward to non catch all users (members, if any)
-						inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $msg['content']);
+						inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $msg['full']);
 						// set handled
 						$ret['hooked'] = true;
 					}
@@ -132,20 +132,22 @@ function inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $message) {
 
 function inboxgroup_extractmessage($message) {
 	$ret = array();
-	$arr = explode(" ", $message);
+	
+	$arr = explode(' ', $message, 2);
 	$ret['keyword'] = trim(strtoupper($arr[0]));
-	$ret['content'] = '';
-	for ($i=1;$i<count($arr);$i++) {
-		$ret['content'] .= $arr[$i]." ";
-	}
-	$ret['content'] = trim($ret['content']);
-	//logger_print("extractmessage s:".$sms_sender." r:".$sms_receiver." k:".$ret['keyword']." c:".$ret['content'], 3, "inboxgroup");
+	$ret['content'] = trim($arr[1]);
+	$ret['full'] = trim($message);
+	$ret['raw'] = $message;
+
 	return $ret;
 }
 
 function inboxgroup_getdata($sms_receiver, $keyword='') {
 	$ret = array();
-	if (trim($keyword)) {
+	
+	// FIXME anton: this will match 'TEST' with 'SOMETEST' or 'TEST1', it shouldn't
+	
+	if ($keyword = trim(strtoupper($keyword))) {
 		$the_keyword = "AND keywords LIKE '%".trim($keyword)."%'";
 	}
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureInboxgroup WHERE deleted='0' AND in_receiver='$sms_receiver' ".$the_keyword;
@@ -153,6 +155,7 @@ function inboxgroup_getdata($sms_receiver, $keyword='') {
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row;
 	}
+	
 	return $ret;
 }
 
