@@ -385,7 +385,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 	}
 	
 	if ($continue && $COMMAND == 'version') {
-		echo $core_config['version'] . PHP_EOL;
+		echo core_get_version() . PHP_EOL;
 		
 		exit();
 	} else if ($continue && $LOOP_FLAG == 'once') {
