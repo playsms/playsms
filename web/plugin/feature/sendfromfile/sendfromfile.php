@@ -189,7 +189,7 @@ switch (_OP_) {
 			while ($db_row = dba_fetch_array($db_result)) {
 				$c_sms_to = $db_row['sms_to'];
 				$c_username = $db_row['sms_username'];
-				$c_sms_msg = addslashes($db_row['sms_msg']);
+				$c_sms_msg = $db_row['sms_msg'];
 				$c_hash = md5($c_username . $c_sms_msg);
 				if ($c_sms_to && $c_username && $c_sms_msg) {
 					$data[$c_hash]['username'] = $c_username;
@@ -204,11 +204,8 @@ switch (_OP_) {
 				_log('hash:' . $hash . ' u:' . $username . ' m:[' . $message . '] to_count:' . count($sms_to), 3, 'sendfromfile upload_process');
 				if ($username && $message && count($sms_to)) {
 					$type = 'text';
-					if ($unicode = core_detect_unicode($message)) {
-						if (function_exists('mb_convert_encoding')) {
-							$message = mb_convert_encoding($message, "UCS-2BE", "auto");
-						}
-					}
+					$unicode = core_detect_unicode($message);
+					$message = addslashes($message);
 					list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, $type, $unicode);
 				}
 			}
