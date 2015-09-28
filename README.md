@@ -1,6 +1,6 @@
 # README
 
-playSMS version **1.3**
+playSMS version **1.3.1**
 
 Official project website:
 
