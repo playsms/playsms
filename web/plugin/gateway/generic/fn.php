@@ -80,8 +80,9 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		// 0 User Not Found
 		$resp = explode(' ', $response, 2);
 		
-		if ($resp[0] && $resp[1]) {
-			$c_message_id = $resp[0];
+		// a single non-zero respond will be considered as a SENT response
+		if ($resp[0]) {
+			$c_message_id = (int) $resp[0];
 			_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " smsc:" . $smsc, 2, "generic_hook_sendsms");
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_gatewayGeneric_log (local_smslog_id, remote_smslog_id)
@@ -99,7 +100,7 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			if ($resp[0] === '0') {
-				$resp = $resp[1];
+				$resp = trim($resp[1]);
 			} else {
 				$resp = $response;
 			}
