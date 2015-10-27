@@ -21,6 +21,9 @@ msgstr "Добавить автоответ"
 msgid "Add SMS autoreply scenario"
 msgstr "Добавить сценарий"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr "Вы уверены, что хотите удалить автоответ?"
 
@@ -57,11 +60,12 @@ msgstr "Ключевое слово"
 msgid "Manage autoreply"
 msgstr "Автоответчик"
 
-msgid "Param"
-msgstr "Параметр"
+msgid "Reply"
+msgstr ""
 
-msgid "Return"
-msgstr "Ответ"
+#, fuzzy
+msgid "SMS"
+msgstr "SMSC"
 
 msgid "SMS autoreply has been deleted"
 msgstr "Автоответ удалён"
@@ -87,8 +91,12 @@ msgstr "Сценарий Изменён"
 msgid "SMS autoreply scenario parameter"
 msgstr "Ключевое слово"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "Отвечать"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -101,11 +109,11 @@ msgstr "SMSC"
 msgid "Save"
 msgstr "Сохранить"
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "User"
 msgstr "Полльзователь"
-
-msgid "You must fill all fields"
-msgstr "Необходимо заполнить все поля"
 
 msgid "keyword"
 msgstr "ключевое слово"

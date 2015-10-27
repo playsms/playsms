@@ -700,12 +700,6 @@ msgstr "Gelöscht"
 msgid "Delivered"
 msgstr "Übermittelt"
 
-msgid "Delivered to SMSC"
-msgstr "Übermittelt an SMSC"
-
-msgid "Delivered to phone"
-msgstr "Übermittelt an Telefon"
-
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -1854,12 +1848,6 @@ msgstr "Kein führender slash"
 msgid "No validate cert option"
 msgstr "Keine validierte Cert-Option"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Nicht übermittelt an SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Nicht übermittelt an Telefon"
-
 msgid "None"
 msgstr "Keine"
 
@@ -1907,9 +1895,6 @@ msgstr "Seiteninhalt"
 
 msgid "Page title"
 msgstr "Seitentitel"
-
-msgid "Param"
-msgstr "Param"
 
 msgid "Parent"
 msgstr ""
@@ -2044,9 +2029,6 @@ msgstr "Queue Verzeichns"
 
 msgid "Queue has been removed"
 msgstr "Queue wurde gelscht"
-
-msgid "Queued on SMSC"
-msgstr "Queued im SMSC"
 
 msgid "RSS 0.91 output"
 msgstr "RSS 0.91 Ausgabe"
@@ -2198,9 +2180,6 @@ msgstr "Ergebnis Graph"
 msgid "Result table"
 msgstr "Ergebnis Tabelle"
 
-msgid "Return"
-msgstr "Zurückkehren"
-
 msgid "Route SMS outgoing"
 msgstr "Route SMS abgehend"
 
@@ -2277,7 +2256,8 @@ msgstr "SMS autoreply Szenario wurde geändert"
 msgid "SMS autoreply scenario parameter"
 msgstr "SMS autoreply Szenario Parameter"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "SMS autoreply Szenario antwortet mit"
 
 msgid "SMS board from"
@@ -2342,6 +2322,10 @@ msgstr "SMS Weiterleitungs-Parameter"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
+
+#, fuzzy
+msgid "SMS is case-insensitive"
+msgstr "SMS Quiz wurde gespeichert"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -2741,6 +2725,10 @@ msgstr "Die Domäne ist bereits von einem anderen Benutzer konfiguriert worden"
 
 msgid "Themes"
 msgstr "Themes"
+
+#, fuzzy
+msgid "This field is not mandatory"
+msgstr "Dieses Feld wird benötigt"
 
 msgid "This field is required"
 msgstr "Dieses Feld wird benötigt"

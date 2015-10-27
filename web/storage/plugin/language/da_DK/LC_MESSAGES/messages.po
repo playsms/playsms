@@ -1,7 +1,6 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playSMS\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
@@ -64,7 +63,7 @@ msgid "API username"
 msgstr "API brugernavn"
 
 msgid "Access Control List"
-msgstr "Access Control List"
+msgstr "Adgangskontrol liste"
 
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
@@ -295,14 +294,14 @@ msgid ""
 "Application footer here. Go to main configuration or manage site to edit "
 "this footer."
 msgstr ""
-"Programbundtekst skal være her. Gå til primær konfiguration eller håndter "
+"Programbundtekst skal være ger. Gå til primær konfiguration eller håndter "
 "websted for at redigere denne bundtekst."
 
 msgid "Application options"
 msgstr "Programindstillinger"
 
 msgid "Approve sender ID"
-msgstr "Godkend afsenders ID"
+msgstr "Godkend afsender ID"
 
 msgid "Are you sure ?"
 msgstr "Er du sikker?"
@@ -369,7 +368,7 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Er du sikker på at du ønsker at slette underbrugeren?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Er du sikker på at du vil slette disse emner?"
+msgstr "Er du sikker på at du ønsker at slette disse emner ?"
 
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Er du sikker på at du ønsker at slette disse transaktioner ?"
@@ -678,7 +677,7 @@ msgid "Default settings"
 msgstr "Standardindstillinger"
 
 msgid "Default site configuration"
-msgstr "Standard site konfiguration"
+msgstr "Standard webstedskonfiguration"
 
 msgid "Default timezone"
 msgstr "Standard tidszone"
@@ -714,12 +713,6 @@ msgstr "Slettet"
 msgid "Delivered"
 msgstr "Leveret"
 
-msgid "Delivered to SMSC"
-msgstr "Leveret til SMSC"
-
-msgid "Delivered to phone"
-msgstr "Leveret til telefon"
-
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -745,7 +738,7 @@ msgid "Disallowed URLs"
 msgstr "Ikke tilladte URL'er"
 
 msgid "Domain"
-msgstr "Domæne"
+msgstr "DomÃÂ¦ne"
 
 msgid "Download SMSSync app for Android from"
 msgstr "Download SMSSync app til Android fra"
@@ -820,7 +813,7 @@ msgid "Effective SMS sender ID"
 msgstr "Effektivt SMS afsender ID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "F.eks: +0700 til Jakarta/Bangkok tidszone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
 
 msgid "Email"
 msgstr "E-mail"
@@ -1070,7 +1063,7 @@ msgid "Fail to save SMS custom"
 msgstr "Kunne ikke gemme tilpasset SMS"
 
 msgid "Fail to save configuration"
-msgstr "Kunne ikke gemme konfiguration"
+msgstr "Kunne ikke gemme konfigurationen"
 
 msgid "Fail to save email to SMS PIN"
 msgstr "Kunne ikke gemme email til SMS PIN"
@@ -1079,7 +1072,7 @@ msgid "Fail to save gateway module configurations"
 msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
 msgid "Fail to save preferences"
-msgstr "Kunne ikke gemme indstillinger"
+msgstr "Kunne ikke gemme indstillingerne"
 
 msgid "Fail to save rate"
 msgstr "Kunne ikke gemme rate"
@@ -1154,7 +1147,7 @@ msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format ÃÂÃÂÃÂÃÂ-MM-DD tt:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1322,7 +1315,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importer ovenstående telefonbogsemner?"
 
 msgid "Import confirmation"
-msgstr "Bekræft import"
+msgstr "BekrÃÂ¦ft import"
 
 msgid "Inbox"
 msgstr "Indbakke"
@@ -1419,7 +1412,7 @@ msgid "Last update"
 msgstr "Sidst opdateret"
 
 msgid "Layout footer"
-msgstr "Layout footer"
+msgstr "Layout bundtekst"
 
 msgid "Leave a copy in sandbox SMS page"
 msgstr "Læg en kopi i sandbox SMS siden"
@@ -1430,16 +1423,16 @@ msgstr ""
 "gennemgange"
 
 msgid "List of accounts"
-msgstr "Kontoliste"
+msgstr "Liste over konti"
 
 msgid "List of administrators"
-msgstr "Administratorliste"
+msgstr "Liste over administratorer"
 
 msgid "List of destinations"
 msgstr "Liste over destinationer"
 
 msgid "List of gateways and SMSCs"
-msgstr "Gateway og SMSC liste"
+msgstr "Liste over gateways og SMSC'er"
 
 #, php-format
 msgid "List of messages from %s"
@@ -1480,7 +1473,7 @@ msgid "Login as"
 msgstr "Login som"
 
 msgid "Login information"
-msgstr "Login information"
+msgstr "Login oplysninger"
 
 msgid "Logo URL"
 msgstr "Logo URL"
@@ -1488,8 +1481,8 @@ msgstr "Logo URL"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Logo vil som standard blive vist på login, registrering og glemt adgangskode "
-"siderne"
+"Logo vil vises som standard ved login-, registrerings- og glemt adgangskode-"
+"sider"
 
 msgid "Logout"
 msgstr "Log ud"
@@ -1516,13 +1509,13 @@ msgid "Main configuration"
 msgstr "Primær konfiguration"
 
 msgid "Main configuration changes has been saved"
-msgstr "Primær konfigurationsændringer er blevet gemt"
+msgstr "Ændringer i primær konfiguration er blevet gemt"
 
 msgid "Main website URL"
-msgstr "PrimÃ¦r webside URL"
+msgstr "Primær websted URL"
 
 msgid "Main website name"
-msgstr "PrimÃ¦r webside navn"
+msgstr "Primær webstedsnavn"
 
 msgid "Make return as reply"
 msgstr "Gør returværdi til svar"
@@ -1616,7 +1609,7 @@ msgid "Manage sender ID"
 msgstr "Håndter afsender ID"
 
 msgid "Manage site"
-msgstr "Håndter websted"
+msgstr "HÃÂ¥ndter websted"
 
 msgid "Manage smstools"
 msgstr "Håndter smstools"
@@ -1646,7 +1639,7 @@ msgid "Manage uplink"
 msgstr "Håndter uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "KrÃÂ¦vede felter mÃÂ¥ ikke vÃÂ¦re tomme"
+msgstr "Krævede felter må ikke være tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1859,12 +1852,6 @@ msgstr "Ingen efterfølgende skråstreg"
 msgid "No validate cert option"
 msgstr "Ingen gyldige cert indstillinger"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Ikke-leveret til SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Ikke-leveret til telefon"
-
 msgid "None"
 msgstr "Ingen"
 
@@ -1884,7 +1871,7 @@ msgid "Offline"
 msgstr "Offline"
 
 msgid "Once"
-msgstr "ÃÂn gang"
+msgstr "Én gang"
 
 msgid "Online"
 msgstr "Online"
@@ -1913,14 +1900,11 @@ msgstr "Sideindhold"
 msgid "Page title"
 msgstr "Sidetitel"
 
-msgid "Param"
-msgstr "Param"
-
 msgid "Parent"
 msgstr "Forælder"
 
 msgid "Parent account"
-msgstr "Overliggende konto"
+msgstr "Forælderkonto"
 
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
@@ -1969,7 +1953,7 @@ msgid "Please select"
 msgstr "Vælg venligst"
 
 msgid "Please select CSV file"
-msgstr "Vælg venligst en CSV fil"
+msgstr "VÃÂ¦lg venligst en CSV fil"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Vælg CSV fil med telefonbogsemner"
@@ -1996,7 +1980,7 @@ msgid "Preferences"
 msgstr "Indstillinger"
 
 msgid "Preferences have been saved"
-msgstr "Dine indstillinger er blevet gemt"
+msgstr "Indstillingerne er blevet gemt"
 
 msgid "Preferences have been saved and password updated"
 msgstr "Indstillingerne er blevet gemt og adgangskoden er opdateret"
@@ -2045,9 +2029,6 @@ msgstr "Kø mappe"
 
 msgid "Queue has been removed"
 msgstr "Køen er blevet fjernet"
-
-msgid "Queued on SMSC"
-msgstr "I kø på SMSC"
 
 msgid "RSS 0.91 output"
 msgstr "RSS 0.91 output"
@@ -2151,7 +2132,7 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr "Erstat præfiks 0 eller udvid lokale numre"
 
 msgid "Replace website title with logo"
-msgstr "Erstat webstedstitel med logo"
+msgstr "Erstat websidetitel med logo"
 
 msgid "Reply"
 msgstr "Svar"
@@ -2200,9 +2181,6 @@ msgstr "Resultatgraf"
 
 msgid "Result table"
 msgstr "Resultattabel"
-
-msgid "Return"
-msgstr "Retur"
 
 msgid "Route SMS outgoing"
 msgstr "Diriger udgående SMS"
@@ -2281,7 +2259,8 @@ msgstr "SMS autosvar system er blevet redigeret"
 msgid "SMS autoreply scenario parameter"
 msgstr "SMS autosvar system parameter"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "SMS autosvar system svarer med"
 
 msgid "SMS board from"
@@ -2347,10 +2326,13 @@ msgstr "SMS videresend paramter"
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
 
+msgid "SMS is case-insensitive"
+msgstr ""
+
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
-"SMS nøgleord eksisterer allerede, er reserveret eller bruges af en anden "
-"funktion"
+"SMS nøgleord eksisterer allerede, er reserveret eller bruges af andre "
+"funktioner"
 
 msgid "SMS messages list for keyword"
 msgstr "SMS beskedliste for nøgleord"
@@ -2490,7 +2472,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søg i indkommende SMS efter @brugernavn"
 
 msgid "Schedule"
-msgstr "Tidsplan"
+msgstr "Skema"
 
 msgid "Schedule ID"
 msgstr "Tidsplan ID"
@@ -2657,7 +2639,7 @@ msgid "Service name"
 msgstr "Servicenavn"
 
 msgid "Set as default"
-msgstr "Angiv som standard"
+msgstr "Sæt som standard"
 
 msgid ""
 "Set credit value bigger than 0 to set credit lowest limit that will trigger "
@@ -2737,10 +2719,13 @@ msgid "Template installation path"
 msgstr "Skabelon installationssti"
 
 msgid "The domain is already configured by other user"
-msgstr "DomÃ¦net er allerede konfigureret af en anden bruger"
+msgstr "DomÃÂ¦net er allerede konfigureret af en anden bruger"
 
 msgid "Themes"
 msgstr "Temaer"
+
+msgid "This field is not mandatory"
+msgstr ""
 
 msgid "This field is required"
 msgstr "Dette felt er påkrævet"
@@ -2833,7 +2818,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
 msgid "Unable to unban account"
-msgstr "Kunne ikke fjerne bandlysning af konto"
+msgstr "Kan ikke fjerne bandlysning fra konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bandlysning af underbruger"
@@ -2996,7 +2981,7 @@ msgid "Website email"
 msgstr "Webside e-mail"
 
 msgid "Website title"
-msgstr "Websted titel"
+msgstr "Websidetitel"
 
 msgid "Weekly"
 msgstr "Ugentligt"
@@ -3036,7 +3021,7 @@ msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du skal udfylde alle påkrævede felter"
+msgstr "Du skal udfylde alle krævede felter"
 
 msgid "You must fill all required fields"
 msgstr "Du skal udfylde alle påkrævede felter"
@@ -3156,7 +3141,7 @@ msgid "destination number, message, username"
 msgstr "destinationsnummer, besked, brugernavn"
 
 msgid "domain"
-msgstr "domÃ¦ne"
+msgstr "domÃÂ¦ne"
 
 msgid "email"
 msgstr "e-mail"

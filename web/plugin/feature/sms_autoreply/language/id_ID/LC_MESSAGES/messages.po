@@ -14,6 +14,9 @@ msgstr "Tambah layanan balas SMS otomatis"
 msgid "Add SMS autoreply scenario"
 msgstr "Tambah skenario layanan balas SMS otomatis"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr "Anda yakin ingin menghapus layanan balas SMS otomatis?"
 
@@ -52,11 +55,11 @@ msgstr "Kata kunci"
 msgid "Manage autoreply"
 msgstr "Pengaturan balas SMS otomatis"
 
-msgid "Param"
-msgstr "Param"
+msgid "Reply"
+msgstr ""
 
-msgid "Return"
-msgstr "Kembali"
+msgid "SMS"
+msgstr ""
 
 msgid "SMS autoreply has been deleted"
 msgstr "Layanan balas SMS otomatis telah terhapus"
@@ -83,8 +86,12 @@ msgstr "Skenario layanan balas SMS otomatis telah diubah"
 msgid "SMS autoreply scenario parameter"
 msgstr "Parameter skenario layanan balas SMS otomatis"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "Balasan dengan skenario layanan balas SMS otomatis"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "Kata kunci SMS sudah dipesan atau digunakan oleh fitur lain"
@@ -95,11 +102,11 @@ msgstr ""
 msgid "Save"
 msgstr "Simpan"
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "User"
 msgstr "Pengguna"
-
-msgid "You must fill all fields"
-msgstr "Anda harus mengisi semua kolom"
 
 msgid "keyword"
 msgstr "kata kunci"

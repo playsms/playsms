@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -124,7 +123,7 @@ msgid "Account with this mobile already exists"
 msgstr "A conta com este numero de telemóvel já existe"
 
 msgid "Action"
-msgstr "Ação"
+msgstr "Acção"
 
 msgid "Active language"
 msgstr "Ativar Idioma"
@@ -452,7 +451,7 @@ msgid "Buy"
 msgstr "Comprar"
 
 msgid "Buy credit page"
-msgstr "Comprar crÃ©dito"
+msgstr "Página para Compra de Créditos"
 
 msgid "CSS URL"
 msgstr "URL do CSS"
@@ -639,13 +638,13 @@ msgid "Default account status upon registration"
 msgstr "Status da conta padrão no ato do registro"
 
 msgid "Default credit upon registration"
-msgstr "CrÃ©ditos PadrÃ£o no acto do Registro"
+msgstr "Crédito padrão no ato do registo"
 
 msgid "Default default_queue directory"
 msgstr ""
 
 msgid "Default language"
-msgstr "Idioma padrÃ£o"
+msgstr "Idioma padrão"
 
 msgid "Default message footer"
 msgstr "Mensagem rodapé padrão"
@@ -711,12 +710,6 @@ msgstr "Eliminado"
 
 msgid "Delivered"
 msgstr "Entregue"
-
-msgid "Delivered to SMSC"
-msgstr "Recebido pelo SMSC"
-
-msgid "Delivered to phone"
-msgstr "Recebido pelo telefone"
 
 msgid "Description"
 msgstr "Descrição"
@@ -869,16 +862,16 @@ msgid "Enable fetch new emails"
 msgstr "Permitir verificar novos e-mails"
 
 msgid "Enable forgot password"
-msgstr "Ativar recuperaÃ§Ã£o de palavra-passe"
+msgstr "Ativar recuperação de palavra-passe"
 
 msgid "Enable login brute force detection"
 msgstr "Ativar login brute force  deteção "
 
 msgid "Enable logo"
-msgstr "Ativar Logo"
+msgstr "Ativar logotipo"
 
 msgid "Enable public registration"
-msgstr "Ativar registros pÃºblicos"
+msgstr "Ativar registros públicos"
 
 msgid "Enable webservices"
 msgstr "Ativar webservices"
@@ -906,7 +899,7 @@ msgid "Export"
 msgstr "Exportar"
 
 msgid "FATAL ERROR"
-msgstr "ERRO FATAL"
+msgstr "Erro Fatal"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Erro ao adicionar auto-resposta SMS"
@@ -1199,7 +1192,7 @@ msgid "Gateway host"
 msgstr "Host do gateway"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram guardadas"
+msgstr "Configurações do módulo de gateway foram guardas"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
@@ -1322,7 +1315,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importar acima de entradas da agenda?"
 
 msgid "Import confirmation"
-msgstr "Confirmação da importação"
+msgstr "Importação de confirmação"
 
 msgid "Inbox"
 msgstr "Caixa de Entrada"
@@ -1346,7 +1339,7 @@ msgid "Information"
 msgstr "Informação"
 
 msgid "Information page"
-msgstr "InformaÃ§Ãµes da pÃ¡gina"
+msgstr "Informações da página"
 
 msgid "Insert keyword"
 msgstr "Inserir palavra-chave"
@@ -1419,7 +1412,7 @@ msgid "Last update"
 msgstr "Última atualização"
 
 msgid "Layout footer"
-msgstr "RodapÃ© de layout"
+msgstr "Rodapé de layout"
 
 msgid "Leave a copy in sandbox SMS page"
 msgstr "Deixar uma copia na página sandbox "
@@ -1483,13 +1476,13 @@ msgid "Login information"
 msgstr "Informação Login"
 
 msgid "Logo URL"
-msgstr "URL do LogÃ³tipo"
+msgstr "URL do Logótipo"
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Logotipo, por padrÃ£o, serÃ¡ exibido no inÃ­cio da sessÃ£o, registo e na "
-"recuperaÃ§Ã£o da palavra-passe"
+"Logotipo, por padrão, será exibido no início da sessão, registo e na "
+"recuperação da palavra-passe"
 
 msgid "Logout"
 msgstr "Sair"
@@ -1525,7 +1518,7 @@ msgid "Main website name"
 msgstr "Nome do principal "
 
 msgid "Make return as reply"
-msgstr "Enviar retorno como resposta"
+msgstr "Enviar saída do comando como resposta"
 
 msgid "Manage"
 msgstr "Administrar"
@@ -1630,7 +1623,7 @@ msgid "Manage subscribe"
 msgstr "Gerir Subscrições"
 
 msgid "Manage subuser"
-msgstr "Gerir subutilizador"
+msgstr "Gerir sub-utilizador"
 
 msgid "Manage sync"
 msgstr "Gerir Sync"
@@ -1648,7 +1641,7 @@ msgid "Manage uplink"
 msgstr "Gerir uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Os campos obrigatórios não devem estar vazio"
+msgstr "Os campos obrigatórios não devem estar vazios"
 
 msgid "Master URL"
 msgstr "URL Principal"
@@ -1658,8 +1651,7 @@ msgstr "Combine com todos ID dos remetentes  aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
-"Máximo 16 números ou 11 caracteres alfanuméricos. Deixar em branco para "
-"desativar"
+"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 numérico ou 11 caracteres alfanuméricos"
@@ -1695,14 +1687,14 @@ msgid "Member list for keyword"
 msgstr "Lista de membros por palavra-chave"
 
 msgid "Members"
-msgstr "Membros"
+msgstr "Ver membros"
 
 msgid "Message"
 msgstr "Mensagem"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Message %s has been delivered to queue"
-msgstr ""
+msgstr "Sua mensagem foi entregue para a fila"
 
 msgid "Message ID"
 msgstr "ID da Mensagem"
@@ -1765,10 +1757,10 @@ msgid "Mobile numbers have been deleted"
 msgstr ""
 
 msgid "Module sender ID"
-msgstr "Módulo ID Remetente"
+msgstr "Modulo Remetente ID"
 
 msgid "Module timezone"
-msgstr "Módulo Fuso Horário"
+msgstr "Modulo Fuso Horário"
 
 msgid "Monthly"
 msgstr "Mensal"
@@ -1864,12 +1856,6 @@ msgstr "Sem barra no final"
 msgid "No validate cert option"
 msgstr "Sem opção de validação"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Não entregue ao SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Não entregue ao telemóvel"
-
 msgid "None"
 msgstr "Nenhum"
 
@@ -1913,13 +1899,10 @@ msgid "PIN is empty"
 msgstr "PIN não está introduzido"
 
 msgid "Page content"
-msgstr "O conteÃºdo da pÃ¡gina"
+msgstr "O conteúdo da página"
 
 msgid "Page title"
-msgstr "TÃ­tulo da PÃ¡gina"
-
-msgid "Param"
-msgstr "Parâmetro"
+msgstr "Título da Página"
 
 msgid "Parent"
 msgstr "Principal"
@@ -2056,9 +2039,6 @@ msgstr ""
 msgid "Queue has been removed"
 msgstr "Fila foi removida"
 
-msgid "Queued on SMSC"
-msgstr "Em fila no SMSC"
-
 msgid "RSS 0.91 output"
 msgstr "Saída RSS 0.91"
 
@@ -2161,7 +2141,7 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr "Substituir o prefixo 0 ou preencher com números locais"
 
 msgid "Replace website title with logo"
-msgstr "Substitua tÃ­tulo do site pelo logotipo"
+msgstr "Substitua título do site pelo logotipo"
 
 msgid "Reply"
 msgstr "Responder"
@@ -2210,9 +2190,6 @@ msgstr "Resultado Gráfico"
 
 msgid "Result table"
 msgstr "Tabela de Resultados"
-
-msgid "Return"
-msgstr "Voltar"
 
 msgid "Route SMS outgoing"
 msgstr "Rota de saída de SMS"
@@ -2296,7 +2273,8 @@ msgstr "O cenário de auto-resposta SMS foi alterado"
 msgid "SMS autoreply scenario parameter"
 msgstr "Parâmetro do cenário de auto-resposta SMS"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "O cenário de auto-resposta SMS responde com"
 
 msgid "SMS board from"
@@ -2360,6 +2338,9 @@ msgstr "Parâmetro de encaminhamento de SMS"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "O SMS foi enviado para os números válidos no arquivo enviado"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "A palavra-chave já existe, está reservada ou em uso por outro recurso"
@@ -2709,7 +2690,7 @@ msgid "Status"
 msgstr "Estado"
 
 msgid "Submit"
-msgstr "Enviar"
+msgstr "Submeter"
 
 msgid "Subscribe duration"
 msgstr "Duração da Subscrição"
@@ -2718,13 +2699,13 @@ msgid "Subscription expired reply"
 msgstr "Resposta para subscrição expirada"
 
 msgid "Subuser"
-msgstr "Sub-Utilizador"
+msgstr "Subutilizador"
 
 msgid "Subuser ACL"
 msgstr "Sub-Utilizador ACL"
 
 msgid "Subusers"
-msgstr "Sub-utilizadores"
+msgstr "Subutilizadores"
 
 msgid "Supplied SMSC"
 msgstr "Fornecedor SMSC"
@@ -2749,6 +2730,9 @@ msgstr "Este domÃ­nio jÃ¡ estÃ¡ configurado por outro utilizador"
 
 msgid "Themes"
 msgstr "Temas"
+
+msgid "This field is not mandatory"
+msgstr ""
 
 msgid "This field is required"
 msgstr "Este campo é obrigatório"
@@ -3045,7 +3029,7 @@ msgid "You have reached lowest credit limit of %s"
 msgstr "O seu crédito é inferior a %s"
 
 msgid "You must fill all field"
-msgstr "Você deve preencher todos os campos"
+msgstr "Preencha todos os campos"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
@@ -3207,7 +3191,7 @@ msgid "multiple times"
 msgstr "Vária vezes"
 
 msgid "no"
-msgstr "não"
+msgstr "Não"
 
 msgid "of"
 msgstr "de"
@@ -3277,7 +3261,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pela mensagem SMS pura"
+msgstr "será substituído pelo SMS puro"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3314,4 +3298,4 @@ msgid "will be replaced with the phone number listed in phonebook"
 msgstr "Será substituído com o número de telemóvel que consta na agenda"
 
 msgid "yes"
-msgstr "sim"
+msgstr "Sim"

@@ -23,6 +23,9 @@ msgstr "أضف رد تلقائي"
 msgid "Add SMS autoreply scenario"
 msgstr "أضف سيناريو رد تلقائي"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr "هل تود بالتأكيد حذف الرد التلقائي؟"
 
@@ -59,11 +62,12 @@ msgstr "الكلمات المفتاحية"
 msgid "Manage autoreply"
 msgstr "إدارة الردود التلقائية"
 
-msgid "Param"
-msgstr "المعامل"
+msgid "Reply"
+msgstr ""
 
-msgid "Return"
-msgstr "العودة"
+#, fuzzy
+msgid "SMS"
+msgstr "مركز الرسائل"
 
 msgid "SMS autoreply has been deleted"
 msgstr "تم الحذف"
@@ -89,8 +93,12 @@ msgstr "تم تعديل سيناريو الرد التلقائي"
 msgid "SMS autoreply scenario parameter"
 msgstr "معامل سيناريو الرد التلقائي"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "سيناريو الرد التلقائي"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "الكلمة المفتاحية موجودة مسبقًا"
@@ -101,11 +109,11 @@ msgstr "مركز الرسائل"
 msgid "Save"
 msgstr "حفظ"
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "User"
 msgstr "المستخدم"
-
-msgid "You must fill all fields"
-msgstr "يجب ملء كافة الحقول"
 
 msgid "keyword"
 msgstr "الكلمات المفتاحية"

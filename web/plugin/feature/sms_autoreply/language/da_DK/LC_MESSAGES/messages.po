@@ -21,6 +21,9 @@ msgstr "Tilføj SMS autosvar"
 msgid "Add SMS autoreply scenario"
 msgstr "Tilføj SMS autosvar system"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr "Er du sikker på at du ønsker at slette SMS autosvar?"
 
@@ -57,11 +60,12 @@ msgstr "Nøgleord"
 msgid "Manage autoreply"
 msgstr "Håndter autosvar"
 
-msgid "Param"
-msgstr "Param"
+msgid "Reply"
+msgstr ""
 
-msgid "Return"
-msgstr "Retur"
+#, fuzzy
+msgid "SMS"
+msgstr "SMSC"
 
 msgid "SMS autoreply has been deleted"
 msgstr "SMS autosvar er blevet slettet"
@@ -87,8 +91,12 @@ msgstr "SMS autosvar system er blevet redigeret"
 msgid "SMS autoreply scenario parameter"
 msgstr "SMS autosvar system parameter"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "SMS autosvar system svarer med"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -101,11 +109,11 @@ msgstr "SMSC"
 msgid "Save"
 msgstr "Gem"
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "User"
 msgstr "Bruger"
-
-msgid "You must fill all fields"
-msgstr "Du skal udfylde alle felter"
 
 msgid "keyword"
 msgstr "nøgleord"

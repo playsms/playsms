@@ -14,6 +14,9 @@ msgstr "Añadir auto-respuesta de SMS"
 msgid "Add SMS autoreply scenario"
 msgstr "Añadir Escenario de auto-respuesta de SMS"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr "Esta Ud. seguro de querer borrar auto-respuesta ?"
 
@@ -52,11 +55,11 @@ msgstr "Clave"
 msgid "Manage autoreply"
 msgstr "Administrar auto-respuesta"
 
-msgid "Param"
-msgstr "Parámetro"
+msgid "Reply"
+msgstr ""
 
-msgid "Return"
-msgstr "Regresar"
+msgid "SMS"
+msgstr ""
 
 msgid "SMS autoreply has been deleted"
 msgstr "El servicio de SMS de auto-respuesta ha sido borrado"
@@ -83,8 +86,12 @@ msgstr "El escenariode auto-respuesta de SMS ha sido editado"
 msgid "SMS autoreply scenario parameter"
 msgstr "Parámetro de escenarios de auto-respuesta de SMS"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "Escenario de auto-respuesta de SMS contesta con"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -97,11 +104,11 @@ msgstr ""
 msgid "Save"
 msgstr "Guardar"
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "User"
 msgstr "Usuario"
-
-msgid "You must fill all fields"
-msgstr "Ud. debe rellenar todos los campos"
 
 msgid "keyword"
 msgstr "Clave"

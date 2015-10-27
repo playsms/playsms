@@ -704,12 +704,6 @@ msgstr "删除"
 msgid "Delivered"
 msgstr ""
 
-msgid "Delivered to SMSC"
-msgstr ""
-
-msgid "Delivered to phone"
-msgstr ""
-
 msgid "Description"
 msgstr ""
 
@@ -1922,12 +1916,6 @@ msgstr ""
 msgid "No validate cert option"
 msgstr ""
 
-msgid "Non-Delivered to SMSC"
-msgstr ""
-
-msgid "Non-Delivered to phone"
-msgstr ""
-
 msgid "None"
 msgstr ""
 
@@ -1977,9 +1965,6 @@ msgstr "管理用户"
 #, fuzzy
 msgid "Page title"
 msgstr "管理用户"
-
-msgid "Param"
-msgstr ""
 
 msgid "Parent"
 msgstr ""
@@ -2105,9 +2090,6 @@ msgid "Queue directory"
 msgstr ""
 
 msgid "Queue has been removed"
-msgstr ""
-
-msgid "Queued on SMSC"
 msgstr ""
 
 msgid "RSS 0.91 output"
@@ -2259,9 +2241,6 @@ msgstr ""
 msgid "Result table"
 msgstr ""
 
-msgid "Return"
-msgstr ""
-
 msgid "Route SMS outgoing"
 msgstr ""
 
@@ -2337,7 +2316,7 @@ msgstr ""
 msgid "SMS autoreply scenario parameter"
 msgstr ""
 
-msgid "SMS autoreply scenario replies with"
+msgid "SMS autoreply scenario reply"
 msgstr ""
 
 msgid "SMS board from"
@@ -2399,6 +2378,9 @@ msgid "SMS forward parameter"
 msgstr ""
 
 msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr ""
+
+msgid "SMS is case-insensitive"
 msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
@@ -2791,6 +2773,9 @@ msgid "The domain is already configured by other user"
 msgstr ""
 
 msgid "Themes"
+msgstr ""
+
+msgid "This field is not mandatory"
 msgstr ""
 
 msgid "This field is required"

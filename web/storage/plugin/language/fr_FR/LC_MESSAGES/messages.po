@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: fr_FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +26,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "ACL DÉFAUT ne restreindra pas l'accès aux menus"
+msgstr "L'ACL DÉFAUT ne restreindra pas l'accès aux menus"
 
 msgid "ACL ID"
 msgstr "ID de l'ACL"
@@ -455,13 +453,13 @@ msgid "Buy"
 msgstr "Acheter"
 
 msgid "Buy credit page"
-msgstr "Page d'achat de crédit"
+msgstr "Page Ajouter du crédit"
 
 msgid "CSS URL"
 msgstr "URL CSS"
 
 msgid "CSV file format"
-msgstr "Format du fichier CSV"
+msgstr "Format de fichier CSV"
 
 msgid "Callback Secret"
 msgstr "Secret du callback"
@@ -719,12 +717,6 @@ msgstr "Supprimé"
 msgid "Delivered"
 msgstr "Livré"
 
-msgid "Delivered to SMSC"
-msgstr "Remis au SMSC"
-
-msgid "Delivered to phone"
-msgstr "Remis au téléphone"
-
 msgid "Description"
 msgstr "Description"
 
@@ -876,7 +868,7 @@ msgid "Enable fetch new emails"
 msgstr "Activer le rapatriement des nouveaux emails"
 
 msgid "Enable forgot password"
-msgstr "Activer Mot de passe oublié"
+msgstr "Activer la récupération du mot de passe"
 
 msgid "Enable login brute force detection"
 msgstr "Activer la détection de connexion par force brute"
@@ -885,7 +877,7 @@ msgid "Enable logo"
 msgstr "Activer le logo"
 
 msgid "Enable public registration"
-msgstr "Activer l'enregistrement public"
+msgstr "Activer l'inscription publique"
 
 msgid "Enable webservices"
 msgstr "Activer les webservices"
@@ -1096,8 +1088,9 @@ msgstr "Échec de l'enregistrement du tarif"
 msgid "Fail to save route"
 msgstr "Échec de l'enregistrement de la route"
 
+#, fuzzy
 msgid "Fail to save temporary password"
-msgstr ""
+msgstr "Échec de la récupération du mot de passe"
 
 msgid "Fail to send SMS"
 msgstr "Échec de l'envoi du SMS"
@@ -1536,7 +1529,7 @@ msgid "Main website name"
 msgstr "Nom du site web principal"
 
 msgid "Make return as reply"
-msgstr "Envoyer le résultat du script comme réponse"
+msgstr "Envoyer le résultat de la commande comme réponse"
 
 msgid "Manage"
 msgstr "Gérer"
@@ -1712,9 +1705,9 @@ msgstr "Membres"
 msgid "Message"
 msgstr "Message"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Message %s has been delivered to queue"
-msgstr ""
+msgstr "Votre message a été réceptionné dans la file d'attente"
 
 msgid "Message ID"
 msgstr "ID du message"
@@ -1876,12 +1869,6 @@ msgstr "Pas de slash final"
 msgid "No validate cert option"
 msgstr "Option ne pas valider le cert"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Non remis au SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Non remis au téléphone"
-
 msgid "None"
 msgstr "Veuillez sélectionner le sender ID par défaut"
 
@@ -1929,9 +1916,6 @@ msgstr "Contenu de la page"
 
 msgid "Page title"
 msgstr "Titre de la page"
-
-msgid "Param"
-msgstr "Paramètre"
 
 msgid "Parent"
 msgstr "Parent"
@@ -1989,7 +1973,7 @@ msgid "Please select"
 msgstr "Veuillez sélectionner"
 
 msgid "Please select CSV file"
-msgstr "Sélectionnez un fichier CSV"
+msgstr "Veuillez sélectionner le fichier CSV"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr ""
@@ -2070,9 +2054,6 @@ msgstr ""
 
 msgid "Queue has been removed"
 msgstr "La file d'attente a été supprimée"
-
-msgid "Queued on SMSC"
-msgstr "Dans la file d'attente du SMSC"
 
 msgid "RSS 0.91 output"
 msgstr "Output RSS 0.91"
@@ -2228,9 +2209,6 @@ msgstr "Graphique du résultat"
 msgid "Result table"
 msgstr "Tableau du résultat"
 
-msgid "Return"
-msgstr "Retour"
-
 msgid "Route SMS outgoing"
 msgstr "Route SMS sortant"
 
@@ -2309,7 +2287,8 @@ msgstr "Le scénario de réponse auto a été édité"
 msgid "SMS autoreply scenario parameter"
 msgstr "Paramètre du scénario de réponse auto"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "Réponses du scénario de réponse auto avec"
 
 msgid "SMS board from"
@@ -2374,6 +2353,9 @@ msgstr "Paramètre de transfert SMS"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "Un SMS a été envoyé aux destinataires valables dans le fichier importé"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "Le mot-clé existe déjà, est réservé ou utilisé par une autre fonction"
@@ -2771,6 +2753,9 @@ msgstr "Ce domaine est déjà configuré par un autre utilisateur"
 msgid "Themes"
 msgstr "Thèmes"
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "This field is required"
 msgstr "Ce champ est obligatoire"
 
@@ -2864,7 +2849,7 @@ msgid "Unable to save gateway module configurations"
 msgstr ""
 
 msgid "Unable to unban account"
-msgstr "Échec de la réintégration du compte"
+msgstr "Impossible de réintégrer le compte"
 
 msgid "Unable to unban subuser"
 msgstr "Impossible de réintégrer le sous-utilisateur"
@@ -3343,4 +3328,4 @@ msgstr ""
 "sera remplacé par le numéro de téléphone tel que dans le carnet d'adresses"
 
 msgid "yes"
-msgstr "oui"
+msgstr "yes"

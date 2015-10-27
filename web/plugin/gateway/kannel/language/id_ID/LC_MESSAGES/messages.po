@@ -21,12 +21,6 @@ msgstr ""
 msgid "DLR mask"
 msgstr ""
 
-msgid "Delivered to SMSC"
-msgstr "Dikirim ke SMSC"
-
-msgid "Delivered to phone"
-msgstr "Dikirim ke telepon"
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -84,20 +78,11 @@ msgstr "Zona waktu modul"
 msgid "No"
 msgstr ""
 
-msgid "Non-Delivered to SMSC"
-msgstr "Tidak dikirim ke SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Tidak dikirim ke telepon"
-
 msgid "Operational"
 msgstr ""
 
 msgid "Password"
 msgstr "Kata sandi"
-
-msgid "Queued on SMSC"
-msgstr "Antrian dalam SMSC"
 
 msgid "Restart Kannel"
 msgstr "Restart kannel"

@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PlaySMS\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
 "Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
@@ -704,12 +703,6 @@ msgstr "تم الحذف"
 
 msgid "Delivered"
 msgstr "تم التسليم"
-
-msgid "Delivered to SMSC"
-msgstr ""
-
-msgid "Delivered to phone"
-msgstr ""
 
 msgid "Description"
 msgstr "الوصف"
@@ -1859,12 +1852,6 @@ msgstr "بدون شرطة مائلة"
 msgid "No validate cert option"
 msgstr "لا يوجد شهادة صالحة"
 
-msgid "Non-Delivered to SMSC"
-msgstr ""
-
-msgid "Non-Delivered to phone"
-msgstr ""
-
 msgid "None"
 msgstr "لاشيء"
 
@@ -1912,9 +1899,6 @@ msgstr "محتوى الصفحة"
 
 msgid "Page title"
 msgstr "عنوان الصفحة"
-
-msgid "Param"
-msgstr "المعامل"
 
 msgid "Parent"
 msgstr "الحساب الرئيسي "
@@ -2042,9 +2026,6 @@ msgstr ""
 
 msgid "Queue has been removed"
 msgstr "تم حذف الطابور"
-
-msgid "Queued on SMSC"
-msgstr ""
 
 msgid "RSS 0.91 output"
 msgstr "مخرجات RSS 0.91"
@@ -2196,9 +2177,6 @@ msgstr "الرسم البياني للنتيجة"
 msgid "Result table"
 msgstr "جدول النتيجة"
 
-msgid "Return"
-msgstr "العودة"
-
 msgid "Route SMS outgoing"
 msgstr "تسيير الرسائل الصادرة"
 
@@ -2275,7 +2253,8 @@ msgstr "تم تعديل سيناريو الرد التلقائي"
 msgid "SMS autoreply scenario parameter"
 msgstr "معامل سيناريو الرد التلقائي"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "سيناريو الرد التلقائي"
 
 msgid "SMS board from"
@@ -2339,6 +2318,9 @@ msgstr "معامل إعادة توجيه الرسالة"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "تم إرسال الرسالة للأرقام الصالحة في الملف المحمَّل"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "الكلمة المفتاحية موجودة مسبقًا"
@@ -2515,7 +2497,7 @@ msgid "Select username"
 msgstr "اختيار اسم المستخدم"
 
 msgid "Select users"
-msgstr "اختيار مستخدمين"
+msgstr "اختيار المستخدمين"
 
 msgid "Selected catchall"
 msgstr "القائمة المحددة"
@@ -2548,7 +2530,7 @@ msgid "Selected users"
 msgstr "المستخدمون المحددون"
 
 msgid "Send"
-msgstr "إرسال"
+msgstr " إرسال"
 
 msgid "Send SMS from remote using local username"
 msgstr ""
@@ -2723,6 +2705,9 @@ msgstr "عنوان الموقع تم استخدامة من قبل مستخدم �
 
 msgid "Themes"
 msgstr "السمات"
+
+msgid "This field is not mandatory"
+msgstr ""
 
 msgid "This field is required"
 msgstr "هذا الحقل مطلوب"

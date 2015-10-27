@@ -27,12 +27,6 @@ msgstr ""
 msgid "DLR mask"
 msgstr ""
 
-msgid "Delivered to SMSC"
-msgstr "Доставлено на SMSC"
-
-msgid "Delivered to phone"
-msgstr "Доставлено на телефон"
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Например, +0300 для Москвы"
 
@@ -88,20 +82,11 @@ msgstr "часовой пояс"
 msgid "No"
 msgstr "Нет"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Не доставлено на SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Не доставлено на телефон"
-
 msgid "Operational"
 msgstr ""
 
 msgid "Password"
 msgstr "Пароль"
-
-msgid "Queued on SMSC"
-msgstr "Поставлено в очередь на SMSC"
 
 msgid "Restart Kannel"
 msgstr "Перезапустить Kannel"

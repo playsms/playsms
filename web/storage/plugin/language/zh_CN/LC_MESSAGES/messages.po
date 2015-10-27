@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -114,7 +112,7 @@ msgid "Account with this mobile already exists"
 msgstr ""
 
 msgid "Action"
-msgstr "行动"
+msgstr "行为"
 
 msgid "Active language"
 msgstr ""
@@ -158,9 +156,8 @@ msgstr "增加短信订阅"
 msgid "Add SMSC"
 msgstr ""
 
-#, fuzzy
 msgid "Add account"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Add blocked IP addresses"
 msgstr ""
@@ -211,13 +208,11 @@ msgstr "增加等级"
 msgid "Add route"
 msgstr "增加等级"
 
-#, fuzzy
 msgid "Add sender ID"
-msgstr "短信发件人"
+msgstr ""
 
-#, fuzzy
 msgid "Add subuser"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Additional URL parameter"
 msgstr "增加的链接参数"
@@ -295,9 +290,8 @@ msgstr ""
 msgid "Application options"
 msgstr ""
 
-#, fuzzy
 msgid "Approve sender ID"
-msgstr "短信发件人"
+msgstr ""
 
 msgid "Are you sure ?"
 msgstr ""
@@ -535,9 +529,8 @@ msgstr ""
 msgid "Compose message"
 msgstr ""
 
-#, fuzzy
 msgid "Configuration"
-msgstr "主要构造"
+msgstr ""
 
 msgid "Confirmation"
 msgstr ""
@@ -636,9 +629,8 @@ msgstr ""
 msgid "Default default_queue directory"
 msgstr ""
 
-#, fuzzy
 msgid "Default language"
-msgstr "活跃的语言"
+msgstr ""
 
 msgid "Default message footer"
 msgstr ""
@@ -658,16 +650,14 @@ msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
 
-#, fuzzy
 msgid "Default sender ID"
-msgstr "短信发件人"
+msgstr ""
 
 msgid "Default settings"
 msgstr ""
 
-#, fuzzy
 msgid "Default site configuration"
-msgstr "主要构造"
+msgstr ""
 
 msgid "Default timezone"
 msgstr ""
@@ -700,12 +690,6 @@ msgid "Deleted"
 msgstr "删除"
 
 msgid "Delivered"
-msgstr ""
-
-msgid "Delivered to SMSC"
-msgstr ""
-
-msgid "Delivered to phone"
 msgstr ""
 
 msgid "Description"
@@ -742,9 +726,8 @@ msgstr ""
 msgid "Edit"
 msgstr "编辑"
 
-#, fuzzy
 msgid "Edit ACL"
-msgstr "编辑"
+msgstr ""
 
 #, fuzzy
 msgid "Edit SMS autoreply"
@@ -774,9 +757,8 @@ msgstr "编辑短信测试"
 msgid "Edit SMS subscribe"
 msgstr "编辑短信订阅"
 
-#, fuzzy
 msgid "Edit SMSC"
-msgstr "编辑"
+msgstr ""
 
 msgid "Edit contact"
 msgstr ""
@@ -807,9 +789,8 @@ msgstr "编辑等级"
 msgid "Edit schedule"
 msgstr ""
 
-#, fuzzy
 msgid "Edit sender ID"
-msgstr "短信发件人"
+msgstr ""
 
 msgid "Effective SMS sender ID"
 msgstr ""
@@ -947,16 +928,14 @@ msgstr "增加"
 msgid "Fail to add message template"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to add new ACL"
-msgstr "删除短信失败"
+msgstr ""
 
 msgid "Fail to add new SMS schedule"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to add new SMSC"
-msgstr "删除短信失败"
+msgstr ""
 
 msgid "Fail to add new destination"
 msgstr ""
@@ -1075,9 +1054,8 @@ msgstr "保存短信指令失败"
 msgid "Fail to save SMS custom"
 msgstr "保存短信字定义失败"
 
-#, fuzzy
 msgid "Fail to save configuration"
-msgstr "主要构造"
+msgstr ""
 
 msgid "Fail to save email to SMS PIN"
 msgstr ""
@@ -1085,9 +1063,8 @@ msgstr ""
 msgid "Fail to save gateway module configurations"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to save preferences"
-msgstr "偏好"
+msgstr ""
 
 msgid "Fail to save rate"
 msgstr "保存等级失败"
@@ -1102,9 +1079,8 @@ msgstr ""
 msgid "Fail to send SMS"
 msgstr "发送短信失败"
 
-#, fuzzy
 msgid "Fail to send email"
-msgstr "发送短信失败"
+msgstr ""
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1156,9 +1132,8 @@ msgstr "填写改变密码"
 msgid "Fill with zero to disable limit"
 msgstr ""
 
-#, fuzzy
 msgid "Flash message"
-msgstr "发送为非代码信息"
+msgstr ""
 
 msgid "Footer"
 msgstr ""
@@ -1372,9 +1347,8 @@ msgstr ""
 msgid "Invalid entries"
 msgstr ""
 
-#, fuzzy
 msgid "Invalid sender ID"
-msgstr "短信发件人"
+msgstr ""
 
 msgid "Invalid session ID"
 msgstr ""
@@ -1441,16 +1415,14 @@ msgstr ""
 msgid "List of accounts"
 msgstr ""
 
-#, fuzzy
 msgid "List of administrators"
-msgstr "管理员"
+msgstr ""
 
 msgid "List of destinations"
 msgstr ""
 
-#, fuzzy
 msgid "List of gateways and SMSCs"
-msgstr "管理用户"
+msgstr ""
 
 #, php-format
 msgid "List of messages from %s"
@@ -1490,9 +1462,8 @@ msgstr ""
 msgid "Login as"
 msgstr ""
 
-#, fuzzy
 msgid "Login information"
-msgstr "主要构造"
+msgstr ""
 
 msgid "Logo URL"
 msgstr ""
@@ -1525,9 +1496,8 @@ msgstr ""
 msgid "Main configuration"
 msgstr "主要构造"
 
-#, fuzzy
 msgid "Main configuration changes has been saved"
-msgstr "主要构造"
+msgstr ""
 
 msgid "Main website URL"
 msgstr ""
@@ -1709,8 +1679,9 @@ msgstr ""
 msgid "Member list for keyword"
 msgstr "会员列表关键字"
 
+#, fuzzy
 msgid "Members"
-msgstr ""
+msgstr "浏览人数"
 
 msgid "Message"
 msgstr "信息"
@@ -1882,12 +1853,6 @@ msgstr "没有结尾的斜线"
 msgid "No validate cert option"
 msgstr ""
 
-msgid "Non-Delivered to SMSC"
-msgstr ""
-
-msgid "Non-Delivered to phone"
-msgstr ""
-
 msgid "None"
 msgstr ""
 
@@ -1930,23 +1895,17 @@ msgstr ""
 msgid "PIN is empty"
 msgstr ""
 
-#, fuzzy
 msgid "Page content"
-msgstr "管理用户"
+msgstr ""
 
-#, fuzzy
 msgid "Page title"
-msgstr "管理用户"
-
-msgid "Param"
-msgstr "参数"
+msgstr ""
 
 msgid "Parent"
 msgstr ""
 
-#, fuzzy
 msgid "Parent account"
-msgstr "管理用户"
+msgstr ""
 
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
@@ -2067,9 +2026,6 @@ msgstr ""
 msgid "Queue has been removed"
 msgstr ""
 
-msgid "Queued on SMSC"
-msgstr ""
-
 msgid "RSS 0.91 output"
 msgstr ""
 
@@ -2140,9 +2096,8 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#, fuzzy
 msgid "Register an account"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Registered"
 msgstr ""
@@ -2220,9 +2175,6 @@ msgstr ""
 
 msgid "Result table"
 msgstr ""
-
-msgid "Return"
-msgstr "返回"
 
 msgid "Route SMS outgoing"
 msgstr ""
@@ -2305,7 +2257,8 @@ msgstr "短信自动回复情景已编辑"
 msgid "SMS autoreply scenario parameter"
 msgstr "短信自动回复情景参数"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "短信自动回复情景回复"
 
 #, fuzzy
@@ -2369,6 +2322,9 @@ msgid "SMS forward parameter"
 msgstr ""
 
 msgid "SMS has been sent to valid numbers in uploaded file"
+msgstr ""
+
+msgid "SMS is case-insensitive"
 msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
@@ -2626,9 +2582,8 @@ msgstr ""
 msgid "Sender"
 msgstr "发件人"
 
-#, fuzzy
 msgid "Sender ID"
-msgstr "短信发件人"
+msgstr ""
 
 msgid "Sender ID description has been added"
 msgstr ""
@@ -2697,9 +2652,8 @@ msgstr ""
 msgid "Simulate incoming SMS"
 msgstr ""
 
-#, fuzzy
 msgid "Site configuration"
-msgstr "主要构造"
+msgstr ""
 
 msgid "Site configuration has been saved"
 msgstr ""
@@ -2761,6 +2715,9 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "This field is required"
 msgstr ""
 
@@ -2819,20 +2776,17 @@ msgstr ""
 msgid "Unable to add group"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to ban account"
-msgstr "管理用户"
+msgstr ""
 
-#, fuzzy
 msgid "Unable to ban subuser"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Unable to delete group until the group is empty"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to delete other users"
-msgstr "不能更新登陆会话"
+msgstr ""
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
@@ -2851,9 +2805,8 @@ msgstr ""
 msgid "Unable to save gateway module configurations"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to unban account"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Unable to unban subuser"
 msgstr ""
@@ -2861,9 +2814,8 @@ msgstr ""
 msgid "Unban"
 msgstr ""
 
-#, fuzzy
 msgid "Unicode message"
-msgstr "发送为非代码信息"
+msgstr ""
 
 msgid "Unknown error"
 msgstr ""
@@ -2905,9 +2857,8 @@ msgstr ""
 msgid "User configuration"
 msgstr ""
 
-#, fuzzy
 msgid "User configuration has been saved"
-msgstr "主要构造"
+msgstr ""
 
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
@@ -3059,9 +3010,8 @@ msgstr "你必须填满全部空白"
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "你必须填满全部空白"
+msgstr ""
 
 msgid "You must fill all required fields"
 msgstr ""
@@ -3284,10 +3234,10 @@ msgid "view all %d"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "将被短信传入日期/时间替换"
+msgstr "用短信收到日期/时间替换"
 
 msgid "will be replaced by SMS raw message"
-msgstr "将被发件人数替换"
+msgstr "被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3310,7 +3260,7 @@ msgid "will be replaced by receiver number"
 msgstr "将被发件人数替换"
 
 msgid "will be replaced by sender number"
-msgstr "将被发件人数替换"
+msgstr "被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by service name"

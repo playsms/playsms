@@ -27,12 +27,6 @@ msgstr "Konfiguration"
 msgid "DLR mask"
 msgstr "DLR maske"
 
-msgid "Delivered to SMSC"
-msgstr "Leveret til SMSC"
-
-msgid "Delivered to phone"
-msgstr "Leveret til telefon"
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "F.eks: +0700 til Jakarta/Bangkok tidszone"
 
@@ -87,20 +81,11 @@ msgstr "Modul tidszone"
 msgid "No"
 msgstr "Nej"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Ikke-leveret til SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Ikke-leveret til telefon"
-
 msgid "Operational"
 msgstr "Kørende"
 
 msgid "Password"
 msgstr "Adgangskode"
-
-msgid "Queued on SMSC"
-msgstr "I kø på SMSC"
 
 msgid "Restart Kannel"
 msgstr "Genstart Kannel"

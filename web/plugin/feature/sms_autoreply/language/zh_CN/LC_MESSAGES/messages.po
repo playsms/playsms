@@ -14,6 +14,9 @@ msgstr "增加短信自动回复"
 msgid "Add SMS autoreply scenario"
 msgstr "增加短信自动回复情景"
 
+msgid "All mandatory fields must be filled"
+msgstr ""
+
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr "确定删除短信自动回复 ?"
 
@@ -52,11 +55,11 @@ msgstr "关键字"
 msgid "Manage autoreply"
 msgstr "管理自动回复"
 
-msgid "Param"
-msgstr "参数"
+msgid "Reply"
+msgstr ""
 
-msgid "Return"
-msgstr "返回"
+msgid "SMS"
+msgstr ""
 
 msgid "SMS autoreply has been deleted"
 msgstr "短信自动回复已删除"
@@ -83,8 +86,12 @@ msgstr "短信自动回复情景已编辑"
 msgid "SMS autoreply scenario parameter"
 msgstr "短信自动回复情景参数"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "短信自动回复情景回复"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "短信关键字已存在, 保留或其他功能的使用"
@@ -95,11 +102,11 @@ msgstr ""
 msgid "Save"
 msgstr "保存"
 
+msgid "This field is not mandatory"
+msgstr ""
+
 msgid "User"
 msgstr "用户"
-
-msgid "You must fill all fields"
-msgstr "你必须填满全部的空白"
 
 msgid "keyword"
 msgstr "关键字"

@@ -715,12 +715,6 @@ msgstr "Slettet"
 msgid "Delivered"
 msgstr "Leveret"
 
-msgid "Delivered to SMSC"
-msgstr "Leveret til SMSC"
-
-msgid "Delivered to phone"
-msgstr "Leveret til telefon"
-
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -1860,12 +1854,6 @@ msgstr "Ingen efterfølgende skråstreg"
 msgid "No validate cert option"
 msgstr "Ingen gyldige cert indstillinger"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Ikke-leveret til SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Ikke-leveret til telefon"
-
 msgid "None"
 msgstr "Ingen"
 
@@ -1913,9 +1901,6 @@ msgstr "Sideindhold"
 
 msgid "Page title"
 msgstr "Sidetitel"
-
-msgid "Param"
-msgstr "Param"
 
 msgid "Parent"
 msgstr "Forælder"
@@ -2046,9 +2031,6 @@ msgstr "Kø mappe"
 
 msgid "Queue has been removed"
 msgstr "Køen er blevet fjernet"
-
-msgid "Queued on SMSC"
-msgstr "I kø på SMSC"
 
 msgid "RSS 0.91 output"
 msgstr "RSS 0.91 output"
@@ -2202,9 +2184,6 @@ msgstr "Resultatgraf"
 msgid "Result table"
 msgstr "Resultattabel"
 
-msgid "Return"
-msgstr "Tilbage"
-
 msgid "Route SMS outgoing"
 msgstr "Diriger udgående SMS"
 
@@ -2282,7 +2261,8 @@ msgstr "SMS autosvar system er blevet redigeret"
 msgid "SMS autoreply scenario parameter"
 msgstr "SMS autosvar system parameter"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "SMS autosvar system svarer med"
 
 msgid "SMS board from"
@@ -2347,6 +2327,10 @@ msgstr "SMS videresend paramter"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
+
+#, fuzzy
+msgid "SMS is case-insensitive"
+msgstr "SMS quiz er blevet gemt"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -2742,6 +2726,10 @@ msgstr "DomÃ¦net er allerede konfigureret af en anden bruger"
 
 msgid "Themes"
 msgstr "Temaer"
+
+#, fuzzy
+msgid "This field is not mandatory"
+msgstr "Dette felt er påkrævet"
 
 msgid "This field is required"
 msgstr "Dette felt er påkrævet"

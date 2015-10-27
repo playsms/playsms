@@ -21,12 +21,6 @@ msgstr ""
 msgid "DLR mask"
 msgstr ""
 
-msgid "Delivered to SMSC"
-msgstr "Remis au SMSC"
-
-msgid "Delivered to phone"
-msgstr "Remis au téléphone"
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
 
@@ -83,20 +77,11 @@ msgstr "Fuseau horaire du module"
 msgid "No"
 msgstr "Non"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Non remis au SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Non remis au téléphone"
-
 msgid "Operational"
 msgstr ""
 
 msgid "Password"
 msgstr "Mot de passe"
-
-msgid "Queued on SMSC"
-msgstr "Dans la file d'attente du SMSC"
 
 msgid "Restart Kannel"
 msgstr "Redémarrer Kannel"

@@ -92,8 +92,9 @@ msgstr ""
 "Пользователь admin или вошедший в систему администратор не может быть "
 "заблокирован"
 
+#, fuzzy
 msgid "Account already exists"
-msgstr ""
+msgstr "Пользователь уже существует"
 
 msgid "Account has been added and password has been emailed"
 msgstr "Пользователь добавлен, пароль отправлен по почте"
@@ -119,11 +120,13 @@ msgstr "Регистрация не доступна"
 msgid "Account status"
 msgstr "Состояние пользователя"
 
+#, fuzzy
 msgid "Account with this email already exists"
-msgstr ""
+msgstr "Пользователь с таким email уже существует"
 
+#, fuzzy
 msgid "Account with this mobile already exists"
-msgstr ""
+msgstr "Мользователь с таким номером телефона уже существует"
 
 msgid "Action"
 msgstr "Действие"
@@ -228,7 +231,7 @@ msgid "Add subuser"
 msgstr "Добавить дочернего пользователя"
 
 msgid "Additional URL parameter"
-msgstr "Дополнительные параметры URL"
+msgstr "Дополнительный параметр URL"
 
 msgid "Address"
 msgstr "Адрес"
@@ -371,7 +374,7 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Вы уверены, что хотите удалить дочернего пользователя?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Вы уверены, что хотите удалить эти элементы?"
+msgstr "Вы уверены, что хотите удалить выбранное?"
 
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Вы уверены, что хотите удалить записи об этих транзакциях?"
@@ -543,12 +546,12 @@ msgstr ""
 msgid "Comma separated values for multiple mobile numbers"
 msgstr ""
 
-msgid "Compose message"
-msgstr ""
-
 #, fuzzy
+msgid "Compose message"
+msgstr "содержит русские символы"
+
 msgid "Configuration"
-msgstr "Конфигурация"
+msgstr ""
 
 msgid "Confirmation"
 msgstr "Подтверждение"
@@ -583,7 +586,7 @@ msgid "Created"
 msgstr "Создано"
 
 msgid "Credit"
-msgstr "Баланс"
+msgstr "Средства"
 
 msgid "Credit has been added"
 msgstr "Средства добавлены"
@@ -631,8 +634,9 @@ msgstr ""
 msgid "Default"
 msgstr "По умолчанию"
 
+#, fuzzy
 msgid "Default ACL upon registration"
-msgstr ""
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default SMS rate"
 msgstr "Тариф за СМС по умолчанию"
@@ -640,11 +644,13 @@ msgstr "Тариф за СМС по умолчанию"
 msgid "Default SMSC"
 msgstr "SMSC по умолчанию"
 
+#, fuzzy
 msgid "Default account status upon registration"
-msgstr ""
+msgstr "Тип пользователя при регистрации"
 
+#, fuzzy
 msgid "Default credit upon registration"
-msgstr ""
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default default_queue directory"
 msgstr ""
@@ -660,8 +666,9 @@ msgid ""
 "registration setting set to Subuser"
 msgstr ""
 
+#, fuzzy
 msgid "Default parent upon registration"
-msgstr ""
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default prefix or country code"
 msgstr ""
@@ -711,12 +718,6 @@ msgstr "Удалено"
 msgid "Delivered"
 msgstr "Доставлено"
 
-msgid "Delivered to SMSC"
-msgstr "Доставлено на SMSC"
-
-msgid "Delivered to phone"
-msgstr "Доставлено на телефон"
-
 msgid "Description"
 msgstr "Описание"
 
@@ -750,9 +751,8 @@ msgstr "Скачать SMSSync для Android с"
 msgid "Edit"
 msgstr "Редактировать"
 
-#, fuzzy
 msgid "Edit ACL"
-msgstr "Редактировать"
+msgstr ""
 
 msgid "Edit SMS autoreply"
 msgstr "Редактировать автоответ"
@@ -818,7 +818,7 @@ msgid "Effective SMS sender ID"
 msgstr "Действующее имя отправителя"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Например +0400 для Москвы"
+msgstr "Например, +0300 для Москвы"
 
 msgid "Email"
 msgstr "Email"
@@ -949,9 +949,8 @@ msgstr "Не удалось добавить сообщение"
 msgid "Fail to add message template"
 msgstr "Не удалось добавить шаблон"
 
-#, fuzzy
 msgid "Fail to add new ACL"
-msgstr "Не удалось загрузить шлюз"
+msgstr ""
 
 msgid "Fail to add new SMS schedule"
 msgstr ""
@@ -1089,8 +1088,9 @@ msgstr "Не удалось сохранить тариф"
 msgid "Fail to save route"
 msgstr "Не удалось сохранить маршрут"
 
+#, fuzzy
 msgid "Fail to save temporary password"
-msgstr ""
+msgstr "Не удалось восстановить пароль"
 
 msgid "Fail to send SMS"
 msgstr "Не удалось отправитьь сообщение"
@@ -1429,9 +1429,8 @@ msgstr ""
 "Оставлять копию в Необработанных сообщениях может быть полезно для ревизии "
 "или контроля"
 
-#, fuzzy
 msgid "List of accounts"
-msgstr "Мой профиль"
+msgstr ""
 
 msgid "List of administrators"
 msgstr "Список администраторов"
@@ -1514,7 +1513,7 @@ msgid "Mailbox username"
 msgstr "Имя пользователя ящика"
 
 msgid "Main configuration"
-msgstr "Конфигурация"
+msgstr "Основная конфигурация"
 
 msgid "Main configuration changes has been saved"
 msgstr "Настройки сохранены"
@@ -1581,7 +1580,7 @@ msgid "Manage gammu"
 msgstr "Gammu"
 
 msgid "Manage gateway and SMSC"
-msgstr "Управление шлюзами и SMS-центрами"
+msgstr "Управление шлюзами и СМС-центрами"
 
 #, fuzzy
 msgid "Manage generic"
@@ -1697,14 +1696,14 @@ msgid "Member list for keyword"
 msgstr "Подписчики по ключевому слову"
 
 msgid "Members"
-msgstr "Пользователям"
+msgstr "Подписчики"
 
 msgid "Message"
-msgstr "Сообщения"
+msgstr "Сообщение"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Message %s has been delivered to queue"
-msgstr ""
+msgstr "Сообщение успешно принято к отправке"
 
 msgid "Message ID"
 msgstr "ID сообщения"
@@ -1770,7 +1769,7 @@ msgid "Module sender ID"
 msgstr "Имя отправителя"
 
 msgid "Module timezone"
-msgstr "Часовой пояс"
+msgstr "часвой пояс"
 
 msgid "Monthly"
 msgstr ""
@@ -1867,12 +1866,6 @@ msgstr "без наклонной черты в конце"
 msgid "No validate cert option"
 msgstr "Не проверять сертификат"
 
-msgid "Non-Delivered to SMSC"
-msgstr "Не доставлено на SMSC"
-
-msgid "Non-Delivered to phone"
-msgstr "Не доставлено на телефон"
-
 msgid "None"
 msgstr "Выберите имя отправителя по умолчанию"
 
@@ -1921,9 +1914,6 @@ msgstr "Текст страницы"
 
 msgid "Page title"
 msgstr "Заголовок страницы"
-
-msgid "Param"
-msgstr "Параметр"
 
 msgid "Parent"
 msgstr "Родительский"
@@ -2056,9 +2046,6 @@ msgstr ""
 
 msgid "Queue has been removed"
 msgstr "Очередь удалена"
-
-msgid "Queued on SMSC"
-msgstr "Поставлено в очередь на SMSC"
 
 msgid "RSS 0.91 output"
 msgstr "RSS 0.91 формат"
@@ -2212,9 +2199,6 @@ msgstr "График результатов"
 msgid "Result table"
 msgstr "Таблица результатов"
 
-msgid "Return"
-msgstr "Ответ"
-
 msgid "Route SMS outgoing"
 msgstr "Маршрутизация исходящих СМС"
 
@@ -2293,7 +2277,8 @@ msgstr "Сценарий Изменён"
 msgid "SMS autoreply scenario parameter"
 msgstr "Ключевое слово"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "Отвечать"
 
 msgid "SMS board from"
@@ -2358,6 +2343,9 @@ msgstr "Параметры переадресации СМС"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "СМС отправлены на действительные номера в загруженном файле"
+
+msgid "SMS is case-insensitive"
+msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -2689,9 +2677,8 @@ msgstr "Разрешить рассылку группе с мобильного
 msgid "Simulate incoming SMS"
 msgstr "Симулировать входящее СМС"
 
-#, fuzzy
 msgid "Site configuration"
-msgstr "Конфигурация"
+msgstr ""
 
 msgid "Site configuration has been saved"
 msgstr ""
@@ -2706,7 +2693,7 @@ msgid "Statistics"
 msgstr "СтатистикаСостояние"
 
 msgid "Status"
-msgstr "Состяние"
+msgstr "Состояние"
 
 msgid "Submit"
 msgstr "Принять"
@@ -2749,6 +2736,9 @@ msgstr ""
 
 msgid "Themes"
 msgstr "Темы"
+
+msgid "This field is not mandatory"
+msgstr ""
 
 msgid "This field is required"
 msgstr "Обязательное поле"
@@ -2840,7 +2830,7 @@ msgid "Unable to save gateway module configurations"
 msgstr ""
 
 msgid "Unable to unban account"
-msgstr "Не удалось разблокировать пользователя"
+msgstr "Невозможно разблокировать пользователя"
 
 msgid "Unable to unban subuser"
 msgstr "Невозможно разблокировать дочернего пользователя"
@@ -2888,7 +2878,7 @@ msgid "User agent"
 msgstr "User agent пользователя"
 
 msgid "User configuration"
-msgstr "Настройки"
+msgstr "Пользовательские настройки"
 
 msgid "User configuration has been saved"
 msgstr "Пользовательские настройки сохранены"
@@ -2931,9 +2921,9 @@ msgstr ""
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
 msgstr ""
 
-#, php-format
+#, fuzzy, php-format
 msgid "Username must be at least 3 characters and maximum %d characters"
-msgstr ""
+msgstr "Минимальная длина имени 3 знака"
 
 msgid "Username or email"
 msgstr "Имя пользователя или пароль"
@@ -3042,7 +3032,7 @@ msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
 msgid "You must fill all mandatory fields"
-msgstr "Необходимо заполнить обязательные поля"
+msgstr "Необходимо заполнить все обязательные поля"
 
 msgid "You must fill all required fields"
 msgstr "Необходимо заполнить все требуемые поля"
@@ -3107,8 +3097,9 @@ msgstr "Неправильный формат email адреса"
 msgid "Your message has been delivered to queue"
 msgstr "Сообщение успешно принято к отправке"
 
+#, fuzzy
 msgid "Your message has been delivered to some of the destinations"
-msgstr ""
+msgstr "Сообщение успешно принято к отправке"
 
 msgid "Your mobile format is invalid"
 msgstr "Неправильный формат номера телефона"

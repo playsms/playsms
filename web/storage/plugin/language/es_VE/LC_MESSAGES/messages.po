@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: es_VE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -158,9 +156,8 @@ msgstr "Añadir suscripción SMS"
 msgid "Add SMSC"
 msgstr ""
 
-#, fuzzy
 msgid "Add account"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Add blocked IP addresses"
 msgstr ""
@@ -211,13 +208,11 @@ msgstr "Añadir tarifa"
 msgid "Add route"
 msgstr "Añadir tarifa"
 
-#, fuzzy
 msgid "Add sender ID"
-msgstr "ID Remitente del SMS"
+msgstr ""
 
-#, fuzzy
 msgid "Add subuser"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Additional URL parameter"
 msgstr ""
@@ -296,9 +291,8 @@ msgstr ""
 msgid "Application options"
 msgstr ""
 
-#, fuzzy
 msgid "Approve sender ID"
-msgstr "ID Remitente del SMS"
+msgstr ""
 
 msgid "Are you sure ?"
 msgstr ""
@@ -539,9 +533,8 @@ msgstr ""
 msgid "Compose message"
 msgstr ""
 
-#, fuzzy
 msgid "Configuration"
-msgstr "Configuración Principal"
+msgstr ""
 
 #, fuzzy
 msgid "Confirmation"
@@ -641,9 +634,8 @@ msgstr ""
 msgid "Default default_queue directory"
 msgstr ""
 
-#, fuzzy
 msgid "Default language"
-msgstr "Idioma activo"
+msgstr ""
 
 msgid "Default message footer"
 msgstr ""
@@ -663,16 +655,14 @@ msgid ""
 "Default prefix or country code to replace prefix 0 on destination number"
 msgstr ""
 
-#, fuzzy
 msgid "Default sender ID"
-msgstr "ID Remitente del SMS"
+msgstr ""
 
 msgid "Default settings"
 msgstr ""
 
-#, fuzzy
 msgid "Default site configuration"
-msgstr "Configuración Principal"
+msgstr ""
 
 msgid "Default timezone"
 msgstr ""
@@ -706,12 +696,6 @@ msgid "Deleted"
 msgstr "Borrar"
 
 msgid "Delivered"
-msgstr ""
-
-msgid "Delivered to SMSC"
-msgstr ""
-
-msgid "Delivered to phone"
 msgstr ""
 
 msgid "Description"
@@ -748,9 +732,8 @@ msgstr ""
 msgid "Edit"
 msgstr "Editar"
 
-#, fuzzy
 msgid "Edit ACL"
-msgstr "Editar"
+msgstr ""
 
 #, fuzzy
 msgid "Edit SMS autoreply"
@@ -780,9 +763,8 @@ msgstr "Editar Exámen corto (quiz) SMS"
 msgid "Edit SMS subscribe"
 msgstr "Editar subscripción de SMS"
 
-#, fuzzy
 msgid "Edit SMSC"
-msgstr "Editar"
+msgstr ""
 
 msgid "Edit contact"
 msgstr ""
@@ -813,9 +795,8 @@ msgstr "Editar tarifa"
 msgid "Edit schedule"
 msgstr ""
 
-#, fuzzy
 msgid "Edit sender ID"
-msgstr "ID Remitente del SMS"
+msgstr ""
 
 msgid "Effective SMS sender ID"
 msgstr ""
@@ -956,16 +937,14 @@ msgstr "Añadir un mensaje"
 msgid "Fail to add message template"
 msgstr "Imposible enviar el SMS"
 
-#, fuzzy
 msgid "Fail to add new ACL"
-msgstr "Imposible borrar el SMS"
+msgstr ""
 
 msgid "Fail to add new SMS schedule"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to add new SMSC"
-msgstr "Imposible borrar el SMS"
+msgstr ""
 
 msgid "Fail to add new destination"
 msgstr ""
@@ -1085,9 +1064,8 @@ msgstr "Falló al guardar el comando SMS"
 msgid "Fail to save SMS custom"
 msgstr "Fallo al guardar el SMS personalizado"
 
-#, fuzzy
 msgid "Fail to save configuration"
-msgstr "Configuración Principal"
+msgstr ""
 
 msgid "Fail to save email to SMS PIN"
 msgstr ""
@@ -1095,9 +1073,8 @@ msgstr ""
 msgid "Fail to save gateway module configurations"
 msgstr ""
 
-#, fuzzy
 msgid "Fail to save preferences"
-msgstr "Preferencias"
+msgstr ""
 
 msgid "Fail to save rate"
 msgstr "Fallo al eliminar la tarifa"
@@ -1112,9 +1089,8 @@ msgstr ""
 msgid "Fail to send SMS"
 msgstr "No es posible enviar el SMS"
 
-#, fuzzy
 msgid "Fail to send email"
-msgstr "Imposible enviar el SMS"
+msgstr ""
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1166,9 +1142,8 @@ msgstr ""
 msgid "Fill with zero to disable limit"
 msgstr ""
 
-#, fuzzy
 msgid "Flash message"
-msgstr "Enviar en Unicode"
+msgstr ""
 
 msgid "Footer"
 msgstr ""
@@ -1383,9 +1358,8 @@ msgstr ""
 msgid "Invalid entries"
 msgstr ""
 
-#, fuzzy
 msgid "Invalid sender ID"
-msgstr "ID Remitente del SMS"
+msgstr ""
 
 msgid "Invalid session ID"
 msgstr ""
@@ -1452,16 +1426,14 @@ msgstr ""
 msgid "List of accounts"
 msgstr ""
 
-#, fuzzy
 msgid "List of administrators"
-msgstr "Administrador"
+msgstr ""
 
 msgid "List of destinations"
 msgstr ""
 
-#, fuzzy
 msgid "List of gateways and SMSCs"
-msgstr "Administrar usuario"
+msgstr ""
 
 #, php-format
 msgid "List of messages from %s"
@@ -1501,9 +1473,8 @@ msgstr ""
 msgid "Login as"
 msgstr ""
 
-#, fuzzy
 msgid "Login information"
-msgstr "Configuración Principal"
+msgstr ""
 
 msgid "Logo URL"
 msgstr ""
@@ -1536,9 +1507,8 @@ msgstr ""
 msgid "Main configuration"
 msgstr "Configuración Principal"
 
-#, fuzzy
 msgid "Main configuration changes has been saved"
-msgstr "Configuración Principal"
+msgstr ""
 
 msgid "Main website URL"
 msgstr ""
@@ -1723,8 +1693,9 @@ msgstr ""
 msgid "Member list for keyword"
 msgstr "Lista de miembros por clave"
 
+#, fuzzy
 msgid "Members"
-msgstr ""
+msgstr "Ver miembros"
 
 msgid "Message"
 msgstr "Mensaje"
@@ -1896,12 +1867,6 @@ msgstr ""
 msgid "No validate cert option"
 msgstr ""
 
-msgid "Non-Delivered to SMSC"
-msgstr ""
-
-msgid "Non-Delivered to phone"
-msgstr ""
-
 msgid "None"
 msgstr ""
 
@@ -1944,23 +1909,17 @@ msgstr ""
 msgid "PIN is empty"
 msgstr ""
 
-#, fuzzy
 msgid "Page content"
-msgstr "Administrar usuario"
+msgstr ""
 
-#, fuzzy
 msgid "Page title"
-msgstr "Administrar usuario"
-
-msgid "Param"
-msgstr "Parámetro"
+msgstr ""
 
 msgid "Parent"
 msgstr ""
 
-#, fuzzy
 msgid "Parent account"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid ""
 "Parent account is mandatory for subusers only. If no value is given then the "
@@ -2081,9 +2040,6 @@ msgstr ""
 msgid "Queue has been removed"
 msgstr ""
 
-msgid "Queued on SMSC"
-msgstr ""
-
 msgid "RSS 0.91 output"
 msgstr ""
 
@@ -2154,9 +2110,8 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#, fuzzy
 msgid "Register an account"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Registered"
 msgstr ""
@@ -2234,9 +2189,6 @@ msgstr ""
 
 msgid "Result table"
 msgstr ""
-
-msgid "Return"
-msgstr "Regresar"
 
 msgid "Route SMS outgoing"
 msgstr ""
@@ -2319,7 +2271,8 @@ msgstr "El escenariode auto-respuesta de SMS ha sido editado"
 msgid "SMS autoreply scenario parameter"
 msgstr "Parámetro de escenarios de auto-respuesta de SMS"
 
-msgid "SMS autoreply scenario replies with"
+#, fuzzy
+msgid "SMS autoreply scenario reply"
 msgstr "Escenario de auto-respuesta de SMS contesta con"
 
 #, fuzzy
@@ -2386,8 +2339,13 @@ msgstr ""
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr ""
 
+msgid "SMS is case-insensitive"
+msgstr ""
+
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "La clave SMS ya existe, está reservada o en uso por otro proceso"
+msgstr ""
+"La Clave de SMS de auto-respuesta ya existe, está reservada o está utilizada "
+"por otro servicio"
 
 msgid "SMS messages list for keyword"
 msgstr "Lista de mensajes SMS para clave"
@@ -2644,9 +2602,8 @@ msgstr ""
 msgid "Sender"
 msgstr "Emisor"
 
-#, fuzzy
 msgid "Sender ID"
-msgstr "ID Remitente del SMS"
+msgstr ""
 
 msgid "Sender ID description has been added"
 msgstr ""
@@ -2715,9 +2672,8 @@ msgstr ""
 msgid "Simulate incoming SMS"
 msgstr ""
 
-#, fuzzy
 msgid "Site configuration"
-msgstr "Configuración Principal"
+msgstr ""
 
 msgid "Site configuration has been saved"
 msgstr ""
@@ -2733,7 +2689,7 @@ msgid "Statistics"
 msgstr "Estatus"
 
 msgid "Status"
-msgstr "Estado"
+msgstr "Estatus"
 
 msgid "Submit"
 msgstr ""
@@ -2777,6 +2733,9 @@ msgid "The domain is already configured by other user"
 msgstr ""
 
 msgid "Themes"
+msgstr ""
+
+msgid "This field is not mandatory"
 msgstr ""
 
 msgid "This field is required"
@@ -2837,20 +2796,17 @@ msgstr ""
 msgid "Unable to add group"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to ban account"
-msgstr "Administrar usuario"
+msgstr ""
 
-#, fuzzy
 msgid "Unable to ban subuser"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Unable to delete group until the group is empty"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to delete other users"
-msgstr "Imposible actualizar la sesión de usuario"
+msgstr ""
 
 msgid ""
 "Unable to delete this user until all subusers under this user have been "
@@ -2869,9 +2825,8 @@ msgstr ""
 msgid "Unable to save gateway module configurations"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to unban account"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Unable to unban subuser"
 msgstr ""
@@ -2879,9 +2834,8 @@ msgstr ""
 msgid "Unban"
 msgstr ""
 
-#, fuzzy
 msgid "Unicode message"
-msgstr "Enviar en Unicode"
+msgstr ""
 
 msgid "Unknown error"
 msgstr ""
@@ -2923,9 +2877,8 @@ msgstr ""
 msgid "User configuration"
 msgstr ""
 
-#, fuzzy
 msgid "User configuration has been saved"
-msgstr "Configuración Principal"
+msgstr ""
 
 msgid "User configuration has been saved and webservices token updated"
 msgstr ""
@@ -3077,9 +3030,8 @@ msgstr "Ud. debe rellenar todos los campos"
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Ud. debe rellenar todos los campos"
+msgstr ""
 
 msgid "You must fill all required fields"
 msgstr ""
@@ -3302,10 +3254,10 @@ msgid "view all %d"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "será reemplazado por fecha/hora de SMS entrante"
+msgstr "sera reemplazado por SMS entrante hora/fecha"
 
 msgid "will be replaced by SMS raw message"
-msgstr "sera reemplazado por el celular emisor"
+msgstr "sera reemplazado por número de emisor"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3329,7 +3281,7 @@ msgid "will be replaced by receiver number"
 msgstr "sera reemplazado por el celular emisor"
 
 msgid "will be replaced by sender number"
-msgstr "sera reemplazado por el celular emisor"
+msgstr "sera reemplazado por número de emisor"
 
 #, fuzzy
 msgid "will be replaced by service name"
