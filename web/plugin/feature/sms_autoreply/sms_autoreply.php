@@ -99,20 +99,20 @@ switch (_OP_) {
 		$content .= "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<p>" . _('SMS autoreply keyword') . ": " . $manage_autoreply_keyword . "</p>
-			" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "
+			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "</p>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
 		if (auth_isadmin()) {
 			$content .= "
-				<th width=20%>" . _('Param') . "</th>
-				<th width=50%>" . _('Return') . "</th>
+				<th width=20%>" . _('SMS') . " " . _hint(_('SMS is case-insensitive')) . "</th>
+				<th width=50%>" . _('Reply') . "</th>
 				<th width=20%>" . _('User') . "</th>
 				<th width=10%>" . _('Action') . "</th>";
 		} else {
 			$content .= "
-				<th width=20%>" . _('Param') . "</th>
-				<th width=70%>" . _('Return') . "</th>
+				<th width=20%>" . _('SMS') . " " . _hint(_('SMS is case-insensitive')) . "</th>
+				<th width=70%>" . _('Reply') . "</th>
 				<th width=10%>" . _('Action') . "</th>";
 		}
 		$content .= "</tr></thead><tbody>";
@@ -128,15 +128,15 @@ switch (_OP_) {
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $db_row['autoreply_scenario_id']) . "\">" . $icon_config['edit'] . "</a>";
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete this SMS autoreply scenario ?') . "','" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $db_row['autoreply_scenario_id']) . "')\">" . $icon_config['delete'] . "</a>";
 				if (auth_isadmin()) {
-					$option_owner = "<td>$owner</td>";
+					$option_owner = "<td>" . $owner . "</td>";
 				}
 				$j++;
 				$content .= "
 					<tr>
-						<td>$list_of_param</td>
+						<td>" . $manage_autoreply_keyword . " " . $list_of_param . "</td>
 						<td align=left>" . $db_row['autoreply_scenario_result'] . "</td>
 						" . $option_owner . "
-						<td>$action</td>
+						<td>" . $action . "</td>
 					</tr>";
 			}
 		}
@@ -184,7 +184,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('SMS autoreply keyword') . "</td>
+					<td class=label-sizer>" . _mandatory(_('SMS autoreply keyword')) . "</td>
 					<td><input type=text size=10 maxlength=10 name=add_autoreply_keyword value=\"$add_autoreply_keyword\"></td>
 				</tr>
 				" . $select_reply_smsc . "
@@ -198,8 +198,10 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
+	
 	case "sms_autoreply_add_yes":
-		$add_autoreply_keyword = trim(strtoupper($_POST['add_autoreply_keyword']));
+		// max keyword is 10 chars
+		$add_autoreply_keyword = substr(trim(strtoupper($_POST['add_autoreply_keyword'])), 0, 10);
 		
 		if (auth_isadmin()) {
 			$smsc = $_POST['smsc'];
@@ -217,7 +219,7 @@ switch (_OP_) {
 				$_SESSION['dialog']['info'][] = _('SMS keyword already exists, reserved or use by other feature') . " (" . _('keyword') . ": $add_autoreply_keyword)";
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('All mandatory fields must be filled');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add'));
 		exit();
@@ -290,6 +292,7 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id));
 		exit();
 		break;
+	
 	case "sms_autoreply_scenario_add":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id='$autoreply_id'";
 		$db_result = dba_query($db_query);
@@ -309,12 +312,12 @@ switch (_OP_) {
 		for ($i = 1; $i <= 7; $i++) {
 			$content .= "
 				<tr>
-					<td>" . _('SMS autoreply scenario parameter') . " $i</td><td><input type=text maxlength=20 name=\"add_autoreply_scenario_param" . $i . "\" value=\"" . ${"add_autoreply_scenario_param" . $i} . "\">\n</td>
+					<td>" . _('SMS autoreply scenario parameter') . " $i</td><td><input type=text size=10 maxlength=20 name=\"add_autoreply_scenario_param" . $i . "\" value=\"" . ${"add_autoreply_scenario_param" . $i} . "\"> " . _hint(_('This field is not mandatory')) . "</td>
 				</tr>";
 		}
 		$content .= "
 			<tr>
-				<td>" . _('SMS autoreply scenario replies with') . "</td><td><input type=text name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
+				<td>" . _mandatory(_('SMS autoreply scenario reply')) . "</td><td><input type=text name=add_autoreply_scenario_result value=\"$add_autoreply_scenario_result\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value='" . _('Save') . "'>
@@ -347,7 +350,7 @@ switch (_OP_) {
 				$_SESSION['dialog']['info'][] = _('Fail to add SMS autoreply scenario');
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('All mandatory fields must be filled');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id));
 		exit();
@@ -380,13 +383,13 @@ switch (_OP_) {
 		for ($i = 1; $i <= 7; $i++) {
 			$content .= "
 				<tr>
-					<td>" . _('SMS autoreply scenario parameter') . " $i</td><td><input type=text maxlength=20 name=edit_autoreply_scenario_param$i value=\"" . ${"edit_autoreply_scenario_param" . $i} . "\">\n</td>
+					<td>" . _('SMS autoreply scenario parameter') . " $i</td><td><input type=text size=10 maxlength=20 name=edit_autoreply_scenario_param$i value=\"" . ${"edit_autoreply_scenario_param" . $i} . "\"> " . _hint(_('This field is not mandatory')) . "</td>
 				</tr>";
 		}
 		$edit_autoreply_scenario_result = $db_row['autoreply_scenario_result'];
 		$content .= "
 			<tr>
-				<td>" . _('SMS autoreply scenario replies with') . "</td><td><input type=text name=edit_autoreply_scenario_result value=\"$edit_autoreply_scenario_result\"></td>
+				<td>" . _mandatory(_('SMS autoreply scenario reply')) . "</td><td><input type=text name=edit_autoreply_scenario_result value=\"$edit_autoreply_scenario_result\"></td>
 			</tr>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
@@ -418,7 +421,7 @@ switch (_OP_) {
 				$_SESSION['dialog']['info'][] = _('Fail to edit SMS autoreply scenario');
 			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('You must fill all fields');
+			$_SESSION['dialog']['info'][] = _('All mandatory fields must be filled');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $autoreply_scenario_id));
 		exit();
