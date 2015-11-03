@@ -30,7 +30,7 @@ function queuelog_get($line_per_page = '', $limit = '') {
 	if ($limit) {
 		$limit_query = "OFFSET $limit";
 	}
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='0' " . $user_query . " ORDER BY id " . $line_per_page_query . " " . $limit_query;
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE (flag='0' OR flag='3') " . $user_query . " ORDER BY id " . $line_per_page_query . " " . $limit_query;
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_id = $db_row['id'];
@@ -49,7 +49,7 @@ function queuelog_countall() {
 	if ($user_config['status'] != 2) {
 		$user_query = "AND uid='" . $user_config['uid'] . "'";
 	}
-	$db_query = "SELECT count(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='0' " . $user_query;
+	$db_query = "SELECT count(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE (flag='0' OR flag='3') " . $user_query;
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$ret = $db_row['count'];
@@ -63,7 +63,7 @@ function queuelog_delete($queue) {
 	if ($user_config['status'] != 2) {
 		$user_query = "AND uid='" . $user_config['uid'] . "'";
 	}
-	$db_query = "DELETE FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='0' AND queue_code='" . $queue . "' " . $user_query;
+	$db_query = "DELETE FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE (flag='0' OR flag='3') AND queue_code='" . $queue . "' " . $user_query;
 	if ($db_result = dba_affected_rows($db_query)) {
 		$ret = TRUE;
 	}
@@ -76,7 +76,7 @@ function queuelog_delete_all($queue) {
 	if ($user_config['status'] != 2) {
 		$user_query = "AND uid='" . $user_config['uid'] . "'";
 	}
-	$db_query = "DELETE FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='0' " . $user_query;
+	$db_query = "DELETE FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE (flag='0' OR flag='3') " . $user_query;
 	if ($db_result = dba_affected_rows($db_query)) {
 		$ret = TRUE;
 	}
