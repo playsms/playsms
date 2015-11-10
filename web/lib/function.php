@@ -38,8 +38,8 @@ if (file_exists($c_fn1)) {
 }
 
 // load list of plugins
-for ($i=0;$i<count($core_config['plugins_category']);$i++) {
-	if ($pc = $core_config['plugins_category'][$i]) {
+for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
+	if ($pc = $core_config['plugins']['category'][$i]) {
 		// get plugins
 		$dir = $core_config['apps_path']['plug'].'/'.$pc.'/';
 		unset($core_config[$pc.'list']);

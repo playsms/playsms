@@ -229,7 +229,7 @@ $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
 
 // plugins category
-$core_config['plugins_category'] = array(
+$core_config['plugins']['category'] = array(
 	'feature',
 	'gateway',
 	'themes',
