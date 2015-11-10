@@ -229,13 +229,12 @@ $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
 
 // plugins category
-$plugins_category = array(
+$core_config['plugins_category'] = array(
 	'feature',
 	'gateway',
 	'themes',
 	'language' 
 );
-$core_config['plugins_category'] = $plugins_category;
 
 // max sms text length
 // single text sms can be 160 char instead of 1*153
