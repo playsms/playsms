@@ -67,8 +67,8 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 	$ret_final = array();
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		$c_feature = $core_config['featurelist'][$c];
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		$c_feature = $core_config['plugins']['list']['feature'][$c];
 		$ret = core_hook($c_feature, 'sendsms_intercept', array(
 			$sms_sender,
 			$sms_footer,
@@ -116,8 +116,8 @@ function sendsms_intercept_after($status, $smslog_id, $p_status, $sms_sender, $s
 	$ret_final = array();
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		$c_feature = $core_config['featurelist'][$c];
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		$c_feature = $core_config['plugins']['list']['feature'][$c];
 		$ret = core_hook($c_feature, 'sendsms_intercept_after', array(
 			$status,
 			$smslog_id,
@@ -1003,8 +1003,8 @@ function sendsms_get_sender($username, $default_sender_id = '') {
 function sendsms_get_template() {
 	global $core_config;
 	$templates = array();
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($templates = core_hook($core_config['featurelist'][$c], 'sendsms_get_template')) {
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		if ($templates = core_hook($core_config['plugins']['list']['feature'][$c], 'sendsms_get_template')) {
 			break;
 		}
 	}

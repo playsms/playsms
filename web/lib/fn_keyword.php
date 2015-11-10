@@ -44,7 +44,7 @@ function keyword_isavail($keyword, $sms_receiver = '') {
 	if ($reserved) {
 		$ok = false;
 	} else {
-		foreach ($core_config['featurelist'] as $plugin) {
+		foreach ($core_config['plugins']['list']['feature'] as $plugin) {
 			
 			// keyword_isavail() on hooks will return TRUE as well if keyword is available
 			// so we're looking for FALSE value
@@ -83,7 +83,7 @@ function keyword_getall() {
 	global $core_config;
 	
 	$ret = array();
-	foreach ($core_config['featurelist'] as $plugin) {
+	foreach ($core_config['plugins']['list']['feature'] as $plugin) {
 		list($keyword, $sms_receiver) = core_hook($plugin, 'keyword_getall');
 		$ret[$plugin][] = array(
 			$keyword,

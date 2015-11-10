@@ -84,8 +84,8 @@ function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver =
 	$ret_final = array();
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		$ret = core_hook($core_config['featurelist'][$c], 'recvsms_intercept', array(
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_intercept', array(
 			$sms_datetime,
 			$sms_sender,
 			$message,
@@ -125,8 +125,8 @@ function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_rece
 	$ret_final = array();
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		$ret = core_hook($core_config['featurelist'][$c], 'recvsms_intercept_after', array(
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_intercept_after', array(
 			$sms_datetime,
 			$sms_sender,
 			$message,
@@ -235,8 +235,8 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 			break;
 		
 		default :
-			for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-				$c_feature = $core_config['featurelist'][$c];
+			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+				$c_feature = $core_config['plugins']['list']['feature'][$c];
 				$ret = core_hook($c_feature, 'recvsms_process', array(
 					$sms_datetime,
 					$sms_sender,
@@ -304,8 +304,8 @@ function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $
 	$ret_final = array();
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		$ret = core_hook($core_config['featurelist'][$c], 'recvsms_inbox_add_intercept', array(
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_inbox_add_intercept', array(
 			$sms_datetime,
 			$sms_sender,
 			$target_user,

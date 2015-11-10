@@ -81,8 +81,8 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 		// logger_print("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
 		$ok = true;
 		if ($p_status > 0) {
-			for($c = 0; $c < count($core_config['featurelist']); $c++) {
-				core_hook($core_config['featurelist'][$c], 'setsmsdeliverystatus', array(
+			for($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+				core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', array(
 					$smslog_id,
 					$uid,
 					$p_status 

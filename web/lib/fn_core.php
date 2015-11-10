@@ -217,8 +217,8 @@ function core_call_hook($function_name = '', $arguments = array()) {
 		$function_name = $f[1]['function'];
 		$arguments = $f[1]['args'];
 	}
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($ret = core_hook($core_config['featurelist'][$c], $function_name, $arguments)) {
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
 			break;
 		}
 	}
@@ -1230,8 +1230,8 @@ if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
 $pc = 'core';
 
 $dir = _APPS_PATH_PLUG_ . '/' . $pc . '/';
-unset($core_config[$pc . 'list']);
-unset($tmp_core_config[$pc . 'list']);
+unset($core_config['plugins']['list'][$pc]);
+unset($tmp_core_config['plugins']['list'][$pc]);
 $fd = opendir($dir);
 $pc_names = array();
 while (false !== ($pl_name = readdir($fd))) {
@@ -1246,11 +1246,11 @@ closedir();
 sort($pc_names);
 for ($j = 0; $j < count($pc_names); $j++) {
 	if (is_dir($dir . $pc_names[$j])) {
-		$core_config[$pc . 'list'][] = $pc_names[$j];
+		$core_config['plugins']['list'][$pc][] = $pc_names[$j];
 	}
 }
 
-foreach ($core_config[$pc . 'list'] as $pl) {
+foreach ($core_config['plugins']['list'][$pc] as $pl) {
 	$c_fn1 = $dir . '/' . $pl . '/config.php';
 	$c_fn2 = $dir . '/' . $pl . '/fn.php';
 	if (file_exists($c_fn1) && file_exists($c_fn2)) {

@@ -488,8 +488,8 @@ function webservices_output($operation, $requests, $returns) {
 	);
 	
 	// plugin feature
-	for ($c = 0; $c < count($core_config['featurelist']); $c++) {
-		if ($ret_intercept = core_hook($core_config['featurelist'][$c], 'webservices_output', array(
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		if ($ret_intercept = core_hook($core_config['plugins']['list']['feature'][$c], 'webservices_output', array(
 			$operation,
 			$requests,
 			$returns 

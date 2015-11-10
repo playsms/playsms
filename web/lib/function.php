@@ -42,8 +42,8 @@ for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
 	if ($pc = $core_config['plugins']['category'][$i]) {
 		// get plugins
 		$dir = $core_config['apps_path']['plug'].'/'.$pc.'/';
-		unset($core_config[$pc.'list']);
-		unset($tmp_core_config[$pc.'list']);
+		unset($core_config['plugins']['list'][$pc]);
+		unset($tmp_core_config['plugins']['list'][$pc]);
 		$fd = opendir($dir);
 		$pc_names = array();
 		while(false !== ($pl_name = readdir($fd))) {
@@ -59,7 +59,7 @@ for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
 		sort($pc_names);
 		for ($j=0;$j<count($pc_names);$j++) {
 			if (is_dir($dir.$pc_names[$j])) {
-				$core_config[$pc.'list'][] = $pc_names[$j];
+				$core_config['plugins']['list'][$pc][] = $pc_names[$j];
 			}
 		}
 	}
@@ -69,8 +69,8 @@ for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
 $dir = $core_config['apps_path']['plug'].'/';
 $pcs = array('themes', 'language', 'gateway', 'feature');
 foreach ($pcs as $pc) {
-	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
-		$pl = $core_config[$pc.'list'][$i];
+	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
+		$pl = $core_config['plugins']['list'][$pc][$i];
 		$pl_dir = $dir.$pc.'/'.$pl;
 		$c_fn1 = $pl_dir.'/config.php';
 		if (file_exists($c_fn1)) {
@@ -83,8 +83,8 @@ foreach ($pcs as $pc) {
 $dir = $core_config['apps_path']['plug'].'/';
 $pcs = array('feature', 'gateway');
 foreach ($pcs as $pc) {
-	for ($i=0;$i<count($core_config[$pc.'list']);$i++) {
-		$pl = $core_config[$pc.'list'][$i];
+	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
+		$pl = $core_config['plugins']['list'][$pc][$i];
 		$pl_dir = $dir.$pc.'/'.$pl;
 		$c_fn1 = $pl_dir.'/fn.php';
 		if (file_exists($c_fn1)) {

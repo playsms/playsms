@@ -27,7 +27,7 @@ function gateway_getall() {
 	global $core_config, $plugin_config;
 	
 	$ret = array();
-	foreach ($core_config['gatewaylist'] as $gw) {
+	foreach ($core_config['plugins']['list']['gateway'] as $gw) {
 		$ret[] = $plugin_config[$gw];
 	}
 	
@@ -143,7 +143,7 @@ function gateway_valid_name($name) {
 	global $core_config;
 	
 	if (trim($name)) {
-		foreach ($core_config['gatewaylist'] as $gw) {
+		foreach ($core_config['plugins']['list']['gateway'] as $gw) {
 			if ($name && $gw && $name == $gw) {
 				if ((strtolower($name) == 'blocked') || (strtolower($name) == 'dev')) {
 					$name = '';

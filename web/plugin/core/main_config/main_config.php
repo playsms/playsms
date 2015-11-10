@@ -89,12 +89,12 @@ switch (_OP_) {
 		
 		// get themes options
 		$main_themes = $main_config['themes_module'];
-		$option_themes_module = _options($core_config['themeslist'], $main_themes);
+		$option_themes_module = _options($core_config['plugins']['list']['themes'], $main_themes);
 		
 		// get language options
 		$lang_list = '';
-		for ($i = 0; $i < count($core_config['languagelist']); $i++) {
-			$language = $core_config['languagelist'][$i];
+		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
+			$language = $core_config['plugins']['list']['language'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {
 				$lang_list[$c_language_title] = $language;
