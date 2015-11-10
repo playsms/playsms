@@ -1,8 +1,8 @@
-ICON CONFIG
------------
+# ICON CONFIG
 
-Example of $icon_config
+Example of `$icon_config` on playSMS version 1.3.1:
 
+```
 Array
 (
     [add] => <span class='playsms-icon glyphicon glyphicon-plus' alt='Add' title='Add'></span>
@@ -22,4 +22,14 @@ Array
     [group] => <span class='playsms-icon glyphicon glyphicon-briefcase' alt='Group' title='Group'></span>
     [move] => <span class='playsms-icon glyphicon glyphicon glyphicon-move' alt='Move' title='Move'></span>
     [go] => <span class='playsms-icon glyphicon glyphicon-cog' alt='Go' title='Go'></span>
+    [online] => <span class='playsms-icon glyphicon glyphicon-ok-circle' alt='Online' title='Online'></span>
+    [offline] => <span class='playsms-icon glyphicon glyphicon-remove-circle' alt='Offline' title='Offline'></span>
+    [idle] => <span class='playsms-icon glyphicon glyphicon-time' alt='Idle' title='Idle'></span>
+    [ban] => <span class='playsms-icon glyphicon glyphicon-thumbs-down' alt='Ban' title='Ban'></span>
+    [unban] => <span class='playsms-icon glyphicon glyphicon-thumbs-up' alt='Unban' title='Unban'></span>
+    [logout] => <span class='playsms-icon glyphicon glyphicon-off' alt='Logout' title='Logout'></span>
+    [reduce] => <span class='playsms-icon glyphicon glyphicon-minus' alt='Reduce' title='Reduce'></span>
+    [buy] => <span class='playsms-icon glyphicon glyphicon-credit-card' alt='Buy' title='Buy'></span>
+    [login_as] => <span class='playsms-icon glyphicon glyphicon-adjust' alt='Login as' title='Login as'></span>
 )
+```
