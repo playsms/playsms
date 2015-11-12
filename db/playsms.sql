@@ -1549,7 +1549,7 @@ CREATE TABLE `playsms_tblSMSInbox` (
   `in_sender` varchar(20) NOT NULL DEFAULT '',
   `in_receiver` varchar(20) NOT NULL DEFAULT '',
   `in_uid` int(11) NOT NULL DEFAULT '0',
-  `in_msg` varchar(200) NOT NULL DEFAULT '',
+  `in_msg` text NOT NULL,
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `reference_id` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`in_id`)
