@@ -37,6 +37,7 @@ switch (_OP_) {
 				'Gateway name' => _('Gateway name'),
 				'Generic send SMS URL' => _mandatory(_('Generic send SMS URL')),
 				'Callback URL' => _('Callback URL'),
+				'Callback URL authcode' => _('Callback URL authcode'),
 				'API username' => _mandatory(_('API username')),
 				'API password' => _('API password'),
 				'Module sender ID' => _('Module sender ID'),
@@ -44,16 +45,19 @@ switch (_OP_) {
 				'Save' => _('Save'),
 				'Notes' => _('Notes'),
 				'HINT_CALLBACK_URL' => _hint(_('Empty callback URL to set default')),
+				'HINT_CALLBACK_URL_AUTHCODE' => _hint(_('Fill authentication code to secure callback URL')),
 				'HINT_FILL_PASSWORD' => _hint(_('Fill to change the API password')),
 				'HINT_MODULE_SENDER' => _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')),
 				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
 				'CALLBACK_URL_IS' => _('Your current callback URL is'),
+				'CALLBACK_URL_AUTHCODE_IS' => _('Your current callback URL authcode is'),
 				'CALLBACK_URL_ACCESSIBLE' => _('Your callback URL should be accessible from remote gateway'),
 				'GENERIC_PUSH_DLR' => _('Remote gateway will push DLR and incoming SMS to your callback URL'),
 				'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'status_active' => $status_active,
 				'generic_param_url' => $plugin_config['generic']['url'],
 				'generic_param_callback_url' => $plugin_config['generic']['callback_url'],
+				'generic_param_callback_url_authcode' => $plugin_config['generic']['callback_url_authcode'],
 				'generic_param_api_username' => $plugin_config['generic']['api_username'],
 				'generic_param_module_sender' => $plugin_config['generic']['module_sender'],
 				'generic_param_datetime_timezone' => $plugin_config['generic']['datetime_timezone'] 
@@ -65,6 +69,7 @@ switch (_OP_) {
 	case "manage_save":
 		$up_url = ($_REQUEST['up_url'] ? $_REQUEST['up_url'] : $plugin_config['generic']['default_url']);
 		$up_callback_url = ($_REQUEST['up_callback_url'] ? $_REQUEST['up_callback_url'] : $plugin_config['generic']['default_callback_url']);
+		$up_callback_url_authcode = ($_REQUEST['up_callback_url_authcode'] ? $_REQUEST['up_callback_url_authcode'] : sha1(_PID_));
 		$up_api_username = $_REQUEST['up_api_username'];
 		$up_api_password = $_REQUEST['up_api_password'];
 		$up_module_sender = $_REQUEST['up_module_sender'];
@@ -73,6 +78,7 @@ switch (_OP_) {
 			$items = array(
 				'url' => $up_url,
 				'callback_url' => $up_callback_url,
+				'callback_url_authcode' => $up_callback_url_authcode,
 				'api_username' => $up_api_username,
 				'module_sender' => $up_module_sender,
 				'datetime_timezone' => $up_datetime_timezone 
