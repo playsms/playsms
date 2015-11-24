@@ -26,8 +26,6 @@ if (!trim($plugin_config['generic']['callback_url_authcode'])) {
 // smsc configuration
 $plugin_config['generic']['_smsc_config_'] = array(
 	'url' => _('Generic send SMS URL'),
-	'callback_url' => _('Callback URL'),
-	'callback_url_authcode' => _('Callback URL authcode'),
 	'api_username' => _('API username'),
 	'api_password' => _('API password'),
 	'module_sender' => _('Module sender ID'),

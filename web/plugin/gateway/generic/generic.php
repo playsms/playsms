@@ -38,7 +38,7 @@ switch (_OP_) {
 				'Generic send SMS URL' => _mandatory(_('Generic send SMS URL')),
 				'Callback URL' => _('Callback URL'),
 				'Callback URL authcode' => _('Callback URL authcode'),
-				'API username' => _mandatory(_('API username')),
+				'API username' => _('API username'),
 				'API password' => _('API password'),
 				'Module sender ID' => _('Module sender ID'),
 				'Module timezone' => _('Module timezone'),
@@ -74,7 +74,7 @@ switch (_OP_) {
 		$up_api_password = $_REQUEST['up_api_password'];
 		$up_module_sender = $_REQUEST['up_module_sender'];
 		$up_datetime_timezone = $_REQUEST['up_datetime_timezone'];
-		if ($up_url && $up_api_username) {
+		if ($up_url) {
 			$items = array(
 				'url' => $up_url,
 				'callback_url' => $up_callback_url,

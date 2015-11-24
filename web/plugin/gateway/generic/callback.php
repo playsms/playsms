@@ -38,6 +38,9 @@ if (is_array($requests)) {
 	_log("pushed " . $log, 2, "generic callback");
 }
 
+// auth first
+$authcode = trim($requests['authcode']);
+
 $remote_smslog_id = $requests['id'];
 $message_status = $requests['message_status'];
 
