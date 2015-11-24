@@ -87,13 +87,18 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 		$error_string = "duplicate message uid:" . $c_uid . " message_id:" . $message_id;
 		_log($error_string, 3, "sms_sync sync");
 	}
-	if (!$ok) {
-		$ret = array(
-			'payload' => array(
-				'success' => "false",
-				'error' => $error_string
-			)
-		);
-	}
-	_p(json_encode($ret));
+} else {
+	$error_string = "incomplete request";
+	_log("incomplete uid:" . $c_uid . " dt:" . $sms_datetime . " ts:" . $r['sent_timestamp'] . " message_id:" . $message_id . " s:" . $sms_sender . " m:" . $message . " r:" . $sms_receiver, 3, "sms_sync sync");
+	
 }
+
+if (!$ok) {
+	$ret = array(
+		'payload' => array(
+			'success' => "false",
+			'error' => $error_string
+		)
+	);
+}
+_p(json_encode($ret));
