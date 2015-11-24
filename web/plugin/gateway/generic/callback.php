@@ -40,6 +40,14 @@ if (is_array($requests)) {
 
 // auth first
 $authcode = trim($requests['authcode']);
+$data = registry_search(0, 'gateway', 'generic');
+if (!($authcode && $data['gateway']['generic']['callback_url_authcode'] && ($authcode == $data['gateway']['generic']['callback_url_authcode']))) {
+	_log("error auth authcode:" . $authcode . " smsc:" . $smsc . " message_id:" . $remote_smslog_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
+	
+	ob_end_clean();
+	echo 'ERROR AUTH ' . _PID_;
+	exit();
+}
 
 $remote_smslog_id = $requests['id'];
 $message_status = $requests['message_status'];
@@ -69,7 +77,7 @@ if ($remote_smslog_id && $message_status) {
 		dlr($smslog_id, $uid, $p_status);
 		
 		ob_end_clean();
-		echo "OK" . _PID_;
+		echo 'OK ' . _PID_;
 		exit();
 	}
 }
@@ -87,6 +95,6 @@ if ($remote_smslog_id && $message) {
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 	
 	ob_end_clean();
-	echo "OK" . _PID_;
+	echo 'OK ' . _PID_;
 	exit();
 }
