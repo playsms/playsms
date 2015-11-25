@@ -31,17 +31,17 @@ if (!$called_from_hook_call) {
 }
 
 $r = $_REQUEST;
-$c_uid = $r['uid'];
+$c_uid = (int) trim($r['uid']);
 
 $list = registry_search($c_uid, 'feature', 'sms_sync');
 $sms_sync_secret = $list['feature']['sms_sync']['secret'];
 $sms_sync_enable = $list['feature']['sms_sync']['enable'];
 
-$message_id = $r['message_id'];
+$message_id = trim($r['message_id']);
 $sms_datetime = core_display_datetime(core_get_datetime());
-$sms_sender = $r['from'];
-$message = $r['message'];
-$sms_receiver = $r['sent_to'];
+$sms_sender = trim($r['from']);
+$message = trim($r['message']);
+$sms_receiver = trim($r['sent_to']);
 
 $ok = FALSE;
 
@@ -57,8 +57,7 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 		// if keyword does not exists (keyword_isavail == TRUE)
 		// then prefix the message with an @username so that it will be routed to $c_uid's inbox
 		$m = explode(' ', $message);
-		$c_m = str_replace('#', '', $m[0]);
-		if (keyword_isavail($c_m)) {
+		if (keyword_isavail($m[0])) {
 			_log("forwarded to inbox uid:" . $c_uid . " message_id:" . $message_id, 3, "sms_sync sync");
 			$message = "@" . user_uid2username($c_uid) . " " . $message;
 		}
