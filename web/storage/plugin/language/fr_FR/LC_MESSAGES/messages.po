@@ -467,6 +467,9 @@ msgstr "Secret du callback"
 msgid "Callback URL"
 msgstr "URL du callback"
 
+msgid "Callback URL authcode"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1125,6 +1128,9 @@ msgstr "Fonctionnalité"
 msgid "Features"
 msgstr "Fonctions"
 
+msgid "Fill authentication code to secure callback URL"
+msgstr ""
+
 msgid "Fill the password field to change password"
 msgstr "Veuillez saisir le champ du mot de passe pour le changer"
 
@@ -1211,9 +1217,6 @@ msgid "Gateways"
 msgstr "Passerelles"
 
 msgid "Generic send SMS URL"
-msgstr ""
-
-msgid "Generic will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Go"
@@ -2134,6 +2137,9 @@ msgstr "Inscrire un nouveau compte"
 
 msgid "Registered"
 msgstr "Inscrit"
+
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Remote is on"
 msgstr ""
@@ -3095,9 +3101,6 @@ msgstr "Votre URL de callback doit être accessible par Bulksms"
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Votre URL de callback doit être accessible par Clickatell"
 
-msgid "Your callback URL should be accessible from Generic"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Votre URL de callback doit être accessible par Infobip"
 
@@ -3110,6 +3113,9 @@ msgstr "Votre URL de callback doit être accessible par Nexmo"
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Votre URL de callback doit être accessible par OpenVox"
 
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr ""
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Votre URL de callback doit être accessible par twilio"
 
@@ -3118,6 +3124,9 @@ msgstr "Votre choix"
 
 msgid "Your credit"
 msgstr "Votre crédit"
+
+msgid "Your current callback URL authcode is"
+msgstr ""
 
 msgid "Your current callback URL is"
 msgstr ""

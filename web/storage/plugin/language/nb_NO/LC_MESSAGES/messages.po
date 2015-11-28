@@ -461,6 +461,9 @@ msgstr "Callback-hemmelighet"
 msgid "Callback URL"
 msgstr "Callback URL"
 
+msgid "Callback URL authcode"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -1109,6 +1112,9 @@ msgstr "Funksjon"
 msgid "Features"
 msgstr "Funksjoner"
 
+msgid "Fill authentication code to secure callback URL"
+msgstr ""
+
 msgid "Fill the password field to change password"
 msgstr "Fyll ut passordfeltet for å endre passord"
 
@@ -1195,9 +1201,6 @@ msgid "Gateways"
 msgstr "Gateways"
 
 msgid "Generic send SMS URL"
-msgstr ""
-
-msgid "Generic will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Go"
@@ -2102,6 +2105,9 @@ msgstr "Registrer konto"
 
 msgid "Registered"
 msgstr "Registrert"
+
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Remote is on"
 msgstr ""
@@ -3048,9 +3054,6 @@ msgstr "Din callback URL skal være tilgjenglig fra BulkSMS"
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Din callback URL skal være tilgjengelig fra Clickatell"
 
-msgid "Your callback URL should be accessible from Generic"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgjengelig fra Infobip"
 
@@ -3063,6 +3066,9 @@ msgstr "Din callback URL skal være tilgjengelig fra Nexmo"
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Din callback URL skal være tilgjengelig fra OpenVox"
 
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr ""
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Din callback URL skal være tilgjengelig fra twilio"
 
@@ -3071,6 +3077,9 @@ msgstr "Ditt valg"
 
 msgid "Your credit"
 msgstr "Din kreditt"
+
+msgid "Your current callback URL authcode is"
+msgstr ""
 
 msgid "Your current callback URL is"
 msgstr ""

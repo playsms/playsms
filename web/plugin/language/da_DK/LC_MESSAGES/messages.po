@@ -469,6 +469,10 @@ msgstr "Callback hemmelighed"
 msgid "Callback URL"
 msgstr "Callback URL"
 
+#, fuzzy
+msgid "Callback URL authcode"
+msgstr "Callback URL"
+
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1118,6 +1122,9 @@ msgstr "Funktion"
 msgid "Features"
 msgstr "Funktioner"
 
+msgid "Fill authentication code to secure callback URL"
+msgstr ""
+
 msgid "Fill the password field to change password"
 msgstr "Udfyld adgangskodefeltet for at skifte adgangskode"
 
@@ -1205,10 +1212,6 @@ msgstr "Gateways"
 #, fuzzy
 msgid "Generic send SMS URL"
 msgstr "Jasmin afsend SMS URL"
-
-#, fuzzy
-msgid "Generic will push DLR and incoming SMS to your callback URL"
-msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Go"
 msgstr "Gå"
@@ -2111,6 +2114,10 @@ msgstr "Registrer en konto"
 
 msgid "Registered"
 msgstr "Registreret"
+
+#, fuzzy
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
+msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Remote is on"
 msgstr "Fjernsystem er tændt"
@@ -3057,10 +3064,6 @@ msgstr "Din callback URL skal være tilgængelig fra Bulksms"
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Din callback URL skal være tilgængelig fra Clickatell"
 
-#, fuzzy
-msgid "Your callback URL should be accessible from Generic"
-msgstr "Din callback URL skal være tilgængelig fra infobip"
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgængelig fra infobip"
 
@@ -3073,6 +3076,10 @@ msgstr "Din callback URL skal være tilgængelig fra Nexmo"
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Din callback URL skal være tilgængelig fra OpenVox"
 
+#, fuzzy
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr "Din callback URL skal være tilgængelig fra Nexmo"
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Din callback URL skal være tilgængelig fra twilio"
 
@@ -3081,6 +3088,10 @@ msgstr "Dit valg"
 
 msgid "Your credit"
 msgstr "Din kredit"
+
+#, fuzzy
+msgid "Your current callback URL authcode is"
+msgstr "Din aktuelle callback URL er"
 
 msgid "Your current callback URL is"
 msgstr "Din aktuelle callback URL er"

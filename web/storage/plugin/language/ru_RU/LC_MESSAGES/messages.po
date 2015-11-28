@@ -472,6 +472,9 @@ msgstr ""
 msgid "Callback URL"
 msgstr "Callback URL"
 
+msgid "Callback URL authcode"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
@@ -1125,6 +1128,9 @@ msgstr "Функции"
 msgid "Features"
 msgstr "Функции"
 
+msgid "Fill authentication code to secure callback URL"
+msgstr ""
+
 msgid "Fill the password field to change password"
 msgstr "Заполните поле чтобы изменить пароль"
 
@@ -1211,9 +1217,6 @@ msgid "Gateways"
 msgstr "Шлюзы"
 
 msgid "Generic send SMS URL"
-msgstr ""
-
-msgid "Generic will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Go"
@@ -2126,6 +2129,9 @@ msgstr "Регистрация пользователя"
 
 msgid "Registered"
 msgstr "Зарегистрирован"
+
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
+msgstr ""
 
 msgid "Remote is on"
 msgstr ""
@@ -3064,9 +3070,6 @@ msgstr ""
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Ваш callback URL должен быть доступен со стороны Clickatell"
 
-msgid "Your callback URL should be accessible from Generic"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"
 
@@ -3079,6 +3082,9 @@ msgstr "Ваш callback URL должен быть доступен с сторо
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Ваш callback URL должен быть доступен с стороны OpenVox"
 
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr ""
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Ваш  callback URL должен быть доступен с стороны twilio"
 
@@ -3086,6 +3092,9 @@ msgid "Your choice"
 msgstr "Ваш выбор"
 
 msgid "Your credit"
+msgstr ""
+
+msgid "Your current callback URL authcode is"
 msgstr ""
 
 msgid "Your current callback URL is"

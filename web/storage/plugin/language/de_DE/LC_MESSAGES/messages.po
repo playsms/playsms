@@ -458,6 +458,10 @@ msgstr "Callback Secret"
 msgid "Callback URL"
 msgstr "Callback URL"
 
+#, fuzzy
+msgid "Callback URL authcode"
+msgstr "Callback URL"
+
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -1104,6 +1108,9 @@ msgstr "Erweiterung"
 msgid "Features"
 msgstr "Erweiterungen"
 
+msgid "Fill authentication code to secure callback URL"
+msgstr ""
+
 msgid "Fill the password field to change password"
 msgstr "Passwort-Feld ausfüllen um Passwort zu ändern"
 
@@ -1192,10 +1199,6 @@ msgstr "Gateways"
 #, fuzzy
 msgid "Generic send SMS URL"
 msgstr "Fehler beim Senden der SMS"
-
-#, fuzzy
-msgid "Generic will push DLR and incoming SMS to your callback URL"
-msgstr "Bulksms sendet DLR und eingehende SMS an die callback URL"
 
 msgid "Go"
 msgstr "Los"
@@ -2107,6 +2110,10 @@ msgstr "Einen Account registrieren"
 
 msgid "Registered"
 msgstr "Registriert"
+
+#, fuzzy
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio liefert DLR und eingehende SMS an Ihre callback URL"
 
 msgid "Remote is on"
 msgstr "Remote ist an"
@@ -3064,10 +3071,6 @@ msgstr "Ihre callback URL solle von Bulksms erreichbar sein"
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr "Ihre callback URL solle von Clickatell erreichbar sein"
 
-#, fuzzy
-msgid "Your callback URL should be accessible from Generic"
-msgstr "Ihre callback URL solle von Infobip erreichbar sein"
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ihre callback URL solle von Infobip erreichbar sein"
 
@@ -3081,6 +3084,10 @@ msgstr "Ihre callback URL solle von Nexmo erreichbar sein"
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Ihre callback URL solle von OpenVox erreichbar sein"
 
+#, fuzzy
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr "Ihre callback URL solle von Nexmo erreichbar sein"
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Ihre callback URL solle von Twilio erreichbar sein"
 
@@ -3089,6 +3096,10 @@ msgstr "Ihre Auswahl"
 
 msgid "Your credit"
 msgstr "Ihre Credits"
+
+#, fuzzy
+msgid "Your current callback URL authcode is"
+msgstr "Ihre callback URL ist"
 
 #, fuzzy
 msgid "Your current callback URL is"

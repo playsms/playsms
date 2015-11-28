@@ -10,6 +10,9 @@ msgstr ""
 msgid "Callback URL"
 msgstr ""
 
+msgid "Callback URL authcode"
+msgstr ""
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -17,6 +20,9 @@ msgid "Empty callback URL to set default"
 msgstr ""
 
 msgid "Fail to save gateway module configurations"
+msgstr ""
+
+msgid "Fill authentication code to secure callback URL"
 msgstr ""
 
 msgid "Fill to change the API password"
@@ -29,9 +35,6 @@ msgid "Gateway name"
 msgstr ""
 
 msgid "Generic send SMS URL"
-msgstr ""
-
-msgid "Generic will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Manage generic"
@@ -49,10 +52,16 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Generic"
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr ""
+
+msgid "Your current callback URL authcode is"
 msgstr ""
 
 msgid "Your current callback URL is"

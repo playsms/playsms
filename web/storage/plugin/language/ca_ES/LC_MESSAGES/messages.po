@@ -451,6 +451,9 @@ msgstr ""
 msgid "Callback URL"
 msgstr "URL de retorn"
 
+msgid "Callback URL authcode"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
@@ -1096,6 +1099,9 @@ msgstr ""
 msgid "Features"
 msgstr "Característiques"
 
+msgid "Fill authentication code to secure callback URL"
+msgstr ""
+
 msgid "Fill the password field to change password"
 msgstr ""
 
@@ -1181,9 +1187,6 @@ msgid "Gateways"
 msgstr "Sortides"
 
 msgid "Generic send SMS URL"
-msgstr ""
-
-msgid "Generic will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Go"
@@ -2084,6 +2087,9 @@ msgid "Register an account"
 msgstr ""
 
 msgid "Registered"
+msgstr ""
+
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Remote is on"
@@ -3013,9 +3019,6 @@ msgstr ""
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Generic"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
@@ -3028,6 +3031,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr ""
 
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr ""
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr "L'adreça de retorn URL ha de ser accessible per twilio"
 
@@ -3035,6 +3041,9 @@ msgid "Your choice"
 msgstr "La vostra tria"
 
 msgid "Your credit"
+msgstr ""
+
+msgid "Your current callback URL authcode is"
 msgstr ""
 
 msgid "Your current callback URL is"

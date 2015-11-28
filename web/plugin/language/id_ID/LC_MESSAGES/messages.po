@@ -458,6 +458,9 @@ msgstr ""
 msgid "Callback URL"
 msgstr ""
 
+msgid "Callback URL authcode"
+msgstr ""
+
 msgid "Cancel"
 msgstr ""
 
@@ -1136,6 +1139,9 @@ msgstr "Fitur"
 msgid "Features"
 msgstr "Fitur"
 
+msgid "Fill authentication code to secure callback URL"
+msgstr ""
+
 msgid "Fill the password field to change password"
 msgstr ""
 
@@ -1224,9 +1230,6 @@ msgid "Gateways"
 msgstr ""
 
 msgid "Generic send SMS URL"
-msgstr ""
-
-msgid "Generic will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Go"
@@ -2174,6 +2177,9 @@ msgstr "Akun saya"
 msgid "Registered"
 msgstr ""
 
+msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
+msgstr ""
+
 msgid "Remote is on"
 msgstr ""
 
@@ -3118,9 +3124,6 @@ msgstr ""
 msgid "Your callback URL should be accessible from Clickatell"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Generic"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
@@ -3133,6 +3136,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr ""
 
+msgid "Your callback URL should be accessible from remote gateway"
+msgstr ""
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr ""
 
@@ -3140,6 +3146,9 @@ msgid "Your choice"
 msgstr ""
 
 msgid "Your credit"
+msgstr ""
+
+msgid "Your current callback URL authcode is"
 msgstr ""
 
 msgid "Your current callback URL is"
