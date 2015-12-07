@@ -110,7 +110,7 @@ switch (_OP_) {
 				'id' => 'playsms-forward-to-url',
 				'label' => _('Forward all sandbox SMS to a URL'),
 				'input' => $input_url,
-				'help' => _('Example') . ' : http://playsms.id/index.php?app=ws&op=playnet&go=set_incoming&smsc=mydevice&u=myuser&p=mypassword&payload={SANDBOX_PAYLOAD}' 
+				'help' => _('Example') . ': <br />http://external.app/handler.php?json={SANDBOX_PAYLOAD}&dt={SANDBOX_DATETIME}&s={SANDBOX_SENDER}&m={SANDBOX_MESSAGE}&r={SANDBOX_RECEIVER}&smsc={SANDBOX_SMSC}' 
 			) 
 		);
 		
