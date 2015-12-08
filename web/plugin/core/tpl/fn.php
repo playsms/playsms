@@ -22,11 +22,11 @@ defined('_SECURE_') or die('Forbidden');
  * Actual template apply
  *
  * @param string $fn
- *        	Template filename
+ *        Template filename
  * @param array $tpl
- *        	Template data
+ *        Template data
  * @param array $injected
- *        	Injected variable names
+ *        Injected variable names
  * @return string Manipulated content
  */
 function _tpl_apply($fn, $tpl, $injected = array()) {
@@ -49,7 +49,7 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
  * Sanitize template name
  *
  * @param string $name
- *        	Template name
+ *        Template name
  * @return string Sanitized template name
  */
 function _tpl_name_sanitize($name) {
@@ -64,11 +64,11 @@ function _tpl_name_sanitize($name) {
 
 /**
  * Apply template
- * 
+ *
  * @param array $tpl
- *        	Template array
+ *        Template array
  * @param array $injected
- *        	Injected variable names
+ *        Injected variable names
  * @return string Manipulated content
  */
 function tpl_apply($tpl, $injected = array()) {
@@ -91,26 +91,31 @@ function tpl_apply($tpl, $injected = array()) {
 			$injected = $tpl['injects'];
 		}
 		
-		// check from active template
-		$themes = core_themes_get();
-		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
-		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl, $injected);
-			return $content;
-		}
-		
-		// check from common place on themes
-		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
-		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl, $injected);
-		}
-		// check from active plugin
+		// 1. check from active plugin
 		$c_inc = explode('_', _INC_);
 		$plugin_category = $c_inc[0];
 		$plugin_name = str_replace($plugin_category . '_', '', _INC_);
 		$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
+			
+			return $content;
+		}
+		
+		// 2. check from active template
+		$themes = core_themes_get();
+		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl, $injected);
+			
+			return $content;
+		}
+		
+		// 3. check from common place on themes
+		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl, $injected);
+			
 			return $content;
 		}
 	}
