@@ -102,7 +102,24 @@ function tpl_apply($tpl, $injected = array()) {
 			return $content;
 		}
 		
-		// 2. check from active template
+		// 2. search all possible location on active plugin
+		$c_plugin_name = explode('_', $tpl_name);
+		$plugin_name = $c_plugin_name[0];
+		$c_plugin_category = array(
+			'core',
+			'feature',
+			'gateway' 
+		);
+		foreach ($c_plugin_category as $plugin_category) {
+			$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
+			if (file_exists($fn)) {
+				$content = _tpl_apply($fn, $tpl, $injected);
+				
+				return $content;
+			}
+		}
+		
+		// 3. check from active template
 		$themes = core_themes_get();
 		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
@@ -111,7 +128,7 @@ function tpl_apply($tpl, $injected = array()) {
 			return $content;
 		}
 		
-		// 3. check from common place on themes
+		// 4. check from common place on themes
 		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
