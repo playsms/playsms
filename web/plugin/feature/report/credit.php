@@ -10,30 +10,29 @@
  *
  * playSMS is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isvalid()) {
 	auth_block();
-};
+}
 
 switch (_OP_) {
 	case "credit_list":
 		$db_table = $plugin_config['credit']['db_table'];
 		$search_category = array(
-			_('Transaction datetime') => 'create_datetime',
+			_('Transaction datetime') => 'create_datetime' 
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=credit&op=credit_list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
 			'uid' => $user_config['uid'],
-			'flag_deleted' => 0,
+			'flag_deleted' => 0 
 		);
 		
 		$keywords = $search['dba_keywords'];
@@ -42,7 +41,7 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset']
+			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
 		
@@ -57,18 +56,13 @@ switch (_OP_) {
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=credit&op=actions&go=export') . "\">" . $icon_config['export'] . "</a>
 				</div>
-				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete these transactions ?') . "', 'fm_feature_credit');\">" . $icon_config['delete'] . "</a>
-				</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=35%>" . _('Transaction datetime') . "</th>
-				<th width=30%>" . _('Amount') . "</th>
-				<th width=30%>" . _('Balance') . " " . _hint(_('Balance recorded on transaction')) . "</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
+				<th width=40%>" . _('Transaction datetime') . "</th>
+				<th width=60%>" . _('Amount') . "</th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -76,20 +70,15 @@ switch (_OP_) {
 		$j = 0;
 		foreach ($list as $row) {
 			$row = core_display_data($row);
-			$content.= "
+			$content .= "
 				<tr>
 					<td>" . core_display_datetime($row['create_datetime']) . "</td>
 					<td>" . $row['amount'] . "</td>
-					<td>" . $row['balance'] . "</td>
-					<td>
-						<input type=hidden name=itemid" . $j . " value=\"" . $row['id'] . "\">
-						<input type=checkbox name=checkid" . $j . ">
-					</td>
 				</tr>";
 			$j++;
 		}
 		
-		$content.= "
+		$content .= "
 			</tbody>
 			</table>
 			</div>
@@ -101,7 +90,7 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
-
+	
 	case "actions":
 		$db_table = $plugin_config['credit']['db_table'];
 		$nav = themes_nav_session();
@@ -111,48 +100,24 @@ switch (_OP_) {
 			case 'export':
 				$conditions = array(
 					'uid' => $user_config['uid'],
-					'flag_deleted' => 0,
+					'flag_deleted' => 0 
 				);
 				
 				$list = dba_search($db_table, '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
-					_('Transaction datetime') ,
-					_('Amount') ,
-					_('Balance')
+					_('Transaction datetime'),
+					_('Amount') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
-						core_display_datetime($list[$i]['create_datetime']) ,
-						$list[$i]['amount'],
-						$list[$i]['balance']
+						core_display_datetime($list[$i]['create_datetime']),
+						$list[$i]['amount'] 
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'credit-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
-				break;
-
-			case 'delete':
-				for ($i = 0; $i < $nav['limit']; $i++) {
-					$checkid = $_POST['checkid' . $i];
-					$itemid = $_POST['itemid' . $i];
-					if (($checkid == "on") && $itemid) {
-						$up = array(
-							'c_timestamp' => mktime() ,
-							'delete_datetime' => core_get_datetime() ,
-							'flag_deleted' => '1'
-						);
-						
-						dba_update($db_table, $up, array(
-							'id' => $itemid
-						));
-					}
-				}
-				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-				$_SESSION['dialog']['info'][] = _('Selected transactions has been deleted');
-				header("Location: " . _u($ref));
-				exit();
 				break;
 		}
 }

@@ -74,10 +74,9 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=25%>" . _('User') . "</th>
-				<th width=30%>" . _('Transaction datetime') . "</th>
-				<th width=20%>" . _('Amount') . "</th>
-				<th width=20%>" . _('Balance') . " " . _hint(_('Balance recorded on transaction')) . "</th>
+				<th width=20%>" . _('User') . "</th>
+				<th width=40%>" . _('Transaction datetime') . "</th>
+				<th width=35%>" . _('Amount') . "</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
 			</tr>
 			</thead>
@@ -91,7 +90,6 @@ switch (_OP_) {
 					<td>" . $row['username'] . "</td>
 					<td>" . core_display_datetime($row['create_datetime']) . "</td>
 					<td>" . $row['amount'] . "</td>
-					<td>" . $row['balance'] . "</td>
 					<td>
 						<input type=hidden name=itemid" . $j . " value=\"" . $row['id'] . "\">
 						<input type=checkbox name=checkid" . $j . ">
@@ -210,16 +208,14 @@ switch (_OP_) {
 				$data[0] = array(
 					_('User'),
 					_('Transaction datetime'),
-					_('Amount'),
-					_('Balance') 
+					_('Amount') 
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						$list[$i]['username'],
 						core_display_datetime($list[$i]['create_datetime']),
-						$list[$i]['amount'],
-						$list[$i]['balance'] 
+						$list[$i]['amount'] 
 					);
 				}
 				$content = core_csv_format($data);

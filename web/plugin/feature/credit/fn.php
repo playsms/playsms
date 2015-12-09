@@ -139,16 +139,12 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 	$parent_uid = user_getparentbyuid($uid);
 	$username = user_uid2username($uid);
 	$status = user_getfieldbyuid($uid, 'status');
-	$balance = (float) rate_getusercredit($username);
 	$amount = (float) $amount;
 	
 	if (abs($amount) <= 0) {
 		_log('amount cannot be zero. amount:[' . $amount . ']', 2, 'credit_hook_rate_addusercredit');
 		return FALSE;
 	}
-	
-	// add to balance
-	$balance = $balance + $amount;
 	
 	// record it
 	$id = dba_add($db_table, array(
@@ -158,7 +154,6 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 		'status' => $status,
 		'create_datetime' => core_get_datetime(),
 		'amount' => $amount,
-		'balance' => $balance,
 		'flag_deleted' => 0 
 	));
 	
