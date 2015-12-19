@@ -23,6 +23,7 @@ function dlr($smslog_id, $uid, $p_status) {
 	if ($core_config['isdlrd']) {
 		$c_isdlrd = 1;
 		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
+			'c_timestamp' => mktime(),
 			'flag_processed' => 1,
 			'smslog_id' => $smslog_id,
 			'p_status' => $p_status,
@@ -31,6 +32,7 @@ function dlr($smslog_id, $uid, $p_status) {
 	} else {
 		$c_isdlrd = 0;
 		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
+			'c_timestamp' => mktime(),
 			'flag_processed' => 2,
 			'smslog_id' => $smslog_id,
 			'p_status' => $p_status,
@@ -51,7 +53,7 @@ function dlrd() {
 		'LIMIT' => $core_config['dlrd_limit'] 
 	));
 	$j = 0;
-	for($j = 0; $j < count($list); $j++) {
+	for ($j = 0; $j < count($list); $j++) {
 		if ($id = $list[$j]['id']) {
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_status = $list[$j]['p_status'];
@@ -81,7 +83,7 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 		// logger_print("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
 		$ok = true;
 		if ($p_status > 0) {
-			for($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
 				core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', array(
 					$smslog_id,
 					$uid,
@@ -95,7 +97,7 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 
 function getsmsstatus() {
 	$smscs = gateway_getall_smsc_names();
-	foreach ($smscs as $smsc) {	
+	foreach ($smscs as $smsc) {
 		$smsc_data = gateway_get_smscbyname($smsc);
 		$gateway = $smsc_data['gateway'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='0' AND p_smsc='$smsc' AND flag_deleted='0'";
