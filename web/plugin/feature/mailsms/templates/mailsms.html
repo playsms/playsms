@@ -48,6 +48,10 @@
 				<td><select id="mailsms-enable" name="enable_fetch">{{ $option_enable_fetch }}</select></td>
 			</tr>
 			<tr>
+				<td class=label-sizer>{{ New emails fetch interval }}</td>
+				<td><input type="text" name="fetch_interval" value="{{ $items_global['features']['mailsms']['fetch_interval'] }}"> {{ HINT_FETCH_INTERVAL }}</td>
+			</tr>
+			<tr>
 				<td class=label-sizer>{{ Check email sender }}</td>
 				<td><select id="mailsms-check-sender" name="check_sender">{{ $option_check_sender }}</select></td>
 			</tr>

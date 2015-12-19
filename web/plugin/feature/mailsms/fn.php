@@ -21,16 +21,19 @@ defined('_SECURE_') or die('Forbidden');
 function mailsms_hook_playsmsd() {
 	global $core_config;
 	
-	// fetch every 60 seconds
-	if (!core_playsmsd_timer(60)) {
+	// get global mailsms registry data
+	$items_global = registry_search(0, 'features', 'mailsms');
+	
+	// fetch interval
+	$c_fetch_interval = (int) $items_global['features']['mailsms']['fetch_interval'];
+	$c_fetch_interval = ($c_fetch_interval > 10 ? $c_fetch_interval : 60);
+	if (!core_playsmsd_timer($c_fetch_interval)) {
 		return;
 	}
 	
 	// _log('fetch now:'.$now, 2, 'mailsms_hook_playsmsd');
 	
-	// get global mailsms registry data
-	$items_global = registry_search(0, 'features', 'mailsms');
-	
+
 	$enable_fetch = $items_global['features']['mailsms']['enable_fetch'];
 	$protocol = $items_global['features']['mailsms']['protocol'];
 	$port = $items_global['features']['mailsms']['port'];
@@ -44,6 +47,7 @@ function mailsms_hook_playsmsd() {
 	
 	// _log('fetch uid:' . $uid, 3, 'mailsms_hook_playsmsd');
 	
+
 	$param = 'mailsms_fetch';
 	$is_fetching = (playsmsd_pid_get($param) ? TRUE : FALSE);
 	if (!$is_fetching) {
@@ -64,6 +68,7 @@ function mailsms_hook_playsmsd_once($param) {
 	
 	// _log('fetch uid:' . $uid . ' username:' . $username, 3, 'mailsms_hook_playsmsd_once');
 	
+
 	$items_global = registry_search(0, 'features', 'mailsms');
 	
 	$enable_fetch = $items_global['features']['mailsms']['enable_fetch'];
@@ -79,12 +84,13 @@ function mailsms_hook_playsmsd_once($param) {
 	
 	// _log('fetch ' . $email_username . ' at ' . $email_hostname, 3, 'mailsms_hook_playsmsd_once');
 	
+
 	// open mailbox
 	$inbox = imap_open($email_hostname, $email_username, $email_password);
 	
 	if (!$inbox) {
 		$errors = imap_errors();
-		foreach ($errors as $error ) {
+		foreach ($errors as $error) {
 			
 			// _log('error:' . $error, 3, 'mailsms_hook_playsmsd_once');
 		}
@@ -94,7 +100,7 @@ function mailsms_hook_playsmsd_once($param) {
 	$emails = imap_search($inbox, 'UNSEEN');
 	if (count($emails)) {
 		rsort($emails);
-		foreach ($emails as $email_number ) {
+		foreach ($emails as $email_number) {
 			$overview = imap_fetch_overview($inbox, $email_number, 0);
 			$email_subject = trim($overview[0]->subject);
 			$email_sender = trim($overview[0]->from);

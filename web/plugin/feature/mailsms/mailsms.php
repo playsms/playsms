@@ -23,7 +23,7 @@ if (!auth_isadmin()) {
 }
 
 switch (_OP_) {
-	case "mailsms" :
+	case "mailsms":
 		
 		$items_global = registry_search(0, 'features', 'mailsms');
 		
@@ -32,6 +32,10 @@ switch (_OP_) {
 			_('yes') => 1,
 			_('no') => 0 
 		), $items_global['features']['mailsms']['enable_fetch']);
+		
+		// fetch interval must be higher than 10 seconds
+		$c_fetch_interval = (int) $items_global['features']['mailsms']['fetch_interval'];
+		$items_global['features']['mailsms']['fetch_interval'] = ($c_fetch_interval > 10 ? $c_fetch_interval : 60);
 		
 		// option check email sender
 		$option_check_sender = _options(array(
@@ -64,10 +68,12 @@ switch (_OP_) {
 				'FORM_TITLE' => _('Manage email to SMS'),
 				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&op=mailsms_save'),
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'HINT_FETCH_INTERVAL' => _hint(_('New emails fetch interval must be higher than 10 seconds')),
 				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
 				'SAVE' => _('Save'),
 				'Email to SMS address' => _('Email to SMS address'),
 				'Enable fetch new emails' => _('Enable fetch new emails'),
+				'New emails fetch interval' => _('New emails fetch interval'),
 				'Check email sender' => _('Check email sender'),
 				'Email protocol' => _('Email protocol'),
 				'Use SSL' => _('Use SSL'),
@@ -91,10 +97,11 @@ switch (_OP_) {
 		_p(tpl_apply($tpl));
 		break;
 	
-	case "mailsms_save" :
+	case "mailsms_save":
 		$items_global = array(
 			'email' => $_REQUEST['email'],
 			'enable_fetch' => $_REQUEST['enable_fetch'],
+			'fetch_interval' => $_REQUEST['fetch_interval'],
 			'check_sender' => $_REQUEST['check_sender'],
 			'protocol' => $_REQUEST['protocol'],
 			'ssl' => $_REQUEST['ssl'],
