@@ -275,13 +275,13 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	unset($ret_intercept);
 	$ret_intercept = recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $c_feature, $c_status, $c_uid, $smsc);
 	if ($ret_intercept['modified']) {
+		$c_uid = ($ret_intercept['uid'] ? $ret_intercept['uid'] : $c_uid);
 		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime);
 		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
 		$message = ($ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message);
 		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver);
 		$c_feature = ($ret_intercept['param']['feature'] ? $ret_intercept['param']['feature'] : $c_feature);
 		$c_status = ($ret_intercept['param']['status'] ? $ret_intercept['param']['status'] : $c_status);
-		$c_uid = ($ret_intercept['param']['uid'] ? $ret_intercept['param']['uid'] : $c_uid);
 		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
 	}
 	
