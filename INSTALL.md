@@ -185,8 +185,7 @@ Install playSMS by following step-by-step:
     ```
     cp daemon/linux/etc/playsmsd.conf /etc/playsmsd.conf
     cp daemon/linux/bin/playsmsd.php /usr/local/bin/playsmsd
-    chmod 644 /etc/playsmsd.conf
-    chmod 755 /usr/local/bin/playsmsd
+    chmod +x /usr/local/bin/playsmsd
     ```
 
 8.  Just to make sure every paths are correct, please edit /etc/playsmsd.conf
