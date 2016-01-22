@@ -48,16 +48,14 @@ msgstr "API ID"
 msgid "API key"
 msgstr "API Key"
 
-#, fuzzy
 msgid "API password"
-msgstr "Passwort"
+msgstr "API Passwort"
 
 msgid "API secret"
 msgstr "API Secret"
 
-#, fuzzy
 msgid "API username"
-msgstr "Benutzername"
+msgstr "API Benutzername"
 
 msgid "Access Control List"
 msgstr "Access Control List"
@@ -67,6 +65,8 @@ msgid ""
 "to this website URL. This website URL should be the primary address for the "
 "service."
 msgstr ""
+"Zugriff auf unbekannte Domains auf diese Server-IP wird umgeleitet auf diese Website-URL."
+"Diese Website-URL sollte die primäre Adresse für diesen Service sein." 
 
 #, php-format
 msgid "Account %s is currently banned to use services"
@@ -263,7 +263,7 @@ msgid "Allow users to select sender ID while on Send SMS page"
 msgstr "Erlaube Benutzern die Auswahl der Sender-ID auf der Seite -Sende SMS-"
 
 msgid "Already a member reply"
-msgstr ""
+msgstr "Bereits ein \'Mitglied-Antwort\'"
 
 msgid "Always add plus sign"
 msgstr "Immer + hinzufügen"
@@ -290,6 +290,7 @@ msgid ""
 "Application footer here. Go to main configuration or manage site to edit "
 "this footer."
 msgstr ""
+"Anwendungs-Footer. Zum Editieren die Hauptkonfiguration oder verwalte Site auswählen."
 
 msgid "Application options"
 msgstr "Anwendungsoptionen"
@@ -458,9 +459,8 @@ msgstr "Callback Secret"
 msgid "Callback URL"
 msgstr "Callback URL"
 
-#, fuzzy
 msgid "Callback URL authcode"
-msgstr "Callback URL"
+msgstr "Callback URL authcode"
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -618,7 +618,7 @@ msgstr "Zeitstempel"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
-msgstr ""
+msgstr "Lege fest ob diese ACL nicht-erlaubte  URLs festlegt anstatt erlaubte URLs."
 
 msgid "Default"
 msgstr "Standard"
@@ -650,10 +650,10 @@ msgstr "Standard Nachrichten-Fußzeile"
 msgid ""
 "Default parent selected upon registration when the default account status on "
 "registration setting set to Subuser"
-msgstr ""
+msgstr "Standard-Eltern-Account, wenn Sub-Benutzer als Standard-Account-Status bei der Registrierung definiert ist."
 
 msgid "Default parent upon registration"
-msgstr ""
+msgstr "Standard-Eltern-Account bei Registrierung"
 
 msgid "Default prefix or country code"
 msgstr "Standard Prefix oder Ländercode"
@@ -678,7 +678,7 @@ msgstr "Standard Zeitzone"
 msgid ""
 "Define a single character as keyword separator replacing default keyword "
 "separator a space"
-msgstr ""
+msgstr "Definiere ein einzelnes Zeichen als Schlagwort-Separator anstatt des Leerzeichens"
 
 msgid "Delete"
 msgstr "Entfernen"
@@ -726,7 +726,7 @@ msgid "Disable login as subuser"
 msgstr "Deaktiviere Login als Sub-Benutzer"
 
 msgid "Disallowed URLs"
-msgstr ""
+msgstr "Nicht-erlaubte URLs"
 
 msgid "Domain"
 msgstr "Domäne"
@@ -837,7 +837,7 @@ msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "Email zu SMS Konfigurationwurde gespeichert und der Dienst aktiviert"
 
 msgid "Empty callback URL to set default"
-msgstr ""
+msgstr "Leere callback-URL für Default"
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
@@ -1109,7 +1109,7 @@ msgid "Features"
 msgstr "Erweiterungen"
 
 msgid "Fill authentication code to secure callback URL"
-msgstr ""
+msgstr "Fülle authentication code, um callback-URL abzusichern"
 
 msgid "Fill the password field to change password"
 msgstr "Passwort-Feld ausfüllen um Passwort zu ändern"
@@ -1117,9 +1117,8 @@ msgstr "Passwort-Feld ausfüllen um Passwort zu ändern"
 msgid "Fill to change the API key"
 msgstr "Ausfüllen um API key zu ändern"
 
-#, fuzzy
 msgid "Fill to change the API password"
-msgstr "Ausfüllen um Passwort zu ändern"
+msgstr "Ausfüllen um API Passwort zu ändern"
 
 msgid "Fill to change the API secret"
 msgstr "Ausfüllen um API secret zu ändern"
@@ -1196,9 +1195,8 @@ msgstr "Gateway Port"
 msgid "Gateways"
 msgstr "Gateways"
 
-#, fuzzy
 msgid "Generic send SMS URL"
-msgstr "Fehler beim Senden der SMS"
+msgstr "Allgemeine sene-SMS URL"
 
 msgid "Go"
 msgstr "Los"
@@ -1217,7 +1215,7 @@ msgid "Grand total senders"
 msgstr ""
 
 msgid "Graph output"
-msgstr ""
+msgstr "Grafische Ausgabe"
 
 msgid "Group"
 msgstr "Gruppe"
@@ -1362,13 +1360,11 @@ msgstr "Ungültiger Benutzername oder Passwort"
 msgid "JSON output"
 msgstr "JSN Ausgabe"
 
-#, fuzzy
 msgid "Jasmin send SMS URL"
-msgstr "Fehler beim Senden der SMS"
+msgstr "Jasmin sende-SMS URL"
 
-#, fuzzy
 msgid "Jasmin will push DLR and incoming SMS to your callback URL"
-msgstr "Bulksms sendet DLR und eingehende SMS an die callback URL"
+msgstr "Jasmin sendet DLR und eingehende SMS an diese callback URL"
 
 msgid "Kannel admin host"
 msgstr "Kannel Admin Host"
@@ -1514,7 +1510,7 @@ msgid "Main website name"
 msgstr "Name der Hauptseite"
 
 msgid "Make return as reply"
-msgstr ""
+msgstr "Erzeuge Antwort aus Rückgabe"
 
 msgid "Manage"
 msgstr "Verwalten"
@@ -1570,16 +1566,14 @@ msgstr "gammu verwalten"
 msgid "Manage gateway and SMSC"
 msgstr "Gateway und SMSC verwalten"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "Absender-ID verwalten"
+msgstr "Generic verwalten"
 
 msgid "Manage infobip"
 msgstr "infobip verwalten"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Site verwalten"
+msgstr "Jasmin verwalten"
 
 msgid "Manage kannel"
 msgstr "kannel verwalten"
@@ -1819,10 +1813,10 @@ msgid "Nexmo URL"
 msgstr "Nexmo URL"
 
 msgid "Nexmo is a bulk SMS provider"
-msgstr ""
+msgstr "Nexmo ist ein Massen-SMS-Anbieter"
 
 msgid "Nexmo will push DLR and incoming SMS to your callback URL"
-msgstr ""
+msgstr "Nexmo schickt DLR und eingehende SMS an Deine callback-URL"
 
 msgid "No"
 msgstr "Nein"
@@ -1900,7 +1894,7 @@ msgid "Page title"
 msgstr "Seitentitel"
 
 msgid "Parent"
-msgstr ""
+msgstr "Eltern"
 
 msgid "Parent account"
 msgstr "Eltern Account"
@@ -1914,10 +1908,10 @@ msgstr ""
 "hinzugefügt"
 
 msgid "Pass these parameter to command exec field"
-msgstr ""
+msgstr "Übergib diese Parameter an command exec Feld"
 
 msgid "Pass these parameters to custom URL field"
-msgstr ""
+msgstr "Übergib diese Parameter an custom URL Feld"
 
 msgid "Password"
 msgstr "Passwort"
@@ -1935,7 +1929,7 @@ msgid "Password should be at least 4 characters"
 msgstr "Passwort sollte mindestens 4 Zeichen beinhalten"
 
 msgid "Pending"
-msgstr ""
+msgstr "bevorstehend"
 
 msgid "Personal information"
 msgstr "Persönliche Information"
@@ -2111,9 +2105,8 @@ msgstr "Einen Account registrieren"
 msgid "Registered"
 msgstr "Registriert"
 
-#, fuzzy
 msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
-msgstr "Twilio liefert DLR und eingehende SMS an Ihre callback URL"
+msgstr "Remote Gateway liefert DLR und eingehende SMS an Ihre callback URL"
 
 msgid "Remote is on"
 msgstr "Remote ist an"
@@ -2330,9 +2323,8 @@ msgstr "SMS Weiterleitungs-Parameter"
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
 
-#, fuzzy
 msgid "SMS is case-insensitive"
-msgstr "SMS Quiz wurde gespeichert"
+msgstr "SMS ist case-insensitive"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -2655,7 +2647,7 @@ msgstr "Setze als Standard"
 msgid ""
 "Set credit value bigger than 0 to set credit lowest limit that will trigger "
 "notification"
-msgstr ""
+msgstr "Setze credit Wert größer 0 um die niedrigste Grenze festzulegen, die eine Benachrichtigung auslöst."
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -2733,9 +2725,8 @@ msgstr "Die Domäne ist bereits von einem anderen Benutzer konfiguriert worden"
 msgid "Themes"
 msgstr "Themes"
 
-#, fuzzy
 msgid "This field is not mandatory"
-msgstr "Dieses Feld wird benötigt"
+msgstr "Dieses ist kein Pflichtfeld."
 
 msgid "This field is required"
 msgstr "Dieses Feld wird benötigt"
