@@ -46,7 +46,7 @@ echo "=================================================================="
 echo "WARNING:"
 echo "- This install script WILL NOT upgrade currently installed playSMS"
 echo "- This install script WILL REMOVE your current playSMS database"
-echo "- This install script is compatible ONLY with playSMS version 1.2"
+echo "- This install script is compatible ONLY with playSMS version 1.4"
 echo "- Please BACKUP before proceeding"
 echo "=================================================================="
 echo
