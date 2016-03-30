@@ -33,18 +33,38 @@ switch (_OP_) {
 		);
 		$base_url = 'index.php?app=main&inc=feature_phonebook&op=phonebook_list';
 		$search = themes_search($search_category, $base_url);
-		
+	
+// modified by andregronwald (author of code: erick_hdz), issued by https://forum.playsms.org/t/share-user-phonebook-with-its-subusers-solved/483/3
+		if(($parent_uid = user_getparentbyuid($user_config["uid"])) == FALSE){
+			$parent_uid = $user_config["uid"];
+		}	
+
+// original code
+//		$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, A.tags AS tags';
+//		$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
+//		$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
+//		$conditions = array(
+//			'( A.uid' => $user_config['uid'] . "' OR B.id in (
+//				SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+//				" . $join . "
+//				WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
+//				AND B.flag_sender='1'
+//				) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
+//		);
+
+// modified by andregronwald (author of code: erick_hdz), issued by https://forum.playsms.org/t/share-user-phonebook-with-its-subusers-solved/483/3
 		$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, A.tags AS tags';
 		$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
 		$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
 		$conditions = array(
-			'( A.uid' => $user_config['uid'] . "' OR B.id in (
-				SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-				" . $join . "
-				WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
-				AND B.flag_sender='1'
-				) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
+			'( A.uid' => $user_config['uid'] . "' OR B.id in ( 
+				SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A 
+				LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND A.uid in (SELECT DISTINCT uid From " . _DB_PREF_ . "_tblUser WHERE parent_uid = '" . $user_config['uid'] . "' UNION Select '" . $parent_uid . "') 
+				LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid AND B.flag_sender='1' 
+				)" . ") OR ( B.flag_sender='2' ) OR (B.flag_sender='0' AND A.uid='" . $user_config['uid'] . "') AND '1'='1"
 		);
+// modification end
+
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featurePhonebook AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
