@@ -396,7 +396,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		// MAIN ONCE BLOCK
 		
 
-		//echo $COMMAND . " start time:" . mktime() . "\n";
+		//echo $COMMAND . " start time:" . time() . "\n";
 		
 
 		if ($COMMAND == 'sendqueue') {
@@ -418,7 +418,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		// END OF ONCE BLOCK
 		
 
-		//echo $COMMAND . " end time:" . mktime() . "\n";
+		//echo $COMMAND . " end time:" . time() . "\n";
 		
 
 		exit();
@@ -431,7 +431,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		
 		while ($DAEMON_LOOPING) {
 			
-			//echo $COMMAND . " start time:" . mktime() . "\n";
+			//echo $COMMAND . " start time:" . time() . "\n";
 			
 
 			// re-include init.php on every 'while' to get the most updated configurations
@@ -526,7 +526,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			// END OF MAIN LOOP BLOCK
 			
 
-			//echo $COMMAND . " end time:" . mktime() . "\n";
+			//echo $COMMAND . " end time:" . time() . "\n";
 			
 
 			sleep($DAEMON_SLEEP);
