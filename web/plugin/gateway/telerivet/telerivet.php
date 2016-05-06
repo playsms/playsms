@@ -56,7 +56,7 @@ switch (_OP_) {
 			}
 			$db_query = "
                 UPDATE " . _DB_PREF_ . "_gatewayTelerivet_config
-                SET c_timestamp='" . mktime() . "',
+                SET c_timestamp='" . time() . "',
                 cfg_url='$up_url',
                 " . $api_key_change . "
                 cfg_project_id='$up_project_id',

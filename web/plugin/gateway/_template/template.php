@@ -33,7 +33,7 @@ switch (_OP_) {
 		{
 			$db_query = "
 		UPDATE "._DB_PREF_."_gatewayTemplate_config
-		SET c_timestamp='".mktime()."',cfg_path='$up_path'
+		SET c_timestamp='".time()."',cfg_path='$up_path'
 	    ";
 			if (@dba_affected_rows($db_query))
 			{

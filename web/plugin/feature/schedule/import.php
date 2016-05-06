@@ -150,7 +150,7 @@ switch (_OP_) {
 				), 'AND')) {
 					// update
 					$items = array(
-						'c_timestamp' => mktime(),
+						'c_timestamp' => time(),
 						'schedule' => $schedule,
 						'scheduled' => '0000-00-00 00:00:00' 
 					);

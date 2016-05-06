@@ -138,7 +138,7 @@ switch (_OP_) {
 			$edit_command_exec = str_replace("/", "", $edit_command_exec);
 			$edit_command_exec = str_replace("\\", "", $edit_command_exec);
 			$edit_command_exec = str_replace("|", "", $edit_command_exec);
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . mktime() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureCommand SET c_timestamp='" . time() . "',command_exec='$edit_command_exec',command_return_as_reply='$edit_command_return_as_reply' WHERE command_keyword='$edit_command_keyword'";
 			if (@dba_affected_rows($db_query)) {
 				$c_dir = $sms_command_bin."/".$user_config['uid'];
 				@shell_exec("mkdir -p \"".$c_dir."\"");

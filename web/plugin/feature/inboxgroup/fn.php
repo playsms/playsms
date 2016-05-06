@@ -278,7 +278,7 @@ function inboxgroup_dataedit($rid, $keywords, $description, $exclusive) {
 		}
 	}
 	if ($keywords = substr($k, 0, -1)) {
-		$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".mktime()."',keywords='$keywords',description='$description',exclusive='$exclusive' WHERE deleted='0' AND id='$rid'";
+		$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".time()."',keywords='$keywords',description='$description',exclusive='$exclusive' WHERE deleted='0' AND id='$rid'";
 		$db_result = dba_affected_rows($db_query);
 	} else {
 		$db_result = true;
@@ -287,19 +287,19 @@ function inboxgroup_dataedit($rid, $keywords, $description, $exclusive) {
 }
 
 function inboxgroup_datadel($rid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".mktime()."',deleted='1' WHERE deleted='0' AND id='$rid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".time()."',deleted='1' WHERE deleted='0' AND id='$rid'";
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 function inboxgroup_dataenable($rid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".mktime()."',status='1' WHERE deleted='0' AND id='$rid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".time()."',status='1' WHERE deleted='0' AND id='$rid'";
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }
 
 function inboxgroup_datadisable($rid) {
-	$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".mktime()."',status='0' WHERE deleted='0' AND id='$rid'";
+	$db_query = "UPDATE "._DB_PREF_."_featureInboxgroup SET c_timestamp='".time()."',status='0' WHERE deleted='0' AND id='$rid'";
 	$db_result = dba_affected_rows($db_query);
 	return $db_result;
 }

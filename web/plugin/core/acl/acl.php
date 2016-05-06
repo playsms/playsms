@@ -98,7 +98,7 @@ switch (_OP_) {
 		if ($name) {
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,acl_subuser,url,flag_disallowed,flag_deleted)
-				VALUES ('" . mktime() . "','" . $name . "','" . $acl_subuser . "','" . $url . "'," . $acl_disallowed . ",'0')";
+				VALUES ('" . time() . "','" . $name . "','" . $acl_subuser . "','" . $url . "'," . $acl_disallowed . ",'0')";
 			if ($new_id = @dba_insert_id($db_query)) {
 				$_SESSION['dialog']['info'][] = _('New ACL been added');
 			} else {
@@ -157,7 +157,7 @@ switch (_OP_) {
 		$url = trim($_POST['url']);
 		if ($id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "',flag_disallowed='" . $acl_disallowed . "'
+				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . time() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "',flag_disallowed='" . $acl_disallowed . "'
 				WHERE id='" . $id . "'";
 			if ($new_id = @dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('ACL been edited');
@@ -176,7 +176,7 @@ switch (_OP_) {
 		if ($id && dba_isexists(_DB_PREF_ . "_tblACL", array(
 			'id' => $id 
 		), 'AND')) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . mktime() . "', flag_deleted='1' WHERE id='$id'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . time() . "', flag_deleted='1' WHERE id='$id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('ACL has been deleted');
 			} else {

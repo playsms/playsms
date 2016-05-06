@@ -229,7 +229,7 @@ switch (_OP_) {
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
 						$up = array(
-							'c_timestamp' => mktime(),
+							'c_timestamp' => time(),
 							'delete_datetime' => core_get_datetime(),
 							'flag_deleted' => '1' 
 						);

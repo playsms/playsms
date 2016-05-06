@@ -128,7 +128,7 @@ switch (_OP_) {
 		break;
 	case "sms_poll_status" :
 		$ps = $_REQUEST['ps'];
-		$db_query = "UPDATE " . _DB_PREF_ . "_featurePoll SET c_timestamp='" . mktime() . "',poll_enable='$ps' WHERE poll_id='$poll_id'";
+		$db_query = "UPDATE " . _DB_PREF_ . "_featurePoll SET c_timestamp='" . time() . "',poll_enable='$ps' WHERE poll_id='$poll_id'";
 		$db_result = @dba_affected_rows($db_query);
 		if ($db_result > 0) {
 			$_SESSION['dialog']['info'][] = _('SMS poll status has been changed');
@@ -405,7 +405,7 @@ switch (_OP_) {
 		if ($poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featurePoll
-				SET c_timestamp='" . mktime() . "',poll_title='$edit_poll_title',poll_access_code='$edit_poll_access_code',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'" . $query_smsc . "
+				SET c_timestamp='" . time() . "',poll_title='$edit_poll_title',poll_access_code='$edit_poll_access_code',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'" . $query_smsc . "
 				WHERE poll_id='$poll_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS poll has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";

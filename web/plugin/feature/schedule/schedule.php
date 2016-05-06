@@ -97,7 +97,7 @@ switch (_OP_) {
 			// flag_deleted : 1 deleted, other values considered non-deleted
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_featureSchedule (c_timestamp,uid,name,message,schedule_rule,flag_active,flag_deleted)
-				VALUES (" . mktime() . ",'" . $user_config['uid'] . "','$name','$message','$schedule_rule','2','0')";
+				VALUES (" . time() . ",'" . $user_config['uid'] . "','$name','$message','$schedule_rule','2','0')";
 			if ($new_uid = @dba_insert_id($db_query)) {
 				$_SESSION['dialog']['info'][] = _('New SMS schedule been added');
 			} else {
@@ -118,7 +118,7 @@ switch (_OP_) {
 			'flag_deleted' => '0' 
 		), 'AND')) {
 			$status = ($_REQUEST['status'] == 1 ? 1 : 2);
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . mktime() . "', flag_active='$status' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . time() . "', flag_active='$status' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
 				if ($status == 1) {
 					$_SESSION['dialog']['info'][] = _('SMS schedule has been enabled');
@@ -137,7 +137,7 @@ switch (_OP_) {
 			'uid' => $user_config['uid'],
 			'id' => $id 
 		), 'AND')) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . mktime() . "', flag_active='2', flag_deleted='1' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . time() . "', flag_active='2', flag_deleted='1' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS schedule has been deleted');
 			} else {

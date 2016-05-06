@@ -23,7 +23,7 @@ function dlr($smslog_id, $uid, $p_status) {
 	if ($core_config['isdlrd']) {
 		$c_isdlrd = 1;
 		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => mktime(),
+			'c_timestamp' => time(),
 			'flag_processed' => 1,
 			'smslog_id' => $smslog_id,
 			'p_status' => $p_status,
@@ -32,7 +32,7 @@ function dlr($smslog_id, $uid, $p_status) {
 	} else {
 		$c_isdlrd = 0;
 		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => mktime(),
+			'c_timestamp' => time(),
 			'flag_processed' => 2,
 			'smslog_id' => $smslog_id,
 			'p_status' => $p_status,
@@ -78,7 +78,7 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 	// $p_status = 3 --> delivered
 	// logger_print("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "setsmsdeliverystatus");
 	$ok = false;
-	$db_query = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing SET c_timestamp='" . mktime() . "',p_update='" . core_get_datetime() . "',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
+	$db_query = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
 	if ($aff_id = @dba_affected_rows($db_query)) {
 		// logger_print("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
 		$ok = true;

@@ -115,7 +115,7 @@ switch (_OP_) {
 	
 	case "sms_subscribe_status":
 		$ps = $_REQUEST['ps'];
-		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . mktime() . "',subscribe_enable='$ps' WHERE subscribe_id='$subscribe_id'";
+		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . time() . "',subscribe_enable='$ps' WHERE subscribe_id='$subscribe_id'";
 		$db_result = @dba_affected_rows($db_query);
 		if ($db_result > 0) {
 			$_SESSION['dialog']['info'][] = _('SMS subscribe status has been changed');
@@ -450,7 +450,7 @@ switch (_OP_) {
 		if ($subscribe_id && $edit_subscribe_keyword && $edit_subscribe_msg && $edit_unsubscribe_msg && $edit_forward_param && $edit_unknown_format_msg && $edit_already_member_msg) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSubscribe
-				SET c_timestamp='" . mktime() . "', subscribe_keyword='$edit_subscribe_keyword', subscribe_msg='$edit_subscribe_msg',
+				SET c_timestamp='" . time() . "', subscribe_keyword='$edit_subscribe_keyword', subscribe_msg='$edit_subscribe_msg',
 					unsubscribe_msg='$edit_unsubscribe_msg', subscribe_param='$edit_subscribe_param', unsubscribe_param='$edit_unsubscribe_param',
 					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg',
 					duration='$edit_duration',expire_msg='$edit_expire_msg'
@@ -616,7 +616,7 @@ switch (_OP_) {
 		$msg_id = $_POST['msg_id'];
 		if ($subscribe_id && $edit_mbr_msg && $msg_id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . mktime() . "', msg='$edit_mbr_msg',update_datetime='" . core_get_datetime() . "'
+				UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . time() . "', msg='$edit_mbr_msg',update_datetime='" . core_get_datetime() . "'
 				WHERE subscribe_id='$subscribe_id' AND msg_id ='$msg_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('Message has been edited');

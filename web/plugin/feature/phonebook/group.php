@@ -241,7 +241,7 @@ switch (_OP_) {
 						}
 						
 						// update data
-						$db_query = "UPDATE " . _DB_PREF_ . "_featurePhonebook_group SET c_timestamp='" . mktime() . "',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
+						$db_query = "UPDATE " . _DB_PREF_ . "_featurePhonebook_group SET c_timestamp='" . time() . "',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
 						$db_result = dba_query($db_query);
 						
 						$_SESSION['dialog']['info'][] = $string_group_edit . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";

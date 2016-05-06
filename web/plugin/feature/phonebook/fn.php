@@ -190,7 +190,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0, $exact
 		
 		// fixme anton - not elegant at all ^^
 		if (!$user_mobile) {
-			$user_mobile = md5($uid . mktime());
+			$user_mobile = md5($uid . time());
 		}
 		
 		if ($exact) {

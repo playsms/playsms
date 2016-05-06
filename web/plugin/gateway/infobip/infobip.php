@@ -71,7 +71,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayInfobip_config
-				SET c_timestamp='" . mktime() . "',
+				SET c_timestamp='" . time() . "',
 				cfg_username='$up_username',
 				" . $password_change . "
 				cfg_module_sender='$up_module_sender',

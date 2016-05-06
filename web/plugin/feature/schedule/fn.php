@@ -147,7 +147,7 @@ function schedule_hook_playsmsd() {
 			if ($continue) {
 				// set scheduled to next time
 				$items = array(
-					'c_timestamp' => mktime(),
+					'c_timestamp' => time(),
 					'scheduled' => $scheduled 
 				);
 				$conditions = array(

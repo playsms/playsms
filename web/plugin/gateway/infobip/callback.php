@@ -15,7 +15,7 @@ if (!$called_from_hook_call) {
 
 $cb_from = $_REQUEST['sender'];
 $cb_to = $_REQUEST['receiver'];
-$cb_timestamp = ($_REQUEST['datetime'] ? strtotime($_REQUEST['datetime']) : mktime());
+$cb_timestamp = ($_REQUEST['datetime'] ? strtotime($_REQUEST['datetime']) : time());
 $cb_text = $_REQUEST['text'];
 $cb_status = $_REQUEST['status'];
 $cb_charge = $_REQUEST['charge'];

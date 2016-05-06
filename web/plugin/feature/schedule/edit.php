@@ -69,7 +69,7 @@ switch (_OP_) {
 		if ($id && $name && $message) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSchedule
-				SET c_timestamp='" . mktime() . "',name='$name',message='$message', schedule_rule='$schedule_rule'
+				SET c_timestamp='" . time() . "',name='$name',message='$message', schedule_rule='$schedule_rule'
 				WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS schedule been saved');

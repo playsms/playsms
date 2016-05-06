@@ -79,7 +79,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayNexmo_config
-				SET c_timestamp='" . mktime() . "',
+				SET c_timestamp='" . time() . "',
 				cfg_url='$up_url',
 				cfg_api_key='$up_api_key',
 				" . $api_secret_change . "

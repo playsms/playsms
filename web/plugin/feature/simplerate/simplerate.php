@@ -110,7 +110,7 @@ switch (_OP_) {
 		$up_rate = $_POST['up_rate'];
 		$_SESSION['dialog']['info'][] = _('No changes made!');
 		if ($rateid && $up_dst && ($up_prefix >= 0) && ($up_rate >= 0)) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureSimplerate SET c_timestamp='" . mktime() . "',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureSimplerate SET c_timestamp='" . time() . "',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('Rate has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			} else {

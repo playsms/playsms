@@ -156,7 +156,7 @@ switch (_OP_) {
 		$edit_custom_return_as_reply = ($_POST['edit_custom_return_as_reply'] == 'on' ? '1' : '0');
 		$edit_custom_url = $_POST['edit_custom_url'];
 		if ($custom_id && $edit_service_name && $edit_custom_url) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . mktime() . "',service_name='$edit_service_name',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_id='$custom_id'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . time() . "',service_name='$edit_service_name',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_id='$custom_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS custom has been saved');
 				_lastpost_empty();

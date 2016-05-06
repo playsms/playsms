@@ -205,7 +205,7 @@ switch (_OP_) {
 		if ($quiz_id && $edit_quiz_answer && $edit_quiz_question && $edit_quiz_keyword && $edit_quiz_msg_correct && $edit_quiz_msg_incorrect) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureQuiz
-				SET c_timestamp='" . mktime() . "',quiz_keyword='$edit_quiz_keyword',quiz_question='$edit_quiz_question',quiz_answer='$edit_quiz_answer',quiz_msg_correct='$edit_quiz_msg_correct',quiz_msg_incorrect='$edit_quiz_msg_incorrect'" . $smsc_sql . "
+				SET c_timestamp='" . time() . "',quiz_keyword='$edit_quiz_keyword',quiz_question='$edit_quiz_question',quiz_answer='$edit_quiz_answer',quiz_msg_correct='$edit_quiz_msg_correct',quiz_msg_incorrect='$edit_quiz_msg_incorrect'" . $smsc_sql . "
 				WHERE quiz_id='$quiz_id'";
 			if (@ dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS quiz has been saved') . " (" . _('keyword') . ": $edit_quiz_keyword)";
@@ -281,7 +281,7 @@ switch (_OP_) {
 		break;
 	case "sms_quiz_status" :
 		$ps = $_REQUEST['ps'];
-		$db_query = "UPDATE " . _DB_PREF_ . "_featureQuiz SET c_timestamp='" . mktime() . "',quiz_enable='$ps' WHERE quiz_id='$quiz_id'";
+		$db_query = "UPDATE " . _DB_PREF_ . "_featureQuiz SET c_timestamp='" . time() . "',quiz_enable='$ps' WHERE quiz_id='$quiz_id'";
 		$db_result = @ dba_affected_rows($db_query);
 		if ($db_result > 0) {
 			$_SESSION['dialog']['info'][] = _('SMS quiz status has been changed');

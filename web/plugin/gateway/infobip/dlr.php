@@ -81,7 +81,7 @@ if ($status && $smslog_id && $uid) {
 	// $db_query = "SELECT apimsgid FROM "._DB_PREF_."_gatewayInfobip_apidata WHERE smslog_id='$smslog_id'";
 	// $db_result = dba_num_rows($db_query);
 	// if ($db_result > 0) {
-	$db_query = "UPDATE " . _DB_PREF_ . "_gatewayInfobip_apidata SET c_timestamp='" . mktime() . "', status='$status' WHERE smslog_id='$smslog_id'";
+	$db_query = "UPDATE " . _DB_PREF_ . "_gatewayInfobip_apidata SET c_timestamp='" . time() . "', status='$status' WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	
 	// } else {

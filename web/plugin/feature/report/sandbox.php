@@ -153,7 +153,7 @@ switch (_OP_) {
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
 						$up = array(
-							'c_timestamp' => mktime(),
+							'c_timestamp' => time(),
 							'flag_deleted' => '1' 
 						);
 						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(

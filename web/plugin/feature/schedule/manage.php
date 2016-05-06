@@ -279,7 +279,7 @@ switch (_OP_) {
 				$schedule = ($schedule ? core_adjust_datetime($schedule) : '0000-00-00 00:00:00');
 				$db_query = "
 					UPDATE " . _DB_PREF_ . "_featureSchedule_dst
-					SET c_timestamp='" . mktime() . "',name='$name',destination='$destination',schedule='$schedule',scheduled='0000-00-00 00:00:00'
+					SET c_timestamp='" . time() . "',name='$name',destination='$destination',schedule='$schedule',scheduled='0000-00-00 00:00:00'
 					WHERE schedule_id='$schedule_id' AND id='$id'";
 				if (@dba_affected_rows($db_query)) {
 					$_SESSION['dialog']['info'][] = _('Destination has been edited');

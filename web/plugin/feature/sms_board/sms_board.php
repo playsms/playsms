@@ -135,7 +135,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureBoard
-				SET c_timestamp='" . mktime() . "',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'
+				SET c_timestamp='" . time() . "',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'
 				WHERE board_id='$board_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS board has been saved') . " (" . _('keyword') . ": $edit_board_keyword)";

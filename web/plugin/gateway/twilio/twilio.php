@@ -66,7 +66,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayTwilio_config
-				SET c_timestamp='" . mktime() . "',
+				SET c_timestamp='" . time() . "',
 				cfg_callback_url='$up_callback_url',
 				cfg_account_sid='$up_account_sid',
 				" . $auth_token_change . "

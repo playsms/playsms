@@ -70,7 +70,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayClickatell_config
-				SET c_timestamp='" . mktime() . "',
+				SET c_timestamp='" . time() . "',
 				cfg_api_id='$up_api_id',
 				cfg_username='$up_username',
 				" . $password_change . "

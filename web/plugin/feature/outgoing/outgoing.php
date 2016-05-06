@@ -146,7 +146,7 @@ switch (_OP_) {
 		
 		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
 		if ($rid && $up_dst) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . mktime() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . time() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . outgoing_display_prefix($up_prefix) . ")";
 			} else {

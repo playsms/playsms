@@ -143,7 +143,7 @@ switch (_OP_) {
 				$t_title = $_POST['t_title'];
 				$t_text = $_POST['t_text'];
 				if ($t_title && $t_text) {
-					$db_query = "UPDATE "._DB_PREF_."_featureMsgtemplate SET c_timestamp='".mktime()."',t_title='$t_title', t_text='$t_text' WHERE tid='$tid'";
+					$db_query = "UPDATE "._DB_PREF_."_featureMsgtemplate SET c_timestamp='".time()."',t_title='$t_title', t_text='$t_text' WHERE tid='$tid'";
 					$db_result = dba_affected_rows($db_query);
 					if ($db_result > 0) {
 						$_SESSION['dialog']['info'][] = _('Message template has been edited');

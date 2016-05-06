@@ -413,7 +413,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureAutoreply_scenario 
-				SET c_timestamp='" . mktime() . "'," . $autoreply_scenario_param_list . "autoreply_scenario_result='$edit_autoreply_scenario_result' 
+				SET c_timestamp='" . time() . "'," . $autoreply_scenario_param_list . "autoreply_scenario_result='$edit_autoreply_scenario_result' 
 				WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
 			if ($db_result = @dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS autoreply scenario has been edited');

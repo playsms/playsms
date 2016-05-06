@@ -614,7 +614,7 @@ if (_OP_) {
 $json['error_string'] = $ws_error_string[$json['error']];
 
 // add timestamp
-$json['timestamp'] = mktime();
+$json['timestamp'] = time();
 
 if ($log_this) {
 	logger_print("u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_ . ' timestamp:' . $json['timestamp'] . ' status:' . $json['status'] . ' error:' . $json['error'] . ' error_string:' . $json['error_string'], 3, "webservices");

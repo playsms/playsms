@@ -81,7 +81,7 @@ switch (_OP_) {
 		if ($up_master && $up_username && $up_token) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayUplink_config
-				SET c_timestamp='" . mktime() . "',
+				SET c_timestamp='" . time() . "',
 				cfg_master='$up_master',
 				cfg_additional_param='$up_additional_param',
 				cfg_username='$up_username',

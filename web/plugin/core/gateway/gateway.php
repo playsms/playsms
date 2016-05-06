@@ -63,7 +63,7 @@ switch (_OP_) {
 		
 		$c_name = core_sanitize_alphanumeric(strtolower($_REQUEST['name']));
 		if (!$c_name) {
-			$c_name = mktime();
+			$c_name = time();
 		}
 		
 		$smsc = gateway_get_smscbyname($c_name);

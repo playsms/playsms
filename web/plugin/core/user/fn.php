@@ -515,7 +515,7 @@ function user_remove($uid, $forced = FALSE) {
 					}
 					
 					if (dba_update(_DB_PREF_ . '_tblUser', array(
-						'c_timestamp' => mktime(),
+						'c_timestamp' => time(),
 						'flag_deleted' => 1 
 					), array(
 						'flag_deleted' => 0,
@@ -569,7 +569,7 @@ function user_edit_conf($uid, $data = array()) {
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 	if ($uid) {
 		if ($up['new_token']) {
-			$up['token'] = md5(mktime() . $uid . _PID_);
+			$up['token'] = md5(time() . $uid . _PID_);
 		}
 		unset($up['new_token']);
 		
