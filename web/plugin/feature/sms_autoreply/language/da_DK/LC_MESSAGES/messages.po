@@ -64,7 +64,7 @@ msgid "Reply"
 msgstr "Svar"
 
 msgid "SMS"
-msgstr "SMSSMSC"
+msgstr "SMS"
 
 msgid "SMS autoreply has been deleted"
 msgstr "SMS autosvar er blevet slettet"
