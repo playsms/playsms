@@ -585,7 +585,17 @@ if (_OP_) {
 			}
 			$log_this = FALSE;
 			break;
-		
+
+		case "STOPLIST":
+			if ($u = webservices_validate($h, $u)) {
+				$json = webservices_stoplist($u, $from);
+			} else {
+				$json['status'] = 'ERR';
+				$json['error'] = '100';
+			}
+			$log_this = TRUE;
+			break;
+
 		default :
 			if (_OP_) {
 				
