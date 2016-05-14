@@ -47,6 +47,7 @@ function playsmsd_pid_get($process) {
  */
 function playsmsd_pids() {
 	$pids['schedule'] = playsmsd_pid_get('schedule');
+	$pids['ratesmsd'] = playsmsd_pid_get('ratesmsd');
 	$pids['dlrssmsd'] = playsmsd_pid_get('dlrssmsd');
 	$pids['recvsmsd'] = playsmsd_pid_get('recvsmsd');
 	$pids['sendsmsd'] = playsmsd_pid_get('sendsmsd');
@@ -59,6 +60,7 @@ function playsmsd_pids() {
 function playsmsd_pids_show() {
 	$pids = playsmsd_pids();
 	echo "schedule at pid " . $pids['schedule'] . "\n";
+	echo "ratesmsd at pid " . $pids['ratesmsd'] . "\n";
 	echo "dlrssmsd at pid " . $pids['dlrssmsd'] . "\n";
 	echo "recvsmsd at pid " . $pids['recvsmsd'] . "\n";
 	echo "sendsmsd at pid " . $pids['sendsmsd'] . "\n";
@@ -100,6 +102,7 @@ function playsmsd_start() {
 	
 	// run playsmsd services
 	shell_exec("nohup $PLAYSMSD_COMMAND schedule >/dev/null 2>&1 &");
+	shell_exec("nohup $PLAYSMSD_COMMAND ratesmsd >/dev/null 2>&1 &");
 	shell_exec("nohup $PLAYSMSD_COMMAND dlrssmsd >/dev/null 2>&1 &");
 	shell_exec("nohup $PLAYSMSD_COMMAND recvsmsd >/dev/null 2>&1 &");
 	shell_exec("nohup $PLAYSMSD_COMMAND sendsmsd >/dev/null 2>&1 &");
@@ -445,6 +448,10 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					playsmsd();
 					break;
 				
+				case 'ratesmsd':
+					rate_update();
+					break;
+
 				case 'dlrssmsd':
 					dlrd();
 					getsmsstatus();
