@@ -33,7 +33,7 @@ function credit_getbalance($uid) {
 	}
 	
 	$balance = (float) $balance;
-	$balance = number_format($balance, 3, '.', '');
+	$balance = number_format($balance, 2, '.', '');
 	
 	return $balance;
 }
@@ -123,7 +123,7 @@ function credit_hook_webservices_output($operation, $requests, $returns) {
 	if (auth_isvalid()) {
 		$balance = (float) credit_getbalance($user_config['uid']);
 	}
-	$balance = number_format($balance, 3, '.', '');
+	$balance = number_format($balance, 2, '.', '');
 	
 	$returns['modified'] = TRUE;
 	$returns['param']['content'] = $balance;
@@ -193,7 +193,7 @@ function credit_hook_rate_getusercredit($username) {
 		$balance = $db_row['credit'];
 	}
 	$balance = (float) ($balance ? $balance : 0);
-	$balance = number_format($balance, 3, '.', '');
+	$balance = number_format($balance, 2, '.', '');
 	
 	return $balance;
 }
@@ -224,7 +224,7 @@ function credit_hook_rate_update($username) {
 			// calculate balance
 			$balance = $credit - $charges;
 			$balance = (float) ($balance ? $balance : 0);
-			$balance = number_format($balance, 3, '.', '');
+			$balance = number_format($balance, 2, '.', '');
 			
 			// update user's credit field with balance
 			$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";

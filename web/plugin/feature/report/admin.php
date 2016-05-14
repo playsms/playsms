@@ -129,6 +129,6 @@ $tpl['vars']['sum_num_rows_sent'] = $sum_num_rows_sent;
 $tpl['vars']['sum_num_rows_delivered'] = $sum_num_rows_delivered;
 $tpl['vars']['sum_num_rows_failed'] = $sum_num_rows_failed;
 $tpl['vars']['sum_billing'] = $sum_billing;
-$tpl['vars']['sum_credit'] = number_format($sum_credit, 3, '.', '');
+$tpl['vars']['sum_credit'] = number_format($sum_credit, 2, '.', '');
 
 _p(tpl_apply($tpl));
