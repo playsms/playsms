@@ -117,16 +117,16 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	$uid = user_username2uid($username);
 	list($count, $rate, $charge) = rate_getcharges($uid, $sms_len, $unicode, $sms_to);
 
-	// sender's
-	$credit = rate_getusercredit($username);
-	$balance = $credit - $charge;
-
 	// parent's when sender is a subuser
 	$parent_uid = user_getparentbyuid($uid);
 	if ($parent_uid) {
 		$username_parent = user_uid2username($parent_uid);
 		$credit_parent = rate_getusercredit($username_parent);
 		$balance_parent = $credit_parent - $charge;
+	} else {
+		// sender's
+		$credit = rate_getusercredit($username);
+		$balance = $credit - $charge;
 	}
 
 	if ($parent_uid) {
@@ -179,63 +179,51 @@ function simplerate_hook_rate_deduct($smslog_id) {
 				$balance_parent = $credit_parent - $charge;
 			}
 
-			// if sender have parent then deduct parent first
-			if ($parent_uid) {
-				if (!rate_setusercredit($parent_uid, $balance_parent)) {
-					return FALSE;
-				}
-				logger_print("parent uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id . " msglen:" . $p_msg_len . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " credit_parent:" . $credit_parent . " balance_parent:" . $balance_parent, 2, "simplerate deduct");
-			}
+			if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
+				logger_print("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 
-			if (rate_setusercredit($uid, $balance)) {
-				logger_print("user uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id . " msglen:" . $p_msg_len . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " credit:" . $credit . " balance:" . $balance, 2, "simplerate deduct");
-				if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
-					logger_print("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
-
-					// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
+				// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
 
 
-					$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
-					_log('credit_lowest_limit:' . $credit_lowest_limit . ' balance:' . $balance . ' charge:' . $charge, 3, 'simplerate deduct');
+				$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
+				_log('credit_lowest_limit:' . $credit_lowest_limit . ' balance:' . $balance . ' charge:' . $charge, 3, 'simplerate deduct');
 
-					$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
-					$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
+				$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
+				$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
 
-					if ($charge && $balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
+				if ($charge && $balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
 
-						// set notified
-						registry_update($uid, 'feature', 'credit', array(
-							'lowest_limit_notif' => TRUE
-						));
+					// set notified
+					registry_update($uid, 'feature', 'credit', array(
+						'lowest_limit_notif' => TRUE
+					));
 
-						// notif admins
-						$admins = user_getallwithstatus(2);
-						foreach ($admins as $admin) {
-							$credit_message_to_admins = sprintf(_('Username %s with account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-							recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $admin['username'], $credit_message_to_admins);
-						}
-
-						// notif parent_uid if exists
-						if ($parent_uid && $username_parent) {
-							$credit_message_to_parent = sprintf(_('Your subuser with username %s and account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-							recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $username_parent, $credit_message_to_parent);
-						}
-
-						// notif uid
-						$sender_username = ($username_parent ? $username_parent : _SYSTEM_SENDER_ID_);
-						$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
-						recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
-
-						_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, 'simplerate deduct');
+					// notif admins
+					$admins = user_getallwithstatus(2);
+					foreach ($admins as $admin) {
+						$credit_message_to_admins = sprintf(_('Username %s with account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
+						recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $admin['username'], $credit_message_to_admins);
 					}
 
-					return TRUE;
-				} else {
-					logger_print("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
-					return FALSE;
+					// notif parent_uid if exists
+					if ($parent_uid && $username_parent) {
+						$credit_message_to_parent = sprintf(_('Your subuser with username %s and account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
+						recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $username_parent, $credit_message_to_parent);
+					}
+
+					// notif uid
+					$sender_username = ($username_parent ? $username_parent : _SYSTEM_SENDER_ID_);
+					$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
+					recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
+
+					_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, 'simplerate deduct');
 				}
+
+				return TRUE;
 			} else {
-				logger_print("rate deduct failed due to unable to save to db uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+				logger_print("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+
+				return FALSE;
 			}
 		} else {
 			logger_print("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
@@ -261,39 +249,8 @@ function simplerate_hook_rate_refund($smslog_id) {
 		$unicode = $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {
 			if (billing_rollback($smslog_id)) {
-				$bill = billing_getdata($smslog_id);
-				$credit = $bill['credit'];
-				$charge = $bill['charge'];
-				$status = $bill['status'];
-				logger_print("rolling smslog_id:" . $smslog_id, 2, "simplerate refund");
-				if ($status == '2') {
-
-					// sender's
-					$username = user_uid2username($uid);
-					$credit = rate_getusercredit($username);
-					$balance = $credit + $charge;
-
-					// parent's when sender is a subuser
-					$parent_uid = user_getparentbyuid($uid);
-					if ($parent_uid) {
-						$username_parent = user_uid2username($parent_uid);
-						$credit_parent = rate_getusercredit($username_parent);
-						$balance_parent = $credit_parent + $charge;
-					}
-
-					// if sender have parent then deduct parent first
-					if ($parent_uid) {
-						if (!rate_setusercredit($parent_uid, $balance_parent)) {
-							return FALSE;
-						}
-						logger_print("parent uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id . " credit_parent:" . $credit_parent . " balance_parent:" . $balance_parent, 2, "simplerate refund");
-					}
-
-					if (rate_setusercredit($uid, $balance)) {
-						logger_print("user uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id . " credit:" . $credit . " balance:" . $balance, 2, "simplerate refund");
-						return TRUE;
-					}
-				}
+				
+				return TRUE;
 			}
 		}
 	}

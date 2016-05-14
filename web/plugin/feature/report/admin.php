@@ -83,7 +83,7 @@ for ($i = 0; $i < count($iset); $i++) {
 foreach ($rows as $row) {
 	$c_username = $row['username'];
 	$c_uid = $row['uid'];
-	$c_credit = $row['credit'];
+	$c_credit = rate_getusercredit($c_username);
 	$c_status = $row['status'];
 	
 	// BILLING

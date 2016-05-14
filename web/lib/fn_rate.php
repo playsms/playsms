@@ -22,10 +22,6 @@ function rate_getbyprefix($sms_to) {
 	return core_call_hook();
 }
 
-function rate_setusercredit($uid, $balance = 0) {
-	return core_call_hook();
-}
-
 function rate_getusercredit($username) {
 	return core_call_hook();
 }

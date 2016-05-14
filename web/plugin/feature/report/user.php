@@ -33,7 +33,7 @@ foreach ($data as $a) {
 }
 
 // CREDIT
-$credit = $user_config['credit'];
+$credit = rate_getusercredit($user_config['username']);
 
 // p_status values mapped to tpl array elements
 $map_values = array(

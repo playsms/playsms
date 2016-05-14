@@ -351,7 +351,7 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 				}
 				
 				if ($ret['status']) {
-					$data['credit'] = user_getfieldbyuid($new_uid, 'credit');
+					$data['credit'] = rate_getusercredit($data['username']);
 					$data['register_password'] = $register_password;
 					
 					_log('registered status:' . $data['status'] . ' u:' . $data['username'] . ' uid:' . $ret['uid'] . ' email:' . $data['email'] . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' mobile:' . $data['mobile'] . ' credit:' . $data['credit'], 2, 'user_add');

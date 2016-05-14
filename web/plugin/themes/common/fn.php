@@ -49,7 +49,7 @@ function common_hook_themes_submenu($content = '') {
 	$logged_in = $user_config['username'];
 	$tooltips_logged_in = _('Logged in as') . ' ' . $logged_in;
 	
-	$credit = $user_config['credit'];
+	$credit = rate_getusercredit($user_config['username']);
 	$tooltips_credit = _('Your credit');
 	
 	$ret = '<div>';

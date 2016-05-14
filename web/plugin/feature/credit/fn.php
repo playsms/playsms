@@ -160,22 +160,11 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 	// update user's credit
 	if ($id) {
 		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
-		if (rate_setusercredit($uid, $balance)) {
-			
-			// set never been notified
-			registry_update($uid, 'feature', 'credit', array(
-				'lowest_limit_notif' => FALSE 
-			));
-			
-			_log('updated uid:' . $uid . ' credit:' . $balance, 3, 'credit_add');
-			return TRUE;
-		} else {
-			_log('fail to update uid:' . $uid . ' credit:' . $balance, 3, 'credit_add');
-			dba_remove($db_table, array(
-				'id' => $id 
-			));
-			return FALSE;
-		}
+
+		// set never been notified
+		registry_update($uid, 'feature', 'credit', array(
+			'lowest_limit_notif' => FALSE 
+		));
 	} else {
 		_log('fail to save parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
 		return FALSE;
@@ -188,38 +177,6 @@ function credit_hook_rate_deductusercredit($uid, $amount) {
 	$amount = -1 * abs($amount);
 	
 	return credit_add($uid, $amount);
-}
-
-function credit_hook_rate_setusercredit($uid, $balance = 0) {
-	$balance = (float) $balance;
-	
-	$user = user_getdatabyuid($uid);
-	if ($user['uid']) {
-		
-		if ($user['credit'] != $balance) {
-			
-			_log("saving uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-			
-			$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . time() . "',credit='$balance' WHERE flag_deleted='0' AND uid='$uid'";
-			if ($db_result = @dba_affected_rows($db_query)) {
-				_log("saved uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-				
-				return TRUE;
-			} else {
-				_log("unable to save uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-				
-				return FALSE;
-			}
-		} else {
-			_log("no changes uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-			
-			return TRUE;
-		}
-	} else {
-		_log("user does not exists uid:" . $uid . " balance:" . $balance, 2, "credit_hook_rate_setusercredit");
-		
-		return FALSE;
-	}
 }
 
 function credit_hook_rate_getusercredit($username) {
