@@ -199,15 +199,15 @@ function credit_hook_rate_getusercredit($username) {
 }
 
 function credit_hook_rate_update($username) {
-	if (!core_playsmsd_timer(60)) {
+	if (!core_playsmsd_timer(30)) {
 		return;
 	}
 	
 	if (!$username) {
-		$admins = user_getallwithstatus(2);
-		
-		foreach ($admins as $user) {
-			$c_uid = $user['uid'];
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$c_uid = $db_row['uid'];
 			
 			// get credit
 			$db_query = "SELECT SUM(amount) AS credit FROM " . _DB_PREF_ . "_featureCredit WHERE uid='$c_uid' AND flag_deleted='0'";
