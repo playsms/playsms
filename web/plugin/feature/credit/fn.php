@@ -143,7 +143,7 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 	
 	if (abs($amount) <= 0) {
 		_log('amount cannot be zero. amount:[' . $amount . ']', 2, 'credit_hook_rate_addusercredit');
-
+		
 		return FALSE;
 	}
 	
@@ -166,11 +166,11 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 		));
 		
 		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
-
+		
 		return TRUE;
 	} else {
 		_log('fail to save parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
-
+		
 		return FALSE;
 	}
 }
@@ -196,4 +196,39 @@ function credit_hook_rate_getusercredit($username) {
 	$balance = number_format($balance, 3, '.', '');
 	
 	return $balance;
+}
+
+function credit_hook_rate_update($username) {
+	if (!core_playsmsd_timer(60)) {
+		return;
+	}
+	
+	if (!$username) {
+		$admins = user_getallwithstatus(2);
+		
+		foreach ($admins as $user) {
+			$c_uid = $user['uid'];
+			
+			// get credit
+			$db_query = "SELECT SUM(amount) AS credit FROM " . _DB_PREF_ . "_featureCredit WHERE uid='$c_uid' AND flag_deleted='0'";
+			$db_result = dba_query($db_query);
+			$db_row = dba_fetch_array($db_result);
+			$credit = $db_row['credit'];
+			
+			// get billing
+			$db_query = "SELECT SUM(A.charge) AS charges FROM " . _DB_PREF_ . "_tblBilling A LEFT JOIN " . _DB_PREF_ . "_tblSMSOutgoing B ON A.smslog_id=B.smslog_id AND A.status='1' AND B.uid='$c_uid'";
+			$db_result = dba_query($db_query);
+			$db_row = dba_fetch_array($db_result);
+			$charges = $db_row['charges'];
+			
+			// calculate balance
+			$balance = $credit - $charges;
+			$balance = (float) ($balance ? $balance : 0);
+			$balance = number_format($balance, 3, '.', '');
+			
+			// update user's credit field with balance
+			$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";
+			dba_query($db_query);
+		}
+	}
 }
