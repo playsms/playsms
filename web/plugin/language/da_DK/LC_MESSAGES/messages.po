@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.7\n"
 
 msgid "1 Day"
 msgstr "1 dag"
@@ -469,9 +469,8 @@ msgstr "Callback hemmelighed"
 msgid "Callback URL"
 msgstr "Callback URL"
 
-#, fuzzy
 msgid "Callback URL authcode"
-msgstr "Callback URL"
+msgstr "Callback URL authkode"
 
 msgid "Cancel"
 msgstr "Annuller"
@@ -852,7 +851,7 @@ msgid "Email to SMS configuration has been saved and service enabled"
 msgstr "E-mail til SMS konfiguration er blevet gemt og servicen er aktiveret"
 
 msgid "Empty callback URL to set default"
-msgstr ""
+msgstr "Tom callback URL der skal gøres til standard"
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
@@ -1123,7 +1122,7 @@ msgid "Features"
 msgstr "Funktioner"
 
 msgid "Fill authentication code to secure callback URL"
-msgstr ""
+msgstr "Udfyld godkendelseskode for at sikre callback URL"
 
 msgid "Fill the password field to change password"
 msgstr "Udfyld adgangskodefeltet for at skifte adgangskode"
@@ -1209,9 +1208,8 @@ msgstr "Gateway port"
 msgid "Gateways"
 msgstr "Gateways"
 
-#, fuzzy
 msgid "Generic send SMS URL"
-msgstr "Jasmin afsend SMS URL"
+msgstr "Generisk afsend SMS URL"
 
 msgid "Go"
 msgstr "Gå"
@@ -1579,9 +1577,8 @@ msgstr "Håndter gammu"
 msgid "Manage gateway and SMSC"
 msgstr "Håndter gateway og SMSC"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "Håndter afsender ID"
+msgstr "Håndter generisk"
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
@@ -2115,9 +2112,8 @@ msgstr "Registrer en konto"
 msgid "Registered"
 msgstr "Registreret"
 
-#, fuzzy
 msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
-msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
+msgstr "Gateway der vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Remote is on"
 msgstr "Fjernsystem er tændt"
@@ -2268,7 +2264,6 @@ msgstr "SMS autosvar system er blevet redigeret"
 msgid "SMS autoreply scenario parameter"
 msgstr "SMS autosvar system parameter"
 
-#, fuzzy
 msgid "SMS autoreply scenario reply"
 msgstr "SMS autosvar system svarer med"
 
@@ -2335,9 +2330,8 @@ msgstr "SMS videresend paramter"
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
 
-#, fuzzy
 msgid "SMS is case-insensitive"
-msgstr "SMS quiz er blevet gemt"
+msgstr "SMS er ikke versalfølsom"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
@@ -2734,9 +2728,8 @@ msgstr "DomÃ¦net er allerede konfigureret af en anden bruger"
 msgid "Themes"
 msgstr "Temaer"
 
-#, fuzzy
 msgid "This field is not mandatory"
-msgstr "Dette felt er påkrævet"
+msgstr "Dette felt er ikke krævet"
 
 msgid "This field is required"
 msgstr "Dette felt er påkrævet"
@@ -3076,9 +3069,8 @@ msgstr "Din callback URL skal være tilgængelig fra Nexmo"
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Din callback URL skal være tilgængelig fra OpenVox"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from remote gateway"
-msgstr "Din callback URL skal være tilgængelig fra Nexmo"
+msgstr "Din callback URL skal være tilgængelig fra fjern gateway"
 
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Din callback URL skal være tilgængelig fra twilio"
@@ -3089,9 +3081,8 @@ msgstr "Dit valg"
 msgid "Your credit"
 msgstr "Din kredit"
 
-#, fuzzy
 msgid "Your current callback URL authcode is"
-msgstr "Din aktuelle callback URL er"
+msgstr "Din aktuelle callback URL authkode er"
 
 msgid "Your current callback URL is"
 msgstr "Din aktuelle callback URL er"

@@ -291,6 +291,19 @@ Returns    | return codes
 
 Injected message will be treated as a valid incoming SMS.
 
+### Stoplist Number
+
+Will add a number to the stoplist.
+
+Parameters | Name or description
+---------- | --------------------
+Operation  | `stoplist`
+Mandatory  | `u` `h` `from`
+Optional   | none
+Returns    |  return codes (failure code is 627)
+
+Number used in the 'from' field will be added to the stoplist feature to globally prevent outgoing messages sending to it.
+example: `http://yoursite.com/playsms/index.php?app=ws&u=<admin user>&h=<webkey>&op=stoplist&from=<number to be added>`
 
 ### Add account
 

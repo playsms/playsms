@@ -570,6 +570,32 @@ function webservices_inject($c_username, $from, $msg, $recvnum = '', $smsc = '')
 	return $json;
 }
 
+function webservices_stoplist($c_username,$from) {
+	if ($c_username && $from) {
+		//check for existing number in table
+		$conditions = array(
+			'mobile' => $from
+		);
+		$row = dba_search(_DB_PREF_ . '_featureStoplist', 'mobile', $conditions);
+		if (count($row) === 0) {
+			//remove leading plus sign
+			$from = ltrim($from, '+');
+			$items = array(
+				'uid' => 1,
+				'mobile' => $from
+			);
+			//add the number to stoplist using admin uid
+			dba_add(_DB_PREF_ . '_featureStoplist', $items);
+			$json['status'] = 'OK';
+			$json['error'] = '0';
+		} else {
+			$json['status'] = 'ERR';
+			$json['error'] = '627';
+		}
+		return $json;
+	}
+}
+
 function webservices_account_add($data = array()) {
 	$ret = user_add($data, TRUE);
 	if ($ret['status']) {
