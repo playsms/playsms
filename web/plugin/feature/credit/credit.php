@@ -273,7 +273,7 @@ switch (_OP_) {
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['dialog']['info'][] .= _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
+								$_SESSION['dialog']['info'][] .= _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							} else {
 								$_SESSION['dialog']['info'][] .= _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
@@ -309,7 +309,7 @@ switch (_OP_) {
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['dialog']['info'][] .= _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ' ' . _('balance') . ':' . $current_balance . ')';
+								$_SESSION['dialog']['info'][] .= _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							} else {
 								$_SESSION['dialog']['info'][] .= _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
