@@ -241,13 +241,21 @@ function _credit_update_user($uid, $balance) {
 	}
 }
 
-function _credit_rate_update($uid) {
-	if ($c_uid = (int) $uid) {
+function _credit_rate_update($uid, $status) {
+	if (($c_uid = (int) $uid) && ($c_status = (int) $status)) {
 		// get credit
 		$credit = _credit_get_credit($c_uid);
 		
 		// get billing
 		$billing = _credit_get_billing($c_uid);
+		
+		// get billing for subusers if this is admin or user
+		if (($c_status == 2) || ($c_status == 3)) {
+			$subusers = user_getsubuserbyuid($c_uid);
+			foreach ($subusers as $subuser) {
+				$billing += _credit_get_billing($subuser['uid']);
+			}
+		}
 		
 		// calculate balance
 		$balance = _credit_calculate_balance($credit, $billing);
@@ -263,7 +271,8 @@ function credit_hook_rate_update($username) {
 	}
 	
 	if (trim($username) && ($c_uid = user_username2uid($username))) {
-		_credit_rate_update($c_uid);
+		$c_status = user_getfieldbyuid($c_uid, 'status');
+		_credit_rate_update($c_uid, $c_status);
 	} else {
 		$db_query = "SELECT uid, status FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
 		$db_result = dba_query($db_query);
