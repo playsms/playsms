@@ -143,6 +143,7 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 	
 	if (abs($amount) <= 0) {
 		_log('amount cannot be zero. amount:[' . $amount . ']', 2, 'credit_hook_rate_addusercredit');
+
 		return FALSE;
 	}
 	
@@ -159,14 +160,17 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 	
 	// update user's credit
 	if ($id) {
-		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
-
 		// set never been notified
 		registry_update($uid, 'feature', 'credit', array(
 			'lowest_limit_notif' => FALSE 
 		));
+		
+		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
+
+		return TRUE;
 	} else {
 		_log('fail to save parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
+
 		return FALSE;
 	}
 }
