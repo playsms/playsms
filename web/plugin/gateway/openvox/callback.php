@@ -39,7 +39,7 @@ if (is_array($requests)) {
 }
 
 // incoming message
-$sms_datetime = core_get_datetime();
+$sms_datetime = core_display_datetime(core_get_datetime());
 $sms_sender = $requests['phonenumber'];
 $message = htmlspecialchars_decode(urldecode($requests['message']));
 $sms_receiver = core_sanitize_sender($requests['port']);
