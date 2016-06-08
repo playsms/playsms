@@ -190,9 +190,9 @@ function credit_hook_rate_getusercredit($username) {
 		$db_query = "SELECT credit FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$balance = $db_row['credit'];
+		$balance = (float) $db_row['credit'];
 	}
-	$balance = (float) ($balance ? $balance : 0);
+
 	$balance = number_format($balance, 2, '.', '');
 	
 	return $balance;
@@ -205,9 +205,11 @@ function _credit_get_credit($uid) {
 		$db_query = "SELECT SUM(amount) AS credit FROM " . _DB_PREF_ . "_featureCredit WHERE uid='$c_uid' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$credit = $db_row['credit'];
+		$credit = (float) $db_row['credit'];
 	}
 	
+	$credit = number_format($credit, 2, '.', '');
+
 	return $credit;
 }
 
@@ -215,12 +217,14 @@ function _credit_get_billing($uid) {
 	$billing = 0;
 	
 	if ($c_uid = (int) $uid) {
-		$db_query = "SELECT SUM(A.charge) AS billing FROM " . _DB_PREF_ . "_tblBilling A LEFT JOIN " . _DB_PREF_ . "_tblSMSOutgoing B ON A.smslog_id=B.smslog_id AND A.status='1' AND B.uid='$c_uid'";
+		$db_query = "SELECT SUM(A.charge) AS billing FROM " . _DB_PREF_ . "_tblBilling A JOIN " . _DB_PREF_ . "_tblSMSOutgoing B ON A.smslog_id=B.smslog_id AND A.status='1' AND B.uid='$c_uid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$billing = $db_row['billing'];
+		$billing = (float) $db_row['billing'];
 	}
 	
+	$billing = number_format($billing, 2, '.', '');
+
 	return $billing;
 }
 
@@ -236,7 +240,7 @@ function _credit_update_user($uid, $balance) {
 	$balance = (float) $balance;
 	
 	if ($c_uid = (int) $uid) {
-		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";
+		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . time() . "', credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";
 		dba_query($db_query);
 	}
 }
@@ -260,25 +264,21 @@ function _credit_rate_update($uid, $status) {
 		// calculate balance
 		$balance = _credit_calculate_balance($credit, $billing);
 		
+		_log("rate update uid:" . $c_uid . " credit:" . $credit ." billing:" . $billing . " balance:" . $balance, 3, "_credit_rate_update");
+		
 		// update user's credit field with balance
 		_credit_update_user($c_uid, $balance);
 	}
 }
 
-function credit_hook_rate_update($username) {
+function credit_hook_rate_update() {
 	if (!core_playsmsd_timer(30)) {
 		return;
 	}
 	
-	if (trim($username) && ($c_uid = user_username2uid($username))) {
-		$c_status = user_getfieldbyuid($c_uid, 'status');
-		_credit_rate_update($c_uid, $c_status);
-	} else {
-		$db_query = "SELECT uid, status FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
-		$db_result = dba_query($db_query);
-		while ($db_row = dba_fetch_array($db_result)) {
-			$c_uid = $db_row['uid'];
-			_credit_rate_update($c_uid);
-		}
+	$db_query = "SELECT uid, status FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		_credit_rate_update($db_row['uid'], $db_row['status']);
 	}
 }

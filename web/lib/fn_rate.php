@@ -24,11 +24,8 @@ function rate_getbyprefix($sms_to) {
 
 /**
  * Calculate user's credit balance and save it in user's credit field
- *
- * @param string $username
- *        Username
  */
-function rate_update($username) {
+function rate_update() {
 	return core_call_hook();
 }
 
