@@ -271,14 +271,18 @@ function _credit_rate_update($uid, $status) {
 	}
 }
 
-function credit_hook_rate_update() {
-	if (!core_playsmsd_timer(30)) {
-		return;
-	}
-	
+function credit_rate_update() {
 	$db_query = "SELECT uid, status FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		_credit_rate_update($db_row['uid'], $db_row['status']);
 	}
+}
+
+function credit_hook_rate_update() {
+	if (!core_playsmsd_timer(30)) {
+		return;
+	}
+
+	credit_rate_update();
 }
