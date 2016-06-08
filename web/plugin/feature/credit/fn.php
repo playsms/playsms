@@ -264,7 +264,7 @@ function _credit_rate_update($uid, $status) {
 		// calculate balance
 		$balance = _credit_calculate_balance($credit, $billing);
 		
-		_log("rate update uid:" . $c_uid . " credit:" . $credit ." billing:" . $billing . " balance:" . $balance, 3, "_credit_rate_update");
+		//_log("rate update uid:" . $c_uid . " credit:" . $credit ." billing:" . $billing . " balance:" . $balance, 3, "_credit_rate_update");
 		
 		// update user's credit field with balance
 		_credit_update_user($c_uid, $balance);
