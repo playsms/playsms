@@ -229,6 +229,21 @@ function _credit_get_billing($uid) {
 	return $billing;
 }
 
+function _credit_get_billing_parent($parent_uid) {
+	$billing = 0;
+	
+	if ($c_parent_uid = (int) $parent_uid) {
+		$db_query = "SELECT SUM(A.charge) AS billing FROM " . _DB_PREF_ . "_tblBilling A INNER JOIN " . _DB_PREF_ . "_tblSMSOutgoing B ON A.smslog_id=B.smslog_id AND A.status='1' AND B.parent_uid='$c_parent_uid'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$billing = (float) $db_row['billing'];
+	}
+	
+	$billing = number_format($billing, 2, '.', '');
+	
+	return $billing;
+}
+
 function _credit_calculate_balance($credit, $billing) {
 	$balance = (float) $credit - (float) $billing;
 	$balance = (float) ($balance ? $balance : 0);
@@ -256,10 +271,7 @@ function _credit_update($uid, $status) {
 		
 		// get billing for subusers if this is admin or user
 		if (($c_status == 2) || ($c_status == 3)) {
-			$subusers = user_getsubuserbyuid($c_uid);
-			foreach ($subusers as $subuser) {
-				$billing += _credit_get_billing($subuser['uid']);
-			}
+			$billing += _credit_get_billing_parent($c_uid);
 		}
 		
 		// calculate balance

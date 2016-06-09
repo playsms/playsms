@@ -372,16 +372,8 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 }
 
 function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $queue_code = '', $smsc = '') {
-	global $user_config;
 	$ok = false;
-	
-	$user = $user_config;
-	if ($uid && ($user['uid'] != $uid)) {
-		$user = user_getdatabyuid($uid);
-	}
-	
-	$username = $user['username'];
-	
+
 	$sms_to = sendsms_getvalidnumber($sms_to);
 	
 	// now on sendsms()
@@ -393,7 +385,11 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// htmlspecialchars_decode to message and footer
 	$sms_msg = htmlspecialchars_decode($sms_msg);
 	$sms_footer = htmlspecialchars_decode($sms_footer);
-	
+
+	// user data
+	$user = user_getdatabyuid($uid);
+	$uid = $user['uid'];
+
 	// sent sms will be handled by plugins first
 	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc);
 	if ($ret_intercept['modified']) {
@@ -401,17 +397,33 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$sms_footer = ($ret_intercept['param']['sms_footer'] ? $ret_intercept['param']['sms_footer'] : $sms_footer);
 		$sms_to = ($ret_intercept['param']['sms_to'] ? $ret_intercept['param']['sms_to'] : $sms_to);
 		$sms_msg = ($ret_intercept['param']['sms_msg'] ? $ret_intercept['param']['sms_msg'] : $sms_msg);
-		$uid = ($ret_intercept['param']['uid'] ? $ret_intercept['param']['uid'] : $uid);
+		
+		// update user data if intercepted
+		if ($ret_intercept['param']['uid']) {
+			$uid = $ret_intercept['param']['uid'];
+			$user = user_getdatabyuid($uid);
+		}
+		
 		$gpid = ($ret_intercept['param']['gpid'] ? $ret_intercept['param']['gpid'] : $gpid);
 		$sms_type = ($ret_intercept['param']['sms_type'] ? $ret_intercept['param']['sms_type'] : $sms_type);
 		$unicode = ($ret_intercept['param']['unicode'] ? $ret_intercept['param']['unicode'] : $unicode);
 		$queue_code = ($ret_intercept['param']['queue_code'] ? $ret_intercept['param']['queue_code'] : $queue_code);
 		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
 	}
+
+	$username = $user['username'];
+	if (! ($username && $uid)) {
+		_log("end with early error smslog_id:" . $smslog_id . " username:" . $username . " uid:" . $uid . " gpid:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " to:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode, 2, "sendsms_process");
+		$ret['status'] = false;
+		return $ret;
+	}
+	
+	// get parent
+	$parent_uid = $user['parent_uid'];
 	
 	// if hooked function returns cancel=true then stop the sending, return false
 	if ($ret_intercept['cancel']) {
-		_log("end with cancelled smslog_id:" . $smslog_id . " uid:" . $uid . " gpid:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " to:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode, 2, "sendsms_process");
+		_log("end with cancelled smslog_id:" . $smslog_id . " username:" . $username . " uid:" . $uid . " parent_uid:" . $parent_uid . " gpid:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " to:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode, 2, "sendsms_process");
 		$ret['status'] = false;
 		return $ret;
 	}
@@ -488,9 +500,9 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// message with that length or certain characters in the message are not supported by the gateway
 	$db_query = "
 		INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing
-		(smslog_id,uid,p_gpid,p_gateway,p_smsc,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code)
-		VALUES ('$smslog_id','$uid','$gpid','$gateway','$smsc','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
-	_log("saving smslog_id:" . $smslog_id . " u:" . $uid . " g:" . $gpid . " gw:" . $gateway . " smsc:" . $smsc . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
+		(smslog_id,uid,parent_uid,p_gpid,p_gateway,p_smsc,p_src,p_dst,p_footer,p_msg,p_datetime,p_status,p_sms_type,unicode,queue_code)
+		VALUES ('$smslog_id','$uid','$parent_uid','$gpid','$gateway','$smsc','$sms_sender','$sms_to','$sms_footer','$sms_msg','$sms_datetime','$p_status','$sms_type','$unicode','$queue_code')";
+	_log("saving smslog_id:" . $smslog_id . " u:" . $uid . " parent_uid:" . $parent_uid . " g:" . $gpid . " gw:" . $gateway . " smsc:" . $smsc . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
 	
 	// continue to gateway only when save to db is true
 	if ($id = @dba_insert_id($db_query)) {
@@ -518,7 +530,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			}
 		}
 	} else {
-		_log("fail to save in db table smslog_id:" . $smslog_id, 2, "sendsms_process");
+		_log("fail to save in db table smslog_id:" . $smslog_id . " db_query:[" . trim($db_query) . "]", 2, "sendsms_process");
 	}
 	
 	// sent sms will be handled by plugins first
