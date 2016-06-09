@@ -198,6 +198,8 @@ function credit_hook_rate_getusercredit($username) {
 	return $balance;
 }
 
+// below functions are designed to do periodic rate updates
+
 function _credit_get_credit($uid) {
 	$credit = 0;
 	
@@ -271,7 +273,7 @@ function _credit_rate_update($uid, $status) {
 	}
 }
 
-function credit_rate_update() {
+function _credit_rate_update() {
 	$db_query = "SELECT uid, status FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -284,5 +286,5 @@ function credit_hook_rate_update() {
 		return;
 	}
 
-	credit_rate_update();
+	_credit_rate_update();
 }
