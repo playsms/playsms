@@ -192,14 +192,13 @@ function credit_hook_rate_getusercredit($username) {
 		$db_row = dba_fetch_array($db_result);
 		$balance = (float) $db_row['credit'];
 	}
-
+	
 	$balance = number_format($balance, 2, '.', '');
 	
 	return $balance;
 }
 
 // below functions are designed to do periodic rate updates
-
 function _credit_get_credit($uid) {
 	$credit = 0;
 	
@@ -211,7 +210,7 @@ function _credit_get_credit($uid) {
 	}
 	
 	$credit = number_format($credit, 2, '.', '');
-
+	
 	return $credit;
 }
 
@@ -226,7 +225,7 @@ function _credit_get_billing($uid) {
 	}
 	
 	$billing = number_format($billing, 2, '.', '');
-
+	
 	return $billing;
 }
 
@@ -268,6 +267,7 @@ function _credit_rate_update($uid, $status) {
 		
 		//_log("rate update uid:" . $c_uid . " credit:" . $credit ." billing:" . $billing . " balance:" . $balance, 3, "_credit_rate_update");
 		
+
 		// update user's credit field with balance
 		_credit_update_user($c_uid, $balance);
 	}
@@ -285,6 +285,6 @@ function credit_hook_rate_update() {
 	if (!core_playsmsd_timer(30)) {
 		return;
 	}
-
+	
 	_credit_rate_update();
 }
