@@ -237,7 +237,7 @@ function _credit_calculate_balance($credit, $billing) {
 	return $balance;
 }
 
-function _credit_update_user($uid, $balance) {
+function _credit_update_credit($uid, $balance) {
 	$balance = (float) $balance;
 	
 	if ($c_uid = (int) $uid) {
@@ -246,7 +246,7 @@ function _credit_update_user($uid, $balance) {
 	}
 }
 
-function _credit_rate_update($uid, $status) {
+function _credit_update($uid, $status) {
 	if (($c_uid = (int) $uid) && ($c_status = (int) $status)) {
 		// get credit
 		$credit = _credit_get_credit($c_uid);
@@ -269,7 +269,7 @@ function _credit_rate_update($uid, $status) {
 		
 
 		// update user's credit field with balance
-		_credit_update_user($c_uid, $balance);
+		_credit_update_credit($c_uid, $balance);
 	}
 }
 
@@ -277,7 +277,7 @@ function _credit_rate_update() {
 	$db_query = "SELECT uid, status FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
-		_credit_rate_update($db_row['uid'], $db_row['status']);
+		_credit_update($db_row['uid'], $db_row['status']);
 	}
 }
 
