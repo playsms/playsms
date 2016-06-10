@@ -30,7 +30,7 @@ if ($cb_completed_time && $cb_from && $$cb_apimsgid) {
 	$message = trim(htmlspecialchars_decode(urldecode($cb_message)));
 	$apimsgid = trim($cb_apimsgid);
 	
-	logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " batchid:" . $apimsgid." message:[" . $message . "]", 3, "bulksms incoming");
+	_log("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " batchid:" . $apimsgid." message:[" . $message . "]", 3, "bulksms incoming");
 	
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver

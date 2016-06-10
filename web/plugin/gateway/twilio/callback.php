@@ -18,7 +18,7 @@ if (is_array($requests)) {
 	foreach ($requests as $key => $val) {
 		$log .= $key . ':' . $val . ' ';
 	}
-	logger_print("pushed " . $log, 2, "twilio callback");
+	_log("pushed " . $log, 2, "twilio callback");
 }
 
 $remote_smslog_id = $requests['SmsSid'];
@@ -42,7 +42,7 @@ if ($remote_smslog_id && $status && ($status != 'received')) {
 				$p_status = 2;
 				break; // failed
 		}
-		logger_print("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $status, 2, "twilio callback");
+		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $status, 2, "twilio callback");
 		dlr($smslog_id, $uid, $p_status);
 		ob_end_clean();
 	}
@@ -58,7 +58,7 @@ $smsc = $requests['smsc'];
 
 // ref: https://www.twilio.com/docs/api/rest/sms#list
 if ($remote_smslog_id && $message && ($status == 'received')) {
-	logger_print("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "twilio callback");
+	_log("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "twilio callback");
 	$sms_sender = addslashes($sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);

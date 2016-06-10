@@ -62,7 +62,7 @@ if (_OP_ == 'forgot') {
 								$_SESSION['dialog']['danger'][] = $error_string;
 							}
 							
-							logger_print("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $error_string . "]", 2, "forgot");
+							_log("u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'] . " error_string:[" . $error_string . "]", 2, "forgot");
 						} else {
 							$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 						}

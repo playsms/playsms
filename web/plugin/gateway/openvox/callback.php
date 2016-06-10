@@ -35,7 +35,7 @@ if (is_array($requests)) {
 	foreach ($requests as $key => $val) {
 		$log .= $key . ':' . $val . ' ';
 	}
-	logger_print("pushed " . $log, 2, "openvox callback");
+	_log("pushed " . $log, 2, "openvox callback");
 }
 
 // incoming message
@@ -45,7 +45,7 @@ $message = htmlspecialchars_decode(urldecode($requests['message']));
 $sms_receiver = core_sanitize_sender($requests['port']);
 $smsc = $requests['smsc'];
 if ($message) {
-	logger_print("incoming smsc:" . $smsc . " from:" . $sms_sender . " port:" . $sms_receiver . " m:[" . $message . "] smsc:[" . $smsc . "]", 2, "openvox callback");
+	_log("incoming smsc:" . $smsc . " from:" . $sms_sender . " port:" . $sms_receiver . " m:[" . $message . "] smsc:[" . $smsc . "]", 2, "openvox callback");
 	$sms_sender = addslashes($sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);

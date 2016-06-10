@@ -51,7 +51,7 @@ function country_add($name, $code, $prefix = '') {
 			'prefix' => $prefix,
 		);
 		if ($result = dba_add($db_table, $items)) {
-			logger_print('id:' . $result . ' name:' . $name . ' code:' . $code . ' prefix:' . $prefix, 3, 'country_add');
+			_log('id:' . $result . ' name:' . $name . ' code:' . $code . ' prefix:' . $prefix, 3, 'country_add');
 			$ret = TRUE;
 		}
 	}
@@ -75,7 +75,7 @@ function country_remove($id) {
 	if ($result = dba_remove($db_table, array(
 		'id' => $id,
 	))) {
-		logger_print('id:' . $id, 3, 'country_remove');
+		_log('id:' . $id, 3, 'country_remove');
 		$ret = TRUE;
 	}
 	
@@ -110,7 +110,7 @@ function country_update($id, $data = array()) {
 		if (dba_update($db_table, $items, array(
 			'id' => $id
 		))) {
-			logger_print('id:' . $id . ' ' . trim($replaced) , 3, 'country_update');
+			_log('id:' . $id . ' ' . trim($replaced) , 3, 'country_update');
 			$ret = TRUE;
 		}
 	}

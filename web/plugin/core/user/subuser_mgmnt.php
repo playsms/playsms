@@ -284,9 +284,9 @@ switch (_OP_) {
 		$uid = user_username2uid($_REQUEST['uname']);
 		auth_login_as($uid);
 		if (auth_isvalid()) {
-			logger_print("parent login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
+			_log("parent login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
 		} else {
-			logger_print("parent fail to login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
+			_log("parent fail to login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
 		}
 		header('Location: ' . _u(_HTTP_PATH_BASE_));
 		exit();

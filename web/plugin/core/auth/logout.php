@@ -28,13 +28,13 @@ if (auth_isvalid()) {
 		auth_login_return();
 
 		if (auth_isvalid()) {
-			logger_print("re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
+			_log("re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
 		} else {
-			logger_print("fail to re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
+			_log("fail to re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
 		}
 		header('Location: '._u(_HTTP_PATH_BASE_));
 	} else {
-		logger_print("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
+		_log("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
 		@session_destroy();
 		$_SESSION['dialog']['info'][] = _('You have been logged out');
 	}

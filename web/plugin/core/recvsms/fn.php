@@ -46,7 +46,7 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc
 		));
 		recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
 	}
-	logger_print("isrecvsmsd:" . $c_isrecvsmsd . " dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsms");
+	_log("isrecvsmsd:" . $c_isrecvsmsd . " dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsms");
 	return $ret;
 }
 
@@ -71,7 +71,7 @@ function recvsmsd() {
 			), array(
 				'id' => $id 
 			))) {
-				logger_print("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsmsd");
+				_log("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsmsd");
 				recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
 			}
 		}
@@ -172,7 +172,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	
 	// blacklist
 	if (blacklist_mobile_isexists(0, $sms_sender)) {
-		logger_print("incoming SMS discarded sender is in the blacklist datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "recvsms_process");
+		_log("incoming SMS discarded sender is in the blacklist datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "recvsms_process");
 		return false;
 	}
 	
@@ -193,11 +193,11 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	
 
 	// log it
-	logger_print("dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . ' smsc:' . $smsc, 3, "recvsms_process");
+	_log("dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . ' smsc:' . $smsc, 3, "recvsms_process");
 	
 	// if hooked function returns cancel=true then stop the processing incoming sms, return false
 	if ($ret_intercept['cancel']) {
-		logger_print("cancelled datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "recvsms_process");
+		_log("cancelled datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "recvsms_process");
 		return false;
 	}
 	
@@ -225,7 +225,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 			for ($i = 2; $i < count($array_target_group); $i++) {
 				$message .= " " . $array_target_group[$i];
 			}
-			logger_print("bc username:" . $c_username . " gpid:" . $c_gpid . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message . " raw:" . $raw_message, 3, "recvsms_process");
+			_log("bc username:" . $c_username . " gpid:" . $c_gpid . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message . " raw:" . $raw_message, 3, "recvsms_process");
 			if ($c_username && $c_gpid && $message) {
 				list($ok, $to, $smslog_id, $queue) = sendsms_bc($c_username, $c_gpid, $message);
 				$ok = true;
@@ -248,7 +248,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 				));
 				if ($ok = $ret['status']) {
 					$c_uid = $ret['uid'];
-					logger_print("feature:" . $c_feature . " datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " keyword:" . $target_keyword . " message:" . $message . " raw:" . $raw_message . " smsc:" . $smsc, 3, "recvsms_process");
+					_log("feature:" . $c_feature . " datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " keyword:" . $target_keyword . " message:" . $message . " raw:" . $raw_message . " smsc:" . $smsc, 3, "recvsms_process");
 					break;
 				}
 			}
@@ -265,9 +265,9 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 			if ($ret_intercept['uid']) {
 				$c_uid = $ret_intercept['uid'];
 			}
-			logger_print("intercepted datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message, 3, "recvsms_process");
+			_log("intercepted datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message, 3, "recvsms_process");
 		} else {
-			logger_print("unhandled datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message, 3, "recvsms_process");
+			_log("unhandled datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message, 3, "recvsms_process");
 		}
 	}
 	
@@ -359,7 +359,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			
 			// discard if banned
 			if (user_banned_get($uid)) {
-				logger_print("user banned, message ignored uid:" . $uid, 2, "recvsms_inbox_add");
+				_log("user banned, message ignored uid:" . $uid, 2, "recvsms_inbox_add");
 				return FALSE;
 			}
 			
@@ -380,9 +380,9 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 					(in_sender,in_receiver,in_uid,in_msg,in_datetime,reference_id)
 					VALUES ('$sms_sender','$sms_receiver','$uid','$message','" . core_adjust_datetime($sms_datetime) . "','$reference_id')
 				";
-				logger_print("saving sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user . " reference_id:" . $reference_id, 2, "recvsms_inbox_add");
+				_log("saving sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user . " reference_id:" . $reference_id, 2, "recvsms_inbox_add");
 				if ($inbox_id = @dba_insert_id($db_query)) {
-					logger_print("saved id:" . $inbox_id . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user, 2, "recvsms_inbox_add");
+					_log("saved id:" . $inbox_id . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user, 2, "recvsms_inbox_add");
 					$ok = TRUE;
 				}
 			}
@@ -407,7 +407,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 					$body .= $message . "\n\n--\n";
 					$body .= $email_footer . "\n\n";
 					$body = stripslashes($body);
-					logger_print("send email from:" . $email_service . " to:" . $email . " message:[" . $message . "]", 3, "recvsms_inbox_add");
+					_log("send email from:" . $email_service . " to:" . $email . " message:[" . $message . "]", 3, "recvsms_inbox_add");
 					$data = array(
 						'mail_from_name' => $web_title,
 						'mail_from' => $email_service,
@@ -416,7 +416,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 						'mail_body' => $body 
 					);
 					sendmail($data);
-					logger_print("sent email from:" . $email_service . " to:" . $email, 3, "recvsms_inbox_add");
+					_log("sent email from:" . $email_service . " to:" . $email, 3, "recvsms_inbox_add");
 				}
 			}
 			
@@ -435,10 +435,10 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 					$unicode = core_detect_unicode($message);
 					$nofooter = TRUE;
 					
-					logger_print("send to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user . " message:" . $message, 3, "recvsms_inbox_add");
+					_log("send to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user . " message:" . $message, 3, "recvsms_inbox_add");
 					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode, '', $nofooter);
 					if ($ok[0] == 1) {
-						logger_print("sent to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user, 2, "recvsms_inbox_add");
+						_log("sent to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user, 2, "recvsms_inbox_add");
 					}
 				}
 			}

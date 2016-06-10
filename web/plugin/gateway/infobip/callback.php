@@ -33,7 +33,7 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 	$message = trim(htmlspecialchars_decode(urldecode($cb_text)));
 	$sms_receiver = trim($cb_to);
 	
-	logger_print("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:[" . $message . "]", 3, "infobip incoming");
+	_log("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:[" . $message . "]", 3, "infobip incoming");
 	
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver

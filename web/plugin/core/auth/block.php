@@ -23,7 +23,7 @@ if (_OP_ == 'block') {
 	
 	if (auth_isvalid()) {
 		$_SESSION['dialog']['danger'][] = _('You have no access to this page');
-		logger_print("WARNING: no access or blocked. sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'] . " uid:" . $user_config['uid'] . " app:" . _APP_ . " inc:" . _INC_ . " op:" . _OP_ . " route:" . _ROUTE_, 2, "auth_block");
+		_log("WARNING: no access or blocked. sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'] . " uid:" . $user_config['uid'] . " app:" . _APP_ . " inc:" . _INC_ . " op:" . _OP_ . " route:" . _ROUTE_, 2, "auth_block");
 		header("Location: " . _u('index.php?app=main&inc=core_auth&route=block'));
 	} else {
 		header("Location: " . _u('index.php?app=main&inc=core_auth&route=login'));

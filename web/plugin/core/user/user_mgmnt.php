@@ -348,9 +348,9 @@ switch (_OP_) {
 		$uid = user_username2uid($_REQUEST['uname']);
 		auth_login_as($uid);
 		if (auth_isvalid()) {
-			logger_print("login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "user_mgmnt");
+			_log("login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "user_mgmnt");
 		} else {
-			logger_print("fail to login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "user_mgmnt");
+			_log("fail to login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "user_mgmnt");
 		}
 		header('Location: ' . _u(_HTTP_PATH_BASE_));
 		exit();

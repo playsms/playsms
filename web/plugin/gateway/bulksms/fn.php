@@ -87,7 +87,7 @@ function buklsms_multiple_sms($sms_to, $sms_class, $sms_msg,$sms_dca ,$set_sms_f
 	}	
 	$sms_msg = convert_to_unicode($unicode, $sms_msg);	
 	$url = 	bulksms_sms_url($sms_to, $sms_class, $sms_msg, $sms_dca, $set_sms_from);
-	logger_print("url:" . $url, 3, "bulksms outgoing");
+	_log("url:" . $url, 3, "bulksms outgoing");
 	$fd = @implode('', file($url));
 	return $fd;
 }
@@ -153,7 +153,7 @@ function bulksms_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// $url .= $additional_param;
 	// $url = str_replace("&&", "&", $url);
 	
-	// logger_print("url:" . $url, 3, "bulksms outgoing");
+	// _log("url:" . $url, 3, "bulksms outgoing");
 	// $fd = @implode('', file($url));
 
 	$fd = buklsms_multiple_sms($sms_to, $sms_class, $sms_msg,$sms_dca ,$set_sms_from, $unicode);
@@ -182,13 +182,13 @@ function bulksms_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 				// sent
 				$p_status = 1;
 			}
-			logger_print("smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " sms_status:" . $p_status . " response:" . $response[0] . " " . $response[1]. " " . $response[2], 2, "bulksms outgoing");
+			_log("smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " sms_status:" . $p_status . " response:" . $response[0] . " " . $response[1]. " " . $response[2], 2, "bulksms outgoing");
 
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace("\n", " ", $fd);
 			$fd = str_replace("\r", " ", $fd);
-			logger_print("smslog_id:" . $smslog_id . " response:" . $fd, 2, "bulksms outgoing");
+			_log("smslog_id:" . $smslog_id . " response:" . $fd, 2, "bulksms outgoing");
 		}
 		$ok = true;
 	}
@@ -209,7 +209,7 @@ function bulksms_getsmsstatus($smslog_id) {
 		$query_string = "status_reports/get_report/2/2.0?username=" . $plugin_config['bulksms']['username'] . "&password=" . $plugin_config['bulksms']['password'] . "&batch_id=$apimsgid&optional_fields=credits";
 		
 		$url = $plugin_config['bulksms']['send_url'] . "/" . $query_string;
-		logger_print("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 3, "bulksms getsmsstatus");
+		_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 3, "bulksms getsmsstatus");
 
 		$fd = @implode('', file($url));
 		if ($fd) {
@@ -239,10 +239,10 @@ function bulksms_getsmsstatus($smslog_id) {
 							//failed							
 					}
 					
-					logger_print("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "bulksms getsmsstatus");
+					_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "bulksms getsmsstatus");
 				}
 			}else{
-				logger_print("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " response:" . $fd, 2, "bulksms getsmsstatus");
+				_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " response:" . $fd, 2, "bulksms getsmsstatus");
 			}
 		}
 	}
@@ -266,8 +266,8 @@ function bulksms_hook_call($requests) {
 	$access = $requests['access'];
 	if ($access == 'callback') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/bulksms/callback.php';
-		logger_print("start load:" . $fn, 2, "bulksms call");
+		_log("start load:" . $fn, 2, "bulksms call");
 		include $fn;
-		logger_print("end load callback", 2, "bulksms call");
+		_log("end load callback", 2, "bulksms call");
 	}
 }

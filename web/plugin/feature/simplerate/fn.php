@@ -69,9 +69,9 @@ function simplerate_hook_rate_getbyprefix($sms_to) {
 		}
 	}
 	if ($found) {
-		logger_print("found rate id:" . $db_row['id'] . " prefix:" . $db_row['prefix'] . " rate:" . $rate . " description:" . $db_row['dst'] . " to:" . $sms_to, 3, "simplerate_hook_rate_getbyprefix");
+		_log("found rate id:" . $db_row['id'] . " prefix:" . $db_row['prefix'] . " rate:" . $rate . " description:" . $db_row['dst'] . " to:" . $sms_to, 3, "simplerate_hook_rate_getbyprefix");
 	} else {
-		logger_print("rate not found to:" . $sms_to . " default_rate:" . $default_rate, 3, "simplerate_hook_rate_getbyprefix");
+		_log("rate not found to:" . $sms_to . " default_rate:" . $default_rate, 3, "simplerate_hook_rate_getbyprefix");
 	}
 	$rate = (($rate > 0) ? $rate : 0);
 	return $rate;
@@ -131,18 +131,18 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 
 	if ($parent_uid) {
 		if (($balance_parent >= 0) && ($balance >= 0)) {
-			logger_print("allowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance . " balance_parent:" . $balance_parent, 2, "simplerate cansend");
+			_log("allowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance . " balance_parent:" . $balance_parent, 2, "simplerate cansend");
 			return TRUE;
 		} else {
-			logger_print("disallowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance . " balance_parent:" . $balance_parent, 2, "simplerate cansend");
+			_log("disallowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance . " balance_parent:" . $balance_parent, 2, "simplerate cansend");
 			return FALSE;
 		}
 	} else {
 		if ($balance >= 0) {
-			logger_print("allowed user uid:" . $uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance, 2, "simplerate cansend");
+			_log("allowed user uid:" . $uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance, 2, "simplerate cansend");
 			return TRUE;
 		} else {
-			logger_print("disallowed user uid:" . $uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance, 2, "simplerate cansend");
+			_log("disallowed user uid:" . $uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance, 2, "simplerate cansend");
 			return FALSE;
 		}
 	}
@@ -151,7 +151,7 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 function simplerate_hook_rate_deduct($smslog_id) {
 	global $core_config;
 
-	logger_print("enter smslog_id:" . $smslog_id, 2, "simplerate deduct");
+	_log("enter smslog_id:" . $smslog_id, 2, "simplerate deduct");
 	$db_query = "SELECT p_dst,p_footer,p_msg,uid,unicode FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -180,7 +180,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			}
 
 			if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
-				logger_print("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 
 				// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
 
@@ -221,15 +221,15 @@ function simplerate_hook_rate_deduct($smslog_id) {
 
 				return TRUE;
 			} else {
-				logger_print("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+				_log("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 
 				return FALSE;
 			}
 		} else {
-			logger_print("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+			_log("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 		}
 	} else {
-		logger_print("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+		_log("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
 	}
 
 	return FALSE;
@@ -238,7 +238,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 function simplerate_hook_rate_refund($smslog_id) {
 	global $core_config;
 
-	logger_print("start smslog_id:" . $smslog_id, 2, "simplerate refund");
+	_log("start smslog_id:" . $smslog_id, 2, "simplerate refund");
 	$db_query = "SELECT p_dst,p_msg,uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -259,7 +259,7 @@ function simplerate_hook_rate_refund($smslog_id) {
 }
 
 function simplerate_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
-	//logger_print("start smslog_id:".$smslog_id, 2, "simplerate setsmsdeliverystatus");
+	//_log("start smslog_id:".$smslog_id, 2, "simplerate setsmsdeliverystatus");
 	if ($p_status == 2) {
 		// check in billing table smslog_id with status=0, status=1 is finalized, status=2 is rolled-back
 		$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";

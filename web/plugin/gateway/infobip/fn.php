@@ -104,7 +104,7 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$url .= $additional_param;
 	$url = str_replace("&&", "&", $url);
 	
-	logger_print("url:" . $url, 3, "infobip outgoing");
+	_log("url:" . $url, 3, "infobip outgoing");
 	$xml = file_get_contents($url);
 	
 	$response = core_xml_to_array($xml);
@@ -123,18 +123,18 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 				// sent
 				$p_status = 1;
 			}
-			logger_print("smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " p_status:" . $p_status . " response:" . $response['result']['status'], 2, "infobip outgoing");
+			_log("smslog_id:" . $smslog_id . " charge:" . $c_sms_credit . " p_status:" . $p_status . " response:" . $response['result']['status'], 2, "infobip outgoing");
 		} elseif ($response['result']['status'] == -2) {
-			logger_print("smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " NOT_ENOUGH_CREDIT", 2, "infobip outgoing");
+			_log("smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " NOT_ENOUGH_CREDIT", 2, "infobip outgoing");
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
 			$fd = str_replace("\n", " ", $fd);
 			$fd = str_replace("\r", " ", $fd);
-			logger_print("smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " UNKNOWN_CODE", 2, "infobip outgoing");
+			_log("smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " UNKNOWN_CODE", 2, "infobip outgoing");
 		}
 		$ok = true;
 	} else {
-		logger_print("no response smslog_id:" . $smslog_id, 3, "infobip outgoing");
+		_log("no response smslog_id:" . $smslog_id, 3, "infobip outgoing");
 	}
 	if (!$ok) {
 		$p_status = 2;
@@ -166,9 +166,9 @@ function infobip_getsmsstatus($smslog_id) {
 			$query_string = "pull?user=" . $plugin_config['infobip']['username'] . "&password=" . $plugin_config['infobip']['password'] . "&messageid=$apimsgid";
 			// $url = $plugin_config['infobip']['send_url']."/".$query_string;
 			$url = $plugin_config['infobip']['send_url'] . "/dr/" . $query_string;
-			logger_print("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 2, "infobip getsmsstatus");
+			_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 2, "infobip getsmsstatus");
 			$fd = @implode('', file($url));
-			logger_print("fd: " . $fd, 3, "infobip debug");
+			_log("fd: " . $fd, 3, "infobip debug");
 			if ($fd != "NO_DATA") {
 				// $response = explode(" ", $fd);
 				// $err_code = trim ($response[1]);
@@ -181,7 +181,7 @@ function infobip_getsmsstatus($smslog_id) {
 				// print_r($result);
 				// print "id:\t".$result[1][0]."\n";
 				$apimsgid = $result[1][0];
-				logger_print("apimsgid: " . $apimsgid, 3, "infobip debug");
+				_log("apimsgid: " . $apimsgid, 3, "infobip debug");
 				
 				if (preg_match_all('/status=\"([A-Z]+)\"/', $fd, $result)) {
 					// status = trim($response[5]);
@@ -198,7 +198,7 @@ function infobip_getsmsstatus($smslog_id) {
 							break; // failed
 					}
 				}
-				logger_print("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "infobip getsmsstatus");
+				_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "infobip getsmsstatus");
 			}
 		}
 		return array(
@@ -223,15 +223,15 @@ function infobip_hook_call($requests) {
 	
 	if ($access == 'callback') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/infobip/callback.php';
-		logger_print("start load:" . $fn, 2, "infobip call");
+		_log("start load:" . $fn, 2, "infobip call");
 		include $fn;
-		logger_print("end load callback", 2, "infobip call");
+		_log("end load callback", 2, "infobip call");
 	}
 	
 	if ($access == 'dlr') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/infobip/dlr.php';
-		logger_print("start load:" . $fn, 2, "infobip dlr call");
+		_log("start load:" . $fn, 2, "infobip dlr call");
 		include $fn;
-		logger_print("end load callback", 2, "infobip dlr call");
+		_log("end load callback", 2, "infobip dlr call");
 	}
 }

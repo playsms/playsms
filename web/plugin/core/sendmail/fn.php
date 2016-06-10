@@ -85,7 +85,7 @@ function sendmail($data = array()) {
 		$attachment_type = $data['attachment_type'];
 	}
 	
-	logger_print("start from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
+	_log("start from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
 	if (!class_exists(email_message_class)) {
 		include_once $core_config['apps_path']['plug'] . "/core/sendmail/lib/external/mimemessage/email_message.php";
 	}
@@ -168,10 +168,10 @@ function sendmail($data = array()) {
 	$error = $email_message->Send();
 	
 	if (strcmp($error, "")) {
-		logger_print("end with error:" . $error, 2, "sendmail");
+		_log("end with error:" . $error, 2, "sendmail");
 		return false;
 	} else {
-		logger_print("end from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
+		_log("end from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
 		return true;
 	}
 }

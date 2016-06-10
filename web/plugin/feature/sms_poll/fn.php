@@ -55,12 +55,12 @@ function sms_poll_hook_recvsms_process($sms_datetime, $sms_sender, $poll_keyword
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		if ($db_row['uid'] && $db_row['poll_enable']) {
-			logger_print('begin k:' . $poll_keyword . ' c:' . $poll_param, 2, 'sms_poll');
+			_log('begin k:' . $poll_keyword . ' c:' . $poll_param, 2, 'sms_poll');
 			if (sms_poll_handle($db_row, $sms_datetime, $sms_sender, $poll_keyword, $poll_param, $sms_receiver, $smsc, $raw_message)) {
 				$ok = true;
 			}
 			$status = ($ok ? 'handled' : 'unhandled');
-			logger_print('end k:' . $poll_keyword . ' c:' . $poll_param . ' s:' . $status, 2, 'sms_poll');
+			_log('end k:' . $poll_keyword . ' c:' . $poll_param . ' s:' . $status, 2, 'sms_poll');
 		}
 	}
 	$ret['uid'] = $db_row['uid'];
@@ -79,7 +79,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 		
 		// if poll disabled then immediately return, just ignore the vote
 		if (!$list['poll_enable']) {
-			logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' poll disabled', 2, 'sms_poll');
+			_log('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' poll disabled', 2, 'sms_poll');
 			return TRUE;
 		}
 		
@@ -113,7 +113,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 				), array(
 					'log_id' => $log_id 
 				))) {
-					logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' valid vote', 2, 'sms_poll');
+					_log('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' valid vote', 2, 'sms_poll');
 					if (($poll_message_valid = trim($list['poll_message_valid'])) && ($c_username = user_uid2username($list['uid']))) {
 						$unicode = core_detect_unicode($poll_message_valid);
 						$poll_message_valid = addslashes($poll_message_valid);
@@ -127,7 +127,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 				), array(
 					'log_id' => $log_id 
 				))) {
-					logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' out of vote option', 2, 'sms_poll');
+					_log('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' out of vote option', 2, 'sms_poll');
 					if (($poll_message_option = trim($list['poll_message_option'])) && ($c_username = user_uid2username($list['uid']))) {
 						$unicode = core_detect_unicode($poll_message_option);
 						$poll_message_option = addslashes($poll_message_option);
@@ -143,7 +143,7 @@ function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll
 			), array(
 				'log_id' => $log_id 
 			))) {
-				logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' invalid vote', 2, 'sms_poll');
+				_log('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' log_id:' . $log_id . ' invalid vote', 2, 'sms_poll');
 				if (($poll_message_invalid = trim($list['poll_message_invalid'])) && ($c_username = user_uid2username($list['uid']))) {
 					$unicode = core_detect_unicode($poll_message_invalid);
 					$poll_message_invalid = addslashes($poll_message_invalid);
@@ -167,14 +167,14 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 	if ($db_row = dba_fetch_array($db_result)) {
 		// yup, voted
 		if ($poll_option_vote == 4) {
-			logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' vote multiple', 2, 'sms_poll');
+			_log('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' vote multiple', 2, 'sms_poll');
 			return TRUE;
 		}
 		$in_datetime = $db_row['in_datetime'];
 		$votes = (int) @dba_num_rows($db_query);
 	} else {
 		// nope, go ahead save it in the log
-		logger_print('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' continue', 2, 'sms_poll');
+		_log('vote s:' . $sms_sender . ' k:' . $poll_keyword . ' c:' . $choice_keyword . ' continue', 2, 'sms_poll');
 		return TRUE;
 	}
 	
@@ -183,7 +183,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 	switch ($poll_option_vote) {
 		case 0: // one time
 			if ($votes) {
-				logger_print('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote one time', 2, 'sms_poll');
+				_log('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote one time', 2, 'sms_poll');
 				$continue = FALSE;
 			}
 			break;
@@ -195,7 +195,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 				$d = new DateTime(core_get_datetime());
 				$day_current = $d->format("Ymd");
 				if ($day_in && $day_current && ($day_in == $day_current)) {
-					logger_print('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote today', 2, 'sms_poll');
+					_log('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote today', 2, 'sms_poll');
 					$continue = FALSE;
 				}
 			}
@@ -208,7 +208,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 				$d = new DateTime(core_get_datetime());
 				$week_current = $d->format("YmW");
 				if ($week_in && $week_current && ($week_in == $week_current)) {
-					logger_print('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote this week', 2, 'sms_poll');
+					_log('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote this week', 2, 'sms_poll');
 					$continue = FALSE;
 				}
 			}
@@ -221,7 +221,7 @@ function sms_poll_check_option_vote($list, $sms_sender, $poll_keyword, $choice_k
 				$d = new DateTime(core_get_datetime());
 				$month_current = $d->format("Ym");
 				if ($month_in && $month_current && ($month_in == $month_current)) {
-					logger_print('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote this month', 2, 'sms_poll');
+					_log('vote s:' . $sms_sender . 'k:' . $poll_keyword . ' c:' . $choice_keyword . ' option_vote:' . $poll_option_vote . ' vote_count:' . $votes . ' already vote this month', 2, 'sms_poll');
 					$continue = FALSE;
 				}
 			}

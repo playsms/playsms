@@ -176,7 +176,7 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
-			logger_print('WARNING: possible CSRF attack. sid:' . $_SESSION['sid'] . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'init');
+			_log('WARNING: possible CSRF attack. sid:' . $_SESSION['sid'] . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'init');
 			auth_block();
 		}
 	}
@@ -189,7 +189,7 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 // connect to database
 if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_))) {
 	
-	// logger_print('Fail to connect to database', 4, 'init');
+	// _log('Fail to connect to database', 4, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to connect to database'));
 }
@@ -207,7 +207,7 @@ foreach ($result['core']['main_config'] as $key => $val) {
 }
 
 if (!$core_config['main']) {
-	logger_print('Fail to load main config from registry', 1, 'init');
+	_log('Fail to load main config from registry', 1, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config from registry'));
 }
@@ -296,7 +296,7 @@ if ((!$core_config['daemon_process']) && trim($_SERVER['HTTP_HOST']) && trim($si
 $fn1 = _APPS_PATH_PLUG_ . '/themes/' . core_themes_get() . '/config.php';
 $fn2 = _APPS_PATH_PLUG_ . '/themes/' . core_themes_get() . '/fn.php';
 if (!(file_exists($fn1) && file_exists($fn2))) {
-	logger_print('Fail to load themes ' . core_themes_get(), 1, 'init');
+	_log('Fail to load themes ' . core_themes_get(), 1, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load themes') . ' ' . core_themes_get());
 }
@@ -305,7 +305,7 @@ if (!(file_exists($fn1) && file_exists($fn2))) {
 $fn1 = _APPS_PATH_PLUG_ . '/language/' . core_lang_get() . '/config.php';
 $fn2 = _APPS_PATH_PLUG_ . '/language/' . core_lang_get() . '/fn.php';
 if (!(file_exists($fn1) && file_exists($fn2))) {
-	logger_print('Fail to load language ' . core_lang_get(), 1, 'init');
+	_log('Fail to load language ' . core_lang_get(), 1, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load language') . ' ' . core_lang_get());
 }

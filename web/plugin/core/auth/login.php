@@ -26,9 +26,9 @@ if (_OP_ == 'login') {
 			$uid = user_username2uid($username);
 			auth_session_setup($uid);
 			if (auth_isvalid()) {
-				logger_print("u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
+				_log("u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
 			} else {
-				logger_print("unable to setup session u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
+				_log("unable to setup session u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
 				$_SESSION['dialog']['danger'][] = _('Unable to login');
 			}
 		} else {

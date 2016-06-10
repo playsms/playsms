@@ -27,12 +27,12 @@ function sms_quiz_hook_recvsms_process($sms_datetime, $sms_sender, $quiz_keyword
 	if ($db_row = dba_fetch_array($db_result)) {
 		if ($db_row['uid'] && $db_row['quiz_enable']) {
 			$smsc = gateway_decide_smsc($smsc, $db_row['smsc']);
-			logger_print('begin k:' . $quiz_keyword . ' c:' . $quiz_param, 2, 'sms_quiz');
+			_log('begin k:' . $quiz_keyword . ' c:' . $quiz_param, 2, 'sms_quiz');
 			if (sms_quiz_handle($db_row, $sms_datetime, $sms_sender, $quiz_keyword, $quiz_param, $sms_receiver, $smsc, $raw_message)) {
 				$ok = true;
 			}
 			$status = ($ok ? 'handled' : 'unhandled');
-			logger_print('end k:' . $quiz_keyword . ' c:' . $quiz_param . ' s:' . $status, 2, 'sms_quiz');
+			_log('end k:' . $quiz_keyword . ' c:' . $quiz_param . ' s:' . $status, 2, 'sms_quiz');
 		}
 	}
 	$ret['uid'] = $db_row['uid'];

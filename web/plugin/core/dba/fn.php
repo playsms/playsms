@@ -70,8 +70,8 @@ function dba_query($mystring, $from = "0", $count = "0") {
 	global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
 	
 	// log all db query
-	if (function_exists('logger_print')) {
-		logger_print("q:" . $mystring, 4, "dba query");
+	if (function_exists('_log')) {
+		_log("q:" . $mystring, 4, "dba query");
 	}
 	
 	$DBA_ROW_COUNTER = 0;
@@ -254,7 +254,7 @@ function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', 
 		}
 	}
 	$db_query = "SELECT " . $q_fields . " FROM " . $db_table . " " . $join . " " . $q_where . " " . $q_sql_where . " " . $q_extras;
-	// logger_print("q: ".$db_query, 3, "dba_search");
+	// _log("q: ".$db_query, 3, "dba_search");
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
