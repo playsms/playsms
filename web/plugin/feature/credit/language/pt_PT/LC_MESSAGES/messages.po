@@ -29,12 +29,6 @@ msgstr "Montante"
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Tem certeza que deseja apagar estas transações?"
 
-msgid "Balance"
-msgstr "Saldo"
-
-msgid "Balance recorded on transaction"
-msgstr "Saldo registrado em transação"
-
 msgid "Credit has been added"
 msgstr "Crédito foi adicionado"
 
@@ -91,9 +85,6 @@ msgstr "Montante incorreto ou Utilizador não existe"
 
 msgid "amount"
 msgstr "Montante"
-
-msgid "balance"
-msgstr "Saldo"
 
 msgid "user"
 msgstr "Utilizador"

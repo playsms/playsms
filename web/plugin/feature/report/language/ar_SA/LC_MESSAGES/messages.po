@@ -35,15 +35,6 @@ msgstr "القيمة"
 msgid "Are you sure you want to delete these items ?"
 msgstr "هل ترغب في حذف هذه العناصر بالتأكيد؟"
 
-msgid "Are you sure you want to delete these transactions ?"
-msgstr "هل تود بالتأكيد حذف هذه الحوالات؟"
-
-msgid "Balance"
-msgstr "الرصيد"
-
-msgid "Balance recorded on transaction"
-msgstr "الرصيد وقت الحوالة"
-
 msgid "Ban date/time"
 msgstr "وقت وتاريخ الحظر"
 
@@ -147,9 +138,6 @@ msgstr "تم حذف الرسال الواردة المحددة "
 
 msgid "Selected outgoing message has been deleted"
 msgstr "تم حذف الرسائل الصادرة المحددة "
-
-msgid "Selected transactions has been deleted"
-msgstr "الحوالات المحددة تم حذفها"
 
 msgid "Sent"
 msgstr "تم الإرسال"

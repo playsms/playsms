@@ -412,12 +412,6 @@ msgstr "Auteur"
 msgid "Back"
 msgstr "Retour"
 
-msgid "Balance"
-msgstr "Solde"
-
-msgid "Balance recorded on transaction"
-msgstr "Solde enregistré lors de la transaction"
-
 msgid "Ban"
 msgstr "Bannir"
 
@@ -1835,6 +1829,12 @@ msgstr "Inscription d'un nouveau compte"
 msgid "New destination has been added"
 msgstr "La nouvelle destination a été ajoutée"
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "Nexmo URL"
 msgstr "URL de nexmo"
 
@@ -3156,9 +3156,6 @@ msgstr "Code postal"
 
 msgid "amount"
 msgstr "montant"
-
-msgid "balance"
-msgstr "solde"
 
 msgid "blocked"
 msgstr "bloqué"

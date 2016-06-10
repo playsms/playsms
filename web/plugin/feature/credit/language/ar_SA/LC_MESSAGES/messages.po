@@ -31,12 +31,6 @@ msgstr "القيمة"
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "هل تود بالتأكيد حذف هذه الحوالة؟"
 
-msgid "Balance"
-msgstr "الرصيد"
-
-msgid "Balance recorded on transaction"
-msgstr "الرصيد وقت الحوالة"
-
 msgid "Credit has been added"
 msgstr "تم إضافة الرصيد"
 
@@ -93,9 +87,6 @@ msgstr "قيمة خاطئة أو مستخدم غير موجود"
 
 msgid "amount"
 msgstr "القيمة"
-
-msgid "balance"
-msgstr "الرصيد"
 
 msgid "user"
 msgstr "المستخدم"

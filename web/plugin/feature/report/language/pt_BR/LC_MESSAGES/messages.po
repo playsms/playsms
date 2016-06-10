@@ -26,15 +26,6 @@ msgstr "Quantidade"
 msgid "Are you sure you want to delete these items ?"
 msgstr "Tem certeza que deseja excluír esses ítens?"
 
-msgid "Are you sure you want to delete these transactions ?"
-msgstr "Tem certeza que deseja excluir essas transações?"
-
-msgid "Balance"
-msgstr "Saldo"
-
-msgid "Balance recorded on transaction"
-msgstr "Saldo gravado na transação"
-
 msgid "Ban date/time"
 msgstr "Dia/hora do banimento"
 
@@ -138,9 +129,6 @@ msgstr "A mensagem recebida selecionada foi excluída"
 
 msgid "Selected outgoing message has been deleted"
 msgstr "A mensagem de saída selecionada foi excluída"
-
-msgid "Selected transactions has been deleted"
-msgstr "A transação selecionada foi excluída"
 
 msgid "Sent"
 msgstr "Enviada"

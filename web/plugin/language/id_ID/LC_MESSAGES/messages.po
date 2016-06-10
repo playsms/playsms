@@ -404,12 +404,6 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-msgid "Balance"
-msgstr ""
-
-msgid "Balance recorded on transaction"
-msgstr ""
-
 msgid "Ban"
 msgstr ""
 
@@ -1887,6 +1881,12 @@ msgstr ""
 msgid "New destination has been added"
 msgstr ""
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "Nexmo URL"
 msgstr ""
 
@@ -3178,9 +3178,6 @@ msgstr ""
 #, fuzzy
 msgid "amount"
 msgstr "Akun saya"
-
-msgid "balance"
-msgstr ""
 
 msgid "blocked"
 msgstr ""

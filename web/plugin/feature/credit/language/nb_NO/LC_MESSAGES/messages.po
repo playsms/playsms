@@ -24,12 +24,6 @@ msgstr "Beløp"
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Er du sikker på at du ønsker å slette disse transaksjonene?"
 
-msgid "Balance"
-msgstr "Balanse"
-
-msgid "Balance recorded on transaction"
-msgstr "Balanse på transaksjonen"
-
 msgid "Credit has been added"
 msgstr "Kreditt har blitt lagt til"
 
@@ -86,9 +80,6 @@ msgstr "Feil mengde eller brukeren eksisterer ikke"
 
 msgid "amount"
 msgstr "beløp"
-
-msgid "balance"
-msgstr "balanse"
 
 msgid "user"
 msgstr "bruker"

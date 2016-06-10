@@ -418,12 +418,6 @@ msgstr "Автор"
 msgid "Back"
 msgstr "Назад"
 
-msgid "Balance"
-msgstr "Баланс"
-
-msgid "Balance recorded on transaction"
-msgstr "Баланс после транзакции"
-
 msgid "Ban"
 msgstr "Заблокировать"
 
@@ -1832,6 +1826,12 @@ msgstr "Регистрация нового пользователя"
 msgid "New destination has been added"
 msgstr ""
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "Nexmo URL"
 msgstr "Nexmo URL"
 
@@ -3124,9 +3124,6 @@ msgstr "Индекс"
 
 msgid "amount"
 msgstr "сумма"
-
-msgid "balance"
-msgstr "баланс"
 
 msgid "blocked"
 msgstr "заблокировано"

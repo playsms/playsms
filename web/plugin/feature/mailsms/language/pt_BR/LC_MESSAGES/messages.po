@@ -55,6 +55,12 @@ msgstr "Gerenciar Email para SMS"
 msgid "My email to SMS"
 msgstr "Meu Email para SMS"
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "No validate cert option"
 msgstr "Sem opções de certificado validadas"
 

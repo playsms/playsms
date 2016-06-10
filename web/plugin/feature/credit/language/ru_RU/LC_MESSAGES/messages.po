@@ -28,12 +28,6 @@ msgstr "Сумма"
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Вы уверены, что хотите удалить записи об этих транзакциях?"
 
-msgid "Balance"
-msgstr "Баланс"
-
-msgid "Balance recorded on transaction"
-msgstr "Баланс после транзакции"
-
 msgid "Credit has been added"
 msgstr "Средства добавлены"
 
@@ -90,9 +84,6 @@ msgstr "Неправильная сумма или пользователь не
 
 msgid "amount"
 msgstr "сумма"
-
-msgid "balance"
-msgstr "баланс"
 
 msgid "user"
 msgstr "пользователь"

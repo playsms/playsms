@@ -407,12 +407,6 @@ msgstr " المؤلف"
 msgid "Back"
 msgstr "رجوع"
 
-msgid "Balance"
-msgstr "الرصيد"
-
-msgid "Balance recorded on transaction"
-msgstr "الرصيد وقت الحوالة"
-
 msgid "Ban"
 msgstr "غير قادر على حظر الحساب"
 
@@ -1819,6 +1813,12 @@ msgstr " تسجيل حساب جديد"
 msgid "New destination has been added"
 msgstr "تم إضافة الوجهة الجديدة"
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "Nexmo URL"
 msgstr ""
 
@@ -3093,9 +3093,6 @@ msgstr "الرمز البريدي"
 
 msgid "amount"
 msgstr "القيمة"
-
-msgid "balance"
-msgstr "الرصيد"
 
 msgid "blocked"
 msgstr "تم الحظر"

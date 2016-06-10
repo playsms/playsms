@@ -34,15 +34,6 @@ msgstr "Количество"
 msgid "Are you sure you want to delete these items ?"
 msgstr "Вы уверены, что хотите удалить эти элементы?"
 
-msgid "Are you sure you want to delete these transactions ?"
-msgstr "Вы уверены, что хотите удалить записи об этих транзакциях?"
-
-msgid "Balance"
-msgstr "Баланс"
-
-msgid "Balance recorded on transaction"
-msgstr "Баланс после перевода"
-
 msgid "Ban date/time"
 msgstr "Время блокировки"
 
@@ -147,9 +138,6 @@ msgstr "Выбранное входящее сообщение было удал
 
 msgid "Selected outgoing message has been deleted"
 msgstr "Выбранное исходящее сообщение было удалено"
-
-msgid "Selected transactions has been deleted"
-msgstr "Выбранные записи были удалены"
 
 msgid "Sent"
 msgstr "Отправлено"

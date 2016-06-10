@@ -16,12 +16,6 @@ msgstr ""
 msgid "Are you sure you want to delete these transactions ?"
 msgstr ""
 
-msgid "Balance"
-msgstr ""
-
-msgid "Balance recorded on transaction"
-msgstr ""
-
 msgid "Credit has been added"
 msgstr ""
 
@@ -77,9 +71,6 @@ msgid "Wrong amount or user does not exist"
 msgstr ""
 
 msgid "amount"
-msgstr ""
-
-msgid "balance"
 msgstr ""
 
 msgid "user"

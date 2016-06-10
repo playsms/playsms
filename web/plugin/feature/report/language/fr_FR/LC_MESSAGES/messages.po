@@ -26,15 +26,6 @@ msgstr "Montant"
 msgid "Are you sure you want to delete these items ?"
 msgstr "Êtes-vous sûr de vouloir supprimer ces éléments ?"
 
-msgid "Are you sure you want to delete these transactions ?"
-msgstr "Êtes-vous sûr de vouloir supprimer ces transactions ?"
-
-msgid "Balance"
-msgstr "Solde"
-
-msgid "Balance recorded on transaction"
-msgstr "Solde enregistré lors de la transaction"
-
 msgid "Ban date/time"
 msgstr "Date du bannissement"
 
@@ -138,9 +129,6 @@ msgstr "Le message entrant sélectionné a été supprimé"
 
 msgid "Selected outgoing message has been deleted"
 msgstr "Le message sortant sélectionné a été supprimé"
-
-msgid "Selected transactions has been deleted"
-msgstr "La transaction sélectionnée a été supprimée"
 
 msgid "Sent"
 msgstr "Envoyé"

@@ -415,12 +415,6 @@ msgstr "Forfatter"
 msgid "Back"
 msgstr "Tilbage"
 
-msgid "Balance"
-msgstr "Balance"
-
-msgid "Balance recorded on transaction"
-msgstr "Balance på transaktionen"
-
 msgid "Ban"
 msgstr "Bandlys"
 
@@ -1818,6 +1812,12 @@ msgstr "Ny konto registrering"
 msgid "New destination has been added"
 msgstr "Ny destination er blevet tilfÃ¸jet"
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "Nexmo URL"
 msgstr "Nexmo URL"
 
@@ -3112,9 +3112,6 @@ msgstr "Postnummer"
 
 msgid "amount"
 msgstr "beløb"
-
-msgid "balance"
-msgstr "balance"
 
 msgid "blocked"
 msgstr "blokeret"

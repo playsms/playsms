@@ -33,15 +33,6 @@ msgstr "Beløb"
 msgid "Are you sure you want to delete these items ?"
 msgstr "Er du sikker på at du vil slette disse emner?"
 
-msgid "Are you sure you want to delete these transactions ?"
-msgstr "Er du sikker på at du ønsker at slette disse transaktioner?"
-
-msgid "Balance"
-msgstr "Balance"
-
-msgid "Balance recorded on transaction"
-msgstr "Balance på transaktionen"
-
 msgid "Ban date/time"
 msgstr "Bandlyst dato/tid"
 
@@ -145,9 +136,6 @@ msgstr "Valgte indkommende besked er blevet slettet"
 
 msgid "Selected outgoing message has been deleted"
 msgstr "Valgte udgående besked er blevet slettet"
-
-msgid "Selected transactions has been deleted"
-msgstr "Valgte transaktioner er blevet slettet"
 
 msgid "Sent"
 msgstr "Sendt"

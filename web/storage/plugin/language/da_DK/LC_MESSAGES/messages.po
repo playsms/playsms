@@ -246,7 +246,7 @@ msgid "All inbox"
 msgstr "Alle indbakker"
 
 msgid "All mandatory fields must be filled"
-msgstr "Alle obligatoriske felter skal udfyldes"
+msgstr "Alle krævede felter skal være udfyldt"
 
 msgid "All queues have been removed"
 msgstr "Alle køer er blevet fjernet"
@@ -412,12 +412,6 @@ msgstr "Forfatter"
 
 msgid "Back"
 msgstr "Tilbage"
-
-msgid "Balance"
-msgstr "Balance"
-
-msgid "Balance recorded on transaction"
-msgstr "Balance på transaktionen"
 
 msgid "Ban"
 msgstr "Bandlys"
@@ -1816,6 +1810,12 @@ msgstr "Ny konto registrering"
 msgid "New destination has been added"
 msgstr "Ny destination er blevet tilfÃÂ¸jet"
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "Nexmo URL"
 msgstr "Nexmo URL"
 
@@ -3110,9 +3110,6 @@ msgstr "Postnummer"
 
 msgid "amount"
 msgstr "beløb"
-
-msgid "balance"
-msgstr "balance"
 
 msgid "blocked"
 msgstr "blokeret"

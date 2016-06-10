@@ -56,6 +56,12 @@ msgstr "Håndter email til SMS"
 msgid "My email to SMS"
 msgstr "Min email til SMS"
 
+msgid "New emails fetch interval"
+msgstr ""
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr ""
+
 msgid "No validate cert option"
 msgstr "Ingen gyldige cert-innstillinger"
 

@@ -21,12 +21,6 @@ msgstr "Quantidade"
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Tem certeza que deseja excluir essas transações?"
 
-msgid "Balance"
-msgstr "Saldo"
-
-msgid "Balance recorded on transaction"
-msgstr "Saldo gravado na transação"
-
 msgid "Credit has been added"
 msgstr "O crédito foi adicionado"
 
@@ -83,9 +77,6 @@ msgstr "Quantidade incorreta ou usuário não existe"
 
 msgid "amount"
 msgstr "quantidade"
-
-msgid "balance"
-msgstr "saldo"
 
 msgid "user"
 msgstr "usuário"
