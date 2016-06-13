@@ -1386,6 +1386,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `smslog_id` int(11) DEFAULT NULL,
   `flag_deleted` int(11) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL DEFAULT '0',
+  `parent_uid` int(11) NOT NULL DEFAULT '0',
   `p_gateway` varchar(250) NOT NULL DEFAULT '',
   `p_smsc` varchar(250) NOT NULL DEFAULT '',
   `p_src` varchar(100) NOT NULL DEFAULT '',
