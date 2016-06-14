@@ -153,7 +153,8 @@ function mailsms_hook_playsmsd_once($param) {
 			// sendsms
 			if ($sender_username && count($sms_to) && $message) {
 				_log('mailsms uid:' . $sender['uid'] . ' from:[' . $sender_email . '] username:[' . $sender_username . ']', 3, 'mailsms_hook_playsmsd_once');
-				list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($sender_username, $sms_to, $message, '', '', '', '', '', '', $reference_id);
+				$unicode = core_detect_unicode($message);
+				list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($sender_username, $sms_to, $message, '', $unicode, '', '', '', '', $reference_id);
 			}
 		}
 	}
