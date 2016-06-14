@@ -107,6 +107,12 @@ function mailsms_hook_playsmsd_once($param) {
 			$email_body = trim(imap_fetchbody($inbox, $email_number, 1));
 			
 			_log('email from:[' . $email_sender . '] subject:[' . $email_subject . '] body:[' . $email_body . ']', 3, 'mailsms_hook_playsmsd');
+
+			// fixme me - https://forum.playsms.org/t/mail2sms-encoding-problem/836/6
+			if (function_exists('iconv_mime_decode')) {
+				$email_subject = iconv_mime_decode($email_subject);
+				_log('decoded subject:[' . $email_subject . ']', 3, 'mailsms_hook_playsmsd');
+			}
 			
 			$e = preg_replace('/\s+/', ' ', trim($email_subject));
 			$f = preg_split('/ +/', $e);
