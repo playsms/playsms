@@ -10,7 +10,7 @@
 		"playsms/webservices": "1.0.*",
 		"gregwar/captcha": "1.0.*",
 		"ezyang/htmlpurifier": "4.6.*",
-		"pear/pear": "dev-master",
+		"pear/pear-core-minimal": "1.10.*",
 		"pear/db": "dev-trunk"
 	}
 }
