@@ -473,7 +473,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 							'LIMIT' => (int) $core_config['sendsmsd_queue'] 
 						);
 					}
-					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
+					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id, queue_code', array(
 						'flag' => '0' 
 					), '', $extras);
 					foreach ($list as $db_row) {
@@ -491,9 +491,21 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 							}
 						}
 						
-						// update queue to process step
-						$db_query4 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue SET flag='3' WHERE id='" . $db_row['id'] . "'";
-						$db_result4 = dba_query($db_query4);
+						if ($num > 0) {
+							// destination found, update queue to process step
+							sendsms_queue_update($db_row['queue_code'], array(
+								'flag' => 3 
+							));
+						} else {
+							// no destination found, something's not right with the queue, mark it as done (flag 1)
+							if (sendsms_queue_update($db_row['queue_code'], array(
+								'flag' => 1 
+							))) {
+								_log('enforce init finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+							} else {
+								_log('fail to enforce init finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+							}
+						}
 					}
 					
 					// process step
@@ -513,14 +525,14 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 							$c_chunk_found++;
 						}
 						
-						// no chunk found, something not right with the queue mark it as done (flag 1)
 						if ($c_chunk_found < 1) {
+							// no chunk found, something's not right with the queue, mark it as done (flag 1)
 							if (sendsms_queue_update($db_row['queue_code'], array(
 								'flag' => 1 
 							))) {
-								_log('enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+								_log('enforce finish process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
 							} else {
-								_log('fail to enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+								_log('fail to enforce finish process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
 							}
 						}
 					}
