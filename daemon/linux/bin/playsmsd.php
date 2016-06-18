@@ -451,7 +451,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 				case 'ratesmsd':
 					rate_update();
 					break;
-
+				
 				case 'dlrssmsd':
 					dlrd();
 					getsmsstatus();
@@ -504,11 +504,24 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					), '', $extras);
 					foreach ($list as $db_row) {
 						// get chunks
+						$c_chunk_found = 0;
 						$db_query2 = "SELECT chunk FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "' AND flag='0' GROUP BY chunk LIMIT " . $core_config['sendsmsd_chunk'];
 						$db_result2 = dba_query($db_query2);
 						while ($db_row2 = dba_fetch_array($db_result2)) {
 							$c_chunk = (int) $db_row2['chunk'];
 							$queue[] = 'Q_' . $db_row['queue_code'] . '_' . $c_chunk;
+							$c_chunk_found++;
+						}
+						
+						// no chunk found, something not right with the queue mark it as done (flag 1)
+						if ($c_chunk_found < 1) {
+							if (sendsms_queue_update($db_row['queue_code'], array(
+								'flag' => 1 
+							))) {
+								_log('enforce finish queue:' . $db_row['queue_code'], 2, 'sendsmsd');
+							} else {
+								_log('fail to enforce finish queue:' . $db_row['queue_code'], 2, 'sendsmsd');
+							}
 						}
 					}
 					
