@@ -518,9 +518,9 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 							if (sendsms_queue_update($db_row['queue_code'], array(
 								'flag' => 1 
 							))) {
-								_log('enforce finish queue:' . $db_row['queue_code'], 2, 'sendsmsd');
+								_log('enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
 							} else {
-								_log('fail to enforce finish queue:' . $db_row['queue_code'], 2, 'sendsmsd');
+								_log('fail to enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
 							}
 						}
 					}
