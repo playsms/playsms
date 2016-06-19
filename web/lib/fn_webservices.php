@@ -84,18 +84,30 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 			if (($ok[$i] == 1 || $ok[$i] == true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
+				$json['data'][$i]['smslog_id'] = $smslog_id[$i];
+				$json['data'][$i]['queue'] = $queue_code[$i];
+				$json['data'][$i]['to'] = $to[$i];
 			} elseif ($ok[$i] == 2) {
 				
 				// this doesn't work, but not much an issue now
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '103';
+				$json['data'][$i]['smslog_id'] = '';
+				$json['data'][$i]['queue'] = '';
+				$json['data'][$i]['to'] = '';
 			} else {
 				$json['data'][$i]['status'] = 'ERR';
 				$json['data'][$i]['error'] = '200';
+				if ($ok === FALSE) {
+					$json['data'][$i]['smslog_id'] = '';
+					$json['data'][$i]['queue'] = $queue_code;
+					$json['data'][$i]['to'] = '';
+				} else {
+					$json['data'][$i]['smslog_id'] = '';
+					$json['data'][$i]['queue'] = '';
+					$json['data'][$i]['to'] = '';
+				}
 			}
-			$json['data'][$i]['smslog_id'] = $smslog_id[$i];
-			$json['data'][$i]['queue'] = $queue_code[$i];
-			$json['data'][$i]['to'] = $to[$i];
 		}
 	} else {
 		$json['status'] = 'ERR';
