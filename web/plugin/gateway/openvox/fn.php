@@ -52,6 +52,7 @@ function openvox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		
 		$resp = json_decode(file_get_contents($url), true);
 		$data = $resp['report'][0][0][0];
+		// $data = $resp['report'][0][1][0];
 		$data['message'] = $resp['message'];
 		
 		_log('response result:' . $data['result'] . ' port:' . $data['port'] . ' to:' . $data['phonenumber'] . ' time:' . $data['time'], 3, 'openvox_hook_sendsms');
