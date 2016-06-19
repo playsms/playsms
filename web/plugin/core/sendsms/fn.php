@@ -873,21 +873,40 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 		$counts[$i] = $count;
 	}
 	
-	if (sendsms_queue_update($queue_code, array(
-		'flag' => '0',
-		'queue_count' => $queue_count,
-		'sms_count' => $sms_count 
-	))) {
-		_log("end queue_code:" . $queue_code . " queue_count:" . $queue_count . " sms_count:" . $sms_count . " failed_queue:" . $failed_queue_count . " failed_sms:" . $failed_sms_count, 2, "sendsms");
+	if (($queue_count > 0) && ($sms_count > 0)) {
+		if (sendsms_queue_update($queue_code, array(
+			'flag' => '0',
+			'queue_count' => $queue_count,
+			'sms_count' => $sms_count 
+		))) {
+			_log("end queue_code:" . $queue_code . " queue_count:" . $queue_count . " sms_count:" . $sms_count . " failed_queue:" . $failed_queue_count . " failed_sms:" . $failed_sms_count, 2, "sendsms");
+		} else {
+			_log("fail to prepare queue, exit immediately queue_code:" . $queue_code, 2, "sendsms");
+			return array(
+				FALSE,
+				'',
+				'',
+				$queue_code,
+				'',
+				sprintf(_('Send message failed due to unable to prepare queue %s'), $queue_code) 
+			);
+		}
 	} else {
-		_log("fail to prepare queue, exit immediately queue_code:" . $queue_code, 2, "sendsms");
+		// queue is empty, something's not right with the queue, mark it as done (flag 1)
+		if (sendsms_queue_update($queue_code, array(
+			'flag' => 1
+		))) {
+			_log('enforce finish create queue:' . $queue_code, 2, 'sendsms');
+		} else {
+			_log('fail to enforce finish create queue:' . $queue_code, 2, 'sendsms');
+		}		
 		return array(
 			FALSE,
 			'',
 			'',
 			$queue_code,
 			'',
-			sprintf(_('Send message failed due to unable to prepare queue %s'), $queue_code) 
+			sprintf(_('Send message cancelled due to empty queue %s'), $queue_code) 
 		);
 	}
 	
