@@ -373,7 +373,7 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 
 function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid = 0, $sms_type = 'text', $unicode = 0, $queue_code = '', $smsc = '') {
 	$ok = false;
-
+	
 	$sms_to = sendsms_getvalidnumber($sms_to);
 	
 	// now on sendsms()
@@ -385,11 +385,11 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// htmlspecialchars_decode to message and footer
 	$sms_msg = htmlspecialchars_decode($sms_msg);
 	$sms_footer = htmlspecialchars_decode($sms_footer);
-
+	
 	// user data
 	$user = user_getdatabyuid($uid);
 	$uid = $user['uid'];
-
+	
 	// sent sms will be handled by plugins first
 	$ret_intercept = sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc);
 	if ($ret_intercept['modified']) {
@@ -410,9 +410,9 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$queue_code = ($ret_intercept['param']['queue_code'] ? $ret_intercept['param']['queue_code'] : $queue_code);
 		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
 	}
-
+	
 	$username = $user['username'];
-	if (! ($username && $uid)) {
+	if (!($username && $uid)) {
 		_log("end with early error smslog_id:" . $smslog_id . " username:" . $username . " uid:" . $uid . " gpid:" . $gpid . " smsc:" . $smsc . " s:" . $sms_sender . " to:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode, 2, "sendsms_process");
 		$ret['status'] = false;
 		return $ret;
@@ -894,12 +894,12 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	} else {
 		// queue is empty, something's not right with the queue, mark it as done (flag 1)
 		if (sendsms_queue_update($queue_code, array(
-			'flag' => 1
+			'flag' => 1 
 		))) {
 			_log('enforce finish create queue:' . $queue_code, 2, 'sendsms');
 		} else {
 			_log('fail to enforce finish create queue:' . $queue_code, 2, 'sendsms');
-		}		
+		}
 		return array(
 			FALSE,
 			'',
