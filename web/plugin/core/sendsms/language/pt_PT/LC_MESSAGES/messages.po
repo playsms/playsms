@@ -61,6 +61,10 @@ msgstr "Horário"
 msgid "Send"
 msgstr "Enviar"
 
+#, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr ""
+
 msgid "Send message failed due to insufficient funds"
 msgstr ""
 

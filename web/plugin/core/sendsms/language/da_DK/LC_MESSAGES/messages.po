@@ -61,6 +61,10 @@ msgstr "Skema"
 msgid "Send"
 msgstr "Send"
 
+#, fuzzy, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr "Afsendelse af besked mislykkedes da køen %s ikke kunne forberedes"
+
 msgid "Send message failed due to insufficient funds"
 msgstr "Afsendelse af besked mislykkedes på grund af manglende kredit"
 

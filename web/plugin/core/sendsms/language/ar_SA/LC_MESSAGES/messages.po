@@ -63,6 +63,10 @@ msgstr "الجدول"
 msgid "Send"
 msgstr " إرسال"
 
+#, fuzzy, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr "فشل إرسال رسالة لعدم القدرة على تحضير الطابور %s"
+
 msgid "Send message failed due to insufficient funds"
 msgstr "فشل إرسال رسالة بسبب عدم وجود رصيد كافي"
 

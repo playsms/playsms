@@ -2602,6 +2602,10 @@ msgstr "Envoyer depuis un fichier"
 msgid "Send from file has been cancelled"
 msgstr "L'envoi depuis un fichier a été annulé"
 
+#, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr ""
+
 msgid "Send message failed due to insufficient funds"
 msgstr ""
 

@@ -2523,6 +2523,10 @@ msgstr "Sende SMS aus Datei"
 msgid "Send from file has been cancelled"
 msgstr "Sende aus Datei wurde abgebrochen"
 
+#, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr ""
+
 msgid "Send message failed due to insufficient funds"
 msgstr ""
 

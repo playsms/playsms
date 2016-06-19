@@ -53,6 +53,10 @@ msgstr "Agendamento"
 msgid "Send"
 msgstr "Enviar"
 
+#, fuzzy, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr "Envio de mensagem falhou devido à indisponibilidade da fila %s"
+
 msgid "Send message failed due to insufficient funds"
 msgstr "Você não possui créditos suficientes para enviar a mensagem"
 

@@ -2559,6 +2559,10 @@ msgstr "إرسال من ملف"
 msgid "Send from file has been cancelled"
 msgstr "تم إلغاء الإرسال من ملف"
 
+#, fuzzy, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr "فشل إرسال رسالة لعدم القدرة على تحضير الطابور %s"
+
 msgid "Send message failed due to insufficient funds"
 msgstr "فشل إرسال رسالة بسبب عدم وجود رصيد كافي"
 

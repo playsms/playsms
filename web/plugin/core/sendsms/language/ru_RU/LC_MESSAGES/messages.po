@@ -62,6 +62,10 @@ msgstr "Запланировать"
 msgid "Send"
 msgstr "Отправить"
 
+#, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr ""
+
 msgid "Send message failed due to insufficient funds"
 msgstr ""
 
