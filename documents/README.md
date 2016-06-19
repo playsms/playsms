@@ -1,3 +1,1 @@
-Most of the documents have been moved to **playSMS Book Project**.
-
-Visit [https://antonraharja.github.com/book-playsms](https://antonraharja.github.com/book-playsms).
+Visit [http://help.playsms.org/](http://help.playsms.org/)

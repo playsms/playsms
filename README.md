@@ -1,18 +1,18 @@
 # README
 
-playSMS version **1.3.1**
+playSMS version **1.4**
 
 Official project website:
 
-* http://playsms.org
+* https://playsms.org
 
 Official playSMS forum:
 
-* http://forum.playsms.org
+* https://forum.playsms.org
 
 Official playSMS Facebook page:
 
-* http://facebook.com/playsmsusergroup
+* https://facebook.com/playsmsusergroup
 
 
 ## Description

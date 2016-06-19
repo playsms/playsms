@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.3.1**
+This document explains about how to install and setup playSMS version **1.4**
 
 
 ## Requirements
@@ -22,7 +22,7 @@ Optional hardware or infrastructure:
 
 * Operating System Linux (distro such as Ubuntu, Debian, CentOS etc)
 * Web server software (for example Apache2, nginx or lighttpd)
-* Database Server MySQL 5.x.x or latest stable release
+* Database Server MySQL 5.x.x or latest stable release (with adjustments for MySQL 5.7.x)
 * PHP 5.3 or latest stable release (must be at least version 5.3)
 * PHP MySQL module must be installed and enabled
 * PHP CLI must be installed
@@ -31,7 +31,7 @@ Optional hardware or infrastructure:
 * PHP GD extension must be installed and enabled to draw graphs
 * Access to SMTP server to send Email
 * Downloaded playSMS official release package from SF.net or master version from Github
-* Properly installed composer from https://getcomposer.org
+* Properly installed composer from https://getcomposer.org (will be installed by playSMS install script)
 
 **Minimum required server administrator (or developer):**
 
@@ -51,51 +51,53 @@ There are 2 methods explained in this document to install playSMS:
 
 You should pick **only one** method, do not do both methods.
 
+Again, please do **only one** method, do not do both methods, unless of course you know what you're doing.
+
 
 ### Method 1: Installation on Linux using install-script
 
 Install playSMS using install script `install-playsms.sh`
 
-1.  Extract playSMS package and go there (For example in /usr/local/src)
+1.  Extract playSMS package and go there (For example in `/usr/local/src`)
 
-    ```
-    tar -zxf playsms-1.3.1.tar.gz -C /usr/local/src
+    ```bash
+    tar -zxf playsms-1.4.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.3.1/
+    cd /usr/local/src/playsms-1.4/
     ```
 
-2.  Copy install.conf.dist to install.conf and edit install.conf
+2.  Copy `install.conf.dist` to `install.conf` and edit `install.conf`
 
-    Read install.conf and make changes to suit your system configuration
+    Read `install.conf` and make changes to suit your system configuration
 
-    ```
+    ```bash
     cp install.conf.dist install.conf
     vi install.conf
     ```
 
-3.  Run installer script
+3.  Run playSMS install script
 
-    ```
+    ```bash
     ./install-playsms.sh
     ```
 
-4.  Configure rc.local to get playsmsd started on boot
+4.  Configure `rc.local` to get `playsmsd` started on boot
 
-    Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
+    Look for `rc.local` on `/etc`, `/etc/init.d` or `/etc/rc.d/init.d`
 
-    When you found it edit that rc.local and put:
+    When you found it edit that `rc.local` and put:
 
     `/usr/local/bin/playsmsd start`
 
     on the bottom of the file (before exit if theres an exit command).
 
-    This way playsmsd will start automatically on boot.
+    This way `playsmsd` will start automatically on boot.
 
 Note:
 
-* After successful installation, please run command `ps ax` and see if playsmsd is running
+* After successful installation, please run command `ps ax` and see if `playsmsd` is running
 
-  ```
+  ```bash
   ps ax | grep playsms
   4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf schedule
   4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf dlrssmsd
@@ -105,13 +107,13 @@ Note:
 
 * Run several checks
 
-  ```
+  ```bash
   playsmsd status
   playsmsd check
   ```
 
-* Stop here and review your installation steps when playsmsd is not running
-* Consider to ask question in playSMS forum when you encountered a problem
+* Stop here and review your installation steps when `playsmsd` is not running
+* Consider to ask question in playSMS forum when you encountered any problem
 * If all seems to be correctly installed you may try to login from web browser
 
   ```
@@ -125,102 +127,97 @@ Note:
 
 Install playSMS by following step-by-step:
 
-1.  Extract playSMS package and go there (For example in /usr/local/src)
+1.  Extract playSMS package and go there (For example in `/usr/local/src`)
 
-    ```
-    tar -zxf playsms-1.3.1.tar.gz -C /usr/local/src
+    ```bash
+    tar -zxf playsms-1.4.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.3.1/
+    cd /usr/local/src/playsms-1.4/
     ```
 
-2.  Run getcomposer.sh
+2.  Run `getcomposer.sh`
 
-    ```
+    ```bash
     ./getcomposer.sh
     ```
 
-    You may see the following warning, that can safely be ignored:
-    ```
-    Warning: Ambiguous class resolution, "PEAR_ErrorStack" was found in both "/usr/local/src/playsms-1.3.1/web/lib/composer/vendor/pear/pear/PEAR/ErrorStack.php" and "/usr/local/src/playsms-1.3.1/web/lib/composer/vendor/pear/pear/PEAR/ErrorStack5.php", the first will be used.
-    ```
+3.  Create playSMS web root, log, lib and set ownership to user **www-data** or web server user
 
-3.  Create playSMS web root, log, lib and set ownership to user www-data or web server user
+    Assumed that your web root is `/var/www/html` and your web server user is **www-data**
 
-    Assumed that your web root is `/var/www` and your web server user is `www-data`
-
-    ```
-    mkdir -p /var/www/playsms /var/log/playsms /var/lib/playsms
-    chown -R www-data /var/www/playsms /var/log/playsms /var/lib/playsms
+    ```bash
+    mkdir -p /var/www/html/playsms /var/log/playsms /var/lib/playsms
+    chown -R www-data /var/www/html/playsms /var/log/playsms /var/lib/playsms
     ```
 
-    Please note that there are Linux distributions using `apache` as web server user instead of `www-data`
+    Please note that there are Linux distributions using **apache** as web server user instead of **www-data**
 
-    Also note that there are Linux distributions set `/var/www/html` as web root instead of `/var/www`
+    And also note that there are Linux distributions having `/var/www` as default web root instead of `/var/www/html`
 
 4.  Copy files and directories inside `web` directory to playSMS web root and set ownership to web server user
 
-    ```
-    cp -R web/* /var/www/playsms
-    chown -R www-data /var/www/playsms
+    ```bash
+    cp -R web/* /var/www/html/playsms
+    chown -R www-data /var/www/html/playsms
     ```
 
 5.  Setup database (import database)
 
-    ```
+    ```bash
     mysqladmin -u root -p create playsms
     cat db/playsms.sql | mysql -u root -p playsms
     ```
 
-6.  Copy config-dist.php to config.php and then edit config.php
+6.  Copy `config-dist.php` to `config.php` and then edit `config.php`
 
-    ```
-    cp /var/www/playsms/config-dist.php /var/www/playsms/config.php
-    vi /var/www/playsms/config.php
+    ```bash
+    cp /var/www/html/playsms/config-dist.php /var/www/html/playsms/config.php
+    vi /var/www/html/playsms/config.php
     ```
 
     Please read and fill all fields with correct values
 
 7.  Enter daemon/linux directory, copy files and folder, and set correct permission
 
-    ```
+    ```bash
     cp daemon/linux/etc/playsmsd.conf /etc/playsmsd.conf
     cp daemon/linux/bin/playsmsd.php /usr/local/bin/playsmsd
     chmod +x /usr/local/bin/playsmsd
     ```
 
-8.  Just to make sure every paths are correct, please edit /etc/playsmsd.conf
+8.  Just to make sure every paths are correct, please edit `/etc/playsmsd.conf`
 
-    ```
+    ```bash
     vi /etc/playsmsd.conf
     ```
 
-    Make sure that `PLAYSMS_PATH` is pointing to a correct playSMS installation path (in this example to /var/www/playsms)
+    Make sure that `PLAYSMS_PATH` is pointing to a correct playSMS installation path (in this example to `/var/www/html/playsms`)
 
-    Also Make sure that `PLAYSMS_BIN` is pointing to a correct playSMS daemon scripts path (in this example to /usr/local/bin)
+    Also Make sure that `PLAYSMS_BIN` is pointing to a correct playSMS daemon scripts path (in this example to `/usr/local/bin`)
 
-9.  Start playsmsd now from Linux console, no need to reboot
+9.  Start `playsmsd` now from Linux console, no need to reboot
 
-    ```
+    ```bash
     playsmsd start
     ```
 
-10. Configure rc.local to get playsmsd started on boot
+10. Configure `rc.local` to get `playsmsd` started on boot
 
-    Look for rc.local on /etc, /etc/init.d, /etc/rc.d/init.d
+    Look for `rc.local` in `/etc`, `/etc/init.d` or `/etc/rc.d/init.d`
 
-    When you found it edit that rc.local and put:
+    When you found it edit that `rc.local` and put:
 
     `/usr/local/bin/playsmsd start`
 
     on the bottom of the file (before exit if theres an exit command).
 
-    This way playsmsd will start automatically on boot.
+    This way `playsmsd` will start automatically on boot.
 
 Note:
 
-* After successful installation, please run command `ps ax` and see if playsmsd is running
+* After successful installation, please run command `ps ax` and see if `playsmsd` is running
 
-  ```
+  ```bash
   ps ax | grep playsms
   4069 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf schedule
   4071 pts/12  S    0:00 /usr/bin/php -q /usr/local/bin/playsmsd /etc/playsmsd.conf dlrssmsd
@@ -230,13 +227,13 @@ Note:
 
 * Run several checks
 
-  ```
+  ```bash
   playsmsd status
   playsmsd check
   ```
 
-* Stop here and review your installation steps when playsmsd is not running
-* Consider to ask question in playSMS forum when you encountered a problem
+* Stop here and review your installation steps when `playsmsd` is not running
+* Consider to ask question in playSMS forum when you encountered any problem
 * If all seems to be correctly installed you may try to login from web browser
 
   ```
@@ -247,7 +244,5 @@ Note:
 
 
 ## Gateway Installation
-
-Next, choose a gateway.
 
 Read more information and tutorial in [playSMS documentation](http://playsms.org/documentation/).
