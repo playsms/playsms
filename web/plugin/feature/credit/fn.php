@@ -165,11 +165,11 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 			'lowest_limit_notif' => FALSE 
 		));
 		
-		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
+		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount, 3, 'credit_add');
 		
 		return TRUE;
 	} else {
-		_log('fail to save parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount . ' balance:' . $balance, 3, 'credit_add');
+		_log('fail to save parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount, 3, 'credit_add');
 		
 		return FALSE;
 	}
