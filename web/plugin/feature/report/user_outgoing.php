@@ -146,12 +146,16 @@ switch (_OP_) {
 			// get billing info
 			$billing = billing_getdata($smslog_id);
 			$p_count = ($billing['count'] ? $billing['count'] : '0');
+			
 			$p_rate = ($billing['rate'] ? $billing['rate'] : '0.0');
+			$p_rate = number_format($p_rate, 2, '.', '');
+			
 			$p_charge = ($billing['charge'] ? $billing['charge'] : '0.0');
+			$p_charge = number_format($p_charge, 2, '.', '');
 			
 			// if send SMS failed then display charge as 0
 			if ($list[$j]['p_status'] == 2) {
-				$p_charge = '0.0';
+				$p_charge = '0.00';
 			}
 			
 			$msg = $list[$j]['p_msg'];

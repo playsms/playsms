@@ -59,10 +59,10 @@ function simplebilling_hook_billing_getdata($smslog_id) {
 	if ($db_row = dba_fetch_array($db_result)) {
 		$id = $db_row['id'];
 		$post_datetime = $db_row['post_datetime'];
-		$rate = $db_row['rate'];
-		$credit = $db_row['credit'];
-		$count = $db_row['count'];
-		$charge = $db_row['charge'];
+		$rate = (float) $db_row['rate'];
+		$credit = (float) $db_row['credit'];
+		$count = (int) $db_row['count'];
+		$charge = (float) $db_row['charge'];
 		$status = $db_row['status'];
 		$ret = array(
 			'id' => $id,
