@@ -794,7 +794,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 		$total_count += $count;
 		$total_charges += $charge;
 	}
-	_log('dst:' . count($all_sms_to) . ' sms_count:' . $total_count . ' total_charges:' . $total_charges, 2, 'sendsms');
+	_log('dst_count:' . count($all_sms_to) . ' sms_count:' . $total_count . ' total_charges:' . $total_charges, 2, 'sendsms');
 	
 	// sender's
 	$credit = rate_getusercredit($user['username']);
