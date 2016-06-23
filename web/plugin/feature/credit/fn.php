@@ -33,7 +33,6 @@ function credit_getbalance($uid) {
 	}
 	
 	$balance = (float) $balance;
-	$balance = number_format($balance, 2, '.', '');
 	
 	return $balance;
 }
@@ -123,10 +122,9 @@ function credit_hook_webservices_output($operation, $requests, $returns) {
 	if (auth_isvalid()) {
 		$balance = (float) credit_getbalance($user_config['uid']);
 	}
-	$balance = number_format($balance, 2, '.', '');
 	
 	$returns['modified'] = TRUE;
-	$returns['param']['content'] = $balance;
+	$returns['param']['content'] = core_display_credit($balance);
 	$returns['param']['content-type'] = 'text/plain';
 	
 	return $returns;
@@ -193,8 +191,6 @@ function credit_hook_rate_getusercredit($username) {
 		$balance = (float) $db_row['credit'];
 	}
 	
-	$balance = number_format($balance, 2, '.', '');
-	
 	return $balance;
 }
 
@@ -209,8 +205,6 @@ function _credit_get_credit($uid) {
 		$credit = (float) $db_row['credit'];
 	}
 	
-	$credit = number_format($credit, 2, '.', '');
-	
 	return $credit;
 }
 
@@ -223,8 +217,6 @@ function _credit_get_billing($uid) {
 		$db_row = dba_fetch_array($db_result);
 		$billing = (float) $db_row['billing'];
 	}
-	
-	$billing = number_format($billing, 2, '.', '');
 	
 	return $billing;
 }
@@ -239,15 +231,12 @@ function _credit_get_billing_parent($parent_uid) {
 		$billing = (float) $db_row['billing'];
 	}
 	
-	$billing = number_format($billing, 2, '.', '');
-	
 	return $billing;
 }
 
 function _credit_calculate_balance($credit, $billing) {
 	$balance = (float) $credit - (float) $billing;
 	$balance = (float) ($balance ? $balance : 0);
-	$balance = number_format($balance, 2, '.', '');
 	
 	return $balance;
 }
