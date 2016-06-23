@@ -515,6 +515,18 @@ function core_adjust_datetime($time, $tz = 0) {
 }
 
 /**
+ * Format float to proper credit format
+ *
+ * @param float $float
+ * @return string
+ */
+function core_display_credit($float) {
+	$credit = number_format((float) $float, 2, '.', '');
+
+	return $credit;
+}
+
+/**
  * Generates a new string, for example a new password
  */
 function core_get_random_string($length = 8, $valid_chars = '') {
