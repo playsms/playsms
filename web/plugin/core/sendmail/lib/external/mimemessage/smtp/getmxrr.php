@@ -107,6 +107,8 @@ else
 	Unset($__PHPRESOLVER_RS);
 }
 
+// fixme anton - remove error if GetMXRR() is already exists
+if (! function_exists('GetMXRR')) {
 function GetMXRR( $hostname, &$mxhosts, &$weight ) {
 	global $__PHPRESOLVER_RS;
 	if(!IsSet($__PHPRESOLVER_RS))
@@ -131,6 +133,7 @@ function GetMXRR( $hostname, &$mxhosts, &$weight ) {
 		}
 		return true;
 	}
+}
 }
 
 ?>

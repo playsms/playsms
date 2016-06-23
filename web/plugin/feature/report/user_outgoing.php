@@ -147,11 +147,9 @@ switch (_OP_) {
 			$billing = billing_getdata($smslog_id);
 			$p_count = ($billing['count'] ? $billing['count'] : '0');
 			
-			$p_rate = ($billing['rate'] ? $billing['rate'] : '0.0');
-			$p_rate = number_format($p_rate, 2, '.', '');
+			$p_rate = core_display_credit($billing['rate'] ? $billing['rate'] : '0.0');
 			
-			$p_charge = ($billing['charge'] ? $billing['charge'] : '0.0');
-			$p_charge = number_format($p_charge, 2, '.', '');
+			$p_charge = core_display_credit($billing['charge'] ? $billing['charge'] : '0.0');
 			
 			// if send SMS failed then display charge as 0
 			if ($list[$j]['p_status'] == 2) {
