@@ -166,58 +166,8 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			$p_msg_len = strlen($p_msg) + strlen($p_footer);
 			list($count, $rate, $charge) = rate_getcharges($uid, $p_msg_len, $unicode, $p_dst);
 
-			// sender's
-			$username = user_uid2username($uid);
-			$credit = rate_getusercredit($username);
-			$balance = $credit - $charge;
-
-			// parent's when sender is a subuser
-			$parent_uid = user_getparentbyuid($uid);
-			if ($parent_uid) {
-				$username_parent = user_uid2username($parent_uid);
-				$credit_parent = rate_getusercredit($username_parent);
-				$balance_parent = $credit_parent - $charge;
-			}
-
 			if (billing_post($smslog_id, $rate, $count, $charge)) {
 				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
-
-				// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
-
-
-				$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
-				_log('credit_lowest_limit:' . $credit_lowest_limit . ' balance:' . $balance . ' charge:' . $charge, 3, "simplerate_hook_rate_deduct");
-
-				$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
-				$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
-
-				if ($charge && $balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
-
-					// set notified
-					registry_update($uid, 'feature', 'credit', array(
-						'lowest_limit_notif' => TRUE
-					));
-
-					// notif admins
-					$admins = user_getallwithstatus(2);
-					foreach ($admins as $admin) {
-						$credit_message_to_admins = sprintf(_('Username %s with account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-						recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $admin['username'], $credit_message_to_admins);
-					}
-
-					// notif parent_uid if exists
-					if ($parent_uid && $username_parent) {
-						$credit_message_to_parent = sprintf(_('Your subuser with username %s and account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-						recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $username_parent, $credit_message_to_parent);
-					}
-
-					// notif uid
-					$sender_username = ($username_parent ? $username_parent : _SYSTEM_SENDER_ID_);
-					$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
-					recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
-
-					_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, "simplerate_hook_rate_deduct");
-				}
 
 				return TRUE;
 			} else {
