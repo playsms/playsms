@@ -151,7 +151,7 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 function simplerate_hook_rate_deduct($smslog_id) {
 	global $core_config;
 
-	_log("enter smslog_id:" . $smslog_id, 2, "simplerate deduct");
+	_log("enter smslog_id:" . $smslog_id, 2, "simplerate_hook_rate_deduct");
 	$db_query = "SELECT p_dst,p_footer,p_msg,uid,unicode FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -180,13 +180,13 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			}
 
 			if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
-				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 
 				// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
 
 
 				$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
-				_log('credit_lowest_limit:' . $credit_lowest_limit . ' balance:' . $balance . ' charge:' . $charge, 3, 'simplerate deduct');
+				_log('credit_lowest_limit:' . $credit_lowest_limit . ' balance:' . $balance . ' charge:' . $charge, 3, "simplerate_hook_rate_deduct");
 
 				$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
 				$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
@@ -216,20 +216,20 @@ function simplerate_hook_rate_deduct($smslog_id) {
 					$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
 					recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
 
-					_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, 'simplerate deduct');
+					_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, "simplerate_hook_rate_deduct");
 				}
 
 				return TRUE;
 			} else {
-				_log("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+				_log("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 
 				return FALSE;
 			}
 		} else {
-			_log("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+			_log("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 		}
 	} else {
-		_log("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+		_log("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 	}
 
 	return FALSE;
@@ -238,7 +238,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 function simplerate_hook_rate_refund($smslog_id) {
 	global $core_config;
 
-	_log("start smslog_id:" . $smslog_id, 2, "simplerate refund");
+	_log("start smslog_id:" . $smslog_id, 2, "simplerate_hook_rate_refund");
 	$db_query = "SELECT p_dst,p_msg,uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -259,7 +259,7 @@ function simplerate_hook_rate_refund($smslog_id) {
 }
 
 function simplerate_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
-	//_log("start smslog_id:".$smslog_id, 2, "simplerate setsmsdeliverystatus");
+	//_log("start smslog_id:".$smslog_id, 2, "simplerate_hook_setsmsdeliverystatus");
 	if ($p_status == 2) {
 		// check in billing table smslog_id with status=0, status=1 is finalized, status=2 is rolled-back
 		$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";
