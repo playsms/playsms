@@ -179,7 +179,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 				$balance_parent = $credit_parent - $charge;
 			}
 
-			if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
+			if (billing_post($smslog_id, $rate, $count, $charge)) {
 				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 
 				// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid

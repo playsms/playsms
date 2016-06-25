@@ -26,7 +26,7 @@ defined('_SECURE_') or die('Forbidden');
  * @param float $credit
  * @return boolean TRUE if posted
  */
-function billing_post($smslog_id,$rate,$credit,$count,$charge) {
+function billing_post($smslog_id,$rate,$count,$charge) {
 	$ret = core_call_hook();
 	return $ret;
 }
