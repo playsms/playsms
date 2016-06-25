@@ -1509,6 +1509,7 @@ CREATE TABLE `playsms_tblUser` (
   `country` int(11) NOT NULL DEFAULT '0',
   `zipcode` varchar(10) NOT NULL DEFAULT '',
   `credit` decimal(13,3) NOT NULL DEFAULT '0.000',
+  `adhoc_credit` decimal(13,3) NOT NULL DEFAULT '0.000',
   `datetime_timezone` varchar(30) NOT NULL DEFAULT '',
   `language_module` varchar(10) NOT NULL DEFAULT '',
   `fwd_to_mobile` int(11) NOT NULL DEFAULT '0',

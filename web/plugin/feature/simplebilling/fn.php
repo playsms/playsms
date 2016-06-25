@@ -1,12 +1,12 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function simplebilling_hook_billing_post($smslog_id, $rate, $credit, $count, $charge) {
+function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge) {
 	$ok = false;
-	_log("saving smslog_id:" . $smslog_id . " rate:" . $rate . " credit:" . $credit . " count:" . $count . " charge:" . $charge, 2, "simplebilling post");
-	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (post_datetime,smslog_id,rate,credit,count,charge,status) VALUES ('" . core_get_datetime() . "','$smslog_id','$rate','$credit','$count','$charge','0')";
+	_log("saving smslog_id:" . $smslog_id . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 2, "simplebilling_hook_billing_post");
+	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (post_datetime,smslog_id,rate,count,charge,status) VALUES ('" . core_get_datetime() . "','$smslog_id','$rate','$count','$charge','0')";
 	if ($id = @dba_insert_id($db_query)) {
-		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling post");
+		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling_hook_billing_post");
 		$ok = true;
 	}
 	return $ok;

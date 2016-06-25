@@ -49,6 +49,28 @@ function simplerate_getbyid($id) {
 	return $rate;
 }
 
+function simplerate_getadhoccredit($uid) {
+	$balance = 0;
+
+	if ($c_uid = (int) $uid) {
+		$db_query = "SELECT adhoc_credit FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$c_uid'";
+		$db_result = dba_query($db_query);
+		$db_row = dba_fetch_array($db_result);
+		$balance = (float) $db_row['adhoc_credit'];
+	}
+
+	return $balance;
+}
+
+function simplerate_setadhoccredit($uid, $balance) {
+	$balance = (float) $balance;
+
+	if ($c_uid = (int) $uid) {
+		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . time() . "', adhoc_credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";
+		dba_query($db_query);
+	}
+}
+
 // -----------------------------------------------------------------------------------------
 function simplerate_hook_rate_getbyprefix($sms_to) {
 	global $core_config;
@@ -117,32 +139,43 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	$uid = user_username2uid($username);
 	list($count, $rate, $charge) = rate_getcharges($uid, $sms_len, $unicode, $sms_to);
 
+	// sender's
+	$adhoc_credit = simplerate_getadhoccredit($uid);
+	$adhoc_balance = $adhoc_credit - $charge;
+	
 	// parent's when sender is a subuser
-	$parent_uid = user_getparentbyuid($uid);
-	if ($parent_uid) {
-		$username_parent = user_uid2username($parent_uid);
-		$credit_parent = rate_getusercredit($username_parent);
-		$balance_parent = $credit_parent - $charge;
-	} else {
-		// sender's
-		$credit = rate_getusercredit($username);
-		$balance = $credit - $charge;
+	if ($parent_uid = user_getparentbyuid($uid)) {
+		$adhoc_credit_parent = simplerate_getadhoccredit($parent_uid);
+		$adhoc_balance_parent = $adhoc_credit_parent - $charge;
 	}
 
 	if ($parent_uid) {
-		if (($balance_parent >= 0) && ($balance >= 0)) {
-			_log("allowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance . " balance_parent:" . $balance_parent, 2, "simplerate_hook_rate_cansend");
+		if (($adhoc_balance_parent >= 0) && ($adhoc_balance >= 0)) {
+			
+			// update adhoc_credit immediately, parent's too
+			simplerate_setadhoccredit($uid, $adhoc_balance);
+			simplerate_setadhoccredit($parent_uid, $adhoc_balance_parent);
+			
+			_log("allowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance . " adhoc_balance_parent:" . $adhoc_balance_parent, 2, "simplerate_hook_rate_cansend");
+			
 			return TRUE;
 		} else {
-			_log("disallowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance . " balance_parent:" . $balance_parent, 2, "simplerate_hook_rate_cansend");
+			_log("disallowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance . " adhoc_balance_parent:" . $adhoc_balance_parent, 2, "simplerate_hook_rate_cansend");
+			
 			return FALSE;
 		}
 	} else {
-		if ($balance >= 0) {
-			_log("allowed user uid:" . $uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance, 2, "simplerate_hook_rate_cansend");
+		if ($adhoc_balance >= 0) {
+
+			// update adhoc_credit immediately
+			simplerate_setadhoccredit($uid, $adhoc_balance);
+			
+			_log("allowed user uid:" . $uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance, 2, "simplerate_hook_rate_cansend");
+			
 			return TRUE;
 		} else {
-			_log("disallowed user uid:" . $uid . " sms_to:" . $sms_to . " credit:" . $credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " balance:" . $balance, 2, "simplerate_hook_rate_cansend");
+			_log("disallowed user uid:" . $uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance, 2, "simplerate_hook_rate_cansend");
+			
 			return FALSE;
 		}
 	}
@@ -151,14 +184,15 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 function simplerate_hook_rate_deduct($smslog_id) {
 	global $core_config;
 
-	_log("enter smslog_id:" . $smslog_id, 2, "simplerate deduct");
-	$db_query = "SELECT p_dst,p_footer,p_msg,uid,unicode FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+	_log("enter smslog_id:" . $smslog_id, 2, "simplerate_hook_rate_deduct");
+	$db_query = "SELECT p_dst,p_footer,p_msg,uid,parent_uid,unicode FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$p_dst = $db_row['p_dst'];
 		$p_msg = $db_row['p_msg'];
 		$p_footer = $db_row['p_footer'];
 		$uid = $db_row['uid'];
+		$parent_uid = $db_row['parent_uid'];
 		$unicode = $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {
 
@@ -166,70 +200,20 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			$p_msg_len = strlen($p_msg) + strlen($p_footer);
 			list($count, $rate, $charge) = rate_getcharges($uid, $p_msg_len, $unicode, $p_dst);
 
-			// sender's
-			$username = user_uid2username($uid);
-			$credit = rate_getusercredit($username);
-			$balance = $credit - $charge;
-
-			// parent's when sender is a subuser
-			$parent_uid = user_getparentbyuid($uid);
-			if ($parent_uid) {
-				$username_parent = user_uid2username($parent_uid);
-				$credit_parent = rate_getusercredit($username_parent);
-				$balance_parent = $credit_parent - $charge;
-			}
-
-			if (billing_post($smslog_id, $rate, $credit, $count, $charge)) {
-				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
-
-				// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
-
-
-				$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
-				_log('credit_lowest_limit:' . $credit_lowest_limit . ' balance:' . $balance . ' charge:' . $charge, 3, 'simplerate deduct');
-
-				$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
-				$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
-
-				if ($charge && $balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
-
-					// set notified
-					registry_update($uid, 'feature', 'credit', array(
-						'lowest_limit_notif' => TRUE
-					));
-
-					// notif admins
-					$admins = user_getallwithstatus(2);
-					foreach ($admins as $admin) {
-						$credit_message_to_admins = sprintf(_('Username %s with account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-						recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $admin['username'], $credit_message_to_admins);
-					}
-
-					// notif parent_uid if exists
-					if ($parent_uid && $username_parent) {
-						$credit_message_to_parent = sprintf(_('Your subuser with username %s and account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
-						recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $username_parent, $credit_message_to_parent);
-					}
-
-					// notif uid
-					$sender_username = ($username_parent ? $username_parent : _SYSTEM_SENDER_ID_);
-					$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
-					recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
-
-					_log('sent notification credit_lowest_limit:' . $credit_lowest_limit, 3, 'simplerate deduct');
-				}
-
+			if (billing_post($smslog_id, $rate, $count, $charge)) {
+				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
+				
 				return TRUE;
 			} else {
-				_log("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+				_log("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 
 				return FALSE;
 			}
 		} else {
-			_log("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+			_log("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 		}
 	} else {
-		_log("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate deduct");
+		_log("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 	}
 
 	return FALSE;
@@ -238,7 +222,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 function simplerate_hook_rate_refund($smslog_id) {
 	global $core_config;
 
-	_log("start smslog_id:" . $smslog_id, 2, "simplerate refund");
+	_log("start smslog_id:" . $smslog_id, 2, "simplerate_hook_rate_refund");
 	$db_query = "SELECT p_dst,p_msg,uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -259,7 +243,7 @@ function simplerate_hook_rate_refund($smslog_id) {
 }
 
 function simplerate_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
-	//_log("start smslog_id:".$smslog_id, 2, "simplerate setsmsdeliverystatus");
+	//_log("start smslog_id:".$smslog_id, 2, "simplerate_hook_setsmsdeliverystatus");
 	if ($p_status == 2) {
 		// check in billing table smslog_id with status=0, status=1 is finalized, status=2 is rolled-back
 		$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";
