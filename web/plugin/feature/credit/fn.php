@@ -289,3 +289,74 @@ function credit_hook_rate_update() {
 	
 	_credit_rate_update();
 }
+
+// low credit notification
+function _credit_getbyuid($uid) {
+	$balance = 0;
+	
+	$username = user_uid2username($uid);
+	if ($username) {
+		$balance = credit_hook_rate_getusercredit($username);
+	}
+	
+	return $balance;
+}
+
+function _credit_low_notif() {
+	global $core_config;
+	
+	$db_query = "SELECT uid, parent_uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+
+		// sender's
+		$uid = $db_row['uid'];
+		$balance = _credit_getbyuid($uid);
+		
+		// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
+		$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
+		$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
+		$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
+		
+		if ($balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
+		
+			// set notified
+			registry_update($uid, 'feature', 'credit', array(
+				'lowest_limit_notif' => TRUE
+			));
+		
+			// notif admins
+			$admins = user_getallwithstatus(2);
+			foreach ($admins as $admin) {
+				$credit_message_to_admins = sprintf(_('Username %s with account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
+				recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $admin['username'], $credit_message_to_admins);
+			}
+		
+			// get parent
+			if ($parent_uid = $db_row['parent_uid']) {
+				// notif parent_uid if exists
+				if ($username_parent = user_uid2username($parent_uid)) {
+					$credit_message_to_parent = sprintf(_('Your subuser with username %s and account ID %d has reached lowest credit limit of %s'), $username, $uid, $credit_lowest_limit);
+					recvsms_inbox_add(core_get_datetime(), _SYSTEM_SENDER_ID_, $username_parent, $credit_message_to_parent);
+				}
+			}
+		
+			// notif uid
+			$sender_username = ($username_parent ? $username_parent : _SYSTEM_SENDER_ID_);
+			$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
+			recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
+		
+			_log('sent notification uid:' . $uid . ' parent_uid:' . $parent_uid . ' credit_lowest_limit:' . $credit_lowest_limit, 3, "credit_low_notif");
+		}
+		
+		
+	}
+}
+
+function credit_hook_playsmsd() {
+	if (!core_playsmsd_timer(300)) {
+		return;
+	}
+	
+	_credit_low_notif();
+}
