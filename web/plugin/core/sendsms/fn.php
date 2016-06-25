@@ -478,16 +478,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	if (rate_cansend($username, strlen($sms_msg . $sms_footer), $unicode, $sms_to)) {
 		$p_status = 0;
 	} else {
-		_log("end with fail not enough credit smslog_id:" . $smslog_id, 2, "sendsms_process");
-		$ret['status'] = true;
-		
-		// set TRUE to stop queue
-		$ret['to'] = $sms_to;
-		$ret['smslog_id'] = $smslog_id;
-		$ret['p_status'] = 2;
-		
-		// set failed
-		return $ret;
+		$p_status = 2;
 	}
 	
 	// message entering this proc already stripslashed, we need to addslashes it before saving to db
