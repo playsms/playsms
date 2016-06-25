@@ -245,7 +245,7 @@ function _credit_update_credit($uid, $balance) {
 	$balance = (float) $balance;
 	
 	if ($c_uid = (int) $uid) {
-		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . time() . "', credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";
+		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . time() . "', credit='$balance', adhoc_credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";
 		dba_query($db_query);
 	}
 }
