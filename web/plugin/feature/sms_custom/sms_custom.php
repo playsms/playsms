@@ -102,6 +102,12 @@ switch (_OP_) {
 		$edit_sms_receiver = $db_row['sms_receiver'];
 		$edit_custom_url = $db_row['custom_url'];
 		$edit_custom_return_as_reply = ($db_row['custom_return_as_reply'] == '1' ? 'checked' : '');
+		$edit_smsc = $db_row['smsc'];
+
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('edit_smsc', $edit_smsc) . "</td></tr>";
+		}
+		
 		$content .= _dialog() . "
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Edit SMS custom') . "</h3>
@@ -144,6 +150,7 @@ switch (_OP_) {
 				<tr>
 					<td>" . _('Make return as reply') . "</td><td><input type=checkbox name=edit_custom_return_as_reply $edit_custom_return_as_reply></td>
 				</tr>
+				" . $select_reply_smsc . "
 				</tbody>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -155,8 +162,14 @@ switch (_OP_) {
 		$edit_service_name = $_POST['edit_service_name'];
 		$edit_custom_return_as_reply = ($_POST['edit_custom_return_as_reply'] == 'on' ? '1' : '0');
 		$edit_custom_url = $_POST['edit_custom_url'];
+
+		if (auth_isadmin()) {
+			$edit_smsc = $_POST['edit_smsc'];
+			$query_smsc = ",smsc='$edit_smsc'";
+		}
+		
 		if ($custom_id && $edit_service_name && $edit_custom_url) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . time() . "',service_name='$edit_service_name',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply' WHERE custom_id='$custom_id'";
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureCustom SET c_timestamp='" . time() . "',service_name='$edit_service_name',custom_url='$edit_custom_url',custom_return_as_reply='$edit_custom_return_as_reply'" . $query_smsc . " WHERE custom_id='$custom_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS custom has been saved');
 				_lastpost_empty();
@@ -185,6 +198,10 @@ switch (_OP_) {
 		exit();
 		break;
 	case "sms_custom_add":
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc') . "</td></tr>";
+		}
+		
 		$content .= _dialog() . "
 			<h2>" . _('Manage custom') . "</h2>
 			<h3>" . _('Add SMS custom') . "</h3>
@@ -228,6 +245,7 @@ switch (_OP_) {
 				<tr>
 					<td>" . _('Make return as reply') . "</td><td><input type=checkbox name=add_custom_return_as_reply></td>
 				</tr>
+				" . $select_reply_smsc . "
 				</tbody>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
@@ -254,8 +272,12 @@ switch (_OP_) {
 		}
 		$keywords = trim($keywords);
 		
+		if (auth_isadmin()) {
+			$add_smsc = $_POST['add_smsc'];
+		}
+		
 		if ($add_service_name && $keywords && $add_custom_url) {
-			$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,service_name,custom_keyword,sms_receiver,custom_url,custom_return_as_reply) VALUES ('" . $user_config['uid'] . "','$add_service_name','$keywords','$add_sms_receiver','$add_custom_url','$add_custom_return_as_reply')";
+			$db_query = "INSERT INTO " . _DB_PREF_ . "_featureCustom (uid,service_name,custom_keyword,sms_receiver,custom_url,custom_return_as_reply,smsc) VALUES ('" . $user_config['uid'] . "','$add_service_name','$keywords','$add_sms_receiver','$add_custom_url','$add_custom_return_as_reply','$add_smsc')";
 			if ($new_uid = @dba_insert_id($db_query)) {
 				$_SESSION['dialog']['info'][] = sprintf(_('SMS custom with keyword %s has been added'), $keywords);
 				_lastpost_empty();

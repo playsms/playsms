@@ -208,6 +208,7 @@ CREATE TABLE `playsms_featureCustom` (
   `sms_receiver` varchar(20) NOT NULL DEFAULT '',
   `custom_url` text NOT NULL,
   `custom_return_as_reply` int(11) NOT NULL DEFAULT '0',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

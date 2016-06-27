@@ -89,6 +89,7 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 		if ($db_row = dba_fetch_array($db_result)) {
 			$uid = $db_row['uid'];
 			$custom_id = $db_row['custom_id'];
+			$list = $db_row;
 		}
 	}
 	
@@ -98,10 +99,11 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 	if ($db_row = dba_fetch_array($db_result)) {
 		$uid = $db_row['uid'];
 		$custom_id = $db_row['custom_id'];
+		$list = $db_row;
 	}
 	
 	if ($uid && $custom_id) {
-		if (sms_custom_handle($uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param, $smsc, $raw_message)) {
+		if (sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param, $smsc, $raw_message)) {
 			$ok = TRUE;
 		}
 		$ret['uid'] = $c_uid;
@@ -112,8 +114,10 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 	return $ret;
 }
 
-function sms_custom_handle($uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param = '', $smsc = '', $raw_message = '') {
+function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param = '', $smsc = '', $raw_message = '') {
 	$ok = FALSE;
+
+	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
 	
 	$username = user_uid2username($uid);
 	$keyword = trim(strtoupper($keyword));

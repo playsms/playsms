@@ -15,3 +15,6 @@ UPDATE `playsms_tblRegistry` SET `registry_value` = '1.4' WHERE `registry_group`
 
 -- tblUser
 ALTER TABLE `playsms_tblUser` ADD `adhoc_credit` DECIMAL(13,3) NOT NULL DEFAULT '0.000' AFTER `credit`;
+
+-- featureCustom
+ALTER TABLE `playsms_featureCustom` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' AFTER `custom_return_as_reply`;
