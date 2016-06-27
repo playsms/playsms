@@ -18,3 +18,6 @@ ALTER TABLE `playsms_tblUser` ADD `adhoc_credit` DECIMAL(13,3) NOT NULL DEFAULT 
 
 -- featureCustom
 ALTER TABLE `playsms_featureCustom` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' AFTER `custom_return_as_reply`;
+
+-- featureCommand
+ALTER TABLE `playsms_featureCommand` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' AFTER `command_return_as_reply`;

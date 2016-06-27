@@ -147,6 +147,7 @@ CREATE TABLE `playsms_featureCommand` (
   `command_keyword` varchar(10) NOT NULL DEFAULT '',
   `command_exec` text NOT NULL,
   `command_return_as_reply` int(11) NOT NULL DEFAULT '0',
+  `smsc` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`command_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

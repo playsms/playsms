@@ -40,7 +40,7 @@ function sms_command_hook_recvsms_process($sms_datetime,$sms_sender,$command_key
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param,$smsc,$raw_message)) {
+		if (sms_command_handle($db_row, $c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param,$smsc,$raw_message)) {
 			$ok = true;
 		}
 	}
@@ -49,9 +49,12 @@ function sms_command_hook_recvsms_process($sms_datetime,$sms_sender,$command_key
 	return $ret;
 }
 
-function sms_command_handle($c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$smsc='',$raw_message='') {
+function sms_command_handle($list, $c_uid,$sms_datetime,$sms_sender,$sms_receiver,$command_keyword,$command_param='',$smsc='',$raw_message='') {
 	global $plugin_config;
 	$ok = false;
+
+	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
+	
 	$command_keyword = strtoupper(trim($command_keyword));
 	$command_param = trim($command_param);
 	$db_query = "SELECT command_exec,uid,command_return_as_reply FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
