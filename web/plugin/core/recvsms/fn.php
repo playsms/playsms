@@ -201,12 +201,11 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 		return false;
 	}
 
-	// ignore supplied SMSC if it does not exists
+	// log a warning for unknown supplied SMSC
 	if ($smsc) {
 		$smsc_data = gateway_get_smscbyname($smsc);
 		if (! $smsc_data['name']) {
-			_log('ignore unknown supplied SMSC smsc:' . $smsc, 3, "recvsms_process");
-			$smsc = '';
+			_log('unknown supplied SMSC smsc:[' . $smsc . ']', 3, "recvsms_process");
 		}
 	}
 	

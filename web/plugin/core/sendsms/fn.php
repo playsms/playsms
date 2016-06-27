@@ -427,20 +427,34 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$ret['status'] = false;
 		return $ret;
 	}
-	
+
 	// get active gateway module as default gateway
 	if (!$smsc) {
 		$smsc = core_smsc_get();
+
+		_log('using default SMSC smsc:[' . $smsc . ']', 2, "recvsms_process");
 	}
 	
 	// set no gateway if no default gateway selected
 	if (!$smsc) {
 		$smsc = 'blocked';
+
+		_log('default SMSC setting is empty set SMSC to blocked', 2, "recvsms_process");
 	}
 	
 	// get gateway
 	$smsc_data = gateway_get_smscbyname($smsc);
-	$gateway = $smsc_data['gateway'];
+	
+	// set SMSC to blocked if SMSC data not found
+	if ($smsc_data['name'] && $smsc_data['gateway']) {
+		$smsc = $smsc_data['name'];
+		$gateway = $smsc_data['gateway'];
+	} else {
+		$smsc = 'blocked';
+		$gateway = 'blocked';
+
+		_log('SMS blocked unknown SMSC found smsc:[' . $smsc . ']', 2, "recvsms_process");
+	}
 	
 	// a hack to remove \r from \r\n
 	// the issue begins with ENTER being \r\n and detected as 2 chars
