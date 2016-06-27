@@ -200,6 +200,15 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 		_log("cancelled datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "recvsms_process");
 		return false;
 	}
+
+	// ignore supplied SMSC if it does not exists
+	if ($smsc) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		if (! $smsc_data['name']) {
+			_log('ignore unknown supplied SMSC smsc:' . $smsc, 3, "recvsms_process");
+			$smsc = '';
+		}
+	}
 	
 	$c_uid = 0;
 	$c_feature = "";
