@@ -38,7 +38,7 @@ if ($autoreply_id = (int) $_REQUEST['autoreply_id']) {
 
 switch (_OP_) {
 	case "sms_autoreply_list":
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		$content .= "
@@ -84,9 +84,6 @@ switch (_OP_) {
 			</table>
 			</div>
 			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	
@@ -96,7 +93,7 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$manage_autoreply_keyword = $db_row['autoreply_keyword'];
 		$o_uid = $db_row['uid'];
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<p>" . _('SMS autoreply keyword') . ": " . $manage_autoreply_keyword . "</p>
 			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "</p>
@@ -147,9 +144,6 @@ switch (_OP_) {
 			</form>
 			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	
@@ -176,7 +170,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
 		
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<h3>" . _('Add SMS autoreply') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
@@ -193,9 +187,6 @@ switch (_OP_) {
 			<p><input type=submit class=button value='" . _('Save') . "'></p>
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	
@@ -235,7 +226,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $list[0]['smsc']) . "</td></tr>";
 		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<h3>" . _('Edit SMS autoreply') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit_yes method=post>
@@ -253,9 +244,6 @@ switch (_OP_) {
 			<p><input type=submit class=button value='" . _('Save') . "'></p>
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	
@@ -298,7 +286,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<h3>" . _('Add SMS autoreply scenario') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
@@ -323,9 +311,6 @@ switch (_OP_) {
 			<p><input type=submit class=button value='" . _('Save') . "'>
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	
@@ -362,7 +347,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<h3>" . _('Edit SMS autoreply scenario') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
@@ -395,9 +380,6 @@ switch (_OP_) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
 			</form>
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	

@@ -46,7 +46,7 @@ switch (_OP_) {
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_id, in_uid, in_sender, in_datetime, in_message', $conditions, $keywords, $extras, $join);
 		
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('Sandbox') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_sandbox name=fm_sandbox action=\"index.php?app=main&inc=feature_report&route=sandbox&op=actions\" method=POST>
@@ -112,9 +112,6 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	

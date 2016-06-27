@@ -16,13 +16,10 @@ if ($gw == $plugin_config['telerivet']['name']) {
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
 		$tpl = array(
 			'name' => 'telerivet',
 			'vars' => array(
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'Manage telerivet' => _('Manage telerivet'),
 				'Gateway name' => _('Gateway name'),
 				'Project ID' => _('Project ID'),

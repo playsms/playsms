@@ -38,10 +38,7 @@ switch (_OP_) {
 		
 		$stat = sms_poll_statistics($poll_id);
 		
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage poll') . "</h2>
 			<h3>" . _('Keyword') . " : " . $poll_keyword . "</h3>
 			

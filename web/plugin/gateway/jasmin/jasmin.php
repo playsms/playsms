@@ -26,13 +26,10 @@ include $core_config['apps_path']['plug'] . "/gateway/jasmin/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$error_content = _dialog();
-		}
 		$tpl = array(
 			'name' => 'jasmin',
 			'vars' => array(
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'Manage jasmin' => _('Manage jasmin'),
 				'Gateway name' => _('Gateway name'),
 				'Jasmin send SMS URL' => _mandatory(_('Jasmin send SMS URL')),

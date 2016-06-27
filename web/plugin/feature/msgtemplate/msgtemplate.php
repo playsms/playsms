@@ -15,7 +15,7 @@ if ($tid = $_REQUEST['tid']) {
 switch (_OP_) {
 	case "list":
 		$fm_name = "fm_smstemp";
-		$content = "
+		$content = _dialog() . "
 			<h2>"._('Message template')."</h2>
 			<form id=$fm_name name=$fm_name action='index.php?app=main&inc=feature_msgtemplate&op=actions' method=POST>
 			"._CSRF_FORM_."
@@ -64,16 +64,10 @@ switch (_OP_) {
 				</ul>
 			</div>
 		";
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	case "add":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Add message template')."</h3>
 			<form action='index.php?app=main&inc=feature_msgtemplate&op=actions&go=add' method=POST>
@@ -95,10 +89,7 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureMsgtemplate WHERE tid='$tid'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>"._('Message template')."</h2>
 			<h3>"._('Edit message template')."</h3>
 			<form action='index.php?app=main&inc=feature_msgtemplate&op=actions&go=edit' method=POST>

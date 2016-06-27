@@ -81,7 +81,7 @@ switch (_OP_) {
 			$list = dba_search($table . ' AS A', 'A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, A.uid, A.queue_code, COUNT(*) AS queue_count', $conditions, $keywords, $extras, $join);
 		}
 		
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('My sent messages') . "</h2>
 			" . $queue_label . "
 			<p>" . $search['form'] . "</p>
@@ -185,9 +185,6 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>" . $queue_home_link;
 		
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	

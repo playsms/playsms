@@ -2,19 +2,13 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isadmin()){auth_block();};
 
-// error messages
-$error_content = '';
-if ($err = TRUE) {
-	$error_content = _dialog();
-}
-
 // main
 switch (_OP_) {
 	case 'list':
 		unset($tpl);
 		$tpl = array(
 			'vars' => array(
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'Group inbox' => _('Group inbox'),
 				'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')),
 				'Receiver number' => _('Receiver number'),
@@ -50,14 +44,11 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case 'add':
-		if ($error_content) {
-			$content .= $error_content;
-		}
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'inboxgroup_add',
 		    'vars' => array(
-			'DIALOG_DISPLAY' => $error_content,
+			'DIALOG_DISPLAY' => _dialog(),
 			'Group inbox' => _('Group inbox'),
 			'Add group inbox' => _('Add group inbox'),
 			'Receiver number' => _('Receiver number'),
@@ -96,14 +87,11 @@ switch (_OP_) {
 		$selected_1 = $data['exclusive'] ? 'selected' : '' ;
 		if (! $selected_1) { $selected_0 = 'selected'; };
 		$option_exclusive = "<option value='1' ".$selected_1.">"._('yes')."</option><option value='0' ".$selected_0.">"._('no')."</option>";
-		if ($error_content) {
-			$content .= $error_content;
-		}
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'inboxgroup_edit',
 		    'vars' => array(
-			'DIALOG_DISPLAY' => $error_content,
+			'DIALOG_DISPLAY' => _dialog(),
 			'Group inbox' => _('Group inbox'),
 			'Edit group inbox' => _('Edit group inbox'),
 			'RID' => $rid,
@@ -153,14 +141,11 @@ switch (_OP_) {
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
-		if ($error_content) {
-			$content .= $error_content;
-		}
 		unset($tpl);
 		$tpl = array(
 		    'name' => 'inboxgroup_del',
 		    'vars' => array(
-			'DIALOG_DISPLAY' => $error_content,
+			'DIALOG_DISPLAY' => _dialog(),
 			'Group inbox' => _('Group inbox'),
 			'Delete group inbox' => _('Delete group inbox'),
 			'RID' => $rid,

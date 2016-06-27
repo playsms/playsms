@@ -28,7 +28,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'outgoing_list',
 			'vars' => array(
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'Route outgoing SMS' => _('Route outgoing SMS'),
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
 				'User' => _('User'),
@@ -81,9 +81,6 @@ switch (_OP_) {
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
 		$smsc = outgoing_getsmsc($rid);
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
 		$select_smsc = "<select name=up_smsc>";
 		unset($smsc_list);
 		$list = gateway_getall_smsc();
@@ -95,7 +92,7 @@ switch (_OP_) {
 			$select_smsc .= "<option " . $selected . ">" . $smsc_name . "</option>";
 		}
 		$select_smsc .= "</select>";
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Route SMS outgoing') . "</h2>
 			<h3>" . _('Edit route') . "</h3>
 			<form action='index.php?app=main&inc=feature_outgoing&op=outgoing_edit_save' method='post'>
@@ -159,9 +156,6 @@ switch (_OP_) {
 		exit();
 		break;
 	case "outgoing_add":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
 		$select_users = themes_select_users_single('add_uid');
 		$select_smsc = "<select name=add_smsc>";
 		unset($smsc_list);
@@ -173,7 +167,7 @@ switch (_OP_) {
 			$select_smsc .= "<option>" . $smsc_name . "</option>";
 		}
 		$select_smsc .= "</select>";
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Route outgoing SMS') . "</h2>
 			<h3>" . _('Add route') . "</h3>
 			<form action='index.php?app=main&inc=feature_outgoing&op=outgoing_add_yes' method='post'>

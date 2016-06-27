@@ -122,11 +122,7 @@ switch (_OP_) {
 				'j' => $j 
 			);
 		}
-		$error_content = '';
-		if ($err = TRUE) {
-			$error_content = _dialog();
-		}
-		$tpl['vars']['DIALOG_DISPLAY'] = $error_content;
+		$tpl['vars']['DIALOG_DISPLAY'] = _dialog();
 		$tpl['name'] = 'user_inbox';
 		$content = tpl_apply($tpl);
 		_p($content);

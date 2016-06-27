@@ -160,9 +160,6 @@ switch (_OP_) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	case "actions":

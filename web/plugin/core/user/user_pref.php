@@ -146,11 +146,6 @@ switch (_OP_) {
 			$form_title = _('Preferences');
 		}
 		
-		// error string
-		if ($err = TRUE) {
-			$error_content = _dialog();
-		}
-		
 		$tpl = array(
 			'name' => 'user_pref',
 			'vars' => array(
@@ -173,7 +168,7 @@ switch (_OP_) {
 				'HINT_STATUS' => _hint(_('Cannot change status when user have subusers')),
 				'HINT_PARENT' => _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
 				'STATUS' => _('User'),
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => $form_title,
 				'BUTTON_DELETE' => $button_delete,
 				'BUTTON_BACK' => $button_back,

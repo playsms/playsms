@@ -45,7 +45,7 @@ switch (_OP_) {
 		);
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
 		
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('Report') . "</h2>
 			<h3>" . _('List of my credit transactions') . "</h3>
 			<p>" . $search['form'] . "</p>
@@ -85,9 +85,6 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	

@@ -26,13 +26,10 @@ include $core_config['apps_path']['plug'] . "/gateway/generic/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$error_content = _dialog();
-		}
 		$tpl = array(
 			'name' => 'generic',
 			'vars' => array(
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'Manage generic' => _('Manage generic'),
 				'Gateway name' => _('Gateway name'),
 				'Generic send SMS URL' => _mandatory(_('Generic send SMS URL')),

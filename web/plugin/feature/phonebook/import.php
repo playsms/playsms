@@ -26,7 +26,7 @@ $uid = $user_config['uid'];
 
 switch (_OP_) {
 	case "list":
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Import') . "</h3>
 			<table class=ps_table>
@@ -45,9 +45,6 @@ switch (_OP_) {
 				</tbody>
 			</table>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	case "import":

@@ -37,7 +37,7 @@ if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 
 switch (_OP_) {
 	case "list":
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<h3>" . _('Manage schedule') . "</h3>
 			<h4>" . _('Import') . "</h4>
@@ -59,9 +59,6 @@ switch (_OP_) {
 				</tbody>
 			</table>
 			" . _back('index.php?app=main&inc=feature_schedule&route=manage&op=list&id=' . $schedule_id);
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	case "import":

@@ -30,13 +30,10 @@ $callback_url = "http://" . $callback_url;
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$error_content = _dialog();
-		}
 		$tpl = array(
 			'name' => 'openvox',
 			'vars' => array(
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'Manage OpenVox' => _('Manage OpenVox'),
 				'Gateway name' => _('Gateway name'),
 				'Gateway host' => _('Gateway host'),

@@ -207,11 +207,6 @@ switch (_OP_) {
 			$option_enable_credit_unicode = $user_config['opt']['enable_credit_unicode'] ? _('yes') : _('no');
 		}
 		
-		// error string
-		if ($err = TRUE) {
-			$error_content = _dialog();
-		}
-		
 		$tpl = array(
 			'name' => 'user_config',
 			'vars' => array(
@@ -237,7 +232,7 @@ switch (_OP_) {
 				'Prefix or country code' => _('Prefix or country code'),
 				'Always choose to send as unicode' => _('Always choose to send as unicode'),
 				'Save' => _('Save'),
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => $form_title,
 				'BUTTON_DELETE' => $button_delete,
 				'BUTTON_BACK' => $button_back,

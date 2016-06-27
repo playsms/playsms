@@ -38,13 +38,9 @@ if ($subscribe_id = (int) $_REQUEST['subscribe_id']) {
 
 switch (_OP_) {
 	case "sms_subscribe_list":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage subscribe') . "</h2>
-			" . _button('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
-		$content .= "
+			" . _button('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
@@ -129,13 +125,10 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
 		$add_forward_param = 'BC';
 		$select_durations = _select('add_duration', $plugin_config['sms_subscribe']['durations']);
-		$content .= "
-			<link rel='stylesheet' type='text/css' href=" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css />
+		$content = _dialog() . "
+			<link rel='stylesheet' type='text/css' href='" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css' />
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('Add SMS subscribe') . "</h3>
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
@@ -304,11 +297,8 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
-			<link rel='stylesheet' type='text/css' href=" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css />
+		$content = _dialog() . "
+			<link rel='stylesheet' type='text/css' href='" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css' />
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('Edit SMS subscribe') . "</h3>
 			<form name=\"form_subscribe_edit\" id=\"form_subscribe_edit\" action=index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
@@ -490,10 +480,7 @@ switch (_OP_) {
 	case "mbr_list":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
 		$db_result = dba_query($db_query);
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('Member list for keyword') . " $subscribe_name</h3>
 			<div class=table-responsive>
@@ -535,10 +522,7 @@ switch (_OP_) {
 		break;
 	
 	case "msg_list":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('SMS messages list for keyword') . " $subscribe_name</h3>
 			<p>" . _button('index.php?app=main&inc=feature_sms_subscribe&op=msg_add&&subscribe_id=' . $subscribe_id, _('Add message')) . "
@@ -584,10 +568,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$edit_mbr_msg = $db_row['msg'];
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('Edit message') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_edit_yes method=post>
@@ -631,14 +612,11 @@ switch (_OP_) {
 		break;
 	
 	case "msg_add":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
 		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe where subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$subscribe_name = $db_row['subscribe_keyword'];
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('Add message') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_add_yes method=post>
@@ -703,10 +681,7 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$message = $db_row['msg'];
 		$counter = $db_row['counter'];
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('Message detail') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_send method=post>

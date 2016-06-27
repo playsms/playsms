@@ -80,7 +80,7 @@ switch (_OP_) {
 			$action_move_options .= '<option value=move_' . $group['gpid'] . '>' . _('Move to') . ' ' . $group['gp_name'] . ' (' . $group['gp_code'] . ')</option>';
 		}
 		
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('Phonebook') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=main&inc=feature_phonebook' method=post>
@@ -186,9 +186,6 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
 		
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	case "phonebook_add":
@@ -240,7 +237,7 @@ switch (_OP_) {
 			}
 			$list_of_group .= "<option value=" . $db_row['id'] . " $selected>" . $db_row['name'] . " - " . _('code') . ": " . $db_row['code'] . "</option>";
 		}
-		$content = "
+		$content = _dialog() . "
 			<h2>" . _('Phonebook') . "</h2>
 			<h3>" . _('Edit contact') . "</h3>
 			<form action=\"index.php?app=main&inc=feature_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
@@ -258,9 +255,6 @@ switch (_OP_) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
-		if ($err = TRUE) {
-			_p(_dialog());
-		}
 		_p($content);
 		break;
 	case "actions":

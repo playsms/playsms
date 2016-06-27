@@ -30,13 +30,10 @@ $callback_url = "http://" . $callback_url;
 
 switch (_OP_) {
 	case "manage" :
-		if ($err = TRUE) {
-			$error_content = _dialog();
-		}
 		$tpl = array(
 			'name' => 'nexmo',
 			'vars' => array(
-				'DIALOG_DISPLAY' => $error_content,
+				'DIALOG_DISPLAY' => _dialog(),
 				'Manage nexmo' => _('Manage nexmo'),
 				'Gateway name' => _('Gateway name'),
 				'Nexmo URL' => _('Nexmo URL'),

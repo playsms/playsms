@@ -38,10 +38,7 @@ if ($poll_id = (int) $_REQUEST['poll_id']) {
 
 switch (_OP_) {
 	case "sms_poll_list" :
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage poll') . "</h2>
 			" . _button('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
 		$content .= "
@@ -205,10 +202,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc') . "</td></tr>";
 		}
 		
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage poll') . "</h2>
 			<h3>" . _('Add SMS poll') . "</h3>
 			<form action=\"index.php?app=main&inc=feature_sms_poll&op=sms_poll_add_yes\" method=\"post\">
@@ -303,10 +297,7 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('edit_smsc', $db_row['smsc']) . "</td></tr>";
 		}
 		
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage poll') . "</h2>
 			<h3>" . _('Edit SMS poll') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit_yes method=post>

@@ -21,13 +21,9 @@ if ($quiz_id = (int) $_REQUEST['quiz_id']) {
 
 switch (_OP_) {
 	case "sms_quiz_list" :
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
-				<h2>" . _('Manage quiz') . "</h2>
-				" . _button('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz'));
-		$content .= "
+		$content = _dialog() . "
+			<h2>" . _('Manage quiz') . "</h2>
+			" . _button('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
@@ -88,10 +84,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage quiz') . "</h2>
 			<h3>" . _('Add SMS quiz') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
@@ -159,10 +152,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage quiz') . "</h2>
 			<h3>" . _('Edit SMS quiz') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
@@ -222,10 +212,7 @@ switch (_OP_) {
 		$quiz_answer_query = "SELECT quiz_keyword,quiz_answer FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_id='$quiz_id'";
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage quiz') . "</h2>
 			<h3>" . _('Received answer list for keyword') . " " . $db_answer_row['quiz_keyword'] . "</h3>";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id='$quiz_id' ORDER BY in_datetime DESC";

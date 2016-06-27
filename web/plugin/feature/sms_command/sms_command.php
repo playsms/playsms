@@ -17,10 +17,7 @@ $sms_command_bin = $plugin_config['sms_command']['bin'];
 
 switch (_OP_) {
 	case "sms_command_list":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage command') . "</h2>
 			"._button('index.php?app=main&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
 		if (! auth_isadmin()) {
@@ -83,10 +80,7 @@ switch (_OP_) {
 		$edit_command_exec = stripslashes($db_row['command_exec']);
 		$edit_command_exec = str_replace($sms_command_bin . "/", '', $edit_command_exec);
 		$edit_command_return_as_reply = ( $db_row['command_return_as_reply'] == '1' ? 'checked' : '' );
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage command') . "</h2>
 			<h3>" . _('Edit SMS command') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_command&op=sms_command_edit_yes method=post>
@@ -169,10 +163,7 @@ switch (_OP_) {
 		exit();
 		break;
 	case "sms_command_add":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content = _dialog() . "
 			<h2>" . _('Manage command') . "</h2>
 			<h3>" . _('Add SMS command') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_command&op=sms_command_add_yes method=post>

@@ -38,16 +38,12 @@ if (_OP_ == 'unban') {
 
 // display whose online
 
-if ($err = TRUE) {
-	$error_content = _dialog();
-}
-
 $tpl = array(
 	'name' => 'report_banned',
 	'vars' => array(
 		'Report' => _('Report') ,
 		'Banned users list' => _('Banned users list') ,
-		'DIALOG_DISPLAY' => $error_content,
+		'DIALOG_DISPLAY' => _dialog(),
 		'User' => _('User') ,
 		'Email' => _('Email') ,
 		'Ban date/time' => _('Ban date/time') ,
