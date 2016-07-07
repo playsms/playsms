@@ -38,11 +38,11 @@ function sms_board_hook_keyword_isavail($keyword) {
 function sms_board_hook_recvsms_process($sms_datetime, $sms_sender, $board_keyword, $board_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	$ok = false;
 	
-	$db_query = "SELECT uid,board_id FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$board_keyword'";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$board_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
-		if (sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $board_keyword, $board_param, $smsc, $raw_message)) {
+		if (sms_board_handle($db_row, $sms_datetime, $sms_sender, $sms_receiver, $board_keyword, $board_param, $smsc, $raw_message)) {
 			$ok = true;
 		}
 	}
@@ -52,7 +52,7 @@ function sms_board_hook_recvsms_process($sms_datetime, $sms_sender, $board_keywo
 	return $ret;
 }
 
-function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $board_keyword, $board_param = '', $smsc = '', $raw_message = '') {
+function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $board_keyword, $board_param = '', $smsc = '', $raw_message = '') {
 	global $core_config;
 	
 	$ok = false;
@@ -65,14 +65,12 @@ function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $bo
 		$masked_sender = substr_replace($sms_sender, 'xxxx', -4);
 		$db_query = "
 			INSERT INTO " . _DB_PREF_ . "_featureBoard_log
-			(in_gateway,in_sender,in_masked,in_keyword,in_msg,in_datetime)
-			VALUES ('$smsc','$sms_sender','$masked_sender','$board_keyword','$board_param','" . core_get_datetime() . "')";
+			(in_gateway,in_sender,in_masked,in_keyword,in_msg,in_reply,in_datetime)
+			VALUES ('$smsc','$sms_sender','$masked_sender','$board_keyword','$board_param','" . $list['board_reply'] . "','" . core_get_datetime() . "')";
 		if ($cek_ok = @dba_insert_id($db_query)) {
-			$db_query1 = "SELECT board_forward_email FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$board_keyword'";
-			$db_result1 = dba_query($db_query1);
-			$db_row1 = dba_fetch_array($db_result1);
-			$email = $db_row1['board_forward_email'];
-			if ($email) {
+			
+			// forward to email
+			if ($email = $list['board_forward_email']) {
 				
 				// get name from c_uid's phonebook
 				$c_name = phonebook_number2name($c_uid, $sms_sender);
@@ -99,6 +97,15 @@ function sms_board_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $bo
 				);
 				sendmail($email_data);
 			}
+			
+			// reply SMS
+			if ($message = $list['board_reply']) {
+				if ($username = user_uid2username($list['uid'])) {
+					$unicode = core_detect_unicode($message);
+					sendsms_helper($username, $sms_sender, $message, '', $unicode);
+				}
+			}
+			
 			$ok = true;
 		}
 	}

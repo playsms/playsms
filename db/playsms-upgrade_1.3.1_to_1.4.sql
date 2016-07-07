@@ -1,4 +1,4 @@
--- 1.4-master
+-- 1.4
 
 
 -- version
@@ -21,3 +21,9 @@ ALTER TABLE `playsms_featureCustom` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' 
 
 -- featureCommand
 ALTER TABLE `playsms_featureCommand` ADD `smsc` VARCHAR(100) NOT NULL DEFAULT '' AFTER `command_return_as_reply`;
+
+-- featureBoard
+ALTER TABLE `playsms_featureBoard` ADD `board_reply` VARCHAR(100) NOT NULL DEFAULT '' AFTER `board_keyword`;
+
+-- featureBoard_log
+ALTER TABLE `playsms_featureBoard_log` ADD `in_reply` VARCHAR(100) NOT NULL DEFAULT '' AFTER `in_msg`;

@@ -89,6 +89,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$edit_board_keyword = $db_row['board_keyword'];
+		$edit_board_reply = $db_row['board_reply'];
 		$edit_email = $db_row['board_forward_email'];
 		$edit_css = $db_row['board_css'];
 		$edit_template = $db_row['board_pref_template'];
@@ -103,6 +104,9 @@ switch (_OP_) {
 			<table class=playsms-table>
 			<tr>
 				<td class=label-sizer>" . _('SMS board keyword') . "</td><td>" . $edit_board_keyword . "</td>
+			</tr>
+			<tr>
+				<td>" . _('SMS board reply message') . "</td><td><input type=text maxlength=100 name=edit_board_reply value=\"" . $edit_board_reply . "\"></td>
 			</tr>
 			<tr>
 				<td>" . _('Forward to email') . "</td><td><input type=text name=edit_email value=\"" . $edit_email . "\"></td>
@@ -122,6 +126,7 @@ switch (_OP_) {
 
 	case "sms_board_edit_yes":
 		$edit_board_keyword = $_POST['edit_board_keyword'];
+		$edit_board_reply = trim($_POST['edit_board_reply']);
 		$edit_email = $_POST['edit_email'];
 		$edit_css = $_POST['edit_css'];
 		$edit_template = $_POST['edit_template'];
@@ -135,7 +140,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureBoard
-				SET c_timestamp='" . time() . "',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'
+				SET c_timestamp='" . time() . "',board_reply='$edit_board_reply',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'
 				WHERE board_id='$board_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS board has been saved') . " (" . _('keyword') . ": $edit_board_keyword)";
@@ -175,6 +180,9 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('SMS board keyword') . "</td><td><input type=text maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>
 			<tr>
+				<td>" . _('SMS board reply message') . "</td><td><input type=text maxlength=100 name=add_board_reply></td>
+			</tr>
+			<tr>
 				<td>" . _('Forward to email') . "</td><td><input type=text name=add_email value=\"$add_email\"></td>
 			</tr>
 			<tr>
@@ -189,6 +197,7 @@ switch (_OP_) {
 
 	case "sms_board_add_yes":
 		$add_board_keyword = strtoupper($_POST['add_board_keyword']);
+		$add_board_reply = trim($_POST['add_board_reply']);
 		$add_email = $_POST['add_email'];
 		$add_css = $_POST['add_css'];
 		$add_template = $_POST['add_template'];
@@ -202,8 +211,8 @@ switch (_OP_) {
 					$add_template.= "</div>\n";
 				}
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureBoard (uid,board_keyword,board_forward_email,board_css,board_pref_template)
-					VALUES ('" . $user_config['uid'] . "','$add_board_keyword','$add_email','$add_css','$add_template')";
+					INSERT INTO " . _DB_PREF_ . "_featureBoard (uid,board_keyword,board_reply,board_forward_email,board_css,board_pref_template)
+					VALUES ('" . $user_config['uid'] . "','$add_board_keyword','$add_board_reply','$add_email','$add_css','$add_template')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['dialog']['info'][] = _('SMS board has been added') . " (" . _('keyword') . ": $add_board_keyword)";
 				} else {
