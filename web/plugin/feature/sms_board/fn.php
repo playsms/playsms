@@ -65,8 +65,8 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 		$masked_sender = substr_replace($sms_sender, 'xxxx', -4);
 		$db_query = "
 			INSERT INTO " . _DB_PREF_ . "_featureBoard_log
-			(in_gateway,in_sender,in_masked,in_keyword,in_msg,in_reply,in_datetime)
-			VALUES ('$smsc','$sms_sender','$masked_sender','$board_keyword','$board_param','" . $list['board_reply'] . "','" . core_get_datetime() . "')";
+			(board_id,in_gateway,in_sender,in_masked,in_keyword,in_msg,in_reply,in_datetime)
+			VALUES ('" . $list['board_id'] . "','$smsc','$sms_sender','$masked_sender','$board_keyword','$board_param','" . $list['board_reply'] . "','" . core_get_datetime() . "')";
 		if ($cek_ok = @dba_insert_id($db_query)) {
 			
 			// forward to email

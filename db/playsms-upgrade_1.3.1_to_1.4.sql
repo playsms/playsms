@@ -27,3 +27,4 @@ ALTER TABLE `playsms_featureBoard` ADD `board_reply` VARCHAR(100) NOT NULL DEFAU
 
 -- featureBoard_log
 ALTER TABLE `playsms_featureBoard_log` ADD `in_reply` VARCHAR(100) NOT NULL DEFAULT '' AFTER `in_msg`;
+ALTER TABLE `playsms_featureBoard_log` ADD `board_id` INT NOT NULL DEFAULT '0' AFTER `in_id`;

@@ -115,6 +115,7 @@ DROP TABLE IF EXISTS `playsms_featureBoard_log`;
 CREATE TABLE `playsms_featureBoard_log` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
   `in_id` int(11) NOT NULL AUTO_INCREMENT,
+  `board_id` int(11) NOT NULL DEFAULT '0',
   `in_gateway` varchar(100) NOT NULL DEFAULT '',
   `in_sender` varchar(20) NOT NULL DEFAULT '',
   `in_masked` varchar(20) NOT NULL DEFAULT '',
