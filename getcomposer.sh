@@ -8,8 +8,6 @@ echo
 echo "Please wait while this script downloading composer"
 echo
 
-cd /tmp/
-
 php -r "readfile('https://getcomposer.org/installer');" | php >/dev/null 2>&1
 
 if [ -e "composer.phar" ]; then
@@ -23,7 +21,7 @@ fi
 
 echo "Composer has been installed"
 echo
-echo "Pleas wait while composer getting and updating required packages"
+echo "Please wait while composer getting and updating required packages"
 echo
 
 if [ -x "./composer.phar" ]; then
