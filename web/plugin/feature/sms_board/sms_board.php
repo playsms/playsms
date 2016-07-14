@@ -92,6 +92,9 @@ switch (_OP_) {
 		$edit_email = $db_row['board_forward_email'];
 		$edit_css = $db_row['board_css'];
 		$edit_template = $db_row['board_pref_template'];
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
+		}
 		
 		$content = _dialog() . "
 			<h2>" . _('Manage board') . "</h2>
@@ -101,6 +104,7 @@ switch (_OP_) {
 			<input type=hidden name=board_id value=$board_id>
 			<input type=hidden name=edit_board_keyword value=$edit_board_keyword>
 			<table class=playsms-table>
+			<tbody>
 			<tr>
 				<td class=label-sizer>" . _('SMS board keyword') . "</td><td>" . $edit_board_keyword . "</td>
 			</tr>
@@ -116,6 +120,8 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('Row template') . "</td><td><textarea style='height: 10em' name=edit_template>" . $edit_template . "</textarea></td>
 			</tr>
+			" . $select_reply_smsc . "
+			</tbody>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -129,6 +135,10 @@ switch (_OP_) {
 		$edit_email = $_POST['edit_email'];
 		$edit_css = $_POST['edit_css'];
 		$edit_template = $_POST['edit_template'];
+		if (auth_isadmin()) {
+			$smsc = $_REQUEST['smsc'];
+			$smsc_sql = ",smsc='$smsc'";
+		}
 		if ($board_id) {
 			if (!$edit_template) {
 				$edit_template = "<div class=sms_board_row>\n";
@@ -139,7 +149,7 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureBoard
-				SET c_timestamp='" . time() . "',board_reply='$edit_board_reply',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'
+				SET c_timestamp='" . time() . "',board_reply='$edit_board_reply',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'$smsc_sql
 				WHERE board_id='$board_id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS board has been saved') . " (" . _('keyword') . ": $edit_board_keyword)";
@@ -169,12 +179,17 @@ switch (_OP_) {
 		break;
 	
 	case "sms_board_add":
+		if (auth_isadmin()) {
+			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
+		}
+		
 		$content = _dialog() . "
 			<h2>" . _('Manage board') . "</h2>
 			<h3>" . _('Add SMS board') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_board&op=sms_board_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
+			<tbody>
 			<tr>
 				<td class=label-sizer>" . _('SMS board keyword') . "</td><td><input type=text maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>
@@ -187,6 +202,8 @@ switch (_OP_) {
 			<tr>
 				<td>" . _('CSS URL') . "</td><td><input type=text name=add_css value=\"$add_css\"></td>
 			</tr>
+			" . $select_reply_smsc . "
+			</tbody>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
@@ -200,6 +217,11 @@ switch (_OP_) {
 		$add_email = $_POST['add_email'];
 		$add_css = $_POST['add_css'];
 		$add_template = $_POST['add_template'];
+		
+		if (auth_isadmin()) {
+			$smsc = $_POST['smsc'];
+		}
+		
 		if ($add_board_keyword) {
 			if (keyword_isavail($add_board_keyword)) {
 				if (!$add_template) {
@@ -210,8 +232,8 @@ switch (_OP_) {
 					$add_template .= "</div>\n";
 				}
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureBoard (uid,board_keyword,board_reply,board_forward_email,board_css,board_pref_template)
-					VALUES ('" . $user_config['uid'] . "','$add_board_keyword','$add_board_reply','$add_email','$add_css','$add_template')";
+					INSERT INTO " . _DB_PREF_ . "_featureBoard (uid,board_keyword,board_reply,board_forward_email,board_css,board_pref_template,smsc)
+					VALUES ('" . $user_config['uid'] . "','$add_board_keyword','$add_board_reply','$add_email','$add_css','$add_template','$smsc')";
 				if ($new_uid = @dba_insert_id($db_query)) {
 					$_SESSION['dialog']['info'][] = _('SMS board has been added') . " (" . _('keyword') . ": $add_board_keyword)";
 				} else {

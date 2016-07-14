@@ -42,6 +42,7 @@ function sms_board_hook_recvsms_process($sms_datetime, $sms_sender, $board_keywo
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
+		$smsc = gateway_decide_smsc($smsc, $db_row['smsc']);
 		if (sms_board_handle($db_row, $sms_datetime, $sms_sender, $sms_receiver, $board_keyword, $board_param, $smsc, $raw_message)) {
 			$ok = true;
 		}
@@ -102,7 +103,7 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 			if ($message = $list['board_reply']) {
 				if ($username = user_uid2username($list['uid'])) {
 					$unicode = core_detect_unicode($message);
-					sendsms_helper($username, $sms_sender, $message, '', $unicode);
+					sendsms_helper($username, $sms_sender, $message, '', $unicode, $smsc);
 				}
 			}
 			
