@@ -90,11 +90,18 @@ msgstr "Le service de redirection a été enregistré"
 msgid "SMS board keyword"
 msgstr "Mot-clé du service de redirection"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "Service de redirection depuis"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "Le service de redirection avec tous ses messages a été supprimé"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "Le mot-clé existe déjà, est réservé ou utilisé par une autre fonction"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"

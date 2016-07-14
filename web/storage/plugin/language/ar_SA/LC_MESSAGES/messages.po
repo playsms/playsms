@@ -2275,6 +2275,10 @@ msgstr "تم الحفظ"
 msgid "SMS board keyword"
 msgstr "الكلمات المفتاحية"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "من"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "تم حذف كافة الرسائل"
 
@@ -2895,7 +2899,7 @@ msgstr "اسم المستخدم"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr "المستخدم %s صاحب الحساب %d وصل للحد الأدنى للرصيد والبالغ %s"
+msgstr ""
 
 #, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
@@ -3003,7 +3007,7 @@ msgstr "لا يوجد لديك أعضاء"
 
 #, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr "لقد وصلت للحد الأدنى للرصيد والبالغ %s"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "يجب ملء كافة الحقول"
@@ -3090,7 +3094,7 @@ msgstr "رقم الجوال غير صالح"
 msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
-msgstr "المستخدم الفرعي %s صحاب الحساب %d وصل للحد الأدنى للرصيد والبالغ %s"
+msgstr ""
 
 msgid "Zipcode"
 msgstr "الرمز البريدي"

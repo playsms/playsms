@@ -77,6 +77,9 @@ msgstr "Ключевое слово запроса"
 msgid "SMS custom with keyword %s has been added"
 msgstr "Запрос URL добавлен"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Сохранить"
 

@@ -53,22 +53,8 @@ msgstr "Tarif telah disimpan"
 msgid "Save"
 msgstr "Simpan"
 
-#, php-format
-msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr ""
-
-#, php-format
-msgid "You have reached lowest credit limit of %s"
-msgstr ""
-
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
-
-#, php-format
-msgid ""
-"Your subuser with username %s and account ID %d has reached lowest credit "
-"limit of %s"
-msgstr ""
 
 msgid "destination"
 msgstr "tujuan"

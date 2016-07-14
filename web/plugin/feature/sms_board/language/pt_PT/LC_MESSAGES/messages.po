@@ -97,11 +97,18 @@ msgstr "A placa SMS foi guardada"
 msgid "SMS board keyword"
 msgstr "Palavra-chave da placa SMS"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "Placa SMS de"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "A placa SMS foi eliminada com todas as suas mensagens"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "A palavra-chave já existe, está reservada ou em uso por outro recurso"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"

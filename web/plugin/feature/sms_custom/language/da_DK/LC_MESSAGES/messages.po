@@ -74,6 +74,9 @@ msgstr "Tilpassede SMS nøgleord"
 msgid "SMS custom with keyword %s has been added"
 msgstr "Tilpasset SMS med nøgleordet %s er blevet tilføjet"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Gem"
 

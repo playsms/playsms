@@ -60,25 +60,8 @@ msgstr "Taksten er blevet gemt"
 msgid "Save"
 msgstr "Gem"
 
-#, php-format
-msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr ""
-"Brugernavnet %s med konto ID %d har nået den laveste kreditgrænse på %s"
-
-#, php-format
-msgid "You have reached lowest credit limit of %s"
-msgstr "Du har nået den laveste kreditgrænse på %s"
-
 msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
-
-#, php-format
-msgid ""
-"Your subuser with username %s and account ID %d has reached lowest credit "
-"limit of %s"
-msgstr ""
-"Din underbruger med brugernavnet %s og konto ID %d har nået den laveste "
-"kreditgrænse på %s"
 
 msgid "destination"
 msgstr "destination"

@@ -2294,6 +2294,10 @@ msgstr "La pizarra SMS ha sido guardada"
 msgid "SMS board keyword"
 msgstr "Clave de pizarra SMS"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "Clave de pizarra SMS"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "La pizarra SMS y todos sus mensajes ha sido borrada"
 

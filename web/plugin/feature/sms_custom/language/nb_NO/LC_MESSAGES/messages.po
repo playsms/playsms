@@ -73,6 +73,9 @@ msgstr "Egendefinert SMS-nøkkelord"
 msgid "SMS custom with keyword %s has been added"
 msgstr "Egendefinert SMS har blitt lagt til"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Lagre"
 

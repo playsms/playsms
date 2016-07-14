@@ -53,22 +53,8 @@ msgstr "等级已保存"
 msgid "Save"
 msgstr "保存"
 
-#, php-format
-msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr ""
-
-#, php-format
-msgid "You have reached lowest credit limit of %s"
-msgstr ""
-
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
-
-#, php-format
-msgid ""
-"Your subuser with username %s and account ID %d has reached lowest credit "
-"limit of %s"
-msgstr ""
 
 msgid "destination"
 msgstr "目标"

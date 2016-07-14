@@ -60,6 +60,9 @@ msgstr ""
 msgid "SMS custom with keyword %s has been added"
 msgstr ""
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

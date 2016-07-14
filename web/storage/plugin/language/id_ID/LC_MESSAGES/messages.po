@@ -2270,6 +2270,10 @@ msgstr "Layanan papan SMS telah disimpan"
 msgid "SMS board keyword"
 msgstr "Kata kunci papan SMS"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "Kata kunci papan SMS"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "Semua pesan di papan SMS telah dihapus"
 

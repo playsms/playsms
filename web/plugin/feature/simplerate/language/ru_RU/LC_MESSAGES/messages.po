@@ -60,22 +60,8 @@ msgstr "Тариф сохранён"
 msgid "Save"
 msgstr "Сохранить"
 
-#, php-format
-msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr ""
-
-#, php-format
-msgid "You have reached lowest credit limit of %s"
-msgstr ""
-
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
-
-#, php-format
-msgid ""
-"Your subuser with username %s and account ID %d has reached lowest credit "
-"limit of %s"
-msgstr ""
 
 msgid "destination"
 msgstr "назначение"

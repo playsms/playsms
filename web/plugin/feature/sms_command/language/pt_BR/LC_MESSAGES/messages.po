@@ -62,6 +62,9 @@ msgstr "Comando SMS foi salvo"
 msgid "SMS command keyword"
 msgstr "Palavra-chave do comando SMS"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Salvar"
 

@@ -70,6 +70,9 @@ msgstr "Команда сохранена"
 msgid "SMS command keyword"
 msgstr "Ключевое слово скрипта"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Сохранить"
 

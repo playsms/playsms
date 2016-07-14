@@ -71,6 +71,9 @@ msgstr "تم الحفظ"
 msgid "SMS command keyword"
 msgstr "الكلمات المفتاحية"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "حفظ"
 

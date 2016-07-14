@@ -62,6 +62,9 @@ msgstr "短信指令已保存"
 msgid "SMS command keyword"
 msgstr "短信指令关键字"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "保存"
 

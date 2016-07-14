@@ -97,6 +97,10 @@ msgstr "SMS forum er blevet gemt"
 msgid "SMS board keyword"
 msgstr "SMS forum nøgleord"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "SMS forum fra"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "SMS forum med alle dets beskeder er blevet slettet"
 
@@ -104,6 +108,9 @@ msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
 "SMS nøgleord eksisterer allerede, er reserveret eller bruges af en anden "
 "funktion"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "Gem"

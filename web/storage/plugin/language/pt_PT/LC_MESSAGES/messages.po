@@ -2295,6 +2295,10 @@ msgstr "A placa SMS foi guardada"
 msgid "SMS board keyword"
 msgstr "Palavra-chave da placa SMS"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "Placa SMS de"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "A placa SMS foi eliminada com todas as suas mensagens"
 
@@ -2923,8 +2927,6 @@ msgstr "Nome de Utilizador"
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
 msgstr ""
-"Nome de Utilizador %s com numero de conta %d é inferior ao limite de crédito "
-"de %s"
 
 #, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
@@ -3036,7 +3038,7 @@ msgstr "Você não é um membro"
 
 #, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr "O seu crédito é inferior a %s"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Preencha todos os campos"
@@ -3124,8 +3126,6 @@ msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
-"O sub-utilizador com Nome de Utilizador %s com numero de conta %d é inferior "
-"ao limite de crédito de %s"
 
 msgid "Zipcode"
 msgstr "Código Postal"

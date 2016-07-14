@@ -71,6 +71,9 @@ msgstr "短信自定义关键字"
 msgid "SMS custom with keyword %s has been added"
 msgstr "端心自定义已增加"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "保存"
 

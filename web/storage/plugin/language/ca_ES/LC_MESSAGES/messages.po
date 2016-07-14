@@ -2257,6 +2257,9 @@ msgstr ""
 msgid "SMS board keyword"
 msgstr ""
 
+msgid "SMS board reply message"
+msgstr ""
+
 msgid "SMS board with all its messages has been deleted"
 msgstr ""
 

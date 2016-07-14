@@ -79,6 +79,9 @@ msgstr "الكلمات المفتاحية"
 msgid "SMS custom with keyword %s has been added"
 msgstr "تمت الإضافة"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "حفظ"
 

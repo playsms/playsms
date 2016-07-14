@@ -67,6 +67,9 @@ msgstr "SMS-kommando har blitt lagret"
 msgid "SMS command keyword"
 msgstr "SMS-kommando nøkkelord"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Lagre"
 

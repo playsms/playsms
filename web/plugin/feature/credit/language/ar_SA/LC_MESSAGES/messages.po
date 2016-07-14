@@ -79,11 +79,25 @@ msgstr "معرف المستخدم"
 msgid "Username"
 msgstr "اسم المستخدم"
 
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr ""
+
 msgid "Users"
 msgstr "المستخدمون"
 
 msgid "Wrong amount or user does not exist"
 msgstr "قيمة خاطئة أو مستخدم غير موجود"
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
+msgstr ""
 
 msgid "amount"
 msgstr "القيمة"

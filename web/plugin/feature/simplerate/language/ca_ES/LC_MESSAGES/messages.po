@@ -61,22 +61,8 @@ msgstr "La tarifa s'ha guardat"
 msgid "Save"
 msgstr "Guardar"
 
-#, php-format
-msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr ""
-
-#, php-format
-msgid "You have reached lowest credit limit of %s"
-msgstr ""
-
 msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
-
-#, php-format
-msgid ""
-"Your subuser with username %s and account ID %d has reached lowest credit "
-"limit of %s"
-msgstr ""
 
 msgid "destination"
 msgstr "destí"

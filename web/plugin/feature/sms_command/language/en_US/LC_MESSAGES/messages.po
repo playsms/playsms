@@ -62,6 +62,9 @@ msgstr ""
 msgid "SMS command keyword"
 msgstr ""
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 

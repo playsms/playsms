@@ -77,11 +77,25 @@ msgstr "Bruger ID"
 msgid "Username"
 msgstr "Brugernavn"
 
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr ""
+
 msgid "Users"
 msgstr "Brugere"
 
 msgid "Wrong amount or user does not exist"
 msgstr "Forkert beløb eller brugeren eksisterer ikke"
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
+msgstr ""
 
 msgid "amount"
 msgstr "beløb"

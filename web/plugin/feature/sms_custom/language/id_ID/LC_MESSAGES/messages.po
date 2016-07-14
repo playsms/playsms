@@ -70,6 +70,9 @@ msgstr "Kata kunci SMS kustom"
 msgid "SMS custom with keyword %s has been added"
 msgstr "SMS kustom telah ditambahkan"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Simpan"
 

@@ -2280,6 +2280,10 @@ msgstr "短信面板已保存"
 msgid "SMS board keyword"
 msgstr "短信面板关键字"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "短信面板关键字"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "短信面板和全部短信已删除"
 

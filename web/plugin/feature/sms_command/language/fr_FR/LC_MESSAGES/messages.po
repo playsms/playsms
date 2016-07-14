@@ -70,6 +70,9 @@ msgstr "La commande SMS a été enregistrée"
 msgid "SMS command keyword"
 msgstr "Mot-clé de la commande SMS"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Enregistrer"
 

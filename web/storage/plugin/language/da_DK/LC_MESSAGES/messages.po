@@ -2277,6 +2277,10 @@ msgstr "SMS forum er blevet gemt"
 msgid "SMS board keyword"
 msgstr "SMS forum nøgleord"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "SMS forum fra"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "SMS forum med alle dets beskeder er blevet slettet"
 

@@ -62,6 +62,9 @@ msgstr "Perintah SMS telah disimpan"
 msgid "SMS command keyword"
 msgstr "Kata kunci perintah SMS"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Simpan"
 

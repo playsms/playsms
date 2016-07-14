@@ -2275,6 +2275,10 @@ msgstr "O quadro SMS foi salvo"
 msgid "SMS board keyword"
 msgstr "Palavra-chave do quadro SMS"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "Quadro SMS de"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "O quadro SMS foi removido com todas as suas mensagens"
 
@@ -2901,7 +2905,7 @@ msgstr "Nome de usuário"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr "O usuário %s com conta ID %d alcançou o limite mínimo de crédito de %s"
+msgstr ""
 
 #, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
@@ -3011,7 +3015,7 @@ msgstr "Você não é um membro"
 
 #, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr "Você alcançou o limite mínimo de crédito de %s"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Preencha todos os campos"
@@ -3099,8 +3103,6 @@ msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
-"Seu sub-usuário com nome de usuário %s e ID de conta %d alcançou o "
-"limitemínimo de crédito de %s"
 
 msgid "Zipcode"
 msgstr "CEO"

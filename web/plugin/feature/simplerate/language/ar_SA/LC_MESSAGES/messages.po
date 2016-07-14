@@ -62,22 +62,8 @@ msgstr "تم الحفظ"
 msgid "Save"
 msgstr "حفظ"
 
-#, php-format
-msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr "المستخدم %s صاحب الحساب %d وصل للحد الأدنى للرصيد والبالغ %s"
-
-#, php-format
-msgid "You have reached lowest credit limit of %s"
-msgstr "لقد وصلت للحد الأدنى للرصيد والبالغ %s"
-
 msgid "You must fill all fields"
 msgstr "يجب ملء كافة الحقول"
-
-#, php-format
-msgid ""
-"Your subuser with username %s and account ID %d has reached lowest credit "
-"limit of %s"
-msgstr "المستخدم الفرعي %s صحاب الحساب %d وصل للحد الأدنى للرصيد والبالغ %s"
 
 msgid "destination"
 msgstr "الوجهة"

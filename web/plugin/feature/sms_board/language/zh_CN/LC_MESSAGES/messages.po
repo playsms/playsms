@@ -93,11 +93,18 @@ msgstr "短信面板已保存"
 msgid "SMS board keyword"
 msgstr "短信面板关键字"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "短信面板关键字"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "短信面板和全部短信已删除"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "短信关键字已存在, 保留或其他功能的使用"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "保存"

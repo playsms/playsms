@@ -2309,6 +2309,10 @@ msgstr "Le service de redirection a été enregistré"
 msgid "SMS board keyword"
 msgstr "Mot-clé du service de redirection"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "Service de redirection depuis"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "Le service de redirection avec tous ses messages a été supprimé"
 
@@ -2948,8 +2952,6 @@ msgstr "Nom d'utilisateur"
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
 msgstr ""
-"Le nom d'utilisateur %s avec ID de compte %d a atteint la limite de crédit "
-"inférieure de %s"
 
 #, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
@@ -3061,7 +3063,7 @@ msgstr "Vous n'avez pas de membre"
 
 #, php-format
 msgid "You have reached lowest credit limit of %s"
-msgstr "Vous avez atteint la limite de crédit inférieure de %s"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Vous devez saisir tous les champs"
@@ -3152,8 +3154,6 @@ msgid ""
 "Your subuser with username %s and account ID %d has reached lowest credit "
 "limit of %s"
 msgstr ""
-"Votre sous-utilisateur avec nom d'utilisateur %s et ID de compte %d a "
-"atteint la limite de crédit inférieure de %s"
 
 msgid "Zipcode"
 msgstr "Code postal"

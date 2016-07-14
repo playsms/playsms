@@ -71,6 +71,9 @@ msgstr "SMS kommando er blevet gemt"
 msgid "SMS command keyword"
 msgstr "SMS kommando nøgleord"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Gem"
 

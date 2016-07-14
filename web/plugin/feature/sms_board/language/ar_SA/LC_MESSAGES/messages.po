@@ -98,11 +98,18 @@ msgstr "تم الحفظ"
 msgid "SMS board keyword"
 msgstr "الكلمات المفتاحية"
 
+#, fuzzy
+msgid "SMS board reply message"
+msgstr "من"
+
 msgid "SMS board with all its messages has been deleted"
 msgstr "تم حذف كافة الرسائل"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr "الكلمة المفتاحية موجودة مسبقًا"
+
+msgid "SMSC"
+msgstr ""
 
 msgid "Save"
 msgstr "حفظ"

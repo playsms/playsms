@@ -77,6 +77,9 @@ msgstr "Palavra-chave do SMS personalizado"
 msgid "SMS custom with keyword %s has been added"
 msgstr "O SMS personalizado foi adicionado"
 
+msgid "SMSC"
+msgstr ""
+
 msgid "Save"
 msgstr "Guardar"
 
