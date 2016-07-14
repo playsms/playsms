@@ -92,19 +92,6 @@ Please read [INSTALL](INSTALL.md "playSMS installation document") and then [FAQ]
 * Anton Raharja (http://antonraharja.com)
 
 
-## Donation
-
-Donation for this project may be sent to project maintainer's PayPal account:
-
-To            | PayPal account
-------------- | -------------- 
-Anton Raharja | antonrd@gmail.com
-
-You may also use this URL to make donation:
-
-* http://sourceforge.net/p/playsms/donate
-
-
 ## Contributors
 
 Information about code contributors can be found in this URL:
