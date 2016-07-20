@@ -116,7 +116,7 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 
 function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param = '', $smsc = '', $raw_message = '') {
 	$ok = FALSE;
-
+	
 	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
 	
 	$username = user_uid2username($uid);
@@ -154,17 +154,17 @@ function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, 
 		
 		$server_url = explode('?', $custom_url);
 		
-		$returns = file_get_contents($server_url[0], false, $context);
-		if ($custom_return_as_reply == 1) {
-			if ($returns = trim($returns)) {
-				$unicode = core_detect_unicode($returns);
-				$returns = addslashes($returns);
-				_log("returns:[" . $returns . "]", 3, "sms_custom_handle");
+		if ($returns = trim(file_get_contents($server_url[0], FALSE, $context))) {
+			$unicode = core_detect_unicode($returns);
+			$returns = addslashes($returns);
+			_log("returns:[" . $returns . "]", 3, "sms_custom_handle");
+			if ($custom_return_as_reply == 1) {
 				sendsms_helper($username, $sms_sender, $returns, 'text', $unicode, $smsc);
-			} else {
-				_log("returns empty", 3, "sms_custom_handle");
 			}
+		} else {
+			_log("returns empty", 3, "sms_custom_handle");
 		}
+		
 		$ok = true;
 	}
 	
