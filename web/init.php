@@ -70,7 +70,7 @@ define('_SMTP_HOST_', $core_config['smtp']['host']);
 define('_SMTP_PORT_', $core_config['smtp']['port']);
 
 $c_script_filename = __FILE__;
-$c_php_self = $_SERVER['PHP_SELF'];
+$c_php_self = $_SERVER['SCRIPT_NAME'];
 $c_http_host = $_SERVER['HTTP_HOST'];
 
 // base application directory
