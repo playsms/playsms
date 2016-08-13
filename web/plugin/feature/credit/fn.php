@@ -305,13 +305,14 @@ function _credit_getbyuid($uid) {
 function _credit_low_notif() {
 	global $core_config;
 	
-	$db_query = "SELECT uid, parent_uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
+	$db_query = "SELECT uid, parent_uid, username FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 
 		// sender's
 		$uid = $db_row['uid'];
 		$balance = _credit_getbyuid($uid);
+		$username = $db_row['username'];
 		
 		// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
 		$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
