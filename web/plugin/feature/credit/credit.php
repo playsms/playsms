@@ -89,7 +89,7 @@ switch (_OP_) {
 				<tr>
 					<td>" . $row['username'] . "</td>
 					<td>" . core_display_datetime($row['create_datetime']) . "</td>
-					<td>" . $row['amount'] . "</td>
+					<td>" . core_display_credit($row['amount']) . "</td>
 					<td>
 						<input type=hidden name=itemid" . $j . " value=\"" . $row['id'] . "\">
 						<input type=checkbox name=checkid" . $j . ">
