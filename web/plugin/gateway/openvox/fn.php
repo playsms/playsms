@@ -50,7 +50,22 @@ function openvox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		
 		_log("url:[" . $url . "]", 3, "openvox outgoing");
 		
-		$resp = json_decode(file_get_contents($url), true);
+                $result = file_get_contents($url);
+                
+                $result = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $result);
+                $mesg_start = stripos($result, '":"');
+                $mesg_end = strrpos($result, '","report":');
+                
+                if ($mesg_start and $mesg_end) {
+                        $mesg_start += 3;
+                        $mesg = substr($result, $mesg_start, $mesg_end - $mesg_start);
+                        if ($mesg != '') {
+                                $escaped_mesg = addcslashes($mesg, '"\\/');
+                                $result = str_replace($mesg, $escaped_mesg, $result);
+                        }
+                }
+                
+                $resp = json_decode($result, true);
 		$data = $resp['report'][0][0][0];
 		// $data = $resp['report'][0][1][0];
 		$data['message'] = $resp['message'];
