@@ -1718,7 +1718,7 @@ CREATE TABLE `playsms_gatewayBulksms_config` (
 --
 LOCK TABLES `playsms_gatewayBulksms_config` WRITE;
 /*!40000 ALTER TABLE `playsms_gatewayBulksms_config` DISABLE KEYS */;
-INSERT INTO `playsms_gatewayBulksms_config` VALUES (0,'bulksms','playsms','playsms','PlaySMS','http://bulksms.vsms.net:5567/eapi','/var/spool/playsms',5,'','');
+INSERT INTO `playsms_gatewayBulksms_config` VALUES (0,'bulksms','playsms','playsms','PlaySMS','http://bulksms.vsms.net/eapi','/var/spool/playsms',5,'routing_group=2&repliable=0','');
 /*!40000 ALTER TABLE `playsms_gatewayBulksms_config` ENABLE KEYS */;
 UNLOCK TABLES;
 
