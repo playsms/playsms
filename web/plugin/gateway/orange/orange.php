@@ -28,7 +28,7 @@ switch (_OP_) {
 				<td>" . _ ( 'Client Id' ) . "</td><td><input type=text maxlength=102 name=up_client_id value=\"". $plugin_config['orange']['client_id'] ."\">". _hint ( _ ('Fill to change the Client Id' ) ). "</td>
 			</tr>
 			<tr>
-				<td>" . _ ( 'Client Secret' ) . "</td><td><input type=up_client_secret maxlength=255 name=up_client_secret value=\"". $plugin_config['orange']['client_secret'] ."\"> " . _hint ( _ ( 'Fill to change the Client Secreti' ) ) . "</td>
+				<td>" . _ ( 'Client Secret' ) . "</td><td><input type=up_client_secret maxlength=255 name=up_client_secret value=\"". $plugin_config['orange']['client_secret'] ."\"> " . _hint ( _ ( 'Fill to change the Client Secret' ) ) . "</td>
 			</tr>
 			<tr>
 				<td>" . _ ( 'Sender Address' ) . "</td><td><input type=text maxlength=250 name=up_sender_address value=\"" . $plugin_config['orange']['sender_address'] . "\"> " . _hint ( _ ( 'Sender Address Eg +221xxxxxxxxx for Senegal' ) ) . "</td>
@@ -47,8 +47,6 @@ switch (_OP_) {
 			</form>
 			<br />
 			" . _ ( 'Notes' ) . ":<br />
-			- " . _ ( 'Your callback URL should be accessible from Orange partener' ) . "<br />
-			- " . _ ( 'Orange will push DLR and incoming SMS to your callback URL' ) . "<br />
 			- " . _ ( 'Orange is a bulk SMS provider' ) . ", <a href=\"https://developer.orange.com/signup/\" target=\"_blank\">" . _ ( 'Link' ) . "</a><br />";
 		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
