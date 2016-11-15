@@ -178,7 +178,8 @@ echo
 echo "Please wait while the install script downloading composer"
 echo
 
-php -r "readfile('https://getcomposer.org/installer');" | php >/dev/null 2>&1
+curl "https://getcomposer.org/installer" > composer-setup.php
+php -r "readfile('composer-setup.php');" | php >/dev/null 2>&1
 
 if [ -e "./composer.phar" ]; then
 	#rm -f /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
