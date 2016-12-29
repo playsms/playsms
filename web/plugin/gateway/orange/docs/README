@@ -1,0 +1,27 @@
+Plugin	: Gateway Orange for playSMS
+Author	: Aristide Thomas Mendo'o
+Release	: 100925
+License	: GPLv3
+
+playSMS gateway module for https://developer.orange.com/apis
+
+Incoming and outgoing SMS are done via HTTP API, an HTTP GET submitted to an HTTP/S URL
+
+Register yourself at https://developer.orange.com's website, you have to create a new connection.
+
+After creating the connection take note of your clientId, client secret
+since those items are required to configure the gateway module.
+
+Todo:
+ - manage callback url
+ - translation
+
+Example of callback URL:
+
+since 0.9.5.1 the URL should be:
+http://your_playsms_website/index.php?app=call&cat=gateway&plugin=orange&access=callback
+prior to 0.9.5.1:
+http://your_playsms_website/plugin/gateway/orange/callback.php
+
+Credit:
+ Thanks for osms library made by Ismael Toé (https://github.com/ismaeltoe/osms-php)

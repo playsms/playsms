@@ -32,3 +32,4 @@ install.conf
 install.conf.backup
 
 .svn
+*.log

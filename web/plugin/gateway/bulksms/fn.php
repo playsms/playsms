@@ -14,9 +14,15 @@ function bulksms_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_dat
 }
 
 function bulksms_hook_playsmsd() {
+	
+	// fetch every 60 seconds
+	if (!core_playsmsd_timer(30)) {
+		return;
+	}
+
 	// force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
 	// $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='1' AND p_gateway='bulksms'";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE  p_status='1' AND p_gateway='bulksms'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$uid = $db_row['uid'];
@@ -48,6 +54,7 @@ function bulksms_sms_url($sms_to, $sms_class, $sms_msg, $sms_dca, $set_sms_from)
 	}
 	$url .= $additional_param;
 	$url = str_replace("&&", "&", $url);
+	_log($url, 2, 'bulksms_hook_sendsms');
 	return $url;
 }
 
@@ -96,14 +103,14 @@ function bulksms_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// Based on http://www.bulksms.com/int/docs/eapi/submission/send_sms/
 	global $plugin_config;
 	
-	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "bulksms_hook_sendsms");
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to." from: ".$sms_sender, 2, "bulksms_hook_sendsms");
 	
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
+	$module_sms_sender = stripslashes($sms_sender);
 	if ($plugin_config['bulksms']['module_sender']) {
-		$sms_sender = $plugin_config['bulksms']['module_sender'];
+		$module_sms_sender = $plugin_config['bulksms']['module_sender'];
 	}
 	
 	$sms_footer = stripslashes($sms_footer);
@@ -129,32 +136,15 @@ function bulksms_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			$sms_class = "2";
 	}
 	
-	// Automatically setting the unicode flag if necessary
-	//if (!$unicode) {		
-	//	$unicode = core_detect_unicode($sms_msg);
-	//}
-	
 	if ($unicode) {
 		$unicode = 1;
 		$sms_dca = "16bit";
 	}
 	
 	// fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to bulksms
-	$set_sms_from = ($sms_from == $sms_sender ? '' : "&sender=" . urlencode($sms_from));
+	$set_sms_from = ($sms_from ? "&sender=" . urlencode($sms_from): "&sender=" . urlencode($module_sms_sender));
 	
-	// $query_string = "submission/send_sms/2/2.0?username=" . $plugin_config['bulksms']['username'] . "&password=" . $plugin_config['bulksms']['password'] . "&msisdn=" . urlencode($sms_to) . "&msg_class=$sms_class&message=" . urlencode($sms_msg) . "&dca=" . $sms_dca . $set_sms_from;
-	// $url = $plugin_config['bulksms']['send_url'] . "/" . $query_string;
-	
-	// if ($additional_param = $plugin_config['bulksms']['additional_param']) {
-	// 	$additional_param = "&" . $additional_param;
-	// } else {
-	// 	$additional_param = "routing_group=1&repliable=0";
-	// }
-	// $url .= $additional_param;
-	// $url = str_replace("&&", "&", $url);
-	
-	// _log("url:" . $url, 3, "bulksms outgoing");
-	// $fd = @implode('', file($url));
+	_log(" from: ".$set_sms_from, 2, "bulksms_hook_sendsms");
 
 	$fd = buklsms_multiple_sms($sms_to, $sms_class, $sms_msg,$sms_dca ,$set_sms_from, $unicode);
 

@@ -18,15 +18,11 @@ if (!$plugin_config['bulksms']['additional_param']) {
 }
 
 // smsc configuration
-$plugin_config['bulksms']['_smsc_config_'] = array();
-
-// $gateway_number = $plugin_config['bulksms']['sender'];
-
-// insert to left menu array
-//if (isadmin ()) {
-//	$menutab_gateway = $core_config['menutab']['gateway'];
-//	$menu_config[$menutab_gateway][] = array (
-//			"index.php?app=main&inc=gateway_bulksms&op=manage",
-//			_ ( 'Manage bulksms' ) 
-//	);
-//}
+$plugin_config['bulksms']['_smsc_config_'] = array(
+	'username' => ('Username'),
+	'password' => ('Password'),
+	'module_sender' => _('Module sender ID'),
+	'datetime_timezone' => _('Module timezone'),
+	'send_url' => ('Bulksms API URL'),
+	'additional_param' => _('Additional URL parameter')
+);
