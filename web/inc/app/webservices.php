@@ -639,6 +639,10 @@ if ($format == 'SERIALIZE') {
 	ob_end_clean();
 	header('Content-Type: text/xml');
 	_p($xml->asXML());
+} else if ($format=='PLAIN'){
+	ob_end_clean();
+	header('Content-Type: text/plain');
+	_p($json['status']." ".$json['error']);
 } else {
 	ob_end_clean();
 	header('Content-Type: application/json');
