@@ -245,4 +245,4 @@ Note:
 
 ## Gateway Installation
 
-Read more information and tutorial in [playSMS documentation](http://playsms.org/documentation/).
+Read more information and tutorial in [playSMS documentation](https://help.playsms.org/en).
