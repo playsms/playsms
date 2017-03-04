@@ -88,10 +88,11 @@ switch (_OP_) {
 					$contact[4] = phonebook_tags_clean($contact[4]);
 					if ($contact[0] && $contact[1]) {
 						$i++;
+						$coded = iconv("WINDOWS-1256",'UTF-8',$contact[0]."\0");
 						$content .= "
 							<tr>
 							<td>$i.</td>
-							<td>$contact[0]</td>
+							<td>$coded</td>
 							<td>$contact[1]</td>
 							<td>$contact[2]</td>
 							<td>$contact[3]</td>
