@@ -422,7 +422,7 @@ msgid "mobile"
 msgstr "الجوال"
 
 msgid "no"
-msgstr "لأا"
+msgstr "لا"
 
 msgid "username"
 msgstr "اسم المستخدم"
