@@ -51,8 +51,6 @@ switch (_OP_) {
 		break;
 	case 'upload_confirm':
 		$filename = $_FILES['fncsv']['name'];
-		//RCE Bug FIX.
-		$filename = htmlspecialchars($filename);		
 		$fn = $_FILES['fncsv']['tmp_name'];
 		$fs = (int) $_FILES['fncsv']['size'];
 		$nodups = ($_REQUEST['fncsv_dup'] ? TRUE : FALSE);
