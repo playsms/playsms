@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 if (!auth_isadmin()) {
 	auth_block();
-}
+} 
 
 $callback_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin/gateway/routesms/callback.php";
 $callback_url = str_replace("//", "/", $callback_url);

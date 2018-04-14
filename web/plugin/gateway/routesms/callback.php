@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+error_reporting(0); 
 
 if (!$called_from_hook_call) {
 	chdir("../../../");

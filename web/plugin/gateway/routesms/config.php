@@ -1,5 +1,5 @@
 <?php
-defined('_SECURE_') or die('Forbidden');
+defined('_SECURE_') or die('Forbidden'); 
 
 $db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayRoutesms_config";
 $db_result = dba_query($db_query);

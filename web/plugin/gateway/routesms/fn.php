@@ -269,7 +269,7 @@ function routesms_getsmsstatus($smslog_id) {
 				}
 				_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "routesms getsmsstatus");
 			}
-		}
+		} 
 		return array(
 			$c_sms_credit,
 			$c_sms_status 

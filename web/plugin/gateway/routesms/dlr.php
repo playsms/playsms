@@ -103,7 +103,7 @@ if ($status && $smslog_id && $uid) {
         $dbb_result = dba_query($db_query);
         $db_row = dba_fetch_array($dbb_result);
         $pstatus = $db_row['p_status'];
-
+            
         if ($pstatus == 0 && $status != 0):
             $datedone = $requests["dtDone"];
             $charge = $requests["iCharge"];
