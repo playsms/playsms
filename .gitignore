@@ -33,3 +33,5 @@ install.conf.backup
 
 .svn
 *.log
+
+nbproject/*
