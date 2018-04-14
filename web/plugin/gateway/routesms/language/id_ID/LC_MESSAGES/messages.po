@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Additional URL parameter"
+msgstr "Parameter URL tambahan"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr "Isi untuk merubah kata sandi"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+msgid "Infobip API URL"
+msgstr "URL Infobip API"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip adalah penyedia SMS bulk"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr ""
+
+msgid "Manage infobip"
+msgstr "Pengaturan infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Maks. 16 numerik atau 11 karakter alfanumerik. kosongkan untuk menonaktifkan"
+
+#, fuzzy
+msgid "Module sender ID"
+msgstr "Pengirim global"
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "No changes have been made"
+msgstr "Tidak ada perubahan yang terjadi"
+
+msgid "No trailing slash"
+msgstr "Tanpa garis miring"
+
+#, fuzzy
+msgid "Notes"
+msgstr "Catatan"
+
+msgid "Password"
+msgstr "Kata sandi"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Username"
+msgstr "Nama pengguna"
+
+#, fuzzy
+msgid "Your DLR URL is"
+msgstr "URL balasan anda adalah"
+
+msgid "Your callback URL is"
+msgstr "URL balasan anda adalah"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr ""
+
+msgid "create an account to send SMS"
+msgstr ""

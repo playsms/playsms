@@ -1,0 +1,28 @@
+Plugin	: Gateway Infobip for playSMS
+Author	: enumanc (enumanc_at_gmail_dot_com)
+Release	: 1.4
+Date	: 2013-09-15
+License	: GPLv3
+
+playSMS gateway module for infobip.com
+
+Incoming and outgoing SMS are done via HTTP API, an HTTP GET submitted to an HTTP/S URL
+
+Register yourself at infobip's website, you have to create a new connection.
+
+After creating the connection take note of your username, password
+since those items are required to configure the gateway module.
+
+Dont forget to point callback setting on infobip control panel, otherwise you won't be
+able to track the status of your messages
+
+Example of callback URL:
+
+since 0.9.5.1 the URL should be:
+http://your_playsms_website/index.php?app=call&cat=gateway&plugin=infobip&access=callback
+prior to 0.9.5.1:
+http://your_playsms_website/plugin/gateway/infobip/callback.php
+
+for dlr url use:
+http://your_playsms_website/index.php?app=call&cat=gateway&plugin=infobip&access=dlr
+

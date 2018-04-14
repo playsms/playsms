@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Additional URL parameter"
+msgstr "Дополнительный параметр URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Например, +0300 для Москвы"
+
+msgid "Fill to change the password"
+msgstr "Заполните для изменения пароля"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Настройки шлюза сохранены"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "Infobip API URL"
+msgstr "Infobip API URL"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip это массовый СМС провайдер"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr "Infobip отправит DLR и входящие СМС на указанный URL"
+
+msgid "Manage infobip"
+msgstr "Manage infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Максимум 16 цифр или 11 латинских символов, оставьте пустым, чтобы отключить"
+
+msgid "Module sender ID"
+msgstr "Имя отправителя"
+
+msgid "Module timezone"
+msgstr "часвой пояс"
+
+msgid "No changes have been made"
+msgstr "Нет изменений"
+
+msgid "No trailing slash"
+msgstr "без наклонной черты в конце"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Your DLR URL is"
+msgstr "Ваш DLR URL"
+
+msgid "Your callback URL is"
+msgstr "Ваш callback URL"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr "Ваш callback URL джен быть доступен со стороны Infobip"
+
+msgid "create an account to send SMS"
+msgstr "Создать учётную запись для отправки СМС"

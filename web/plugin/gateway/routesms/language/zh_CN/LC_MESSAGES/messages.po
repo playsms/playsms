@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Additional URL parameter"
+msgstr "增加的链接参数"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fill to change the password"
+msgstr "填写改变密码"
+
+msgid "Gateway module configurations has been saved"
+msgstr "网关模块的配置已保存"
+
+msgid "Gateway name"
+msgstr "网关名"
+
+msgid "Infobip API URL"
+msgstr "Infobip应用程序界面链接"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr ""
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr ""
+
+msgid "Manage infobip"
+msgstr "管理 infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "最多16个数字或11个字母，不能空"
+
+#, fuzzy
+msgid "Module sender ID"
+msgstr "全球发件人"
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "No changes have been made"
+msgstr "没有改变"
+
+msgid "No trailing slash"
+msgstr "没有结尾的斜线"
+
+#, fuzzy
+msgid "Notes"
+msgstr "注意"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Username"
+msgstr "用户名"
+
+#, fuzzy
+msgid "Your DLR URL is"
+msgstr "你的回调链接是"
+
+msgid "Your callback URL is"
+msgstr "你的回调链接是"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr ""
+
+msgid "create an account to send SMS"
+msgstr ""

@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.9.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"Language-Team: French <LL@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Additional URL parameter"
+msgstr "Paramètre additionnel d'URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Exemple: +0200 pour le fuseau horaire de Paris (heure d'été)"
+
+msgid "Fill to change the password"
+msgstr "Veuillez saisir pour changer le mot de passe"
+
+msgid "Gateway module configurations has been saved"
+msgstr "La configuration du module de passerelle a été enregistrée"
+
+msgid "Gateway name"
+msgstr "Nom de la passerelle"
+
+msgid "Infobip API URL"
+msgstr "URL de l'API infobip"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip est un fournisseur de SMS en gros"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr "Infobip va faire un push du DLR et du SMS entrant vers l'URL ci-dessus"
+
+msgid "Manage infobip"
+msgstr "Gérer infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Max. 16 caractères numériques ou 11 alphanumériques. vide pour désactiver"
+
+msgid "Module sender ID"
+msgstr "Sender ID du module"
+
+msgid "Module timezone"
+msgstr "Fuseau horaire du module"
+
+msgid "No changes have been made"
+msgstr "Aucun changement apporté"
+
+msgid "No trailing slash"
+msgstr "Pas de slash final"
+
+msgid "Notes"
+msgstr "Remarques"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+msgid "Your DLR URL is"
+msgstr "Votre URL de DLR est"
+
+msgid "Your callback URL is"
+msgstr "Votre URL de callback est"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr "Votre URL de callback doit être accessible par Infobip"
+
+msgid "create an account to send SMS"
+msgstr "créer un compte pour envoyer des SMS"

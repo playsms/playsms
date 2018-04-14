@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+
+msgid "Additional URL parameter"
+msgstr "Yderligere URL parametre"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
+
+msgid "Fill to change the password"
+msgstr "Udfyld for at ændre adgangskoden"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurationen er blevet gemt"
+
+msgid "Gateway name"
+msgstr "Gateway navn"
+
+msgid "Infobip API URL"
+msgstr "Infobip API URL"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip er en masse-SMS leverandør"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr "Infobip vil sende DLR og indkommende SMS til ovenstående URL"
+
+msgid "Manage infobip"
+msgstr "Håndter infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 nummeriske eller 11 alfanumeriske tegn, tom for at deaktivere"
+
+msgid "Module sender ID"
+msgstr "Modul afsenderID"
+
+msgid "Module timezone"
+msgstr "Modul tidszone"
+
+msgid "No changes have been made"
+msgstr "Ingen ændringer er foretaget"
+
+msgid "No trailing slash"
+msgstr "Ingen efterfølgende skråstreg"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Your DLR URL is"
+msgstr "Din DLR URL er"
+
+msgid "Your callback URL is"
+msgstr "Din callback URL er"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr "Din callback URL skal være tilgængelig fra infobip"
+
+msgid "create an account to send SMS"
+msgstr "opret en konto for at sende SMS"

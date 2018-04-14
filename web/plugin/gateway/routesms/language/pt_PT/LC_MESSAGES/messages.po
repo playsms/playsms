@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+
+msgid "Additional URL parameter"
+msgstr "Parâmetro de URL adicional"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
+
+msgid "Fill to change the password"
+msgstr "Preencha para alterar a palavra-passe"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Configurações do módulo de gateway foram guardas"
+
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+msgid "Infobip API URL"
+msgstr "URL da API do infobip"
+
+msgid "Infobip is a bulk SMS provider"
+msgstr "Infobip é um provedor de SMS em massa"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr "Infobip vai ler DLR e SMS de entrada para URL acima"
+
+msgid "Manage infobip"
+msgstr "Gerir infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+
+msgid "Module sender ID"
+msgstr "Modulo Remetente ID"
+
+msgid "Module timezone"
+msgstr "Modulo Fuso Horário"
+
+msgid "No changes have been made"
+msgstr "Nenhuma mudança feita"
+
+msgid "No trailing slash"
+msgstr "Sem barra no final"
+
+msgid "Notes"
+msgstr "Notas"
+
+msgid "Password"
+msgstr "Palavra-passr"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Username"
+msgstr "Nome de utilizador:"
+
+msgid "Your DLR URL is"
+msgstr "Sua URL de DLR é"
+
+msgid "Your callback URL is"
+msgstr "Sua URL de callback é"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr "O seu URL de callback tem que ser acessível a partir de infobip"
+
+msgid "create an account to send SMS"
+msgstr "Criar uma conta para enviar SMS"
