@@ -186,6 +186,16 @@ function core_sanitize_path($var) {
 	return $var;
 }
 
+/**
+ * Sanitize filenames
+ */
+function core_sanitize_filename($string) {
+	$string = trim(preg_replace('/[^\p{L}\p{N}\s._-]+/u', '', $string));
+	
+	return $string;
+}
+
+
 function core_hook($c_plugin, $c_function, $c_param = array()) {
 	$c_fn = $c_plugin . '_hook_' . $c_function;
 	if ($c_plugin && $c_function && function_exists($c_fn)) {

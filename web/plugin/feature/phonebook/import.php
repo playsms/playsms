@@ -48,6 +48,15 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "import":
+
+		// fixme anton - https://www.exploit-database.net/?id=92843
+		$fnpb_name = core_sanitize_filename($_FILES['fnpb']['name']);
+		if ($fnpb_name == $_FILES['fnpb']['name']) {
+			$continue = TRUE;
+		} else {
+			$continue = FALSE;
+		}
+		
 		$fnpb = $_FILES['fnpb'];
 		$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 		$content = "
@@ -63,7 +72,8 @@ switch (_OP_) {
 				<th width=\"15%\">" . _('Group code') . "</th>
 				<th width=\"15%\">" . _('Tags') . "</th>
 			</tr></thead><tbody>";
-		if (file_exists($fnpb_tmpname)) {
+
+		if ($continue && file_exists($fnpb_tmpname)) {
 			$session_import = 'phonebook_' . _PID_;
 			unset($_SESSION['tmp'][$session_import]);
 			ini_set('auto_detect_line_endings', TRUE);

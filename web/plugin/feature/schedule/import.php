@@ -62,6 +62,15 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "import":
+
+		// fixme anton - https://www.exploit-database.net/?id=92843
+		$fnpb_name = core_sanitize_filename($_FILES['fnpb']['name']);
+		if ($fnpb_name == $_FILES['fnpb']['name']) {
+			$continue = TRUE;
+		} else {
+			$continue = FALSE;
+		}
+
 		$fnpb = $_FILES['fnpb'];
 		$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 		$content = "
@@ -75,7 +84,8 @@ switch (_OP_) {
 				<th width='30%'>" . _('Destination') . "</th>
 				<th width='30%'>" . _('Schedule') . "</th>
 			</tr></thead><tbody>";
-		if (file_exists($fnpb_tmpname)) {
+
+		if ($continue && file_exists($fnpb_tmpname)) {
 			
 			ini_set('auto_detect_line_endings', TRUE);
 			if (($fp = fopen($fnpb_tmpname, "r")) !== FALSE) {
@@ -124,7 +134,7 @@ switch (_OP_) {
 				" . _back('index.php?app=main&inc=feature_schedule&route=import&op=list&schedule_id=' . $schedule_id);
 			_p($content);
 		} else {
-			$_SESSION['dialog']['info'][] = _('Fail to upload CSV file');
+			$_SESSION['dialog']['danger'][] = _('Fail to upload CSV file');
 			header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=import&op=list&schedule_id=' . $schedule_id));
 			exit();
 		}

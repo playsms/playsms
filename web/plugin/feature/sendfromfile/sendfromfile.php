@@ -50,7 +50,15 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case 'upload_confirm':
-		$filename = $_FILES['fncsv']['name'];
+	
+		// fixme anton - https://www.exploit-database.net/?id=92843
+		$filename = core_sanitize_filename($_FILES['fncsv']['name']);		
+		if ($filename == $_FILES['fncsv']['name']) {
+			$continue = TRUE;
+		} else {
+			$continue = FALSE;
+		}
+		
 		$fn = $_FILES['fncsv']['tmp_name'];
 		$fs = (int) $_FILES['fncsv']['size'];
 		$nodups = ($_REQUEST['fncsv_dup'] ? TRUE : FALSE);
@@ -60,7 +68,7 @@ switch (_OP_) {
 		$item_valid = array();
 		$item_invalid = array();
 		
-		if (($fs == filesize($fn)) && file_exists($fn)) {
+		if ($continue && ($fs == filesize($fn)) && file_exists($fn)) {
 			if (($fd = fopen($fn, 'r')) !== FALSE) {
 				$sid = md5(uniqid('SID', true));
 				$continue = true;
