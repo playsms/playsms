@@ -880,7 +880,7 @@ function user_getparentbyuid($uid) {
 		}
 	}
 	
-	return FALSE;
+	return 0;
 }
 
 /**
