@@ -36,7 +36,7 @@ function themes_apply($content) {
 	return $ret;
 }
 
-function themes_submenu($content) {
+function themes_submenu($content = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
