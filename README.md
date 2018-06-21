@@ -10,10 +10,6 @@ Official playSMS forum:
 
 * https://forum.playsms.org
 
-Official playSMS Facebook page:
-
-* https://facebook.com/playsmsusergroup
-
 
 ## Description
 
