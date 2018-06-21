@@ -416,9 +416,10 @@ function phonebook_tags_clean($tags) {
  * @param integer $uid        
  * @param string $group_name        
  * @param string $group_code        
+ * @param integer $flag_sender
  * @return mixed returns group ID on successful add, returns FALSE on failed add, returns NULL when group code is already exists
  */
-function phonebook_group_add($uid, $group_name, $group_code) {
+function phonebook_group_add($uid, $group_name, $group_code, $flag_sender = 0) {
 	$group_code = phonebook_code_clean($group_code);
 	
 	$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code'";
@@ -428,11 +429,6 @@ function phonebook_group_add($uid, $group_name, $group_code) {
 		// returns NULL when group code is already exists 
 		return NULL;
 	} else {
-		$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0";
-		$db_result = dba_query($db_query);
-		if ($db_row = dba_fetch_array($db_result)) {
-			$flag_sender = 0;
-		}
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_featurePhonebook_group (uid,name,code,flag_sender) VALUES ('$uid','$group_name','$group_code','$flag_sender')";
 		if ($id = dba_insert_id($db_query)) {
 			
