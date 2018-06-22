@@ -104,6 +104,12 @@ switch (_OP_) {
 				$_SESSION['tmp'][$session_import] = array();
 				$i = 0;
 				foreach ($entries as $entry) {
+					
+					// fixme anton - https://www.exploit-database.net/?id=92915
+					$entry[0] = core_sanitize_string($entry[0]);
+					$entry[1] = core_sanitize_string($entry[1]);
+					$entry[2] = core_sanitize_string($entry[2]);
+					
 					if ($entry[0] && $entry[1] && $entry[2]) {
 						$i++;
 						$content .= "

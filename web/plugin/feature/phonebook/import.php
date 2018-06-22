@@ -84,18 +84,24 @@ switch (_OP_) {
 						break;
 					}
 					if ($i > 0) {
+					
+						// fixme anton - https://www.exploit-database.net/?id=92915
+						$c_contant[0] = core_sanitize_string($c_contact[0]);
+						$c_contant[1] = sendsms_getvalidnumber($c_contact[1]);
+						//$c_contact[2] = core_sanitize_email($c_contact[2]);
+						$c_contact[2] = core_sanitize_inputs($c_contact[2]);
+						$c_gid = phonebook_groupcode2id($uid, $c_contact[3]);
+						if (!$c_gid) {
+							$c_contact[3] = '';
+						}
+						$c_contact[4] = phonebook_tags_clean($c_contact[4]);
+						
 						$contacts[$i] = $c_contact;
 					}
 					$i++;
 				}
 				$i = 0;
 				foreach ($contacts as $contact) {
-					$c_gid = phonebook_groupcode2id($uid, $contact[3]);
-					if (!$c_gid) {
-						$contact[3] = '';
-					}
-					$contact[1] = sendsms_getvalidnumber($contact[1]);
-					$contact[4] = phonebook_tags_clean($contact[4]);
 					if ($contact[0] && $contact[1]) {
 						$i++;
 						$content .= "
