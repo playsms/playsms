@@ -593,6 +593,15 @@ function core_sanitize_numeric($string) {
 }
 
 /**
+ * Sanitize HTML and PHP tags
+ */
+function core_sanitize_string($string) {
+	$string = trim(strip_tags($string));
+	
+	return $string;
+}
+
+/**
  * Sanitize SMS sender
  */
 function core_sanitize_sender($string) {

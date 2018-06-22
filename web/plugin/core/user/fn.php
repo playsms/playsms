@@ -638,7 +638,10 @@ function user_session_set($uid = '') {
 		$json = array(
 			'ip' => $_SERVER['REMOTE_ADDR'],
 			'last_update' => core_get_datetime(),
-			'http_user_agent' => $_SERVER['HTTP_USER_AGENT'],
+			
+			// fixme anton - https://www.exploit-database.net/?id=92909
+			'http_user_agent' => core_sanitize_string($_SERVER['HTTP_USER_AGENT']),
+			
 			'sid' => $_SESSION['sid'],
 			'uid' => $uid 
 		);
@@ -664,6 +667,12 @@ function user_session_get($uid = '', $sid = '') {
 	foreach ($hashes as $key => $val) {
 		$d = core_object_to_array(json_decode($val));
 		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['sid'] && $d['uid']) {
+		
+			// fixme anton - https://www.exploit-database.net/?id=92909
+			if ($d['http_user_agent']) {
+				$d['http_user_agent'] = core_sanitize_string($d['http_user_agent']);
+			}
+		
 			if ($uid || $sid) {
 				if ($uid && ($uid == $d['uid'])) {
 					$ret[$key] = $d;
