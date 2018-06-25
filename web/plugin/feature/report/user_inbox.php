@@ -59,12 +59,12 @@ switch (_OP_) {
 			);
 			$keywords = $search['dba_keywords'];
 			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id', $conditions, $keywords, array(
-				'GROUP BY' => 'in_sender' 
+				'GROUP BY' => 'in_sender, in_id'
 			));
 			$count = count($list);
 			$nav = themes_nav($count, $search['url']);
 			$extras = array(
-				'GROUP BY' => 'in_sender',
+				'GROUP BY' => 'in_sender, in_id',
 				'ORDER BY' => 'in_id DESC',
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 

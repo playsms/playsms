@@ -73,7 +73,7 @@ switch (_OP_) {
 			$count = count($list);
 			$nav = themes_nav($count, $search['url']);
 			$extras = array(
-				'GROUP BY' => 'A.queue_code',
+				'GROUP BY' => 'A.queue_code, A.id',
 				'ORDER BY' => 'A.smslog_id DESC',
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 
