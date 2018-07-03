@@ -27,6 +27,10 @@ msgstr "Bulksms vil sende DLR og indkommende SMS til din callback URL"
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
 
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Gateway-modul konfigurationen er blevet gemt"
+
 msgid "Fill to change the password"
 msgstr "Udfyld for at ændre adgangskoden"
 
@@ -47,9 +51,6 @@ msgstr "Modul afsenderID"
 
 msgid "Module timezone"
 msgstr "Modul tidszone"
-
-msgid "No changes have been made"
-msgstr "Ingen ændringer foretaget"
 
 msgid "No trailing slash"
 msgstr "Ingen efterfølgende skråstreg"

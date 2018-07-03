@@ -27,6 +27,10 @@ msgstr "Bulksms irá enviar DLR ou SMS recebido para sua URL de callback"
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
 
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Configurações do módulo de gateway foram guardadas"
+
 msgid "Fill to change the password"
 msgstr "Preencha para alterar a palavra-passe"
 
@@ -49,9 +53,6 @@ msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
 msgstr "Módulo Fuso Horário"
-
-msgid "No changes have been made"
-msgstr "Não realizou nenhuma alteração"
 
 msgid "No trailing slash"
 msgstr "Sem barra no final"

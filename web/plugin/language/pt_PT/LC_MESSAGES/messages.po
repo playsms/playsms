@@ -272,6 +272,9 @@ msgstr ""
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
 
+msgid "Alphabetic char Eg: SEN for SENEGAL"
+msgstr ""
+
 msgid "Already a member reply"
 msgstr ""
 
@@ -524,6 +527,12 @@ msgstr ""
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
+msgid "Client Id"
+msgstr ""
+
+msgid "Client Secret"
+msgstr ""
+
 msgid "Comma separated"
 msgstr ""
 
@@ -547,6 +556,11 @@ msgstr "Configurações principais"
 msgid "Confirmation"
 msgstr "Configurações principais"
 
+msgid ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr ""
 
@@ -569,6 +583,9 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
+msgstr ""
+
+msgid "Country Code"
 msgstr ""
 
 msgid "Created"
@@ -739,6 +756,9 @@ msgstr ""
 msgid "Download SMSSync app for Android from"
 msgstr ""
 
+msgid "Easy Send SMS URL"
+msgstr ""
+
 msgid "Edit"
 msgstr "Editar"
 
@@ -813,6 +833,9 @@ msgstr "Gerir identificação de envio"
 msgid "Effective SMS sender ID"
 msgstr ""
 
+msgid "Eg: +0000 for Dakar/Senegal timezone"
+msgstr ""
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -881,6 +904,10 @@ msgstr ""
 
 msgid "Entries in CSV file have been imported"
 msgstr ""
+
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Configurações de utilizador"
 
 msgid "Example"
 msgstr ""
@@ -1155,6 +1182,15 @@ msgid "Fill to change the API secret"
 msgstr ""
 
 msgid "Fill to change the Auth Token"
+msgstr ""
+
+msgid "Fill to change the Client Id"
+msgstr ""
+
+msgid "Fill to change the Client Secret"
+msgstr ""
+
+msgid "Fill to change the Password"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1445,6 +1481,9 @@ msgstr ""
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
 
+msgid "Link"
+msgstr ""
+
 #, fuzzy
 msgid "List of accounts"
 msgstr "Minha conta"
@@ -1558,6 +1597,10 @@ msgid "Manage OpenVox"
 msgstr "Gerir Site"
 
 #, fuzzy
+msgid "Manage Orange"
+msgstr "Gerir conta"
+
+#, fuzzy
 msgid "Manage SMS rate"
 msgstr "Gerir Site"
 
@@ -1598,6 +1641,10 @@ msgstr "Gerir Site"
 
 #, fuzzy
 msgid "Manage dev"
+msgstr "Gerir Site"
+
+#, fuzzy
+msgid "Manage easysendsms"
 msgstr "Gerir Site"
 
 #, fuzzy
@@ -1650,6 +1697,10 @@ msgstr "Administrar"
 #, fuzzy
 msgid "Manage quiz"
 msgstr "Gerir Site"
+
+#, fuzzy
+msgid "Manage routesms"
+msgstr "Gerir subutilizadores"
 
 #, fuzzy
 msgid "Manage schedule"
@@ -1814,6 +1865,10 @@ msgid "Mobile numbers have been deleted"
 msgstr ""
 
 #, fuzzy
+msgid "Module Timezone"
+msgstr "Gerir identificação de envio"
+
+#, fuzzy
 msgid "Module sender ID"
 msgstr "Gerir identificação de envio"
 
@@ -1954,6 +2009,12 @@ msgid "Operational"
 msgstr ""
 
 msgid "Options"
+msgstr ""
+
+msgid "Orange API URL"
+msgstr ""
+
+msgid "Orange is a bulk SMS provider"
 msgstr ""
 
 msgid "PHP serialize output"
@@ -2284,7 +2345,16 @@ msgstr ""
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 
+msgid "RouteSMS is a bulk SMS provider"
+msgstr ""
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr ""
+
 msgid "Routed SMSC"
+msgstr ""
+
+msgid "Routesms API URL"
 msgstr ""
 
 msgid "Row template"
@@ -2663,6 +2733,13 @@ msgid "Sender"
 msgstr ""
 
 #, fuzzy
+msgid "Sender Address"
+msgstr "Gerir identificação de envio"
+
+msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
+msgstr ""
+
+#, fuzzy
 msgid "Sender ID"
 msgstr "Gerir identificação de envio"
 
@@ -2686,6 +2763,10 @@ msgstr ""
 
 msgid "Sender ID is now disabled"
 msgstr ""
+
+#, fuzzy
+msgid "Sender Name"
+msgstr "Gerir identificação de envio"
 
 msgid "Senders sent multi votes"
 msgstr ""
@@ -3140,6 +3221,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr ""
 
+msgid "Your callback URL should be accessible from RouteSMS"
+msgstr ""
+
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
 
@@ -3188,6 +3272,12 @@ msgid "blocked"
 msgstr ""
 
 msgid "chars"
+msgstr ""
+
+msgid "client Id"
+msgstr ""
+
+msgid "client Secret"
 msgstr ""
 
 msgid "code"

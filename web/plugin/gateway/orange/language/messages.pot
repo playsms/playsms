@@ -1,19 +1,30 @@
-msgid "Additional URL parameter"
+msgid "Alphabetic char Eg: SEN for SENEGAL"
 msgstr ""
 
-msgid "Bulksms API URL"
+msgid "Client Id"
 msgstr ""
 
-msgid "Bulksms is a bulk SMS provider"
+msgid "Client Secret"
 msgstr ""
 
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
+msgid ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
 msgstr ""
 
-msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgid "Country Code"
 msgstr ""
 
-msgid "Fill to change the password"
+msgid "Eg: +0000 for Dakar/Senegal timezone"
+msgstr ""
+
+msgid "Error: configurations not saved"
+msgstr ""
+
+msgid "Fill to change the Client Id"
+msgstr ""
+
+msgid "Fill to change the Client Secret"
 msgstr ""
 
 msgid "Gateway module configurations has been saved"
@@ -22,19 +33,13 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "Manage bulksms"
+msgid "Link"
 msgstr ""
 
-msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgid "Manage Orange"
 msgstr ""
 
-msgid "Module sender ID"
-msgstr ""
-
-msgid "Module timezone"
-msgstr ""
-
-msgid "No changes have been made"
+msgid "Module Timezone"
 msgstr ""
 
 msgid "No trailing slash"
@@ -43,20 +48,26 @@ msgstr ""
 msgid "Notes"
 msgstr ""
 
-msgid "Password"
+msgid "Orange API URL"
+msgstr ""
+
+msgid "Orange is a bulk SMS provider"
 msgstr ""
 
 msgid "Save"
 msgstr ""
 
-msgid "Username"
+msgid "Sender Address"
 msgstr ""
 
-msgid "Your callback URL is"
+msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Bulksms"
+msgid "Sender Name"
 msgstr ""
 
-msgid "free credits are available for testing purposes"
+msgid "client Id"
+msgstr ""
+
+msgid "client Secret"
 msgstr ""

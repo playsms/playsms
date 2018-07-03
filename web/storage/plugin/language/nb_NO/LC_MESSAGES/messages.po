@@ -263,6 +263,9 @@ msgstr "Tillat bruker til å velge SMS-footer på Send SMS-siden"
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr "Tillat brukere til å velge senderID på Send SMS-siden"
 
+msgid "Alphabetic char Eg: SEN for SENEGAL"
+msgstr ""
+
 msgid "Already a member reply"
 msgstr "Allerede et medlemssvar"
 
@@ -518,6 +521,12 @@ msgstr "Clickatell er en masse-SMS leverandør"
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr "Clickatell vil sende DLR og innkommende SMS til din callback URL"
 
+msgid "Client Id"
+msgstr ""
+
+msgid "Client Secret"
+msgstr ""
+
 msgid "Comma separated"
 msgstr "Kommaseparert"
 
@@ -538,6 +547,11 @@ msgstr "Konfigurasjon"
 
 msgid "Confirmation"
 msgstr "Bekreftelse"
+
+msgid ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr "Kontakt har blitt lagt til"
@@ -563,6 +577,9 @@ msgstr "Antall"
 
 msgid "Country"
 msgstr "Land"
+
+msgid "Country Code"
+msgstr ""
 
 msgid "Created"
 msgstr "Opprettet"
@@ -732,6 +749,9 @@ msgstr "Domene"
 msgid "Download SMSSync app for Android from"
 msgstr "Last ned SMSSync app til Android fra"
 
+msgid "Easy Send SMS URL"
+msgstr ""
+
 msgid "Edit"
 msgstr "Rediger"
 
@@ -800,6 +820,9 @@ msgstr "Rediger senderID"
 
 msgid "Effective SMS sender ID"
 msgstr "Effektivt SMS senderID"
+
+msgid "Eg: +0000 for Dakar/Senegal timezone"
+msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
@@ -870,6 +893,10 @@ msgstr "Forbedre privatliv for underbrukere"
 
 msgid "Entries in CSV file have been imported"
 msgstr "Innhold is CSV-filen har blitt importert"
+
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Brukerkonfigurasjon"
 
 msgid "Example"
 msgstr ""
@@ -1123,6 +1150,15 @@ msgstr "Utfyll for å endre API-hemmeligheten"
 
 msgid "Fill to change the Auth Token"
 msgstr "Utfyll for å endre Auth Token"
+
+msgid "Fill to change the Client Id"
+msgstr ""
+
+msgid "Fill to change the Client Secret"
+msgstr ""
+
+msgid "Fill to change the Password"
+msgstr ""
 
 msgid "Fill to change the password"
 msgstr "Utfyll for å endre passord"
@@ -1411,6 +1447,9 @@ msgstr ""
 "Å legge en kopi i sandbox SMS-siden kan være nyttig forrevisjon eller "
 "granskning"
 
+msgid "Link"
+msgstr ""
+
 msgid "List of accounts"
 msgstr "Liste over kontoer"
 
@@ -1517,6 +1556,10 @@ msgstr "Håndter ACL"
 msgid "Manage OpenVox"
 msgstr "Håndter OpenVox"
 
+#, fuzzy
+msgid "Manage Orange"
+msgstr "Håndter konto"
+
 msgid "Manage SMS rate"
 msgstr "Håndter SMS-takst"
 
@@ -1549,6 +1592,10 @@ msgstr "Håndter egendefinert"
 
 msgid "Manage dev"
 msgstr "Håndter dev"
+
+#, fuzzy
+msgid "Manage easysendsms"
+msgstr "Håndter nettsted"
 
 msgid "Manage email to SMS"
 msgstr "Håndter email til SMS"
@@ -1592,6 +1639,10 @@ msgstr "Håndter poll"
 
 msgid "Manage quiz"
 msgstr "Håndter quiz"
+
+#, fuzzy
+msgid "Manage routesms"
+msgstr "Håndter underbrukere"
 
 msgid "Manage schedule"
 msgstr "Håndter tidsplan"
@@ -1744,6 +1795,10 @@ msgstr "Mobilnummere har blitt blokkert"
 msgid "Mobile numbers have been deleted"
 msgstr "Mobilnummere har blitt slettet"
 
+#, fuzzy
+msgid "Module Timezone"
+msgstr "Håndter sender-ID"
+
 msgid "Module sender ID"
 msgstr "SenderID-modul"
 
@@ -1881,6 +1936,12 @@ msgstr ""
 
 msgid "Options"
 msgstr "Innstillinger"
+
+msgid "Orange API URL"
+msgstr ""
+
+msgid "Orange is a bulk SMS provider"
+msgstr ""
 
 msgid "PHP serialize output"
 msgstr "PHP serialize output"
@@ -2213,8 +2274,17 @@ msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 "Diriger til bruker-innboks hvis mottakernummer passer med brukers senderID"
 
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS er en masse-SMS leverandør"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr "RouteSMS vil sende DLR og innkommende SMS til URL-en over"
+
 msgid "Routed SMSC"
 msgstr "SMSC-rute "
+
+msgid "Routesms API URL"
+msgstr ""
 
 msgid "Row template"
 msgstr "Rad-mal"
@@ -2597,6 +2667,13 @@ msgstr "Send til"
 msgid "Sender"
 msgstr "Sender"
 
+#, fuzzy
+msgid "Sender Address"
+msgstr "Håndter sender-ID"
+
+msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
+msgstr ""
+
 msgid "Sender ID"
 msgstr "SenderID"
 
@@ -2620,6 +2697,10 @@ msgstr "SenderID er nå bekreftet"
 
 msgid "Sender ID is now disabled"
 msgstr "SenderID er nå blitt deaktivert"
+
+#, fuzzy
+msgid "Sender Name"
+msgstr "Håndter sender-ID"
 
 msgid "Senders sent multi votes"
 msgstr "Avsender sendte flere stemmer"
@@ -3074,6 +3155,9 @@ msgstr "Din callback URL skal være tilgjengelig fra Nexmo"
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Din callback URL skal være tilgjengelig fra OpenVox"
 
+msgid "Your callback URL should be accessible from RouteSMS"
+msgstr "Din callback URL skal være tilgjengelig fra RouteSMS"
+
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
 
@@ -3121,6 +3205,12 @@ msgstr "blokkert"
 
 msgid "chars"
 msgstr "tegn"
+
+msgid "client Id"
+msgstr ""
+
+msgid "client Secret"
+msgstr ""
 
 msgid "code"
 msgstr "kode"

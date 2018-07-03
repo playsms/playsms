@@ -276,6 +276,9 @@ msgstr ""
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr "Разрешить пользователям выбирать имя отправителя на странице отправки"
 
+msgid "Alphabetic char Eg: SEN for SENEGAL"
+msgstr ""
+
 msgid "Already a member reply"
 msgstr "Ответ, еси уже подписан"
 
@@ -531,6 +534,12 @@ msgstr "Clickatell это массовый СМС провайдер"
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr "Clickatell отправит DLR и входящие SMS на Ваш callback URL"
 
+msgid "Client Id"
+msgstr ""
+
+msgid "Client Secret"
+msgstr ""
+
 msgid "Comma separated"
 msgstr "Разделённый запятыми"
 
@@ -552,6 +561,11 @@ msgstr ""
 
 msgid "Confirmation"
 msgstr "Подтверждение"
+
+msgid ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
+msgstr ""
 
 msgid "Contact has been added"
 msgstr "Контакт добавлен"
@@ -578,6 +592,9 @@ msgstr "Кол-во"
 
 msgid "Country"
 msgstr "Страна"
+
+msgid "Country Code"
+msgstr ""
 
 msgid "Created"
 msgstr "Создано"
@@ -745,6 +762,9 @@ msgstr ""
 msgid "Download SMSSync app for Android from"
 msgstr "Скачать SMSSync для Android с"
 
+msgid "Easy Send SMS URL"
+msgstr ""
+
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -813,6 +833,9 @@ msgstr "Редактировать имя отправителя"
 
 msgid "Effective SMS sender ID"
 msgstr "Действующее имя отправителя"
+
+msgid "Eg: +0000 for Dakar/Senegal timezone"
+msgstr ""
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Например, +0300 для Москвы"
@@ -884,6 +907,10 @@ msgstr "Повысить кофиденциальность дочерних п�
 
 msgid "Entries in CSV file have been imported"
 msgstr ""
+
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Настройки"
 
 msgid "Example"
 msgstr ""
@@ -1139,6 +1166,15 @@ msgstr "Заполните для изменения API secret"
 
 msgid "Fill to change the Auth Token"
 msgstr "Заполните для изменения Auth Token"
+
+msgid "Fill to change the Client Id"
+msgstr ""
+
+msgid "Fill to change the Client Secret"
+msgstr ""
+
+msgid "Fill to change the Password"
+msgstr ""
 
 msgid "Fill to change the password"
 msgstr "Заполните для изменения пароля"
@@ -1426,6 +1462,9 @@ msgstr ""
 "Оставлять копию в Необработанных сообщениях может быть полезно для ревизии "
 "или контроля"
 
+msgid "Link"
+msgstr ""
+
 msgid "List of accounts"
 msgstr ""
 
@@ -1533,6 +1572,10 @@ msgstr ""
 msgid "Manage OpenVox"
 msgstr "Управление OpenVox"
 
+#, fuzzy
+msgid "Manage Orange"
+msgstr "Управление пользователями"
+
 msgid "Manage SMS rate"
 msgstr "Тарификация"
 
@@ -1566,6 +1609,10 @@ msgstr "Запрос URL"
 
 msgid "Manage dev"
 msgstr "Тестовый шлюз"
+
+#, fuzzy
+msgid "Manage easysendsms"
+msgstr "Управление пользователями"
 
 msgid "Manage email to SMS"
 msgstr "Управление email to SMS"
@@ -1608,6 +1655,10 @@ msgstr "Голосования"
 
 msgid "Manage quiz"
 msgstr "Викторины"
+
+#, fuzzy
+msgid "Manage routesms"
+msgstr "Управление дочерними пользователями"
 
 msgid "Manage schedule"
 msgstr ""
@@ -1762,6 +1813,10 @@ msgstr ""
 msgid "Mobile numbers have been deleted"
 msgstr ""
 
+#, fuzzy
+msgid "Module Timezone"
+msgstr "Управление именами отправителей"
+
 msgid "Module sender ID"
 msgstr "Имя отправителя"
 
@@ -1901,6 +1956,12 @@ msgstr ""
 
 msgid "Options"
 msgstr "Параметры"
+
+msgid "Orange API URL"
+msgstr ""
+
+msgid "Orange is a bulk SMS provider"
+msgstr ""
 
 msgid "PHP serialize output"
 msgstr "PHP serialize формат"
@@ -2238,8 +2299,17 @@ msgstr ""
 "Перенаправлять во Входящие пользователя, если номер получателя совпадает с "
 "именем отправителя у пользователя"
 
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS это массовый СМС провайдер"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr "RouteSMS отправит DLR и входящие СМС на указанный URL"
+
 msgid "Routed SMSC"
 msgstr "Направить в SMSC"
+
+msgid "Routesms API URL"
+msgstr ""
 
 msgid "Row template"
 msgstr "Шаблон строки"
@@ -2620,6 +2690,13 @@ msgstr "Получатели"
 msgid "Sender"
 msgstr "Отправитель"
 
+#, fuzzy
+msgid "Sender Address"
+msgstr "Управление именами отправителей"
+
+msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
+msgstr ""
+
 msgid "Sender ID"
 msgstr "Имя отправителя"
 
@@ -2643,6 +2720,10 @@ msgstr "Имя отправителя утверждено"
 
 msgid "Sender ID is now disabled"
 msgstr "Имя отправителя отключено"
+
+#, fuzzy
+msgid "Sender Name"
+msgstr "Управление именами отправителей"
 
 msgid "Senders sent multi votes"
 msgstr "Проголосовавших несколько раз"
@@ -3090,6 +3171,9 @@ msgstr "Ваш callback URL должен быть доступен с сторо
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Ваш callback URL должен быть доступен с стороны OpenVox"
 
+msgid "Your callback URL should be accessible from RouteSMS"
+msgstr "Ваш callback URL джен быть доступен со стороны RouteSMS"
+
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
 
@@ -3138,6 +3222,12 @@ msgstr "заблокировано"
 
 msgid "chars"
 msgstr "симв"
+
+msgid "client Id"
+msgstr ""
+
+msgid "client Secret"
+msgstr ""
 
 msgid "code"
 msgstr "код"

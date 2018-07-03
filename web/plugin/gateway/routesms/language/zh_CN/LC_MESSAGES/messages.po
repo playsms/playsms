@@ -20,16 +20,8 @@ msgstr "网关模块的配置已保存"
 msgid "Gateway name"
 msgstr "网关名"
 
-msgid "RouteSMS API URL"
-msgstr "RouteSMS应用程序界面链接"
-
-msgid "RouteSMS is a bulk SMS provider"
-msgstr ""
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr ""
-
-msgid "Manage RouteSMS"
+#, fuzzy
+msgid "Manage routesms"
 msgstr "管理 RouteSMS"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -54,6 +46,16 @@ msgstr "注意"
 
 msgid "Password"
 msgstr "密码"
+
+msgid "RouteSMS is a bulk SMS provider"
+msgstr ""
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr ""
+
+#, fuzzy
+msgid "Routesms API URL"
+msgstr "RouteSMS应用程序界面链接"
 
 msgid "Save"
 msgstr "保存"

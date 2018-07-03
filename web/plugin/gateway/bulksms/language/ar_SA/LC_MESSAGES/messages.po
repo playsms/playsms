@@ -30,6 +30,10 @@ msgstr ""
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "مثال: +0200 لتوقيت القدس المحتلة/ فلسطين"
 
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "تم حفظ إعدادات البوابة"
+
 msgid "Fill to change the password"
 msgstr "املأ حقل كلمة المرور لتغييرها."
 
@@ -50,9 +54,6 @@ msgstr "اسم المرسل"
 
 msgid "Module timezone"
 msgstr "المنطقة الزمنية"
-
-msgid "No changes have been made"
-msgstr "لم يتم إجراء تغييرات!"
 
 msgid "No trailing slash"
 msgstr "بدون شرطة مائلة"

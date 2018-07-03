@@ -22,6 +22,10 @@ msgstr ""
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
 msgid "Fill to change the password"
 msgstr ""
 
@@ -42,9 +46,6 @@ msgstr "Pengirim global"
 
 msgid "Module timezone"
 msgstr "Zona waktu modul"
-
-msgid "No changes have been made"
-msgstr "Tidak ada perubahan yang terjadi"
 
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"

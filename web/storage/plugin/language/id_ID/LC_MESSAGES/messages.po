@@ -256,6 +256,9 @@ msgstr ""
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
 
+msgid "Alphabetic char Eg: SEN for SENEGAL"
+msgstr "Alphabetic char Eg: SEN for SENEGAL"
+
 msgid "Already a member reply"
 msgstr "Balasan sudah terdaftar"
 
@@ -510,6 +513,12 @@ msgstr "Clickatell adalah penyedia SMS bulk"
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
+msgid "Client Id"
+msgstr "Client Id"
+
+msgid "Client Secret"
+msgstr "Client Secret"
+
 msgid "Comma separated"
 msgstr ""
 
@@ -530,6 +539,13 @@ msgstr ""
 
 msgid "Confirmation"
 msgstr "Konfirmasi"
+
+msgid ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
+msgstr ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
 
 msgid "Contact has been added"
 msgstr "Kontak telah ditambah"
@@ -554,6 +570,9 @@ msgstr "Hitung"
 
 msgid "Country"
 msgstr ""
+
+msgid "Country Code"
+msgstr "Country Code"
 
 msgid "Created"
 msgstr "Dibuat"
@@ -718,6 +737,9 @@ msgstr ""
 msgid "Download SMSSync app for Android from"
 msgstr ""
 
+msgid "Easy Send SMS URL"
+msgstr ""
+
 msgid "Edit"
 msgstr "Sunting"
 
@@ -789,6 +811,9 @@ msgstr ""
 msgid "Effective SMS sender ID"
 msgstr ""
 
+msgid "Eg: +0000 for Dakar/Senegal timezone"
+msgstr "Eg: +0000 for Dakar/Senegal timezone"
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -857,6 +882,10 @@ msgstr ""
 
 msgid "Entries in CSV file have been imported"
 msgstr ""
+
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Konfigurasi utama"
 
 msgid "Example"
 msgstr ""
@@ -1113,6 +1142,15 @@ msgid "Fill to change the API secret"
 msgstr ""
 
 msgid "Fill to change the Auth Token"
+msgstr ""
+
+msgid "Fill to change the Client Id"
+msgstr "Fill to change the Client Id"
+
+msgid "Fill to change the Client Secret"
+msgstr "Fill to change the Client Secret"
+
+msgid "Fill to change the Password"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1397,6 +1435,9 @@ msgstr ""
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
 
+msgid "Link"
+msgstr "Link"
+
 msgid "List of accounts"
 msgstr ""
 
@@ -1503,6 +1544,9 @@ msgstr ""
 msgid "Manage OpenVox"
 msgstr "Pengaturan pengguna"
 
+msgid "Manage Orange"
+msgstr "Manage Orange"
+
 msgid "Manage SMS rate"
 msgstr "Pengaturan tarif SMS"
 
@@ -1537,6 +1581,10 @@ msgstr "Pengaturan SMS kustom"
 
 msgid "Manage dev"
 msgstr "Pengaturan dev"
+
+#, fuzzy
+msgid "Manage easysendsms"
+msgstr "Pengaturan pengguna"
 
 msgid "Manage email to SMS"
 msgstr ""
@@ -1579,6 +1627,10 @@ msgstr "Pengaturan layanan poling SMS"
 
 msgid "Manage quiz"
 msgstr "Pengaturan kuis SMS"
+
+#, fuzzy
+msgid "Manage routesms"
+msgstr "Pengaturan pengguna"
 
 msgid "Manage schedule"
 msgstr ""
@@ -1733,6 +1785,9 @@ msgstr ""
 msgid "Mobile numbers have been deleted"
 msgstr ""
 
+msgid "Module Timezone"
+msgstr "Module Timezone"
+
 msgid "Module sender ID"
 msgstr "Pengirim global"
 
@@ -1871,6 +1926,12 @@ msgstr ""
 
 msgid "Options"
 msgstr ""
+
+msgid "Orange API URL"
+msgstr "Orange API URL"
+
+msgid "Orange is a bulk SMS provider"
+msgstr "Orange is a bulk SMS provider"
 
 msgid "PHP serialize output"
 msgstr "Keluaran PHO serialize"
@@ -2207,7 +2268,16 @@ msgstr ""
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS adalah penyedia SMS bulk"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr ""
+
 msgid "Routed SMSC"
+msgstr ""
+
+msgid "Routesms API URL"
 msgstr ""
 
 msgid "Row template"
@@ -2588,6 +2658,12 @@ msgstr ""
 msgid "Sender"
 msgstr "Pengirim"
 
+msgid "Sender Address"
+msgstr "Sender Address"
+
+msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
+msgstr "Sender Address Eg +221xxxxxxxxx for Senegal"
+
 msgid "Sender ID"
 msgstr ""
 
@@ -2611,6 +2687,9 @@ msgstr ""
 
 msgid "Sender ID is now disabled"
 msgstr ""
+
+msgid "Sender Name"
+msgstr "Sender Name"
 
 msgid "Senders sent multi votes"
 msgstr ""
@@ -3060,6 +3139,9 @@ msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr ""
 
+msgid "Your callback URL should be accessible from RouteSMS"
+msgstr ""
+
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
 
@@ -3106,6 +3188,12 @@ msgid "blocked"
 msgstr ""
 
 msgid "chars"
+msgstr ""
+
+msgid "client Id"
+msgstr ""
+
+msgid "client Secret"
 msgstr ""
 
 msgid "code"

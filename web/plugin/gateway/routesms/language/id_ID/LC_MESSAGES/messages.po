@@ -20,16 +20,8 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
-msgid "RouteSMS API URL"
-msgstr "URL RouteSMS API"
-
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS adalah penyedia SMS bulk"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr ""
-
-msgid "Manage RouteSMS"
+#, fuzzy
+msgid "Manage routesms"
 msgstr "Pengaturan RouteSMS"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -55,6 +47,16 @@ msgstr "Catatan"
 
 msgid "Password"
 msgstr "Kata sandi"
+
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS adalah penyedia SMS bulk"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr ""
+
+#, fuzzy
+msgid "Routesms API URL"
+msgstr "URL RouteSMS API"
 
 msgid "Save"
 msgstr "Simpan"

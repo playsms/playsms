@@ -1,7 +1,7 @@
 msgid "Additional URL parameter"
 msgstr ""
 
-msgid "Eg: +0100 for Africa/Lagos timezone"
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -13,16 +13,7 @@ msgstr ""
 msgid "Gateway name"
 msgstr ""
 
-msgid "RouteSMS API URL"
-msgstr ""
-
-msgid "RouteSMS is a bulk SMS provider"
-msgstr ""
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr ""
-
-msgid "Manage RouteSMS"
+msgid "Manage routesms"
 msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -44,6 +35,15 @@ msgid "Notes"
 msgstr ""
 
 msgid "Password"
+msgstr ""
+
+msgid "RouteSMS is a bulk SMS provider"
+msgstr ""
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr ""
+
+msgid "Routesms API URL"
 msgstr ""
 
 msgid "Save"

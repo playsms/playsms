@@ -24,16 +24,8 @@ msgstr "La configuration du module de passerelle a été enregistrée"
 msgid "Gateway name"
 msgstr "Nom de la passerelle"
 
-msgid "RouteSMS API URL"
-msgstr "URL de l'API RouteSMS"
-
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS est un fournisseur de SMS en gros"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr "RouteSMS va faire un push du DLR et du SMS entrant vers l'URL ci-dessus"
-
-msgid "Manage RouteSMS"
+#, fuzzy
+msgid "Manage routesms"
 msgstr "Gérer RouteSMS"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -57,6 +49,17 @@ msgstr "Remarques"
 
 msgid "Password"
 msgstr "Mot de passe"
+
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS est un fournisseur de SMS en gros"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr ""
+"RouteSMS va faire un push du DLR et du SMS entrant vers l'URL ci-dessus"
+
+#, fuzzy
+msgid "Routesms API URL"
+msgstr "URL de l'API RouteSMS"
 
 msgid "Save"
 msgstr "Enregistrer"

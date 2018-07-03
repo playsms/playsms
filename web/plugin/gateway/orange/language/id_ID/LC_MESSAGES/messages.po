@@ -5,29 +5,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Manage Orange"
-msgstr "Manage Orange"
-
-msgid "Gateway name"
-msgstr "Gateway name"
-
-msgid "Country Code"
-msgstr "Country Code"
-
 msgid "Alphabetic char Eg: SEN for SENEGAL"
 msgstr "Alphabetic char Eg: SEN for SENEGAL"
 
 msgid "Client Id"
 msgstr "Client Id"
 
-msgid "Fill to change the Client Id"
-msgstr "Fill to change the Client Id"
-
 msgid "Client Secret"
 msgstr "Client Secret"
 
+msgid ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
+msgstr ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
+
+msgid "Country Code"
+msgstr "Country Code"
+
+msgid "Eg: +0000 for Dakar/Senegal timezone"
+msgstr "Eg: +0000 for Dakar/Senegal timezone"
+
+msgid "Error: configurations not saved"
+msgstr ""
+
+msgid "Fill to change the Client Id"
+msgstr "Fill to change the Client Id"
+
 msgid "Fill to change the Client Secret"
 msgstr "Fill to change the Client Secret"
+
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+msgid "Gateway name"
+msgstr "Gateway name"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Manage Orange"
+msgstr "Manage Orange"
+
+msgid "Module Timezone"
+msgstr "Module Timezone"
+
+msgid "No trailing slash"
+msgstr ""
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Orange API URL"
+msgstr "Orange API URL"
+
+msgid "Orange is a bulk SMS provider"
+msgstr "Orange is a bulk SMS provider"
+
+msgid "Save"
+msgstr "Save"
 
 msgid "Sender Address"
 msgstr "Sender Address"
@@ -38,29 +75,10 @@ msgstr "Sender Address Eg +221xxxxxxxxx for Senegal"
 msgid "Sender Name"
 msgstr "Sender Name"
 
-msgid "Contact developer.orange.com support and request for one or leave this field empty to disable"
-msgstr "Contact developer.orange.com support and request for one or leave this field empty to disable"
+#, fuzzy
+msgid "client Id"
+msgstr "Client Id"
 
-msgid "Orange API URL"
-msgstr "Orange API URL"
-
-msgid "Module Timezone"
-msgstr "Module Timezone"
-
-msgid "Eg: +0000 for Dakar/Senegal timezone"
-msgstr "Eg: +0000 for Dakar/Senegal timezone"
-
-msgid "Save"
-msgstr "Save"
-
-msgid "Notes"
-msgstr "Notes"
-
-msgid "Orange is a bulk SMS provider"
-msgstr "Orange is a bulk SMS provider"
-
-msgid "Link"
-msgstr "Link"
-
-msgid "Sender"
-msgstr "Sender"
+#, fuzzy
+msgid "client Secret"
+msgstr "Client Secret"

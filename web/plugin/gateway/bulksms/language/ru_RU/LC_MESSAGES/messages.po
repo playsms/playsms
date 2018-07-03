@@ -30,6 +30,10 @@ msgstr "Clickatell отправит DLR и входящие SMS на Ваш call
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Например +0400 для Москвы"
 
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "Настройки шлюза сохранены"
+
 msgid "Fill to change the password"
 msgstr "Заполните для изменения пароля"
 
@@ -51,9 +55,6 @@ msgstr "Имя отправителя"
 
 msgid "Module timezone"
 msgstr "Часовой пояс"
-
-msgid "No changes have been made"
-msgstr "Нет изменений"
 
 msgid "No trailing slash"
 msgstr "без наклонной черты в конце"

@@ -23,16 +23,8 @@ msgstr "Gateway-modul konfigurasjoner har blitt lagret"
 msgid "Gateway name"
 msgstr "Gateway-navn"
 
-msgid "RouteSMS API URL"
-msgstr "RouteSMS API URl"
-
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS er en masse-SMS leverandør"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr "RouteSMS vil sende DLR og innkommende SMS til URL-en over"
-
-msgid "Manage RouteSMS"
+#, fuzzy
+msgid "Manage routesms"
 msgstr "Håndter RouteSMS"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -55,6 +47,16 @@ msgstr "Notater"
 
 msgid "Password"
 msgstr "Passord"
+
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS er en masse-SMS leverandør"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr "RouteSMS vil sende DLR og innkommende SMS til URL-en over"
+
+#, fuzzy
+msgid "Routesms API URL"
+msgstr "RouteSMS API URl"
 
 msgid "Save"
 msgstr "Lagre"

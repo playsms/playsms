@@ -21,6 +21,10 @@ msgstr ""
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
+#, fuzzy
+msgid "Error: configurations not saved"
+msgstr "网关模块的配置已保存"
+
 msgid "Fill to change the password"
 msgstr ""
 
@@ -41,9 +45,6 @@ msgstr "全球发件人"
 
 msgid "Module timezone"
 msgstr ""
-
-msgid "No changes have been made"
-msgstr "没有改变"
 
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"

@@ -248,6 +248,9 @@ msgstr ""
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
 
+msgid "Alphabetic char Eg: SEN for SENEGAL"
+msgstr ""
+
 msgid "Already a member reply"
 msgstr ""
 
@@ -498,6 +501,12 @@ msgstr ""
 msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
+msgid "Client Id"
+msgstr ""
+
+msgid "Client Secret"
+msgstr ""
+
 msgid "Comma separated"
 msgstr ""
 
@@ -517,6 +526,11 @@ msgid "Configuration"
 msgstr ""
 
 msgid "Confirmation"
+msgstr ""
+
+msgid ""
+"Contact developer.orange.com support and request for one or leave this field "
+"empty to disable"
 msgstr ""
 
 msgid "Contact has been added"
@@ -541,6 +555,9 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
+msgstr ""
+
+msgid "Country Code"
 msgstr ""
 
 msgid "Created"
@@ -705,6 +722,9 @@ msgstr ""
 msgid "Download SMSSync app for Android from"
 msgstr ""
 
+msgid "Easy Send SMS URL"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
@@ -774,6 +794,9 @@ msgstr ""
 msgid "Effective SMS sender ID"
 msgstr ""
 
+msgid "Eg: +0000 for Dakar/Senegal timezone"
+msgstr ""
+
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -841,6 +864,9 @@ msgid "Enhance privacy for subusers"
 msgstr ""
 
 msgid "Entries in CSV file have been imported"
+msgstr ""
+
+msgid "Error: configurations not saved"
 msgstr ""
 
 msgid "Example"
@@ -1093,6 +1119,15 @@ msgid "Fill to change the API secret"
 msgstr ""
 
 msgid "Fill to change the Auth Token"
+msgstr ""
+
+msgid "Fill to change the Client Id"
+msgstr ""
+
+msgid "Fill to change the Client Secret"
+msgstr ""
+
+msgid "Fill to change the Password"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1376,6 +1411,9 @@ msgstr ""
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
 
+msgid "Link"
+msgstr ""
+
 msgid "List of accounts"
 msgstr ""
 
@@ -1481,6 +1519,9 @@ msgstr ""
 msgid "Manage OpenVox"
 msgstr ""
 
+msgid "Manage Orange"
+msgstr ""
+
 msgid "Manage SMS rate"
 msgstr ""
 
@@ -1512,6 +1553,9 @@ msgid "Manage custom"
 msgstr ""
 
 msgid "Manage dev"
+msgstr ""
+
+msgid "Manage easysendsms"
 msgstr ""
 
 msgid "Manage email to SMS"
@@ -1551,6 +1595,9 @@ msgid "Manage poll"
 msgstr ""
 
 msgid "Manage quiz"
+msgstr ""
+
+msgid "Manage routesms"
 msgstr ""
 
 msgid "Manage schedule"
@@ -1704,6 +1751,9 @@ msgstr ""
 msgid "Mobile numbers have been deleted"
 msgstr ""
 
+msgid "Module Timezone"
+msgstr ""
+
 msgid "Module sender ID"
 msgstr ""
 
@@ -1840,6 +1890,12 @@ msgid "Operational"
 msgstr ""
 
 msgid "Options"
+msgstr ""
+
+msgid "Orange API URL"
+msgstr ""
+
+msgid "Orange is a bulk SMS provider"
 msgstr ""
 
 msgid "PHP serialize output"
@@ -2163,7 +2219,16 @@ msgstr ""
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 
+msgid "RouteSMS is a bulk SMS provider"
+msgstr ""
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr ""
+
 msgid "Routed SMSC"
+msgstr ""
+
+msgid "Routesms API URL"
 msgstr ""
 
 msgid "Row template"
@@ -2536,6 +2601,12 @@ msgstr ""
 msgid "Sender"
 msgstr ""
 
+msgid "Sender Address"
+msgstr ""
+
+msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
+msgstr ""
+
 msgid "Sender ID"
 msgstr ""
 
@@ -2558,6 +2629,9 @@ msgid "Sender ID is now approved"
 msgstr ""
 
 msgid "Sender ID is now disabled"
+msgstr ""
+
+msgid "Sender Name"
 msgstr ""
 
 msgid "Senders sent multi votes"
@@ -3003,6 +3077,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr ""
 
+msgid "Your callback URL should be accessible from RouteSMS"
+msgstr ""
+
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
 
@@ -3049,6 +3126,12 @@ msgid "blocked"
 msgstr ""
 
 msgid "chars"
+msgstr ""
+
+msgid "client Id"
+msgstr ""
+
+msgid "client Secret"
 msgstr ""
 
 msgid "code"

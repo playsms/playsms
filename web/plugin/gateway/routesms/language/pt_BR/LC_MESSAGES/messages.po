@@ -20,16 +20,8 @@ msgstr "Configurações do módulo de gateway foram salvas"
 msgid "Gateway name"
 msgstr "Nome do gateway"
 
-msgid "RouteSMS API URL"
-msgstr "URL da API do RouteSMS"
-
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS é um provedor de SMS em massa"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr "RouteSMS irá enviar DLR e SMS recebidos para a URL acima"
-
-msgid "Manage RouteSMS"
+#, fuzzy
+msgid "Manage routesms"
 msgstr "Gerenciar RouteSMS"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -53,6 +45,16 @@ msgstr "Observações"
 
 msgid "Password"
 msgstr "Senha"
+
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS é um provedor de SMS em massa"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr "RouteSMS irá enviar DLR e SMS recebidos para a URL acima"
+
+#, fuzzy
+msgid "Routesms API URL"
+msgstr "URL da API do RouteSMS"
 
 msgid "Save"
 msgstr "Salvar"

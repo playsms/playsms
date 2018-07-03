@@ -27,16 +27,8 @@ msgstr "Настройки шлюза сохранены"
 msgid "Gateway name"
 msgstr "Название шлюза"
 
-msgid "RouteSMS API URL"
-msgstr "RouteSMS API URL"
-
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS это массовый СМС провайдер"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr "RouteSMS отправит DLR и входящие СМС на указанный URL"
-
-msgid "Manage RouteSMS"
+#, fuzzy
+msgid "Manage routesms"
 msgstr "Manage RouteSMS"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
@@ -60,6 +52,16 @@ msgstr "Примечания"
 
 msgid "Password"
 msgstr "Пароль"
+
+msgid "RouteSMS is a bulk SMS provider"
+msgstr "RouteSMS это массовый СМС провайдер"
+
+msgid "RouteSMS will push DLR and incoming SMS to above URL"
+msgstr "RouteSMS отправит DLR и входящие СМС на указанный URL"
+
+#, fuzzy
+msgid "Routesms API URL"
+msgstr "RouteSMS API URL"
 
 msgid "Save"
 msgstr "Сохранить"
