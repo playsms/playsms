@@ -40,7 +40,7 @@ communication tools
 * SMS sync to utilize SMSSync app from http://smssync.ushahidi.com
 * Blacklist, stoplist and firewall plugin for SMS services protections
 * Create your own features, tools, themes and gateway modules as a plugin
-* Supports Gammu, Kannel, SMS Server Tools, Jasmin, Playnet, Uplink, Nexmo, Twilio, Infobip, Clickatell, BulkSMS, Orange
+* Supports Gammu, Kannel, SMS Server Tools, Jasmin, Playnet, Uplink, and several SMS service providers
 * Supports multiple active SMSC
 * Supports simulation gateway for testing incoming and outgoing SMS
 * Route outgoing SMS by prefix

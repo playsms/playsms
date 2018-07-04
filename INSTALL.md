@@ -14,9 +14,9 @@ part before starting the installation.
 
 Optional hardware or infrastructure:
 
-* GSM modem, single/modem pool (only when you plan to use Kannel, Gammu, Gnokii or smstools gateway plugins)
-* Internet connection (only when you plan to use Clickatell, Nexmo, Twilio, Infobip gateway plugins)
-* LAN (only when you plan to link 2 playSMS on different server in the same network using Uplink gateway plugin)
+* GSM modem, single/modem pool
+* Internet connection
+* LAN
 
 **Minimum required softwares:**
 

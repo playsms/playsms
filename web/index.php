@@ -45,7 +45,6 @@ if (_APP_) {
 			break;
 		case 'call':
 			// _APP_=call to access subroutine in a plugin
-			// can be used to replace callback.php in clickatell or dlr.php and geturl.php in kannel
 			if (_CAT_ && _PLUGIN_) {
 				core_hook(_PLUGIN_, 'call', array(
 					$_REQUEST 
