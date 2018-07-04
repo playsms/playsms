@@ -441,9 +441,6 @@ msgstr "URL do CSS"
 msgid "CSV file format"
 msgstr "Formato do ficheiro CSV"
 
-msgid "Callback Secret"
-msgstr "Secreto Callback"
-
 msgid "Callback URL"
 msgstr "URL de callback"
 
@@ -1100,9 +1097,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "Preencher o campo palavra-passe para alterar a palavra-passe"
 
-msgid "Fill to change the API key"
-msgstr "Preencha para alterar a chave API"
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1598,9 +1592,6 @@ msgstr "Gerir sub-utilizador"
 msgid "Manage sync"
 msgstr "Gerir Sync"
 
-msgid "Manage telerivet"
-msgstr "Gerir telerivet"
-
 msgid "Manage template"
 msgstr "Gerir Tema"
 
@@ -1807,9 +1798,6 @@ msgstr "Nexmo irá enviar DLR e SMS para sua URL de callback"
 msgid "No"
 msgstr "Não"
 
-msgid "No changes has been made"
-msgstr "Nenhuma mudança efectuada"
-
 msgid "No changes have been made"
 msgstr "Não foi efectuado qualquer alteração"
 
@@ -1999,9 +1987,6 @@ msgstr ""
 
 msgid "Prevent duplicates"
 msgstr "Evitar duplicados"
-
-msgid "Project ID"
-msgstr "Projeto ID"
 
 msgid "Question"
 msgstr "Pergunta"
@@ -2704,9 +2689,6 @@ msgid "System error has occured"
 msgstr "Ocorreu um erro de sistema"
 
 msgid "Tags"
-msgstr ""
-
-msgid "Telerivet URL"
 msgstr ""
 
 msgid "Template installation path"

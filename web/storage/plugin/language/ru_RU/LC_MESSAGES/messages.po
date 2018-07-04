@@ -448,9 +448,6 @@ msgstr "CSS URL"
 msgid "CSV file format"
 msgstr "Формат CSV файла"
 
-msgid "Callback Secret"
-msgstr ""
-
 msgid "Callback URL"
 msgstr "Callback URL"
 
@@ -1107,9 +1104,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "Заполните поле чтобы изменить пароль"
 
-msgid "Fill to change the API key"
-msgstr ""
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1605,10 +1599,6 @@ msgstr "Управление дочерними пользователями"
 msgid "Manage sync"
 msgstr "SMS Sync"
 
-#, fuzzy
-msgid "Manage telerivet"
-msgstr "Управление пользователями"
-
 msgid "Manage template"
 msgstr "Шаблонный"
 
@@ -1816,9 +1806,6 @@ msgstr "Nexmo отправит DLR и входящие СМС на Ваш callba
 msgid "No"
 msgstr "Нет"
 
-msgid "No changes has been made"
-msgstr ""
-
 msgid "No changes have been made"
 msgstr "Нет изменений"
 
@@ -2005,9 +1992,6 @@ msgid "Press submit button to remove selected members from member list"
 msgstr "Нажмите подтвердить, чтобы удалить выбранных участников из списка"
 
 msgid "Prevent duplicates"
-msgstr ""
-
-msgid "Project ID"
 msgstr ""
 
 msgid "Question"
@@ -2709,9 +2693,6 @@ msgid "System error has occured"
 msgstr ""
 
 msgid "Tags"
-msgstr ""
-
-msgid "Telerivet URL"
 msgstr ""
 
 msgid "Template installation path"

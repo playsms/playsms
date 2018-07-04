@@ -437,9 +437,6 @@ msgstr "CSS URL"
 msgid "CSV file format"
 msgstr "CSV filformat"
 
-msgid "Callback Secret"
-msgstr "Callback-hemmelighet"
-
 msgid "Callback URL"
 msgstr "Callback URL"
 
@@ -1091,9 +1088,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "Fyll ut passordfeltet for å endre passord"
 
-msgid "Fill to change the API key"
-msgstr "Utfyll for å endre API-nøkkelen"
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1590,9 +1584,6 @@ msgstr "Håndter underbruker"
 msgid "Manage sync"
 msgstr "Håndter sync"
 
-msgid "Manage telerivet"
-msgstr "Håndter telerivet"
-
 msgid "Manage template"
 msgstr "Håndter template"
 
@@ -1798,9 +1789,6 @@ msgstr "Nexmo vil sende DLR og innkommende SMS til din callback URL"
 msgid "No"
 msgstr "Nei"
 
-msgid "No changes has been made"
-msgstr "Ingen endringer har blitt gjort"
-
 msgid "No changes have been made"
 msgstr "Ingen endringer har blitt gjort"
 
@@ -1983,9 +1971,6 @@ msgstr "Trykk på send-knappen for å slette valgte medlemmer fra medlemslisten"
 
 msgid "Prevent duplicates"
 msgstr "Unngå duplikater"
-
-msgid "Project ID"
-msgstr "Prosjekt-ID"
 
 msgid "Question"
 msgstr "Spørsmål"
@@ -2691,9 +2676,6 @@ msgstr "Systemfeil har oppstått"
 
 msgid "Tags"
 msgstr "Tags"
-
-msgid "Telerivet URL"
-msgstr "Telerivet-URL"
 
 msgid "Template installation path"
 msgstr "Template installasjonssti"

@@ -442,11 +442,8 @@ msgstr "URL CSS"
 msgid "CSV file format"
 msgstr "Format de fichier CSV"
 
-msgid "Callback Secret"
-msgstr "Secret du callback"
-
 msgid "Callback URL"
-msgstr "URL du callback"
+msgstr "URL de callback"
 
 msgid "Callback URL authcode"
 msgstr ""
@@ -1104,9 +1101,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "Veuillez saisir le champ du mot de passe pour le changer"
 
-msgid "Fill to change the API key"
-msgstr "Veuillez saisir pour changer la clé de l'API"
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1606,9 +1600,6 @@ msgstr "Gérer sous-utilisateur"
 msgid "Manage sync"
 msgstr "Gérer sync"
 
-msgid "Manage telerivet"
-msgstr "Gérer telerivet"
-
 msgid "Manage template"
 msgstr "Gérer modèle"
 
@@ -1818,9 +1809,6 @@ msgstr ""
 msgid "No"
 msgstr "Non"
 
-msgid "No changes has been made"
-msgstr "Aucun changement apporté"
-
 msgid "No changes have been made"
 msgstr "Aucune modification apportée"
 
@@ -2012,9 +2000,6 @@ msgstr ""
 
 msgid "Prevent duplicates"
 msgstr "Éviter les doublons"
-
-msgid "Project ID"
-msgstr "ID du projet"
 
 msgid "Question"
 msgstr "Question"
@@ -2724,9 +2709,6 @@ msgstr "Une erreur système est survenue"
 
 msgid "Tags"
 msgstr "Tags"
-
-msgid "Telerivet URL"
-msgstr "URL de telerivet"
 
 msgid "Template installation path"
 msgstr "Chemin d'installation du modèle"

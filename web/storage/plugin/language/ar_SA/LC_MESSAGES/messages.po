@@ -437,9 +437,6 @@ msgstr "رابط ملف CSS"
 msgid "CSV file format"
 msgstr "صيغة ملف CSV"
 
-msgid "Callback Secret"
-msgstr ""
-
 msgid "Callback URL"
 msgstr ""
 
@@ -1089,9 +1086,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "الرجاء كتابة كلمة المرور"
 
-msgid "Fill to change the API key"
-msgstr ""
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1591,10 +1585,6 @@ msgstr "إدارة المستخدم الفرعي"
 msgid "Manage sync"
 msgstr "إدارة المزامنة"
 
-#, fuzzy
-msgid "Manage telerivet"
-msgstr " إدارة الموقع"
-
 msgid "Manage template"
 msgstr "قالب الرسائل"
 
@@ -1803,9 +1793,6 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-msgid "No changes has been made"
-msgstr ""
-
 msgid "No changes have been made"
 msgstr "لم يتم إجراء تغييرات!"
 
@@ -1986,9 +1973,6 @@ msgstr "اضغط زر الإرسال لحذف المحددين من القائم
 
 msgid "Prevent duplicates"
 msgstr "منع التكرار"
-
-msgid "Project ID"
-msgstr ""
 
 msgid "Question"
 msgstr "السؤال"
@@ -2679,9 +2663,6 @@ msgstr "خطأ في النظام"
 
 msgid "Tags"
 msgstr "التسميات"
-
-msgid "Telerivet URL"
-msgstr ""
 
 msgid "Template installation path"
 msgstr "مسار تنصيب القالب"

@@ -424,9 +424,6 @@ msgstr ""
 msgid "CSV file format"
 msgstr ""
 
-msgid "Callback Secret"
-msgstr ""
-
 msgid "Callback URL"
 msgstr ""
 
@@ -1069,9 +1066,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr ""
 
-msgid "Fill to change the API key"
-msgstr ""
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1557,9 +1551,6 @@ msgstr ""
 msgid "Manage sync"
 msgstr ""
 
-msgid "Manage telerivet"
-msgstr ""
-
 msgid "Manage template"
 msgstr ""
 
@@ -1765,9 +1756,6 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-msgid "No changes has been made"
-msgstr ""
-
 msgid "No changes have been made"
 msgstr ""
 
@@ -1945,9 +1933,6 @@ msgid "Press submit button to remove selected members from member list"
 msgstr ""
 
 msgid "Prevent duplicates"
-msgstr ""
-
-msgid "Project ID"
 msgstr ""
 
 msgid "Question"
@@ -2632,9 +2617,6 @@ msgid "System error has occured"
 msgstr ""
 
 msgid "Tags"
-msgstr ""
-
-msgid "Telerivet URL"
 msgstr ""
 
 msgid "Template installation path"
