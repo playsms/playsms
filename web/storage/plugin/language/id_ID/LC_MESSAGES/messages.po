@@ -40,9 +40,6 @@ msgstr ""
 msgid "ACL name"
 msgstr ""
 
-msgid "API ID"
-msgstr "API ID"
-
 msgid "API key"
 msgstr "Kunci API"
 
@@ -504,15 +501,6 @@ msgstr ""
 msgid "Click the status button to enable or disable status"
 msgstr ""
 
-msgid "Clickatell API URL"
-msgstr "URL Clickatell API"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell adalah penyedia SMS bulk"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Client Id"
 msgstr "Client Id"
 
@@ -735,9 +723,6 @@ msgid "Domain"
 msgstr ""
 
 msgid "Download SMSSync app for Android from"
-msgstr ""
-
-msgid "Easy Send SMS URL"
 msgstr ""
 
 msgid "Edit"
@@ -1149,9 +1134,6 @@ msgstr "Fill to change the Client Id"
 
 msgid "Fill to change the Client Secret"
 msgstr "Fill to change the Client Secret"
-
-msgid "Fill to change the Password"
-msgstr ""
 
 msgid "Fill to change the password"
 msgstr "Isi untuk merubah kata sandi"
@@ -1567,9 +1549,6 @@ msgstr "Pengaturan papan SMS"
 msgid "Manage bulksms"
 msgstr "Pengaturan pengguna"
 
-msgid "Manage clickatell"
-msgstr "Pengaturan clickatell"
-
 msgid "Manage command"
 msgstr "Pengaturan perintah SMS"
 
@@ -1581,10 +1560,6 @@ msgstr "Pengaturan SMS kustom"
 
 msgid "Manage dev"
 msgstr "Pengaturan dev"
-
-#, fuzzy
-msgid "Manage easysendsms"
-msgstr "Pengaturan pengguna"
 
 msgid "Manage email to SMS"
 msgstr ""
@@ -1627,10 +1602,6 @@ msgstr "Pengaturan layanan poling SMS"
 
 msgid "Manage quiz"
 msgstr "Pengaturan kuis SMS"
-
-#, fuzzy
-msgid "Manage routesms"
-msgstr "Pengaturan pengguna"
 
 msgid "Manage schedule"
 msgstr ""
@@ -1792,7 +1763,7 @@ msgid "Module sender ID"
 msgstr "Pengirim global"
 
 msgid "Module timezone"
-msgstr "Zona waktu modul"
+msgstr "Modul zona waktu"
 
 msgid "Monthly"
 msgstr ""
@@ -2268,16 +2239,7 @@ msgstr ""
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS adalah penyedia SMS bulk"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr ""
-
 msgid "Routed SMSC"
-msgstr ""
-
-msgid "Routesms API URL"
 msgstr ""
 
 msgid "Row template"
@@ -3124,9 +3086,6 @@ msgstr "URL balasan anda adalah"
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
@@ -3137,9 +3096,6 @@ msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
 
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr ""
-
-msgid "Your callback URL should be accessible from RouteSMS"
 msgstr ""
 
 msgid "Your callback URL should be accessible from remote gateway"
@@ -3238,7 +3194,7 @@ msgid "format"
 msgstr ""
 
 msgid "free credits are available for testing purposes"
-msgstr "pulsa gratis tersedia untuk tujuan tes"
+msgstr "Kredit gratis tersedia untuk tujuan percobaan"
 
 msgid "group"
 msgstr "grup"

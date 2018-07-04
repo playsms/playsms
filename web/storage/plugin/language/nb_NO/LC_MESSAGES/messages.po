@@ -42,9 +42,6 @@ msgstr "ACL er blitt slettet"
 msgid "ACL name"
 msgstr "ACL-navn"
 
-msgid "API ID"
-msgstr "API ID"
-
 msgid "API key"
 msgstr "API-nøkkel"
 
@@ -512,15 +509,6 @@ msgstr "By"
 msgid "Click the status button to enable or disable status"
 msgstr "Klikk på statusknapp for å aktiverere eller deaktivere status"
 
-msgid "Clickatell API URL"
-msgstr "Clickatell API URL"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell er en masse-SMS leverandør"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell vil sende DLR og innkommende SMS til din callback URL"
-
 msgid "Client Id"
 msgstr ""
 
@@ -748,9 +736,6 @@ msgstr "Domene"
 
 msgid "Download SMSSync app for Android from"
 msgstr "Last ned SMSSync app til Android fra"
-
-msgid "Easy Send SMS URL"
-msgstr ""
 
 msgid "Edit"
 msgstr "Rediger"
@@ -1155,9 +1140,6 @@ msgid "Fill to change the Client Id"
 msgstr ""
 
 msgid "Fill to change the Client Secret"
-msgstr ""
-
-msgid "Fill to change the Password"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1578,9 +1560,6 @@ msgstr "Håndter forum"
 msgid "Manage bulksms"
 msgstr "Håndter bulkSMS"
 
-msgid "Manage clickatell"
-msgstr "Håndter clickatell"
-
 msgid "Manage command"
 msgstr "Håndter kommando"
 
@@ -1592,10 +1571,6 @@ msgstr "Håndter egendefinert"
 
 msgid "Manage dev"
 msgstr "Håndter dev"
-
-#, fuzzy
-msgid "Manage easysendsms"
-msgstr "Håndter nettsted"
 
 msgid "Manage email to SMS"
 msgstr "Håndter email til SMS"
@@ -1639,10 +1614,6 @@ msgstr "Håndter poll"
 
 msgid "Manage quiz"
 msgstr "Håndter quiz"
-
-#, fuzzy
-msgid "Manage routesms"
-msgstr "Håndter underbrukere"
 
 msgid "Manage schedule"
 msgstr "Håndter tidsplan"
@@ -2274,17 +2245,8 @@ msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 "Diriger til bruker-innboks hvis mottakernummer passer med brukers senderID"
 
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS er en masse-SMS leverandør"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr "RouteSMS vil sende DLR og innkommende SMS til URL-en over"
-
 msgid "Routed SMSC"
 msgstr "SMSC-rute "
-
-msgid "Routesms API URL"
-msgstr ""
 
 msgid "Row template"
 msgstr "Rad-mal"
@@ -3140,9 +3102,6 @@ msgstr "Din callback URL er"
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr "Din callback URL skal være tilgjenglig fra BulkSMS"
 
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr "Din callback URL skal være tilgjengelig fra Clickatell"
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgjengelig fra Infobip"
 
@@ -3154,9 +3113,6 @@ msgstr "Din callback URL skal være tilgjengelig fra Nexmo"
 
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Din callback URL skal være tilgjengelig fra OpenVox"
-
-msgid "Your callback URL should be accessible from RouteSMS"
-msgstr "Din callback URL skal være tilgjengelig fra RouteSMS"
 
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""

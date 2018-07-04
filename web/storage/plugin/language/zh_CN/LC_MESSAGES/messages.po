@@ -40,9 +40,6 @@ msgstr ""
 msgid "ACL name"
 msgstr ""
 
-msgid "API ID"
-msgstr "应用程序界面地址"
-
 msgid "API key"
 msgstr ""
 
@@ -505,15 +502,6 @@ msgstr ""
 msgid "Click the status button to enable or disable status"
 msgstr ""
 
-msgid "Clickatell API URL"
-msgstr "Clickatell应用程序界面链接"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr ""
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Client Id"
 msgstr ""
 
@@ -735,9 +723,6 @@ msgid "Domain"
 msgstr ""
 
 msgid "Download SMSSync app for Android from"
-msgstr ""
-
-msgid "Easy Send SMS URL"
 msgstr ""
 
 msgid "Edit"
@@ -1159,9 +1144,6 @@ msgstr ""
 msgid "Fill to change the Client Secret"
 msgstr ""
 
-msgid "Fill to change the Password"
-msgstr ""
-
 msgid "Fill to change the password"
 msgstr "填写改变密码"
 
@@ -1578,9 +1560,6 @@ msgstr "管理面板"
 msgid "Manage bulksms"
 msgstr "管理用户"
 
-msgid "Manage clickatell"
-msgstr "管理 clickatell"
-
 msgid "Manage command"
 msgstr "管理指令"
 
@@ -1592,10 +1571,6 @@ msgstr "管理自定义"
 
 msgid "Manage dev"
 msgstr "管理dev"
-
-#, fuzzy
-msgid "Manage easysendsms"
-msgstr "管理用户"
 
 msgid "Manage email to SMS"
 msgstr ""
@@ -1639,10 +1614,6 @@ msgstr "管理投票"
 
 msgid "Manage quiz"
 msgstr "管理测试"
-
-#, fuzzy
-msgid "Manage routesms"
-msgstr "管理用户"
 
 msgid "Manage schedule"
 msgstr ""
@@ -2276,16 +2247,7 @@ msgstr ""
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr ""
 
-msgid "RouteSMS is a bulk SMS provider"
-msgstr ""
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr ""
-
 msgid "Routed SMSC"
-msgstr ""
-
-msgid "Routesms API URL"
 msgstr ""
 
 #, fuzzy
@@ -3135,9 +3097,6 @@ msgstr "你的回调链接是"
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
@@ -3148,9 +3107,6 @@ msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
 
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr ""
-
-msgid "Your callback URL should be accessible from RouteSMS"
 msgstr ""
 
 msgid "Your callback URL should be accessible from remote gateway"

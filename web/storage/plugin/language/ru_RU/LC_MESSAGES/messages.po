@@ -47,9 +47,6 @@ msgstr ""
 msgid "ACL name"
 msgstr ""
 
-msgid "API ID"
-msgstr "API ID"
-
 msgid "API key"
 msgstr "API key"
 
@@ -525,15 +522,6 @@ msgstr "Город"
 msgid "Click the status button to enable or disable status"
 msgstr "Нажмите для включения или отключения"
 
-msgid "Clickatell API URL"
-msgstr "Clickatell API URL"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell это массовый СМС провайдер"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell отправит DLR и входящие SMS на Ваш callback URL"
-
 msgid "Client Id"
 msgstr ""
 
@@ -761,9 +749,6 @@ msgstr ""
 
 msgid "Download SMSSync app for Android from"
 msgstr "Скачать SMSSync для Android с"
-
-msgid "Easy Send SMS URL"
-msgstr ""
 
 msgid "Edit"
 msgstr "Редактировать"
@@ -1171,9 +1156,6 @@ msgid "Fill to change the Client Id"
 msgstr ""
 
 msgid "Fill to change the Client Secret"
-msgstr ""
-
-msgid "Fill to change the Password"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1595,9 +1577,6 @@ msgstr "Доски объявлений"
 msgid "Manage bulksms"
 msgstr "Управление дочерними пользователями"
 
-msgid "Manage clickatell"
-msgstr "Сlickatell"
-
 msgid "Manage command"
 msgstr "Команды"
 
@@ -1609,10 +1588,6 @@ msgstr "Запрос URL"
 
 msgid "Manage dev"
 msgstr "Тестовый шлюз"
-
-#, fuzzy
-msgid "Manage easysendsms"
-msgstr "Управление пользователями"
 
 msgid "Manage email to SMS"
 msgstr "Управление email to SMS"
@@ -1655,10 +1630,6 @@ msgstr "Голосования"
 
 msgid "Manage quiz"
 msgstr "Викторины"
-
-#, fuzzy
-msgid "Manage routesms"
-msgstr "Управление дочерними пользователями"
 
 msgid "Manage schedule"
 msgstr ""
@@ -2299,17 +2270,8 @@ msgstr ""
 "Перенаправлять во Входящие пользователя, если номер получателя совпадает с "
 "именем отправителя у пользователя"
 
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS это массовый СМС провайдер"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr "RouteSMS отправит DLR и входящие СМС на указанный URL"
-
 msgid "Routed SMSC"
 msgstr "Направить в SMSC"
-
-msgid "Routesms API URL"
-msgstr ""
 
 msgid "Row template"
 msgstr "Шаблон строки"
@@ -3156,9 +3118,6 @@ msgstr "Ваш callback URL"
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""
 
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr "Ваш callback URL должен быть доступен со стороны Clickatell"
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"
 
@@ -3170,9 +3129,6 @@ msgstr "Ваш callback URL должен быть доступен с сторо
 
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr "Ваш callback URL должен быть доступен с стороны OpenVox"
-
-msgid "Your callback URL should be accessible from RouteSMS"
-msgstr "Ваш callback URL джен быть доступен со стороны RouteSMS"
 
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
@@ -3269,7 +3225,7 @@ msgid "format"
 msgstr ""
 
 msgid "free credits are available for testing purposes"
-msgstr "бесплантый лимит доступен для целей тестирования"
+msgstr "бесплатный лимит доступен для целей тестирования"
 
 msgid "group"
 msgstr "группа"

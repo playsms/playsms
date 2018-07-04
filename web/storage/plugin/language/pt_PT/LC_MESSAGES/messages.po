@@ -47,9 +47,6 @@ msgstr "ACL foi eliminado"
 msgid "ACL name"
 msgstr "Nome ACL"
 
-msgid "API ID"
-msgstr "ID da API"
-
 msgid "API key"
 msgstr "Chave API"
 
@@ -517,15 +514,6 @@ msgstr "Cidade"
 msgid "Click the status button to enable or disable status"
 msgstr "Clique no botão para ativar ou desativar o status"
 
-msgid "Clickatell API URL"
-msgstr "URL da API do clickatell"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell é um servidor de SMS"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell irá enviar DLR ou SMS recebido para sua URL de callback"
-
 msgid "Client Id"
 msgstr ""
 
@@ -754,9 +742,6 @@ msgstr "DomÃ­nio"
 
 msgid "Download SMSSync app for Android from"
 msgstr "Transferir SMSSync app para Android"
-
-msgid "Easy Send SMS URL"
-msgstr ""
 
 msgid "Edit"
 msgstr "Editar"
@@ -1164,9 +1149,6 @@ msgid "Fill to change the Client Id"
 msgstr ""
 
 msgid "Fill to change the Client Secret"
-msgstr ""
-
-msgid "Fill to change the Password"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1587,9 +1569,6 @@ msgstr "Gerir Placa"
 msgid "Manage bulksms"
 msgstr "Gerir bulksms"
 
-msgid "Manage clickatell"
-msgstr "Gerir clickatell"
-
 msgid "Manage command"
 msgstr "Gerir comando"
 
@@ -1601,10 +1580,6 @@ msgstr "Gerir SMS personalizado"
 
 msgid "Manage dev"
 msgstr "Gerir dev"
-
-#, fuzzy
-msgid "Manage easysendsms"
-msgstr "Gerir Site"
 
 msgid "Manage email to SMS"
 msgstr "Gerir Email para SMS"
@@ -1647,10 +1622,6 @@ msgstr "Gerir votação"
 
 msgid "Manage quiz"
 msgstr "Gerir quiz"
-
-#, fuzzy
-msgid "Manage routesms"
-msgstr "Gerir subutilizadores"
 
 msgid "Manage schedule"
 msgstr "Gerir SMS Programado"
@@ -2293,17 +2264,8 @@ msgstr ""
 "Roteamento para caixa de entrada do utilizador se o número remetente for "
 "igual ao do utilizador"
 
-msgid "RouteSMS is a bulk SMS provider"
-msgstr "RouteSMS é um provedor de SMS em massa"
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr "RouteSMS vai ler DLR e SMS de entrada para URL acima"
-
 msgid "Routed SMSC"
 msgstr "Rotas SMSC"
-
-msgid "Routesms API URL"
-msgstr ""
 
 msgid "Row template"
 msgstr "Linha Modelo"
@@ -3157,9 +3119,6 @@ msgstr "Sua URL de callback é"
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr "Sua URL de callback deve ser acessível pelo  bulksms"
 
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr "Sua URL de callback deve ser acessível pelo Clickatell"
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "O seu URL de callback tem que ser acessível a partir de infobip"
 
@@ -3171,9 +3130,6 @@ msgstr "Sua URL callback deve estar acessível pelo Nexmo"
 
 msgid "Your callback URL should be accessible from OpenVox"
 msgstr ""
-
-msgid "Your callback URL should be accessible from RouteSMS"
-msgstr "O seu URL de callback tem que ser acessível a partir de RouteSMS"
 
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
@@ -3270,7 +3226,7 @@ msgid "format"
 msgstr "Formato"
 
 msgid "free credits are available for testing purposes"
-msgstr "créditos gratuitos estão disponíveis pra testes"
+msgstr "créditos gratúitos estão disponíveis para testes"
 
 msgid "group"
 msgstr "Grupo"

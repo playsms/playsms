@@ -49,9 +49,6 @@ msgstr "تم الحذف"
 msgid "ACL name"
 msgstr "اسم ACL"
 
-msgid "API ID"
-msgstr ""
-
 msgid "API key"
 msgstr ""
 
@@ -513,15 +510,6 @@ msgstr "المدينة"
 msgid "Click the status button to enable or disable status"
 msgstr "اضغط على زر الحالة لتمكين أو تعطيل حالة اسم المرسل"
 
-msgid "Clickatell API URL"
-msgstr ""
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr ""
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Client Id"
 msgstr ""
 
@@ -747,9 +735,6 @@ msgstr "عنوان الموقع"
 
 msgid "Download SMSSync app for Android from"
 msgstr "تنزيل تطبيق SMSSync  للأندرويد من"
-
-msgid "Easy Send SMS URL"
-msgstr ""
 
 msgid "Edit"
 msgstr "تحرير"
@@ -1154,9 +1139,6 @@ msgid "Fill to change the Client Id"
 msgstr ""
 
 msgid "Fill to change the Client Secret"
-msgstr ""
-
-msgid "Fill to change the Password"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1575,10 +1557,6 @@ msgstr "إدارة اللوح"
 msgid "Manage bulksms"
 msgstr "المستخدمون الفرعيون"
 
-#, fuzzy
-msgid "Manage clickatell"
-msgstr " إدارة الموقع"
-
 msgid "Manage command"
 msgstr "إدارة الأوامر"
 
@@ -1590,10 +1568,6 @@ msgstr "إدارة الرسائل المخصصة"
 
 #, fuzzy
 msgid "Manage dev"
-msgstr " إدارة الموقع"
-
-#, fuzzy
-msgid "Manage easysendsms"
 msgstr " إدارة الموقع"
 
 msgid "Manage email to SMS"
@@ -1641,10 +1615,6 @@ msgstr "إدارة الاستفتاء"
 
 msgid "Manage quiz"
 msgstr "إدارة الاختبارات القصيرة"
-
-#, fuzzy
-msgid "Manage routesms"
-msgstr "المستخدمون الفرعيون"
 
 msgid "Manage schedule"
 msgstr "إدارة الجدولة"
@@ -2275,17 +2245,8 @@ msgstr "تسيير الرسائل الصادرة"
 msgid "Route to user inbox if receiver number matched with user sender ID"
 msgstr "تسيير إلي وارد المستخدم في حالة مطابقة اسم المرسل لرقم المستلم"
 
-msgid "RouteSMS is a bulk SMS provider"
-msgstr ""
-
-msgid "RouteSMS will push DLR and incoming SMS to above URL"
-msgstr ""
-
 msgid "Routed SMSC"
 msgstr "مركز رسائل التسيير"
-
-msgid "Routesms API URL"
-msgstr ""
 
 msgid "Row template"
 msgstr "القالب"
@@ -3126,9 +3087,6 @@ msgstr "الرابط"
 msgid "Your callback URL should be accessible from Bulksms"
 msgstr "رابط الاستدعاء يجب أن يكون قابل للوصول من قبل BulkSMS"
 
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr ""
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
 
@@ -3139,9 +3097,6 @@ msgid "Your callback URL should be accessible from Nexmo"
 msgstr ""
 
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr ""
-
-msgid "Your callback URL should be accessible from RouteSMS"
 msgstr ""
 
 msgid "Your callback URL should be accessible from remote gateway"
