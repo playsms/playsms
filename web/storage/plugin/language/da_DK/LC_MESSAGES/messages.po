@@ -263,9 +263,6 @@ msgstr "Tillad brugere at vælge SMS bundtekst på Send SMS siden"
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr "Tillad brugere at vælge afsender ID på Send SMS siden"
 
-msgid "Alphabetic char Eg: SEN for SENEGAL"
-msgstr ""
-
 msgid "Already a member reply"
 msgstr "Allerede medlem svar"
 
@@ -506,13 +503,6 @@ msgstr "By"
 msgid "Click the status button to enable or disable status"
 msgstr "Klik på statusknappen for at aktivere eller deaktivere status"
 
-msgid "Client Id"
-msgstr ""
-
-#, fuzzy
-msgid "Client Secret"
-msgstr "Callback hemmelighed"
-
 msgid "Comma separated"
 msgstr "Kommasepareret"
 
@@ -533,11 +523,6 @@ msgstr "Konfiguration"
 
 msgid "Confirmation"
 msgstr "Bekræftelse"
-
-msgid ""
-"Contact developer.orange.com support and request for one or leave this field "
-"empty to disable"
-msgstr ""
 
 msgid "Contact has been added"
 msgstr "Kontakt er blevet tilføjet"
@@ -562,10 +547,6 @@ msgid "Count"
 msgstr "Antal"
 
 msgid "Country"
-msgstr "Land"
-
-#, fuzzy
-msgid "Country Code"
 msgstr "Land"
 
 msgid "Created"
@@ -807,10 +788,6 @@ msgstr "Rediger afsender ID"
 msgid "Effective SMS sender ID"
 msgstr "Effektivt SMS afsender ID"
 
-#, fuzzy
-msgid "Eg: +0000 for Dakar/Senegal timezone"
-msgstr "F.eks: +0700 til Jakarta/Bangkok tidszone"
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
 
@@ -880,10 +857,6 @@ msgstr "Forbedr privatliv for underbrugere"
 
 msgid "Entries in CSV file have been imported"
 msgstr "Emnerne i CSV filen er blevet importeret"
-
-#, fuzzy
-msgid "Error: configurations not saved"
-msgstr "Brugerkonfiguration er blevet gemt"
 
 msgid "Example"
 msgstr "Eksempel"
@@ -1136,14 +1109,6 @@ msgstr "Udfyld for at ændre API hemmeligheden"
 
 msgid "Fill to change the Auth Token"
 msgstr "Udfyld for at ændre auth token"
-
-#, fuzzy
-msgid "Fill to change the Client Id"
-msgstr "Udfyld for at ændre API nøglen"
-
-#, fuzzy
-msgid "Fill to change the Client Secret"
-msgstr "Udfyld for at ændre API hemmeligheden"
 
 msgid "Fill to change the password"
 msgstr "Udfyld for at ændre adgangskoden"
@@ -1431,9 +1396,6 @@ msgstr ""
 "At lægge en kopi i sandbox SMS siden kan være godt til auditering eller "
 "gennemgange"
 
-msgid "Link"
-msgstr ""
-
 msgid "List of accounts"
 msgstr "Liste over konti"
 
@@ -1540,10 +1502,6 @@ msgstr "Håndter ACL"
 
 msgid "Manage OpenVox"
 msgstr "Håndter OpenVox"
-
-#, fuzzy
-msgid "Manage Orange"
-msgstr "Håndter kannel"
 
 msgid "Manage SMS rate"
 msgstr "Håndter SMS rate"
@@ -1762,10 +1720,6 @@ msgstr "Mobilnumre er blevet blokeret"
 msgid "Mobile numbers have been deleted"
 msgstr "Mobilnumre er blevet slettet"
 
-#, fuzzy
-msgid "Module Timezone"
-msgstr "Modul tidszone"
-
 msgid "Module sender ID"
 msgstr "Modul afsender ID"
 
@@ -1903,14 +1857,6 @@ msgstr "Kørende"
 
 msgid "Options"
 msgstr "Indstillinger"
-
-#, fuzzy
-msgid "Orange API URL"
-msgstr "Clickatell API URL"
-
-#, fuzzy
-msgid "Orange is a bulk SMS provider"
-msgstr "Nexmo er en masse-SMS leverandør"
 
 msgid "PHP serialize output"
 msgstr "PHP serialize output"
@@ -2627,13 +2573,6 @@ msgstr "Send til"
 msgid "Sender"
 msgstr "Afsender"
 
-#, fuzzy
-msgid "Sender Address"
-msgstr "Adresse"
-
-msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
-msgstr ""
-
 msgid "Sender ID"
 msgstr "Afsender ID"
 
@@ -2657,10 +2596,6 @@ msgstr "Afsender ID er nu godkendt"
 
 msgid "Sender ID is now disabled"
 msgstr "Afsender ID er nu deaktiveret"
-
-#, fuzzy
-msgid "Sender Name"
-msgstr "Afsender"
 
 msgid "Senders sent multi votes"
 msgstr "Afsender sendte flere stemmer"
@@ -3156,12 +3091,6 @@ msgstr "blokeret"
 
 msgid "chars"
 msgstr "tegn"
-
-msgid "client Id"
-msgstr ""
-
-msgid "client Secret"
-msgstr ""
 
 msgid "code"
 msgstr "kode"

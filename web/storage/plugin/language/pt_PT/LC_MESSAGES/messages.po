@@ -264,9 +264,6 @@ msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
 "Permitir os utilizadores selecionar o ID de identificação quando enviam SMS"
 
-msgid "Alphabetic char Eg: SEN for SENEGAL"
-msgstr ""
-
 msgid "Already a member reply"
 msgstr "Você já é um membro"
 
@@ -505,12 +502,6 @@ msgstr "Cidade"
 msgid "Click the status button to enable or disable status"
 msgstr "Clique no botão para ativar ou desativar o status"
 
-msgid "Client Id"
-msgstr ""
-
-msgid "Client Secret"
-msgstr ""
-
 msgid "Comma separated"
 msgstr "separados por vírgula"
 
@@ -531,11 +522,6 @@ msgstr "ConfiguraÃ§Ã£o"
 
 msgid "Confirmation"
 msgstr "Confirmação"
-
-msgid ""
-"Contact developer.orange.com support and request for one or leave this field "
-"empty to disable"
-msgstr ""
 
 msgid "Contact has been added"
 msgstr "Contacto adicionado com sucesso"
@@ -562,9 +548,6 @@ msgstr "Contador"
 
 msgid "Country"
 msgstr "País"
-
-msgid "Country Code"
-msgstr ""
 
 msgid "Created"
 msgstr "Criado"
@@ -804,9 +787,6 @@ msgstr "Editar o ID de remetente"
 msgid "Effective SMS sender ID"
 msgstr "Effective SMS sender ID"
 
-msgid "Eg: +0000 for Dakar/Senegal timezone"
-msgstr ""
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
 
@@ -877,10 +857,6 @@ msgstr "Reforçar a privacidade para subutlizador"
 
 msgid "Entries in CSV file have been imported"
 msgstr "Entradas do ficheiro CSV foram importados"
-
-#, fuzzy
-msgid "Error: configurations not saved"
-msgstr "Configurações de utilizador"
 
 msgid "Example"
 msgstr ""
@@ -1135,12 +1111,6 @@ msgstr "Preencha para alterar o secreto API"
 
 msgid "Fill to change the Auth Token"
 msgstr "Preencha para alterar o Token de autenticação"
-
-msgid "Fill to change the Client Id"
-msgstr ""
-
-msgid "Fill to change the Client Secret"
-msgstr ""
 
 msgid "Fill to change the password"
 msgstr "Preencha para alterar a palavra-passe"
@@ -1428,9 +1398,6 @@ msgstr ""
 "Deixando uma cópia na página SMS sandbox pode ser útil para uma auditoria ou "
 "comentários"
 
-msgid "Link"
-msgstr ""
-
 msgid "List of accounts"
 msgstr "Lista de Contas"
 
@@ -1537,10 +1504,6 @@ msgstr "Gerir ACL"
 
 msgid "Manage OpenVox"
 msgstr "Gerir nexmo"
-
-#, fuzzy
-msgid "Manage Orange"
-msgstr "Gerir conta"
 
 msgid "Manage SMS rate"
 msgstr "Gerir taxa de SMS"
@@ -1763,10 +1726,6 @@ msgstr ""
 msgid "Mobile numbers have been deleted"
 msgstr ""
 
-#, fuzzy
-msgid "Module Timezone"
-msgstr "Gerir identificação de envio"
-
 msgid "Module sender ID"
 msgstr "Modulo Remetente ID"
 
@@ -1905,12 +1864,6 @@ msgstr ""
 
 msgid "Options"
 msgstr "Opções"
-
-msgid "Orange API URL"
-msgstr ""
-
-msgid "Orange is a bulk SMS provider"
-msgstr ""
 
 msgid "PHP serialize output"
 msgstr "Saída PHP serialize"
@@ -2631,13 +2584,6 @@ msgstr "Enviar para"
 msgid "Sender"
 msgstr "Remetente"
 
-#, fuzzy
-msgid "Sender Address"
-msgstr "Gerir identificação de envio"
-
-msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
-msgstr ""
-
 msgid "Sender ID"
 msgstr "Identificação de envio"
 
@@ -2661,10 +2607,6 @@ msgstr "Identificação de envio aprovada"
 
 msgid "Sender ID is now disabled"
 msgstr "Identificação de envio desactivada"
-
-#, fuzzy
-msgid "Sender Name"
-msgstr "Gerir identificação de envio"
 
 msgid "Senders sent multi votes"
 msgstr "Remetente enviou múlti votos"
@@ -3163,12 +3105,6 @@ msgstr "Bloqueado"
 
 msgid "chars"
 msgstr "Caracteres"
-
-msgid "client Id"
-msgstr ""
-
-msgid "client Secret"
-msgstr ""
 
 msgid "code"
 msgstr "Código"

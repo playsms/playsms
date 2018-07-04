@@ -264,9 +264,6 @@ msgstr "تمكين خيار تعيين التذييل للرسائل من صفح
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr "تمكين المستخدمين من تعيين اسم المرسل من صفحة الإرسال"
 
-msgid "Alphabetic char Eg: SEN for SENEGAL"
-msgstr ""
-
 msgid "Already a member reply"
 msgstr "رد عضو مسبقًا"
 
@@ -500,12 +497,6 @@ msgstr "المدينة"
 msgid "Click the status button to enable or disable status"
 msgstr "اضغط على زر الحالة لتمكين أو تعطيل حالة اسم المرسل"
 
-msgid "Client Id"
-msgstr ""
-
-msgid "Client Secret"
-msgstr ""
-
 msgid "Comma separated"
 msgstr "القيم المتعددة يجب وضع فاصلة بينها"
 
@@ -526,11 +517,6 @@ msgstr "الإعدادات العامة"
 
 msgid "Confirmation"
 msgstr "تأكيد الاستيراد"
-
-msgid ""
-"Contact developer.orange.com support and request for one or leave this field "
-"empty to disable"
-msgstr ""
 
 msgid "Contact has been added"
 msgstr "تم إضافة جهة اتصال"
@@ -555,9 +541,6 @@ msgstr "العدد"
 
 msgid "Country"
 msgstr "الدولة"
-
-msgid "Country Code"
-msgstr ""
 
 msgid "Created"
 msgstr "تم الإنشاء"
@@ -795,9 +778,6 @@ msgstr "تحرير اسم المرسل"
 msgid "Effective SMS sender ID"
 msgstr "اسم المرسل الفعَّال"
 
-msgid "Eg: +0000 for Dakar/Senegal timezone"
-msgstr ""
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr "مثال: +0200 لتوقيت القدس المحتلة/ فلسطين"
 
@@ -867,10 +847,6 @@ msgstr "تحسين الخصوصية للمستخدمين الفرعيين"
 
 msgid "Entries in CSV file have been imported"
 msgstr "تم استيراد الإدخالات من الملف"
-
-#, fuzzy
-msgid "Error: configurations not saved"
-msgstr "إعدادات المستخدم"
 
 msgid "Example"
 msgstr ""
@@ -1123,12 +1099,6 @@ msgid "Fill to change the API secret"
 msgstr ""
 
 msgid "Fill to change the Auth Token"
-msgstr ""
-
-msgid "Fill to change the Client Id"
-msgstr ""
-
-msgid "Fill to change the Client Secret"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1414,9 +1384,6 @@ msgstr "اترك نسخة في صفحة الصندوق الرملي"
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr "ترك نسخة في الصندوق الرملي يمكن أن يفيد في حالات المراجعة"
 
-msgid "Link"
-msgstr ""
-
 msgid "List of accounts"
 msgstr "قائمة الحسابات"
 
@@ -1524,10 +1491,6 @@ msgstr "إدارة ACL"
 #, fuzzy
 msgid "Manage OpenVox"
 msgstr " إدارة الموقع"
-
-#, fuzzy
-msgid "Manage Orange"
-msgstr "إدارة حساب"
 
 msgid "Manage SMS rate"
 msgstr "إدارة التعرفة"
@@ -1759,10 +1722,6 @@ msgid "Mobile numbers have been deleted"
 msgstr "تم حذف عناوين آي بي"
 
 #, fuzzy
-msgid "Module Timezone"
-msgstr "إدارة اسم المرسل"
-
-#, fuzzy
 msgid "Module sender ID"
 msgstr "إدارة اسم المرسل"
 
@@ -1900,12 +1859,6 @@ msgstr ""
 
 msgid "Options"
 msgstr "خيارات"
-
-msgid "Orange API URL"
-msgstr ""
-
-msgid "Orange is a bulk SMS provider"
-msgstr ""
 
 msgid "PHP serialize output"
 msgstr "مخرجات PHP"
@@ -2609,13 +2562,6 @@ msgstr " إرسال إلى"
 msgid "Sender"
 msgstr "المرسل"
 
-#, fuzzy
-msgid "Sender Address"
-msgstr "إدارة اسم المرسل"
-
-msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
-msgstr ""
-
 msgid "Sender ID"
 msgstr "اسم المرسل"
 
@@ -2639,10 +2585,6 @@ msgstr "تم المصادقة على اسم المرسل"
 
 msgid "Sender ID is now disabled"
 msgstr "تم تعطيل اسم المرسل"
-
-#, fuzzy
-msgid "Sender Name"
-msgstr "إدارة اسم المرسل"
 
 msgid "Senders sent multi votes"
 msgstr "المرسلون الذين أرسلوا أكثر من مرة"
@@ -3131,12 +3073,6 @@ msgstr "تم الحظر"
 
 msgid "chars"
 msgstr "الأحرف"
-
-msgid "client Id"
-msgstr ""
-
-msgid "client Secret"
-msgstr ""
 
 msgid "code"
 msgstr "الرمز"

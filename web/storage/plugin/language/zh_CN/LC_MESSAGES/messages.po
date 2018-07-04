@@ -254,9 +254,6 @@ msgstr ""
 msgid "Allow users to select sender ID while on Send SMS page"
 msgstr ""
 
-msgid "Alphabetic char Eg: SEN for SENEGAL"
-msgstr ""
-
 #, fuzzy
 msgid "Already a member reply"
 msgstr "你已是会员"
@@ -493,12 +490,6 @@ msgstr ""
 msgid "Click the status button to enable or disable status"
 msgstr ""
 
-msgid "Client Id"
-msgstr ""
-
-msgid "Client Secret"
-msgstr ""
-
 msgid "Comma separated"
 msgstr ""
 
@@ -518,11 +509,6 @@ msgid "Configuration"
 msgstr ""
 
 msgid "Confirmation"
-msgstr ""
-
-msgid ""
-"Contact developer.orange.com support and request for one or leave this field "
-"empty to disable"
 msgstr ""
 
 msgid "Contact has been added"
@@ -547,9 +533,6 @@ msgid "Count"
 msgstr ""
 
 msgid "Country"
-msgstr ""
-
-msgid "Country Code"
 msgstr ""
 
 msgid "Created"
@@ -788,9 +771,6 @@ msgstr ""
 msgid "Effective SMS sender ID"
 msgstr ""
 
-msgid "Eg: +0000 for Dakar/Senegal timezone"
-msgstr ""
-
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
@@ -859,10 +839,6 @@ msgstr ""
 
 msgid "Entries in CSV file have been imported"
 msgstr ""
-
-#, fuzzy
-msgid "Error: configurations not saved"
-msgstr "主要构造"
 
 msgid "Example"
 msgstr ""
@@ -1127,12 +1103,6 @@ msgid "Fill to change the API secret"
 msgstr ""
 
 msgid "Fill to change the Auth Token"
-msgstr ""
-
-msgid "Fill to change the Client Id"
-msgstr ""
-
-msgid "Fill to change the Client Secret"
 msgstr ""
 
 msgid "Fill to change the password"
@@ -1418,9 +1388,6 @@ msgstr ""
 msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
 msgstr ""
 
-msgid "Link"
-msgstr ""
-
 msgid "List of accounts"
 msgstr ""
 
@@ -1525,10 +1492,6 @@ msgstr ""
 
 #, fuzzy
 msgid "Manage OpenVox"
-msgstr "管理用户"
-
-#, fuzzy
-msgid "Manage Orange"
 msgstr "管理用户"
 
 msgid "Manage SMS rate"
@@ -1759,10 +1722,6 @@ msgstr ""
 msgid "Mobile numbers have been deleted"
 msgstr ""
 
-#, fuzzy
-msgid "Module Timezone"
-msgstr "短信发件人"
-
 msgid "Module sender ID"
 msgstr "全球发件人"
 
@@ -1900,12 +1859,6 @@ msgid "Operational"
 msgstr ""
 
 msgid "Options"
-msgstr ""
-
-msgid "Orange API URL"
-msgstr ""
-
-msgid "Orange is a bulk SMS provider"
 msgstr ""
 
 msgid "PHP serialize output"
@@ -2615,13 +2568,6 @@ msgstr ""
 msgid "Sender"
 msgstr "发件人"
 
-#, fuzzy
-msgid "Sender Address"
-msgstr "短信发件人"
-
-msgid "Sender Address Eg +221xxxxxxxxx for Senegal"
-msgstr ""
-
 msgid "Sender ID"
 msgstr ""
 
@@ -2645,10 +2591,6 @@ msgstr ""
 
 msgid "Sender ID is now disabled"
 msgstr ""
-
-#, fuzzy
-msgid "Sender Name"
-msgstr "短信发件人"
 
 msgid "Senders sent multi votes"
 msgstr ""
@@ -3139,12 +3081,6 @@ msgid "blocked"
 msgstr ""
 
 msgid "chars"
-msgstr ""
-
-msgid "client Id"
-msgstr ""
-
-msgid "client Secret"
 msgstr ""
 
 msgid "code"
