@@ -439,15 +439,6 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr ""
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr ""
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Buy"
 msgstr "Купить"
 
@@ -1572,10 +1563,6 @@ msgstr "Закрытый шлюз"
 
 msgid "Manage board"
 msgstr "Доски объявлений"
-
-#, fuzzy
-msgid "Manage bulksms"
-msgstr "Управление дочерними пользователями"
 
 msgid "Manage command"
 msgstr "Команды"
@@ -3114,9 +3101,6 @@ msgstr "Ваше СМС поставлено в очередь"
 
 msgid "Your callback URL is"
 msgstr "Ваш callback URL"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"

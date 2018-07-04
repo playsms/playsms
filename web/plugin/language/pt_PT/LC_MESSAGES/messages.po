@@ -433,15 +433,6 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr ""
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr ""
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Buy"
 msgstr "Comprar"
 
@@ -1600,10 +1591,6 @@ msgstr "Gerir subutilizador"
 #, fuzzy
 msgid "Manage board"
 msgstr "Gerir Utilizadores"
-
-#, fuzzy
-msgid "Manage bulksms"
-msgstr "Gerir subutilizadores"
 
 #, fuzzy
 msgid "Manage command"
@@ -3162,9 +3149,6 @@ msgid "Your SMS has been delivered to queue"
 msgstr ""
 
 msgid "Your callback URL is"
-msgstr ""
-
-msgid "Your callback URL should be accessible from Bulksms"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"

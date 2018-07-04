@@ -419,15 +419,6 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr ""
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr ""
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Buy"
 msgstr ""
 
@@ -1544,10 +1535,6 @@ msgstr "Pengaturan pengguna"
 
 msgid "Manage board"
 msgstr "Pengaturan papan SMS"
-
-#, fuzzy
-msgid "Manage bulksms"
-msgstr "Pengaturan pengguna"
 
 msgid "Manage command"
 msgstr "Pengaturan perintah SMS"
@@ -3082,9 +3069,6 @@ msgstr "SMS anda telah dikirim ke antrian"
 
 msgid "Your callback URL is"
 msgstr "URL balasan anda adalah"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""

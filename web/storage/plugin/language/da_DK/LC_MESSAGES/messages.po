@@ -434,15 +434,6 @@ msgstr "Blokeret IP adresse"
 msgid "Blocked mobile"
 msgstr "Blokeret mobilnr"
 
-msgid "Bulksms API URL"
-msgstr "Bulksms API URL"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "Bulksms er en masse-SMS leverandør"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr "Bulksms vil sende DLR og indkommende SMS til din callback URL"
-
 msgid "Buy"
 msgstr "Køb"
 
@@ -1568,9 +1559,6 @@ msgstr "Håndter blokeret"
 
 msgid "Manage board"
 msgstr "Håndter forum"
-
-msgid "Manage bulksms"
-msgstr "Håndter masse-sms"
 
 msgid "Manage command"
 msgstr "Håndter kommando"
@@ -3106,9 +3094,6 @@ msgstr "Din SMS er afleveret til køen"
 
 msgid "Your callback URL is"
 msgstr "Din callback URL er"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Din callback URL skal være tilgængelig fra Bulksms"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgængelig fra infobip"

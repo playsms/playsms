@@ -432,15 +432,6 @@ msgstr "Endereço IP bloqueado"
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr "URL da API do Bulksms"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "Bulksms é um servidor de SMS"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr "Bulksms irá enviar DLR ou SMS recebido para sua URL de callback"
-
 msgid "Buy"
 msgstr "Comprar"
 
@@ -1565,9 +1556,6 @@ msgstr "Gerir Bloqueados"
 
 msgid "Manage board"
 msgstr "Gerir Placa"
-
-msgid "Manage bulksms"
-msgstr "Gerir bulksms"
 
 msgid "Manage command"
 msgstr "Gerir comando"
@@ -3115,9 +3103,6 @@ msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Sua URL de callback deve ser acessível pelo  bulksms"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "O seu URL de callback tem que ser acessível a partir de infobip"

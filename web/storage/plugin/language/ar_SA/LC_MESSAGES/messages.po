@@ -223,7 +223,7 @@ msgid "Add subuser"
 msgstr "إضافة مستخدم الفرعي"
 
 msgid "Additional URL parameter"
-msgstr "الرابط"
+msgstr ""
 
 msgid "Address"
 msgstr "العنوان"
@@ -427,16 +427,6 @@ msgstr "عنواين آي بي المحظورة"
 
 msgid "Blocked mobile"
 msgstr "تم الحظر"
-
-msgid "Bulksms API URL"
-msgstr "الرابط"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "BulkSMS مزود خدمة رسائل قصيرة"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-"BulkSMS سيقوم بتوجيه تقارير الاستلام والرسائل الواردة إلى رابط الاستدعاء"
 
 msgid "Buy"
 msgstr "صفحة شراء الرصيد"
@@ -1142,7 +1132,7 @@ msgid "Fill to change the Client Secret"
 msgstr ""
 
 msgid "Fill to change the password"
-msgstr "املأ حقل كلمة المرور لتغييرها."
+msgstr ""
 
 msgid "Fill with zero to disable limit"
 msgstr "ضع 0 لتعطيل الحد"
@@ -1554,9 +1544,6 @@ msgstr "تم الحظر"
 msgid "Manage board"
 msgstr "إدارة اللوح"
 
-msgid "Manage bulksms"
-msgstr "المستخدمون الفرعيون"
-
 msgid "Manage command"
 msgstr "إدارة الأوامر"
 
@@ -1666,7 +1653,7 @@ msgid "Match with all approved sender ID"
 msgstr "مطابقة مع كافة اسماء المرسل المفعلة"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "الحد الأقصى 16 رقم أو 11 حرف رقمي، للتعطيل اتركه فارغًا"
+msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "الحد الأقصى 16 رقم أو 11 حرف رقمي"
@@ -1775,11 +1762,12 @@ msgstr "تم حذف عناوين آي بي"
 msgid "Module Timezone"
 msgstr "إدارة اسم المرسل"
 
+#, fuzzy
 msgid "Module sender ID"
-msgstr "اسم المرسل"
+msgstr "إدارة اسم المرسل"
 
 msgid "Module timezone"
-msgstr "المنطقة الزمنية"
+msgstr ""
 
 msgid "Monthly"
 msgstr "شهريًا"
@@ -3082,10 +3070,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "تم وضع الرسالة في الطابور"
 
 msgid "Your callback URL is"
-msgstr "الرابط"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "رابط الاستدعاء يجب أن يكون قابل للوصول من قبل BulkSMS"
+msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
@@ -3193,7 +3178,7 @@ msgid "format"
 msgstr "الصيغة"
 
 msgid "free credits are available for testing purposes"
-msgstr "رصيد مجاني متاح للتجربة"
+msgstr ""
 
 msgid "group"
 msgstr "لا مجموعة"

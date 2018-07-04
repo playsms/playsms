@@ -419,15 +419,6 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr ""
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr ""
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Buy"
 msgstr ""
 
@@ -1555,10 +1546,6 @@ msgstr "管理用户"
 
 msgid "Manage board"
 msgstr "管理面板"
-
-#, fuzzy
-msgid "Manage bulksms"
-msgstr "管理用户"
 
 msgid "Manage command"
 msgstr "管理指令"
@@ -3093,9 +3080,6 @@ msgstr "你的短信已在队列中"
 
 msgid "Your callback URL is"
 msgstr "你的回调链接是"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""

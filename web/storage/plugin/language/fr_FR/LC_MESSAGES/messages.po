@@ -433,16 +433,6 @@ msgstr "Adresses IP bloquées"
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr "URL de l'API bulksms"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "Bulksms est un fournisseur de SMS en gros"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-"Bulksms va faire un push du DLR et du SMS entrant vers votre URL de callback"
-
 msgid "Buy"
 msgstr "Acheter"
 
@@ -1574,9 +1564,6 @@ msgstr "Gérer bloqués"
 
 msgid "Manage board"
 msgstr "Gérer service de redirection"
-
-msgid "Manage bulksms"
-msgstr "Gérer bulksms"
 
 msgid "Manage command"
 msgstr "Gérer commande shell"
@@ -3141,9 +3128,6 @@ msgstr "Votre SMS a été mis dans la file d'attente"
 
 msgid "Your callback URL is"
 msgstr "Votre URL de callback est"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Votre URL de callback doit être accessible par Bulksms"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Votre URL de callback doit être accessible par Infobip"
