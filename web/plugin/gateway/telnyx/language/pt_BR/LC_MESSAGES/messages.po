@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Account SID"
+msgstr "SID da conta"
+
+msgid "All mandatory fields must be filled"
+msgstr "Todos os campos obrigatórios devem ser preenchidos"
+
+msgid "Secret"
+msgstr "Segredo"
+
+msgid "Callback URL"
+msgstr "URL de callback"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Ex: +0300 para fuso horário de Brasília"
+
+msgid "Fail to save gateway module configurations"
+msgstr "Não foi possível salvar as configurações do módulo de gateway"
+
+msgid "Fill to change the Auth Token"
+msgstr "Preencha para alterar o Token de autenticação"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Configurações do módulo de gateway foram salvas"
+
+msgid "Gateway name"
+msgstr "Nome do gateway"
+
+msgid "Manage telnyx"
+msgstr "Gerenciar telnyx"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
+
+msgid "Module sender ID"
+msgstr "Módulo ID Remetente"
+
+msgid "Module timezone"
+msgstr "Módulo de Fuso horário"
+
+msgid "Notes"
+msgstr "Observações"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Twilio URL"
+msgstr "URL Twilio"
+
+msgid "Your callback URL should be accessible from telnyx"
+msgstr "Sua URL de callback deve ser acessível pelo Twilio"
+
+msgid "free credits are available for testing purposes"
+msgstr "créditos grátis estão disponíveis para testes"
+
+msgid "telnyx is a bulk SMS provider"
+msgstr "Twilio é um provedor de SMS em massa"
+
+msgid "telnyx will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio irá entregar DLR e SMS para sua URL callback"

@@ -1554,6 +1554,9 @@ msgstr ""
 msgid "Manage template"
 msgstr ""
 
+msgid "Manage telnyx"
+msgstr ""
+
 msgid "Manage twilio"
 msgstr ""
 
@@ -2674,6 +2677,9 @@ msgstr ""
 msgid "Try to disable SMS footer on master"
 msgstr ""
 
+msgid "Telnyx URL"
+msgstr ""
+
 msgid "Twilio URL"
 msgstr ""
 
@@ -2962,6 +2968,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
 
+msgid "Your callback URL should be accessible from telnyx"
+msgstr ""
+
 msgid "Your callback URL should be accessible from twilio"
 msgstr ""
 
@@ -3113,6 +3122,12 @@ msgid "return"
 msgstr ""
 
 msgid "title"
+msgstr ""
+
+msgid "telnyx is a bulk SMS provider"
+msgstr ""
+
+msgid "telnyx will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "twilio is a bulk SMS provider"
