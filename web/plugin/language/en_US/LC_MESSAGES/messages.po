@@ -2971,6 +2971,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from telnyx"
 msgstr ""
 
+msgid "Your callback URL should be accessible from twilio"
+msgstr ""
+
 msgid "Your choice"
 msgstr ""
 
