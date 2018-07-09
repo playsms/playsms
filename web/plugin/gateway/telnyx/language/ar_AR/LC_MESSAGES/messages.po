@@ -1,0 +1,59 @@
+msgid "Account SID"
+msgstr ""
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "Secret"
+msgstr ""
+
+msgid "Callback URL"
+msgstr ""
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+msgid "Fail to save gateway module configurations"
+msgstr ""
+
+msgid "Fill to change the Auth Token"
+msgstr ""
+
+msgid "Gateway module configurations has been saved"
+msgstr ""
+
+msgid "Gateway name"
+msgstr ""
+
+msgid "Manage telnyx"
+msgstr ""
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr ""
+
+msgid "Module timezone"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Telnyx URL"
+msgstr ""
+
+msgid "Your callback URL should be accessible from telnyx"
+msgstr ""
+
+msgid "free credits are available for testing purposes"
+msgstr ""
+
+msgid "telnyx is a bulk SMS provider"
+msgstr ""
+
+msgid "telnyx will push DLR and incoming SMS to your callback URL"
+msgstr ""

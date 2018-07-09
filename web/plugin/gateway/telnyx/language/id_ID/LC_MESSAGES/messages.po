@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Account SID"
+msgstr ""
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "Secret"
+msgstr ""
+
+msgid "Callback URL"
+msgstr "URL callback"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to save gateway module configurations"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+msgid "Fill to change the Auth Token"
+msgstr ""
+
+msgid "Gateway module configurations has been saved"
+msgstr "Konfigurasi modul gateway telah disimpan"
+
+msgid "Gateway name"
+msgstr "Nama gateway"
+
+msgid "Manage telnyx"
+msgstr "Pengaturan telnyx"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr ""
+
+msgid "Module sender ID"
+msgstr "ID pengirim modul"
+
+msgid "Module timezone"
+msgstr "Zona waktu modul"
+
+msgid "Notes"
+msgstr "Catatan"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Twilio URL"
+msgstr "telnyx URL"
+
+msgid "Your callback URL should be accessible from telnyx"
+msgstr "Callback URL seharusnya dapat diakses oleh Twilio"
+
+msgid "free credits are available for testing purposes"
+msgstr "Kredit gratis tersedia untuk tujuan percobaan"
+
+msgid "telnyx is a bulk SMS provider"
+msgstr "Twilio adalah penyedia SMS bulk"
+
+msgid "telnyx will push DLR and incoming SMS to your callback URL"
+msgstr "Twilio akan mengirim DLR dan SMS yang masuk ke URL callback anda"

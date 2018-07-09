@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: \n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.2\n"
+
+msgid "Account SID"
+msgstr "Konto SID"
+
+msgid "All mandatory fields must be filled"
+msgstr "Alle obligatoriske felter skal udfyldes"
+
+msgid "Secret"
+msgstr "Secret"
+
+msgid "Callback URL"
+msgstr "Callback URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
+
+msgid "Fail to save gateway module configurations"
+msgstr "Kunne ikke gemme gateway-modul konfigurationer"
+
+msgid "Fill to change the Auth Token"
+msgstr "Udfyld for at ændre auth token"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Gateway-modul konfigurationen er blevet gemt"
+
+msgid "Gateway name"
+msgstr "Gateway navn"
+
+msgid "Manage telnyx"
+msgstr "Håndter telnyx"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Maks. 16 nummeriske eller 11 alfanumeriske tegn, tom for at deaktivere"
+
+msgid "Module sender ID"
+msgstr "Modul afsenderID"
+
+msgid "Module timezone"
+msgstr "Modul tidszone"
+
+msgid "Notes"
+msgstr "Noter"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Twilio URL"
+msgstr "Twilio URL"
+
+msgid "Your callback URL should be accessible from telnyx"
+msgstr "Din callback URL skal være tilgængelig fra telnyx"
+
+msgid "free credits are available for testing purposes"
+msgstr "gratis kredit er tilgængelig til testformål"
+
+msgid "telnyx is a bulk SMS provider"
+msgstr "telnyx er en masse-SMS leverandør"
+
+msgid "telnyx will push DLR and incoming SMS to your callback URL"
+msgstr "telnyx vil sende DLR og indkommende SMS til din callback URL"
