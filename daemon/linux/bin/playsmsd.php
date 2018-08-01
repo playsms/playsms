@@ -467,15 +467,29 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					// init step
 					// $core_config['sendsmsd_queue'] = number of simultaneous queues
 					// $core_config['sendsmsd_chunk'] = number of chunk per queue
-					$extras = '';
-					if ((int) $core_config['sendsmsd_queue'] > 0) {
-						$extras = array(
-							'LIMIT' => (int) $core_config['sendsmsd_queue'] 
-						);
-					}
+					$c_list = array();
 					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id, queue_code', array(
 						'flag' => '0' 
-					), '', $extras);
+					));
+					foreach ($list as $db_row) {
+						$c_datetime_scheduled = strtotime($db_row['datetime_scheduled']);
+						if ($c_datetime_scheduled <= strtotime(core_get_datetime())) {
+							$c_list[] = $db_row;
+						}
+					}
+					
+					$list = array();
+					$sendsmsd_queue_count = (int) $core_config['sendsmsd_queue'];
+					if ($sendsmsd_queue_count > 0) {
+						for ($i=0;$i<$sendsmsd_queue_count;$i++) {
+							if ($c_list[$i]) {
+								$list[] = $c_list[$i];
+							}
+						}
+					} else {
+						$list = $c_list;
+					}
+					
 					foreach ($list as $db_row) {
 						// $db_row['queue_code'] = queue code
 						// $db_row['queue_count'] = number of entries in a queue
