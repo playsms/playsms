@@ -3,11 +3,16 @@ defined('_SECURE_') or die('Forbidden');
 
 function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge) {
 	$ok = false;
+	$rate = ( isset($rate) ? $rate : 0 );
+	$count = ( isset($count) ? $count : 0 );
+	$charge = ( isset($charge) ? $charge : 0 );
 	_log("saving smslog_id:" . $smslog_id . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 2, "simplebilling_hook_billing_post");
 	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (post_datetime,smslog_id,rate,count,charge,status) VALUES ('" . core_get_datetime() . "','$smslog_id','$rate','$count','$charge','0')";
-	if ($id = @dba_insert_id($db_query)) {
+	if ($smslog_id && ($id = dba_insert_id($db_query))) {
 		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling_hook_billing_post");
 		$ok = true;
+	} else {
+		_log("fail to save smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_post");
 	}
 	return $ok;
 }
@@ -17,14 +22,18 @@ function simplebilling_hook_billing_rollback($smslog_id) {
 	_log("checking smslog_id:" . $smslog_id, 2, "simplebilling rollback");
 	$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
+	if ($smslog_id && ($db_row = dba_fetch_array($db_result))) {
 		$id = $db_row['id'];
 		_log("saving smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling rollback");
 		$db_query = "UPDATE " . _DB_PREF_ . "_tblBilling SET status='2' WHERE id='$id'";
 		if ($db_result = dba_affected_rows($db_query)) {
 			_log("saved smslog_id:" . $smslog_id, 2, "simplebilling rollback");
 			$ok = true;
+		} else {
+			_log("fail to save smslog_id:" . $smslog_id, 2, "simplebilling rollback");
 		}
+	} else {
+		_log("fail to check smslog_id:" . $smslog_id, 2, "simplebilling rollback");
 	}
 	return $ok;
 }
