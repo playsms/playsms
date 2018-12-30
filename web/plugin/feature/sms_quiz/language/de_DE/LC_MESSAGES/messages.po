@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add SMS quiz"
+msgstr "SMS Quiz hinzufügen"
+
+msgid "Answer"
+msgstr "Antwort"
+
+msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this answer ?"
+msgstr ""
+
+msgid "Datetime"
+msgstr ""
+
+msgid "Edit SMS quiz"
+msgstr "SMS Quiz bearbeiten"
+
+msgid "Fail to add SMS quiz"
+msgstr ""
+
+msgid "Fail to edit SMS quiz"
+msgstr ""
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+msgid "Manage quiz"
+msgstr ""
+
+msgid "Question"
+msgstr "Frage"
+
+msgid "Received answer list for keyword"
+msgstr ""
+
+msgid "Reply message on correct"
+msgstr ""
+
+msgid "Reply message on incorrect"
+msgstr ""
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS quiz answer"
+msgstr "SMS Quiz Antwort"
+
+msgid "SMS quiz answer messages have been deleted"
+msgstr ""
+
+msgid "SMS quiz has been added"
+msgstr "SMS Quiz wurde hinzugefügt"
+
+msgid "SMS quiz has been saved"
+msgstr "SMS Quiz wurde gespeichert"
+
+msgid "SMS quiz keyword"
+msgstr "SMS Quiz Schlagwort"
+
+msgid "SMS quiz question"
+msgstr "SMS Quiz Frage"
+
+msgid "SMS quiz status has been changed"
+msgstr "SMS Quiz wurde geändert"
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr "SMS Quiz mit allen Nachrichten wurde gelöscht"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Sender"
+msgstr "Absender"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "You must fill all field"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "correct"
+msgstr "Richtig"
+
+msgid "incorrect"
+msgstr "Falsch"
+
+msgid "keyword"
+msgstr "Schlagwort"

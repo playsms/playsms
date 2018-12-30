@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add SMS custom"
+msgstr ""
+
+msgid "All mandatory fields must be filled"
+msgstr "Alle erforderlichen Felder müssen ausgefüllt werden"
+
+msgid "Are you sure you want to delete SMS custom ?"
+msgstr ""
+
+msgid "Edit SMS custom"
+msgstr ""
+
+msgid "Example of SMS custom URL"
+msgstr ""
+
+msgid "Fail to add SMS custom"
+msgstr ""
+
+msgid "Fail to delete SMS custom"
+msgstr ""
+
+msgid "Fail to save SMS custom"
+msgstr ""
+
+#, php-format
+msgid "Keyword %s is not available"
+msgstr "Schlagwort %s ist nicht verfügbar"
+
+msgid "Keywords"
+msgstr "Schlagwörter"
+
+msgid "Make return as reply"
+msgstr ""
+
+msgid "Manage custom"
+msgstr ""
+
+msgid "Pass these parameters to custom URL field"
+msgstr ""
+
+msgid "Receiver number"
+msgstr "Empfängernummer"
+
+msgid "SMS custom URL"
+msgstr ""
+
+msgid "SMS custom has been deleted"
+msgstr ""
+
+msgid "SMS custom has been saved"
+msgstr ""
+
+msgid "SMS custom keywords"
+msgstr ""
+
+#, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr ""
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Service data"
+msgstr ""
+
+msgid "Service name"
+msgstr ""
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "keyword"
+msgstr "Schlagwort"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "wird durch Datum/Zeit der eingehenden SMS ersetzt"
+
+msgid "will be replaced by SMS raw message"
+msgstr "wird durch SMS Rohnachricht ersetzt"
+
+msgid "will be replaced by actual receiver number"
+msgstr "wird durch aktuelle Empfängernummer ersetzt"
+
+msgid "will be replaced by custom keyword"
+msgstr ""
+
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr ""
+
+msgid "will be replaced by receiver number"
+msgstr "wird durch Empfängernummer ersetzt"
+
+msgid "will be replaced by sender number"
+msgstr "wird durch Absendernummer ersetzt"
+
+msgid "will be replaced by service name"
+msgstr "wird durch Dienstname ersetzt"

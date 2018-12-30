@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratoren"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Compose message"
+msgstr "Nachricht verfassen"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Please select"
+msgstr "Bitte auswählen"
+
+msgid "Search"
+msgstr "Suchen"
+
+msgid "Select users"
+msgstr ""
+
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "This field is required"
+msgstr "Dieses Feld ist erforderlich"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "no"
+msgstr "Nein"
+
+msgid "yes"
+msgstr "Ja"

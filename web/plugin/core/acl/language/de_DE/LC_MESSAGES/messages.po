@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "ACL ID"
+msgstr "ACL ID"
+
+msgid "ACL been edited"
+msgstr ""
+
+msgid "ACL has been deleted"
+msgstr ""
+
+msgid "ACL name"
+msgstr "ACL Name"
+
+msgid "Action"
+msgstr "Ausführen"
+
+msgid "Add ACL"
+msgstr "ACL hinzufügen"
+
+msgid "Are you sure you want to delete ACL ?"
+msgstr ""
+
+msgid "Comma separated for multiple entries"
+msgstr "Kommagetrennt für mehrere Einträge"
+
+msgid "Credit"
+msgstr "Guthaben"
+
+msgid "DEFAULT"
+msgstr "STANDARD"
+
+msgid "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr ""
+
+msgid "Disallowed URLs"
+msgstr "Verbotene URLs"
+
+msgid "Edit ACL"
+msgstr "ACL bearbeiten"
+
+msgid "Fail to add new ACL"
+msgstr "Hinzufügen der ACL fehlgeschlagen"
+
+msgid "Fail to delete ACL"
+msgstr "Löschen der ACL fehlgeschlagen"
+
+msgid "Fail to edit ACL"
+msgstr "Bearbeiten der ACL fehlgeschlagen"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "List of accounts"
+msgstr ""
+
+msgid "Manage ACL"
+msgstr ""
+
+msgid "Mandatory fields must not be empty"
+msgstr "Pflichtfelder dürfen nicht leer sein"
+
+msgid "Mobile"
+msgstr "Handy"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "New ACL been added"
+msgstr ""
+
+msgid "Registered"
+msgstr "Registriert"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Subuser ACL"
+msgstr ""
+
+msgid "URLs"
+msgstr "URLs"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "View report"
+msgstr "Report anzeigen"

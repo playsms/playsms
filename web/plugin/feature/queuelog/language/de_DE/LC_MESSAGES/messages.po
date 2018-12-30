@@ -4,26 +4,31 @@ msgstr ""
 "POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid "Action"
 msgstr "Aktion"
 
-#, fuzzy
 msgid "All queues have been removed"
-msgstr "Queue wurde gelscht"
+msgstr "Queue wurde gelöscht"
 
-#, fuzzy
 msgid "Are you sure you want to delete ALL queues"
-msgstr "Mchten Sie wirklich die Warteschlange lschen?"
+msgstr "Möchten Sie wirklich die Warteschlange löschen"
 
 msgid "Are you sure you want to delete queue"
-msgstr "Mchten Sie wirklich die Warteschlange lschen?"
+msgstr "Möchten Sie wirklich die Warteschlange löschen"
 
 msgid "Count"
 msgstr "Anzahl"
 
 msgid "Delete ALL queues"
-msgstr ""
+msgstr "ALLE Queues löschen"
 
 msgid "Message"
 msgstr "Nachricht"
@@ -32,7 +37,7 @@ msgid "Queue Code"
 msgstr "Queue Code"
 
 msgid "Queue has been removed"
-msgstr "Queue wurde gelscht"
+msgstr "Queue wurde gelöscht"
 
 msgid "Scheduled"
 msgstr "Geplant"

@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add SMS board"
+msgstr ""
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr ""
+
+msgid "CSS URL"
+msgstr "CSS URL"
+
+msgid "Date and time"
+msgstr "Datum und Uhrzeit"
+
+msgid "Edit SMS board"
+msgstr ""
+
+msgid "Fail to add SMS board"
+msgstr ""
+
+msgid "Fail to edit SMS board"
+msgstr ""
+
+msgid "Forward"
+msgstr "Weiterleiten"
+
+msgid "Forward to email"
+msgstr "Weiterleiten an Email"
+
+msgid "HTML output"
+msgstr "HTML Ausgabe"
+
+msgid "JSON output"
+msgstr "JSON Ausgabe"
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+msgid "MBOX output"
+msgstr "MBOX Ausgabe"
+
+msgid "Manage board"
+msgstr ""
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "RSS 0.91 output"
+msgstr "RSS 0.91 Ausgabe"
+
+msgid "RSS 1.0 output"
+msgstr "RSS 1.0 Ausgabe"
+
+msgid "RSS 2.0 output"
+msgstr "RSS 2.0 Ausgabe"
+
+msgid "RSS ATOM output"
+msgstr "RSS ATOM Ausgabe"
+
+msgid "Receiver"
+msgstr "Empfänger"
+
+msgid "Row template"
+msgstr ""
+
+msgid "SMS Board"
+msgstr ""
+
+msgid "SMS board from"
+msgstr ""
+
+msgid "SMS board has been added"
+msgstr ""
+
+msgid "SMS board has been saved"
+msgstr ""
+
+msgid "SMS board keyword"
+msgstr ""
+
+msgid "SMS board reply message"
+msgstr ""
+
+msgid "SMS board with all its messages has been deleted"
+msgstr ""
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Sender"
+msgstr "Absender"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "View board"
+msgstr ""
+
+msgid "XML output"
+msgstr "XML Ausgabe"
+
+msgid "You must fill all fields"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "keyword"
+msgstr "Schlagwort"

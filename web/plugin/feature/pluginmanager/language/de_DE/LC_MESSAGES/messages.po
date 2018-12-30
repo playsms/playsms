@@ -4,39 +4,46 @@ msgstr ""
 "POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid "Author"
-msgstr ""
+msgstr "Author"
 
 msgid "Core"
-msgstr ""
+msgstr "Core"
 
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 msgid "Features"
-msgstr ""
+msgstr "Features"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Gateways"
 
 msgid "Languages"
-msgstr ""
+msgstr "Sprachen"
 
 msgid "Manage plugin"
-msgstr ""
+msgstr "Plugin verwalten"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Themes"
-msgstr ""
+msgstr "Themen"
 
 msgid "Version"
-msgstr ""
+msgstr "Version"

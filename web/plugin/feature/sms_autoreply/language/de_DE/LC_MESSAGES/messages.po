@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add SMS autoreply"
+msgstr ""
+
+msgid "Add SMS autoreply scenario"
+msgstr ""
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "Are you sure you want to delete SMS autoreply ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this SMS autoreply scenario ?"
+msgstr ""
+
+msgid "Edit SMS autoreply"
+msgstr ""
+
+msgid "Edit SMS autoreply scenario"
+msgstr ""
+
+msgid "Fail to add SMS autoreply"
+msgstr ""
+
+msgid "Fail to add SMS autoreply scenario"
+msgstr ""
+
+msgid "Fail to delete SMS autoreply"
+msgstr ""
+
+msgid "Fail to delete SMS autoreply scenario"
+msgstr ""
+
+msgid "Fail to edit SMS autoreply scenario"
+msgstr ""
+
+msgid "Fail to update SMS autoreply"
+msgstr ""
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+msgid "Manage autoreply"
+msgstr ""
+
+msgid "Reply"
+msgstr "Antworten"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "SMS autoreply has been deleted"
+msgstr ""
+
+msgid "SMS autoreply has been updated"
+msgstr ""
+
+msgid "SMS autoreply keyword"
+msgstr ""
+
+msgid "SMS autoreply keyword has been added"
+msgstr ""
+
+msgid "SMS autoreply scenario has been added"
+msgstr ""
+
+msgid "SMS autoreply scenario has been deleted"
+msgstr ""
+
+msgid "SMS autoreply scenario has been edited"
+msgstr ""
+
+msgid "SMS autoreply scenario parameter"
+msgstr ""
+
+msgid "SMS autoreply scenario reply"
+msgstr ""
+
+msgid "SMS is case-insensitive"
+msgstr ""
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "This field is not mandatory"
+msgstr "Dieses Feld ist nicht erforderlich"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "keyword"
+msgstr "Schlagwort"

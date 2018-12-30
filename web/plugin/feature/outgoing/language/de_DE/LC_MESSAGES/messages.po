@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add route"
+msgstr "Route hinzufügen"
+
+msgid "Are you sure ?"
+msgstr "Sind Sie sicher ?"
+
+msgid "Destination name"
+msgstr "Zielname"
+
+msgid "Edit route"
+msgstr "Route bearbeiten"
+
+msgid "Fail to add route"
+msgstr "Fehler beim Hinzufügen der Route"
+
+msgid "Fail to delete route"
+msgstr "Fehler beim Löschen der Route"
+
+msgid "Fail to save route"
+msgstr "Fehler beim Speichern der Route"
+
+msgid "Multiple entries separated by comma"
+msgstr "Mehrere Einträge durch Komma getrennt"
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "Route SMS outgoing"
+msgstr "SMS ausgehend Routen"
+
+msgid "Route has been added"
+msgstr "Route wurde hinzugefügt"
+
+msgid "Route has been deleted"
+msgstr "Route wurde gelöscht"
+
+msgid "Route has been saved"
+msgstr "Route wurde gespeichert"
+
+msgid "Route outgoing SMS"
+msgstr "Ausgehende SMS Routen"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "You must fill all fields"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "You must fill all mandatory fields"
+msgstr "Sie müssen alle Pflichtfelder ausfüllen"
+
+msgid "blocked"
+msgstr "blockiert"
+
+msgid "destination"
+msgstr "Ziel"
+
+msgid "prefix"
+msgstr "Prefix"

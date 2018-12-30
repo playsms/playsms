@@ -1,128 +1,141 @@
-msgid "Add"
+msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Add"
+msgstr "Hinzufügen"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
 msgid "Ban"
-msgstr ""
+msgstr "Bannen"
 
 msgid "Buy"
-msgstr ""
+msgstr "Kaufen"
 
 msgid "Compose message"
-msgstr ""
+msgstr "Nachricht verfassen"
 
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 msgid "Delete user"
-msgstr ""
+msgstr "Benutzer löschen"
 
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 msgid "Export"
-msgstr ""
+msgstr "Exportieren"
 
 msgid "Features"
-msgstr ""
+msgstr "Features"
 
 msgid "Forward"
-msgstr ""
+msgstr "Weiterleiten"
 
 msgid "Go"
-msgstr ""
+msgstr "Los"
 
 msgid "Group"
-msgstr ""
+msgstr "Gruppe"
 
 msgid "Home"
-msgstr ""
+msgstr "Startseite"
 
 msgid "Idle"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importieren"
 
 msgid "Logged in as"
-msgstr ""
+msgstr "Eingeloggt als"
 
 msgid "Login as"
-msgstr ""
+msgstr "Einloggen als"
 
 msgid "Logout"
-msgstr ""
+msgstr "Ausloggen"
 
 msgid "Main configuration"
 msgstr ""
 
 msgid "Manage"
-msgstr ""
+msgstr "Verwalten"
 
 msgid "Manage ACL"
-msgstr ""
+msgstr "ACL verwalten"
 
 msgid "Manage account"
-msgstr ""
+msgstr "Account verwalten"
 
 msgid "Manage gateway and SMSC"
-msgstr ""
+msgstr "Gateway und SMSC verwalten"
 
 msgid "Manage sender ID"
 msgstr ""
 
 msgid "Manage site"
-msgstr ""
+msgstr "Site verwalten"
 
 msgid "Manage subuser"
-msgstr ""
+msgstr "Sub-User verwalten"
 
 msgid "Move"
-msgstr ""
+msgstr "Verschieben"
 
 msgid "My account"
-msgstr ""
+msgstr "Mein Account"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Preferences"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Reduce"
 msgstr ""
 
 msgid "Reply"
-msgstr ""
+msgstr "Antworten"
 
 msgid "Reports"
-msgstr ""
+msgstr "Berichte"
 
 msgid "Resend"
-msgstr ""
+msgstr "Erneut senden"
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Unban"
-msgstr ""
+msgstr "Entbannen"
 
 msgid "User configuration"
-msgstr ""
+msgstr "Benutzerkonfiguration"
 
 msgid "User preference"
-msgstr ""
+msgstr "Benutzereinstellungen"
 
 msgid "View"
-msgstr ""
+msgstr "Ansicht"
 
 msgid "Your credit"
-msgstr ""
+msgstr "Ihr Guthaben"
 
 msgid "return"
 msgstr ""

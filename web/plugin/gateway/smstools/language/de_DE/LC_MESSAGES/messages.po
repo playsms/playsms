@@ -4,24 +4,31 @@ msgstr ""
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid "Changes have been made"
-msgstr ""
+msgstr "Es wurden Änderungen vorgenommen"
 
 msgid "Default default_queue directory"
-msgstr ""
+msgstr "Standard default_queue Verzeichnis"
 
 msgid "Gateway name"
-msgstr "Gateway Name"
+msgstr "Gatewayname"
 
 msgid "Manage smstools"
-msgstr "Verwalte smstools"
+msgstr "smstools verwalten"
 
 msgid "Queue directory"
-msgstr ""
+msgstr "Warteschlangenverzeichnis"
 
 msgid "Receiver number"
-msgstr ""
+msgstr "Empfängernummer"
 
 msgid "Save"
-msgstr ""
+msgstr "Speichern"

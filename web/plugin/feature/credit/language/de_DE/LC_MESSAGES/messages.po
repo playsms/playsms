@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Add credit"
+msgstr ""
+
+msgid "Add credit to users"
+msgstr ""
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Administrators"
+msgstr "Administratoren"
+
+msgid "Amount"
+msgstr ""
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr ""
+
+msgid "Credit has been added"
+msgstr ""
+
+msgid "Credit has been reduced"
+msgstr ""
+
+msgid "Fail to add credit"
+msgstr ""
+
+msgid "Fail to reduce credit"
+msgstr ""
+
+msgid "List of transactions"
+msgstr ""
+
+msgid "Manage credit"
+msgstr ""
+
+msgid "Reduce credit"
+msgstr ""
+
+msgid "Reduce credit from users"
+msgstr ""
+
+msgid "Select users"
+msgstr "Benutzer auswählen"
+
+msgid "Selected transactions has been deleted"
+msgstr ""
+
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "Transaction datetime"
+msgstr ""
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "User ID"
+msgstr "Benutzer ID"
+
+msgid "Username"
+msgstr "Benutzername"
+
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr ""
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "Wrong amount or user does not exist"
+msgstr ""
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
+msgstr ""
+
+msgid "amount"
+msgstr ""
+
+msgid "user"
+msgstr "Benutzer"

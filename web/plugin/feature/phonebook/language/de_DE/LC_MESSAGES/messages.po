@@ -4,6 +4,13 @@ msgstr ""
 "POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid "Action"
 msgstr "Aktion"
@@ -18,7 +25,7 @@ msgid "Anyone"
 msgstr "Jeder"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "CSV Dateiformat"
 
 msgid "Contact has been added"
 msgstr "Kontakt wurde hinzugefügt"
@@ -94,7 +101,7 @@ msgid "Move to"
 msgstr "Verschieben nach"
 
 msgid "Multiple entries separated by comma"
-msgstr ""
+msgstr "Mehrere Einträge durch Komma getrennt"
 
 msgid "Name"
 msgstr "Name"
@@ -102,9 +109,8 @@ msgstr "Name"
 msgid "No changes have been made"
 msgstr "Es wurden KEINE Änderungen vorgenommen"
 
-#, fuzzy
 msgid "No group"
-msgstr "Gruppe"
+msgstr "Keine Gruppe"
 
 msgid "Phonebook"
 msgstr "Telefonbuch"
@@ -112,9 +118,8 @@ msgstr "Telefonbuch"
 msgid "Please select CSV file for phonebook entries"
 msgstr "Bitte CSV-Datei für Telefonbuch-Einträge auswählen"
 
-#, fuzzy
 msgid "Please use alphanumeric only and make it short"
-msgstr "Bitte in Großbuchstaben und kurz"
+msgstr ""
 
 #, fuzzy
 msgid "Please use uppercase and make it short"
@@ -136,7 +141,7 @@ msgid "Selected group has been deleted"
 msgstr "Gewählte Grupppe wurde geändert"
 
 msgid "Share phonebook and allow broadcast"
-msgstr ""
+msgstr "Telefonbuch freigeben und Broadcast erlauben"
 
 msgid ""
 "Share this phonebook group and set permission for broadcasting SMS to this "

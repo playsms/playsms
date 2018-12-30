@@ -1,0 +1,70 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add rate"
+msgstr ""
+
+msgid "Are you sure you want to delete rate ?"
+msgstr ""
+
+msgid "Destination"
+msgstr "Ziel"
+
+msgid "Edit rate"
+msgstr ""
+
+msgid "Fail to delete rate"
+msgstr ""
+
+msgid "Fail to save rate"
+msgstr ""
+
+msgid "Manage SMS rate"
+msgstr ""
+
+msgid "No changes made!"
+msgstr ""
+
+msgid "Prefix"
+msgstr "Prefix"
+
+msgid "Rate"
+msgstr ""
+
+msgid "Rate already exists"
+msgstr ""
+
+msgid "Rate has been added"
+msgstr ""
+
+msgid "Rate has been deleted"
+msgstr ""
+
+msgid "Rate has been saved"
+msgstr ""
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "You must fill all fields"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "destination"
+msgstr "Ziel"
+
+msgid "prefix"
+msgstr "Prefix"

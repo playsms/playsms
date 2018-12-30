@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Account has been added and password has been emailed"
+msgstr ""
+
+msgid "Account has been added but failed to send email"
+msgstr ""
+
+msgid "Credit"
+msgstr "Guthaben"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Fail to recover password"
+msgstr ""
+
+msgid "Fail to save temporary password"
+msgstr ""
+
+msgid "Fail to send email"
+msgstr ""
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Invalid username or password"
+msgstr ""
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Mobile"
+msgstr "Handy"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "New account registration"
+msgstr "Neuen Account registrieren"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password has been emailed"
+msgstr ""
+
+msgid "Password recovery"
+msgstr "Passwort wiederherstellen"
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr ""
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+
+msgid "Recover password"
+msgstr ""
+
+msgid "Recover password disabled"
+msgstr ""
+
+msgid "Register an account"
+msgstr ""
+
+msgid "Submit"
+msgstr "Senden"
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+
+msgid "Unable to login"
+msgstr "Login nicht möglich"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Username or email"
+msgstr "Benutzername oder Email"
+
+msgid "Verify captcha"
+msgstr ""
+
+msgid "You have been logged out"
+msgstr "Sie wurden ausgeloggt"
+
+msgid "You have no access to this page"
+msgstr "Sie haben keinen Zugriff auf diese Seite"
+
+msgid "You or someone else have requested a password recovery"
+msgstr ""
+"Sie oder jemand anderes hat eine Passwort Wiederherstellung angefordert"
+
+msgid "username"
+msgstr "Benutzername"

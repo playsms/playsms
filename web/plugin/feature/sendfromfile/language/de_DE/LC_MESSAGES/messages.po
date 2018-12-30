@@ -4,9 +4,16 @@ msgstr ""
 "POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid "CSV file format"
-msgstr ""
+msgstr "CSV Dateiformat"
 
 msgid "Cancel send from file"
 msgstr "Aus Datei senden abbrechen"
@@ -39,7 +46,7 @@ msgid "Please select CSV file"
 msgstr "Bitte CSV-Datei auswählen"
 
 msgid "Prevent duplicates"
-msgstr ""
+msgstr "Duplikate verhindern"
 
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
@@ -65,13 +72,11 @@ msgstr "Benutzername"
 msgid "Your choice"
 msgstr "Ihre Auswahl"
 
-#, fuzzy
 msgid "destination number, message"
-msgstr "Format: Zielrufnummer, Nachricht"
+msgstr "Zielrufnummer, Nachricht"
 
-#, fuzzy
 msgid "destination number, message, username"
-msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
+msgstr "Zielrufnummer, Nachricht, Benutzername"
 
 msgid "invalid entries"
 msgstr "Ungültige Einträge"

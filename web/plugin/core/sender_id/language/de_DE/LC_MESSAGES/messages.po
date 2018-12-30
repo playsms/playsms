@@ -4,6 +4,13 @@ msgstr ""
 "POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid "Add sender ID"
 msgstr ""
@@ -18,7 +25,7 @@ msgid "Click the status button to enable or disable status"
 msgstr ""
 
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 msgid "Edit sender ID"
 msgstr ""
@@ -27,7 +34,7 @@ msgid "Fail to update due to invalid sender ID"
 msgstr ""
 
 msgid "Last update"
-msgstr ""
+msgstr "Zuletzt geändert"
 
 msgid "Manage sender ID"
 msgstr ""
@@ -60,13 +67,13 @@ msgid "Sender ID is now disabled"
 msgstr ""
 
 msgid "Set as default"
-msgstr ""
+msgstr "Als Standard festlegen"
 
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 msgid "Username"
-msgstr ""
+msgstr "Benutzername"
 
 #, php-format
 msgid "Username %s with account ID %d has requested approval for sender ID %s"

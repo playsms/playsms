@@ -1,0 +1,89 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Check email sender"
+msgstr "Absender Email prüfen"
+
+msgid "Email protocol"
+msgstr "Email Protokoll"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "Email zu SMS PIN wurde gespeichert"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "Email zu SMS Pin wurde gespeichert aber Dienst is deaktiviert"
+
+msgid "Email to SMS address"
+msgstr "Email zu SMS Adresse"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "Email zu SMS Konfiguration wurde gespeichert und Dienst deaktiviert"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "Email zu SMS Konfiguration wurde gespeichert und Diest aktiviert"
+
+msgid "Enable fetch new emails"
+msgstr "Abrufen von neuen Emails aktivieren"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Fehler beim Speichern des Email zu SMS PIN"
+
+msgid "Fill the password field to change password"
+msgstr "Passwortfeldes ausfüllen um das Passwort zu ändern"
+
+msgid "Mail server address"
+msgstr "Mailserver Adresse"
+
+msgid "Mail server port"
+msgstr "Mailserver Port"
+
+msgid "Mailbox password"
+msgstr "Mailbox Passwort"
+
+msgid "Mailbox username"
+msgstr "Mailbox Benutzername"
+
+msgid "Manage email to SMS"
+msgstr "Email zu SMS"
+
+msgid "My email to SMS"
+msgstr "Mein Email zu SMS"
+
+msgid "New emails fetch interval"
+msgstr "Abrufintervall von neuen Emails"
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr "Abrufintervall von neuen Emails muss höher als 10 Sekunden sein"
+
+#, fuzzy
+msgid "No validate cert option"
+msgstr "Keine Zertifikats-Validierungs-Option"
+
+msgid "PIN for email to SMS"
+msgstr "PIN für Email zu SMS"
+
+msgid "PIN is empty"
+msgstr "PIN ist leer"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Use SSL"
+msgstr "SSL verwenden"
+
+msgid "no"
+msgstr "nein"
+
+msgid "yes"
+msgstr "ja"

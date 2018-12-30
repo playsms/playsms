@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Add blocked mobile numbers"
+msgstr ""
+
+msgid "Blocked mobile"
+msgstr ""
+
+msgid "Comma separated values for multiple mobile numbers"
+msgstr "Kommagetrennte Werte für mehrere Handynummern"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Manage stoplist"
+msgstr ""
+
+msgid "Mobile"
+msgstr "Handy"
+
+msgid "Mobile numbers"
+msgstr "Handynummern"
+
+msgid "Mobile numbers have been blocked"
+msgstr "Handynummern wurden blockiert"
+
+msgid "Mobile numbers have been deleted"
+msgstr "Handynummern wurden gelöscht"
+
+msgid "Multiple mobile numbers must be comma-separated"
+msgstr "Mehrere Handynummern müssen kommagetrennt sein"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Select"
+msgstr "Auswählen"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "You must fill all fields"
+msgstr "Sie müssen alle Felder ausfüllen"

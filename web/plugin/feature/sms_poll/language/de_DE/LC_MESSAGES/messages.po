@@ -1,0 +1,217 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Add SMS poll"
+msgstr ""
+
+msgid "Add choice to this poll"
+msgstr ""
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Are you sure you want to delete SMS poll with all its choices and votes ?"
+msgstr ""
+
+msgid "Are you sure you want to delete choice ?"
+msgstr ""
+
+msgid "Choice already exists"
+msgstr ""
+
+msgid "Choice description"
+msgstr ""
+
+msgid "Choice has been added"
+msgstr ""
+
+msgid "Choice keyword"
+msgstr ""
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Edit SMS poll"
+msgstr ""
+
+msgid "Edit SMS poll choices"
+msgstr ""
+
+msgid "Fail to add SMS poll"
+msgstr ""
+
+msgid "Fail to delete SMS poll choice"
+msgstr ""
+
+msgid "Grand total SMS"
+msgstr ""
+
+msgid "Grand total senders"
+msgstr ""
+
+msgid "Graph output"
+msgstr "Ausgabe als Graph"
+
+msgid "HTML output"
+msgstr "HTML Ausgabe"
+
+msgid "Invalid"
+msgstr "Ungültig"
+
+msgid "JSON output"
+msgstr "JSON Ausgabe"
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+msgid "Manage poll"
+msgstr ""
+
+msgid "Multi"
+msgstr ""
+
+msgid "Number of votes"
+msgstr ""
+
+msgid "Once"
+msgstr "Einmalig"
+
+msgid "PHP serialize output"
+msgstr ""
+
+msgid "Reply message on invalid vote"
+msgstr ""
+
+msgid "Reply message on out of vote option"
+msgstr ""
+
+msgid "Reply message on valid vote"
+msgstr ""
+
+msgid "Result graph"
+msgstr "Ergebnis als Graph"
+
+msgid "Result table"
+msgstr "Ergebnis als Tabelle"
+
+msgid "SMS poll access code"
+msgstr ""
+
+msgid "SMS poll access code used mainly by webservices"
+msgstr ""
+
+msgid "SMS poll already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS poll choice and all its voters has been deleted"
+msgstr ""
+
+msgid "SMS poll has been added"
+msgstr ""
+
+msgid "SMS poll has been saved"
+msgstr ""
+
+msgid "SMS poll keyword"
+msgstr ""
+
+msgid "SMS poll status has been changed"
+msgstr ""
+
+msgid "SMS poll title"
+msgstr ""
+
+msgid "SMS poll with all its messages has been deleted"
+msgstr ""
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Senders sent multi votes"
+msgstr ""
+
+msgid "Senders sent multiple votes"
+msgstr ""
+
+msgid "Senders sent once"
+msgstr ""
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Total invalid SMS"
+msgstr ""
+
+msgid "Total multiple votes SMS"
+msgstr ""
+
+msgid "Total one time vote SMS"
+msgstr ""
+
+msgid "Total valid SMS"
+msgstr ""
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "Valid"
+msgstr "Gültig"
+
+msgid "Vote option"
+msgstr ""
+
+msgid "Webservices links"
+msgstr ""
+
+msgid "XML output"
+msgstr "XML Ausgabe"
+
+msgid "You must fill all fields"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "keyword"
+msgstr "Schlagwort"
+
+msgid "multiple times"
+msgstr "mehrmals"
+
+msgid "one time"
+msgstr "einmal"
+
+msgid "one time every 24 hours"
+msgstr "einmal alle 24 Stunden"
+
+msgid "one time every month"
+msgstr "einmal jedes Monat"
+
+msgid "one time every week"
+msgstr "einmal jede Woche"
+
+msgid "title"
+msgstr "Titel"

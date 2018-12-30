@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "1 Day"
+msgstr "1 Tag"
+
+msgid "1 Month"
+msgstr "1 Monat"
+
+msgid "1 Week"
+msgstr "1 Woche"
+
+msgid "2 Days"
+msgstr "2 Tage"
+
+msgid "2 Weeks"
+msgstr "2 Wochen"
+
+msgid "6 Months"
+msgstr "6 Monate"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Add SMS subscribe"
+msgstr ""
+
+msgid "Add message"
+msgstr "Nachricht hinzufügen"
+
+msgid "Already a member reply"
+msgstr ""
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this member ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this message?"
+msgstr ""
+
+msgid "Created"
+msgstr "Erstellt"
+
+msgid "Edit SMS subscribe"
+msgstr ""
+
+msgid "Edit message"
+msgstr "Nachricht bearbeiten"
+
+msgid "Fail to add SMS subscribe"
+msgstr ""
+
+msgid "Fail to add message"
+msgstr ""
+
+msgid "Fail to edit SMS subscribe"
+msgstr ""
+
+msgid "Fail to edit message"
+msgstr ""
+
+msgid "Fail to send SMS"
+msgstr ""
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+msgid "Last update"
+msgstr "Letzte Änderung"
+
+msgid "Manage subscribe"
+msgstr ""
+
+msgid "Member has been deleted"
+msgstr ""
+
+msgid "Member join datetime"
+msgstr ""
+
+msgid "Member list for keyword"
+msgstr ""
+
+msgid "Members"
+msgstr "Mitglieder"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Message ID"
+msgstr "Nachrichten ID"
+
+msgid "Message body"
+msgstr ""
+
+msgid "Message detail"
+msgstr ""
+
+msgid "Message has been added"
+msgstr "Nachricht wurde hinzugefügt"
+
+msgid "Message has been deleted"
+msgstr "Nachricht wurde gelöscht"
+
+msgid "Message has been edited"
+msgstr "Nachricht wurde bearbeitet"
+
+msgid "Messages"
+msgstr "Nachrichten"
+
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+msgid "SMS forward parameter"
+msgstr ""
+
+msgid "SMS messages list for keyword"
+msgstr ""
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr ""
+
+msgid "SMS subscribe has been added"
+msgstr ""
+
+msgid "SMS subscribe has been saved"
+msgstr ""
+
+msgid "SMS subscribe keyword"
+msgstr ""
+
+msgid "SMS subscribe parameter"
+msgstr ""
+
+msgid "SMS subscribe reply"
+msgstr ""
+
+msgid "SMS subscribe status has been changed"
+msgstr ""
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr ""
+
+msgid "SMS unsubscribe parameter"
+msgstr ""
+
+msgid "SMS unsubscribe reply"
+msgstr ""
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Send"
+msgstr "Senden"
+
+msgid "Send this message to all members"
+msgstr "Diese Nachricht an alle Mitglieder senden"
+
+msgid "Sent"
+msgstr "Gesendet"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Subscribe duration"
+msgstr ""
+
+msgid "Subscription expired reply"
+msgstr ""
+
+msgid "Unknown format reply"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "Unlimitiert"
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "View members"
+msgstr "Mitglieder anzeigen"
+
+msgid "View messages"
+msgstr "Nachrichten anzeigen"
+
+msgid "You have no member"
+msgstr ""
+
+msgid "You must fill all fields"
+msgstr "Sie müssen alle Felder ausfüllen"
+
+msgid "Your SMS has been delivered to queue"
+msgstr ""
+
+msgid "keyword"
+msgstr "Schlagwort"

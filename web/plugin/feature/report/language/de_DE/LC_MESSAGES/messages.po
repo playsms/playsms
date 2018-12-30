@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
+
+msgid "Account has been unbanned"
+msgstr ""
+
+msgid "All feature messages"
+msgstr "Alle Feature Nachrichten"
+
+msgid "All inbox"
+msgstr ""
+
+msgid "All reports"
+msgstr "Alle Berichte"
+
+msgid "All sent messages"
+msgstr "Alle gesendeten Nachrichten"
+
+msgid "Amount"
+msgstr ""
+
+msgid "Are you sure you want to delete these items ?"
+msgstr ""
+
+msgid "Ban date/time"
+msgstr ""
+
+msgid "Banned users list"
+msgstr ""
+
+msgid "Billing"
+msgstr "Abrechnung"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Credit"
+msgstr "Guthaben"
+
+msgid "Current IP address"
+msgstr "Aktuelle IP Adresse"
+
+msgid "Deleted"
+msgstr "Gelöscht"
+
+msgid "Delivered"
+msgstr "Zugestellt"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+msgid "Feature"
+msgstr "Feature"
+
+msgid "Footer"
+msgstr "Fußzeile"
+
+msgid "From"
+msgstr "Von"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Keyword"
+msgstr "Schlagwort"
+
+msgid "Last update"
+msgstr "Letzte Änderung"
+
+#, php-format
+msgid "List of messages from %s"
+msgstr ""
+
+msgid "List of my credit transactions"
+msgstr ""
+
+#, php-format
+msgid "List of queue %s"
+msgstr ""
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "My credit transactions"
+msgstr ""
+
+msgid "My feature messages"
+msgstr ""
+
+msgid "My report"
+msgstr "Mein Bericht"
+
+msgid "My sent messages"
+msgstr ""
+
+msgid "Pending"
+msgstr "Ausstehend"
+
+msgid "Report"
+msgstr "Bericht"
+
+msgid "Report all users"
+msgstr "Bericht Alle Benutzer"
+
+msgid "Report banned users"
+msgstr ""
+
+msgid "Report whose online"
+msgstr "Bericht Wer ist online"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Sandbox"
+msgstr ""
+
+msgid "Selected incoming message has been deleted"
+msgstr ""
+
+msgid "Selected outgoing message has been deleted"
+msgstr ""
+
+msgid "Sent"
+msgstr "Gesendet"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Time"
+msgstr "Zeit"
+
+msgid "To"
+msgstr "An"
+
+msgid "Total"
+msgstr "Gesamt"
+
+msgid "Transaction datetime"
+msgstr ""
+
+msgid "Unable to unban account"
+msgstr ""
+
+msgid "User"
+msgstr "Benutzer"
+
+msgid "User agent"
+msgstr ""
+
+msgid "Whose online"
+msgstr "Wer ist online"
+
+msgid "cost"
+msgstr ""
+
+msgid "count"
+msgstr ""
+
+msgid "rate"
+msgstr ""
+
+msgid "username"
+msgstr "Benutzername"
+
+#, php-format
+msgid "view all %d"
+msgstr "Zeige alle %d"

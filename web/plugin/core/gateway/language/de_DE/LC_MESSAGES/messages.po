@@ -4,21 +4,28 @@ msgstr ""
 "POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 2.1.1\n"
 
 msgid "Action"
-msgstr ""
+msgstr "Ausführen"
 
 msgid "Add SMSC"
-msgstr ""
+msgstr "SMSC hinzufügen"
 
 msgid "Are you sure ?"
-msgstr ""
+msgstr "Sind Sie sicher ?"
 
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 msgid "Edit SMSC"
-msgstr ""
+msgstr "SMSC bearbeiten"
 
 msgid "Fail to add new SMSC"
 msgstr ""
@@ -30,10 +37,10 @@ msgid "Fail to remove SMSC"
 msgstr ""
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Gateways"
-msgstr ""
+msgstr "Gateways"
 
 msgid "List of gateways and SMSCs"
 msgstr ""
@@ -42,7 +49,7 @@ msgid "Manage gateway and SMSC"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "New SMSC has been added"
 msgstr ""
@@ -51,7 +58,7 @@ msgid "Routed SMSC"
 msgstr ""
 
 msgid "SMSC already exists"
-msgstr ""
+msgstr "SMSC existiert bereits"
 
 msgid "SMSC has been edited"
 msgstr ""
@@ -60,16 +67,16 @@ msgid "SMSC has been removed"
 msgstr ""
 
 msgid "SMSC name"
-msgstr ""
+msgstr "SMSC Name"
 
 msgid "SMSCs"
-msgstr ""
+msgstr "SMSCs"
 
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 msgid "Supplied SMSC"
 msgstr ""
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Unbekannter Fehler"
