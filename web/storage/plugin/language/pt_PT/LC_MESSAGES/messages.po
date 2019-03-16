@@ -1985,9 +1985,6 @@ msgid "Press submit button to remove selected members from member list"
 msgstr ""
 "Prima o botão enviar para remover os membros selecionados da lista de membros"
 
-msgid "Prevent duplicates"
-msgstr "Evitar duplicados"
-
 msgid "Question"
 msgstr "Pergunta"
 

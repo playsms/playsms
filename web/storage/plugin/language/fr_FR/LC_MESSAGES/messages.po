@@ -1998,9 +1998,6 @@ msgid "Press submit button to remove selected members from member list"
 msgstr ""
 "Le bouton d'envoi supprimera les membres sélectionnés de la liste des membres"
 
-msgid "Prevent duplicates"
-msgstr "Éviter les doublons"
-
 msgid "Question"
 msgstr "Question"
 

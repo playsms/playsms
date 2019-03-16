@@ -1970,9 +1970,6 @@ msgstr ""
 "Pressione o botão enviar para remover os membros selecionados da lista de "
 "membros"
 
-msgid "Prevent duplicates"
-msgstr "Previnir duplicados"
-
 msgid "Question"
 msgstr "Pergunta"
 

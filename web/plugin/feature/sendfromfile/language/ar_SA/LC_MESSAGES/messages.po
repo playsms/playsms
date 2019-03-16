@@ -47,9 +47,6 @@ msgstr "الرسالة"
 msgid "Please select CSV file"
 msgstr "الرجاء اختيار ملف CSV  "
 
-msgid "Prevent duplicates"
-msgstr "منع التكرار"
-
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "تم إرسال الرسالة للأرقام الصالحة في الملف المحمَّل"
 

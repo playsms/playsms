@@ -1971,9 +1971,6 @@ msgstr "اضغط زر الإرسال لحذف المحددين من القائم
 msgid "Press submit button to remove selected members from member list"
 msgstr "اضغط زر الإرسال لحذف المحددين من القائمة"
 
-msgid "Prevent duplicates"
-msgstr "منع التكرار"
-
 msgid "Question"
 msgstr "السؤال"
 

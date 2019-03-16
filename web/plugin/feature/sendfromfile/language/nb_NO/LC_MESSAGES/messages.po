@@ -41,9 +41,6 @@ msgstr "Melding"
 msgid "Please select CSV file"
 msgstr "Vennligst velg CSV-fil"
 
-msgid "Prevent duplicates"
-msgstr "Unngå duplikater"
-
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS har blitt sendt til gyldige nummere i opplastet fil"
 

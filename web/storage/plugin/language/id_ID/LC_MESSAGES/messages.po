@@ -1961,9 +1961,6 @@ msgid "Press submit button to remove selected members from member list"
 msgstr ""
 "Tekan tombol kirim untuk menghapus anggota yang dipilih dari daftar anggota"
 
-msgid "Prevent duplicates"
-msgstr ""
-
 msgid "Question"
 msgstr "Pertanyaan"
 

@@ -1970,9 +1970,6 @@ msgstr ""
 msgid "Press submit button to remove selected members from member list"
 msgstr ""
 
-msgid "Prevent duplicates"
-msgstr ""
-
 msgid "Question"
 msgstr "问题"
 

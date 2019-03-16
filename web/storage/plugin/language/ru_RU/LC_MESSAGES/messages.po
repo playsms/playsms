@@ -1991,9 +1991,6 @@ msgstr "Нажмите подтвердить, чтобы удалить выб�
 msgid "Press submit button to remove selected members from member list"
 msgstr "Нажмите подтвердить, чтобы удалить выбранных участников из списка"
 
-msgid "Prevent duplicates"
-msgstr ""
-
 msgid "Question"
 msgstr "Вопрос"
 

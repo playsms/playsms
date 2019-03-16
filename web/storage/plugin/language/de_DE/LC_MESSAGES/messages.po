@@ -1942,9 +1942,6 @@ msgid "Press submit button to remove selected members from member list"
 msgstr ""
 "Drücke Ausführen, um ausgewählte Mitglieder von Mitgliederliste zu streichen"
 
-msgid "Prevent duplicates"
-msgstr ""
-
 msgid "Question"
 msgstr ""
 

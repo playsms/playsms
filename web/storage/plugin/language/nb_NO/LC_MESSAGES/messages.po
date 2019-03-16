@@ -1969,9 +1969,6 @@ msgstr ""
 msgid "Press submit button to remove selected members from member list"
 msgstr "Trykk på send-knappen for å slette valgte medlemmer fra medlemslisten"
 
-msgid "Prevent duplicates"
-msgstr "Unngå duplikater"
-
 msgid "Question"
 msgstr "Spørsmål"
 

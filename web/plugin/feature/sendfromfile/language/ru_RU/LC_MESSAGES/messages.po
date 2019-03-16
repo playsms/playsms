@@ -45,9 +45,6 @@ msgstr "Сообщение"
 msgid "Please select CSV file"
 msgstr "Выберите CSV файл"
 
-msgid "Prevent duplicates"
-msgstr ""
-
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "СМС отправлены на действительные номера в загруженном файле"
 
