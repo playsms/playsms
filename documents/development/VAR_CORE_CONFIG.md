@@ -182,8 +182,6 @@ Array
     [gatewaylist] => Array
         (
             [0] => blocked
-            [1] => bulksms
-            [2] => clickatell
             [3] => dev
             [4] => gammu
             [5] => generic
@@ -194,7 +192,6 @@ Array
             [10] => openvox
             [11] => playnet
             [12] => smstools
-            [13] => telerivet
             [14] => twilio
             [15] => uplink
         )

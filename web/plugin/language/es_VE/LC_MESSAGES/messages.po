@@ -41,9 +41,6 @@ msgstr ""
 msgid "ACL name"
 msgstr ""
 
-msgid "API ID"
-msgstr ""
-
 msgid "API key"
 msgstr ""
 
@@ -424,15 +421,6 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr ""
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr ""
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Buy"
 msgstr ""
 
@@ -443,9 +431,6 @@ msgid "CSS URL"
 msgstr ""
 
 msgid "CSV file format"
-msgstr ""
-
-msgid "Callback Secret"
 msgstr ""
 
 msgid "Callback URL"
@@ -503,15 +488,6 @@ msgid "City"
 msgstr ""
 
 msgid "Click the status button to enable or disable status"
-msgstr ""
-
-msgid "Clickatell API URL"
-msgstr ""
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr ""
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "Comma separated"
@@ -1138,9 +1114,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr ""
 
-msgid "Fill to change the API key"
-msgstr ""
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1571,14 +1544,6 @@ msgid "Manage board"
 msgstr "Administrar usuario"
 
 #, fuzzy
-msgid "Manage bulksms"
-msgstr "Administrar usuario"
-
-#, fuzzy
-msgid "Manage clickatell"
-msgstr "Administrar usuario"
-
-#, fuzzy
 msgid "Manage command"
 msgstr "Administrar usuario"
 
@@ -1676,10 +1641,6 @@ msgstr "Administrar usuario"
 
 #, fuzzy
 msgid "Manage sync"
-msgstr "Administrar usuario"
-
-#, fuzzy
-msgid "Manage telerivet"
 msgstr "Administrar usuario"
 
 #, fuzzy
@@ -1894,9 +1855,6 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-msgid "No changes has been made"
-msgstr ""
-
 msgid "No changes have been made"
 msgstr ""
 
@@ -2075,12 +2033,6 @@ msgid "Press submit button to remove selected catchall from catch-all list"
 msgstr ""
 
 msgid "Press submit button to remove selected members from member list"
-msgstr ""
-
-msgid "Prevent duplicates"
-msgstr ""
-
-msgid "Project ID"
 msgstr ""
 
 msgid "Question"
@@ -2776,9 +2728,6 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-msgid "Telerivet URL"
-msgstr ""
-
 msgid "Template installation path"
 msgstr ""
 
@@ -3115,12 +3064,6 @@ msgid "Your SMS has been delivered to queue"
 msgstr ""
 
 msgid "Your callback URL is"
-msgstr ""
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr ""
-
-msgid "Your callback URL should be accessible from Clickatell"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"

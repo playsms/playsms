@@ -49,9 +49,6 @@ msgstr "تم الحذف"
 msgid "ACL name"
 msgstr "اسم ACL"
 
-msgid "API ID"
-msgstr ""
-
 msgid "API key"
 msgstr ""
 
@@ -226,7 +223,7 @@ msgid "Add subuser"
 msgstr "إضافة مستخدم الفرعي"
 
 msgid "Additional URL parameter"
-msgstr "الرابط"
+msgstr ""
 
 msgid "Address"
 msgstr "العنوان"
@@ -428,16 +425,6 @@ msgstr "عنواين آي بي المحظورة"
 msgid "Blocked mobile"
 msgstr "تم الحظر"
 
-msgid "Bulksms API URL"
-msgstr "الرابط"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "BulkSMS مزود خدمة رسائل قصيرة"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-"BulkSMS سيقوم بتوجيه تقارير الاستلام والرسائل الواردة إلى رابط الاستدعاء"
-
 msgid "Buy"
 msgstr "صفحة شراء الرصيد"
 
@@ -449,9 +436,6 @@ msgstr "رابط ملف CSS"
 
 msgid "CSV file format"
 msgstr "صيغة ملف CSV"
-
-msgid "Callback Secret"
-msgstr ""
 
 msgid "Callback URL"
 msgstr ""
@@ -509,15 +493,6 @@ msgstr "المدينة"
 
 msgid "Click the status button to enable or disable status"
 msgstr "اضغط على زر الحالة لتمكين أو تعطيل حالة اسم المرسل"
-
-msgid "Clickatell API URL"
-msgstr ""
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr ""
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr ""
 
 msgid "Comma separated"
 msgstr "القيم المتعددة يجب وضع فاصلة بينها"
@@ -1111,9 +1086,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "الرجاء كتابة كلمة المرور"
 
-msgid "Fill to change the API key"
-msgstr ""
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1124,7 +1096,7 @@ msgid "Fill to change the Auth Token"
 msgstr ""
 
 msgid "Fill to change the password"
-msgstr "املأ حقل كلمة المرور لتغييرها."
+msgstr ""
 
 msgid "Fill with zero to disable limit"
 msgstr "ضع 0 لتعطيل الحد"
@@ -1529,13 +1501,6 @@ msgstr "تم الحظر"
 msgid "Manage board"
 msgstr "إدارة اللوح"
 
-msgid "Manage bulksms"
-msgstr "المستخدمون الفرعيون"
-
-#, fuzzy
-msgid "Manage clickatell"
-msgstr " إدارة الموقع"
-
 msgid "Manage command"
 msgstr "إدارة الأوامر"
 
@@ -1620,10 +1585,6 @@ msgstr "إدارة المستخدم الفرعي"
 msgid "Manage sync"
 msgstr "إدارة المزامنة"
 
-#, fuzzy
-msgid "Manage telerivet"
-msgstr " إدارة الموقع"
-
 msgid "Manage template"
 msgstr "قالب الرسائل"
 
@@ -1645,7 +1606,7 @@ msgid "Match with all approved sender ID"
 msgstr "مطابقة مع كافة اسماء المرسل المفعلة"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "الحد الأقصى 16 رقم أو 11 حرف رقمي، للتعطيل اتركه فارغًا"
+msgstr ""
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "الحد الأقصى 16 رقم أو 11 حرف رقمي"
@@ -1750,11 +1711,12 @@ msgstr "تم حظر عناوين آي بي"
 msgid "Mobile numbers have been deleted"
 msgstr "تم حذف عناوين آي بي"
 
+#, fuzzy
 msgid "Module sender ID"
-msgstr "اسم المرسل"
+msgstr "إدارة اسم المرسل"
 
 msgid "Module timezone"
-msgstr "المنطقة الزمنية"
+msgstr ""
 
 msgid "Monthly"
 msgstr "شهريًا"
@@ -1829,9 +1791,6 @@ msgid "Nexmo will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
 msgid "No"
-msgstr ""
-
-msgid "No changes has been made"
 msgstr ""
 
 msgid "No changes have been made"
@@ -2011,12 +1970,6 @@ msgstr "اضغط زر الإرسال لحذف المحددين من القائم
 
 msgid "Press submit button to remove selected members from member list"
 msgstr "اضغط زر الإرسال لحذف المحددين من القائمة"
-
-msgid "Prevent duplicates"
-msgstr "منع التكرار"
-
-msgid "Project ID"
-msgstr ""
 
 msgid "Question"
 msgstr "السؤال"
@@ -2708,9 +2661,6 @@ msgstr "خطأ في النظام"
 msgid "Tags"
 msgstr "التسميات"
 
-msgid "Telerivet URL"
-msgstr ""
-
 msgid "Template installation path"
 msgstr "مسار تنصيب القالب"
 
@@ -3040,12 +2990,6 @@ msgid "Your SMS has been delivered to queue"
 msgstr "تم وضع الرسالة في الطابور"
 
 msgid "Your callback URL is"
-msgstr "الرابط"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "رابط الاستدعاء يجب أن يكون قابل للوصول من قبل BulkSMS"
-
-msgid "Your callback URL should be accessible from Clickatell"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
@@ -3148,7 +3092,7 @@ msgid "format"
 msgstr "الصيغة"
 
 msgid "free credits are available for testing purposes"
-msgstr "رصيد مجاني متاح للتجربة"
+msgstr ""
 
 msgid "group"
 msgstr "لا مجموعة"

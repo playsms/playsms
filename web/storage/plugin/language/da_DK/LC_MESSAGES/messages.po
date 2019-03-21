@@ -47,9 +47,6 @@ msgstr "ACL er blevet slettet"
 msgid "ACL name"
 msgstr "ACL navn"
 
-msgid "API ID"
-msgstr "API ID"
-
 msgid "API key"
 msgstr "API nøgle"
 
@@ -434,15 +431,6 @@ msgstr "Blokeret IP adresse"
 msgid "Blocked mobile"
 msgstr "Blokeret mobilnr"
 
-msgid "Bulksms API URL"
-msgstr "Bulksms API URL"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "Bulksms er en masse-SMS leverandør"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr "Bulksms vil sende DLR og indkommende SMS til din callback URL"
-
 msgid "Buy"
 msgstr "Køb"
 
@@ -454,9 +442,6 @@ msgstr "CSS URL"
 
 msgid "CSV file format"
 msgstr "CSV filformat"
-
-msgid "Callback Secret"
-msgstr "Callback hemmelighed"
 
 msgid "Callback URL"
 msgstr "Callback URL"
@@ -514,15 +499,6 @@ msgstr "By"
 
 msgid "Click the status button to enable or disable status"
 msgstr "Klik på statusknappen for at aktivere eller deaktivere status"
-
-msgid "Clickatell API URL"
-msgstr "Clickatell API URL"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell er en mass-SMS leverandør"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "Comma separated"
 msgstr "Kommasepareret"
@@ -1119,9 +1095,6 @@ msgstr "Udfyld godkendelseskode for at sikre callback URL"
 msgid "Fill the password field to change password"
 msgstr "Udfyld adgangskodefeltet for at skifte adgangskode"
 
-msgid "Fill to change the API key"
-msgstr "Udfyld for at ændre API nøglen"
-
 msgid "Fill to change the API password"
 msgstr "Udfyld for at ændre API adgangskoden"
 
@@ -1539,12 +1512,6 @@ msgstr "Håndter blokeret"
 msgid "Manage board"
 msgstr "Håndter forum"
 
-msgid "Manage bulksms"
-msgstr "Håndter masse-sms"
-
-msgid "Manage clickatell"
-msgstr "Håndter clickatell"
-
 msgid "Manage command"
 msgstr "Håndter kommando"
 
@@ -1619,9 +1586,6 @@ msgstr "Håndter underbruger"
 
 msgid "Manage sync"
 msgstr "Håndter sync"
-
-msgid "Manage telerivet"
-msgstr "Håndter telerivet"
 
 msgid "Manage template"
 msgstr "Håndter skabelon"
@@ -1828,9 +1792,6 @@ msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
 msgid "No"
 msgstr "Nej"
 
-msgid "No changes has been made"
-msgstr "Ingen ændringer er foretaget"
-
 msgid "No changes have been made"
 msgstr "Ingen ændringer foretaget"
 
@@ -2011,12 +1972,6 @@ msgstr ""
 
 msgid "Press submit button to remove selected members from member list"
 msgstr "Tryk på knappen indsend for at fjerne valgte brugere fra medlemslisten"
-
-msgid "Prevent duplicates"
-msgstr "Forhinder dubletter"
-
-msgid "Project ID"
-msgstr "Projekt ID"
 
 msgid "Question"
 msgstr "Spørgsmål"
@@ -2722,9 +2677,6 @@ msgstr "Der opstod en systemfejl"
 msgid "Tags"
 msgstr "Tags"
 
-msgid "Telerivet URL"
-msgstr "Telerivet URL"
-
 msgid "Template installation path"
 msgstr "Skabelon installationssti"
 
@@ -3056,12 +3008,6 @@ msgstr "Din SMS er afleveret til køen"
 
 msgid "Your callback URL is"
 msgstr "Din callback URL er"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Din callback URL skal være tilgængelig fra Bulksms"
-
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr "Din callback URL skal være tilgængelig fra Clickatell"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgængelig fra infobip"

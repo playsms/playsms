@@ -69,12 +69,12 @@ switch (_OP_) {
 			$table = _DB_PREF_ . '_tblSMSOutgoing';
 			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
 			$list = dba_search($table . ' AS A', 'A.id', $conditions, $keywords, array(
-				'GROUP BY' => 'A.queue_code' 
+				'GROUP BY' => 'A.queue_code, A.id'
 			), $join);
 			$count = count($list);
 			$nav = themes_nav($count, $search['url']);
 			$extras = array(
-				'GROUP BY' => 'A.queue_code',
+				'GROUP BY' => 'A.queue_code, A.id',
 				'ORDER BY' => 'A.smslog_id DESC',
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 

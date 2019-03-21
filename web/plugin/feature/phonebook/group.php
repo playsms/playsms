@@ -196,7 +196,7 @@ switch (_OP_) {
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($group_name && $group_code) {
-					$ret = phonebook_group_add($uid, $group_name, $group_code);
+					$ret = phonebook_group_add($uid, $group_name, $group_code, $flag_sender);
 					if ($ret == TRUE) {
 						$_SESSION['dialog']['info'][] = _('Group code has been added') . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 						_lastpost_empty();

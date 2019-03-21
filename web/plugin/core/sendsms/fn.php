@@ -489,7 +489,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		return $ret;
 	}
 	
-	if (rate_cansend($username, strlen($sms_msg . $sms_footer), $unicode, $sms_to)) {
+	if (rate_cansend($username, core_smslen($sms_msg . $sms_footer), $unicode, $sms_to)) {
 		$p_status = 0;
 	} else {
 		$p_status = 2;
@@ -513,7 +513,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	if ($id = @dba_insert_id($db_query)) {
 		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "sendsms_process");
 		if ($p_status == 0) {
-			_log("final smslog_id:" . $smslog_id . " gw:" . $gateway . " smsc:" . $smsc . " message:" . $sms_msg . $sms_footer . " len:" . strlen($sms_msg . $sms_footer), 3, "sendsms");
+			_log("final smslog_id:" . $smslog_id . " gw:" . $gateway . " smsc:" . $smsc . " message:" . $sms_msg . $sms_footer . " len:" . core_smslen($sms_msg . $sms_footer), 3, "sendsms");
 			if (core_hook($gateway, 'sendsms', array(
 				$smsc,
 				$sms_sender,
@@ -746,7 +746,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	// $max_length = ( $unicode ? $user['opt']['max_sms_length_unicode'] : $user['opt']['max_sms_length'] );
 	$max_length = $user['opt']['max_sms_length'];
 	
-	if (strlen($message) > $max_length) {
+	if (core_smslen($message) > $max_length) {
 		$message = substr($message, 0, $max_length);
 	}
 	$sms_msg = $message;
@@ -755,7 +755,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	
 	// add a space infront of footer if exists
 	$c_sms_footer = (trim($sms_footer) ? ' ' . trim($sms_footer) : '');
-	_log("maxlen:" . $max_length . " footerlen:" . strlen($c_sms_footer) . " footer:[" . $c_sms_footer . "] msglen:" . strlen($sms_msg) . " message:[" . $sms_msg . "]", 3, "sendsms");
+	_log("maxlen:" . $max_length . " footerlen:" . core_smslen($c_sms_footer) . " footer:[" . $c_sms_footer . "] msglen:" . core_smslen($sms_msg) . " message:[" . $sms_msg . "]", 3, "sendsms");
 	
 	// create a queue
 	$queue_code = sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, 0, $sms_type, $unicode, $sms_schedule, $smsc);
@@ -795,7 +795,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$total_count = 0;
 	$total_charges = 0;
 	foreach ($all_sms_to as $c_sms_to) {
-		list($count, $rate, $charge) = rate_getcharges($uid, strlen($message . $c_sms_footer), $unicode, $c_sms_to);
+		list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($message . $c_sms_footer), $unicode, $c_sms_to);
 		$total_count += $count;
 		$total_charges += $charge;
 	}

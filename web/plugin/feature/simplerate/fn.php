@@ -197,8 +197,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 		if ($p_dst && $p_msg && $uid) {
 
 			// get charge
-			$p_msg_len = strlen($p_msg) + strlen($p_footer);
-			list($count, $rate, $charge) = rate_getcharges($uid, $p_msg_len, $unicode, $p_dst);
+			list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($p_msg.$p_footer), $unicode, $p_dst);
 
 			if (billing_post($smslog_id, $rate, $count, $charge)) {
 				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");

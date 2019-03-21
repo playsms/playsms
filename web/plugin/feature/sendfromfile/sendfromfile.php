@@ -40,7 +40,6 @@ switch (_OP_) {
 							<p>" . _('Please select CSV file') . "</p>
 							<p><input type=\"file\" name=\"fncsv\"></p>
 							<p class=help-block>" . _('CSV file format') . " : " . $info_format . "</p>
-							<p><input type=checkbox name=fncsv_dup value=1 checked> " . _('Prevent duplicates') . "</p>
 							<p><input type=\"submit\" value=\"" . _('Upload file') . "\" class=\"button\"></p>
 							</form>
 						</td>
@@ -50,17 +49,24 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case 'upload_confirm':
-		$filename = $_FILES['fncsv']['name'];
+	
+		// fixme anton - https://www.exploit-database.net/?id=92843
+		$filename = core_sanitize_filename($_FILES['fncsv']['name']);		
+		if ($filename == $_FILES['fncsv']['name']) {
+			$continue = TRUE;
+		} else {
+			$continue = FALSE;
+		}
+		
 		$fn = $_FILES['fncsv']['tmp_name'];
 		$fs = (int) $_FILES['fncsv']['size'];
-		$nodups = ($_REQUEST['fncsv_dup'] ? TRUE : FALSE);
 		$all_numbers = array();
 		$valid = 0;
 		$invalid = 0;
 		$item_valid = array();
 		$item_invalid = array();
 		
-		if (($fs == filesize($fn)) && file_exists($fn)) {
+		if ($continue && ($fs == filesize($fn)) && file_exists($fn)) {
 			if (($fd = fopen($fn, 'r')) !== FALSE) {
 				$sid = md5(uniqid('SID', true));
 				$continue = true;
@@ -87,9 +93,10 @@ switch (_OP_) {
 						$uid = $user_config['uid'];
 						$data[2] = $sms_username;
 					}
-					if ($nodups) {
-						if (in_array($sms_to, $all_numbers)) $dup = true;
-					}
+					
+					// check dups
+					$dup = ( in_array($sms_to, $all_numbers) ? TRUE : FALSE );
+					
 					if ($sms_to && $sms_msg && $uid && !$dup) {
 						$all_numbers[] = $sms_to;
 						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";

@@ -47,9 +47,6 @@ msgstr "ACL foi eliminado"
 msgid "ACL name"
 msgstr "Nome ACL"
 
-msgid "API ID"
-msgstr "ID da API"
-
 msgid "API key"
 msgstr "Chave API"
 
@@ -432,15 +429,6 @@ msgstr "Endereço IP bloqueado"
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr "URL da API do Bulksms"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "Bulksms é um servidor de SMS"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr "Bulksms irá enviar DLR ou SMS recebido para sua URL de callback"
-
 msgid "Buy"
 msgstr "Comprar"
 
@@ -452,9 +440,6 @@ msgstr "URL do CSS"
 
 msgid "CSV file format"
 msgstr "Formato do ficheiro CSV"
-
-msgid "Callback Secret"
-msgstr "Secreto Callback"
 
 msgid "Callback URL"
 msgstr "URL de callback"
@@ -513,15 +498,6 @@ msgstr "Cidade"
 
 msgid "Click the status button to enable or disable status"
 msgstr "Clique no botão para ativar ou desativar o status"
-
-msgid "Clickatell API URL"
-msgstr "URL da API do clickatell"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell é um servidor de SMS"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell irá enviar DLR ou SMS recebido para sua URL de callback"
 
 msgid "Comma separated"
 msgstr "separados por vírgula"
@@ -1121,9 +1097,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "Preencher o campo palavra-passe para alterar a palavra-passe"
 
-msgid "Fill to change the API key"
-msgstr "Preencha para alterar a chave API"
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1541,12 +1514,6 @@ msgstr "Gerir Bloqueados"
 msgid "Manage board"
 msgstr "Gerir Placa"
 
-msgid "Manage bulksms"
-msgstr "Gerir bulksms"
-
-msgid "Manage clickatell"
-msgstr "Gerir clickatell"
-
 msgid "Manage command"
 msgstr "Gerir comando"
 
@@ -1624,9 +1591,6 @@ msgstr "Gerir sub-utilizador"
 
 msgid "Manage sync"
 msgstr "Gerir Sync"
-
-msgid "Manage telerivet"
-msgstr "Gerir telerivet"
 
 msgid "Manage template"
 msgstr "Gerir Tema"
@@ -1834,9 +1798,6 @@ msgstr "Nexmo irá enviar DLR e SMS para sua URL de callback"
 msgid "No"
 msgstr "Não"
 
-msgid "No changes has been made"
-msgstr "Nenhuma mudança efectuada"
-
 msgid "No changes have been made"
 msgstr "Não foi efectuado qualquer alteração"
 
@@ -2023,12 +1984,6 @@ msgstr "Prima o botão enviar para remover os catch-all da lista de catch-all"
 msgid "Press submit button to remove selected members from member list"
 msgstr ""
 "Prima o botão enviar para remover os membros selecionados da lista de membros"
-
-msgid "Prevent duplicates"
-msgstr "Evitar duplicados"
-
-msgid "Project ID"
-msgstr "Projeto ID"
 
 msgid "Question"
 msgstr "Pergunta"
@@ -2733,9 +2688,6 @@ msgstr "Ocorreu um erro de sistema"
 msgid "Tags"
 msgstr ""
 
-msgid "Telerivet URL"
-msgstr ""
-
 msgid "Template installation path"
 msgstr "Caminho de instalação do tema"
 
@@ -3073,12 +3025,6 @@ msgstr "Seu SMS foi enviado para a fila"
 msgid "Your callback URL is"
 msgstr "Sua URL de callback é"
 
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Sua URL de callback deve ser acessível pelo  bulksms"
-
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr "Sua URL de callback deve ser acessível pelo Clickatell"
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "O seu URL de callback tem que ser acessível a partir de infobip"
 
@@ -3180,7 +3126,7 @@ msgid "format"
 msgstr "Formato"
 
 msgid "free credits are available for testing purposes"
-msgstr "créditos gratuitos estão disponíveis pra testes"
+msgstr "créditos gratúitos estão disponíveis para testes"
 
 msgid "group"
 msgstr "Grupo"

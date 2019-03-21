@@ -47,9 +47,6 @@ msgstr ""
 msgid "ACL name"
 msgstr ""
 
-msgid "API ID"
-msgstr "API ID"
-
 msgid "API key"
 msgstr "API key"
 
@@ -439,15 +436,6 @@ msgstr ""
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr ""
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr ""
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-
 msgid "Buy"
 msgstr "Купить"
 
@@ -459,9 +447,6 @@ msgstr "CSS URL"
 
 msgid "CSV file format"
 msgstr "Формат CSV файла"
-
-msgid "Callback Secret"
-msgstr ""
 
 msgid "Callback URL"
 msgstr "Callback URL"
@@ -521,15 +506,6 @@ msgstr "Город"
 
 msgid "Click the status button to enable or disable status"
 msgstr "Нажмите для включения или отключения"
-
-msgid "Clickatell API URL"
-msgstr "Clickatell API URL"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell это массовый СМС провайдер"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr "Clickatell отправит DLR и входящие SMS на Ваш callback URL"
 
 msgid "Comma separated"
 msgstr "Разделённый запятыми"
@@ -1128,9 +1104,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "Заполните поле чтобы изменить пароль"
 
-msgid "Fill to change the API key"
-msgstr ""
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1548,13 +1521,6 @@ msgstr "Закрытый шлюз"
 msgid "Manage board"
 msgstr "Доски объявлений"
 
-#, fuzzy
-msgid "Manage bulksms"
-msgstr "Управление дочерними пользователями"
-
-msgid "Manage clickatell"
-msgstr "Сlickatell"
-
 msgid "Manage command"
 msgstr "Команды"
 
@@ -1632,10 +1598,6 @@ msgstr "Управление дочерними пользователями"
 
 msgid "Manage sync"
 msgstr "SMS Sync"
-
-#, fuzzy
-msgid "Manage telerivet"
-msgstr "Управление пользователями"
 
 msgid "Manage template"
 msgstr "Шаблонный"
@@ -1844,9 +1806,6 @@ msgstr "Nexmo отправит DLR и входящие СМС на Ваш callba
 msgid "No"
 msgstr "Нет"
 
-msgid "No changes has been made"
-msgstr ""
-
 msgid "No changes have been made"
 msgstr "Нет изменений"
 
@@ -2031,12 +1990,6 @@ msgstr "Нажмите подтвердить, чтобы удалить выб�
 
 msgid "Press submit button to remove selected members from member list"
 msgstr "Нажмите подтвердить, чтобы удалить выбранных участников из списка"
-
-msgid "Prevent duplicates"
-msgstr ""
-
-msgid "Project ID"
-msgstr ""
 
 msgid "Question"
 msgstr "Вопрос"
@@ -2739,9 +2692,6 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-msgid "Telerivet URL"
-msgstr ""
-
 msgid "Template installation path"
 msgstr "Установочный путь шаблона"
 
@@ -3072,12 +3022,6 @@ msgstr "Ваше СМС поставлено в очередь"
 msgid "Your callback URL is"
 msgstr "Ваш callback URL"
 
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr ""
-
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr "Ваш callback URL должен быть доступен со стороны Clickatell"
-
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"
 
@@ -3179,7 +3123,7 @@ msgid "format"
 msgstr ""
 
 msgid "free credits are available for testing purposes"
-msgstr "бесплантый лимит доступен для целей тестирования"
+msgstr "бесплатный лимит доступен для целей тестирования"
 
 msgid "group"
 msgstr "группа"

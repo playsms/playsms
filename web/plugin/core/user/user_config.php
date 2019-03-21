@@ -127,7 +127,7 @@ switch (_OP_) {
 		$option_fwd_to_mobile .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 		
 		// get language options
-		$lang_list = '';
+		$lang_list = array();
 		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
 			$language = $core_config['plugins']['list']['language'][$i];
 			$c_language_title = $plugin_config[$language]['title'];

@@ -20,41 +20,29 @@ defined('_SECURE_') or die('Forbidden');
 
 $c_path = $core_config['apps_path']['plug'] . '/feature/sms_poll';
 
-include ($c_path . "/lib/pChart/class/pData.class.php");
-include ($c_path . "/lib/pChart/class/pDraw.class.php");
-include ($c_path . "/lib/pChart/class/pPie.class.php");
-include ($c_path . "/lib/pChart/class/pImage.class.php");
+include ($c_path . "/lib/pChart/pDraw.php");
+include ($c_path . "/lib/pChart/pData.php");
+include ($c_path . "/lib/pChart/pPie.php");
+include ($c_path . "/lib/pChart/pColor.php");
+
+use pChart\pDraw;
+use pChart\pPie;
+
+/* Create the pChart object */
+$myPicture = new pDraw(400, 200);
 
 /* Create and populate the pData object */
-$MyData = new pData();
-$MyData->addPoints($results, "ScoreA");
-$MyData->setSerieDescription("ScoreA", "Application A");
+//$myPicture = new pData();
+$myPicture->myData->addPoints($results, "ScoreA");
+$myPicture->myData->setSerieDescription("ScoreA", "Application A");
+
 /* Define the absissa serie */
-$MyData->addPoints($choices, "Labels");
-$MyData->setAbscissa("Labels");
-/* Create the pChart object */
-$myPicture = new pImage(400, 200, $MyData, TRUE);
-/* Set the default font properties */
-$myPicture->setFontProperties(array(
-	"FontName" => $c_path . "/lib/pChart/fonts/pf_arma_five.ttf",
-	"FontSize" => 8,
-	"R" => 80,
-	"G" => 80,
-	"B" => 80 
-));
+$myPicture->myData->addPoints($choices, "Labels");
+$myPicture->myData->setAbscissa("Labels");
+
 /* Create the pPie object */
-$PieChart = new pPie($myPicture, $MyData);
-/* Define the slice color */
-$PieChart->setSliceColor(0, array(
-	"R" => 97,
-	"G" => 77,
-	"B" => 63 
-));
-$PieChart->setSliceColor(2, array(
-	"R" => 97,
-	"G" => 113,
-	"B" => 63 
-));
+$PieChart = new pPie($myPicture);
+
 /* Enable shadow computing */
 $myPicture->setShadow(TRUE, array(
 	"X" => 3,
@@ -71,11 +59,8 @@ $PieChart->draw3DPie(150, 120, array(
 	"DataGapRadius" => 5,
 	"Border" => TRUE 
 ));
+
 /* Write the legend */
-$myPicture->setFontProperties(array(
-	"FontName" => $c_path . "/lib/pChart/fonts/pf_arma_five.ttf",
-	"FontSize" => 8 
-));
 $myPicture->setShadow(TRUE, array(
 	"X" => 1,
 	"Y" => 1,
@@ -84,10 +69,11 @@ $myPicture->setShadow(TRUE, array(
 	"B" => 0,
 	"Alpha" => 20 
 ));
+
 /* Write the legend box */
 $myPicture->setFontProperties(array(
-	"FontName" => $c_path . "/lib/pChart/fonts/calibri.ttf",
-	"FontSize" => 10,
+	"FontName" => $c_path . "/lib/pChart/fonts/MankSans.ttf",
+	"FontSize" => 8,
 	"R" => 100,
 	"G" => 100,
 	"B" => 100 

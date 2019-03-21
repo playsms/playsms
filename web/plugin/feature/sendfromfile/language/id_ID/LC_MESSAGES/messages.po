@@ -38,9 +38,6 @@ msgstr "Pesan"
 msgid "Please select CSV file"
 msgstr "Silahkan pilih file CSV"
 
-msgid "Prevent duplicates"
-msgstr ""
-
 msgid "SMS has been sent to valid numbers in uploaded file"
 msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"
 

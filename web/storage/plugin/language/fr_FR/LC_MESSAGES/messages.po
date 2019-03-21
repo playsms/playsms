@@ -40,9 +40,6 @@ msgstr "L'ACL a été supprimée"
 msgid "ACL name"
 msgstr "Nom de l'ACL"
 
-msgid "API ID"
-msgstr "ID de l'API"
-
 msgid "API key"
 msgstr "Clé de l'API"
 
@@ -433,16 +430,6 @@ msgstr "Adresses IP bloquées"
 msgid "Blocked mobile"
 msgstr ""
 
-msgid "Bulksms API URL"
-msgstr "URL de l'API bulksms"
-
-msgid "Bulksms is a bulk SMS provider"
-msgstr "Bulksms est un fournisseur de SMS en gros"
-
-msgid "Bulksms will push DLR and incoming SMS to your callback URL"
-msgstr ""
-"Bulksms va faire un push du DLR et du SMS entrant vers votre URL de callback"
-
 msgid "Buy"
 msgstr "Acheter"
 
@@ -455,11 +442,8 @@ msgstr "URL CSS"
 msgid "CSV file format"
 msgstr "Format de fichier CSV"
 
-msgid "Callback Secret"
-msgstr "Secret du callback"
-
 msgid "Callback URL"
-msgstr "URL du callback"
+msgstr "URL de callback"
 
 msgid "Callback URL authcode"
 msgstr ""
@@ -517,17 +501,6 @@ msgstr "Ville"
 
 msgid "Click the status button to enable or disable status"
 msgstr "Cliquez le bouton de statut pour activer ou désactiver le statut"
-
-msgid "Clickatell API URL"
-msgstr "URL de l'API clickatell"
-
-msgid "Clickatell is a bulk SMS provider"
-msgstr "Clickatell est un fournisseur de SMS en gros"
-
-msgid "Clickatell will push DLR and incoming SMS to your callback URL"
-msgstr ""
-"Clickatell va faire un push du DLR et du SMS entrant vers votre URL de "
-"callback"
 
 msgid "Comma separated"
 msgstr "Séparé par des virgules"
@@ -1128,9 +1101,6 @@ msgstr ""
 msgid "Fill the password field to change password"
 msgstr "Veuillez saisir le champ du mot de passe pour le changer"
 
-msgid "Fill to change the API key"
-msgstr "Veuillez saisir pour changer la clé de l'API"
-
 msgid "Fill to change the API password"
 msgstr ""
 
@@ -1552,12 +1522,6 @@ msgstr "Gérer bloqués"
 msgid "Manage board"
 msgstr "Gérer service de redirection"
 
-msgid "Manage bulksms"
-msgstr "Gérer bulksms"
-
-msgid "Manage clickatell"
-msgstr "Gérer clickatell"
-
 msgid "Manage command"
 msgstr "Gérer commande shell"
 
@@ -1635,9 +1599,6 @@ msgstr "Gérer sous-utilisateur"
 
 msgid "Manage sync"
 msgstr "Gérer sync"
-
-msgid "Manage telerivet"
-msgstr "Gérer telerivet"
 
 msgid "Manage template"
 msgstr "Gérer modèle"
@@ -1848,9 +1809,6 @@ msgstr ""
 msgid "No"
 msgstr "Non"
 
-msgid "No changes has been made"
-msgstr "Aucun changement apporté"
-
 msgid "No changes have been made"
 msgstr "Aucune modification apportée"
 
@@ -2039,12 +1997,6 @@ msgstr ""
 msgid "Press submit button to remove selected members from member list"
 msgstr ""
 "Le bouton d'envoi supprimera les membres sélectionnés de la liste des membres"
-
-msgid "Prevent duplicates"
-msgstr "Éviter les doublons"
-
-msgid "Project ID"
-msgstr "ID du projet"
 
 msgid "Question"
 msgstr "Question"
@@ -2755,9 +2707,6 @@ msgstr "Une erreur système est survenue"
 msgid "Tags"
 msgstr "Tags"
 
-msgid "Telerivet URL"
-msgstr "URL de telerivet"
-
 msgid "Template installation path"
 msgstr "Chemin d'installation du modèle"
 
@@ -3100,12 +3049,6 @@ msgstr "Votre SMS a été mis dans la file d'attente"
 
 msgid "Your callback URL is"
 msgstr "Votre URL de callback est"
-
-msgid "Your callback URL should be accessible from Bulksms"
-msgstr "Votre URL de callback doit être accessible par Bulksms"
-
-msgid "Your callback URL should be accessible from Clickatell"
-msgstr "Votre URL de callback doit être accessible par Clickatell"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Votre URL de callback doit être accessible par Infobip"

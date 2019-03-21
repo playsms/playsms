@@ -298,7 +298,7 @@ function _gateway_display_smsc() {
 	return $content;
 }
 
-function gateway_select_smsc($select_name, $default_smsc) {
+function gateway_select_smsc($select_name, $default_smsc = '') {
 	$c_options = array(
 		_('Supplied SMSC') => '_smsc_supplied_',
 		_('Routed SMSC') => '_smsc_routed_' 

@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.4**
+This document explains about how to install and setup playSMS version **1.4.2**
 
 
 ## Requirements
@@ -14,9 +14,9 @@ part before starting the installation.
 
 Optional hardware or infrastructure:
 
-* GSM modem, single/modem pool (only when you plan to use Kannel, Gammu, Gnokii or smstools gateway plugins)
-* Internet connection (only when you plan to use Clickatell, Nexmo, Twilio, Infobip gateway plugins)
-* LAN (only when you plan to link 2 playSMS on different server in the same network using Uplink gateway plugin)
+* GSM modem, single/modem pool
+* Internet connection
+* LAN
 
 **Minimum required softwares:**
 
@@ -61,9 +61,9 @@ Install playSMS using install script `install-playsms.sh`
 1.  Extract playSMS package and go there (For example in `/usr/local/src`)
 
     ```bash
-    tar -zxf playsms-1.4.tar.gz -C /usr/local/src
+    tar -zxf playsms-1.4.2.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.4/
+    cd /usr/local/src/playsms-1.4.2/
     ```
 
 2.  Copy `install.conf.dist` to `install.conf` and edit `install.conf`
@@ -130,9 +130,9 @@ Install playSMS by following step-by-step:
 1.  Extract playSMS package and go there (For example in `/usr/local/src`)
 
     ```bash
-    tar -zxf playsms-1.4.tar.gz -C /usr/local/src
+    tar -zxf playsms-1.4.2.tar.gz -C /usr/local/src
     ls -l /usr/local/src/
-    cd /usr/local/src/playsms-1.4/
+    cd /usr/local/src/playsms-1.4.2/
     ```
 
 2.  Run `getcomposer.sh`

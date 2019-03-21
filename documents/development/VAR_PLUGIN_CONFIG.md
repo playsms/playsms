@@ -96,44 +96,6 @@ Array
 
         )
 
-    [bulksms] => Array
-        (
-            [name] => bulksms
-            [username] => playsms
-            [password] => playsms
-            [module_sender] => PlaySMS
-            [send_url] => http://bulksms.vsms.net:5567/eapi
-            [additional_param] => routing_group=1&repliable=0
-            [datetime_timezone] => 
-            [_smsc_config_] => Array
-                (
-                )
-
-        )
-
-    [clickatell] => Array
-        (
-            [name] => clickatell
-            [api_id] => 123456
-            [username] => playsms
-            [password] => playsms
-            [module_sender] => PlaySMS
-            [send_url] => https://api.clickatell.com/http
-            [additional_param] => deliv_ack=1&callback=3
-            [datetime_timezone] => 
-            [_smsc_config_] => Array
-                (
-                    [api_id] => API ID
-                    [username] => Username
-                    [password] => Password
-                    [send_url] => Clickatell API URL
-                    [additional_param] => Additional URL parameter
-                    [module_sender] => Module sender ID
-                    [datetime_timezone] => Module timezone
-                )
-
-        )
-
     [dev] => Array
         (
             [name] => dev
@@ -301,20 +263,6 @@ Array
                 (
                     [sms_receiver] => Receiver number
                     [queue] => Queue directory
-                )
-
-        )
-
-    [telerivet] => Array
-        (
-            [name] => telerivet
-            [url] => https://api.telerivet.com/
-            [api_key] => 12345678
-            [project_id] => abc123cde456
-            [status_url] => https://localhost/plugin/gateway/telerivet/callback.php
-            [status_secret] => myS3cr3t
-            [_smsc_config_] => Array
-                (
                 )
 
         )

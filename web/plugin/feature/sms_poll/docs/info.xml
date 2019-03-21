@@ -3,8 +3,8 @@
 	<name>sms_poll</name>
 	<alias>SMS Poll</alias>
 	<description>SMS Poll</description>
-	<release>1.0</release>
-	<date>2010-09-25</date>
+	<release>1.1</release>
+	<date>2019-03-12</date>
 	<author>Anton Raharja</author>
 	<language_file>1</language_file>
 	<sql_file>0</sql_file>
