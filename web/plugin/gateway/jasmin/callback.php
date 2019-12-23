@@ -52,6 +52,7 @@ if ($remote_smslog_id && $message_status) {
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($message_status) {
+			case "DELIVRD":
 			case "ESME_ROK":
 				$p_status = 3;
 				break; // delivered
@@ -59,7 +60,7 @@ if ($remote_smslog_id && $message_status) {
 				$p_status = 2;
 				break; // failed
 		}
-		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $status, 2, "jasmin callback");
+		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $p_status, 2, "jasmin callback");
 		dlr($smslog_id, $uid, $p_status);
 		
 		ob_end_clean();
