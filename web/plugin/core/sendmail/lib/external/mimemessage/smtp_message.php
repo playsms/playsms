@@ -47,7 +47,7 @@ class smtp_message_class extends email_message_class
 			$length=strlen($address);
 			for($position=0;$position<$length;)
 			{
-				$match=split($this->email_address_pattern,strtolower(substr($address,$position)),2);
+				$match=preg_split("/".$this->email_address_pattern."/",strtolower(substr($address,$position)),2);
 				if(count($match)<2)
 				break;
 				$position+=strlen($match[0]);
