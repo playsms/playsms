@@ -38,7 +38,19 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
 	));
 	
 	$t->setTemplate($fn);
-	$t->setVars($tpl['vars'])->setIfs($tpl['ifs'])->setLoops($tpl['loops']);
+
+	if ($tpl['vars']) {
+		$t->setVars($tpl['vars']);
+	}
+
+	if ($tpl['ifs']) {
+		$t->setIfs($tpl['ifs']);
+	}
+
+	if ($tpl['loops']) {
+		$t->setLoops($tpl['loops']);
+	}
+
 	$t->setInjects($injected);
 	$t->compile();
 	
@@ -52,7 +64,7 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
  *        Template name
  * @return string Sanitized template name
  */
-function _tpl_name_sanitize($name) {
+function _tpl_sanitize_name($name) {
 	$name = str_replace('..', '', $name);
 	$name = str_replace('|', '', $name);
 	$name = str_replace('"', '', $name);
@@ -76,7 +88,7 @@ function tpl_apply($tpl, $injected = array()) {
 	$continue = FALSE;
 	
 	if (is_array($tpl)) {
-		if ($tpl_name = _tpl_name_sanitize($tpl['name'])) {
+		if ($tpl_name = _tpl_sanitize_name($tpl['name'])) {
 			$continue = TRUE;
 		}
 	}
