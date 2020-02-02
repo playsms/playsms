@@ -22,6 +22,11 @@ if (_OP_ == 'login') {
 			}
 		}
 		
+		// fixme anton - sanitize username
+		if (!($username && $username == core_sanitize_username($username))) {
+			$validated = FALSE;
+		}
+		
 		if ($validated) {
 			$uid = user_username2uid($username);
 			auth_session_setup($uid);
