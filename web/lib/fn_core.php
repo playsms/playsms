@@ -168,7 +168,7 @@ if (!function_exists('_')) {
 	}
 }
 
-function core_query_sanitize($var) {
+function core_sanitize_query($var) {
 	$var = str_replace("/", "", $var);
 	$var = str_replace("|", "", $var);
 	$var = str_replace("\\", "", $var);

@@ -156,14 +156,14 @@ empty($_REQUEST);
 $_REQUEST = array_merge($_GET, $_POST);
 
 // global defines
-define('_APP_', core_query_sanitize($_REQUEST['app']));
-define('_INC_', core_query_sanitize($_REQUEST['inc']));
-define('_OP_', core_query_sanitize($_REQUEST['op']));
-define('_ROUTE_', core_query_sanitize($_REQUEST['route']));
-define('_PAGE_', core_query_sanitize($_REQUEST['page']));
-define('_NAV_', core_query_sanitize($_REQUEST['nav']));
-define('_CAT_', core_query_sanitize($_REQUEST['cat']));
-define('_PLUGIN_', core_query_sanitize($_REQUEST['plugin']));
+define('_APP_', core_sanitize_query($_REQUEST['app']));
+define('_INC_', core_sanitize_query($_REQUEST['inc']));
+define('_OP_', core_sanitize_query($_REQUEST['op']));
+define('_ROUTE_', core_sanitize_query($_REQUEST['route']));
+define('_PAGE_', core_sanitize_query($_REQUEST['page']));
+define('_NAV_', core_sanitize_query($_REQUEST['nav']));
+define('_CAT_', core_sanitize_query($_REQUEST['cat']));
+define('_PLUGIN_', core_sanitize_query($_REQUEST['plugin']));
 
 // save last $_POST in $_SESSION
 if ($_POST['X-CSRF-Token']) {
