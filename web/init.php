@@ -142,11 +142,10 @@ if (!get_magic_quotes_gpc()) {
 }
 
 // sanitize user inputs
-if ($_POST['X-CSRF-Token']) {
-	foreach ($_POST as $key => $val) {
-		$_POST[$key] = core_sanitize_inputs($val);
-	}
+foreach ($_POST as $key => $val) {
+	$_POST[$key] = core_sanitize_inputs($val);
 }
+
 foreach ($_GET as $key => $val) {
 	$_GET[$key] = core_sanitize_inputs($val);
 }
@@ -165,11 +164,6 @@ define('_NAV_', core_sanitize_query($_REQUEST['nav']));
 define('_CAT_', core_sanitize_query($_REQUEST['cat']));
 define('_PLUGIN_', core_sanitize_query($_REQUEST['plugin']));
 
-// save last $_POST in $_SESSION
-if ($_POST['X-CSRF-Token']) {
-	$_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $_POST;
-}
-
 // enable anti-CSRF for anything but webservices
 if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
 	
@@ -184,6 +178,11 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 	define('_CSRF_TOKEN_', $csrf['value']);
 	define('_CSRF_FORM_', $csrf['form']);
 	unset($csrf);
+}
+
+// save last $_POST in $_SESSION
+if ($_POST['X-CSRF-Token']) {
+    $_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $_POST;
 }
 
 // connect to database
