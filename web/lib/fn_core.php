@@ -539,10 +539,10 @@ function core_display_credit($float) {
 /**
  * Generates a new string, for example a new password
  */
-function core_get_random_string($length = 8, $valid_chars = '') {
+function core_get_random_string($length = 16, $valid_chars = '') {
 	$valid_chars = str_replace(' ', '', $valid_chars);
 	if (!$valid_chars) {
-		$valid_chars = "abcdefghjkmnpqrstuxyvwzABCDEFGHJKLMNPQRSTUXYVWZ@#$%&";
+		$valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()1234567890";
 	}
 	
 	$valid_char_len = strlen($valid_chars);
