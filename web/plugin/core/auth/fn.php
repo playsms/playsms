@@ -28,6 +28,14 @@ defined('_SECURE_') or die('Forbidden');
  * @return boolean TRUE when validated or boolean FALSE when validation failed
  */
 function auth_validate_login($username, $password) {
+
+	// fixme anton - sanitize username
+	if (!($username && $username == core_sanitize_username($username))) {
+		_log('invalid username u:' . $username . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+
+		return FALSE;
+	}
+
 	$uid = user_username2uid($username);
 	_log('login attempt u:' . $username . ' uid:' . $uid . ' p:' . md5($password) . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_login');
 	

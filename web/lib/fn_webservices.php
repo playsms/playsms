@@ -33,6 +33,12 @@ function webservices_validate($h, $u) {
 	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
 		$u = user_email2username($u);
 	}
+
+	// fixme anton - sanitize username
+	if (!($u && $u == core_sanitize_username($u))) {
+		
+		return FALSE;
+	}
 	
 	if ($c_uid = auth_validate_token($h)) {
 		$c_u = user_uid2username($c_uid);
@@ -62,7 +68,13 @@ function webservices_validate_admin($h, $u) {
 	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
 		$u = user_email2username($u);
 	}
-	
+
+	// fixme anton - sanitize username
+	if (!($u && $u == core_sanitize_username($u))) {
+
+    	return false;
+	}
+
 	$c_u = webservices_validate($h, $u);
 	if ($u) {
 		$status = user_getfieldbyusername($c_u, 'status');
