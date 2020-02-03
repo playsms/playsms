@@ -558,7 +558,7 @@ function core_get_random_string($length = 16, $valid_chars = '') {
  * Sanitize username
  */
 function core_sanitize_username($username) {
-	$username = preg_replace("/[^a-z\d._-]+/gi", '', $username);
+	$username = preg_replace("/[^a-z\d._-]/i", '', $username);
 	return $username;
 }
 
