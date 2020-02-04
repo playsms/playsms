@@ -182,7 +182,19 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 
 // save last $_POST in $_SESSION
 if ($_POST['X-CSRF-Token']) {
-    $_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $_POST;
+
+	// fixme anton - clean last posts
+	$c_last_post = array();
+	foreach ($_POST as $key => $val) {
+		$val = str_replace('{{', '', $val);
+		$val = str_replace('}}', '', $val);
+		$val = str_replace('|', '', $val);
+		$val = str_replace('`', '', $val);
+		$val = str_replace('..', '', $val);
+		$c_last_post[$key] = $val;
+	}
+	
+	$_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $c_last_post;
 }
 
 // connect to database
