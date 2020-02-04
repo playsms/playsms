@@ -20,14 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 use Gregwar\Captcha\CaptchaBuilder;
 
-$continue = TRUE;
-if (!($_REQUEST['username'] && $_REQUEST['username'] == core_sanitize_username($_REQUEST['username']))) {
-	$_SESSION['dialog']['danger'][] = _('Username was invalid');
-
-	$continue = FALSE;
-}
-
-if (_OP_ == 'register' && $continue) {
+if (_OP_ == 'register') {
 	
 	$ok = FALSE;
 	
