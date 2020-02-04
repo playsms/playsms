@@ -115,6 +115,13 @@ if (_OP_ == 'register' && $continue) {
 			$show_web_title = FALSE;
 		}
 	}
+
+	$lastpost = array(
+		'name' => _lastpost('name'),
+		'username' => _lastpost('username'),
+		'mobile' => _lastpost('mobile'),
+		'email' => _lastpost('email')
+	);
 	
 	// captcha
 	$captcha = new CaptchaBuilder();
@@ -147,7 +154,10 @@ if (_OP_ == 'register' && $continue) {
 			'enable_forgot' => $core_config['main']['enable_forgot'],
 			'enable_logo' => $enable_logo,
 			'show_web_title' => $show_web_title 
-		) 
+		),
+		'injects' => array(
+			'lastpost'
+		)
 	);
 	
 	_p(tpl_apply($tpl));

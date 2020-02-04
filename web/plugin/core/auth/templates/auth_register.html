@@ -38,16 +38,16 @@
 					</tr>
 					
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Name }}" name=name value='{{ _lastpost('name') }}' maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Name }}" name=name value='{{ $lastpost['name'] }}' maxlength=100></td>
 					</tr>
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Username }}" name=username value='{{ _lastpost('username') }}' maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Username }}" name=username value='{{ $lastpost['username'] }}' maxlength=100></td>
 					</tr>
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Mobile }}" name=mobile value='{{ _lastpost('mobile') }}' maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Mobile }}" name=mobile value='{{ $lastpost['mobile'] }}' maxlength=100></td>
 					</tr>
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Email }}" name=email value='{{ _lastpost('email') }}' maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Email }}" name=email value='{{ $lastpost['email'] }}' maxlength=100></td>
 					</tr>
 					<tr>
 						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100></td>

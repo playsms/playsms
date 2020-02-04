@@ -98,6 +98,11 @@ if (_OP_ == 'forgot') {
 			$show_web_title = FALSE;
 		}
 	}
+
+	$lastpost = array(
+		'username' => _lastpost('username'),
+		'email' => _lastpost('email')
+	);
 	
 	// captcha
 	$captcha = new CaptchaBuilder();
@@ -128,7 +133,10 @@ if (_OP_ == 'forgot') {
 			'enable_register' => $core_config['main']['enable_register'],
 			'enable_logo' => $enable_logo,
 			'show_web_title' => $show_web_title 
-		) 
+		),
+		'injects' => array(
+			'lastpost'
+		)
 	);
 	
 	_p(tpl_apply($tpl));

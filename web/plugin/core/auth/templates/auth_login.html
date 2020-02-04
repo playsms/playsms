@@ -32,7 +32,7 @@
 					</if.show_web_title>
 
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Username or email }}" name=username value='{{ _lastpost('username') }}' maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Username or email }}" name=username value='{{ $lastpost['username'] }}' maxlength=100></td>
 					</tr>
 					<tr>
 						<td><input type=password class=form-control placeholder="{{ Password }}" name=password maxlength=100></td>

@@ -49,6 +49,10 @@ if (_OP_ == 'login') {
 			$show_web_title = FALSE;
 		}
 	}
+
+	$lastpost = array(
+		'username' => _lastpost('username')
+	);
 	
 	unset($tpl);
 	$tpl = array(
@@ -72,6 +76,9 @@ if (_OP_ == 'login') {
 			'enable_forgot' => $core_config['main']['enable_forgot'],
 			'enable_logo' => $enable_logo,
 			'show_web_title' => $show_web_title,
+		),
+		'injects' => array(
+			'lastpost'
 		)
 	);
 	
