@@ -7,10 +7,10 @@
 # Please do not change variable name, you may change only the value
 
 # MySQL database username
-DBUSER="root"
+DBUSER="playsms"
 
 # MySQL database password
-DBPASS="password"
+DBPASS="playsmspwdfordb"
 
 # MySQL database name
 DBNAME="playsms"
@@ -34,16 +34,16 @@ PATHSRC="$(pwd)"
 
 # Path to playSMS web files
 # note: please make sure your web root path, in this example its /var/www/html
-PATHWEB="/var/www/html/playsms"
+PATHWEB="/home/komodo/public_html/playsms"
 
 # Path to playSMS additional files
-PATHLIB="/var/lib/playsms"
+PATHLIB="/home/komodo/lib/playsms"
 
 # Path to playSMS daemon and other binary files
-PATHBIN="/usr/local/bin"
+PATHBIN="/home/komodo/bin"
 
 # Path to playSMS log files
-PATHLOG="/var/log/playsms"
+PATHLOG="/home/komodo/log/playsms"
 
 # Path to playSMS daemon configuration file
 # note: this example will create playsmsd.conf in /etc

@@ -1,6 +1,6 @@
 # README
 
-playSMS version **1.4.2**
+playSMS version **1.4.3**
 
 Official project website:
 
@@ -85,7 +85,7 @@ Please read [INSTALL](INSTALL.md "playSMS installation document") and then [FAQ]
 
 ## Project Founder and Maintainer
 
-* Anton Raharja (http://antonraharja.com)
+* Anton Raharja (https://antonraharja.com)
 
 
 ## Contributors
