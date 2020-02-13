@@ -1,0 +1,76 @@
+# Joan <aseques@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: 2013-12-10 15:32+0100\n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgid "Account SID"
+msgstr "SID del compte"
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "Auth Token"
+msgstr "Token d'autenticació"
+
+msgid "Callback URL"
+msgstr "URL de retorn"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Eg: +0700 per la zona horària Jakarta/Bangkok"
+
+#, fuzzy
+msgid "Fail to save gateway module configurations"
+msgstr "Les configuracions del modul de sortida s'han guardat"
+
+msgid "Fill to change the Auth Token"
+msgstr "Omple per canviar el Token d'autenticació"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Les configuracions del modul de sortida s'han guardat"
+
+msgid "Gateway name"
+msgstr "Nom de la sortida"
+
+msgid "Manage tiniyo"
+msgstr "Gestionar tiniyo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Max. 16 car. numèrics o 11 car. alfanumèrics, buit per deshabilitar"
+
+msgid "Module sender ID"
+msgstr "Mòdul ID enviador"
+
+msgid "Module timezone"
+msgstr "Mòdul zona horaria"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Tiniyo URL"
+msgstr "URL Tiniyo"
+
+msgid "Your callback URL should be accessible from tiniyo"
+msgstr "L'adreça de retorn URL ha de ser accessible per tiniyo"
+
+msgid "free credits are available for testing purposes"
+msgstr "es pot disposar de crèdit gratuït per fer proves"
+
+msgid "tiniyo is a bulk SMS provider"
+msgstr "tiniyo és un proveïdor majorista de SMS"
+
+msgid "tiniyo will push DLR and incoming SMS to your callback URL"
+msgstr "tiniyo afegirà DLR I SMS entrants a la vostra url de retorn"
