@@ -15,8 +15,8 @@ if ($db_row = dba_fetch_array($db_result)) {
 
 // smsc configuration
 $plugin_config['tiniyo']['_smsc_config_'] = array(
-	'account_sid' => _('Auth ID'),
-	'auth_token' => _('Auth SecretID'),
+	'account_sid' => _('Key (AuthID)'),
+	'auth_token' => _('Secret (AuthSecretID)'),
 	'module_sender' => _('Module sender ID'),
 	'datetime_timezone' => _('Module timezone') 
 );

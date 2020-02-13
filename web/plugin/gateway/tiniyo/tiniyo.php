@@ -38,8 +38,8 @@ switch (_OP_) {
 				<tr><td class=label-sizer>" . _('Gateway name') . "</td><td>tiniyo</td></tr>
 				<tr><td>" . _('Tiniyo URL') . "</td><td>" . $plugin_config['tiniyo']['url'] . "</td></tr>
 				<tr><td>" . _('Callback URL') . "</td><td><input type=text maxlength=250 name=up_callback_url value=\"" . $plugin_config['tiniyo']['callback_url'] . "\"></td></tr>
-				<tr><td>" . _mandatory(_('Account SID')) . "</td><td><input type=text maxlength=40 name=up_account_sid value=\"" . $plugin_config['tiniyo']['account_sid'] . "\"></td></tr>
-				<tr><td>" . _('Auth Token') . "</td><td><input type=password maxlength=40 name=up_auth_token value=\"\"> " . _hint(_('Fill to change the Auth Token')) . "</td></tr>
+				<tr><td>" . _mandatory(_('Key (AuthID)')) . "</td><td><input type=text maxlength=40 name=up_account_sid value=\"" . $plugin_config['tiniyo']['account_sid'] . "\"></td></tr>
+				<tr><td>" . _('Secret (AuthSecretID)') . "</td><td><input type=password maxlength=40 name=up_auth_token value=\"\"> " . _hint(_('Fill to change the Auth Token')) . "</td></tr>
 				<tr><td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_module_sender value=\"" . $plugin_config['tiniyo']['module_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td></tr>
 				<tr><td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"" . $plugin_config['tiniyo']['datetime_timezone'] . "\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td></tr>
 				</tbody>
@@ -62,13 +62,13 @@ switch (_OP_) {
 		$up_global_timezone = $_POST['up_global_timezone'];
 		if ($up_account_sid) {
 			if ($up_auth_token) {
-				$auth_token_change = "cfg_auth_token='$up_auth_token',";
+				$auth_token_change = "cfg_auth_secret='$up_auth_token',";
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayTiniyo_config
 				SET c_timestamp='" . time() . "',
 				cfg_callback_url='$up_callback_url',
-				cfg_account_sid='$up_account_sid',
+				cfg_auth_id='$up_account_sid',
 				" . $auth_token_change . "
 				cfg_module_sender='$up_module_sender',
 				cfg_datetime_timezone='$up_global_timezone'";

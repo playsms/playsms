@@ -15,7 +15,7 @@ defined('_SECURE_') or die('Forbidden');
 function tiniyo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
 	
-	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "tiniyo_hook_sendsms");
+	_log("tiniyo_hook_sendsms enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 2, "tiniyo_hook_sendsms");
 	
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
@@ -29,29 +29,33 @@ function tiniyo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
 	
-	_log("sendsms start", 3, "tiniyo_hook_sendsms");
+	_log("sendsms start", 2, "tiniyo_hook_sendsms");
 	
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
-		$url = $plugin_config['tiniyo']['url'] . '/2010-04-01/Accounts/' . $plugin_config['tiniyo']['account_sid'] . '/SMS/Messages.json';
+		$url = $plugin_config['tiniyo']['url'] . '/Accounts' . $plugin_config['tiniyo']['account_sid'] . '/Message';
 		$data = array(
-			'To' => $sms_to,
-			'From' => $sms_sender,
-			'Body' => $sms_msg 
+			'to' => $sms_to,
+			'src' => $sms_sender,
+			'text' => $sms_msg 
 		);
 		if (trim($plugin_config['tiniyo']['callback_url'])) {
-			$data['StatusCallback'] = trim($plugin_config['tiniyo']['callback_url']);
+			$data['url'] = trim($plugin_config['tiniyo']['callback_url']);
 		}
 		if (function_exists('curl_init')) {
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_USERPWD, $plugin_config['tiniyo']['account_sid'] . ':' . $plugin_config['tiniyo']['auth_token']);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-			curl_setopt($ch, CURLOPT_POST, 1);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+				'Content-Type: application/json',                                                                                
+				'Content-Length: ' . strlen($data))                                                                       
+			);
 			$returns = curl_exec($ch);
 			curl_close($ch);
 			_log("sendsms url:[" . $url . "] callback:[" . $plugin_config['tiniyo']['callback_url'], "] smsc:[" . $smsc . "]", 3, "tiniyo_hook_sendsms");
