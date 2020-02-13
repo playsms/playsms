@@ -15,7 +15,7 @@ defined('_SECURE_') or die('Forbidden');
 function tiniyo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
 	global $plugin_config;
 	
-	_log("tiniyo_hook_sendsms enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 2, "tiniyo_hook_sendsms");
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "tiniyo_hook_sendsms");
 	
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
@@ -29,14 +29,14 @@ function tiniyo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
 	
-	_log("sendsms start", 2, "tiniyo_hook_sendsms");
+	_log("sendsms start", 3, "tiniyo_hook_sendsms");
 	
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
-		$url = $plugin_config['tiniyo']['url'] . '/Accounts' . $plugin_config['tiniyo']['account_sid'] . '/Message';
+		$url = $plugin_config['tiniyo']['url'] . '/Accounts/' . $plugin_config['tiniyo']['account_sid'] . '/Message';
 		$data = array(
 			'to' => $sms_to,
 			'src' => $sms_sender,
