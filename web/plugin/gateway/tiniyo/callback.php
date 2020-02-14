@@ -21,8 +21,8 @@ if (is_array($requests)) {
 	_log("pushed " . $log, 2, "tiniyo callback");
 }
 
-$remote_smslog_id = $requests['SmsSid'];
-$status = $requests['SmsStatus'];
+$remote_smslog_id = $requests['MessageUUID'];
+$status = $requests['Status'];
 
 // delivery receipt
 if ($remote_smslog_id && $status && ($status != 'received')) {
@@ -35,9 +35,12 @@ if ($remote_smslog_id && $status && ($status != 'received')) {
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
 		switch ($status) {
-			case "sent":
+			case "delivered":
 				$p_status = 1;
 				break; // delivered
+			case "sent":
+				$p_status = 0;
+				break;
 			default :
 				$p_status = 2;
 				break; // failed

@@ -68,14 +68,14 @@ function tiniyo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 			$resp = json_decode($returns);
 			if ($resp->status) {
 				$c_status = $resp->status;
-				$c_message_id = $resp->sid;
+				$c_message_id = $resp->msgid;
 				$c_error_text = $c_status . '|' . $resp->code . '|' . $resp->message;
 				_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " status:" . $c_status . " error:" . $c_error_text . " smsc:[" . $smsc . "]", 2, "tiniyo_hook_sendsms");
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_gatewayTiniyo (local_smslog_id,remote_smslog_id,status,error_text)
 					VALUES ('$smslog_id','$c_message_id','$c_status','$c_error_text')";
 				$id = @dba_insert_id($db_query);
-				if ($id && ($c_status == 'queued')) {
+				if ($id && ($c_status == 'success')) {
 					$ok = true;
 					$p_status = 0;
 				} else {
