@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "Account SID"
+msgstr "Account SID"
+
+msgid "All mandatory fields must be filled"
+msgstr ""
+
+msgid "Auth Token"
+msgstr "Auth Token"
+
+msgid "Callback URL"
+msgstr "Callback URL"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Например +0400 для Москвы"
+
+#, fuzzy
+msgid "Fail to save gateway module configurations"
+msgstr "Настройки шлюза сохранены"
+
+msgid "Fill to change the Auth Token"
+msgstr "Заполните для изменения Auth Token"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Настройки шлюза сохранены"
+
+msgid "Gateway name"
+msgstr "Название шлюза"
+
+msgid "Manage tiniyo"
+msgstr "Управление tiniyo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Максимум 16 цифр или 11 символов, чтобы отключить оставьте пустым"
+
+msgid "Module sender ID"
+msgstr "Имя отправителя"
+
+msgid "Module timezone"
+msgstr "Часовой пояс"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Tiniyo URL"
+msgstr "Tiniyo URL"
+
+msgid "Your callback URL should be accessible from tiniyo"
+msgstr "Ваш  callback URL должен быть доступен с стороны tiniyo"
+
+msgid "free credits are available for testing purposes"
+msgstr "бесплатный лимит доступен для целей тестирования"
+
+msgid "tiniyo is a bulk SMS provider"
+msgstr "tiniyo это массовый СМС провайдер"
+
+msgid "tiniyo will push DLR and incoming SMS to your callback URL"
+msgstr "tiniyo тправит DLR и входящие СМС на Ваш callback URL"
