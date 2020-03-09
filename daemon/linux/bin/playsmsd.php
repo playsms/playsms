@@ -240,6 +240,7 @@ $ini_files = array(
 	'~/etc/playsmsd.conf',
 	'/etc/playsmsd.conf',
 	'/usr/local/etc/playsmsd.conf',
+	'~/bin/playsmsd.conf',
 	'/usr/bin/playsmsd.conf',
 	'/usr/local/bin/playsmsd.conf' 
 );

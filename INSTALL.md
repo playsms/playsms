@@ -115,8 +115,8 @@ Note:
 * Run several checks
 
   ```bash
-  /home/komodo/bin/playsmsd status
-  /home/komodo/bin/playsmsd check
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf status
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf check
   ```
 
 * Stop here and review your installation steps when `playsmsd` is not running
@@ -254,8 +254,8 @@ Note:
 * Run several checks
 
   ```bash
-  /home/komodo/bin/playsmsd status
-  /home/komodo/bin/playsmsd check
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf status
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf check
   ```
   
 * Stop here and review your installation steps when `playsmsd` is not running
