@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.4.3**
+This document explains about how to install and setup playSMS version **1.4.4-alpha1**
 
 
 ## Requirements
@@ -60,13 +60,13 @@ Install playSMS using install script `install-playsms.sh`
 
 1.  Extract playSMS package in playSMS source directory
 
-    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playSMS-1.4.3`.
+    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playsms-1.4.4-alpha1`.
     
     In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
     mkdir -p /home/komodo/src
-    tar -zxf playsms-1.4.3.tar.gz -C /home/komodo/src
+    tar -zxf playsms-1.4.4-alpha1.tar.gz -C /home/komodo/src
     ls -l /home/komodo/src/
     ```
 
@@ -75,7 +75,7 @@ Install playSMS using install script `install-playsms.sh`
     Read `install.conf` and make changes to suit your system configuration
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.3/
+    cd /home/komodo/src/playsms-1.4.4-alpha1/
     cp install.conf.dist install.conf
     vi install.conf
     ```
@@ -83,7 +83,7 @@ Install playSMS using install script `install-playsms.sh`
 3.  Run playSMS install script
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.3/
+    cd /home/komodo/src/playsms-1.4.4-alpha1/
     ./install-playsms.sh
     ```
 
@@ -105,10 +105,11 @@ Note:
 
   ```bash
   ps ax | grep playsms
-  4069 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf schedule
-  4071 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf dlrssmsd
-  4073 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf recvsmsd
-  4075 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf sendsmsd
+  4069 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf schedule
+  4070 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf ratesmsd
+  4071 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf dlrssmsd
+  4073 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf recvsmsd
+  4075 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf sendsmsd
   ```
 
 * Run several checks
@@ -135,20 +136,20 @@ Install playSMS by following step-by-step:
 
 1.  Extract playSMS package in playSMS source directory
 
-    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playSMS-1.4.3`.
+    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playsms-1.4.4-alpha1`.
     
     In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
     mkdir -p /home/komodo/src
-    tar -zxf playsms-1.4.3.tar.gz -C /home/komodo/src
+    tar -zxf playsms-1.4.4-alpha1.tar.gz -C /home/komodo/src
     ls -l /home/komodo/src/
     ```
 
 2.  Run `getcomposer.sh`
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.3/
+    cd /home/komodo/src/playsms-1.4.4-alpha1/
     ./getcomposer.sh
     ```
 
@@ -159,13 +160,13 @@ Install playSMS by following step-by-step:
     In real installation you need to use your own web root and you must have access to it.
 
     ```bash
-    mkdir -p /home/komodo/public_html/playsms /home/komodo/log /home/komodo/lib /home/komodo/bin
+    mkdir -p /home/komodo/public_html/playsms /home/komodo/log /home/komodo/lib /home/komodo/bin /home/komodo/etc
     ```
 
 4.  Copy files and directories inside `web` directory to playSMS web root and set ownership to web server user
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.3/
+    cd /home/komodo/src/playsms-1.4.4-alpha1/
     cp -R web/* /home/komodo/public_html/playsms
     ```
     
@@ -203,16 +204,16 @@ Install playSMS by following step-by-step:
     Go back to playSMS source directory.
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.3/
-    sudo cp daemon/linux/etc/playsmsd.conf /etc/playsmsd.conf
+    cd /home/komodo/src/playsms-1.4.4-alpha1/
+    sudo cp daemon/linux/home/komodo/etc/playsmsd.conf /home/komodo/etc/playsmsd.conf
     cp daemon/linux/bin/playsmsd.php /home/komodo/bin/playsmsd
     chmod +x /home/komodo/bin/playsmsd
     ```
 
-8.  Just to make sure every paths are correct, please edit `/etc/playsmsd.conf`
+8.  Just to make sure every paths are correct, please edit `/home/komodo/etc/playsmsd.conf`
 
     ```bash
-    sudo vi /etc/playsmsd.conf
+    sudo vi /home/komodo/etc/playsmsd.conf
     ```
 
     Make sure that `PLAYSMS_PATH` is pointing to a correct playSMS installation path (in this example to `/home/komodo/public_html/playsms`)
@@ -243,10 +244,11 @@ Note:
 
   ```bash
   ps ax | grep playsms
-  4069 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf schedule
-  4071 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf dlrssmsd
-  4073 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf recvsmsd
-  4075 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /etc/playsmsd.conf sendsmsd
+  4069 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf schedule
+  4070 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf ratesmsd
+  4071 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf dlrssmsd
+  4073 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf recvsmsd
+  4075 pts/12  S    0:00 /usr/bin/php -q /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf sendsmsd
   ```
 
 * Run several checks

@@ -37,7 +37,7 @@ communication tools
 * SMS poll, manage polling system using SMS, export output in graph, JSON and other formats
 * SMS quiz, serve quizzes on SMS
 * SMS subscribe, manage user subscribes to a service using SMS
-* SMS sync to utilize SMSSync app from http://smssync.ushahidi.com
+* SMS sync to utilize SMSSync app from smssync.ushahidi.com
 * Blacklist, stoplist and firewall plugin for SMS services protections
 * Create your own features, tools, themes and gateway modules as a plugin
 * Supports Gammu, Kannel, SMS Server Tools, Jasmin, Playnet, Uplink, and several SMS service providers
