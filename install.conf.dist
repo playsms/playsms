@@ -37,17 +37,17 @@ PATHSRC="$(pwd)"
 PATHWEB="/home/komodo/public_html/playsms"
 
 # Path to playSMS additional files
-PATHLIB="/home/komodo/lib/playsms"
+PATHLIB="/home/komodo/lib"
 
 # Path to playSMS daemon and other binary files
 PATHBIN="/home/komodo/bin"
 
 # Path to playSMS log files
-PATHLOG="/home/komodo/log/playsms"
+PATHLOG="/home/komodo/log"
 
 # Path to playSMS daemon configuration file
 # note: this example will create playsmsd.conf in /etc
-PATHCONF="/etc"
+PATHCONF="/home/komodo/etc"
 
 
 # END OF INSTALL DATA
