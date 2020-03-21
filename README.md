@@ -13,11 +13,7 @@ Official playSMS forum:
 
 ## Description
 
-playSMS is a free and open source SMS management software.
-
-A flexible Web-based mobile portal system that it can be made to fit to various services 
-such as an SMS gateway, bulk SMS provider, personal messaging system, corporate and group 
-communication tools
+playSMS is a free and open source SMS management software, a web interface for SMS gateways and bulk SMS services.
 
 
 ## Feature Highlights
