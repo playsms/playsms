@@ -35,7 +35,10 @@ if (auth_isvalid()) {
 		header('Location: '._u(_HTTP_PATH_BASE_));
 	} else {
 		_log("u:".$_SESSION['username']." uid:".$_SESSION['uid']." status:".$_SESSION['status']." sid:".$_SESSION['sid']." ip:".$_SERVER['REMOTE_ADDR'], 2, "logout");
-		@session_destroy();
+		
+		// destroy user session for complete logout
+		auth_session_destroy();
+		
 		$_SESSION['dialog']['info'][] = _('You have been logged out');
 	}
 }

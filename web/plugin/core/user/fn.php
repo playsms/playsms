@@ -669,9 +669,7 @@ function user_session_get($uid = '', $sid = '') {
 		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['sid'] && $d['uid']) {
 		
 			// fixme anton - https://www.exploit-database.net/?id=92909
-			if ($d['http_user_agent']) {
-				$d['http_user_agent'] = core_sanitize_string($d['http_user_agent']);
-			}
+			$d['http_user_agent'] = core_sanitize_string($d['http_user_agent']);
 		
 			if ($uid || $sid) {
 				if ($uid && ($uid == $d['uid'])) {

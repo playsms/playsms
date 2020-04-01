@@ -35,6 +35,19 @@ $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 // do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
+
+	@ini_set('session.cookie_lifetime', 0);
+	@ini_set('session.cookie_samesite', 'Strict');
+	@ini_set('session.cache_limiter', 'nocache');
+	@ini_set('session.use_trans_sid', FALSE);
+	@ini_set('session.use_strict_mode', TRUE);
+	@ini_set('session.use_cookies', TRUE);
+	@ini_set('session.use_only_cookies', TRUE);
+	@ini_set('session.cookie_httponly', TRUE);
+	if ($core_config['ishttps']) {
+		ini_set('session.cookie_secure', TRUE);
+	}
+
 	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
 		header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 	} else {
@@ -42,6 +55,15 @@ if (!$core_config['daemon_process']) {
 	}
 	header('X-Frame-Options: SAMEORIGIN');
 	@session_start();
+
+	if (!isset($_SESSION['last_update'])) {
+		$_SESSION['last_update'] =  time();
+	}
+
+	if (time() >= ($_SESSION['last_update'] + (60 * 60))) {
+		@session_regenerate_id(TRUE);
+		$_SESSION['last_update'] = time();
+	}
 }
 
 // output buffering starts even from daemon script

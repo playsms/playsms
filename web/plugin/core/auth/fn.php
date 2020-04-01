@@ -167,7 +167,9 @@ function auth_isvalid() {
 	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
 		$hash = user_session_get('', $_SESSION['sid']);
 		if ($_SESSION['sid'] == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
-			return acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
+			if ($hash[key($hash)]['http_user_agent'] && ($hash[key($hash)]['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT']))) {
+				return acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
+			}
 		}
 	}
 	
@@ -263,13 +265,15 @@ function auth_block() {
 }
 
 /**
- * Setup user session
+ * Setup and renew user session
  *
- * @param string $username
- *        Username
+ * @param string $uid
+ *        User ID
  */
 function auth_session_setup($uid) {
 	global $core_config;
+
+	@session_regenerate_id(TRUE);
 	
 	$c_user = user_getdatabyuid($uid);
 	if ($c_user['username']) {
@@ -290,6 +294,23 @@ function auth_session_setup($uid) {
 	}
 }
 
+/**
+ * Destroy user session
+ */
+function auth_session_destroy() {
+	$_SESSION = array();
+
+	if (ini_get('session.use_cookies')) {
+		$params = session_get_cookie_params();
+		setcookie(session_name(), '', time() - 42000,
+			$params['path'], $params['domain'],
+			$params['secure'], $params['httponly']
+		);
+	}
+
+	session_destroy();
+}
+
 function auth_login_as($uid) {
 	
 	// save current login
@@ -307,6 +328,7 @@ function auth_login_return() {
 	
 	// return to previous session
 	auth_session_setup($previous_login);
+	
 }
 
 function auth_login_as_check() {
