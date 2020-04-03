@@ -557,7 +557,7 @@ if (_OP_) {
 					// auth by comparing login keys
 					if ($login_key && $c_login_key && ($login_key == $c_login_key)) {
 						
-						// setup login session
+						// setup login session after successful login
 						auth_session_setup($c_uid);
 						
 						_log("webservices logged in u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
