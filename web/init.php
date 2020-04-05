@@ -153,14 +153,12 @@ define('_SYSTEM_SENDER_ID_', '@admin');
 // load init functions
 include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 
-// if magic quotes gps is set to Off (which is recommended) then addslashes all requests
-if (!get_magic_quotes_gpc()) {
-	foreach ($_GET as $key => $val) {
-		$_GET[$key] = core_addslashes($val);
-	}
-	foreach ($_POST as $key => $val) {
-		$_POST[$key] = core_addslashes($val);
-	}
+foreach ($_GET as $key => $val) {
+	$_GET[$key] = core_addslashes($val);
+}
+
+foreach ($_POST as $key => $val) {
+	$_POST[$key] = core_addslashes($val);
 }
 
 // sanitize user inputs
