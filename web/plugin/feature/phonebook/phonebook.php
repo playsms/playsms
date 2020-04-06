@@ -361,7 +361,7 @@ switch (_OP_) {
 				$uid = $user_config['uid'];
 				$c_pid = $_POST['pid'];
 				$gpids = $_POST['gpids'];
-				$maps = '';
+				$maps = [];
 				$save_to_group = FALSE;
 				$mobile = str_replace("\'", "", $_POST['mobile']);
 				$mobile = sendsms_getvalidnumber(str_replace("\"", "", $mobile));
