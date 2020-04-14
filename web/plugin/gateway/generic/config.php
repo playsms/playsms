@@ -20,7 +20,7 @@ if (!trim($plugin_config['generic']['callback_url'])) {
 	$plugin_config['generic']['callback_url'] = $plugin_config['generic']['default_callback_url'];
 }
 if (!trim($plugin_config['generic']['callback_url_authcode'])) {
-	$plugin_config['generic']['callback_url_authcode'] = sha1(_PID_);
+	$plugin_config['generic']['callback_url_authcode'] = md5(core_get_random_string());
 }
 
 // smsc configuration

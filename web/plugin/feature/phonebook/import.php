@@ -74,7 +74,7 @@ switch (_OP_) {
 			</tr></thead><tbody>";
 
 		if ($continue && file_exists($fnpb_tmpname)) {
-			$session_import = 'phonebook_' . _PID_;
+			$session_import = 'phonebook_' . md5(core_get_random_string());
 			unset($_SESSION['tmp'][$session_import]);
 			ini_set('auto_detect_line_endings', TRUE);
 			if (($fp = fopen($fnpb_tmpname, "r")) !== FALSE) {

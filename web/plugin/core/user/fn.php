@@ -311,14 +311,14 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 			$data['parent_uid'] = $core_config['main']['default_parent'];
 		}
 		
-		$data['salt'] = core_get_random_string(16);
+		$data['salt'] = core_get_random_string();
 		$data['username'] = core_sanitize_username($data['username']);
 		
 		// password is unencrypted for validation, it will be encrypted when saving to db
-		$data['password'] = (trim($data['password']) ? trim($data['password']) : core_get_random_string(16));
+		$data['password'] = (trim($data['password']) ? trim($data['password']) : core_get_random_string());
 		
 		// generate token for webservices
-		$data['token'] = md5(core_get_random_string(16));
+		$data['token'] = md5(core_get_random_string());
 		
 		// default credit
 		$supplied_credit = (float) $data['credit'];
@@ -461,7 +461,7 @@ function user_edit($uid, $data = array()) {
 			$continue = true;
 			
 			if ($up['password']) {
-				$up['salt'] = core_get_random_string(16);
+				$up['salt'] = core_get_random_string();
 				$up['password'] = md5($up['password'] . $up['salt']);
 			} else {
 				unset($up['password']);
@@ -581,7 +581,7 @@ function user_edit_conf($uid, $data = array()) {
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 	if ($uid) {
 		if ($up['new_token']) {
-			$up['token'] = md5(time() . $uid . _PID_);
+			$up['token'] = md5(core_get_random_string());
 		}
 		unset($up['new_token']);
 		

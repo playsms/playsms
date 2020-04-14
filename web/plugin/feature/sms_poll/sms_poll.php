@@ -196,7 +196,7 @@ switch (_OP_) {
 			_('one time every month') => 3,
 			_('multiple times') => 4 
 		);
-		$add_poll_access_code = md5(_PID_);
+		$add_poll_access_code = md5(core_get_random_string());
 		
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc') . "</td></tr>";

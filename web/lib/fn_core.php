@@ -1059,7 +1059,7 @@ function core_plugin_set_status($uid, $plugin_category, $plugin_name, $plugin_st
  */
 function core_csrf_set() {
 	$ret = array();
-	$csrf_token = md5(_PID_ . time());
+	$csrf_token = md5(core_get_random_string());
 	if ($_SESSION['X-CSRF-Token'] = $csrf_token) {
 		$ret['value'] = $csrf_token;
 		$ret['form'] = '<input type="hidden" name="X-CSRF-Token" value="' . $csrf_token . '">';
@@ -1075,7 +1075,7 @@ function core_csrf_set() {
  * @return string
  */
 function core_csrf_set_token() {
-	$csrf_token = md5(_PID_ . time());
+	$csrf_token = md5(core_get_random_string());
 	if ($_SESSION['X-CSRF-Token'] = $csrf_token) {
 		$ret = $csrf_token;
 	}

@@ -66,7 +66,7 @@ switch (_OP_) {
 	case "manage_save":
 		$up_url = ($_REQUEST['up_url'] ? $_REQUEST['up_url'] : $plugin_config['generic']['default_url']);
 		$up_callback_url = ($_REQUEST['up_callback_url'] ? $_REQUEST['up_callback_url'] : $plugin_config['generic']['default_callback_url']);
-		$up_callback_url_authcode = ($_REQUEST['up_callback_url_authcode'] ? $_REQUEST['up_callback_url_authcode'] : sha1(_PID_));
+		$up_callback_url_authcode = ($_REQUEST['up_callback_url_authcode'] ? $_REQUEST['up_callback_url_authcode'] : md5(core_get_random_string()));
 		$up_api_username = $_REQUEST['up_api_username'];
 		$up_api_password = $_REQUEST['up_api_password'];
 		$up_module_sender = $_REQUEST['up_module_sender'];

@@ -18,7 +18,7 @@ if (_OP_ == 'forgot') {
 					$db_result = dba_query($db_query);
 					if ($db_row = dba_fetch_array($db_result)) {
 						if ($password = $db_row['password']) {
-							$tmp_password = core_get_random_string(16);
+							$tmp_password = core_get_random_string();
 							$tmp_password_coded = md5($tmp_password);
 							if (registry_update(1, 'auth', 'tmp_password', array(
 								$username => $tmp_password_coded 

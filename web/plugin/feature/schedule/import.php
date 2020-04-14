@@ -100,7 +100,7 @@ switch (_OP_) {
 					$i++;
 				}
 				$entries = array_unique($entries);
-				$session_import = 'schedule_' . _PID_;
+				$session_import = 'schedule_' . md5(core_get_random_string());
 				$_SESSION['tmp'][$session_import] = array();
 				$i = 0;
 				foreach ($entries as $entry) {

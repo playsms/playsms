@@ -513,7 +513,7 @@ if (_OP_) {
 			if ($u = webservices_validate($h, $u)) {
 				$user = user_getdatabyusername($u);
 				if ($c_uid = $user['uid']) {
-					$token = md5($c_uid . _PID_);
+					$token = md5(core_get_random_string());
 					$items = array(
 						'token' => $token 
 					);
