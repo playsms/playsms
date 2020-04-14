@@ -311,11 +311,14 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 			$data['parent_uid'] = $core_config['main']['default_parent'];
 		}
 		
+		$data['salt'] = core_get_random_string(16);
 		$data['username'] = core_sanitize_username($data['username']);
+		
+		// password is unencrypted for validation, it will be encrypted when saving to db
 		$data['password'] = (trim($data['password']) ? trim($data['password']) : core_get_random_string(16));
-		$register_password = $data['password'];
-		$data['password'] = md5($register_password);
-		$data['token'] = md5(uniqid($data['username'] . $data['password'], true));
+		
+		// generate token for webservices
+		$data['token'] = md5(core_get_random_string(16));
 		
 		// default credit
 		$supplied_credit = (float) $data['credit'];
@@ -331,12 +334,20 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 		
 		// fixme anton - these should be configurable on main config
 		$data['footer'] = '@' . $data['username'];
-		$data['enable_webservices'] = 1;
-		// $data['webservices_ip'] = (trim($data['webservices_ip']) ? trim($data['webservices_ip']) : '127.0.0.1, 192.168.*.*');
-		$data['webservices_ip'] = '*.*.*.*';
+		
+		// default disable webservices
+		$data['enable_webservices'] = 0;
+		$data['webservices_ip'] = '127.0.0.1';
 		
 		$v = user_add_validate($data);
 		if ($v['status']) {
+			
+			// unencrypted password, this variable will be used later for emailing new user
+			$register_password = $data['password'];
+			
+			// encrypt password with salt before saving to db
+			$data['password'] = md5($data['password'] . $data['salt']);
+			
 			_log('attempt to register status:' . $data['status'] . ' u:' . $data['username'] . ' email:' . $data['email'], 3, 'user_add');
 			if ($data['username'] && $data['email'] && $data['name']) {
 				if ($new_uid = dba_add(_DB_PREF_ . '_tblUser', $data)) {
@@ -450,7 +461,8 @@ function user_edit($uid, $data = array()) {
 			$continue = true;
 			
 			if ($up['password']) {
-				$up['password'] = md5($up['password']);
+				$up['salt'] = core_get_random_string(16);
+				$up['password'] = md5($up['password'] . $up['salt']);
 			} else {
 				unset($up['password']);
 			}

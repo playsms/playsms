@@ -49,11 +49,12 @@ function auth_validate_login($username, $password) {
 		_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		return FALSE;
 	}
-	$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
+	$db_query = "SELECT password,salt FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
-	$password = md5($password);
+	$res_salt = trim($db_row['salt']);
+	$password = md5($password . $res_salt);
 	if ($password && $res_password && ($password == $res_password)) {
 		_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		
