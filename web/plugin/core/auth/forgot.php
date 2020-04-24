@@ -11,7 +11,7 @@ if (_OP_ == 'forgot') {
 	$ok = FALSE;
 	
 	if (!auth_isvalid()) {
-		if ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
+		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && $_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
 			if ($core_config['main']['enable_forgot']) {
 				if ($username && $email) {
 					$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username' AND email='$email'";
