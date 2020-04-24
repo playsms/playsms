@@ -8,9 +8,12 @@ if (_OP_ == 'forgot') {
 	$username = trim($_REQUEST['username']);
 	$email = trim($_REQUEST['email']);
 	
-	$ok = FALSE;
+	$redirect_home = FALSE;
 	
-	if (!auth_isvalid()) {
+	if (auth_isvalid()) {
+		// just go to home
+		$redirect_home = TRUE;
+	} else {
 		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && $_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
 			if ($core_config['main']['enable_forgot']) {
 				if ($username && $email) {
@@ -52,7 +55,7 @@ if (_OP_ == 'forgot') {
 								if (sendmail($mail_data)) {
 									$error_string = _('Password has been emailed') . " (" . _('Username') . ": " . $username . ")";
 									$_SESSION['dialog']['info'][] = $error_string;
-									$ok = TRUE;
+									$redirect_home = TRUE;
 								} else {
 									$error_string = _('Fail to send email');
 									$_SESSION['dialog']['danger'][] = $error_string;
@@ -80,7 +83,7 @@ if (_OP_ == 'forgot') {
 		}
 	}
 	
-	if ($ok) {
+	if ($redirect_home) {
 		header("Location: " . _u($core_config['http_path']['base']));
 	} else {
 		header("Location: " . _u('index.php?app=main&inc=core_auth&route=forgot'));
