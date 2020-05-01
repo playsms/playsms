@@ -127,7 +127,7 @@ Parameters | Name or description
 ---------- | --------------------
 Operation  | `pv`
 Mandatory  | `u` `h` `to` `msg`
-Optional   | `type` `unicode` `from` `footer` `nofooter` `format`
+Optional   | `type` `unicode` `from` `footer` `nofooter` `format` `schedule`
 Returns    | return codes
 
 Parameter `to` can be international formatted mobile number, #groupcode or @username, or a mix of them. Separate by commas for multiple value.
@@ -489,6 +489,15 @@ When succeeded playSMS will returns OK status message in JSON format:
 {"data":[{"status":"OK","error":"0","smslog_id":"30","queue":"afb5f34575e30ec4efe4471cf5d1bee4","to":"0987654321"}],"error_string":null}
 ```
 When error occurred playSMS will returns one of the return code, also in JSON format.
+
+##### Scheduled SMS:
+
+Send SMS at 15:30:00 2019-04-29
+
+```
+http://x.dom/index.php?app=ws&u=anton&h=a45a02791b2fe2fedb078c39fd83637a&op=pv&to=0987654321&msg=test+only&schedule=2019-04-29%2015:30:00
+```
+Both `+` and `%20` can be used between date and time, but `%20` is recommended.
 
 
 ### List of incoming SMS
