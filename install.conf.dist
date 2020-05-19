@@ -45,6 +45,9 @@ PATHBIN="/home/komodo/bin"
 # Path to playSMS log files
 PATHLOG="/home/komodo/log"
 
+# Path to playSMS storage
+PATHSTR="/home/komodo/storage"
+
 # Path to playSMS daemon configuration file
 # note: this example will create playsmsd.conf in /etc
 PATHCONF="/home/komodo/etc"

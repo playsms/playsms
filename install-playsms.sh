@@ -119,6 +119,7 @@ echo "playSMS web path    = $PATHWEB"
 echo "playSMS lib path    = $PATHLIB"
 echo "playSMS bin path    = $PATHBIN"
 echo "playSMS log path    = $PATHLOG"
+echo "playSMS storage     = $PATHSTR"
 echo
 echo "playSMS conf path   = $PATHCONF"
 echo
@@ -215,9 +216,11 @@ sleep 3
 echo -n "Start"
 set -e
 echo -n .
-mkdir -p $PATHWEB $PATHLIB $PATHLOG
+mkdir -p $PATHWEB $PATHLIB $PATHLOG $PATHSTR
 echo -n .
 cp -rf web/* $PATHWEB
+echo -n .
+cp -rf storage/* $PATHSTR
 set +e
 echo -n .
 mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null 2>&1
@@ -239,9 +242,11 @@ sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
 echo -n .
 sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
 echo -n .
+sed -i "s|#PATHSTR#|$PATHSTR|g" $PATHWEB/config.php
+echo -n .
 
 if [ "$USERID" = "0" ]; then
-	chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHWEB $PATHLIB $PATHLOG
+	chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHLOG $PATHSTR
 	echo -n .
 fi
 
@@ -253,6 +258,7 @@ echo "PLAYSMS_PATH=\"$PATHWEB\"" > $PATHCONF/playsmsd.conf
 echo "PLAYSMS_LIB=\"$PATHLIB\"" >> $PATHCONF/playsmsd.conf
 echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
 echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_STR=\"$PATHSTR\"" >> $PATHCONF/playsmsd.conf
 echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
 echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> $PATHCONF/playsmsd.conf
 chmod 644 $PATHCONF/playsmsd.conf

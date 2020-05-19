@@ -33,8 +33,11 @@ $core_config['smtp']['port'] = '25';
 //error_reporting(E_ALL ^ (E_NOTICE | E_WARNING | E_DEPRECATED));
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT);
 
-// logs directories
+// logs directory
 $core_config['apps_path']['logs'] = '#PATHLOG#';
+
+// storage directory
+$core_config['apps_path']['storage'] = '#PATHSTR#';
 
 // log level: 0=disabled, 1=info, 2=warning, 3=debug, 4=verbose
 // WARNING: log level 3 and 4 will also save sensitive information such as password for used gateway
