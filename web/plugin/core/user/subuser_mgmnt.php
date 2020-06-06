@@ -280,13 +280,13 @@ switch (_OP_) {
 		break;
 	
 	case "login_as":
-		user_session_remove($_SESSION['uid'], $_SESSION['sid']);
+		user_session_remove($_SESSION['uid'], session_id());
 		$uid = user_username2uid($_REQUEST['uname']);
 		auth_login_as($uid);
 		if (auth_isvalid()) {
-			_log("parent login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
+			_log("parent login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
 		} else {
-			_log("parent fail to login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . $_SESSION['sid'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
+			_log("parent fail to login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "subuser_mgmnt");
 		}
 		header('Location: ' . _u(_HTTP_PATH_BASE_));
 		exit();

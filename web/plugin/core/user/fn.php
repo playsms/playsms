@@ -654,7 +654,7 @@ function user_session_set($uid = '') {
 			// fixme anton - https://www.exploit-database.net/?id=92909
 			'http_user_agent' => core_sanitize_string($_SERVER['HTTP_USER_AGENT']),
 			
-			'sid' => $_SESSION['sid'],
+			'sid' => session_id(),
 			'uid' => $uid 
 		);
 		$item[$hash] = json_encode($json);

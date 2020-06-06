@@ -191,7 +191,7 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
-			_log('WARNING: possible CSRF attack. sid:' . $_SESSION['sid'] . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'init');
+			_log('WARNING: possible CSRF attack. sid:' . session_id() . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'init');
 			auth_block();
 		}
 	}

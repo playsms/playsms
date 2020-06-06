@@ -165,9 +165,9 @@ function auth_validate_token($token) {
  * @return boolean TRUE if valid
  */
 function auth_isvalid() {
-	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
-		$hash = user_session_get('', $_SESSION['sid']);
-		if ($_SESSION['sid'] == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
+	if (session_id() && $_SESSION['uid'] && $_SESSION['valid']) {
+		$hash = user_session_get('', session_id());
+		if (session_id() == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
 			if ($hash[key($hash)]['http_user_agent'] && ($hash[key($hash)]['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT']))) {
 				return acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
 			}
@@ -279,7 +279,6 @@ function auth_session_setup($uid) {
 	$c_user = user_getdatabyuid($uid);
 	if ($c_user['username']) {
 		// set session
-		$_SESSION['sid'] = session_id();
 		$_SESSION['username'] = $c_user['username'];
 		$_SESSION['uid'] = $c_user['uid'];
 		$_SESSION['status'] = $c_user['status'];
