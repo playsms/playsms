@@ -165,7 +165,7 @@ function auth_validate_token($token) {
  * @return boolean TRUE if valid
  */
 function auth_isvalid() {
-	if (session_id() && $_SESSION['uid'] && $_SESSION['valid']) {
+	if (session_id() && $_SESSION['uid']) {
 		$hash = user_session_get('', session_id());
 		if (session_id() == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
 			if ($hash[key($hash)]['http_user_agent'] && ($hash[key($hash)]['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT']))) {
@@ -282,7 +282,6 @@ function auth_session_setup($uid) {
 		$_SESSION['username'] = $c_user['username'];
 		$_SESSION['uid'] = $c_user['uid'];
 		$_SESSION['status'] = $c_user['status'];
-		$_SESSION['valid'] = TRUE;
 		if (!is_array($_SESSION['tmp']['login_as'])) {
 			$_SESSION['tmp']['login_as'] = array();
 		}
