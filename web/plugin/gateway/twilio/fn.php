@@ -36,7 +36,7 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	}
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
-		$url = $plugin_config['twilio']['url'] . '/2010-04-01/Accounts/' . $plugin_config['twilio']['account_sid'] . '/SMS/Messages.json';
+		$url = $plugin_config['twilio']['url'] . '/2010-04-01/Accounts/' . $plugin_config['twilio']['account_sid'] . '/Messages.json';
 		$data = array(
 			'To' => $sms_to,
 			'From' => $sms_sender,
