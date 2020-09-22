@@ -36,7 +36,7 @@ function sms_command_hook_keyword_isavail($keyword) {
  */
 function sms_command_hook_recvsms_process($sms_datetime,$sms_sender,$command_keyword,$command_param='',$sms_receiver='',$smsc='',$raw_message='') {
 	$ok = false;
-	$db_query = "SELECT uid,command_id FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
+	$db_query = "SELECT * FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];

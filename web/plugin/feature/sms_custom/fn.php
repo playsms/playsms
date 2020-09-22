@@ -84,7 +84,7 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 	
 	// match keyword with receiver number
 	if ($sms_receiver) {
-		$db_query = "SELECT uid, custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver='$sms_receiver'";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver='$sms_receiver'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$uid = $db_row['uid'];
@@ -94,7 +94,7 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 	}
 	
 	// look for matching with catchall, if found it will override above matches
-	$db_query = "SELECT uid, custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver = ''";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver = ''";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$uid = $db_row['uid'];
