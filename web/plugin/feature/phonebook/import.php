@@ -154,8 +154,11 @@ switch (_OP_) {
 			if ($name && $mobile) {
 				// fixme anton - temporary - contacts not unique
 				// if ($c_pid = phonebook_number2id($uid, $mobile)) {
-				if (FALSE) {
+				$db_query = "SELECT id FROM " . _DB_PREF_ . "_featurePhonebook WHERE `mobile` = '$mobile' AND `uid` = $uid LIMIT 1";
+				$db_result = dba_query($db_query);
+				if ($db_row = dba_fetch_array($db_result)) {
 					if ($gpid) {
+						$c_pid = $db_row['id'];
 						$save_to_group = TRUE;
 					}
 				} else {
