@@ -695,6 +695,13 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	$message = htmlspecialchars_decode($message);
 	$sms_footer = htmlspecialchars_decode($sms_footer);
 	
+	// default values
+	$sms_type = strtolower(trim($sms_type));
+	if ($sms_type != 'text') {
+		$sms_type = 'text';
+	}
+	$unicode = ( (int) $unicode ? 1 : 0 );
+	
 	// get user data
 	$user = $user_config;
 	if ($username && ($user['username'] != $username)) {
