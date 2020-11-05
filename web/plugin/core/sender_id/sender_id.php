@@ -170,7 +170,8 @@ switch (_OP_) {
 				'Description' => _('Description'),
 				'User' => _('User'),
 				'Approve sender ID' => _('Approve sender ID'),
-				'Set as default' => _('Set as default') 
+				'Set as default' => _('Set as default'),
+				'Save' => _('Save')
 			),
 			'ifs' => array(
 				'isadmin' => auth_isadmin() 
@@ -237,7 +238,8 @@ switch (_OP_) {
 				'Description' => _('Description'),
 				'User' => _('User'),
 				'Approve sender ID' => _('Approve sender ID'),
-				'Set as default' => _('Set as default') 
+				'Set as default' => _('Set as default'),
+				'Save' => _('Save')
 			),
 			'ifs' => array(
 				'isadmin' => auth_isadmin() 
