@@ -109,8 +109,8 @@ foreach ($rows as $row) {
 		'num_rows_sent' => $row['num_rows_sent'],
 		'num_rows_delivered' => $row['num_rows_delivered'],
 		'num_rows_failed' => $row['num_rows_failed'],
-		'c_billing' => $c_billing,
-		'c_credit' => $c_credit 
+		'c_billing' => core_display_credit($c_billing),
+		'c_credit' => core_display_credit($c_credit)
 	);
 	
 	// Totals
@@ -128,7 +128,7 @@ $tpl['vars']['sum_num_rows_pending'] = $sum_num_rows_pending;
 $tpl['vars']['sum_num_rows_sent'] = $sum_num_rows_sent;
 $tpl['vars']['sum_num_rows_delivered'] = $sum_num_rows_delivered;
 $tpl['vars']['sum_num_rows_failed'] = $sum_num_rows_failed;
-$tpl['vars']['sum_billing'] = $sum_billing;
+$tpl['vars']['sum_billing'] = core_display_credit($sum_billing);
 $tpl['vars']['sum_credit'] = core_display_credit($sum_credit);
 
 _p(tpl_apply($tpl));

@@ -212,7 +212,7 @@ function _credit_get_billing($uid) {
 	$billing = 0;
 	
 	if ($c_uid = (int) $uid) {
-		$db_query = "SELECT SUM(A.charge) AS billing FROM " . _DB_PREF_ . "_tblBilling A INNER JOIN " . _DB_PREF_ . "_tblSMSOutgoing B ON A.smslog_id=B.smslog_id AND A.status='1' AND B.uid='$c_uid'";
+		$db_query = "SELECT SUM(charge) AS billing FROM " . _DB_PREF_ . "_tblBilling WHERE uid='" . $c_uid . "' AND status='1'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$billing = (float) $db_row['billing'];
@@ -225,7 +225,7 @@ function _credit_get_billing_parent($parent_uid) {
 	$billing = 0;
 	
 	if ($c_parent_uid = (int) $parent_uid) {
-		$db_query = "SELECT SUM(A.charge) AS billing FROM " . _DB_PREF_ . "_tblBilling A INNER JOIN " . _DB_PREF_ . "_tblSMSOutgoing B ON A.smslog_id=B.smslog_id AND A.status='1' AND B.parent_uid='$c_parent_uid'";
+		$db_query = "SELECT SUM(charge) AS billing FROM " . _DB_PREF_ . "_tblBilling WHERE parent_uid='" . $c_parent_uid . "' AND status='1'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$billing = (float) $db_row['billing'];

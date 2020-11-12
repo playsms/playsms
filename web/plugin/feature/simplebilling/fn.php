@@ -6,14 +6,27 @@ function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge) {
 	$rate = ( isset($rate) ? $rate : 0 );
 	$count = ( isset($count) ? $count : 0 );
 	$charge = ( isset($charge) ? $charge : 0 );
-	_log("saving smslog_id:" . $smslog_id . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 2, "simplebilling_hook_billing_post");
-	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (post_datetime,smslog_id,rate,count,charge,status) VALUES ('" . core_get_datetime() . "','$smslog_id','$rate','$count','$charge','0')";
-	if ($smslog_id && ($id = dba_insert_id($db_query))) {
-		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling_hook_billing_post");
-		$ok = true;
+
+	// get parent_uid and uid from smslog_id, and also save them in tblBilling
+	$db_query = "SELECT parent_uid,uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$parent_uid = (int) $db_row['parent_uid'];
+	$uid = (int) $db_row['uid'];
+
+	_log("saving smslog_id:" . $smslog_id . " parent_uid:" . $parent_uid . " uid:" . $uid . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 2, "simplebilling_hook_billing_post");
+	if ($uid) {
+		$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (parent_uid,uid,post_datetime,smslog_id,rate,count,charge,status) VALUES ('$parent_uid','$uid','" . core_get_datetime() . "','$smslog_id','$rate','$count','$charge','0')";
+		if ($smslog_id && ($id = dba_insert_id($db_query))) {
+			_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling_hook_billing_post");
+			$ok = true;
+		} else {
+			_log("fail to save unable to insert to db smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_post");
+		}
 	} else {
-		_log("fail to save smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_post");
+		_log("fail to save user not found smslog_id:" . $smslog_id . " parent_uid:" . $parent_uid . " uid:" . $uid, 2, "simplebilling_hook_billing_post");
 	}
+
 	return $ok;
 }
 
@@ -90,7 +103,7 @@ function simplebilling_hook_billing_getdata($smslog_id) {
 function simplebilling_hook_billing_getdata_by_uid($uid) {
 	$ret = array();
 	// _log("uid:".$uid, 2, "simplebilling summary");
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblBilling AS A, " . _DB_PREF_ . "_tblUser AS B, " . _DB_PREF_ . "_tblSMSOutgoing AS C " . "WHERE B.flag_deleted='0' AND A.smslog_id=C.smslog_id AND B.uid=C.uid AND A.status='1' AND B.uid='$uid'";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblBilling WHERE status='1' AND uid='$uid'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$id = $db_row['id'];
