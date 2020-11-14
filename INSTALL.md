@@ -126,7 +126,7 @@ Note:
   ```
   URL                    : http://[your web server IP]/playsms/
   Default admin username : admin
-  Default admin password : admin
+  Default admin password : changemeplease
   ```
 
 
@@ -265,7 +265,7 @@ Note:
   ```
   URL                    : http://[your web server IP]/playsms/
   Default admin username : admin
-  Default admin password : admin
+  Default admin password : changemeplease
   ```
 
 
