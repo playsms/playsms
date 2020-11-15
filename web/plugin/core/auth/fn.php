@@ -37,7 +37,7 @@ function auth_validate_login($username, $password) {
 	}
 
 	$uid = user_username2uid($username);
-	_log('login attempt u:' . $username . ' uid:' . $uid . ' p:' . md5($password) . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_login');
+	_log('login attempt u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_login');
 	
 	// check blacklist
 	if (blacklist_ifipexists($username, $_SERVER['REMOTE_ADDR'])) {
@@ -54,8 +54,7 @@ function auth_validate_login($username, $password) {
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
 	$res_salt = trim($db_row['salt']);
-	$password = md5($password . $res_salt);
-	if ($password && $res_password && ($password == $res_password)) {
+	if ($password && $res_password && password_verify($password, $res_password)) {
 		_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		
 		// remove IP on successful login
@@ -65,16 +64,43 @@ function auth_validate_login($username, $password) {
 	} else {
 		$ret = registry_search(1, 'auth', 'tmp_password', $username);
 		$tmp_password = $ret['auth']['tmp_password'][$username];
-		if ($password && $tmp_password && ($password == $tmp_password)) {
+		if ($password && $tmp_password && password_verify($password, $tmp_password)) {
 			_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' using temporary password', 2, 'auth_validate_login');
 			if (!registry_remove(1, 'auth', 'tmp_password', $username)) {
-				_log('WARNING: unable to remove temporary password after successful login', 3, 'login');
+				_log('WARNING: unable to remove temporary password after successful login', 2, 'auth_validate_login');
 			}
 			
 			// remove IP on successful login
 			blacklist_clearip($username, $_SERVER['REMOTE_ADDR']);
 			
 			return true;
+		} else {
+
+			// fixme anton
+			// this part is temporary until all users use the new password hash
+			// in this part playSMS will convert md5 password to bcrypt hash if password matched
+
+			if ($password && $res_password && ($res_password == md5($password))) {
+
+				// password matched with old md5 password, convert it to bcrypt hash
+				$new_password = password_hash($password, PASSWORD_BCRYPT);
+				$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET password='$new_password',salt='' WHERE flag_deleted='0' AND username='$username'";
+				if (dba_affected_rows($db_query)) {
+					_log('WARNING: md5 password converted u:' . $username, 2, 'auth_validate_login');
+					
+					// remove IP on successful login
+					blacklist_clearip($username, $_SERVER['REMOTE_ADDR']);
+			
+					return true;
+				} else {
+					// check blacklist
+					blacklist_checkip($username, $_SERVER['REMOTE_ADDR']);
+					
+					_log('WARNING: fail to convert md5 password u:' . $username, 2, 'auth_validate_login');
+
+					return false;
+				}
+			}
 		}
 	}
 	
@@ -96,7 +122,7 @@ function auth_validate_login($username, $password) {
  */
 function auth_validate_email($email, $password) {
 	$username = user_email2username($email);
-	_log('login attempt email:' . $email . ' u:' . $username . ' p:' . md5($password) . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_email');
+	_log('login attempt email:' . $email . ' u:' . $username . ' ip:' . $_SERVER['REMOTE_ADDR'], 3, 'auth_validate_email');
 	return auth_validate_login($username, $password);
 }
 

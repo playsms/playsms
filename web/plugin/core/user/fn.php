@@ -291,34 +291,36 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 		}
 		
 		// ACL exception for admins
-		$data['acl_id'] = ((int) $data['acl_id'] ? (int) $data['acl_id'] : $core_config['main']['default_acl']);
+		$data['acl_id'] = ((int) $data['acl_id'] ? (int) $data['acl_id'] : (int) $core_config['main']['default_acl']);
 		if ($data['status'] == 2) {
 			$data['acl_id'] = 0;
 		}
 		
 		// default parent_id
-		$data['parent_uid'] = ((int) $data['parent_uid'] ? (int) $data['parent_uid'] : $core_config['main']['default_parent']);
+		$data['parent_uid'] = ((int) $data['parent_uid'] ? (int) $data['parent_uid'] : (int) $core_config['main']['default_parent']);
 		if ($parent_status = user_getfieldbyuid($data['parent_uid'], 'status')) {
 			// logic for parent_uid, parent uid by default is 0
 			if ($data['status'] == 4) {
 				if (!(($parent_status == 2) || ($parent_status == 3))) {
-					$data['parent_uid'] = $core_config['main']['default_parent'];
+					$data['parent_uid'] = (int) $core_config['main']['default_parent'];
 				}
 			} else {
-				$data['parent_uid'] = $core_config['main']['default_parent'];
+				$data['parent_uid'] = (int) $core_config['main']['default_parent'];
 			}
 		} else {
-			$data['parent_uid'] = $core_config['main']['default_parent'];
+			$data['parent_uid'] = (int) $core_config['main']['default_parent'];
 		}
 		
-		$data['salt'] = core_get_random_string();
+		// salt is unused, empty it
+		$data['salt'] = '';
+
 		$data['username'] = core_sanitize_username($data['username']);
 		
 		// password is unencrypted for validation, it will be encrypted when saving to db
 		$data['password'] = (trim($data['password']) ? trim($data['password']) : core_get_random_string());
 		
-		// generate token for webservices
-		$data['token'] = md5(core_get_random_string());
+		// do not generate token for webservices now
+		$data['token'] = '';
 		
 		// default credit
 		$supplied_credit = (float) $data['credit'];
@@ -346,7 +348,7 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 			$register_password = $data['password'];
 			
 			// encrypt password with salt before saving to db
-			$data['password'] = md5($data['password'] . $data['salt']);
+			$data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
 			
 			_log('attempt to register status:' . $data['status'] . ' u:' . $data['username'] . ' email:' . $data['email'], 3, 'user_add');
 			if ($data['username'] && $data['email'] && $data['name']) {
@@ -461,8 +463,9 @@ function user_edit($uid, $data = array()) {
 			$continue = true;
 			
 			if ($up['password']) {
-				$up['salt'] = core_get_random_string();
-				$up['password'] = md5($up['password'] . $up['salt']);
+				// salt is unused, empty it
+				$up['salt'] = '';
+				$up['password'] = password_hash($up['password'], PASSWORD_BCRYPT);
 			} else {
 				unset($up['password']);
 			}
@@ -528,6 +531,8 @@ function user_remove($uid, $forced = FALSE) {
 					
 					if (dba_update(_DB_PREF_ . '_tblUser', array(
 						'c_timestamp' => time(),
+						'password' => '',
+						'salt' => '',
 						'flag_deleted' => 1 
 					), array(
 						'flag_deleted' => 0,

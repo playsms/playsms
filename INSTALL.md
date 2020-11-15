@@ -23,7 +23,7 @@ Optional hardware or infrastructure:
 * Operating System Linux (distro such as Ubuntu, Debian, CentOS etc)
 * Web server software (for example Apache2, nginx or lighttpd)
 * Database Server MySQL 5.x.x or latest stable release
-* PHP 5.3 or latest stable release
+* PHP 5.5.0 or latest stable release
 * PHP MySQL module must be installed and enabled
 * PHP CLI must be installed
 * PHP gettext extension must be installed and enabled for text translation
