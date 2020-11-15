@@ -54,6 +54,7 @@ echo
 USERID=$(id -u)
 if [ "$USERID" = "0" ]; then
 	echo "You ARE running this installation script as root"
+	echo
 	echo "That means you need to make sure that you know what you're doing"
 	echo
 	echo "=================================================================="
@@ -63,7 +64,8 @@ if [ "$USERID" = "0" ]; then
 	confirm=
 	while [ -z $confirm ]
 	do
-		read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+		echo "When you're ready press [y/Y] or press [Control+C] to cancel"
+		read -p "> " confirm
 		if [[ $confirm == 'y' ]]; then
 			break
 		fi
@@ -77,6 +79,7 @@ if [ "$USERID" = "0" ]; then
 	echo
 else
 	echo "You are NOT running this installation script as root"
+	echo
 	echo "That means you need to make sure that this Linux user has"
 	echo "permission to create necessary directories"
 	echo
@@ -87,7 +90,8 @@ else
 	confirm=
 	while [ -z $confirm ]
 	do
-		read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+		echo "When you're ready press [y/Y] or press [Control+C] to cancel"
+		read -p "> " confirm
 		if [[ $confirm == 'y' ]]; then
 			break
 		fi
@@ -101,19 +105,29 @@ else
 	echo
 fi
 
+PLAYSMSSRCVER=$(cat $PATHSRC/VERSION.txt)
+
 echo "INSTALL DATA:"
 echo
 
+echo "Admin username      = $ADMINUSERNAME"
+echo "Admin password      = $ADMINPASSWORD"
+echo
 echo "MySQL username      = $DBUSER"
 echo "MySQL password      = $DBPASS"
 echo "MySQL database      = $DBNAME"
 echo "MySQL host          = $DBHOST"
 echo "MySQL port          = $DBPORT"
 echo
+
+if [ "$USERID" = "0" ]; then
 echo "Web server user     = $WEBSERVERUSER"
 echo "Web server group    = $WEBSERVERGROUP"
 echo
+fi
+
 echo "playSMS source path = $PATHSRC"
+echo "playSMS version     = $PLAYSMSSRCVER"
 echo
 echo "playSMS web path    = $PATHWEB"
 echo "playSMS lib path    = $PATHLIB"
@@ -131,7 +145,8 @@ echo
 confirm=
 while [ -z $confirm ]
 do
-	read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+	echo "When you're ready press [y/Y] or press [Control+C] to cancel"
+	read -p "> " confirm
 	if [[ $confirm == 'y' ]]; then
 		break
 	fi
@@ -153,7 +168,8 @@ echo
 confirm=
 while [ -z $confirm ]
 do
-	read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+	echo "When you're ready press [y/Y] or press [Control+C] to cancel"
+	read -p "> " confirm
 	if [[ $confirm == 'y' ]]; then
 		break
 	fi
@@ -181,21 +197,21 @@ echo
 
 php -r "readfile('https://getcomposer.org/installer');" | php >/dev/null 2>&1
 
-if [ -e "./composer.phar" ]; then
+if [ -e "$PATHSRC/composer.phar" ]; then
 	#rm -f /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
-	rm -f ./composer >/dev/null 2>&1
-	ln -s ./composer.phar ./composer >/dev/null 2>&1
+	rm -f $PATHSRC/composer >/dev/null 2>&1
+	ln -s $PATHSRC/composer.phar $PATHSRC/composer >/dev/null 2>&1
 	#mv composer composer.phar /usr/local/bin/ >/dev/null 2>&1
 	#chmod +x /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
-	chmod +x ./composer.phar >/dev/null 2>&1
+	chmod +x $PATHSRC/composer.phar >/dev/null 2>&1
 
 	echo "Composer is ready in this folder"
 	echo
 	echo "Pleas wait while composer getting and updating required packages"
 	echo
 
-	if [ -x "./composer.phar" ]; then
-		./composer.phar update
+	if [ -x "$PATHSRC/composer.phar" ]; then
+		$PATHSRC/composer.phar update
 	else
 		echo "ERROR: unable to get composer from https://getcomposer.com"
 		echo
@@ -218,27 +234,30 @@ set -e
 echo -n .
 mkdir -p $PATHWEB $PATHLIB $PATHLOG $PATHSTR
 echo -n .
-cp -rf web/* $PATHWEB
+cp -rf $PATHSRC/web/* $PATHWEB
 echo -n .
-cp -rf storage/* $PATHSTR
+cp -rf $PATHSRC/storage/* $PATHSTR
 set +e
 echo -n .
 mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null 2>&1
-set -e
 echo -n .
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < db/playsms.sql >/dev/null 2>&1
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < $PATHSRC/db/playsms.sql >/dev/null 2>&1
+echo -n .
+ADMINPASSWORD=$(echo -n $ADMINPASSWORD | md5sum | cut -d' ' -f1)
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME -e "UPDATE playsms_tblUser SET username='$ADMINUSERNAME',password='$ADMINPASSWORD',salt='' WHERE uid=1" >/dev/null 2>&1
+set -e
 echo -n .
 cp $PATHWEB/config-dist.php $PATHWEB/config.php
 echo -n .
-sed -i "s/#DBHOST#/$DBHOST/g" $PATHWEB/config.php
+sed -i "s|#DBHOST#|$DBHOST|g" $PATHWEB/config.php
 echo -n .
-sed -i "s/#DBPORT#/$DBPORT/g" $PATHWEB/config.php
+sed -i "s|#DBPORT#|$DBPORT|g" $PATHWEB/config.php
 echo -n .
-sed -i "s/#DBNAME#/$DBNAME/g" $PATHWEB/config.php
+sed -i "s|#DBNAME#|$DBNAME|g" $PATHWEB/config.php
 echo -n .
-sed -i "s/#DBUSER#/$DBUSER/g" $PATHWEB/config.php
+sed -i "s|#DBUSER#|$DBUSER|g" $PATHWEB/config.php
 echo -n .
-sed -i "s/#DBPASS#/$DBPASS/g" $PATHWEB/config.php
+sed -i "s|#DBPASS#|$DBPASS|g" $PATHWEB/config.php
 echo -n .
 sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
 echo -n .
@@ -263,15 +282,16 @@ echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
 echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> $PATHCONF/playsmsd.conf
 chmod 644 $PATHCONF/playsmsd.conf
 echo -n .
-cp -rR daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
-chmod 755 $PATHBIN/playsmsd
+cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
+chmod 700 $PATHBIN/playsmsd
 echo -n .
 echo "end"
 echo
+
 $PATHBIN/playsmsd $PATHCONF/playsmsd.conf check
 sleep 3
 echo
-$PATHBIN/playsmsd $PATHCONF/playsmsd.conf start
+$PATHBIN/playsmsd $PATHCONF/playsmsd.conf restart
 sleep 3
 echo
 $PATHBIN/playsmsd $PATHCONF/playsmsd.conf status
@@ -284,9 +304,9 @@ echo
 echo
 echo "Your playSMS daemon script operational guide:"
 echo 
-echo "- To start it : playsmsd $PATHCONF/playsmsd.conf start"
-echo "- To stop it  : playsmsd $PATHCONF/playsmsd.conf stop"
-echo "- To check it : playsmsd $PATHCONF/playsmsd.conf check"
+echo "- To start it : $PATHBIN/playsmsd $PATHCONF/playsmsd.conf start"
+echo "- To stop it  : $PATHBIN/playsmsd $PATHCONF/playsmsd.conf stop"
+echo "- To check it : $PATHBIN/playsmsd $PATHCONF/playsmsd.conf check"
 echo
 
 cp install.conf install.conf.backup >/dev/null 2>&1
@@ -299,8 +319,7 @@ echo
 echo "When message \"unable to start playsmsd\" occurred above, please check:"
 echo
 echo "1. Possibly theres an issue with composer updates, try to run: \"./composer update\""
-echo "2. Manually run playsmsd, \"playsmsd $PATHCONF/playsmsd.conf start\", and then \"playsmsd $PATHCONF/playsmsd.conf status\""
-echo
+echo "2. Manually run playsmsd, stop playsmsd and then start it again"
 echo
 
 exit 0
