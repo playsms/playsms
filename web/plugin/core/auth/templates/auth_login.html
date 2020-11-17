@@ -32,10 +32,18 @@
 					</if.show_web_title>
 
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Username or email }}" name=username value='{{ $lastpost['username'] }}' maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Username or email }}" name=username maxlength=100></td>
 					</tr>
 					<tr>
 						<td><input type=password class=form-control placeholder="{{ Password }}" name=password maxlength=100></td>
+					</tr>
+					<tr>
+						<td>
+							<p class="well">
+								<img src="{{ CAPTCHA_IMAGE }}">
+								<input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=6>
+							</p>
+						</td>
 					</tr>
 					<tr>
 						<td><input type=submit class=button value='{{ Login }}'></td>

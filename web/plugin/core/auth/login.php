@@ -1,12 +1,23 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
+use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
+
 if (_OP_ == 'login') {
-	
+
+	if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
+		unset($_SESSION['tmp']['captcha']);
+		$auth_captcha_login = TRUE;
+	} else {
+		$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
+		$auth_captcha_login = FALSE;
+	}
+
 	$username_or_email = trim($_REQUEST['username']);
 	$password = trim($_REQUEST['password']);
 	
-	if ($username_or_email && $password) {
+	if ($auth_captcha_login && $username_or_email && $password) {
 		$username = '';
 		$validated = FALSE;
 		
@@ -57,6 +68,12 @@ if (_OP_ == 'login') {
 		'username' => _lastpost('username')
 	);
 	
+	// captcha
+	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
+	$captcha = new CaptchaBuilder(null, $phraseBuilder);
+	$captcha->buildAgainstOCR($auth_captcha_width, $auth_captcha_height);
+	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
+
 	unset($tpl);
 	$tpl = array(
 		'name' => 'auth_login',
@@ -66,12 +83,15 @@ if (_OP_ == 'login') {
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
+			'CAPTCHA_IMAGE' => $captcha->inline(),
+			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')),
 			'DIALOG_DISPLAY' => _dialog(),
 			'Username or email' => _('Username or email') ,
 			'Password' => _('Password') ,
 			'Login' => _('Login') ,
 			'Register an account' => _('Register an account') ,
 			'Recover password' => _('Recover password') ,
+			'Verify captcha' => _('Verify captcha'),
 			'logo_url' => $core_config['main']['logo_url']
 		) ,
 		'ifs' => array(
