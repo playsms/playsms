@@ -21,6 +21,7 @@ $core_config['smtp']['user'] = '';
 $core_config['smtp']['pass'] = '';
 $core_config['smtp']['host'] = 'localhost';
 $core_config['smtp']['port'] = '25';
+$core_config['smtp']['secure'] = 'no'; // no, tls, ssl, default no
 
 
 // Do not change anything below this line unless you know what to do
