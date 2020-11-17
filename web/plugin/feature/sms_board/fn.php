@@ -94,7 +94,8 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 					'mail_from' => $core_config['main']['email_service'],
 					'mail_to' => $email,
 					'mail_subject' => $subject,
-					'mail_body' => $body 
+					'mail_body' => $body,
+					'mail_body_format' => 'plain'
 				);
 				sendmail($email_data);
 			}
