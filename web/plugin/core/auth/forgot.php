@@ -2,6 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
 
 if (_OP_ == 'forgot') {
 	
@@ -14,7 +15,9 @@ if (_OP_ == 'forgot') {
 		// just go to home
 		$redirect_home = TRUE;
 	} else {
-		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && $_REQUEST['captcha'] == $_SESSION['tmp']['captcha']) {
+		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
+			unset($_SESSION['tmp']['captcha']);
+
 			if ($core_config['main']['enable_forgot']) {
 				if ($username && $email) {
 					$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username' AND email='$email'";
@@ -108,8 +111,9 @@ if (_OP_ == 'forgot') {
 	);
 	
 	// captcha
-	$captcha = new CaptchaBuilder();
-	$captcha->build();
+	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
+	$captcha = new CaptchaBuilder(null, $phraseBuilder);
+	$captcha->buildAgainstOCR($auth_captcha_width, $auth_captcha_height);
 	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
 	
 	$tpl = array(

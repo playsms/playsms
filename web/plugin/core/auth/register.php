@@ -19,13 +19,16 @@
 defined('_SECURE_') or die('Forbidden');
 
 use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
 
 if (_OP_ == 'register') {
 	
 	$ok = FALSE;
 	
 	if (!auth_isvalid()) {
-		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha'])) {
+		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
+			unset($_SESSION['tmp']['captcha']);
+
 			$data = array();
 			$data['name'] = $_REQUEST['name'];
 			$data['username'] = $_REQUEST['username'];
@@ -117,8 +120,9 @@ if (_OP_ == 'register') {
 	);
 	
 	// captcha
-	$captcha = new CaptchaBuilder();
-	$captcha->build();
+	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
+	$captcha = new CaptchaBuilder(null, $phraseBuilder);
+	$captcha->buildAgainstOCR($auth_captcha_width, $auth_captcha_height);
 	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
 	
 	$tpl = array(
