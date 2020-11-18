@@ -49,9 +49,11 @@
 					<tr>
 						<td><input type=text class=form-control placeholder="{{ Email }}" name=email value='{{ $lastpost['email'] }}' maxlength=100></td>
 					</tr>
+					<tr><td>&nbsp;</td></tr>
+
 					<tr>
 						<td>
-							<p class="well">
+							<p>
 								<img src="{{ CAPTCHA_IMAGE }}">
 								<input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=6>
 							</p>
