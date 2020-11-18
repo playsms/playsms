@@ -11,6 +11,7 @@
 		"gregwar/captcha": "1.*",
 		"ezyang/htmlpurifier": "4.*",
 		"pear/pear-core-minimal": "1.*",
-		"pear/db": "1.*"
+		"pear/db": "1.*",
+		"phpmailer/phpmailer": "~6.1"
 	}
 }

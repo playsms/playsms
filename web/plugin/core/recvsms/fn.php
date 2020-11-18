@@ -421,7 +421,8 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 						'mail_from' => $email_service,
 						'mail_to' => $email,
 						'mail_subject' => $subject,
-						'mail_body' => $body 
+						'mail_body' => $body,
+						'mail_body_format' => 'plain'
 					);
 					sendmail($data);
 					_log("sent email from:" . $email_service . " to:" . $email, 3, "recvsms_inbox_add");
