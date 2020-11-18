@@ -32,6 +32,8 @@ if (_OP_ == 'register') {
 		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
 			unset($_SESSION['tmp']['captcha']);
 		} else {
+			_log("fail to verify captcha ip:" . $_SERVER['REMOTE_ADDR'], 2, "register");
+
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 
 			header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
@@ -40,10 +42,10 @@ if (_OP_ == 'register') {
 	}
 
 	$data = array();
-	$data['name'] = $_REQUEST['name'];
-	$data['username'] = $_REQUEST['username'];
-	$data['mobile'] = $_REQUEST['mobile'];
-	$data['email'] = $_REQUEST['email'];
+	$data['name'] = trim($_REQUEST['name']);
+	$data['username'] = trim($_REQUEST['username']);
+	$data['mobile'] = trim($_REQUEST['mobile']);
+	$data['email'] = trim($_REQUEST['email']);
 
 	// force non-admin, status=3 is user and status=4 is subuser
 	$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
@@ -124,7 +126,7 @@ if (_OP_ == 'register') {
 	// captcha
 	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
 	$captcha = new CaptchaBuilder(null, $phraseBuilder);
-	$captcha->buildAgainstOCR($auth_captcha_width, $auth_captcha_height);
+	$captcha->build($auth_captcha_width, $auth_captcha_height);
 	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
 	
 	$tpl = array(

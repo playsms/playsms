@@ -23,10 +23,15 @@ use Gregwar\Captcha\PhraseBuilder;
 
 if (_OP_ == 'login') {
 
+	$username_or_email = trim($_REQUEST['username']);
+	$password = trim($_REQUEST['password']);
+	
 	if ($auth_captcha_form_login) {
 		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
 			unset($_SESSION['tmp']['captcha']);
 		} else {
+			_log("fail to verify captcha u:" . $username_or_email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "login");
+
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 
 			header("Location: " . _u($core_config['http_path']['base']));
@@ -34,9 +39,6 @@ if (_OP_ == 'login') {
 		}
 	}
 
-	$username_or_email = trim($_REQUEST['username']);
-	$password = trim($_REQUEST['password']);
-	
 	if ($username_or_email && $password) {
 		$username = '';
 		$validated = FALSE;
@@ -91,7 +93,7 @@ if (_OP_ == 'login') {
 	// captcha
 	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
 	$captcha = new CaptchaBuilder(null, $phraseBuilder);
-	$captcha->buildAgainstOCR($auth_captcha_width, $auth_captcha_height);
+	$captcha->build($auth_captcha_width, $auth_captcha_height);
 	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
 
 	unset($tpl);

@@ -23,6 +23,9 @@ use Gregwar\Captcha\PhraseBuilder;
 
 if (_OP_ == 'forgot') {
 	
+	$username = trim($_REQUEST['username']);
+	$email = trim($_REQUEST['email']);
+
 	if (auth_isvalid()) {
 		header("Location: " . _u($core_config['http_path']['base']));
 		exit();
@@ -32,6 +35,8 @@ if (_OP_ == 'forgot') {
 		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
 			unset($_SESSION['tmp']['captcha']);
 		} else {
+			_log("fail to verify captcha u:" . $username . " e:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 
 			header("Location: " . _u('index.php?app=main&inc=core_auth&route=forgot'));
@@ -39,10 +44,7 @@ if (_OP_ == 'forgot') {
 		}
 	}
 
-	if ($core_config['main']['enable_forgot']) {
-		$username = trim($_REQUEST['username']);
-		$email = trim($_REQUEST['email']);
-	
+	if ($core_config['main']['enable_forgot']) {	
 		if ($username && $email) {
 			$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username' AND email='$email'";
 			$db_result = dba_query($db_query);
@@ -134,7 +136,7 @@ if (_OP_ == 'forgot') {
 	// captcha
 	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
 	$captcha = new CaptchaBuilder(null, $phraseBuilder);
-	$captcha->buildAgainstOCR($auth_captcha_width, $auth_captcha_height);
+	$captcha->build($auth_captcha_width, $auth_captcha_height);
 	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
 	
 	$tpl = array(
