@@ -1069,6 +1069,8 @@ DROP TABLE IF EXISTS `playsms_tblBilling`;
 CREATE TABLE `playsms_tblBilling` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `parent_uid` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
   `post_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `smslog_id` int(11) NOT NULL DEFAULT '0',
   `rate` decimal(13,3) NOT NULL DEFAULT '0.000',

@@ -66,8 +66,8 @@ $tpl = array(
 		'num_rows_delivered' => 0,
 		'num_rows_failed' => 0,
 		'num_rows_deleted' => 0,
-		'billing' => $billing,
-		'credit' => $credit 
+		'billing' => core_display_credit($billing),
+		'credit' => core_display_credit($credit) 
 	) 
 );
 
