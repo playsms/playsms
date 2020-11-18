@@ -41,10 +41,12 @@
 
 					<tr>
 						<td>
+						<if.enable_captcha>
 							<p>
 								<img src="{{ CAPTCHA_IMAGE }}">
 								<input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=6>
 							</p>
+						</if.enable_captcha>
 						</td>
 					</tr>
 					<tr>

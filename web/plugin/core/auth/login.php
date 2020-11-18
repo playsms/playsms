@@ -1,4 +1,21 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
 use Gregwar\Captcha\CaptchaBuilder;
@@ -6,18 +23,21 @@ use Gregwar\Captcha\PhraseBuilder;
 
 if (_OP_ == 'login') {
 
-	if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
-		unset($_SESSION['tmp']['captcha']);
-		$auth_captcha_login = TRUE;
-	} else {
-		$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
-		$auth_captcha_login = FALSE;
+	if ($auth_captcha_form_login) {
+		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
+			unset($_SESSION['tmp']['captcha']);
+		} else {
+			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
+
+			header("Location: " . _u($core_config['http_path']['base']));
+			exit();
+		}
 	}
 
 	$username_or_email = trim($_REQUEST['username']);
 	$password = trim($_REQUEST['password']);
 	
-	if ($auth_captcha_login && $username_or_email && $password) {
+	if ($username_or_email && $password) {
 		$username = '';
 		$validated = FALSE;
 		
@@ -95,6 +115,7 @@ if (_OP_ == 'login') {
 			'logo_url' => $core_config['main']['logo_url']
 		) ,
 		'ifs' => array(
+			'enable_captcha' => $auth_captcha_form_login,
 			'enable_register' => $core_config['main']['enable_register'],
 			'enable_forgot' => $core_config['main']['enable_forgot'],
 			'enable_logo' => $enable_logo,
