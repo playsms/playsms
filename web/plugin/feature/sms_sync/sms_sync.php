@@ -27,6 +27,12 @@ switch (_OP_) {
 	case "sms_sync_list":
 		$list = registry_search($user_config['uid'], 'feature', 'sms_sync');
 		$sms_sync_secret = $list['feature']['sms_sync']['secret'];
+		
+		// if secret empty then generate secret and save it
+		$sms_sync_secret = ( trim($sms_sync_secret) ? trim($sms_sync_secret) : md5(core_get_random_string()) );
+		$items['secret'] = $sms_sync_secret;
+		registry_update($user_config['uid'], 'feature', 'sms_sync', $items);
+		
 		if ($list['feature']['sms_sync']['enable']) {
 			$option_enable = 'checked';
 		}
@@ -47,6 +53,8 @@ switch (_OP_) {
 				'Sync URL' => _('Sync URL') ,
 				'Notes' => _('Notes') ,
 				'Download SMSSync app for Android from' => _('Download SMSSync app for Android from') ,
+				'NOTES_TEXT1' => _('WARNING: valid request from SMSSync or any app implementing SMSSync API will be treated as incoming SMS'),
+				'NOTES_TEXT2' => _('You should enable SMS Sync only when you know what you are doing'),
 				'Save' => _('Save')
 			)
 		);
@@ -54,8 +62,8 @@ switch (_OP_) {
 		break;
 
 	case "sms_sync_save":
-		$items['secret'] = $_POST['sms_sync_secret'];
-		$items['enable'] = (trim($_POST['sms_sync_enable']) ? 1 : 0);
+		$items['secret'] = ( trim($_POST['sms_sync_secret']) ? trim($_POST['sms_sync_secret']) : md5(core_get_random_string()) );
+		$items['enable'] = ( trim($_POST['sms_sync_enable']) ? 1 : 0 );
 		if (registry_update($user_config['uid'], 'feature', 'sms_sync', $items)) {
 			$_SESSION['dialog']['info'][] = _('SMS Sync configuration has been saved');
 		} else {
