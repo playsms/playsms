@@ -686,7 +686,6 @@ switch (_OP_) {
 			<h3>" . _('Message detail') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_send method=post>
 			" . _CSRF_FORM_ . "
-			<input type=hidden value='$message' name=msg>
 			<input type=hidden value='$subscribe_id' name=subscribe_id>
 			<input type=hidden value='$msg_id' name=msg_id>
 			<table class=playsms-table>
