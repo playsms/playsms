@@ -123,7 +123,7 @@ switch (_OP_) {
 	case "sms_subscribe_add":
 		$max_length = $core_config['main']['max_sms_length'];
 		if (auth_isadmin()) {
-			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
+			$select_reply_smsc = "<tr><td>" . _('Reply SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
 		$add_forward_param = 'BC';
 		$select_durations = _select('add_duration', $plugin_config['sms_subscribe']['durations']);
@@ -295,7 +295,7 @@ switch (_OP_) {
 		$edit_expire_msg = $db_row['expire_msg'];
 		$select_durations = _select('edit_duration', $plugin_config['sms_subscribe']['durations'], $db_row['duration']);
 		if (auth_isadmin()) {
-			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
+			$select_reply_smsc = "<tr><td>" . _('Reply SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
 		$content = _dialog() . "
 			<link rel='stylesheet' type='text/css' href='" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css' />
@@ -675,20 +675,20 @@ switch (_OP_) {
 			'subscribe_id' => $subscribe_id 
 		));
 		$subscribe_name = $list[0]['subscribe_keyword'];
-		$msg_id = $_REQUEST['msg_id'];
+		$msg_id = (int) $_REQUEST['msg_id'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$message = $db_row['msg'];
+		$message = core_display_html($db_row['msg']);
 		$counter = $db_row['counter'];
 		$content = _dialog() . "
 			<h2>" . _('Manage subscribe') . "</h2>
 			<h3>" . _('Message detail') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_send method=post>
 			" . _CSRF_FORM_ . "
-			<input type=hidden value=$message name=msg>
-			<input type=hidden value=$subscribe_id name=subscribe_id>
-			<input type=hidden value=$msg_id name=msg_id>
+			<input type=hidden value='$message' name=msg>
+			<input type=hidden value='$subscribe_id' name=subscribe_id>
+			<input type=hidden value='$msg_id' name=msg_id>
 			<table class=playsms-table>
 			<tr><td class=label-sizer>" . _('SMS subscribe keyword') . "</td><td>$subscribe_name</td></tr>
 			<tr><td>" . _('Message ID') . "</td><td>" . $msg_id . "</td></tr>
@@ -704,33 +704,32 @@ switch (_OP_) {
 		break;
 	
 	case "msg_send":
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
+		$db_query = "SELECT uid, smsc FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$smsc = $db_row['smsc'];
-		$c_uid = $db_row['uid'];
+		$c_uid = (int) $db_row['uid'];
 		$username = user_uid2username($c_uid);
 		
 		$msg_id = $_POST['msg_id'];
 		$db_query = "SELECT msg, counter FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$message = addslashes($db_row['msg']);
-		$counter = $db_row['counter'];
+		$message = addslashes(trim($db_row['msg']));
+		$counter = (int) $db_row['counter'];
 		
 		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
-		$sms_to = '';
+		$sms_to = array();
 		if ($message && $subscribe_id) {
 			while ($db_row = dba_fetch_array($db_result)) {
-				if ($member_number = $db_row['member_number']) {
+				if ($member_number = trim($db_row['member_number'])) {
 					$sms_to[] = $member_number;
 				}
 			}
 			if ($sms_to[0]) {
 				$unicode = core_detect_unicode($message);
-				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc, TRUE);
+				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, '', TRUE);
 				if ($ok[0]) {
 					$counter++;
 					dba_update(_DB_PREF_ . '_featureSubscribe_msg', array(
