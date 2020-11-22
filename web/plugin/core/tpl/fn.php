@@ -103,7 +103,36 @@ function tpl_apply($tpl, $injected = array()) {
 			$injected = $tpl['injects'];
 		}
 		
-		// 1. check from active plugin
+		// search for customization
+		
+		// 1. check on custom templates directory on storage
+		$fn = _APPS_PATH_STORAGE_ . '/custom/templates/' . $tpl_name . '.html';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl, $injected);
+			
+			return $content;
+		}
+		
+		// 2. check on active themes
+		$themes = core_themes_get();
+		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl, $injected);
+			
+			return $content;
+		}
+		
+		// 3. check on common directory on themes
+		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl, $injected);
+			
+			return $content;
+		}
+		
+		// look from plugins
+		
+		// 1. search from currently displayed on web (active) plugin
 		$c_inc = explode('_', _INC_);
 		$plugin_category = $c_inc[0];
 		$plugin_name = str_replace($plugin_category . '_', '', _INC_);
@@ -114,7 +143,7 @@ function tpl_apply($tpl, $injected = array()) {
 			return $content;
 		}
 		
-		// 2. search all possible location on active plugin
+		// 2. search from all registered plugin
 		$c_plugin_name = explode('_', $tpl_name);
 		$plugin_name = $c_plugin_name[0];
 		$c_plugin_category = array(
@@ -131,22 +160,6 @@ function tpl_apply($tpl, $injected = array()) {
 			}
 		}
 		
-		// 3. check from active template
-		$themes = core_themes_get();
-		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
-		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl, $injected);
-			
-			return $content;
-		}
-		
-		// 4. check from common place on themes
-		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
-		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl, $injected);
-			
-			return $content;
-		}
 	}
 	
 	return $content;
