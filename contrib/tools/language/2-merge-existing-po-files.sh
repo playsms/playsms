@@ -13,7 +13,7 @@ fi
 
 set -e
 
-find $PLAYSMS/web -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
+find $PLAYSMS/web/plugin/ -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
 for i in `cat /tmp/.lang_folders` ; do
 	for j in `ls -1 "$i/language/" | grep '_'` ; do
 		mkdir -p "$i/language/$j/LC_MESSAGES"

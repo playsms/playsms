@@ -14,13 +14,13 @@ fi
 set -e
 
 ##Common strings
-touch $PLAYSMS/web/plugin/language/messages.pot
-touch $PLAYSMS/web/plugin/language/index.html
-xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/web/plugin/language/messages.pot $PLAYSMS/web/init.php
-xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/web/plugin/language/messages.pot $PLAYSMS/web/index.php
-find $PLAYSMS/web/lib/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/web/plugin/language/messages.pot {} \;
-find $PLAYSMS/web/inc/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/web/plugin/language/messages.pot {} \;
-find $PLAYSMS/web/plugin/themes/common/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/web/plugin/language/messages.pot {} \;
+touch $PLAYSMS/storage/plugin/language/messages.pot
+touch $PLAYSMS/storage/plugin/language/index.html
+xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/plugin/language/messages.pot $PLAYSMS/web/init.php
+xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/plugin/language/messages.pot $PLAYSMS/web/index.php
+find $PLAYSMS/web/lib/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/plugin/language/messages.pot {} \;
+find $PLAYSMS/web/inc/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/plugin/language/messages.pot {} \;
+find $PLAYSMS/web/plugin/themes/common/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/plugin/language/messages.pot {} \;
 
 ##Themes,plugins and tools strings
 find $PLAYSMS/web/plugin/ -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
