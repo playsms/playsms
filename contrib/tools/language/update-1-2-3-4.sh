@@ -11,9 +11,9 @@ if [ ! -d "$PLAYSMS/web" ]; then
 	exit 1
 fi
 
-./1-update-pot-files.sh $PLAYSMS
-./2-merge-existing-po-files.sh $PLAYSMS
-./3-regenerating-mo-files.sh $PLAYSMS
-./4-compile-all.sh $PLAYSMS
+$PLAYSMS/contrib/tools/language/1-update-pot-files.sh $PLAYSMS
+$PLAYSMS/contrib/tools/language/2-merge-existing-po-files.sh $PLAYSMS
+$PLAYSMS/contrib/tools/language/3-regenerating-mo-files.sh $PLAYSMS
+$PLAYSMS/contrib/tools/language/4-compile-all.sh $PLAYSMS
 
 exit 0
