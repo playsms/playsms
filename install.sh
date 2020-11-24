@@ -232,7 +232,7 @@ fi
 
 set +e
 echo "Setup database..."
-mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null
+mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME
 mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < $PATHSRC/db/playsms.sql
 ADMINPASSWORD=$(echo -n $ADMINPASSWORD | md5sum | cut -d' ' -f1)
 mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME -e "UPDATE playsms_tblUser SET username='$ADMINUSERNAME',password='$ADMINPASSWORD',salt='' WHERE uid=1"
