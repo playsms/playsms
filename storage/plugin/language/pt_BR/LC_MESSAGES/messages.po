@@ -3062,9 +3062,6 @@ msgstr "falhou"
 msgid "for subuser only"
 msgstr "para usuários apenas"
 
-msgid "format"
-msgstr "formato"
-
 msgid "free credits are available for testing purposes"
 msgstr "créditos grátis estão disponíveis para testes"
 

@@ -3107,9 +3107,6 @@ msgstr "échec"
 msgid "for subuser only"
 msgstr "seulement pour sous-utilisateur"
 
-msgid "format"
-msgstr "format"
-
 msgid "free credits are available for testing purposes"
 msgstr "des crédits gratuits sont disponibles à des fins de test"
 

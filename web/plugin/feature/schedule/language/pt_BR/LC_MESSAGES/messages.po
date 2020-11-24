@@ -23,6 +23,9 @@ msgstr "Tem certeza que deseja excluir o agendamento de SMS?"
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr "Tem certeza que deseja excluir esse número do agendamento de SMS?"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Daily"
 msgstr "Diariamente"
 
@@ -151,6 +154,3 @@ msgstr "Status"
 
 msgid "Weekly"
 msgstr "Semanalmente"
-
-msgid "format"
-msgstr "formato"

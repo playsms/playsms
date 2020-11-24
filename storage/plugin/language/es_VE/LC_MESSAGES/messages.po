@@ -2724,9 +2724,6 @@ msgstr ""
 msgid "for subuser only"
 msgstr ""
 
-msgid "format"
-msgstr ""
-
 msgid "free credits are available for testing purposes"
 msgstr ""
 

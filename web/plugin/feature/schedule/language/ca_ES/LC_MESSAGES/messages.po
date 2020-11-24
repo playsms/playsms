@@ -16,6 +16,9 @@ msgstr ""
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Daily"
 msgstr ""
 
@@ -143,7 +146,4 @@ msgid "Status"
 msgstr ""
 
 msgid "Weekly"
-msgstr ""
-
-msgid "format"
 msgstr ""

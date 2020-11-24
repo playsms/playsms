@@ -31,6 +31,9 @@ msgstr "هل تود بالتأكيد حذف جدول الإرسال؟"
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr "هل ترغب بالتأكيد في إزالة هذا الرقم من الرسائل المجدولة؟"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Daily"
 msgstr "يوميًا"
 
@@ -159,6 +162,3 @@ msgstr "الحالة"
 
 msgid "Weekly"
 msgstr "أسبوعيًا"
-
-msgid "format"
-msgstr "الصيغة"

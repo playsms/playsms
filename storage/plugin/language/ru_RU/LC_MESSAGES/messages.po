@@ -3079,9 +3079,6 @@ msgstr "ошибок"
 msgid "for subuser only"
 msgstr "только для дочерних пользователей"
 
-msgid "format"
-msgstr ""
-
 msgid "free credits are available for testing purposes"
 msgstr "бесплатный лимит доступен для целей тестирования"
 

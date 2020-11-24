@@ -28,6 +28,9 @@ msgstr "Er du sikker på at du vil slette SMS-tidsplanen?"
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr "Er du sikker på at du vil fjerne dette nummeret fra SMS-tidsplanen?"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Daily"
 msgstr "Daglig"
 
@@ -156,6 +159,3 @@ msgstr "Status"
 
 msgid "Weekly"
 msgstr "Ukentlig"
-
-msgid "format"
-msgstr "format"

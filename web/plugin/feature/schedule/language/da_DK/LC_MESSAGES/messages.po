@@ -30,6 +30,9 @@ msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
 "Er du sikker pÃ¥ at du Ã¸nsker at fjerne dette nummer fra SMS tidsplanen?"
 
+msgid "CSV file format"
+msgstr ""
+
 msgid "Daily"
 msgstr "Dagligt"
 
@@ -158,6 +161,3 @@ msgstr "Status"
 
 msgid "Weekly"
 msgstr "Ugentligt"
-
-msgid "format"
-msgstr "format"

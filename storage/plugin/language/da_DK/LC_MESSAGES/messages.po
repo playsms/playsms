@@ -3068,9 +3068,6 @@ msgstr "mislykket"
 msgid "for subuser only"
 msgstr "kun til underbruger"
 
-msgid "format"
-msgstr "format"
-
 msgid "free credits are available for testing purposes"
 msgstr "gratis kredit er tilgængelig til testformål"
 
