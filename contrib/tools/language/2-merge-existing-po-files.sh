@@ -13,7 +13,14 @@ fi
 
 set -e
 
-find $PLAYSMS/web/plugin/ -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
+rm -f /tmp/.lang_folders >/dev/null 2>&1
+touch /tmp/.lang_folders
+
+find $PLAYSMS/web/plugin/core/ -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" >> /tmp/.lang_folders
+find $PLAYSMS/web/plugin/feature/ -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" >> /tmp/.lang_folders
+find $PLAYSMS/web/plugin/gateway/ -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" >> /tmp/.lang_folders
+find $PLAYSMS/web/plugin/themes/ -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" >> /tmp/.lang_folders
+
 for i in `cat /tmp/.lang_folders` ; do
 	for j in `ls -1 "$i/language/" | grep '_'` ; do
 		mkdir -p "$i/language/$j/LC_MESSAGES"
@@ -27,6 +34,7 @@ for i in `cat /tmp/.lang_folders` ; do
 	done
 done
 echo
-rm /tmp/.lang_folders
+
+rm -f /tmp/.lang_folders >/dev/null 2>&1
 
 exit 0
