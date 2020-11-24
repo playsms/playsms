@@ -475,9 +475,9 @@ if (_OP_) {
 				$continue = false;
 				$json['status'] = 'ERR';
 				$json['error'] = '106';
-				$ip = explode(',', $user['webservices_ip']);
-				if (is_array($ip)) {
-					foreach ($ip as $key => $net) {
+				$nets = explode(',', $user['webservices_ip']);
+				if (is_array($nets)) {
+					foreach ($nets as $net) {
 						if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
 							$continue = true;
 						}

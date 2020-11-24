@@ -143,7 +143,10 @@ function auth_validate_token($token) {
 		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND token='$token'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
+		$uid = (int) $db_row['uid'];
 		$username = trim($db_row['username']);
+		$enable_webservices = (bool) $db_row['enable_webservices'];
+		$webservices_ip = trim($db_row['webservices_ip']);
 		
 		// check blacklist
 		if (blacklist_ifipexists($username, $_SERVER['REMOTE_ADDR'])) {
@@ -152,19 +155,19 @@ function auth_validate_token($token) {
 			return FALSE;
 		}
 		
-		if (($uid = trim($db_row['uid'])) && $username && ($db_row['enable_webservices'])) {
-			$ip = explode(',', $db_row['webservices_ip']);
-			if (is_array($ip)) {
-				foreach ($ip as $key => $net) {
+		if ($uid && $username && $enable_webservices && $webservices_ip) {
+			$nets = explode(',', $webservices_ip);
+			if (is_array($nets)) {
+				foreach ($nets as $net) {
 					if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
 						if (user_banned_get($uid)) {
-							_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
+							_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' net:' . $net, 2, 'auth_validate_token');
 							
 							return FALSE;
 						}
 						
 						if (_APP_ == 'main' || _APP_ == 'menu') {
-							_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
+							_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' net:' . $net, 2, 'auth_validate_token');
 						}
 						
 						// remove IP on successful login
