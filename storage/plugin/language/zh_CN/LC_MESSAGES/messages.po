@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2826,9 +2824,8 @@ msgstr "你必须填满全部空白"
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "你必须填满全部空白"
+msgstr ""
 
 msgid "You must fill all required fields"
 msgstr ""

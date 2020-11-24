@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: es_VE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2617,9 +2615,8 @@ msgstr "Ud. debe rellenar todos los campos"
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Ud. debe rellenar todos los campos"
+msgstr ""
 
 msgid "You must fill all required fields"
 msgstr ""

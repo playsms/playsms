@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-10 22:21+0700\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -505,7 +503,7 @@ msgid "Compose message"
 msgstr "Compor mensagem"
 
 msgid "Configuration"
-msgstr "Configuração"
+msgstr "Configurações"
 
 msgid "Confirmation"
 msgstr "Confirmação"
@@ -651,7 +649,7 @@ msgstr ""
 "como separador"
 
 msgid "Delete"
-msgstr "Excluir"
+msgstr "Excluír"
 
 msgid "Delete ALL queues"
 msgstr "Excluír TODAS as filas"
@@ -771,10 +769,10 @@ msgid "Effective SMS sender ID"
 msgstr "ID de remetente efetivo para SMS"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex: +0300 para fusorário de Brasília"
+msgstr "Ex.: +0300 para fuso horário de Brasilia"
 
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 msgid "Email address is mandatory"
 msgstr "Campo email é obrigatório"
@@ -1096,7 +1094,7 @@ msgid "For example a short code"
 msgstr "Um código curto, por exemplo"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Formato YYYY-MM-DD hh:mm"
+msgstr "Formato YYY-MM-DD hh:mm"
 
 msgid "Forward"
 msgstr "Encaminhar"
@@ -1225,7 +1223,7 @@ msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
 
 msgid "Home"
-msgstr "Inicio"
+msgstr "Início"
 
 msgid "ID"
 msgstr "ID"
@@ -1447,7 +1445,7 @@ msgid "Mailbox username"
 msgstr "Nome de usuário da caixa de email"
 
 msgid "Main configuration"
-msgstr "Configuração principal"
+msgstr "Configurações Principais"
 
 msgid "Main configuration changes has been saved"
 msgstr "As configurações principais foram salvas"
@@ -1465,7 +1463,7 @@ msgid "Manage"
 msgstr "Gerenciar"
 
 msgid "Manage ACL"
-msgstr "Gerenciar Regras"
+msgstr "Gerenciar regras"
 
 msgid "Manage OpenVox"
 msgstr "Gerenciar OpenVox"
@@ -1474,7 +1472,7 @@ msgid "Manage SMS rate"
 msgstr "Gerenciar taxa de SMS"
 
 msgid "Manage account"
-msgstr "Gerenciar Contas"
+msgstr "Gerenciar conta"
 
 msgid "Manage autoreply"
 msgstr "Gerenciar auto-resposta"
@@ -1507,7 +1505,7 @@ msgid "Manage gammu"
 msgstr "Gerenciar gammu"
 
 msgid "Manage gateway and SMSC"
-msgstr "Gerenciar Gateway e SMSC"
+msgstr "Gerenciar gateway e SMSC"
 
 msgid "Manage generic"
 msgstr ""
@@ -1540,7 +1538,7 @@ msgid "Manage schedule"
 msgstr "Gerenciar agendamento"
 
 msgid "Manage sender ID"
-msgstr "Gerenciar ID de destinatário"
+msgstr "Gerenciar ID do remetente"
 
 msgid "Manage site"
 msgstr "Gerenciar site"
@@ -1567,7 +1565,7 @@ msgid "Manage uplink"
 msgstr "Gerenciar uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Os campos obrigatórios no podem estar em branco"
+msgstr "Campos obrigatórios não podem estar em branco"
 
 msgid "Master URL"
 msgstr "URL mestre"
@@ -1765,7 +1763,7 @@ msgid "No"
 msgstr "Não"
 
 msgid "No changes have been made"
-msgstr "Nenhuma mudança feita"
+msgstr "Nenhuma alteração realizada"
 
 msgid "No changes made"
 msgstr "Nenhuma alteração realizada"
@@ -1789,7 +1787,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Notes"
-msgstr "Anotações"
+msgstr "Notas"
 
 msgid "Number"
 msgstr "Número"
@@ -2001,7 +1999,7 @@ msgid "Receiver"
 msgstr "Destinatário"
 
 msgid "Receiver number"
-msgstr "Número do Destinatário"
+msgstr "Número do destinatário"
 
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
@@ -2740,7 +2738,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Não foi possível salvar as configurações do módulo de gateway"
 
 msgid "Unable to unban account"
-msgstr "Não é possível desbanir a conta"
+msgstr "Não é possível desbanir conta"
 
 msgid "Unable to unban subuser"
 msgstr "Não é possível desbanir sub-usuário"
@@ -2788,7 +2786,7 @@ msgid "User agent"
 msgstr "User agent"
 
 msgid "User configuration"
-msgstr "Configurações de usuário"
+msgstr "Configuração de usuário"
 
 msgid "User configuration has been saved"
 msgstr "As configurações do usuário foram salvas"
@@ -2822,7 +2820,7 @@ msgid "User preference"
 msgstr "Preferências de usuário"
 
 msgid "Username"
-msgstr "Usuário"
+msgstr "Nome de Usuário"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
@@ -2942,7 +2940,7 @@ msgid "You must fill all fields"
 msgstr "Você deve preencher todos os campos"
 
 msgid "You must fill all mandatory fields"
-msgstr "Preencha todos os campos obrigatórios"
+msgstr "Você deve preencher todos os campos obrigatórios"
 
 msgid "You must fill all required fields"
 msgstr "Você deve preencher todos os campos requeridos"

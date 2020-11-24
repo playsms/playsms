@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: fr_FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1783,7 +1781,7 @@ msgid "No"
 msgstr "Non"
 
 msgid "No changes have been made"
-msgstr "Aucun changement apporté"
+msgstr "Aucune modification apportée"
 
 msgid "No changes made"
 msgstr "Aucun changement apporté"
@@ -2777,7 +2775,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Unable to unban account"
-msgstr "Échec de la réintégration du compte"
+msgstr "Impossible de réintégrer le compte"
 
 msgid "Unable to unban subuser"
 msgstr "Impossible de réintégrer le sous-utilisateur"

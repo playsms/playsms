@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
 "Language-Team: \n"
@@ -10,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.7\n"
 
 msgid "1 Day"
 msgstr "1 dag"
@@ -1103,7 +1102,7 @@ msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format ÃÂÃÂÃÂÃÂ-MM-DD tt:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1574,7 +1573,7 @@ msgid "Manage uplink"
 msgstr "Håndter uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "KrÃÂ¦vede felter mÃÂ¥ ikke vÃÂ¦re tomme"
+msgstr "Krævede felter må ikke være tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1770,7 +1769,7 @@ msgid "No"
 msgstr "Nej"
 
 msgid "No changes have been made"
-msgstr "Ingen ændringer er foretaget"
+msgstr "Ingen ændringer foretaget"
 
 msgid "No changes made"
 msgstr "Ingen ændringer foretaget"
@@ -2407,7 +2406,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søg i indkommende SMS efter @brugernavn"
 
 msgid "Schedule"
-msgstr "Tidsplan"
+msgstr "Skema"
 
 msgid "Schedule ID"
 msgstr "Tidsplan ID"
@@ -2748,7 +2747,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 
 msgid "Unable to unban account"
-msgstr "Kunne ikke fjerne bandlysning af konto"
+msgstr "Kan ikke fjerne bandlysning fra konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bandlysning af underbruger"
@@ -2947,7 +2946,7 @@ msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du skal udfylde alle påkrævede felter"
+msgstr "Du skal udfylde alle krævede felter"
 
 msgid "You must fill all required fields"
 msgstr "Du skal udfylde alle påkrævede felter"

@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1576,7 +1575,7 @@ msgid "Manage uplink"
 msgstr "Gerir uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Os campos obrigatórios não devem estar vazio"
+msgstr "Os campos obrigatórios não devem estar vazios"
 
 msgid "Master URL"
 msgstr "URL Principal"
@@ -1772,7 +1771,7 @@ msgid "No"
 msgstr "Não"
 
 msgid "No changes have been made"
-msgstr "Nenhuma mudança feita"
+msgstr "Não foi efectuado qualquer alteração"
 
 msgid "No changes made"
 msgstr "Não foi efectuado qualquer alteração"
@@ -1797,7 +1796,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Notes"
-msgstr "Observações"
+msgstr "Notas"
 
 msgid "Number"
 msgstr "Número"
@@ -1862,7 +1861,7 @@ msgid "Pass these parameters to custom URL field"
 msgstr "Use esses parâmetros no campo de URL"
 
 msgid "Password"
-msgstr "Palavra-passr"
+msgstr "Palavra-passe"
 
 msgid "Password does not match"
 msgstr "Palavra-passe não corresponde"
@@ -2623,7 +2622,7 @@ msgid "Status"
 msgstr "Estado"
 
 msgid "Submit"
-msgstr "Enviar"
+msgstr "Submeter"
 
 msgid "Subscribe duration"
 msgstr "Duração da Subscrição"
@@ -2840,7 +2839,7 @@ msgid "User preference"
 msgstr ""
 
 msgid "Username"
-msgstr "Nome de utilizador:"
+msgstr "Nome de Utilizador"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
@@ -3111,7 +3110,7 @@ msgid "multiple times"
 msgstr "Vária vezes"
 
 msgid "no"
-msgstr "não"
+msgstr "Não"
 
 msgid "of"
 msgstr "de"
@@ -3218,4 +3217,4 @@ msgid "will be replaced with the phone number listed in phonebook"
 msgstr "Será substituído com o número de telemóvel que consta na agenda"
 
 msgid "yes"
-msgstr "sim"
+msgstr "Sim"

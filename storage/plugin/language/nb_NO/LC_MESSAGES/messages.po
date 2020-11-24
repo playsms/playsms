@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
 "Language-Team: \n"
 "Language: nb_NO\n"
@@ -505,7 +503,7 @@ msgid "Comma separated values for multiple mobile numbers"
 msgstr "Kommaseparerte verdier for fler mobilnummere"
 
 msgid "Compose message"
-msgstr "Lag melding"
+msgstr "Send melding"
 
 msgid "Configuration"
 msgstr "Konfigurasjon"
@@ -773,7 +771,7 @@ msgid "Effective SMS sender ID"
 msgstr "Effektivt SMS senderID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "F.eks: +07000 for Jakarta/Bangkok tidssone"
+msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
 
 msgid "Email"
 msgstr "Email"
@@ -1096,7 +1094,7 @@ msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
+msgstr "Format: ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1466,7 +1464,7 @@ msgid "Manage"
 msgstr "Hndter"
 
 msgid "Manage ACL"
-msgstr "Hndter ACL"
+msgstr "Håndter ACL"
 
 msgid "Manage OpenVox"
 msgstr "Håndter OpenVox"
@@ -1475,7 +1473,7 @@ msgid "Manage SMS rate"
 msgstr "Håndter SMS-takst"
 
 msgid "Manage account"
-msgstr "Hndter konto"
+msgstr "Håndter konto"
 
 msgid "Manage autoreply"
 msgstr "Håndter autosvar"
@@ -1508,7 +1506,7 @@ msgid "Manage gammu"
 msgstr "Håndter gammu"
 
 msgid "Manage gateway and SMSC"
-msgstr "Hndter gateway og SMSC"
+msgstr "Håndter gateway og SMSC"
 
 msgid "Manage generic"
 msgstr ""
@@ -1541,10 +1539,10 @@ msgid "Manage schedule"
 msgstr "Håndter tidsplan"
 
 msgid "Manage sender ID"
-msgstr "Hndter senderID"
+msgstr "Håndter senderID"
 
 msgid "Manage site"
-msgstr "Hndter side"
+msgstr "Håndter side"
 
 msgid "Manage smstools"
 msgstr "Håndter smstools"
@@ -1556,7 +1554,7 @@ msgid "Manage subscribe"
 msgstr "Håndter abonnement"
 
 msgid "Manage subuser"
-msgstr "Hndter underbruker"
+msgstr "Håndter underbruker"
 
 msgid "Manage template"
 msgstr "Håndter template"
@@ -1568,7 +1566,7 @@ msgid "Manage uplink"
 msgstr "Håndter uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Påkrevde felter kan ikke være tomme"
+msgstr "Påkrevde felt kan ikke være tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1616,7 +1614,7 @@ msgid "Members"
 msgstr "Medlemmer"
 
 msgid "Message"
-msgstr "Beskjed"
+msgstr "Melding"
 
 #, php-format
 msgid "Message %s has been delivered to queue"
@@ -1906,7 +1904,7 @@ msgid "Pre rules"
 msgstr "Før-regler"
 
 msgid "Preferences"
-msgstr "Preferanse"
+msgstr "Innstillinger"
 
 msgid "Preferences have been saved"
 msgstr "Innstillnger har blitt lagret"
@@ -1993,7 +1991,7 @@ msgid "Received answer list for keyword"
 msgstr "Mottatt svarliste for nøkkelord"
 
 msgid "Receiver"
-msgstr "Mottager"
+msgstr "Mottaker"
 
 msgid "Receiver number"
 msgstr "Mottakernummer"
@@ -2402,7 +2400,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søk i innkomende SMS for @brukernavn"
 
 msgid "Schedule"
-msgstr "Tidsplan"
+msgstr "Tidsskjema"
 
 msgid "Schedule ID"
 msgstr "TidsplanID"
@@ -2516,7 +2514,7 @@ msgid "Send to"
 msgstr "Send til"
 
 msgid "Sender"
-msgstr "Avsender"
+msgstr "Sender"
 
 msgid "Sender ID"
 msgstr "SenderID"
@@ -2611,7 +2609,7 @@ msgid "Status"
 msgstr "Status"
 
 msgid "Submit"
-msgstr "Innsend"
+msgstr "Send"
 
 msgid "Subscribe duration"
 msgstr "Abonnement varighet"
@@ -2746,7 +2744,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Gateway-modul konfigurasjoner har blitt lagret"
 
 msgid "Unable to unban account"
-msgstr "Kunne ikke fjerne bannlysning av konto"
+msgstr "Kan ikke fjerne bannlysning fra konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bannlysning fra underbruker"
@@ -2947,7 +2945,7 @@ msgid "You must fill all fields"
 msgstr "Du må utfylle alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du må utfylle alle påkrevde felter"
+msgstr "Du må fylle ut alle krevde felt"
 
 msgid "You must fill all required fields"
 msgstr "Du må fylle ut all påkrevde felt"

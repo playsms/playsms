@@ -1,7 +1,5 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: id_ID\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1756,7 +1754,7 @@ msgid "No"
 msgstr ""
 
 msgid "No changes have been made"
-msgstr "Tidak ada perubahan yang terjadi"
+msgstr "Tidak ada perubahan"
 
 msgid "No changes made"
 msgstr ""
@@ -2932,9 +2930,8 @@ msgstr "Anda harus mengisi semua kolom"
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
-#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr "Anda harus mengisi semua kolom"
+msgstr ""
 
 msgid "You must fill all required fields"
 msgstr ""
