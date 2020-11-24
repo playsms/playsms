@@ -3,7 +3,11 @@
 PLAYSMS=$1
 
 if [ -z "$PLAYSMS" ]; then
-	echo "Usage: $0 <playSMS installation path>"
+	PLAYSMS=../../..
+fi
+
+if [ ! -d "$PLAYSMS/web" ]; then
+	echo "Error. Usage: $(basename $0) <playSMS source dir>"
 	exit 1
 fi
 
