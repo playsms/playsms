@@ -1,0 +1,19 @@
+Plugin  : Language fr_FR for playSMS
+Authors : Emmanuel CHANSON (emmanuelchanson_at_gmail_dot_com),
+          François Bonzon (francois dot bonzon at gmail dot com)
+Release : 100922
+License : GPLv3
+
+
+French style guide for consistency within playSMS:
+
+- fill (a form) = saisir
+Même si remplir est pas faux, utiliser partout saisir par cohérence.
+
+- save = enregistrer
+Même si sauvegarder est aussi juste, utiliser partout enregistrer par cohérence.
+
+- invalid = erroné
+
+- Ne pas traduire "sender ID", car plus souvent utilisé en anglais. Ou alors le
+traduire partout…
