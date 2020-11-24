@@ -22,9 +22,7 @@ for j in `ls -1 "$PLAYSMS/web/plugin/language/" | grep '_'` ; do
 	touch "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/.po_files"
 done
 
-set -e
-
-find . -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
+find $PLAYSMS/web -type d -name "language" | grep -v "grep" | sed -e "s/\/[^\/]*$//" > /tmp/.lang_folders
 for i in `cat /tmp/.lang_folders` ; do
 	touch "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/.po_files"
 	for j in `ls -1 "$i/language/" | grep '_'` ; do
