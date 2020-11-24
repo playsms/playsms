@@ -119,6 +119,9 @@ msgstr "Meldinger"
 msgid "Phone number"
 msgstr "Telefonnummer"
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "SMS forward parameter"
 msgstr "Videresend SMS-parameter"
 
@@ -156,9 +159,6 @@ msgstr "SMS avmeldingsparameter"
 
 msgid "SMS unsubscribe reply"
 msgstr "SMS avmeldingssvar"
-
-msgid "SMSC"
-msgstr "SMSC"
 
 msgid "Save"
 msgstr "Lagre"

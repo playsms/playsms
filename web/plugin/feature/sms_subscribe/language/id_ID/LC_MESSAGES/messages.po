@@ -116,6 +116,9 @@ msgstr "Pesan"
 msgid "Phone number"
 msgstr "Nomor telepon"
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "SMS forward parameter"
 msgstr "Parameter teruskan SMS"
 
@@ -152,9 +155,6 @@ msgstr "Balasan SMS tidak berlangganan"
 
 msgid "SMS unsubscribe reply"
 msgstr "Balasan SMS tidak berlangganan"
-
-msgid "SMSC"
-msgstr ""
 
 msgid "Save"
 msgstr "Simpan"

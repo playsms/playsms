@@ -123,6 +123,9 @@ msgstr "Beskeder"
 msgid "Phone number"
 msgstr "Telefonnummer"
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "SMS forward parameter"
 msgstr "SMS videresend paramter"
 
@@ -160,9 +163,6 @@ msgstr "SMS afmeld parameter"
 
 msgid "SMS unsubscribe reply"
 msgstr "SMS afmeld svar"
-
-msgid "SMSC"
-msgstr "SMSC"
 
 msgid "Save"
 msgstr "Gem"

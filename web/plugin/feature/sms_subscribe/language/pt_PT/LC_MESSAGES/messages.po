@@ -123,6 +123,9 @@ msgstr "Mensagens"
 msgid "Phone number"
 msgstr "Telemóvel"
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "SMS forward parameter"
 msgstr "Parâmetro de encaminhamento de SMS"
 
@@ -158,9 +161,6 @@ msgstr "Parâmetro para cancelamento da Subscrição "
 
 msgid "SMS unsubscribe reply"
 msgstr "Resposta para cancelamento da Subscrição "
-
-msgid "SMSC"
-msgstr ""
 
 msgid "Save"
 msgstr "Guardar"

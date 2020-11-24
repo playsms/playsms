@@ -27,12 +27,6 @@ msgstr "E-mail"
 msgid "Fail to recover password"
 msgstr "Kunne ikke gendanne adgangskode"
 
-msgid "Fail to save temporary password"
-msgstr "Kunne ikke gemme midlertidig adgangskode"
-
-msgid "Fail to send email"
-msgstr "Kunne ikke sende e-mail"
-
 msgid "Home"
 msgstr "Hjem"
 
@@ -53,9 +47,6 @@ msgstr "Ny konto registrering"
 
 msgid "Password"
 msgstr "Adgangskode"
-
-msgid "Password has been emailed"
-msgstr "Adgangskode er blevet e-mailet"
 
 msgid "Password recovery"
 msgstr "Adgangskode gendannelse"
@@ -82,6 +73,9 @@ msgstr "Registrer en konto"
 msgid "Submit"
 msgstr "Indsend"
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
 msgstr ""
@@ -107,6 +101,3 @@ msgstr "Du har ikke adgang til denne side"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Du, eller en anden, har bedt om at gendanne adgangskoden"
-
-msgid "username"
-msgstr "brugernavn"

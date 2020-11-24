@@ -1,8 +1,18 @@
+# Joan <aseques@gmail.com>, 2013.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"PO-Revision-Date: 2013-12-10 15:26+0100\n"
+"Last-Translator: Joan <aseques@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca_ES\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
 
 msgid "1 Day"
 msgstr ""
@@ -49,9 +59,8 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-#, fuzzy
 msgid "API username"
-msgstr "Esborrar usuari"
+msgstr ""
 
 msgid "Access Control List"
 msgstr ""
@@ -118,7 +127,7 @@ msgid "Active themes"
 msgstr ""
 
 msgid "Add"
-msgstr "Afegir"
+msgstr ""
 
 msgid "Add ACL"
 msgstr ""
@@ -218,7 +227,7 @@ msgid "Address"
 msgstr ""
 
 msgid "Administrator"
-msgstr "Administrador"
+msgstr ""
 
 msgid "Administrators"
 msgstr ""
@@ -463,9 +472,6 @@ msgstr ""
 msgid "Check email sender"
 msgstr ""
 
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr ""
-
 msgid "Choice already exists"
 msgstr ""
 
@@ -653,7 +659,7 @@ msgid "Delete member"
 msgstr ""
 
 msgid "Delete user"
-msgstr "Esborrar usuari"
+msgstr ""
 
 msgid "Deleted"
 msgstr "Esborrats"
@@ -689,11 +695,8 @@ msgstr ""
 msgid "Domain"
 msgstr ""
 
-msgid "Download SMSSync app for Android from"
-msgstr ""
-
 msgid "Edit"
-msgstr "Editar"
+msgstr ""
 
 msgid "Edit ACL"
 msgstr ""
@@ -802,9 +805,6 @@ msgstr ""
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 
-msgid "Enable SMS Sync"
-msgstr ""
-
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr ""
 
@@ -845,7 +845,7 @@ msgid "Exec"
 msgstr ""
 
 msgid "Export"
-msgstr "Exportar"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr ""
@@ -1005,9 +1005,6 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
-msgid "Fail to save SMS Sync configuration"
-msgstr ""
-
 msgid "Fail to save SMS command"
 msgstr ""
 
@@ -1033,13 +1030,7 @@ msgstr "Error guardant tarifa"
 msgid "Fail to save route"
 msgstr "Error guardant tarifa"
 
-msgid "Fail to save temporary password"
-msgstr ""
-
 msgid "Fail to send SMS"
-msgstr ""
-
-msgid "Fail to send email"
 msgstr ""
 
 msgid "Fail to send message to all destinations"
@@ -1103,7 +1094,7 @@ msgid "Format YYYY-MM-DD hh:mm"
 msgstr ""
 
 msgid "Forward"
-msgstr "Reenviar"
+msgstr ""
 
 msgid "Forward all sandbox SMS to a URL"
 msgstr ""
@@ -1142,7 +1133,7 @@ msgid "Gateway host"
 msgstr ""
 
 msgid "Gateway module configurations has been saved"
-msgstr "S'han guardat les configuracions del modul de sortida"
+msgstr "Les configuracions del modul de sortida s'han guardat"
 
 msgid "Gateway name"
 msgstr "Nom de la sortida"
@@ -1157,12 +1148,9 @@ msgid "Generic send SMS URL"
 msgstr ""
 
 msgid "Go"
-msgstr "Anar"
-
-msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 
-msgid "Go to manage site menu to edit this page"
+msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 
 msgid "Grand total SMS"
@@ -1230,7 +1218,7 @@ msgid "HTTP Kannel admin port"
 msgstr ""
 
 msgid "Home"
-msgstr "Principal"
+msgstr ""
 
 msgid "ID"
 msgstr ""
@@ -1428,7 +1416,7 @@ msgid ""
 msgstr ""
 
 msgid "Logout"
-msgstr "Desconnectar"
+msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
 msgstr ""
@@ -1449,7 +1437,7 @@ msgid "Mailbox username"
 msgstr ""
 
 msgid "Main configuration"
-msgstr "Configuració Principal"
+msgstr ""
 
 msgid "Main configuration changes has been saved"
 msgstr ""
@@ -1464,14 +1452,13 @@ msgid "Make return as reply"
 msgstr ""
 
 msgid "Manage"
-msgstr "Administrar"
+msgstr ""
 
 msgid "Manage ACL"
 msgstr ""
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "Administrar usuari"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Gestionar tarifes SMS"
@@ -1482,9 +1469,8 @@ msgstr ""
 msgid "Manage autoreply"
 msgstr "Manage autoreply"
 
-#, fuzzy
 msgid "Manage blocked"
-msgstr "Administrar usuari"
+msgstr ""
 
 msgid "Manage board"
 msgstr "Manage board"
@@ -1498,9 +1484,8 @@ msgstr ""
 msgid "Manage custom"
 msgstr "Manage custom"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "Administrar usuari"
+msgstr ""
 
 msgid "Manage email to SMS"
 msgstr ""
@@ -1511,31 +1496,26 @@ msgstr ""
 msgid "Manage gammu"
 msgstr "Manage gammu"
 
-#, fuzzy
 msgid "Manage gateway and SMSC"
-msgstr "Gestionar sortida"
+msgstr ""
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "ID Remitent del SMS"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Administrar usuari"
+msgstr ""
 
 msgid "Manage kannel"
 msgstr "Manage kannel"
 
-#, fuzzy
 msgid "Manage nexmo"
-msgstr "Administrar usuari"
+msgstr ""
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "El meu compte"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "Gestionar plugin"
@@ -1565,9 +1545,6 @@ msgid "Manage subscribe"
 msgstr "Manage subscribe"
 
 msgid "Manage subuser"
-msgstr ""
-
-msgid "Manage sync"
 msgstr ""
 
 msgid "Manage template"
@@ -1704,7 +1681,7 @@ msgid "Monthly"
 msgstr ""
 
 msgid "Move"
-msgstr "Moure"
+msgstr ""
 
 msgid "Move to"
 msgstr "Moure a"
@@ -1868,9 +1845,6 @@ msgstr ""
 msgid "Password does not match"
 msgstr ""
 
-msgid "Password has been emailed"
-msgstr ""
-
 msgid "Password recovery"
 msgstr ""
 
@@ -1922,7 +1896,7 @@ msgid "Pre rules"
 msgstr ""
 
 msgid "Preferences"
-msgstr "Preferències"
+msgstr ""
 
 msgid "Preferences have been saved"
 msgstr ""
@@ -2070,7 +2044,10 @@ msgid "Replace website title with logo"
 msgstr ""
 
 msgid "Reply"
-msgstr "Respondre"
+msgstr ""
+
+msgid "Reply SMSC"
+msgstr ""
 
 msgid "Reply message on correct"
 msgstr ""
@@ -2103,7 +2080,7 @@ msgid "Reports"
 msgstr ""
 
 msgid "Resend"
-msgstr "Reenviar"
+msgstr ""
 
 msgid "Restart Kannel"
 msgstr ""
@@ -2166,9 +2143,6 @@ msgid "SMS"
 msgstr ""
 
 msgid "SMS Board"
-msgstr ""
-
-msgid "SMS Sync configuration has been saved"
 msgstr ""
 
 msgid "SMS autoreply has been deleted"
@@ -2424,12 +2398,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Secret key"
-msgstr ""
-
-msgid "Secret key is used in SMSSync app"
-msgstr ""
-
 msgid "Select"
 msgstr "Seleccionar"
 
@@ -2632,9 +2600,6 @@ msgstr ""
 msgid "Supplied SMSC"
 msgstr ""
 
-msgid "Sync URL"
-msgstr ""
-
 msgid "System error has occured"
 msgstr ""
 
@@ -2643,6 +2608,9 @@ msgstr ""
 
 msgid "Template installation path"
 msgstr "Ruta d'instal·lació de plantilles"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid "The domain is already configured by other user"
 msgstr ""
@@ -2790,7 +2758,7 @@ msgid "User agent"
 msgstr ""
 
 msgid "User configuration"
-msgstr "Configuració d'usuari"
+msgstr ""
 
 msgid "User configuration has been saved"
 msgstr ""
@@ -2820,7 +2788,7 @@ msgid "User is not on banned users list"
 msgstr ""
 
 msgid "User preference"
-msgstr "Preferències d'usuari"
+msgstr ""
 
 msgid "Username"
 msgstr "Usuari"
@@ -2856,7 +2824,7 @@ msgid "Version"
 msgstr "Versió"
 
 msgid "View"
-msgstr "Veure"
+msgstr ""
 
 msgid "View SMS queue"
 msgstr "Veure la cua de SMS"
@@ -2909,9 +2877,6 @@ msgstr ""
 msgid "Weekly"
 msgstr ""
 
-msgid "Welcome information"
-msgstr ""
-
 msgid "Whose online"
 msgstr ""
 
@@ -2943,8 +2908,9 @@ msgstr "Heu d'omplir tots els camps"
 msgid "You must fill all fields"
 msgstr "Heu d'omplir tots els camps"
 
+#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "Heu d'omplir tots els camps"
 
 msgid "You must fill all required fields"
 msgstr ""

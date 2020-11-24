@@ -125,6 +125,9 @@ msgstr "الرسائل "
 msgid "Phone number"
 msgstr "رقم الهاتف"
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "SMS forward parameter"
 msgstr "معامل إعادة توجيه الرسالة"
 
@@ -160,9 +163,6 @@ msgstr "معامل إلغاء الاشتراك"
 
 msgid "SMS unsubscribe reply"
 msgstr "رد إلغاء الاشتراك"
-
-msgid "SMSC"
-msgstr "مركز الرسائل"
 
 msgid "Save"
 msgstr "حفظ"

@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: fr_FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,9 +51,8 @@ msgstr ""
 msgid "API secret"
 msgstr "Secret de l'API"
 
-#, fuzzy
 msgid "API username"
-msgstr "Supprimer l'utilisateur"
+msgstr ""
 
 msgid "Access Control List"
 msgstr "Access Control List"
@@ -410,7 +411,7 @@ msgid "Back"
 msgstr "Retour"
 
 msgid "Ban"
-msgstr "Bannir"
+msgstr ""
 
 msgid "Ban date/time"
 msgstr "Date du bannissement"
@@ -431,7 +432,7 @@ msgid "Blocked mobile"
 msgstr ""
 
 msgid "Buy"
-msgstr "Acheter"
+msgstr ""
 
 msgid "Buy credit page"
 msgstr "Page Ajouter du crédit"
@@ -479,10 +480,6 @@ msgstr "Modifications effectuées"
 
 msgid "Check email sender"
 msgstr "Vérifiez l'expéditeur de l'email"
-
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr ""
-"Cocher pour activer la réception des messages push depuis l'app SMSSync"
 
 msgid "Choice already exists"
 msgstr "Cette réponse existe déjà"
@@ -679,7 +676,7 @@ msgid "Delete member"
 msgstr "Supprimer le membre"
 
 msgid "Delete user"
-msgstr "Supprimer l'utilisateur"
+msgstr ""
 
 msgid "Deleted"
 msgstr "Supprimé"
@@ -714,11 +711,8 @@ msgstr ""
 msgid "Domain"
 msgstr "Domaine"
 
-msgid "Download SMSSync app for Android from"
-msgstr "Télécharger l'app SMSSync pour Android depuis"
-
 msgid "Edit"
-msgstr "Éditer"
+msgstr ""
 
 msgid "Edit ACL"
 msgstr "Éditer l'ACL"
@@ -828,9 +822,6 @@ msgstr ""
 "Sender ID vide par défaut pour permettre aux utilisateurs de définir leur "
 "propre sender ID"
 
-msgid "Enable SMS Sync"
-msgstr "Activer SMS Sync"
-
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Activer le crédit d'un SMS unicode comme un SMS normal"
 
@@ -872,7 +863,7 @@ msgid "Exec"
 msgstr "Exécuté"
 
 msgid "Export"
-msgstr "Exporter"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "ERREUR FATALE"
@@ -1031,9 +1022,6 @@ msgstr "Échec de l'inscription d'un compte"
 msgid "Fail to remove SMSC"
 msgstr "Échec de la suppression du SMSC"
 
-msgid "Fail to save SMS Sync configuration"
-msgstr "Échec de l'enregistrement de la configuration de SMS Sync"
-
 msgid "Fail to save SMS command"
 msgstr "Échec de l'enregistrement de la commande SMS"
 
@@ -1058,15 +1046,8 @@ msgstr "Échec de l'enregistrement du tarif"
 msgid "Fail to save route"
 msgstr "Échec de l'enregistrement de la route"
 
-#, fuzzy
-msgid "Fail to save temporary password"
-msgstr "Échec de la récupération du mot de passe"
-
 msgid "Fail to send SMS"
 msgstr "Échec de l'envoi du SMS"
-
-msgid "Fail to send email"
-msgstr "Échec de l'envoi de l'email"
 
 msgid "Fail to send message to all destinations"
 msgstr "Échec de l'envoi du message vers toutes les destinations"
@@ -1184,14 +1165,11 @@ msgid "Generic send SMS URL"
 msgstr ""
 
 msgid "Go"
-msgstr "Aller"
+msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Aller vers configuration principale ou gérer site pour éditer cette page"
-
-msgid "Go to manage site menu to edit this page"
-msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Total général de SMS"
@@ -1279,7 +1257,7 @@ msgid "IP addresses have been deleted"
 msgstr "Les adresses IP ont été supprimées"
 
 msgid "Idle"
-msgstr "Au repos"
+msgstr ""
 
 msgid "Import"
 msgstr "Importer"
@@ -1313,7 +1291,7 @@ msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip va faire un push du DLR et du SMS entrant vers l'URL ci-dessus"
 
 msgid "Information"
-msgstr "Information"
+msgstr "Informations"
 
 msgid "Information page"
 msgstr "Page d'information"
@@ -1360,8 +1338,9 @@ msgstr "Mot de passe de l'admin Kannel"
 msgid "Kannel admin port"
 msgstr "Port de l'admin Kannel"
 
+#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Host de l'admin Kannel"
 
 msgid "Kannel specific"
 msgstr "Spécifique à Kannel"
@@ -1441,13 +1420,13 @@ msgid "Local playnet username"
 msgstr ""
 
 msgid "Logged in as"
-msgstr "Connecté en tant que"
+msgstr ""
 
 msgid "Login"
 msgstr "Connexion"
 
 msgid "Login as"
-msgstr "Se connecter en tant que"
+msgstr ""
 
 msgid "Login information"
 msgstr "Informations de connexion"
@@ -1462,7 +1441,7 @@ msgstr ""
 "d'oubli du mot de passe"
 
 msgid "Logout"
-msgstr "Déconnexion"
+msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
 msgstr "Limite de crédit inférieure déclenchant une notification"
@@ -1496,10 +1475,10 @@ msgid "Main website name"
 msgstr "Nom du site web principal"
 
 msgid "Make return as reply"
-msgstr "Envoyer le résultat de la commande comme réponse"
+msgstr "Envoyer le résultat du script comme réponse"
 
 msgid "Manage"
-msgstr "Gérer"
+msgstr ""
 
 msgid "Manage ACL"
 msgstr "Gérer ACL"
@@ -1546,16 +1525,14 @@ msgstr "Gérer gammu"
 msgid "Manage gateway and SMSC"
 msgstr "Gérer passerelle et SMSC"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "Gérer sender ID"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Gérer infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Gérer site"
+msgstr ""
 
 msgid "Manage kannel"
 msgstr "Gérer kannel"
@@ -1563,9 +1540,8 @@ msgstr "Gérer kannel"
 msgid "Manage nexmo"
 msgstr "Gérer nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Gérer compte"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "Gérer plugin"
@@ -1596,9 +1572,6 @@ msgstr "Gérer abonnement"
 
 msgid "Manage subuser"
 msgstr "Gérer sous-utilisateur"
-
-msgid "Manage sync"
-msgstr "Gérer sync"
 
 msgid "Manage template"
 msgstr "Gérer modèle"
@@ -1737,7 +1710,7 @@ msgid "Monthly"
 msgstr "Chaque mois"
 
 msgid "Move"
-msgstr "Déplacer"
+msgstr ""
 
 msgid "Move to"
 msgstr "Déplacer vers"
@@ -1755,7 +1728,7 @@ msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "My account"
-msgstr "Mon Compte"
+msgstr ""
 
 msgid "My credit transactions"
 msgstr "Mes transactions de crédit"
@@ -1810,7 +1783,7 @@ msgid "No"
 msgstr "Non"
 
 msgid "No changes have been made"
-msgstr "Aucune modification apportée"
+msgstr "Aucun changement apporté"
 
 msgid "No changes made"
 msgstr "Aucun changement apporté"
@@ -1846,13 +1819,13 @@ msgid "Number of votes"
 msgstr "Nombre de votes"
 
 msgid "Offline"
-msgstr "Déconnecté"
+msgstr ""
 
 msgid "Once"
 msgstr "Une fois"
 
 msgid "Online"
-msgstr "Connecté"
+msgstr ""
 
 msgid "Only when the sender ID is approved"
 msgstr "Uniquement lorsque le sender ID est approuvé"
@@ -1903,9 +1876,6 @@ msgstr "Mot de passe"
 
 msgid "Password does not match"
 msgstr "Le mot de passe ne correspond pas"
-
-msgid "Password has been emailed"
-msgstr "Le mot de passe a été envoyé par e-mail"
 
 msgid "Password recovery"
 msgstr "Récupération du mot de passe"
@@ -2073,7 +2043,7 @@ msgid "Recover password disabled"
 msgstr "Récupération du mot de passe désactivée"
 
 msgid "Reduce"
-msgstr "Réduire"
+msgstr ""
 
 msgid "Reduce credit"
 msgstr "Réduire le crédit"
@@ -2088,7 +2058,7 @@ msgid "Register an account"
 msgstr "Inscrire un nouveau compte"
 
 msgid "Registered"
-msgstr "Inscrit"
+msgstr "Enregistré"
 
 msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
 msgstr ""
@@ -2118,7 +2088,10 @@ msgid "Replace website title with logo"
 msgstr "Remplacer le titre du site web par le logo"
 
 msgid "Reply"
-msgstr "Répondre"
+msgstr ""
+
+msgid "Reply SMSC"
+msgstr ""
 
 msgid "Reply message on correct"
 msgstr "Message de réponse si correct"
@@ -2148,10 +2121,10 @@ msgid "Report whose online"
 msgstr "Rapport pour les utilisateurs connectés"
 
 msgid "Reports"
-msgstr "Rapports"
+msgstr ""
 
 msgid "Resend"
-msgstr "Envoyer à nouveau"
+msgstr ""
 
 msgid "Restart Kannel"
 msgstr "Redémarrer Kannel"
@@ -2217,9 +2190,6 @@ msgstr "SMS"
 
 msgid "SMS Board"
 msgstr "Service de redirection"
-
-msgid "SMS Sync configuration has been saved"
-msgstr "La configuration de SMS Sync a été enregistrée"
 
 msgid "SMS autoreply has been deleted"
 msgstr "La réponse auto a été supprimée"
@@ -2484,12 +2454,6 @@ msgstr "Message planifié"
 msgid "Search"
 msgstr "Recherche"
 
-msgid "Secret key"
-msgstr "Clé secrète"
-
-msgid "Secret key is used in SMSSync app"
-msgstr "La clé secrète est utilisée dans l'app SMSSync"
-
 msgid "Select"
 msgstr "Sélectionner"
 
@@ -2698,9 +2662,6 @@ msgstr "Sous-utilisateurs"
 msgid "Supplied SMSC"
 msgstr "SMSC fourni"
 
-msgid "Sync URL"
-msgstr "URL de Sync"
-
 msgid "System error has occured"
 msgstr "Une erreur système est survenue"
 
@@ -2709,6 +2670,9 @@ msgstr "Tags"
 
 msgid "Template installation path"
 msgstr "Chemin d'installation du modèle"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid "The domain is already configured by other user"
 msgstr "Ce domaine est déjà configuré par un autre utilisateur"
@@ -2808,17 +2772,18 @@ msgstr "Échec du traitement de l'ajout du sous-utilisateur"
 msgid "Unable to process user addition"
 msgstr "Échec du traitement de l'ajout de l'utilisateur"
 
+#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "La configuration du module de passerelle a été enregistrée"
 
 msgid "Unable to unban account"
-msgstr "Impossible de réintégrer le compte"
+msgstr "Échec de la réintégration du compte"
 
 msgid "Unable to unban subuser"
 msgstr "Impossible de réintégrer le sous-utilisateur"
 
 msgid "Unban"
-msgstr "Réintégrer"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Message Unicode"
@@ -2835,8 +2800,9 @@ msgstr "Réponse avec un format inconnu"
 msgid "Unlimited"
 msgstr "Illimité"
 
+#, fuzzy
 msgid "Update status"
-msgstr ""
+msgstr "Statut de Kannel"
 
 msgid "Upload file"
 msgstr "Importer le fichier"
@@ -2893,7 +2859,7 @@ msgid "User is not on banned users list"
 msgstr "L'utilisateur ne fait partie de la liste des utilisateurs bannis"
 
 msgid "User preference"
-msgstr "Préférence de l'utilisateur"
+msgstr ""
 
 msgid "Username"
 msgstr "Nom d'utilisateur"
@@ -2933,7 +2899,7 @@ msgid "Version"
 msgstr "Version"
 
 msgid "View"
-msgstr "Afficher"
+msgstr ""
 
 msgid "View SMS queue"
 msgstr "Afficher la file d'attente des SMS"
@@ -2985,9 +2951,6 @@ msgstr "Titre du site web"
 
 msgid "Weekly"
 msgstr "Chaque semaine"
-
-msgid "Welcome information"
-msgstr ""
 
 msgid "Whose online"
 msgstr "Dont connecté"
@@ -3072,7 +3035,7 @@ msgid "Your choice"
 msgstr "Votre choix"
 
 msgid "Your credit"
-msgstr "Votre crédit"
+msgstr ""
 
 msgid "Your current callback URL authcode is"
 msgstr ""
@@ -3213,7 +3176,7 @@ msgid "rate"
 msgstr "tarif"
 
 msgid "return"
-msgstr "retour"
+msgstr ""
 
 msgid "title"
 msgstr "titre"
@@ -3281,4 +3244,4 @@ msgstr ""
 "sera remplacé par le numéro de téléphone tel que dans le carnet d'adresses"
 
 msgid "yes"
-msgstr "yes"
+msgstr "oui"

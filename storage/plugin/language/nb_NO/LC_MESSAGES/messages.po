@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
 "Language-Team: \n"
 "Language: nb_NO\n"
@@ -51,9 +53,8 @@ msgstr ""
 msgid "API secret"
 msgstr "API-hemmelighet"
 
-#, fuzzy
 msgid "API username"
-msgstr "Slett bruker"
+msgstr ""
 
 msgid "Access Control List"
 msgstr "Adgangskontroll-liste"
@@ -360,7 +361,7 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Er du sikker på at du vil slette underbrukeren?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Er du sikker på at du vil slette disse malen(e)?"
+msgstr "Er du sikker på at du vil slette disse emnene?"
 
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Er du sikker på at du ønsker å slette disse transaksjonene?"
@@ -473,9 +474,6 @@ msgstr "Endringer har blitt gjort"
 msgid "Check email sender"
 msgstr "Sjekk emailsenderen"
 
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr "Marker for å aktivere mottagelse av push-meldinger fra SMSSync app"
-
 msgid "Choice already exists"
 msgstr "Alternativet eksisterer allerede"
 
@@ -507,7 +505,7 @@ msgid "Comma separated values for multiple mobile numbers"
 msgstr "Kommaseparerte verdier for fler mobilnummere"
 
 msgid "Compose message"
-msgstr "Send melding"
+msgstr "Lag melding"
 
 msgid "Configuration"
 msgstr "Konfigurasjon"
@@ -705,9 +703,6 @@ msgstr ""
 msgid "Domain"
 msgstr "Domene"
 
-msgid "Download SMSSync app for Android from"
-msgstr "Last ned SMSSync app til Android fra"
-
 msgid "Edit"
 msgstr "Rediger"
 
@@ -778,7 +773,7 @@ msgid "Effective SMS sender ID"
 msgstr "Effektivt SMS senderID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+msgstr "F.eks: +07000 for Jakarta/Bangkok tidssone"
 
 msgid "Email"
 msgstr "Email"
@@ -816,9 +811,6 @@ msgstr ""
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Nullstill standard senderID for å tillate brukere å velge deres eget senderID"
-
-msgid "Enable SMS Sync"
-msgstr "Aktiverer SMS Sync"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Aktiver kreditering av unicode-SMS som normal SMS"
@@ -1019,9 +1011,6 @@ msgstr "Kunne ikke registrere en konto"
 msgid "Fail to remove SMSC"
 msgstr "Feil ved fjerning av SMSC"
 
-msgid "Fail to save SMS Sync configuration"
-msgstr "Kunne ikke lagre SMS Sync konfigurasjon"
-
 msgid "Fail to save SMS command"
 msgstr "Kunne ikke lagre SMS-kommando"
 
@@ -1046,14 +1035,8 @@ msgstr "Kunne ikke lagre takst"
 msgid "Fail to save route"
 msgstr "Kunne ikke lagre rute"
 
-msgid "Fail to save temporary password"
-msgstr "Feil ved lagring av midlertidig passord"
-
 msgid "Fail to send SMS"
 msgstr "Kunne ikke sende SMS"
-
-msgid "Fail to send email"
-msgstr "Feil ved sending av email"
 
 msgid "Fail to send message to all destinations"
 msgstr "Kunne ikke sende melding til alle destinasjoner"
@@ -1113,7 +1096,7 @@ msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format: ÅÅÅÅ-MM-DD tt:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1176,9 +1159,6 @@ msgstr "Kjr"
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Gå til hovedkonfigurasjon eller håndter nettside for å redigere denne siden"
-
-msgid "Go to manage site menu to edit this page"
-msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Totalt antall SMS"
@@ -1345,8 +1325,9 @@ msgstr "Kannel admin passord"
 msgid "Kannel admin port"
 msgstr "Kannel admin port"
 
+#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Kannel admin host"
 
 msgid "Kannel specific"
 msgstr "Kannel spesifikt"
@@ -1485,7 +1466,7 @@ msgid "Manage"
 msgstr "Hndter"
 
 msgid "Manage ACL"
-msgstr "Håndter ACL"
+msgstr "Hndter ACL"
 
 msgid "Manage OpenVox"
 msgstr "Håndter OpenVox"
@@ -1494,7 +1475,7 @@ msgid "Manage SMS rate"
 msgstr "Håndter SMS-takst"
 
 msgid "Manage account"
-msgstr "Håndter konto"
+msgstr "Hndter konto"
 
 msgid "Manage autoreply"
 msgstr "Håndter autosvar"
@@ -1527,29 +1508,25 @@ msgid "Manage gammu"
 msgstr "Håndter gammu"
 
 msgid "Manage gateway and SMSC"
-msgstr "Håndter gateway og SMSC"
+msgstr "Hndter gateway og SMSC"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "Håndter sender-ID"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Håndter nettsted"
+msgstr ""
 
-#, fuzzy
 msgid "Manage kannel"
-msgstr "Håndter konto"
+msgstr ""
 
 msgid "Manage nexmo"
 msgstr "Håndter nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Håndter konto"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "Håndter plugin"
@@ -1564,10 +1541,10 @@ msgid "Manage schedule"
 msgstr "Håndter tidsplan"
 
 msgid "Manage sender ID"
-msgstr "Håndter senderID"
+msgstr "Hndter senderID"
 
 msgid "Manage site"
-msgstr "Håndter side"
+msgstr "Hndter side"
 
 msgid "Manage smstools"
 msgstr "Håndter smstools"
@@ -1579,10 +1556,7 @@ msgid "Manage subscribe"
 msgstr "Håndter abonnement"
 
 msgid "Manage subuser"
-msgstr "Håndter underbruker"
-
-msgid "Manage sync"
-msgstr "Håndter sync"
+msgstr "Hndter underbruker"
 
 msgid "Manage template"
 msgstr "Håndter template"
@@ -1594,7 +1568,7 @@ msgid "Manage uplink"
 msgstr "Håndter uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Påkrevde felt kan ikke være tomme"
+msgstr "Påkrevde felter kan ikke være tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1642,7 +1616,7 @@ msgid "Members"
 msgstr "Medlemmer"
 
 msgid "Message"
-msgstr "Melding"
+msgstr "Beskjed"
 
 #, php-format
 msgid "Message %s has been delivered to queue"
@@ -1829,7 +1803,7 @@ msgid "Offline"
 msgstr "Avlogget"
 
 msgid "Once"
-msgstr "Én gang"
+msgstr "En gang"
 
 msgid "Online"
 msgstr "Plogget"
@@ -1883,9 +1857,6 @@ msgstr "Passord"
 msgid "Password does not match"
 msgstr "Passord stemmer ikke overens"
 
-msgid "Password has been emailed"
-msgstr "Passord har blitt tilsendt på mail"
-
 msgid "Password recovery"
 msgstr "Passordgjenoppretting"
 
@@ -1935,7 +1906,7 @@ msgid "Pre rules"
 msgstr "Før-regler"
 
 msgid "Preferences"
-msgstr "Innstillinger"
+msgstr "Preferanse"
 
 msgid "Preferences have been saved"
 msgstr "Innstillnger har blitt lagret"
@@ -2022,7 +1993,7 @@ msgid "Received answer list for keyword"
 msgstr "Mottatt svarliste for nøkkelord"
 
 msgid "Receiver"
-msgstr "Mottaker"
+msgstr "Mottager"
 
 msgid "Receiver number"
 msgstr "Mottakernummer"
@@ -2090,6 +2061,9 @@ msgstr "Erstatt nettsidetittel med logo"
 
 msgid "Reply"
 msgstr "Svar"
+
+msgid "Reply SMSC"
+msgstr ""
 
 msgid "Reply message on correct"
 msgstr "Svarbeskjed ved korrekt"
@@ -2185,9 +2159,6 @@ msgstr "SMS"
 
 msgid "SMS Board"
 msgstr "SMS-forum"
-
-msgid "SMS Sync configuration has been saved"
-msgstr "SMS Sync konfigurasjon har blitt lagret"
 
 msgid "SMS autoreply has been deleted"
 msgstr "SMS-autosvar har blitt slettet"
@@ -2290,7 +2261,8 @@ msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
-"SMS nøkkelord eksisterer allerede, reservert eller brukt av andre funksjoner"
+"SMS nøkkelord eksisterer allerede, reservert eller i bruk av en annen "
+"funksjon"
 
 msgid "SMS messages list for keyword"
 msgstr "SMS meldingsliste for nøkkelord"
@@ -2430,7 +2402,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søk i innkomende SMS for @brukernavn"
 
 msgid "Schedule"
-msgstr "Tidsskjema"
+msgstr "Tidsplan"
 
 msgid "Schedule ID"
 msgstr "TidsplanID"
@@ -2452,12 +2424,6 @@ msgstr "Planlagt melding"
 
 msgid "Search"
 msgstr "Søk"
-
-msgid "Secret key"
-msgstr "Hemmelig nøkkel"
-
-msgid "Secret key is used in SMSSync app"
-msgstr "Hemmelig nøkkel er i bruk i SMSSync app"
 
 msgid "Select"
 msgstr "Velg"
@@ -2550,7 +2516,7 @@ msgid "Send to"
 msgstr "Send til"
 
 msgid "Sender"
-msgstr "Sender"
+msgstr "Avsender"
 
 msgid "Sender ID"
 msgstr "SenderID"
@@ -2645,7 +2611,7 @@ msgid "Status"
 msgstr "Status"
 
 msgid "Submit"
-msgstr "Send"
+msgstr "Innsend"
 
 msgid "Subscribe duration"
 msgstr "Abonnement varighet"
@@ -2665,9 +2631,6 @@ msgstr "Underbrukere"
 msgid "Supplied SMSC"
 msgstr "Levert SMSC"
 
-msgid "Sync URL"
-msgstr "Sync URL"
-
 msgid "System error has occured"
 msgstr "Systemfeil har oppstått"
 
@@ -2676,6 +2639,9 @@ msgstr "Tags"
 
 msgid "Template installation path"
 msgstr "Template installasjonssti"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid "The domain is already configured by other user"
 msgstr ""
@@ -2726,7 +2692,7 @@ msgid "Total valid SMS"
 msgstr "Totalt antall gyldige SMS"
 
 msgid "Transaction datetime"
-msgstr "Transaksjon dato-tid"
+msgstr "Transaksjon data-tid"
 
 msgid "Try to disable SMS footer on master"
 msgstr "Prøv å deaktivere SMS footer på master"
@@ -2775,11 +2741,12 @@ msgstr "Kan ikke behandle underbruker-tilføyelse"
 msgid "Unable to process user addition"
 msgstr "Kan ikke behandle bruker-tilføyelse"
 
+#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
 
 msgid "Unable to unban account"
-msgstr "Kan ikke fjerne bannlysning fra konto"
+msgstr "Kunne ikke fjerne bannlysning av konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bannlysning fra underbruker"
@@ -2802,8 +2769,9 @@ msgstr "Ukjent svar-format"
 msgid "Unlimited"
 msgstr "Ubegrenset"
 
+#, fuzzy
 msgid "Update status"
-msgstr ""
+msgstr "Kannel status"
 
 msgid "Upload file"
 msgstr "Opplast fil"
@@ -2947,9 +2915,6 @@ msgstr "Nettsidetittel"
 msgid "Weekly"
 msgstr "Ukentlig"
 
-msgid "Welcome information"
-msgstr ""
-
 msgid "Whose online"
 msgstr "Hvem er online"
 
@@ -2982,7 +2947,7 @@ msgid "You must fill all fields"
 msgstr "Du må utfylle alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du må fylle ut alle krevde felt"
+msgstr "Du må utfylle alle påkrevde felter"
 
 msgid "You must fill all required fields"
 msgstr "Du må fylle ut all påkrevde felt"
@@ -3108,7 +3073,7 @@ msgid "format"
 msgstr "format"
 
 msgid "free credits are available for testing purposes"
-msgstr "gratis kreditt er tilgjengelig for testformål"
+msgstr "gratis kreditt er tilgjenlige for testformål"
 
 msgid "group"
 msgstr "gruppe"
@@ -3199,7 +3164,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "vil bli erstattet med SMS innkommende dato/tid"
 
 msgid "will be replaced by SMS raw message"
-msgstr "vil bli erstattet med rå SMS-beskjed"
+msgstr "vil bli erstattet med rå SMS-melding"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3223,7 +3188,7 @@ msgid "will be replaced by receiver number"
 msgstr "vil bli ersttatet med avsendernummer"
 
 msgid "will be replaced by sender number"
-msgstr "vil bli erstattet av avsendernummer"
+msgstr "vil bli ersttatet med avsendernummer"
 
 #, fuzzy
 msgid "will be replaced by service name"

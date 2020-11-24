@@ -1,17 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PlaySMS\n"
-"POT-Creation-Date: \n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
-"Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: ar_SA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.4\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
 msgid "1 Day"
 msgstr "يوم واحد"
@@ -58,9 +57,8 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-#, fuzzy
 msgid "API username"
-msgstr "هل تود بالتأكيد المستخدم؟"
+msgstr ""
 
 msgid "Access Control List"
 msgstr "قائمة تحكم الوصول"
@@ -121,7 +119,7 @@ msgid "Account with this mobile already exists"
 msgstr "يوجد حساب بنفس رقم الجوال"
 
 msgid "Action"
-msgstr "إجراءات"
+msgstr "الإجراء"
 
 msgid "Active language"
 msgstr "اللغة الافتراضية"
@@ -405,7 +403,7 @@ msgid "Back"
 msgstr "رجوع"
 
 msgid "Ban"
-msgstr "غير قادر على حظر الحساب"
+msgstr ""
 
 msgid "Ban date/time"
 msgstr "وقت وتاريخ الحظر"
@@ -426,7 +424,7 @@ msgid "Blocked mobile"
 msgstr "تم الحظر"
 
 msgid "Buy"
-msgstr "صفحة شراء الرصيد"
+msgstr ""
 
 msgid "Buy credit page"
 msgstr "صفحة شراء الرصيد"
@@ -472,9 +470,6 @@ msgstr ""
 
 msgid "Check email sender"
 msgstr "تأكد من مرسل البريد"
-
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr "التحقق لتمكين استلام الرسائل من تطبيق SMSSync"
 
 msgid "Choice already exists"
 msgstr "الخيار موجود مسبقًا"
@@ -668,7 +663,7 @@ msgid "Delete member"
 msgstr "حذف عضو"
 
 msgid "Delete user"
-msgstr "هل تود بالتأكيد المستخدم؟"
+msgstr ""
 
 msgid "Deleted"
 msgstr "تم الحذف"
@@ -703,11 +698,8 @@ msgstr ""
 msgid "Domain"
 msgstr "عنوان الموقع"
 
-msgid "Download SMSSync app for Android from"
-msgstr "تنزيل تطبيق SMSSync  للأندرويد من"
-
 msgid "Edit"
-msgstr "تحرير"
+msgstr ""
 
 msgid "Edit ACL"
 msgstr "تحرير ACL"
@@ -815,9 +807,6 @@ msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "اترك اسم المرسل الافتراضي فارغ لتمكين المستخدمين من تعيين أسماء مرسل خاصة بهم"
 
-msgid "Enable SMS Sync"
-msgstr "تمكين SMSSync"
-
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "تمكين احتساب رسائل يونيكود كرسائل عادية"
 
@@ -859,7 +848,7 @@ msgid "Exec"
 msgstr "تنفيذ"
 
 msgid "Export"
-msgstr "تصدير"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "خطأ فادح!"
@@ -1017,9 +1006,6 @@ msgstr "فشل إنشاء حساب"
 msgid "Fail to remove SMSC"
 msgstr "فشل حذف مركز الرسائل"
 
-msgid "Fail to save SMS Sync configuration"
-msgstr "فشل حفظ الإعدادات"
-
 msgid "Fail to save SMS command"
 msgstr "فشل الحفظ "
 
@@ -1044,14 +1030,8 @@ msgstr "فشل حفظ التعرفة"
 msgid "Fail to save route"
 msgstr "فشل حفظ المسار"
 
-msgid "Fail to save temporary password"
-msgstr "فشل حفظ كلمة المرور المؤقتة"
-
 msgid "Fail to send SMS"
 msgstr "فشل الإرسال"
-
-msgid "Fail to send email"
-msgstr "فشل إرسال البريد الالكتروني"
 
 msgid "Fail to send message to all destinations"
 msgstr "فشل الإرسال لكافة الأرقام"
@@ -1169,13 +1149,10 @@ msgid "Generic send SMS URL"
 msgstr ""
 
 msgid "Go"
-msgstr "انتقل للإعدادات العامة أو إدارة الموقع لتحرير هذه الصفحة"
+msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr "انتقل للإعدادات العامة أو إدارة الموقع لتحرير هذه الصفحة"
-
-msgid "Go to manage site menu to edit this page"
-msgstr ""
 
 msgid "Grand total SMS"
 msgstr "مجموع الرسائل"
@@ -1261,7 +1238,7 @@ msgid "IP addresses have been deleted"
 msgstr "تم حذف عناوين آي بي"
 
 msgid "Idle"
-msgstr "خامل"
+msgstr ""
 
 msgid "Import"
 msgstr "استيراد"
@@ -1420,13 +1397,13 @@ msgid "Local playnet username"
 msgstr ""
 
 msgid "Logged in as"
-msgstr "تم تسجيل الخروج"
+msgstr ""
 
 msgid "Login"
 msgstr "تسجيل الدخول"
 
 msgid "Login as"
-msgstr "تسجيل الدخول"
+msgstr ""
 
 msgid "Login information"
 msgstr "معلومات تسجيل الدخول"
@@ -1441,7 +1418,7 @@ msgstr ""
 "المرور"
 
 msgid "Logout"
-msgstr "تسجيل خروج"
+msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
 msgstr "الحد الأدنى للرصيد لإرسال تنبيه"
@@ -1477,14 +1454,13 @@ msgid "Make return as reply"
 msgstr "إرسال القيمة الناتجة كرسالة رد"
 
 msgid "Manage"
-msgstr "المستخدمون الفرعيون"
+msgstr ""
 
 msgid "Manage ACL"
 msgstr "إدارة ACL"
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr " إدارة الموقع"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "إدارة التعرفة"
@@ -1510,9 +1486,8 @@ msgstr "إدارة الرصيد"
 msgid "Manage custom"
 msgstr "إدارة الرسائل المخصصة"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr " إدارة الموقع"
+msgstr ""
 
 msgid "Manage email to SMS"
 msgstr "إدارة توجيه البريد للرسائل القصيرة"
@@ -1520,36 +1495,29 @@ msgstr "إدارة توجيه البريد للرسائل القصيرة"
 msgid "Manage firewall"
 msgstr "إدارة الجدار الناري"
 
-#, fuzzy
 msgid "Manage gammu"
-msgstr "المستخدم"
+msgstr ""
 
 msgid "Manage gateway and SMSC"
 msgstr "إدارة البوابات ومراكز الرسائل"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "إدارة اسم المرسل"
+msgstr ""
 
-#, fuzzy
 msgid "Manage infobip"
-msgstr " إدارة الموقع"
+msgstr ""
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr " إدارة الموقع"
+msgstr ""
 
-#, fuzzy
 msgid "Manage kannel"
-msgstr "إدارة حساب"
+msgstr ""
 
-#, fuzzy
 msgid "Manage nexmo"
-msgstr " إدارة الموقع"
+msgstr ""
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "إدارة حساب"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "إدارة الإضافات"
@@ -1569,9 +1537,8 @@ msgstr "إدارة اسم المرسل"
 msgid "Manage site"
 msgstr " إدارة الموقع"
 
-#, fuzzy
 msgid "Manage smstools"
-msgstr " إدارة الموقع"
+msgstr ""
 
 msgid "Manage stoplist"
 msgstr "المستخدمون الفرعيون"
@@ -1582,19 +1549,14 @@ msgstr "إدارة الاشتراك"
 msgid "Manage subuser"
 msgstr "إدارة المستخدم الفرعي"
 
-msgid "Manage sync"
-msgstr "إدارة المزامنة"
-
 msgid "Manage template"
 msgstr "قالب الرسائل"
 
-#, fuzzy
 msgid "Manage twilio"
-msgstr "إدارة البوابات ومراكز الرسائل"
+msgstr ""
 
-#, fuzzy
 msgid "Manage uplink"
-msgstr "المستخدم"
+msgstr ""
 
 msgid "Mandatory fields must not be empty"
 msgstr "يجب ملء الحقول الأساسية"
@@ -1711,9 +1673,8 @@ msgstr "تم حظر عناوين آي بي"
 msgid "Mobile numbers have been deleted"
 msgstr "تم حذف عناوين آي بي"
 
-#, fuzzy
 msgid "Module sender ID"
-msgstr "إدارة اسم المرسل"
+msgstr ""
 
 msgid "Module timezone"
 msgstr ""
@@ -1722,7 +1683,7 @@ msgid "Monthly"
 msgstr "شهريًا"
 
 msgid "Move"
-msgstr "نقل إلى"
+msgstr ""
 
 msgid "Move to"
 msgstr "نقل إلى"
@@ -1740,7 +1701,7 @@ msgid "Multiple mobile numbers must be comma-separated"
 msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
 
 msgid "My account"
-msgstr "حسابي"
+msgstr ""
 
 msgid "My credit transactions"
 msgstr "قائمة الحوالات"
@@ -1830,13 +1791,13 @@ msgid "Number of votes"
 msgstr "عدد الأصوات"
 
 msgid "Offline"
-msgstr "غير متصل"
+msgstr ""
 
 msgid "Once"
 msgstr "مرة واحدة"
 
 msgid "Online"
-msgstr "المتصلون"
+msgstr ""
 
 msgid "Only when the sender ID is approved"
 msgstr "فقط عند المصادقة على اسم المرسل"
@@ -1886,9 +1847,6 @@ msgstr "كلمة المرور"
 
 msgid "Password does not match"
 msgstr "كلمة المرور غير متطابقة"
-
-msgid "Password has been emailed"
-msgstr "تم إرسال كلمة المرور إلى البريد الالكتروني"
 
 msgid "Password recovery"
 msgstr "استعادة كلمة المرور"
@@ -2044,7 +2002,7 @@ msgid "Recover password disabled"
 msgstr "تم تعطيل استعادة كلمة المرور"
 
 msgid "Reduce"
-msgstr "سحب الرصيد"
+msgstr ""
 
 msgid "Reduce credit"
 msgstr "سحب الرصيد"
@@ -2089,7 +2047,10 @@ msgid "Replace website title with logo"
 msgstr "استبدال عنوان الموقع بالشعار"
 
 msgid "Reply"
-msgstr "إرسال القيمة الناتجة كرسالة رد"
+msgstr ""
+
+msgid "Reply SMSC"
+msgstr ""
 
 msgid "Reply message on correct"
 msgstr "رسالة الرد للإجابة الصحيحة"
@@ -2119,10 +2080,10 @@ msgid "Report whose online"
 msgstr "تقرير الأعضاء النشطين"
 
 msgid "Reports"
-msgstr "كافة التقارير"
+msgstr ""
 
 msgid "Resend"
-msgstr "إعادة إرسال"
+msgstr ""
 
 msgid "Restart Kannel"
 msgstr ""
@@ -2184,9 +2145,6 @@ msgstr "رسالة قصيرة"
 
 msgid "SMS Board"
 msgstr "لوح الرسائل"
-
-msgid "SMS Sync configuration has been saved"
-msgstr "تم حفظ وتطبيق إعدادات توجيه البريد للرسائل القصيرة"
 
 msgid "SMS autoreply has been deleted"
 msgstr "تم الحذف"
@@ -2444,12 +2402,6 @@ msgstr "الرسائل المجدولة"
 msgid "Search"
 msgstr "بحث"
 
-msgid "Secret key"
-msgstr "المفتاح السري"
-
-msgid "Secret key is used in SMSSync app"
-msgstr "المفتاح السري يستخدم لتطبيق SMSSync"
-
 msgid "Select"
 msgstr "اختيار"
 
@@ -2460,7 +2412,7 @@ msgid "Select username"
 msgstr "اختيار اسم المستخدم"
 
 msgid "Select users"
-msgstr "اختيار المستخدمين"
+msgstr "اختيار مستخدمين"
 
 msgid "Selected catchall"
 msgstr "القائمة المحددة"
@@ -2493,7 +2445,7 @@ msgid "Selected users"
 msgstr "المستخدمون المحددون"
 
 msgid "Send"
-msgstr " إرسال"
+msgstr "إرسال"
 
 msgid "Send SMS from remote using local username"
 msgstr ""
@@ -2652,9 +2604,6 @@ msgstr "المستخدمون الفرعيون"
 msgid "Supplied SMSC"
 msgstr "مركز الرسائل المزود"
 
-msgid "Sync URL"
-msgstr "الرابط"
-
 msgid "System error has occured"
 msgstr "خطأ في النظام"
 
@@ -2663,6 +2612,9 @@ msgstr "التسميات"
 
 msgid "Template installation path"
 msgstr "مسار تنصيب القالب"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid "The domain is already configured by other user"
 msgstr "عنوان الموقع تم استخدامة من قبل مستخدم آخر"
@@ -2770,7 +2722,7 @@ msgid "Unable to unban subuser"
 msgstr "غير قادر على إلغاء حظر المستخدم الفرعي"
 
 msgid "Unban"
-msgstr "غير قادر على إلغاء حظر الحساب"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "رسالة يونيكود"
@@ -2842,7 +2794,7 @@ msgid "User is not on banned users list"
 msgstr "المستخدم ليس في قائمة المستخدمين المحظورين"
 
 msgid "User preference"
-msgstr "المستخدم"
+msgstr ""
 
 msgid "Username"
 msgstr "اسم المستخدم"
@@ -2878,7 +2830,7 @@ msgid "Version"
 msgstr "الإصدار"
 
 msgid "View"
-msgstr "عرض التقرير"
+msgstr ""
 
 msgid "View SMS queue"
 msgstr "عرض طابور الإرسال"
@@ -2930,9 +2882,6 @@ msgstr "عنوان الموقع"
 
 msgid "Weekly"
 msgstr "أسبوعيًا"
-
-msgid "Welcome information"
-msgstr ""
 
 msgid "Whose online"
 msgstr "المتصلون"
@@ -3014,7 +2963,7 @@ msgid "Your choice"
 msgstr "خيارك"
 
 msgid "Your credit"
-msgstr "رصيدك"
+msgstr ""
 
 msgid "Your current callback URL authcode is"
 msgstr ""
@@ -3155,7 +3104,7 @@ msgid "rate"
 msgstr "التعرفة"
 
 msgid "return"
-msgstr "العودة"
+msgstr ""
 
 msgid "title"
 msgstr "العنوان"

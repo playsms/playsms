@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: en_US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -459,9 +461,6 @@ msgstr ""
 msgid "Check email sender"
 msgstr ""
 
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr ""
-
 msgid "Choice already exists"
 msgstr ""
 
@@ -684,9 +683,6 @@ msgstr ""
 msgid "Domain"
 msgstr ""
 
-msgid "Download SMSSync app for Android from"
-msgstr ""
-
 msgid "Edit"
 msgstr ""
 
@@ -793,9 +789,6 @@ msgid "Empty callback URL to set default"
 msgstr ""
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
-msgstr ""
-
-msgid "Enable SMS Sync"
 msgstr ""
 
 msgid "Enable credit unicode SMS as normal SMS"
@@ -996,9 +989,6 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
-msgid "Fail to save SMS Sync configuration"
-msgstr ""
-
 msgid "Fail to save SMS command"
 msgstr ""
 
@@ -1023,13 +1013,7 @@ msgstr ""
 msgid "Fail to save route"
 msgstr ""
 
-msgid "Fail to save temporary password"
-msgstr ""
-
 msgid "Fail to send SMS"
-msgstr ""
-
-msgid "Fail to send email"
 msgstr ""
 
 msgid "Fail to send message to all destinations"
@@ -1150,9 +1134,6 @@ msgid "Go"
 msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
-msgstr ""
-
-msgid "Go to manage site menu to edit this page"
 msgstr ""
 
 msgid "Grand total SMS"
@@ -1547,9 +1528,6 @@ msgstr ""
 msgid "Manage subuser"
 msgstr ""
 
-msgid "Manage sync"
-msgstr ""
-
 msgid "Manage template"
 msgstr ""
 
@@ -1847,9 +1825,6 @@ msgstr ""
 msgid "Password does not match"
 msgstr ""
 
-msgid "Password has been emailed"
-msgstr ""
-
 msgid "Password recovery"
 msgstr ""
 
@@ -2049,6 +2024,9 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "Reply message on correct"
 msgstr ""
 
@@ -2140,9 +2118,6 @@ msgid "SMS"
 msgstr ""
 
 msgid "SMS Board"
-msgstr ""
-
-msgid "SMS Sync configuration has been saved"
 msgstr ""
 
 msgid "SMS autoreply has been deleted"
@@ -2398,12 +2373,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Secret key"
-msgstr ""
-
-msgid "Secret key is used in SMSSync app"
-msgstr ""
-
 msgid "Select"
 msgstr ""
 
@@ -2606,9 +2575,6 @@ msgstr ""
 msgid "Supplied SMSC"
 msgstr ""
 
-msgid "Sync URL"
-msgstr ""
-
 msgid "System error has occured"
 msgstr ""
 
@@ -2616,6 +2582,9 @@ msgid "Tags"
 msgstr ""
 
 msgid "Template installation path"
+msgstr ""
+
+msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
 
 msgid "The domain is already configured by other user"
@@ -2880,9 +2849,6 @@ msgid "Website title"
 msgstr ""
 
 msgid "Weekly"
-msgstr ""
-
-msgid "Welcome information"
 msgstr ""
 
 msgid "Whose online"

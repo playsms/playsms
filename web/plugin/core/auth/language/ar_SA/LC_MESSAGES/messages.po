@@ -30,12 +30,6 @@ msgstr "البريد الالكتروني"
 msgid "Fail to recover password"
 msgstr "فشل استعادة كلمة المرور"
 
-msgid "Fail to save temporary password"
-msgstr "فشل حفظ كلمة المرور المؤقتة"
-
-msgid "Fail to send email"
-msgstr "فشل إرسال البريد الالكتروني"
-
 msgid "Home"
 msgstr "الرئيسة"
 
@@ -56,9 +50,6 @@ msgstr ""
 
 msgid "Password"
 msgstr "كلمة المرور"
-
-msgid "Password has been emailed"
-msgstr "تم إرسال كلمة المرور إلى البريد الالكتروني"
 
 msgid "Password recovery"
 msgstr "استعادة كلمة المرور"
@@ -82,6 +73,9 @@ msgstr "إنشاء حساب"
 
 msgid "Submit"
 msgstr "أرسل"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
@@ -108,7 +102,3 @@ msgstr "لايوجد لديك صلاحية للوصول إلى هذه الصفح
 
 msgid "You or someone else have requested a password recovery"
 msgstr "لقد طلبت أنت أو شخص ما استعادة كلمة المرور."
-
-#, fuzzy
-msgid "username"
-msgstr "اسم المستخدم"

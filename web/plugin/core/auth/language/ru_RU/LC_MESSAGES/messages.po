@@ -28,13 +28,6 @@ msgstr "Email"
 msgid "Fail to recover password"
 msgstr "Не удалось восстановить пароль"
 
-#, fuzzy
-msgid "Fail to save temporary password"
-msgstr "Не удалось восстановить пароль"
-
-msgid "Fail to send email"
-msgstr "Не удалось отправить письмо"
-
 msgid "Home"
 msgstr "Главная"
 
@@ -55,9 +48,6 @@ msgstr ""
 
 msgid "Password"
 msgstr "Пароль"
-
-msgid "Password has been emailed"
-msgstr "Пароль отправлен по почте"
 
 msgid "Password recovery"
 msgstr "Восстановление пароля"
@@ -84,6 +74,9 @@ msgstr "Регистрация пользователя"
 msgid "Submit"
 msgstr "Принять"
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
 msgstr "Этот временный пароль будет удалён как только вы воспользуетесь им"
@@ -108,7 +101,3 @@ msgstr "У Вас нет доступа к этой странице"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Вы или кто-то другой запросил восстановление пароля"
-
-#, fuzzy
-msgid "username"
-msgstr "Имя пользователя"

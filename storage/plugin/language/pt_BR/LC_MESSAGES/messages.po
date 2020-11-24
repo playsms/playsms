@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -464,13 +466,10 @@ msgid "Catch-all list"
 msgstr "Lista de coringas"
 
 msgid "Changes have been made"
-msgstr "As alterações foram salvas"
+msgstr "Alterações foram realizadas"
 
 msgid "Check email sender"
 msgstr "Verificar remetente do email"
-
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr "Marque para habilitar recebimento de push messages do app SMSSync"
 
 msgid "Choice already exists"
 msgstr "A opção já existe"
@@ -506,7 +505,7 @@ msgid "Compose message"
 msgstr "Compor mensagem"
 
 msgid "Configuration"
-msgstr "Configurações"
+msgstr "Configuração"
 
 msgid "Confirmation"
 msgstr "Confirmação"
@@ -652,7 +651,7 @@ msgstr ""
 "como separador"
 
 msgid "Delete"
-msgstr "Excluír"
+msgstr "Excluir"
 
 msgid "Delete ALL queues"
 msgstr "Excluír TODAS as filas"
@@ -701,9 +700,6 @@ msgstr "URL bloqueadas"
 
 msgid "Domain"
 msgstr "Domínio"
-
-msgid "Download SMSSync app for Android from"
-msgstr "Baixar app SMSSync para Android de"
 
 msgid "Edit"
 msgstr "Editar"
@@ -775,10 +771,10 @@ msgid "Effective SMS sender ID"
 msgstr "ID de remetente efetivo para SMS"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Ex.: +0300 para fuso horário de Brasilia"
+msgstr "Ex: +0300 para fusorário de Brasília"
 
 msgid "Email"
-msgstr "E-mail"
+msgstr "Email"
 
 msgid "Email address is mandatory"
 msgstr "Campo email é obrigatório"
@@ -816,9 +812,6 @@ msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Deixar o ID de Remetente em branco para permitir que usuários coloquem seu "
 "próprio ID"
-
-msgid "Enable SMS Sync"
-msgstr "Habilitar SMS Sync"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Habilitar cobrança de SMS unicode como SMS normal"
@@ -1018,9 +1011,6 @@ msgstr "Falha ao registrar uma conta"
 msgid "Fail to remove SMSC"
 msgstr "Falha ao excluír SMSC"
 
-msgid "Fail to save SMS Sync configuration"
-msgstr "Falha ao salvar configuração de SMS Sync"
-
 msgid "Fail to save SMS command"
 msgstr "Falha ao salvar comando SMS"
 
@@ -1045,14 +1035,8 @@ msgstr "Falha ao salvar a taxa"
 msgid "Fail to save route"
 msgstr "Falha ao salvar a rota"
 
-msgid "Fail to save temporary password"
-msgstr "Falha ao salvar senha temporária"
-
 msgid "Fail to send SMS"
 msgstr "Falha ao enviar SMS"
-
-msgid "Fail to send email"
-msgstr "Falha ao enviar email"
 
 msgid "Fail to send message to all destinations"
 msgstr "Falha ao enviar a mensagem para todos os destinatários"
@@ -1112,7 +1096,7 @@ msgid "For example a short code"
 msgstr "Um código curto, por exemplo"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Formato YYY-MM-DD hh:mm"
+msgstr "Formato YYYY-MM-DD hh:mm"
 
 msgid "Forward"
 msgstr "Encaminhar"
@@ -1154,10 +1138,10 @@ msgid "Gateway host"
 msgstr "Host do gateway"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram salvas"
+msgstr "Alterações do módulo de gateway foram salvas"
 
 msgid "Gateway name"
-msgstr "Nome do Gateway"
+msgstr "Nome do gateway"
 
 msgid "Gateway port"
 msgstr "Porta do gateway"
@@ -1174,9 +1158,6 @@ msgstr "Ir"
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
 "Vá para as Configurações Principais ou Gerenciar Site para editar essa página"
-
-msgid "Go to manage site menu to edit this page"
-msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Total de SMS"
@@ -1244,7 +1225,7 @@ msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
 
 msgid "Home"
-msgstr "Início"
+msgstr "Inicio"
 
 msgid "ID"
 msgstr "ID"
@@ -1466,7 +1447,7 @@ msgid "Mailbox username"
 msgstr "Nome de usuário da caixa de email"
 
 msgid "Main configuration"
-msgstr "Configurações Principais"
+msgstr "Configuração principal"
 
 msgid "Main configuration changes has been saved"
 msgstr "As configurações principais foram salvas"
@@ -1478,13 +1459,13 @@ msgid "Main website name"
 msgstr "Nome principal do site"
 
 msgid "Make return as reply"
-msgstr "Enviar saída do comando como resposta"
+msgstr "Enviar return como resposta"
 
 msgid "Manage"
 msgstr "Gerenciar"
 
 msgid "Manage ACL"
-msgstr "Gerenciar regras"
+msgstr "Gerenciar Regras"
 
 msgid "Manage OpenVox"
 msgstr "Gerenciar OpenVox"
@@ -1493,7 +1474,7 @@ msgid "Manage SMS rate"
 msgstr "Gerenciar taxa de SMS"
 
 msgid "Manage account"
-msgstr "Gerenciar conta"
+msgstr "Gerenciar Contas"
 
 msgid "Manage autoreply"
 msgstr "Gerenciar auto-resposta"
@@ -1526,7 +1507,7 @@ msgid "Manage gammu"
 msgstr "Gerenciar gammu"
 
 msgid "Manage gateway and SMSC"
-msgstr "Gerenciar gateway e SMSC"
+msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage generic"
 msgstr ""
@@ -1559,7 +1540,7 @@ msgid "Manage schedule"
 msgstr "Gerenciar agendamento"
 
 msgid "Manage sender ID"
-msgstr "Gerenciar ID do remetente"
+msgstr "Gerenciar ID de destinatário"
 
 msgid "Manage site"
 msgstr "Gerenciar site"
@@ -1576,9 +1557,6 @@ msgstr "Gerenciar assinaturas"
 msgid "Manage subuser"
 msgstr "Gerenciar sub-usuário"
 
-msgid "Manage sync"
-msgstr "Gerenciar Sync"
-
 msgid "Manage template"
 msgstr "Gerenciar template"
 
@@ -1589,7 +1567,7 @@ msgid "Manage uplink"
 msgstr "Gerenciar uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Campos obrigatórios não podem estar em branco"
+msgstr "Os campos obrigatórios no podem estar em branco"
 
 msgid "Master URL"
 msgstr "URL mestre"
@@ -1599,7 +1577,7 @@ msgstr "Combinar com todos os ID de remetente aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
 msgstr ""
-"Máximo 16 caracteres numéricos ou 11 alfanuméricos. Deixe em branco para "
+"Máximo 16 caracteres numéricos ou 11 alfanuméricos. Em branco para "
 "desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
@@ -1624,7 +1602,7 @@ msgid "Member has been added"
 msgstr "Membro foi adicionado"
 
 msgid "Member has been deleted"
-msgstr "O membro foi removido"
+msgstr "Membro foi removido"
 
 msgid "Member join datetime"
 msgstr "Data de entrada do membro"
@@ -1636,7 +1614,7 @@ msgid "Member list for keyword"
 msgstr "Lista de membros pra palavra-chave"
 
 msgid "Members"
-msgstr "Ver membros"
+msgstr "Membros"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -1787,7 +1765,7 @@ msgid "No"
 msgstr "Não"
 
 msgid "No changes have been made"
-msgstr "Nenhuma alteração realizada"
+msgstr "Nenhuma mudança feita"
 
 msgid "No changes made"
 msgstr "Nenhuma alteração realizada"
@@ -1811,7 +1789,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Notes"
-msgstr "Notas"
+msgstr "Anotações"
 
 msgid "Number"
 msgstr "Número"
@@ -1879,9 +1857,6 @@ msgstr "Senha"
 
 msgid "Password does not match"
 msgstr "Senhas não coferem"
-
-msgid "Password has been emailed"
-msgstr "A senha foi enviada para o e-mail"
 
 msgid "Password recovery"
 msgstr "Recuperação de senha"
@@ -2026,7 +2001,7 @@ msgid "Receiver"
 msgstr "Destinatário"
 
 msgid "Receiver number"
-msgstr "Número do remetente"
+msgstr "Número do Destinatário"
 
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
@@ -2091,6 +2066,9 @@ msgstr "Substituir o título do site pela logo"
 
 msgid "Reply"
 msgstr "Responder"
+
+msgid "Reply SMSC"
+msgstr ""
 
 msgid "Reply message on correct"
 msgstr "Mensagem de resposta quando estiver correto"
@@ -2186,9 +2164,6 @@ msgstr "SMS"
 
 msgid "SMS Board"
 msgstr "Quadro SMS"
-
-msgid "SMS Sync configuration has been saved"
-msgstr "As configurações de SMS Sync foram salvas"
 
 msgid "SMS autoreply has been deleted"
 msgstr "A auto-resposta SMS foi removida"
@@ -2446,12 +2421,6 @@ msgstr "Mensagem agendada"
 msgid "Search"
 msgstr "Buscar"
 
-msgid "Secret key"
-msgstr "Chave secreta"
-
-msgid "Secret key is used in SMSSync app"
-msgstr "A chave secreta é usada no app SMSSync"
-
 msgid "Select"
 msgstr "Selecionar"
 
@@ -2548,7 +2517,7 @@ msgid "Sender"
 msgstr "Remetente"
 
 msgid "Sender ID"
-msgstr "ID do Remetente"
+msgstr "ID do remetente"
 
 msgid "Sender ID description has been added"
 msgstr "A descrição para o ID do remetente foi adicionada"
@@ -2581,7 +2550,7 @@ msgid "Senders sent once"
 msgstr "Destinatários enviado uma vez"
 
 msgid "Sent"
-msgstr "Enviado"
+msgstr "Enviada"
 
 msgid "Separate by comma for multiple destinations"
 msgstr "Múltiplos destinos devem ser separados por vírgula"
@@ -2649,7 +2618,7 @@ msgid "Subscription expired reply"
 msgstr "Resposta para adesão expirada"
 
 msgid "Subuser"
-msgstr "Sub-uruário"
+msgstr "Sub-usuário"
 
 msgid "Subuser ACL"
 msgstr "Regra para sub-usuário"
@@ -2660,9 +2629,6 @@ msgstr "Sub-usuários"
 msgid "Supplied SMSC"
 msgstr "SMSC fornecido"
 
-msgid "Sync URL"
-msgstr "URL Sync"
-
 msgid "System error has occured"
 msgstr "Ocorreu um erro de systema"
 
@@ -2671,6 +2637,9 @@ msgstr "Tags"
 
 msgid "Template installation path"
 msgstr "Caminho de instalação do template"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid "The domain is already configured by other user"
 msgstr "Esse domínio já está registrado para oturo usuário"
@@ -2771,7 +2740,7 @@ msgid "Unable to save gateway module configurations"
 msgstr "Não foi possível salvar as configurações do módulo de gateway"
 
 msgid "Unable to unban account"
-msgstr "Não é possível desbanir conta"
+msgstr "Não é possível desbanir a conta"
 
 msgid "Unable to unban subuser"
 msgstr "Não é possível desbanir sub-usuário"
@@ -2819,7 +2788,7 @@ msgid "User agent"
 msgstr "User agent"
 
 msgid "User configuration"
-msgstr "Configuração de usuário"
+msgstr "Configurações de usuário"
 
 msgid "User configuration has been saved"
 msgstr "As configurações do usuário foram salvas"
@@ -2853,7 +2822,7 @@ msgid "User preference"
 msgstr "Preferências de usuário"
 
 msgid "Username"
-msgstr "Nome de usuário"
+msgstr "Usuário"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
@@ -2941,9 +2910,6 @@ msgstr "Título do site"
 msgid "Weekly"
 msgstr "Semanalmente"
 
-msgid "Welcome information"
-msgstr ""
-
 msgid "Whose online"
 msgstr "Quem está online"
 
@@ -2973,10 +2939,10 @@ msgid "You must fill all field"
 msgstr "Preencha todos os campos"
 
 msgid "You must fill all fields"
-msgstr "Preencha todos os campos"
+msgstr "Você deve preencher todos os campos"
 
 msgid "You must fill all mandatory fields"
-msgstr "Você deve preencher todos os campos obrigatórios"
+msgstr "Preencha todos os campos obrigatórios"
 
 msgid "You must fill all required fields"
 msgstr "Você deve preencher todos os campos requeridos"
@@ -3102,7 +3068,7 @@ msgid "format"
 msgstr "formato"
 
 msgid "free credits are available for testing purposes"
-msgstr "créditos gratúitos estão disponíveis para testes"
+msgstr "créditos grátis estão disponíveis para testes"
 
 msgid "group"
 msgstr "grupo"
@@ -3180,7 +3146,7 @@ msgid "user"
 msgstr "usuário"
 
 msgid "username"
-msgstr "Nome de usuário"
+msgstr "nome de usuário"
 
 msgid "valid entries"
 msgstr "entradas válidas"
@@ -3193,7 +3159,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pelo SMS puro"
+msgstr "será substituído pela mensagem SMS pura"
 
 msgid "will be replaced by actual receiver number"
 msgstr "será substituído pelo número do destinatário"

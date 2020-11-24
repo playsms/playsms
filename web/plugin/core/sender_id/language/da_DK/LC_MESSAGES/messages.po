@@ -42,6 +42,9 @@ msgstr "Håndter afsender ID"
 msgid "Only when the sender ID is approved"
 msgstr "Kun når afsender ID er godkendt"
 
+msgid "Save"
+msgstr ""
+
 msgid "Sender ID"
 msgstr "Afsender ID"
 

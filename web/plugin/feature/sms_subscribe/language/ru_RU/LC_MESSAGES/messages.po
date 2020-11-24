@@ -123,6 +123,9 @@ msgstr "Сообщения"
 msgid "Phone number"
 msgstr "Номер телефоа"
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "SMS forward parameter"
 msgstr "Параметры переадресации СМС"
 
@@ -159,9 +162,6 @@ msgstr "Параметр отмены подписки"
 
 msgid "SMS unsubscribe reply"
 msgstr "Ответ об успешной отмене подписки"
-
-msgid "SMSC"
-msgstr "SMSC"
 
 msgid "Save"
 msgstr "Сохранить"

@@ -384,9 +384,6 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-msgid "Ban"
-msgstr ""
-
 msgid "Ban date/time"
 msgstr ""
 
@@ -403,9 +400,6 @@ msgid "Blocked IP address"
 msgstr ""
 
 msgid "Blocked mobile"
-msgstr ""
-
-msgid "Buy"
 msgstr ""
 
 msgid "Buy credit page"
@@ -451,9 +445,6 @@ msgid "Changes have been made"
 msgstr ""
 
 msgid "Check email sender"
-msgstr ""
-
-msgid "Check to enable receiving push messages from SMSSync app"
 msgstr ""
 
 msgid "Choice already exists"
@@ -642,9 +633,6 @@ msgstr ""
 msgid "Delete member"
 msgstr ""
 
-msgid "Delete user"
-msgstr ""
-
 msgid "Deleted"
 msgstr ""
 
@@ -676,12 +664,6 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
-msgstr ""
-
-msgid "Download SMSSync app for Android from"
-msgstr ""
-
-msgid "Edit"
 msgstr ""
 
 msgid "Edit ACL"
@@ -789,9 +771,6 @@ msgstr ""
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 
-msgid "Enable SMS Sync"
-msgstr ""
-
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr ""
 
@@ -829,9 +808,6 @@ msgid "Exclusive"
 msgstr ""
 
 msgid "Exec"
-msgstr ""
-
-msgid "Export"
 msgstr ""
 
 msgid "FATAL ERROR"
@@ -990,9 +966,6 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
-msgid "Fail to save SMS Sync configuration"
-msgstr ""
-
 msgid "Fail to save SMS command"
 msgstr ""
 
@@ -1017,13 +990,7 @@ msgstr ""
 msgid "Fail to save route"
 msgstr ""
 
-msgid "Fail to save temporary password"
-msgstr ""
-
 msgid "Fail to send SMS"
-msgstr ""
-
-msgid "Fail to send email"
 msgstr ""
 
 msgid "Fail to send message to all destinations"
@@ -1140,13 +1107,7 @@ msgstr ""
 msgid "Generic send SMS URL"
 msgstr ""
 
-msgid "Go"
-msgstr ""
-
 msgid "Go to main configuration or manage site to edit this page"
-msgstr ""
-
-msgid "Go to manage site menu to edit this page"
 msgstr ""
 
 msgid "Grand total SMS"
@@ -1229,9 +1190,6 @@ msgid "IP addresses have been blocked"
 msgstr ""
 
 msgid "IP addresses have been deleted"
-msgstr ""
-
-msgid "Idle"
 msgstr ""
 
 msgid "Import"
@@ -1390,13 +1348,7 @@ msgstr ""
 msgid "Local playnet username"
 msgstr ""
 
-msgid "Logged in as"
-msgstr ""
-
 msgid "Login"
-msgstr ""
-
-msgid "Login as"
 msgstr ""
 
 msgid "Login information"
@@ -1407,9 +1359,6 @@ msgstr ""
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
-msgstr ""
-
-msgid "Logout"
 msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
@@ -1443,9 +1392,6 @@ msgid "Main website name"
 msgstr ""
 
 msgid "Make return as reply"
-msgstr ""
-
-msgid "Manage"
 msgstr ""
 
 msgid "Manage ACL"
@@ -1539,9 +1485,6 @@ msgid "Manage subscribe"
 msgstr ""
 
 msgid "Manage subuser"
-msgstr ""
-
-msgid "Manage sync"
 msgstr ""
 
 msgid "Manage template"
@@ -1677,9 +1620,6 @@ msgstr ""
 msgid "Monthly"
 msgstr ""
 
-msgid "Move"
-msgstr ""
-
 msgid "Move to"
 msgstr ""
 
@@ -1693,9 +1633,6 @@ msgid "Multiple entries separated by comma"
 msgstr ""
 
 msgid "Multiple mobile numbers must be comma-separated"
-msgstr ""
-
-msgid "My account"
 msgstr ""
 
 msgid "My credit transactions"
@@ -1785,13 +1722,7 @@ msgstr ""
 msgid "Number of votes"
 msgstr ""
 
-msgid "Offline"
-msgstr ""
-
 msgid "Once"
-msgstr ""
-
-msgid "Online"
 msgstr ""
 
 msgid "Only when the sender ID is approved"
@@ -1839,9 +1770,6 @@ msgid "Password"
 msgstr ""
 
 msgid "Password does not match"
-msgstr ""
-
-msgid "Password has been emailed"
 msgstr ""
 
 msgid "Password recovery"
@@ -1995,9 +1923,6 @@ msgstr ""
 msgid "Recover password disabled"
 msgstr ""
 
-msgid "Reduce"
-msgstr ""
-
 msgid "Reduce credit"
 msgstr ""
 
@@ -2043,6 +1968,9 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "Reply message on correct"
 msgstr ""
 
@@ -2068,12 +1996,6 @@ msgid "Report banned users"
 msgstr ""
 
 msgid "Report whose online"
-msgstr ""
-
-msgid "Reports"
-msgstr ""
-
-msgid "Resend"
 msgstr ""
 
 msgid "Restart Kannel"
@@ -2134,9 +2056,6 @@ msgid "SMS"
 msgstr ""
 
 msgid "SMS Board"
-msgstr ""
-
-msgid "SMS Sync configuration has been saved"
 msgstr ""
 
 msgid "SMS autoreply has been deleted"
@@ -2392,12 +2311,6 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-msgid "Secret key"
-msgstr ""
-
-msgid "Secret key is used in SMSSync app"
-msgstr ""
-
 msgid "Select"
 msgstr ""
 
@@ -2600,9 +2513,6 @@ msgstr ""
 msgid "Supplied SMSC"
 msgstr ""
 
-msgid "Sync URL"
-msgstr ""
-
 msgid "System error has occured"
 msgstr ""
 
@@ -2610,6 +2520,9 @@ msgid "Tags"
 msgstr ""
 
 msgid "Template installation path"
+msgstr ""
+
+msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
 
 msgid "The domain is already configured by other user"
@@ -2714,9 +2627,6 @@ msgstr ""
 msgid "Unable to unban subuser"
 msgstr ""
 
-msgid "Unban"
-msgstr ""
-
 msgid "Unicode message"
 msgstr ""
 
@@ -2786,9 +2696,6 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
-msgid "User preference"
-msgstr ""
-
 msgid "Username"
 msgstr ""
 
@@ -2820,9 +2727,6 @@ msgid "Verify captcha"
 msgstr ""
 
 msgid "Version"
-msgstr ""
-
-msgid "View"
 msgstr ""
 
 msgid "View SMS queue"
@@ -2874,9 +2778,6 @@ msgid "Website title"
 msgstr ""
 
 msgid "Weekly"
-msgstr ""
-
-msgid "Welcome information"
 msgstr ""
 
 msgid "Whose online"
@@ -2956,9 +2857,6 @@ msgid "Your callback URL should be accessible from twilio"
 msgstr ""
 
 msgid "Your choice"
-msgstr ""
-
-msgid "Your credit"
 msgstr ""
 
 msgid "Your current callback URL authcode is"
@@ -3097,9 +2995,6 @@ msgid "queued"
 msgstr ""
 
 msgid "rate"
-msgstr ""
-
-msgid "return"
 msgstr ""
 
 msgid "title"

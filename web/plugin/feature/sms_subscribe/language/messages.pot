@@ -109,6 +109,9 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
+msgid "Reply SMSC"
+msgstr ""
+
 msgid "SMS forward parameter"
 msgstr ""
 
@@ -143,9 +146,6 @@ msgid "SMS unsubscribe parameter"
 msgstr ""
 
 msgid "SMS unsubscribe reply"
-msgstr ""
-
-msgid "SMSC"
 msgstr ""
 
 msgid "Save"

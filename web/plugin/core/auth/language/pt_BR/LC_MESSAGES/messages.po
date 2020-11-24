@@ -20,12 +20,6 @@ msgstr "E-mail"
 msgid "Fail to recover password"
 msgstr "Falha ao recuperar senha"
 
-msgid "Fail to save temporary password"
-msgstr "Falha ao salvar senha temporária"
-
-msgid "Fail to send email"
-msgstr "Falha ao enviar email"
-
 msgid "Home"
 msgstr "Início"
 
@@ -46,9 +40,6 @@ msgstr "Registrar nova conta"
 
 msgid "Password"
 msgstr "Senha"
-
-msgid "Password has been emailed"
-msgstr "A senha foi enviada para o e-mail"
 
 msgid "Password recovery"
 msgstr "Recuperação de senha"
@@ -75,6 +66,9 @@ msgstr "Registrar uma conta"
 msgid "Submit"
 msgstr "Enviar"
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
 msgstr "Essa senha temporária será removida após o login"
@@ -99,6 +93,3 @@ msgstr "Você não tem acesso à essa página"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Você ou alguém solicitou a recuperação de senha"
-
-msgid "username"
-msgstr "Nome de usuário"

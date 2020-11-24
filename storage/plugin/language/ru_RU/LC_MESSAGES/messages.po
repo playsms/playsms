@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
@@ -56,9 +57,8 @@ msgstr ""
 msgid "API secret"
 msgstr "API secret"
 
-#, fuzzy
 msgid "API username"
-msgstr "Удалить пользователя"
+msgstr ""
 
 msgid "Access Control List"
 msgstr ""
@@ -286,7 +286,7 @@ msgid "Always remove plus sign"
 msgstr "Всегда отрезать знак +"
 
 msgid "Amount"
-msgstr "Сумма"
+msgstr "Количество"
 
 msgid "Annually"
 msgstr ""
@@ -371,7 +371,7 @@ msgid "Are you sure you want to delete subuser ?"
 msgstr "Вы уверены, что хотите удалить дочернего пользователя?"
 
 msgid "Are you sure you want to delete these items ?"
-msgstr "Вы уверены, что хотите удалить выбранное?"
+msgstr "Вы уверены, что хотите удалить эти элементы?"
 
 msgid "Are you sure you want to delete these transactions ?"
 msgstr "Вы уверены, что хотите удалить записи об этих транзакциях?"
@@ -416,7 +416,7 @@ msgid "Back"
 msgstr "Назад"
 
 msgid "Ban"
-msgstr "Заблокировать"
+msgstr ""
 
 msgid "Ban date/time"
 msgstr "Время блокировки"
@@ -437,7 +437,7 @@ msgid "Blocked mobile"
 msgstr ""
 
 msgid "Buy"
-msgstr "Купить"
+msgstr ""
 
 msgid "Buy credit page"
 msgstr "Страница покупки"
@@ -486,9 +486,6 @@ msgstr "Изменения сохранены"
 msgid "Check email sender"
 msgstr "Проверять отправителя"
 
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr "Отметьте для получения сообщений из приложения SMSSync"
-
 msgid "Choice already exists"
 msgstr "Вариант уже существует"
 
@@ -519,9 +516,8 @@ msgstr ""
 msgid "Comma separated values for multiple mobile numbers"
 msgstr ""
 
-#, fuzzy
 msgid "Compose message"
-msgstr "содержит русские символы"
+msgstr ""
 
 msgid "Configuration"
 msgstr ""
@@ -559,7 +555,7 @@ msgid "Created"
 msgstr "Создано"
 
 msgid "Credit"
-msgstr "Средства"
+msgstr "Баланс"
 
 msgid "Credit has been added"
 msgstr "Средства добавлены"
@@ -683,7 +679,7 @@ msgid "Delete member"
 msgstr "Удалить участника"
 
 msgid "Delete user"
-msgstr "Удалить пользователя"
+msgstr ""
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -718,11 +714,8 @@ msgstr ""
 msgid "Domain"
 msgstr ""
 
-msgid "Download SMSSync app for Android from"
-msgstr "Скачать SMSSync для Android с"
-
 msgid "Edit"
-msgstr "Редактировать"
+msgstr ""
 
 msgid "Edit ACL"
 msgstr ""
@@ -791,7 +784,7 @@ msgid "Effective SMS sender ID"
 msgstr "Действующее имя отправителя"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "Например, +0300 для Москвы"
+msgstr "Например +0400 для Москвы"
 
 msgid "Email"
 msgstr "Email"
@@ -830,9 +823,6 @@ msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Оставьте пустым чтобы разрешить пользователям задавать собственное имя "
 "отправителя"
-
-msgid "Enable SMS Sync"
-msgstr "Включить поддержку SMS Sync"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr ""
@@ -875,7 +865,7 @@ msgid "Exec"
 msgstr "Испоняемый файл"
 
 msgid "Export"
-msgstr "Экспорт"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "КРИТИЧЕСКАЯ ОШИБКА"
@@ -1034,9 +1024,6 @@ msgstr "Не удалось зарегистрировать пользоват�
 msgid "Fail to remove SMSC"
 msgstr "Не удалось удалить SMSC"
 
-msgid "Fail to save SMS Sync configuration"
-msgstr "Не удалось сохранить настройки SMS Sync"
-
 msgid "Fail to save SMS command"
 msgstr "Не удалось сохранить команду"
 
@@ -1061,15 +1048,8 @@ msgstr "Не удалось сохранить тариф"
 msgid "Fail to save route"
 msgstr "Не удалось сохранить маршрут"
 
-#, fuzzy
-msgid "Fail to save temporary password"
-msgstr "Не удалось восстановить пароль"
-
 msgid "Fail to send SMS"
 msgstr "Не удалось отправитьь сообщение"
-
-msgid "Fail to send email"
-msgstr "Не удалось отправить письмо"
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1187,13 +1167,10 @@ msgid "Generic send SMS URL"
 msgstr ""
 
 msgid "Go"
-msgstr "Вперёд"
+msgstr ""
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr "Измените этот текст на странице конфигурации"
-
-msgid "Go to manage site menu to edit this page"
-msgstr ""
 
 msgid "Grand total SMS"
 msgstr "Общее количество СМС"
@@ -1280,7 +1257,7 @@ msgid "IP addresses have been deleted"
 msgstr "Маршрут удалён"
 
 msgid "Idle"
-msgstr "Простаивает"
+msgstr ""
 
 msgid "Import"
 msgstr "Импорт"
@@ -1360,8 +1337,9 @@ msgstr "Пароль администратора Kannel"
 msgid "Kannel admin port"
 msgstr "Порт для администрирования Kannel"
 
+#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Cервер администрирования Kannel"
 
 msgid "Kannel specific"
 msgstr "Настройки Kannel"
@@ -1447,7 +1425,7 @@ msgid "Login"
 msgstr "Вход"
 
 msgid "Login as"
-msgstr "Войти как"
+msgstr ""
 
 msgid "Login information"
 msgstr "Регистрационная информация"
@@ -1462,7 +1440,7 @@ msgstr ""
 "восстановления пароля"
 
 msgid "Logout"
-msgstr "Выйти"
+msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
 msgstr ""
@@ -1498,7 +1476,7 @@ msgid "Make return as reply"
 msgstr "Отправить результат в ответе"
 
 msgid "Manage"
-msgstr "Редактировать"
+msgstr ""
 
 msgid "Manage ACL"
 msgstr ""
@@ -1545,16 +1523,14 @@ msgstr "Gammu"
 msgid "Manage gateway and SMSC"
 msgstr "Управление шлюзами и СМС-центрами"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "Управление именами отправителей"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Управление пользователями"
+msgstr ""
 
 msgid "Manage kannel"
 msgstr "Управление Kannel"
@@ -1562,9 +1538,8 @@ msgstr "Управление Kannel"
 msgid "Manage nexmo"
 msgstr "Управление nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Управление пользователями"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "Управление модулями"
@@ -1596,9 +1571,6 @@ msgstr "Рассылки"
 msgid "Manage subuser"
 msgstr "Управление дочерними пользователями"
 
-msgid "Manage sync"
-msgstr "SMS Sync"
-
 msgid "Manage template"
 msgstr "Шаблонный"
 
@@ -1618,8 +1590,7 @@ msgid "Match with all approved sender ID"
 msgstr "Проверять совпадение с проверенными именами отправителя"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Максимум 16 цифр или 11 латинских символов, оставьте пустым, чтобы отключить"
+msgstr "Максимум 16 цифр или 11 символов, чтобы отключить оставьте пустым"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Макс. 16 цифр или 11 символов"
@@ -1643,7 +1614,7 @@ msgid "Member has been added"
 msgstr "Участник добавлен"
 
 msgid "Member has been deleted"
-msgstr "Подписчик удалён"
+msgstr "Участник удалён"
 
 msgid "Member join datetime"
 msgstr "Дата подписки"
@@ -1655,7 +1626,7 @@ msgid "Member list for keyword"
 msgstr "Подписчики по ключевому слову"
 
 msgid "Members"
-msgstr "Подписчики"
+msgstr "Участники"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -1728,13 +1699,13 @@ msgid "Module sender ID"
 msgstr "Имя отправителя"
 
 msgid "Module timezone"
-msgstr "часвой пояс"
+msgstr "Часовой пояс"
 
 msgid "Monthly"
 msgstr ""
 
 msgid "Move"
-msgstr "Переместить в"
+msgstr ""
 
 msgid "Move to"
 msgstr "Переместить в"
@@ -1752,7 +1723,7 @@ msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "My account"
-msgstr "Мой профиль"
+msgstr ""
 
 msgid "My credit transactions"
 msgstr "Мои переводы"
@@ -1844,13 +1815,13 @@ msgid "Number of votes"
 msgstr "Количество голосов"
 
 msgid "Offline"
-msgstr "Автономный"
+msgstr ""
 
 msgid "Once"
 msgstr "Единичные"
 
 msgid "Online"
-msgstr "Онлайн"
+msgstr ""
 
 msgid "Only when the sender ID is approved"
 msgstr "Только для утверждённых имён отправителей"
@@ -1901,9 +1872,6 @@ msgstr "Пароль"
 
 msgid "Password does not match"
 msgstr "Пароли не совпадают"
-
-msgid "Password has been emailed"
-msgstr "Пароль отправлен по почте"
 
 msgid "Password recovery"
 msgstr "Восстановление пароля"
@@ -2066,7 +2034,7 @@ msgid "Recover password disabled"
 msgstr "Восстановление пароля отключено"
 
 msgid "Reduce"
-msgstr "Уменьшить"
+msgstr ""
 
 msgid "Reduce credit"
 msgstr "Уменьшить средства"
@@ -2111,7 +2079,10 @@ msgid "Replace website title with logo"
 msgstr "Заменить название основного сайта логотипом"
 
 msgid "Reply"
-msgstr "Ответить"
+msgstr ""
+
+msgid "Reply SMSC"
+msgstr ""
 
 msgid "Reply message on correct"
 msgstr "Текст сообщения при правильном ответе"
@@ -2141,10 +2112,10 @@ msgid "Report whose online"
 msgstr "Пользователи в системе"
 
 msgid "Reports"
-msgstr "Отчёты"
+msgstr ""
 
 msgid "Resend"
-msgstr "Повторить"
+msgstr ""
 
 msgid "Restart Kannel"
 msgstr "Перезапустить Kannel"
@@ -2208,9 +2179,6 @@ msgstr "СМС"
 
 msgid "SMS Board"
 msgstr "Доска объявлений"
-
-msgid "SMS Sync configuration has been saved"
-msgstr "Настройки SMS Sync сохранены"
 
 msgid "SMS autoreply has been deleted"
 msgstr "Автоответ удалён"
@@ -2474,12 +2442,6 @@ msgstr ""
 msgid "Search"
 msgstr "Поиск"
 
-msgid "Secret key"
-msgstr "Секретный ключ"
-
-msgid "Secret key is used in SMSSync app"
-msgstr "Секретный ключ используется в приложении SMS Sync"
-
 msgid "Select"
 msgstr "Выберите"
 
@@ -2683,9 +2645,6 @@ msgstr "Дочерние пользователи"
 msgid "Supplied SMSC"
 msgstr "Данный SMSC"
 
-msgid "Sync URL"
-msgstr "URL для синхронизации"
-
 msgid "System error has occured"
 msgstr ""
 
@@ -2694,6 +2653,9 @@ msgstr ""
 
 msgid "Template installation path"
 msgstr "Установочный путь шаблона"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid "The domain is already configured by other user"
 msgstr ""
@@ -2790,17 +2752,18 @@ msgstr "Невозможно произвести добавление доче�
 msgid "Unable to process user addition"
 msgstr "Невозможно произвести добавление пользователя"
 
+#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Настройки шлюза схранены"
 
 msgid "Unable to unban account"
-msgstr "Невозможно разблокировать пользователя"
+msgstr "Не удалось разблокировать пользователя"
 
 msgid "Unable to unban subuser"
 msgstr "Невозможно разблокировать дочернего пользователя"
 
 msgid "Unban"
-msgstr "Разблокировать"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "содержит русские символы"
@@ -2817,8 +2780,9 @@ msgstr "Ответ о неизвестном формате"
 msgid "Unlimited"
 msgstr "Неограниченно"
 
+#, fuzzy
 msgid "Update status"
-msgstr ""
+msgstr "Состояние Kannel"
 
 msgid "Upload file"
 msgstr "Загрузить файл"
@@ -2872,7 +2836,7 @@ msgid "User is not on banned users list"
 msgstr "Пользователь не заблокирован"
 
 msgid "User preference"
-msgstr "Пользовательские настройки"
+msgstr ""
 
 msgid "Username"
 msgstr "Имя пользователя"
@@ -2908,7 +2872,7 @@ msgid "Version"
 msgstr "Версия"
 
 msgid "View"
-msgstr "Показать"
+msgstr ""
 
 msgid "View SMS queue"
 msgstr "Просмотр очереди"
@@ -2961,9 +2925,6 @@ msgstr "Заголовок сайта"
 msgid "Weekly"
 msgstr ""
 
-msgid "Welcome information"
-msgstr ""
-
 msgid "Whose online"
 msgstr "Пользователи в системе"
 
@@ -2996,7 +2957,7 @@ msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
 msgid "You must fill all mandatory fields"
-msgstr "Необходимо заполнить все обязательные поля"
+msgstr "Необходимо заполнить обязательные поля"
 
 msgid "You must fill all required fields"
 msgstr "Необходимо заполнить все требуемые поля"
