@@ -19,7 +19,7 @@ if [ ! -e "$INSTALLCONF" ]; then
 	echo "    vi install.conf"
 	echo
 	echo "Please re-run this script once install.conf edited and saved"
-	echo "    ./install-playsms.sh"
+	echo "    ./install.sh"
 	echo
 	exit 1
 fi
@@ -183,70 +183,71 @@ echo "=================================================================="
 echo
 echo "Installation is in progress"
 echo
-echo "DO NOT press [Control+C] until this script ends"
+echo -n "DO NOT press [Control+C] until this script ends"
+sleep 1
+echo -n .
+sleep 1
+echo -n .
+sleep 1
+echo -n .
+sleep 1
+echo
 echo
 echo "=================================================================="
 echo
 
-sleep 3
+sleep 1
 
-echo "Getting composer from https://getcomposer.com"
+set -e
+
+echo "Getting composer..."
 echo
-echo "Please wait while the install script downloading composer"
+
+php -r "readfile('https://getcomposer.org/installer');" | php -q
+
+echo "Move composer.phar to $PATHSTR/composer/"
 echo
+mkdir -p "$PATHSTR/composer"
+mv composer.phar "$PATHSTR/composer/"
+cp storage/composer/composer.json "$PATHSTR/composer/"
 
-php -r "readfile('https://getcomposer.org/installer');" | php >/dev/null 2>&1
+if [ -e "$PATHSTR/composer/composer.phar" ]; then
+	chmod +x "$PATHSTR/composer/composer.phar"
 
-if [ -e "$PATHSRC/composer.phar" ]; then
-	#rm -f /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
-	rm -f $PATHSRC/composer >/dev/null 2>&1
-	ln -s $PATHSRC/composer.phar $PATHSRC/composer >/dev/null 2>&1
-	#mv composer composer.phar /usr/local/bin/ >/dev/null 2>&1
-	#chmod +x /usr/local/bin/composer /usr/local/bin/composer.phar >/dev/null 2>&1
-	chmod +x $PATHSRC/composer.phar >/dev/null 2>&1
-
-	echo "Composer is ready in this folder"
-	echo
-	echo "Pleas wait while composer getting and updating required packages"
-	echo
-
-	if [ -x "$PATHSRC/composer.phar" ]; then
-		$PATHSRC/composer.phar update
+	if [ -x "$PATHSTR/composer/composer.phar" ]; then
+		echo "Getting packages..."
+		echo
+		$PATHSTR/composer/composer.phar --working-dir="$PATHSTR/composer/" update
+		echo
 	else
 		echo "ERROR: unable to get composer from https://getcomposer.com"
 		echo
 		exit 1
 	fi
-
-	echo
-	echo "Composer has been installed and packages has been updated"
-	echo
 else
 	echo "ERROR: unable to get composer from https://getcomposer.com"
 	echo
 	exit 1
 fi
 
-sleep 3
-
-echo -n "Start"
+set +e
+echo "Setup database..."
+mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < $PATHSRC/db/playsms.sql
+ADMINPASSWORD=$(echo -n $ADMINPASSWORD | md5sum | cut -d' ' -f1)
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME -e "UPDATE playsms_tblUser SET username='$ADMINUSERNAME',password='$ADMINPASSWORD',salt='' WHERE uid=1"
+echo
 set -e
+
+echo -n "Copying files."
 echo -n .
 mkdir -p $PATHWEB $PATHLIB $PATHLOG $PATHSTR
 echo -n .
 cp -rf $PATHSRC/web/* $PATHWEB
 echo -n .
 cp -rf $PATHSRC/storage/* $PATHSTR
-set +e
 echo -n .
-mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null 2>&1
-echo -n .
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < $PATHSRC/db/playsms.sql >/dev/null 2>&1
-echo -n .
-ADMINPASSWORD=$(echo -n $ADMINPASSWORD | md5sum | cut -d' ' -f1)
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME -e "UPDATE playsms_tblUser SET username='$ADMINUSERNAME',password='$ADMINPASSWORD',salt='' WHERE uid=1" >/dev/null 2>&1
-set -e
-echo -n .
+
 cp $PATHWEB/config-dist.php $PATHWEB/config.php
 echo -n .
 sed -i "s|#DBHOST#|$DBHOST|g" $PATHWEB/config.php
@@ -285,15 +286,19 @@ echo -n .
 cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
 chmod 700 $PATHBIN/playsmsd
 echo -n .
-echo "end"
+echo "done"
 echo
 
+echo "Checking installation..."
 $PATHBIN/playsmsd $PATHCONF/playsmsd.conf check
 sleep 3
 echo
+
+echo "Restarting playSMS daemon..."
 $PATHBIN/playsmsd $PATHCONF/playsmsd.conf restart
 sleep 3
 echo
+
 $PATHBIN/playsmsd $PATHCONF/playsmsd.conf status
 sleep 3
 echo
@@ -301,25 +306,7 @@ echo
 echo
 echo "playSMS has been installed on your system"
 echo
-echo
-echo "Your playSMS daemon script operational guide:"
-echo 
-echo "- To start it : $PATHBIN/playsmsd $PATHCONF/playsmsd.conf start"
-echo "- To stop it  : $PATHBIN/playsmsd $PATHCONF/playsmsd.conf stop"
-echo "- To check it : $PATHBIN/playsmsd $PATHCONF/playsmsd.conf check"
-echo
 
 cp install.conf install.conf.backup >/dev/null 2>&1
-
-echo
-echo
-echo "ATTENTION"
-echo "========="
-echo
-echo "When message \"unable to start playsmsd\" occurred above, please check:"
-echo
-echo "1. Possibly theres an issue with composer updates, try to run: \"./composer update\""
-echo "2. Manually run playsmsd, stop playsmsd and then start it again"
-echo
 
 exit 0

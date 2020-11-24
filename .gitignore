@@ -1,6 +1,5 @@
 docs/_build/
 vendor/*
-composer
 composer.phar
 composer.lock
 coverage
@@ -26,7 +25,8 @@ venv
 .codio
 
 web/config.php
-web/lib/composer
+web/lib/composer/*
+storage/composer/vendor/*
 
 install.conf
 install.conf.backup

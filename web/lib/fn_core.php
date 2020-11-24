@@ -1247,8 +1247,8 @@ function core_last_post_empty() {
 /**
  * Include composer based packages
  */
-if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
-	include_once _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
+if (file_exists(_APPS_PATH_STORAGE_ . '/composer/vendor/autoload.php')) {
+	include_once _APPS_PATH_STORAGE_ . '/composer/vendor/autoload.php';
 } else {
 	die(_('FATAL ERROR') . ' : ' . _('Unable to find composer files') . ' ' . _('Please run composer.phar update'));
 	exit();

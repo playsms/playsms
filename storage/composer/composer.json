@@ -3,7 +3,7 @@
 	"description": "playSMS is a free and open source SMS portal software",
 	"license": "GPL-3.0+",
 	"config": {
-		"vendor-dir": "web/lib/composer/vendor"
+		"vendor-dir": "vendor"
 	},
 	"require": {
 		"playsms/tpl": "1.*",
