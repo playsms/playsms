@@ -56,13 +56,13 @@ switch (_OP_) {
 			</div>
 			<input type='hidden' name='item_count' value='$i'>
 			</form>
-			<div class=text-info>
-				<p>"._('Notes')."</p>
+			<p class=help-block>
+				" . _('Notes') . ":
 				<ul>
 					<li>#NAME# "._('will be replaced with the name listed in phonebook')."</li>
 					<li>#NUM# "._('will be replaced with the phone number listed in phonebook')."</li>
 				</ul>
-			</div>
+			</p>
 		";
 		_p($content);
 		break;

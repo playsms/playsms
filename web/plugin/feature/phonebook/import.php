@@ -37,7 +37,7 @@ switch (_OP_) {
 							" . _CSRF_FORM_ . "
 							<p>" . _('Please select CSV file for phonebook entries') . "</p>
 							<p><input type=\"file\" name=\"fnpb\"></p>
-							<p class=text-info>" . _('CSV file format') . " : " . _('Name') . ", " . _('Mobile') . ", " . _('Email') . ", " . _('Group code') . ", " . _('Tags') . "</p>
+							<p class=help-block>" . _('CSV file format') . " : " . _('Name') . ", " . _('Mobile') . ", " . _('Email') . ", " . _('Group code') . ", " . _('Tags') . "</p>
 							<p><input type=\"submit\" value=\"" . _('Import') . "\" class=\"button\"></p>
 							</form>
 						</td>

@@ -51,7 +51,7 @@ switch (_OP_) {
 							<input type='hidden' name='schedule_id' value='$schedule_id'>
 							<p>" . _('Please select CSV file') . "</p>
 							<p><input type='file' name='fnpb'></p>
-							<p class=text-info>" . _('format') . " : " . _('Name') . ", " . _('Destination') . ", " . _('Schedule') . "</p>
+							<p class=help-block>" . _('CSV file format') . " : " . _('Name') . ", " . _('Destination') . ", " . _('Schedule') . "</p>
 							<p><input type='submit' value='" . _('Import') . "' class='button'></p>
 							</form>
 						</td>
