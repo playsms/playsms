@@ -28,29 +28,40 @@ defined('_SECURE_') or die('Forbidden');
  */
 function webservices_validate($h, $u) {
 	global $core_config;
-	$ret = false;
-	
-	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
-		$u = user_email2username($u);
-	}
 
-	// fixme anton - sanitize username
-	if (!($u && $u == core_sanitize_username($u))) {
-		
-		return FALSE;
-	}
-	
-	if ($c_uid = auth_validate_token($h)) {
-		$c_u = user_uid2username($c_uid);
-		if ($core_config['webservices_username']) {
-			if ($c_u && $u && ($c_u == $u)) {
-				$ret = $c_u;
-			}
-		} else {
-			$ret = $c_u;
+	// if webservices auth requires username
+	if ($core_config['webservices_username']) {
+		// if email then get username
+		if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
+			$u = user_email2username($u);
+		}
+
+		// just make sure that username is exists and sanitized
+		if (!($u && $u == core_sanitize_username($u))) {
+			
+			return FALSE;
 		}
 	}
-	return $ret;
+	
+	// validate the token
+	if ($c_uid = auth_validate_token($h)) {
+		if ($c_u = user_uid2username($c_uid)) {
+			if ($core_config['webservices_username']) {
+				if ($c_u && $u && ($c_u == $u)) {
+					
+					return $c_u;
+				} else {
+
+					return FALSE;
+				}
+			} else {
+				
+				return $c_u;
+			}
+		}
+	}
+
+	return FALSE;
 }
 
 /**
@@ -64,26 +75,16 @@ function webservices_validate($h, $u) {
  */
 function webservices_validate_admin($h, $u) {
 	$ret = false;
-	
-	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
-		$u = user_email2username($u);
-	}
 
-	// fixme anton - sanitize username
-	if (!($u && $u == core_sanitize_username($u))) {
-
-    	return false;
-	}
-
-	$c_u = webservices_validate($h, $u);
-	if ($u) {
+	if ($c_u = webservices_validate($h, $u)) {
 		$status = user_getfieldbyusername($c_u, 'status');
 		if ($status == 2) {
-			$ret = $c_u;
+			
+			return $c_u;
 		}
 	}
 	
-	return $ret;
+	return FALSE;
 }
 
 function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $nofooter = FALSE, $footer = '', $from = '', $schedule = '') {
