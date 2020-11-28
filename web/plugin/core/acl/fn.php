@@ -115,6 +115,8 @@ function acl_getaclsubuser($acl_id) {
 }
 
 function acl_geturl($acl_id) {
+	$ret = [];
+
 	$conditions = array(
 		'id' => (int) $acl_id,
 		'flag_deleted' => 0 
@@ -177,72 +179,115 @@ function acl_setbyuid($acl_id, $uid) {
 	return $ret;
 }
 
-function acl_checkurl($url, $uid = 0) {
-	global $user_config, $core_config;
-	
-	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
+function acl_checkurl($url, $uid = NULL) {
+	// $uid must exists
+	$uid = ((int) $uid ? (int) $uid : $_SESSION['uid']);
 	$acl_id = acl_getidbyuid($uid);
-	if ($acl_urls = acl_geturl($acl_id)) {
-		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {
-			$data_acl = acl_getdata($acl_id);
-			if ($data_acl['flag_disallowed']) {
-				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
-				foreach ($acl_urls as $acl_url) {
-					if (substr($acl_url, 0, 1) == '!') {
-						$acl_url = substr($acl_url, 1);
-						$is_exception = TRUE;
-					} else {
-						$is_exception = FALSE;
-					}
-					
-					$pos = strpos($url, $acl_url);
-					if ($pos !== FALSE) {
-						// check whether its an exception or not
-						if ($is_exception) {
-							return TRUE;
-						} else {
-							return FALSE;
-						}
-					}
-				}
-				
-				// no match with disallowed URLs
-				return TRUE;
-			} else {
-				$acl_urls[] = 'app=ws';
-				$acl_urls[] = 'app=webservice';
-				$acl_urls[] = 'app=webservices';
-				$acl_urls[] = 'inc=core_auth';
-				$acl_urls[] = 'inc=core_welcome';
-				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
-				foreach ($acl_urls as $acl_url) {
-					if (substr($acl_url, 0, 1) == '!') {
-						$acl_url = substr($acl_url, 1);
-						$is_exception = TRUE;
-					} else {
-						$is_exception = FALSE;
-					}
-					
-					$pos = strpos($url, $acl_url);
-					if ($pos !== FALSE) {
-						// check whether its an exception or not
-						if ($is_exception) {
-							return FALSE;
-						} else {
-							return TRUE;
-						}
-					}
-				}
-				
-				// no match with allowed URLs
-				return FALSE;
-			}
-		} else {
-			// fixme anton: this probably should be FALSE, later we will need to fix this
-			return TRUE;
-		}
-	} else {
-		// fixme anton: this probably should be FALSE, later we will need to fix this
+	$data_acl = acl_getdata($acl_id);
+
+	// get rules
+	$acl_urls = acl_geturl($acl_id);
+	if (!$data_acl['flag_disallowed']) {
+		$acl_urls[] = 'app=ws';
+		$acl_urls[] = 'app=webservice';
+		$acl_urls[] = 'app=webservices';
+		$acl_urls[] = 'inc=core_auth';
+		$acl_urls[] = 'inc=core_welcome';
+	}
+	sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
+
+	// true if admin, false if $uid=0 but not admin
+	if ($_SESSION['status'] == 2) {
+
 		return TRUE;
 	}
+
+	// false if no input $url
+	$input = [];
+	if ($url) {
+		if (is_array($url)) {
+			$input = $url;
+		} else {
+			$url = parse_url($url, PHP_URL_QUERY);
+			parse_str($url, $input);
+		}
+	} else {
+
+		return TRUE;
+	}
+	$input = _acl_sanitize($input);
+
+	foreach ($acl_urls as $acl_url) {
+		// looking for exception rule (prefixed with punctuation)
+		// if found then clean $acl_url from exception marker (remove punctuation)
+		$is_exception = _acl_isexception($acl_url);
+
+		// turn url into array
+		$acl = [];
+		parse_str($acl_url, $acl);
+		$acl = _acl_sanitize($acl);
+
+		$found_match = FALSE;
+
+		// if the rule not match with input url then flip to FALSE
+		if ($acl == array_intersect_assoc($acl, $input)) {
+			// flip if an exception rule
+			if ($is_exception) {
+				if ($data_acl['flag_disallowed']) {
+
+					return TRUE;
+				}
+
+				return FALSE;
+			}
+
+			// if we found match and ACL is disallowed url then FALSE
+			if ($data_acl['flag_disallowed']) {
+
+				return FALSE;
+			}
+
+			return TRUE;
+		}
+	}
+
+	if ($data_acl['flag_disallowed']) {
+
+		return TRUE;
+	} else {
+
+		return FALSE;
+	}
+}
+
+function _acl_sanitize($data_raw = array()) {
+	$data = [];
+
+	foreach ($data_raw as $key => $val) {
+		if ($key && !is_array($val)) {
+			$key = strtolower(trim($key));
+			$val = strtolower(trim($val));
+			if ((strlen($key) <= 40) && (strlen($val) <= 40)) {
+				$data[$key] = $val;
+			}
+		}
+	}
+
+	if ($data) {
+		$data = array_unique($data);
+		ksort($data);
+	}
+
+	return $data;
+}
+
+function _acl_isexception(&$url) {
+	$url = trim($url);
+	if (substr($url, 0, 1) == '!') {
+		$url = substr($url, 1);
+		
+		return TRUE;
+	}
+
+	return FALSE;
 }

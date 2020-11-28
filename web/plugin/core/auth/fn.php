@@ -198,7 +198,7 @@ function auth_isvalid() {
 		$hash = user_session_get('', session_id());
 		if (session_id() == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
 			if ($hash[key($hash)]['http_user_agent'] && ($hash[key($hash)]['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT']))) {
-				return acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
+				return acl_checkurl($_REQUEST, $_SESSION['uid']);
 			}
 		}
 	}
