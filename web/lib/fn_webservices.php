@@ -738,14 +738,11 @@ function webservices_account_conf($uid, $data = array()) {
 }
 
 function webservices_credit_view($username) {
-	if ($credit = rate_getusercredit($username)) {
-		$json['status'] = 'OK';
-		$json['error'] = '0';
-		$json['balance'] = (float) $credit;
-	} else {
-		$json['status'] = 'ERR';
-		$json['error'] = '620';
-	}
+	$credit = rate_getusercredit($username);
+	
+	$json['status'] = 'OK';
+	$json['error'] = '0';
+	$json['balance'] = (float) $credit;
 	
 	return $json;
 }
