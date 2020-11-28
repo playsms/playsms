@@ -150,7 +150,7 @@ function auth_validate_token($token) {
 		
 		// check blacklist
 		if (blacklist_ifipexists($username, $_SERVER['REMOTE_ADDR'])) {
-			_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
+			_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_token');
 			
 			return FALSE;
 		}
