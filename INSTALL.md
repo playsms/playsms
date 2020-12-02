@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.4.4-alpha1**
+This document explains about how to install and setup playSMS version **1.4.4-beta**
 
 
 ## Requirements
@@ -46,7 +46,7 @@ Optional hardware or infrastructure:
 
 Please visit [playSMS installation howto page](https://playsms.org/tag/playsms-install/).
 
-As of playSMS version **1.4.4-alpha1** the first time username is **admin** and password is **changemeplease**
+As of playSMS version **1.4.4-beta** the first time username is **admin** and password is **changemeplease**
 
 Please update this password and always use strong password
 
