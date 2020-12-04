@@ -157,7 +157,7 @@ function playsmsd_stop_childs() {
  */
 function playsmsd_check($json) {
 	global $PLAYSMSD_CONF, $DAEMON_SLEEP, $ERROR_REPORTING;
-	global $PLAYSMS_INSTALL_PATH, $PLAYSMS_LIB_PATH, $PLAYSMS_DAEMON_PATH, $PLAYSMS_LOG_PATH;
+	global $PLAYSMS_INSTALL_PATH, $PLAYSMS_LIB_PATH, $PLAYSMS_DAEMON_PATH, $PLAYSMS_LOG_PATH, $PLAYSMS_STR_PATH;
 	
 	$data = array(
 		'PLAYSMSD_CONF' => $PLAYSMSD_CONF,
@@ -165,6 +165,7 @@ function playsmsd_check($json) {
 		'PLAYSMS_LIB' => $PLAYSMS_LIB_PATH,
 		'PLAYSMS_BIN' => $PLAYSMS_DAEMON_PATH,
 		'PLAYSMS_LOG' => $PLAYSMS_LOG_PATH,
+		'PLAYSMS_STR' => $PLAYSMS_STR_PATH,
 		'DAEMON_SLEEP' => $DAEMON_SLEEP,
 		'ERROR_REPORTING' => $ERROR_REPORTING,
 		'IS_RUNNING' => playsmsd_isrunning(),
@@ -262,16 +263,19 @@ if (!$continue) {
 }
 
 // playSMS installation location
-$PLAYSMS_INSTALL_PATH = ($ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/var/www/playsms');
+$PLAYSMS_INSTALL_PATH = ($ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/home/komodo/public_html/playsms');
 
 // playSMS lib location
-$PLAYSMS_LIB_PATH = ($ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/var/lib/playsms');
+$PLAYSMS_LIB_PATH = ($ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/home/komodo/lib');
 
 // playSMS daemon location
-$PLAYSMS_DAEMON_PATH = ($ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin');
+$PLAYSMS_DAEMON_PATH = ($ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/home/komodo/bin');
 
 // playSMS log location
-$PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/playsms');
+$PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/home/komodo/log');
+
+// playSMS storage location
+$PLAYSMS_STR_PATH = ($ini['PLAYSMS_STR'] ? $ini['PLAYSMS_STR'] : '/home/komodo/storage');
 
 // set default DAEMON_SLEEP at 1 second
 $DAEMON_SLEEP = ($ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1);
