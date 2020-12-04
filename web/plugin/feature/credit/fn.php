@@ -319,9 +319,7 @@ function _credit_low_notif() {
 		$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
 		$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
 		
-		// fixme anton - ref: https://github.com/antonraharja/playSMS/issues/533#issuecomment-591333570
-		//if ($balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
-		if (($balance <= $credit_lowest_limit) && $notified === TRUE) {
+		if (($balance <= $credit_lowest_limit) && !$notified) {
 		
 			// set notified
 			registry_update($uid, 'feature', 'credit', array(
@@ -352,6 +350,12 @@ function _credit_low_notif() {
 			_log('sent notification uid:' . $uid . ' parent_uid:' . $parent_uid . ' credit_lowest_limit:' . $credit_lowest_limit, 3, "credit_low_notif");
 		}
 		
+		if (($balance > $credit_lowest_limit) && $notified) {
+			// set notified to false
+			registry_update($uid, 'feature', 'credit', array(
+				'lowest_limit_notif' => FALSE
+			));
+		}
 		
 	}
 }
