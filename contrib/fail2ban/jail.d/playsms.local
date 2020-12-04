@@ -1,7 +1,7 @@
 [playsms]
 enabled = true
 port    = http,https
-filer   = playsms
+filter  = playsms
 logpath = /home/komodo/log/playsms/playsms.log
           /home/komodo/log/playsms.log
           /var/log/playsms/playsms.log
