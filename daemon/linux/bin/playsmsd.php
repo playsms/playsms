@@ -272,20 +272,45 @@ if (!$continue) {
 // playSMS installation location
 $PLAYSMS_INSTALL_PATH = ($ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/home/komodo/public_html/playsms');
 
+if (!file_exists($PLAYSMS_INSTALL_PATH)) {
+    echo "Cannot find installation path " . $PLAYSMS_INSTALL_PATH . "\n";
+    exit();
+}
+
 // playSMS lib location
 $PLAYSMS_LIB_PATH = ($ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/home/komodo/lib');
+
+if (!file_exists($PLAYSMS_LIB_PATH)) {
+    echo "Cannot find lib path " . $PLAYSMS_LIB_PATH . "\n";
+    exit();
+}
 
 // playSMS daemon location
 $PLAYSMS_DAEMON_PATH = ($ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/home/komodo/bin');
 
+if (!file_exists($PLAYSMS_DAEMON_PATH)) {
+    echo "Cannot find bin path " . $PLAYSMS_DAEMON_PATH . "\n";
+    exit();
+}
+
 // playSMS log location
 $PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/home/komodo/log');
+
+if (!file_exists($PLAYSMS_LOG_PATH)) {
+    echo "Cannot find log path " . $PLAYSMS_LOG_PATH . "\n";
+    exit();
+}
 
 // playSMS storage location
 $PLAYSMS_STR_PATH = ($ini['PLAYSMS_STR'] ? $ini['PLAYSMS_STR'] : '/home/komodo/storage');
 
+if (!file_exists($PLAYSMS_STR_PATH)) {
+    echo "Cannot find storage path " . $PLAYSMS_STR_PATH . "\n";
+    exit();
+}
+
 // set default DAEMON_SLEEP at 1 second
-$DAEMON_SLEEP = ($ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1);
+$DAEMON_SLEEP = ((int) $ini['DAEMON_SLEEP'] >= 1 ? (int) $ini['DAEMON_SLEEP'] : 1);
 
 // set PHP error reporting level
 $ERROR_REPORTING = (isset($ini['ERROR_REPORTING']) ? $ini['ERROR_REPORTING'] : 'E_ALL ^ (E_NOTICE | E_WARNING)');
@@ -305,6 +330,12 @@ $CMD_PARAM = $argument[3];
 
 // playsmsd
 $PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
+
+if (!is_executable($PLAYSMSD_BIN)) {
+    echo "playSMS daemon script " . $PLAYSMSD_BIN . " is not executable\n";
+    exit();
+}
+
 $PLAYSMSD_COMMAND = $PLAYSMSD_BIN . ' ' . $PLAYSMSD_CONF;
 
 switch ($COMMAND) {
