@@ -24,8 +24,7 @@ playSMS is a free and open source SMS management software, a web interface for S
 * Send SMS to single mobile phone
 * Send SMS broadcasted to a group of mobile phones, or SMS bulk
 * Support sending text, flash and unicode messages
-* Capable of handling large amount of SMS (a user tested 200k SMS a day)
-* Receive private SMS to Inbox and forward it to email (mobile2web) and user's mobile phone
+* Receive private SMS to Inbox and forward it to email or user's mobile phone
 * Forward single SMS from mobile to a group of mobile phones 
 * Provides SMS to email and email to SMS by polling mailbox
 * SMS autoreply, for easy autoreplying formatted incoming SMS
@@ -52,8 +51,7 @@ playSMS is a free and open source SMS management software, a web interface for S
 * Multi-language user interface (English, French, Bahasa Indonesia, Russian and a few others)
 * Easily add new language for user interface
 * Web-based interface
-* Android app for playSMS available on Google Play Store
-* Multi-domain from single playSMS installation with site branding for reseller supports
+* Multi-domain from single playSMS installation with site branding
 
 
 ## License
