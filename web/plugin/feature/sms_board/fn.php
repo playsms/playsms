@@ -165,7 +165,6 @@ function sms_board_output_rss($keyword, $line = "10", $format = "RSS0.91") {
 	$keyword = strtoupper($keyword);
 	$line = ($line ? $line : '10');
 	$format_output = ($format ? $format : "RSS0.91");
-	include_once $core_config['apps_path']['plug'] . "/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
 	$rss = new UniversalFeedCreator();
 	$rss->title = $core_config['main']['web_title'];
 	$rss->description = _('SMS Board') . ' ' . $keyword;
