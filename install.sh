@@ -208,8 +208,16 @@ php -r "readfile('https://getcomposer.org/installer');" | php -q
 echo "Move composer.phar to $PATHSTR/composer/"
 echo
 mkdir -p "$PATHSTR/composer"
-mv composer.phar "$PATHSTR/composer/"
-cp storage/composer/composer.json "$PATHSTR/composer/"
+mv composer.phar "$PATHSTR/composer/" >/dev/null 2>&1
+cp storage/composer/composer.json.dist "$PATHSTR/composer/composer.json" >/dev/null 2>&1
+
+if [ -e "$PATHSTR/composer/composer.json" ]; then
+	chmod -x "$PATHSTR/composer/composer.json"
+else
+	echo "ERROR: unable to find composer.json on storage directory"
+	echo
+	exit 1
+fi
 
 if [ -e "$PATHSTR/composer/composer.phar" ]; then
 	chmod +x "$PATHSTR/composer/composer.phar"

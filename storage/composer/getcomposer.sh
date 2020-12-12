@@ -8,6 +8,9 @@ echo
 
 php -r "readfile('https://getcomposer.org/installer');" | php >/dev/null 2>&1
 
+echo "Composer has been installed"
+echo
+
 if [ -e "composer.phar" ]; then
 	chmod +x ./composer.phar >/dev/null 2>&1
 else
@@ -16,8 +19,22 @@ else
 	exit 1
 fi
 
-echo "Composer has been installed"
-echo
+if [ -e "composer.json.dist" ]; then
+	cp composer.json.dist composer.json >/dev/null 2>&1
+else
+	echo "ERROR: unable to find composer.json.dist"
+	echo
+	exit 1
+fi
+
+if [ -e "composer.json" ]; then
+	chmod -x composer.json >/dev/null 2>&1
+else
+	echo "ERROR: unable to find composer.json"
+	echo
+	exit 1
+fi
+
 echo "Please wait while composer getting and updating required packages"
 echo
 
