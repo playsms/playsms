@@ -20,6 +20,14 @@ defined('_SECURE_') or die('Forbidden');
 
 function playsmslog_view($nline = 1000) {
 	global $core_config;
-	$content = @shell_exec('tail -n ' . $nline . ' ' . $core_config['apps_path']['logs'] . '/playsms.log');
+
+	$content = '';
+	$nline = (int) $nline;
+	$fn_log = $core_config['apps_path']['logs'] . '/playsms.log';
+	
+	if ($nline > 0 && file_exists($fn_log)) {
+		$content = @shell_exec('tail -n ' . $nline . ' ' . $fn_log);
+	}
+	
 	return $content;
 }

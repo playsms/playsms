@@ -8,6 +8,3 @@ if (auth_isadmin()) {
 		_('View log') 
 	);
 }
-
-$plugin_config['playsmslog']['playsmsd']['bin'] = '/usr/local/bin/playsmsd';
-$plugin_config['playsmslog']['playsmsd']['conf'] = '/etc/playsmsd.conf';
