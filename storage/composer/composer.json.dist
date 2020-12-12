@@ -13,6 +13,7 @@
 		"pear/pear-core-minimal": "1.*",
 		"pear/db": "1.*",
 		"phpmailer/phpmailer": "~6.1",
-		"openpsa/universalfeedcreator": "1.*"
+		"openpsa/universalfeedcreator": "1.*",
+		"szymach/c-pchart": "^3.0"
 	}
 }
