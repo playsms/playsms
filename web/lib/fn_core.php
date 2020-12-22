@@ -113,7 +113,7 @@ function core_sanitize_inputs($data) {
 	if (is_array($data)) {
 		foreach ($data as $key => $value) {
 			if (is_array($value)) {
-				$ret[$key] = core_display_html($value);
+				$ret[$key] = core_sanitize_inputs($value);
 			} else {
 				$value = stripslashes($value);
 				$value = $hp->purify($value);
