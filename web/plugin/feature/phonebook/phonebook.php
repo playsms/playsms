@@ -93,10 +93,10 @@ switch (_OP_) {
 					<td colspan=6>
 						<div class=actions_box>
 							<div class=pull-left>
-								<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list') . "'>" . $icon_config['group'] . "</a>
+								<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list') . "'>" . $icon_config['user_group'] . "</a>
 								<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list') . "'>" . $icon_config['import'] . "</a>
 								<a href='" . _u('index.php?app=main&inc=feature_phonebook&op=actions&go=export') . "'>" . $icon_config['export'] . "</a>
-								<a href='" . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add') . "'>" . $icon_config['add'] . "</a>
+								<a href='" . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add') . "'>" . $icon_config['user_add'] . "</a>
 							</div>
 							<script type='text/javascript'>
 								$(document).ready(function() {

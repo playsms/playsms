@@ -65,7 +65,7 @@ switch (_OP_) {
 				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_del&custom_id=' . $db_row['custom_id']) . "')\">" . $icon_config['delete'] . "</a>";
 				$sms_receiver = '';
 				if ($db_row['sms_receiver']) {
-					$sms_receiver = "<div name=sms_custom_sms_receiver><span class=\"playsms-icon glyphicon glyphicon-inbox\" alt=\"" . _('Receiver number') . "\" title=\"" . _('Receiver number') . "\"></span>" . $db_row['sms_receiver'] . "</div>";
+					$sms_receiver = "<div name=sms_custom_sms_receiver><span class=\"playsms-icon fa fa-phone-square\" alt=\"" . _('Receiver number') . "\" title=\"" . _('Receiver number') . "\"></span>" . $db_row['sms_receiver'] . "</div>";
 				}
 				$custom_url = $db_row['custom_url'];
 				if (auth_isadmin()) {
@@ -76,9 +76,9 @@ switch (_OP_) {
 					<tr>
 						<td>" . $db_row['service_name'] . "</td>
 						<td>
-							<div name=sms_custom_keywords><span class=\"playsms-icon glyphicon glyphicon-search\" alt=\"" . _('Keywords') . "\" title=\"" . _('Keywords') . "\"></span>" . $db_row['custom_keyword'] . "</div>
+							<div name=sms_custom_keywords><span class=\"playsms-icon fa fa-key\" alt=\"" . _('Keywords') . "\" title=\"" . _('Keywords') . "\"></span>" . $db_row['custom_keyword'] . "</div>
 							" . $sms_receiver . "
-							<div name=sms_custom_url>" . $custom_url . "</div>
+							<div name=sms_custom_url><span class=\"playsms-icon fa fa-external-link\" alt=\"" . _('Custom URL') . "\" title=\"" . _('Custom URL') . "\"></span>" . $custom_url . "</div>
 						</td>
 						" . $show_owner . "
 						<td>$action</td>
