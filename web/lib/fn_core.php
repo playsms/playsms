@@ -101,6 +101,7 @@ function core_htmlspecialchars($data) {
  */
 function core_sanitize_inputs($data) {
 	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Cache.DefinitionImpl', null);
 	$config->set('Attr.EnableID', TRUE);
 	$config->set('HTML.SafeObject', TRUE);
 	$config->set('HTML.SafeEmbed', TRUE);
@@ -301,6 +302,7 @@ function core_str2hex($string) {
  */
 function core_display_html($data) {
 	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Cache.DefinitionImpl', null);
 	$config->set('Attr.EnableID', TRUE);
 	$config->set('HTML.SafeObject', TRUE);
 	$config->set('HTML.SafeEmbed', TRUE);
@@ -337,7 +339,16 @@ function core_display_html($data) {
  * @return formatted text
  */
 function core_display_text($text, $len = 0) {
-	$hp = new HTMLPurifier();
+	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Cache.DefinitionImpl', null);
+	$config->set('Attr.EnableID', TRUE);
+	$config->set('HTML.SafeObject', TRUE);
+	$config->set('HTML.SafeEmbed', TRUE);
+	$config->set('Output.FlashCompat', TRUE);
+	$config->set('HTML.SafeIframe', TRUE);
+	$config->set('URI.SafeIframeRegexp', '%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%');
+	$config->set('HTML.Allowed', '*[style|class],p,ol,li,ul,b,u,strike,strong,blockquote,em,br,span,div,a[href|title|target|rel],img[src|alt|title|width|height|hspace|vspace],hr,font,pre,table[cellpadding|cellspacing],tr,td,th,tbody,thead,h1,h2,h3,h4,h5,iframe[src|width|height]');
+	$hp = new HTMLPurifier($config);
 	
 	if (is_array($text)) {
 		foreach ($text as $item) {
