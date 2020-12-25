@@ -218,7 +218,7 @@ msgid "Add subuser"
 msgstr "Legg til underbruker"
 
 msgid "Additional URL parameter"
-msgstr "Ytterlige URL-parametre"
+msgstr "Ytterligere URL parametere"
 
 msgid "Address"
 msgstr "Adresse"
@@ -451,9 +451,6 @@ msgstr "Avbryt send fra fil"
 msgid "Cannot change status when user have subusers"
 msgstr "Kan ikke endre status når bruker har underbrukere"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Kan ikke finne PHP PEAR-DB"
-
 msgid "Catch-all"
 msgstr "Catch-all"
 
@@ -559,6 +556,10 @@ msgstr "Nåværende medlemmer"
 
 msgid "Currently logged in user is immune to deletion"
 msgstr "Nåværende innloggede brukere kan ikke slettes"
+
+#, fuzzy
+msgid "Custom URL"
+msgstr "Tilpasset SMS-URL"
 
 msgid "DEFAULT"
 msgstr "STANDARD"
@@ -700,6 +701,9 @@ msgstr ""
 
 msgid "Domain"
 msgstr "Domene"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr "Rediger"
@@ -852,9 +856,6 @@ msgstr "Kjør"
 
 msgid "Export"
 msgstr "Eksporter"
-
-msgid "FATAL ERROR"
-msgstr "FATAL FEIL"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Kunne ikke legge til SMS-autosvar"
@@ -1224,6 +1225,9 @@ msgstr "HTTP Kannel admin passord"
 msgid "HTTP Kannel admin port"
 msgstr "HTTP Kannel admin port"
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr "Hjem"
 
@@ -1402,6 +1406,9 @@ msgid "Local playnet password"
 msgstr ""
 
 msgid "Local playnet username"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Logged in as"
@@ -1801,7 +1808,7 @@ msgid "Offline"
 msgstr "Avlogget"
 
 msgid "Once"
-msgstr "En gang"
+msgstr "Én gang"
 
 msgid "Online"
 msgstr "Plogget"
@@ -1880,7 +1887,7 @@ msgid "Please select"
 msgstr "Vennligst velg"
 
 msgid "Please select CSV file"
-msgstr "Velg en CSV-fil"
+msgstr "Vennligst velg CSV-fil"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Velg CSV-fil for kontakter i telefonbok"
@@ -2767,9 +2774,15 @@ msgstr "Ukjent svar-format"
 msgid "Unlimited"
 msgstr "Ubegrenset"
 
+msgid "Unlock"
+msgstr ""
+
 #, fuzzy
 msgid "Update status"
 msgstr "Kannel status"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Opplast fil"
@@ -3068,7 +3081,7 @@ msgid "for subuser only"
 msgstr "kun til underbruker"
 
 msgid "free credits are available for testing purposes"
-msgstr "gratis kreditt er tilgjenlige for testformål"
+msgstr "gratis kreditt er tilgjengelig for testformål"
 
 msgid "group"
 msgstr "gruppe"
@@ -3108,15 +3121,6 @@ msgstr "én gang hver måned"
 
 msgid "one time every week"
 msgstr "én gang hver uke"
-
-msgid "playSMS daemon is NOT running"
-msgstr "playSMS-daemon kjører ikke"
-
-msgid "playSMS daemon is running"
-msgstr "playSMS-daemon kjører"
-
-msgid "playSMS daemon status"
-msgstr "playSMS-daemon status"
 
 msgid "playSMS web URL"
 msgstr "playSMS web URL"
@@ -3159,7 +3163,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "vil bli erstattet med SMS innkommende dato/tid"
 
 msgid "will be replaced by SMS raw message"
-msgstr "vil bli erstattet med rå SMS-melding"
+msgstr "vil bli erstattet med rå SMS-beskjed"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3183,7 +3187,7 @@ msgid "will be replaced by receiver number"
 msgstr "vil bli ersttatet med avsendernummer"
 
 msgid "will be replaced by sender number"
-msgstr "vil bli ersttatet med avsendernummer"
+msgstr "vil bli erstattet av avsendernummer"
 
 #, fuzzy
 msgid "will be replaced by service name"
@@ -3197,3 +3201,9 @@ msgstr "vil bli erstattet med telefonnummer i telefonboken"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Kan ikke finne PHP PEAR-DB"
+
+#~ msgid "FATAL ERROR"
+#~ msgstr "FATAL FEIL"

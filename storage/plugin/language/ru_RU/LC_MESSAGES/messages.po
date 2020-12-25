@@ -464,9 +464,6 @@ msgstr ""
 "Невозможно изменить состояние, когда у пользователя есть дочерние "
 "пользователи"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Не удалось найти PHP PEAR-DB"
-
 msgid "Catch-all"
 msgstr "Перехватывающие"
 
@@ -515,8 +512,9 @@ msgstr ""
 msgid "Comma separated values for multiple mobile numbers"
 msgstr ""
 
+#, fuzzy
 msgid "Compose message"
-msgstr ""
+msgstr "содержит русские символы"
 
 msgid "Configuration"
 msgstr ""
@@ -573,6 +571,10 @@ msgstr "Текущие участники"
 
 msgid "Currently logged in user is immune to deletion"
 msgstr "Вошедшего в систему пользователя невозможно удалить"
+
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL адрес"
 
 msgid "DEFAULT"
 msgstr ""
@@ -711,6 +713,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Edit"
@@ -865,9 +870,6 @@ msgstr "Испоняемый файл"
 
 msgid "Export"
 msgstr ""
-
-msgid "FATAL ERROR"
-msgstr "КРИТИЧЕСКАЯ ОШИБКА"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Не удалось добавить автоответ"
@@ -1151,7 +1153,7 @@ msgid "Gateway host"
 msgstr "Адрес шлюза"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Настройки шлюза сохранены"
+msgstr "Настройки шлюза схранены"
 
 msgid "Gateway name"
 msgstr "Название шлюза"
@@ -1235,6 +1237,9 @@ msgstr "Пароль администратора Kannel"
 
 msgid "HTTP Kannel admin port"
 msgstr "Порт для администрирования Kannel"
+
+msgid "Hide"
+msgstr ""
 
 msgid "Home"
 msgstr "Главная"
@@ -1415,6 +1420,9 @@ msgid "Local playnet password"
 msgstr ""
 
 msgid "Local playnet username"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Logged in as"
@@ -1613,7 +1621,7 @@ msgid "Member has been added"
 msgstr "Участник добавлен"
 
 msgid "Member has been deleted"
-msgstr "Участник удалён"
+msgstr "Подписчик удалён"
 
 msgid "Member join datetime"
 msgstr "Дата подписки"
@@ -1625,7 +1633,7 @@ msgid "Member list for keyword"
 msgstr "Подписчики по ключевому слову"
 
 msgid "Members"
-msgstr "Участники"
+msgstr "Подписчики"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -2779,9 +2787,15 @@ msgstr "Ответ о неизвестном формате"
 msgid "Unlimited"
 msgstr "Неограниченно"
 
+msgid "Unlock"
+msgstr ""
+
 #, fuzzy
 msgid "Update status"
 msgstr "Состояние Kannel"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Загрузить файл"
@@ -3121,15 +3135,6 @@ msgstr "раз в месяц"
 msgid "one time every week"
 msgstr "раз в неделю"
 
-msgid "playSMS daemon is NOT running"
-msgstr "Сервис playSMS не запущен"
-
-msgid "playSMS daemon is running"
-msgstr "Сервис playSMS запущен"
-
-msgid "playSMS daemon status"
-msgstr "Состояние службы playSMS"
-
 msgid "playSMS web URL"
 msgstr "URL playSMS сервера"
 
@@ -3208,3 +3213,9 @@ msgstr "будет заменён на номер из записной книж
 
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Не удалось найти PHP PEAR-DB"
+
+#~ msgid "FATAL ERROR"
+#~ msgstr "КРИТИЧЕСКАЯ ОШИБКА"

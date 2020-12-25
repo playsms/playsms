@@ -7,6 +7,9 @@ msgstr ""
 msgid "Add group"
 msgstr ""
 
+msgid "All users"
+msgstr ""
+
 msgid "Anyone"
 msgstr ""
 
@@ -140,6 +143,9 @@ msgid "Unable to add group"
 msgstr ""
 
 msgid "Unable to delete group until the group is empty"
+msgstr ""
+
+msgid "User"
 msgstr ""
 
 msgid "You must fill all field"

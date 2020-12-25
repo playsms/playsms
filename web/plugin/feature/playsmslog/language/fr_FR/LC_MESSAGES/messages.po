@@ -10,12 +10,3 @@ msgstr "Rafraîchir"
 
 msgid "View log"
 msgstr "Afficher le journal"
-
-msgid "playSMS daemon is NOT running"
-msgstr "Le deamon playSMS ne tourne pas"
-
-msgid "playSMS daemon is running"
-msgstr "Le deamon playSMS tourne"
-
-msgid "playSMS daemon status"
-msgstr "Statut du deamon playSMS"

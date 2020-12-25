@@ -11,8 +11,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Не удалось найти PHP PEAR-DB"
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Не удалось найти PHP PEAR-DB"
 
-msgid "FATAL ERROR"
-msgstr "КРИТИЧЕСКАЯ ОШИБКА"
+#~ msgid "FATAL ERROR"
+#~ msgstr "КРИТИЧЕСКАЯ ОШИБКА"

@@ -17,12 +17,3 @@ msgstr "Opfrisk"
 
 msgid "View log"
 msgstr "Vis log"
-
-msgid "playSMS daemon is NOT running"
-msgstr "playSMS daemon kører IKKE"
-
-msgid "playSMS daemon is running"
-msgstr "playSMS daemon kører"
-
-msgid "playSMS daemon status"
-msgstr "playSMS daemon status"

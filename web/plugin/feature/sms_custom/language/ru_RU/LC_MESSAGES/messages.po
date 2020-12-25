@@ -24,6 +24,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Вы уверены, что хотите удалить запрос URL?"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL адрес"
+
 msgid "Edit SMS custom"
 msgstr "Изменить запрос url"
 

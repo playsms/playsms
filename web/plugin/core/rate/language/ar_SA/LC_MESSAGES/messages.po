@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "لايمكن العثور على PHP PEAR-DB"
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "لايمكن العثور على PHP PEAR-DB"
 
-msgid "FATAL ERROR"
-msgstr "خطأ فادح!"
+#~ msgid "FATAL ERROR"
+#~ msgstr "خطأ فادح!"

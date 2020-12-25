@@ -18,6 +18,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Está Ud. seguro de querer eliminar esta clave SMS personalizado ?"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL personalizado de SMS"
+
 msgid "Edit SMS custom"
 msgstr "Edición del servicio"
 

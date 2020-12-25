@@ -431,10 +431,10 @@ msgid "CSS URL"
 msgstr "URL do CSS"
 
 msgid "CSV file format"
-msgstr "Arquivo formato CSV"
+msgstr "Formato do arquivo CSV"
 
 msgid "Callback URL"
-msgstr "URL de Callback"
+msgstr "URL de callback"
 
 msgid "Callback URL authcode"
 msgstr ""
@@ -447,9 +447,6 @@ msgstr "Cancelar envio de arquivo"
 
 msgid "Cannot change status when user have subusers"
 msgstr "Não e possível alterar o status quando o usuário possui sub-usuários"
-
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Não foi possível localizar PHP PEAR_DB"
 
 msgid "Catch-all"
 msgstr "Coringa"
@@ -557,6 +554,10 @@ msgstr "Membros atuais"
 
 msgid "Currently logged in user is immune to deletion"
 msgstr "O usuário atualmente logado é imune à exclusão"
+
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL do SMS personalizado"
 
 msgid "DEFAULT"
 msgstr "PADRÃO"
@@ -698,6 +699,9 @@ msgstr "URL bloqueadas"
 
 msgid "Domain"
 msgstr "Domínio"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr "Editar"
@@ -852,9 +856,6 @@ msgstr "Executar"
 
 msgid "Export"
 msgstr "Exportar"
-
-msgid "FATAL ERROR"
-msgstr "ERRO FATAL"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Falha ao adicionar auto-resposta SMS"
@@ -1022,7 +1023,7 @@ msgid "Fail to save email to SMS PIN"
 msgstr "Falha ao salvar o PIN de Email para SMS"
 
 msgid "Fail to save gateway module configurations"
-msgstr "Falha ao salvar as configurações do módulo"
+msgstr "Não foi possível salvar as configurações do módulo de gateway"
 
 msgid "Fail to save preferences"
 msgstr "Falha ao salvar as preferências"
@@ -1079,7 +1080,7 @@ msgid "Fill to change the Auth Token"
 msgstr "Preencha para alterar o Token de autenticação"
 
 msgid "Fill to change the password"
-msgstr "Preencha pra mudar a senha"
+msgstr "Preencha para alterar a senha"
 
 msgid "Fill with zero to disable limit"
 msgstr "Preencha com zero para desabilitar limite"
@@ -1136,7 +1137,7 @@ msgid "Gateway host"
 msgstr "Host do gateway"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Alterações do módulo de gateway foram salvas"
+msgstr "Configurações do módulo de gateway foram salvas"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
@@ -1221,6 +1222,9 @@ msgstr "Senha HTTP de administrador Kannel"
 
 msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
+
+msgid "Hide"
+msgstr ""
 
 msgid "Home"
 msgstr "Início"
@@ -1402,6 +1406,9 @@ msgstr "Senha local do playnet"
 msgid "Local playnet username"
 msgstr "Usuário local do playnet"
 
+msgid "Lock"
+msgstr ""
+
 msgid "Logged in as"
 msgstr "Logado como"
 
@@ -1457,7 +1464,7 @@ msgid "Main website name"
 msgstr "Nome principal do site"
 
 msgid "Make return as reply"
-msgstr "Enviar return como resposta"
+msgstr "Enviar saída do comando como resposta"
 
 msgid "Manage"
 msgstr "Gerenciar"
@@ -1574,9 +1581,7 @@ msgid "Match with all approved sender ID"
 msgstr "Combinar com todos os ID de remetente aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Máximo 16 caracteres numéricos ou 11 alfanuméricos. Em branco para "
-"desabilitar"
+msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Máx. 16 caracteres numéricos ou 11 alfanuméricos"
@@ -1600,7 +1605,7 @@ msgid "Member has been added"
 msgstr "Membro foi adicionado"
 
 msgid "Member has been deleted"
-msgstr "Membro foi removido"
+msgstr "O membro foi removido"
 
 msgid "Member join datetime"
 msgstr "Data de entrada do membro"
@@ -1612,7 +1617,7 @@ msgid "Member list for keyword"
 msgstr "Lista de membros pra palavra-chave"
 
 msgid "Members"
-msgstr "Membros"
+msgstr "Ver membros"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -1682,10 +1687,10 @@ msgid "Mobile numbers have been deleted"
 msgstr "Os números de celular foram excluídos"
 
 msgid "Module sender ID"
-msgstr "ID do remetente"
+msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
-msgstr "Fusorário do módulo"
+msgstr "Módulo Fuso Horário"
 
 msgid "Monthly"
 msgstr "Mensalmente"
@@ -1703,7 +1708,7 @@ msgid "Multiple IP addresses must be comma-separated"
 msgstr "Multipos endereços IPs devem ser separados por vírgula"
 
 msgid "Multiple entries separated by comma"
-msgstr "Multiplas entradas devem ser separadas por vírgula"
+msgstr "Multiplas entradas separadas por vírgula (,)"
 
 msgid "Multiple mobile numbers must be comma-separated"
 msgstr "Múltiplos números de celular devem ser separados por vírgula"
@@ -1881,7 +1886,7 @@ msgid "Please select"
 msgstr "Por favor selecione"
 
 msgid "Please select CSV file"
-msgstr "Por favor selecione o arquivo CSV"
+msgstr "Por favor selecione arquivo CSV"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Por favor selecione o arquivo CSV para entradas dos contatos"
@@ -1999,7 +2004,7 @@ msgid "Receiver"
 msgstr "Destinatário"
 
 msgid "Receiver number"
-msgstr "Número do destinatário"
+msgstr "Número do remetente"
 
 msgid ""
 "Receiver number can be matched with default sender ID or with all approved "
@@ -2548,7 +2553,7 @@ msgid "Senders sent once"
 msgstr "Destinatários enviado uma vez"
 
 msgid "Sent"
-msgstr "Enviada"
+msgstr "Enviado"
 
 msgid "Separate by comma for multiple destinations"
 msgstr "Múltiplos destinos devem ser separados por vírgula"
@@ -2604,7 +2609,7 @@ msgid "Statistics"
 msgstr "Estatística"
 
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
 msgid "Submit"
 msgstr "Enviar"
@@ -2761,8 +2766,14 @@ msgstr "Formato de resposta desconhecido"
 msgid "Unlimited"
 msgstr "Ilimitado"
 
+msgid "Unlock"
+msgstr ""
+
 msgid "Update status"
 msgstr "Atualizar Status"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Enviar arquivo"
@@ -2820,7 +2831,7 @@ msgid "User preference"
 msgstr "Preferências de usuário"
 
 msgid "Username"
-msgstr "Nome de Usuário"
+msgstr "Nome de usuário"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
@@ -2934,10 +2945,10 @@ msgid "You have reached lowest credit limit of %s"
 msgstr ""
 
 msgid "You must fill all field"
-msgstr "Preencha todos os campos"
+msgstr "Você deve preencher todos os campos"
 
 msgid "You must fill all fields"
-msgstr "Você deve preencher todos os campos"
+msgstr "Preencha todos os campos"
 
 msgid "You must fill all mandatory fields"
 msgstr "Você deve preencher todos os campos obrigatórios"
@@ -2964,7 +2975,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your callback URL is"
-msgstr "Sua URL de callback é"
+msgstr "Sua URL callback é"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Sua URL de callback deve ser acessível pelo Infobip"
@@ -3063,7 +3074,7 @@ msgid "for subuser only"
 msgstr "para usuários apenas"
 
 msgid "free credits are available for testing purposes"
-msgstr "créditos grátis estão disponíveis para testes"
+msgstr "créditos gratúitos estão disponíveis para testes"
 
 msgid "group"
 msgstr "grupo"
@@ -3103,15 +3114,6 @@ msgstr "uma vez por mês"
 
 msgid "one time every week"
 msgstr "uma vez por semana"
-
-msgid "playSMS daemon is NOT running"
-msgstr "O daemon do playSMS não está rodando"
-
-msgid "playSMS daemon is running"
-msgstr "daemon do playSMS está rodando"
-
-msgid "playSMS daemon status"
-msgstr "status do daemon do playSMS"
 
 msgid "playSMS web URL"
 msgstr "URL web do playSMS"
@@ -3154,7 +3156,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pela mensagem SMS pura"
+msgstr "será substituído pelo SMS puro"
 
 msgid "will be replaced by actual receiver number"
 msgstr "será substituído pelo número do destinatário"
@@ -3189,3 +3191,9 @@ msgstr "será substituído com o telefone listado no catálogo"
 
 msgid "yes"
 msgstr "sim"
+
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Não foi possível localizar PHP PEAR_DB"
+
+#~ msgid "FATAL ERROR"
+#~ msgstr "ERRO FATAL"

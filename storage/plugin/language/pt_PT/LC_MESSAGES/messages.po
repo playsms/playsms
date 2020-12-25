@@ -456,9 +456,6 @@ msgid "Cannot change status when user have subusers"
 msgstr ""
 "Não é possível alterar estados quando o utilizador tem sub-utilizadores"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Não foi encontrado PHP PEAR-DB"
-
 msgid "Catch-all"
 msgstr "catch-all"
 
@@ -508,7 +505,7 @@ msgid "Comma separated values for multiple mobile numbers"
 msgstr ""
 
 msgid "Compose message"
-msgstr "Enviar Mensagem"
+msgstr "Enviar mensagem"
 
 msgid "Configuration"
 msgstr "ConfiguraÃ§Ã£o"
@@ -565,6 +562,10 @@ msgstr "Membros atuais"
 
 msgid "Currently logged in user is immune to deletion"
 msgstr "Utilizador conectado no momento é imune a eliminação"
+
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL do SMS personalizado"
 
 msgid "DEFAULT"
 msgstr "Padrão"
@@ -706,6 +707,9 @@ msgstr ""
 
 msgid "Domain"
 msgstr "DomÃ­nio"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr ""
@@ -860,9 +864,6 @@ msgstr ""
 
 msgid "Export"
 msgstr ""
-
-msgid "FATAL ERROR"
-msgstr "Erro Fatal"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Erro ao adicionar auto-resposta SMS"
@@ -1232,6 +1233,9 @@ msgstr "Palavra-passe HTTP de administrador Kannel"
 msgid "HTTP Kannel admin port"
 msgstr "Porta HTTP de administração Kannel"
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr "Início"
 
@@ -1263,7 +1267,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importar acima de entradas da agenda?"
 
 msgid "Import confirmation"
-msgstr "Importação de confirmação"
+msgstr "Confirmação da importação"
 
 msgid "Inbox"
 msgstr "Caixa de Entrada"
@@ -1342,7 +1346,7 @@ msgid "Kannel status"
 msgstr "Estado do Kannel"
 
 msgid "Keyword"
-msgstr "palavra-chave"
+msgstr "Palavra-chave"
 
 #, php-format
 msgid "Keyword %s is not available"
@@ -1412,6 +1416,9 @@ msgstr ""
 msgid "Local playnet username"
 msgstr ""
 
+msgid "Lock"
+msgstr ""
+
 msgid "Logged in as"
 msgstr ""
 
@@ -1467,7 +1474,7 @@ msgid "Main website name"
 msgstr "Nome do principal "
 
 msgid "Make return as reply"
-msgstr "Enviar retorno como resposta"
+msgstr "Enviar saída do comando como resposta"
 
 msgid "Manage"
 msgstr ""
@@ -1608,7 +1615,7 @@ msgid "Member has been added"
 msgstr "Membro foi adicionado"
 
 msgid "Member has been deleted"
-msgstr "Membro foi removido"
+msgstr "O membro foi eliminado"
 
 msgid "Member join datetime"
 msgstr "Data de entrada do membro"
@@ -1620,7 +1627,7 @@ msgid "Member list for keyword"
 msgstr "Lista de membros por palavra-chave"
 
 msgid "Members"
-msgstr "Membros"
+msgstr "Ver membros"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -1693,7 +1700,7 @@ msgid "Module sender ID"
 msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
-msgstr "Módulo de Fuso horário"
+msgstr "Módulo Fuso Horário"
 
 msgid "Monthly"
 msgstr "Mensal"
@@ -2779,9 +2786,15 @@ msgstr "Formato de resposta desconhecido"
 msgid "Unlimited"
 msgstr "Ilimitado"
 
+msgid "Unlock"
+msgstr ""
+
 #, fuzzy
 msgid "Update status"
 msgstr "Estado do Kannel"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Enviar arquivo"
@@ -2955,10 +2968,10 @@ msgid "You have reached lowest credit limit of %s"
 msgstr ""
 
 msgid "You must fill all field"
-msgstr "Preencha todos os campos"
+msgstr "Você deve preencher todos os campos"
 
 msgid "You must fill all fields"
-msgstr "Você deve preencher todos os campos"
+msgstr "Preencha todos os campos"
 
 msgid "You must fill all mandatory fields"
 msgstr "Deve preencher todos os campos obrigatórios"
@@ -2985,7 +2998,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your callback URL is"
-msgstr "Sua URL de callback é"
+msgstr "Sua URL callback é"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "O seu URL de callback tem que ser acessível a partir de infobip"
@@ -3086,7 +3099,7 @@ msgid "for subuser only"
 msgstr "Somente para sub-utilizador"
 
 msgid "free credits are available for testing purposes"
-msgstr "créditos grátis estão disponíveis para testes"
+msgstr "créditos gratúitos estão disponíveis para testes"
 
 msgid "group"
 msgstr "Grupo"
@@ -3126,15 +3139,6 @@ msgstr "Uma vez em cada mês"
 
 msgid "one time every week"
 msgstr "Uma vez em cada semana"
-
-msgid "playSMS daemon is NOT running"
-msgstr "O processo do playsms não está em execução"
-
-msgid "playSMS daemon is running"
-msgstr "O processo do playsms está em execução"
-
-msgid "playSMS daemon status"
-msgstr "Estado do processo do playsms "
 
 msgid "playSMS web URL"
 msgstr "URL web do playSMS"
@@ -3177,7 +3181,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pela mensagem SMS pura"
+msgstr "será substituído pelo SMS puro"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3215,3 +3219,9 @@ msgstr "Será substituído com o número de telemóvel que consta na agenda"
 
 msgid "yes"
 msgstr "Sim"
+
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Não foi encontrado PHP PEAR-DB"
+
+#~ msgid "FATAL ERROR"
+#~ msgstr "Erro Fatal"

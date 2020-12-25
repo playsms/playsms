@@ -17,6 +17,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Anda yakin ingin menghapus kata kunci SMS kustom"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL SMS kustom"
+
 msgid "Edit SMS custom"
 msgstr "Sunting SMS kustom"
 

@@ -6,8 +6,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Kan ikke finne PHP PEAR-DB"
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Kan ikke finne PHP PEAR-DB"
 
-msgid "FATAL ERROR"
-msgstr "FATAL FEIL"
+#~ msgid "FATAL ERROR"
+#~ msgstr "FATAL FEIL"

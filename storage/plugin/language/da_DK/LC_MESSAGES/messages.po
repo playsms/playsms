@@ -243,7 +243,7 @@ msgid "All inbox"
 msgstr "Alle indbakker"
 
 msgid "All mandatory fields must be filled"
-msgstr "Alle obligatoriske felter skal udfyldes"
+msgstr "Alle krævede felter skal være udfyldt"
 
 msgid "All queues have been removed"
 msgstr "Alle køer er blevet fjernet"
@@ -458,9 +458,6 @@ msgstr "Anuller send fra fil"
 msgid "Cannot change status when user have subusers"
 msgstr "Kan ikke ændre status når bruger har underbrugere"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Kan ikke finde PHP PEAR-DB"
-
 msgid "Catch-all"
 msgstr "Catch-all"
 
@@ -510,7 +507,7 @@ msgid "Comma separated values for multiple mobile numbers"
 msgstr ""
 
 msgid "Compose message"
-msgstr "Opret besked"
+msgstr "Lav besked"
 
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -566,6 +563,10 @@ msgstr "Aktuelle medlemmer"
 
 msgid "Currently logged in user is immune to deletion"
 msgstr "Aktuelt indloggede brugere kan ikke slettes"
+
+#, fuzzy
+msgid "Custom URL"
+msgstr "Tilpasset SMS URL"
 
 msgid "DEFAULT"
 msgstr "STANDARD"
@@ -709,6 +710,9 @@ msgstr "Ikke tilladte URL'er"
 
 msgid "Domain"
 msgstr "DomÃÂ¦ne"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr ""
@@ -860,9 +864,6 @@ msgstr "Kør"
 
 msgid "Export"
 msgstr ""
-
-msgid "FATAL ERROR"
-msgstr "FATAL FEJL"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Kunne ikke tilføje SMS autosvar"
@@ -1231,6 +1232,9 @@ msgstr "HTTP Kannel admin adgangskode"
 msgid "HTTP Kannel admin port"
 msgstr "HTTP Kannel admin port"
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr "Hjem"
 
@@ -1262,7 +1266,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importer ovenstående telefonbogsemner?"
 
 msgid "Import confirmation"
-msgstr "BekrÃÂ¦ft import"
+msgstr "Bekræft import"
 
 msgid "Inbox"
 msgstr "Indbakke"
@@ -1408,6 +1412,9 @@ msgid "Local playnet password"
 msgstr ""
 
 msgid "Local playnet username"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Logged in as"
@@ -1808,7 +1815,7 @@ msgid "Offline"
 msgstr ""
 
 msgid "Once"
-msgstr "ÃÂn gang"
+msgstr "Én gang"
 
 msgid "Online"
 msgstr ""
@@ -1887,7 +1894,7 @@ msgid "Please select"
 msgstr "Vælg venligsr"
 
 msgid "Please select CSV file"
-msgstr "VÃÂ¦lg venligst en CSV fil"
+msgstr "Vælg venligst en CSV fil"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Vælg CSV fil med telefonbogsemner"
@@ -2770,8 +2777,14 @@ msgstr "Ukendt svar-format"
 msgid "Unlimited"
 msgstr "Ubegrænset"
 
+msgid "Unlock"
+msgstr ""
+
 msgid "Update status"
 msgstr "Opdater status"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Upload fil"
@@ -3110,15 +3123,6 @@ msgstr "én gang om måneden"
 msgid "one time every week"
 msgstr "én gang om ugen"
 
-msgid "playSMS daemon is NOT running"
-msgstr "playSMS daemon kører IKKE"
-
-msgid "playSMS daemon is running"
-msgstr "playSMS daemon kører"
-
-msgid "playSMS daemon status"
-msgstr "playSMS daemon status"
-
 msgid "playSMS web URL"
 msgstr "playSMS web URL"
 
@@ -3196,3 +3200,9 @@ msgstr "vil blive erstattet med telefonnummeret i telefonbogen"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Kan ikke finde PHP PEAR-DB"
+
+#~ msgid "FATAL ERROR"
+#~ msgstr "FATAL FEJL"

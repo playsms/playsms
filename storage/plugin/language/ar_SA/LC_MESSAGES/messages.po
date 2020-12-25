@@ -451,9 +451,6 @@ msgstr "إلغاء الإرسال من ملف"
 msgid "Cannot change status when user have subusers"
 msgstr "لايمكن تعديل الحالة عند وجود مستخمين فرعيين للحساب"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "لايمكن العثور على PHP PEAR-DB"
-
 msgid "Catch-all"
 msgstr "التقاط الكل"
 
@@ -558,6 +555,10 @@ msgstr "الأعضاء الحاليون"
 
 msgid "Currently logged in user is immune to deletion"
 msgstr "لايمكن حذف مستخدم متصل"
+
+#, fuzzy
+msgid "Custom URL"
+msgstr "رابط الرسالة المخصصة"
 
 msgid "DEFAULT"
 msgstr "الافتراضي"
@@ -698,6 +699,9 @@ msgstr ""
 
 msgid "Domain"
 msgstr "عنوان الموقع"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr ""
@@ -850,9 +854,6 @@ msgstr "تنفيذ"
 
 msgid "Export"
 msgstr ""
-
-msgid "FATAL ERROR"
-msgstr "خطأ فادح!"
 
 msgid "Fail to add SMS autoreply"
 msgstr "فشل إضافة رد تلقائي"
@@ -1220,6 +1221,9 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr "الرئيسة"
 
@@ -1395,6 +1399,9 @@ msgid "Local playnet password"
 msgstr ""
 
 msgid "Local playnet username"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Logged in as"
@@ -2740,7 +2747,13 @@ msgstr "رد الصيغة الباطلة"
 msgid "Unlimited"
 msgstr "غير محدودة"
 
+msgid "Unlock"
+msgstr ""
+
 msgid "Update status"
+msgstr ""
+
+msgid "Upload"
 msgstr ""
 
 msgid "Upload file"
@@ -3080,15 +3093,6 @@ msgstr "مرة كل شهر"
 msgid "one time every week"
 msgstr "مرة كل أسبوع"
 
-msgid "playSMS daemon is NOT running"
-msgstr "الخدمة فعالة"
-
-msgid "playSMS daemon is running"
-msgstr "الخدمة فعالة"
-
-msgid "playSMS daemon status"
-msgstr "حالة الخدمة"
-
 msgid "playSMS web URL"
 msgstr ""
 
@@ -3167,3 +3171,9 @@ msgstr "سيتم استبداله بالرقم في دليل الهاتف"
 
 msgid "yes"
 msgstr "نعم"
+
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "لايمكن العثور على PHP PEAR-DB"
+
+#~ msgid "FATAL ERROR"
+#~ msgstr "خطأ فادح!"

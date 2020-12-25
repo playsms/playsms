@@ -4,6 +4,9 @@ msgstr ""
 msgid "Administrator"
 msgstr ""
 
+msgid "All users"
+msgstr ""
+
 msgid "Ban"
 msgstr ""
 
@@ -13,10 +16,16 @@ msgstr ""
 msgid "Compose message"
 msgstr ""
 
+msgid "Credit"
+msgstr ""
+
 msgid "Delete"
 msgstr ""
 
 msgid "Delete user"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Edit"
@@ -37,6 +46,9 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr ""
 
@@ -46,7 +58,13 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
+msgid "Lock"
+msgstr ""
+
 msgid "Logged in as"
+msgstr ""
+
+msgid "Login"
 msgstr ""
 
 msgid "Login as"
@@ -110,6 +128,15 @@ msgid "Settings"
 msgstr ""
 
 msgid "Unban"
+msgstr ""
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "User"
 msgstr ""
 
 msgid "User configuration"

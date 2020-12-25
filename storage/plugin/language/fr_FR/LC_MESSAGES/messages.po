@@ -439,7 +439,7 @@ msgid "CSS URL"
 msgstr "URL CSS"
 
 msgid "CSV file format"
-msgstr "Format de fichier CSV"
+msgstr "Format du fichier CSV"
 
 msgid "Callback URL"
 msgstr "URL de callback"
@@ -457,9 +457,6 @@ msgid "Cannot change status when user have subusers"
 msgstr ""
 "Impossible de modifier le statut lorsque l'utilisateur possède des sous-"
 "utilisateurs"
-
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Impossible de trouver PHP PEAR-DB"
 
 msgid "Catch-all"
 msgstr "Catch-all"
@@ -567,6 +564,10 @@ msgstr "Membres actuels"
 
 msgid "Currently logged in user is immune to deletion"
 msgstr "L'utilisateur actuellement connecté est immunisé contre la suppression"
+
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL du script personnalisé"
 
 msgid "DEFAULT"
 msgstr "DÉFAUT"
@@ -708,6 +709,9 @@ msgstr ""
 
 msgid "Domain"
 msgstr "Domaine"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr ""
@@ -862,9 +866,6 @@ msgstr "Exécuté"
 
 msgid "Export"
 msgstr ""
-
-msgid "FATAL ERROR"
-msgstr "ERREUR FATALE"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Échec de l'ajout de la réponse auto"
@@ -1236,6 +1237,9 @@ msgstr "Mot de passe HTTP de l'admin Kannel"
 msgid "HTTP Kannel admin port"
 msgstr "Port HTTP de l'admin Kannel"
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr "Accueil"
 
@@ -1417,6 +1421,9 @@ msgstr ""
 msgid "Local playnet username"
 msgstr ""
 
+msgid "Lock"
+msgstr ""
+
 msgid "Logged in as"
 msgstr ""
 
@@ -1473,7 +1480,7 @@ msgid "Main website name"
 msgstr "Nom du site web principal"
 
 msgid "Make return as reply"
-msgstr "Envoyer le résultat du script comme réponse"
+msgstr "Envoyer le résultat de la commande comme réponse"
 
 msgid "Manage"
 msgstr ""
@@ -1902,7 +1909,7 @@ msgid "Please select"
 msgstr "Veuillez sélectionner"
 
 msgid "Please select CSV file"
-msgstr "Veuillez sélectionner le fichier CSV"
+msgstr "Sélectionnez un fichier CSV"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr ""
@@ -2798,9 +2805,15 @@ msgstr "Réponse avec un format inconnu"
 msgid "Unlimited"
 msgstr "Illimité"
 
+msgid "Unlock"
+msgstr ""
+
 #, fuzzy
 msgid "Update status"
 msgstr "Statut de Kannel"
+
+msgid "Upload"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Importer le fichier"
@@ -3149,15 +3162,6 @@ msgstr "une fois chaque mois"
 msgid "one time every week"
 msgstr "une fois chaque semaine"
 
-msgid "playSMS daemon is NOT running"
-msgstr "Le deamon playSMS ne tourne pas"
-
-msgid "playSMS daemon is running"
-msgstr "Le deamon playSMS tourne"
-
-msgid "playSMS daemon status"
-msgstr "Statut du deamon playSMS"
-
 msgid "playSMS web URL"
 msgstr "URL web de playSMS"
 
@@ -3240,3 +3244,9 @@ msgstr ""
 
 msgid "yes"
 msgstr "oui"
+
+#~ msgid "Cannot find PHP PEAR-DB"
+#~ msgstr "Impossible de trouver PHP PEAR-DB"
+
+#~ msgid "FATAL ERROR"
+#~ msgstr "ERREUR FATALE"

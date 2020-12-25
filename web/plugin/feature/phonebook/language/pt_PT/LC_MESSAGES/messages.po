@@ -21,6 +21,9 @@ msgstr "Adicionar Contacto"
 msgid "Add group"
 msgstr "Adicionar Grupo"
 
+msgid "All users"
+msgstr ""
+
 msgid "Anyone"
 msgstr "Qualquer um"
 
@@ -161,6 +164,9 @@ msgstr "Erro ao eliminar o grupo"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Impossível apagar grupo não está vazio"
+
+msgid "User"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Você deve preencher todos os campos"

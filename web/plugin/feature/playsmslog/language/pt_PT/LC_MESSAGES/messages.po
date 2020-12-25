@@ -17,12 +17,3 @@ msgstr "Recarregar"
 
 msgid "View log"
 msgstr "Visualizar log"
-
-msgid "playSMS daemon is NOT running"
-msgstr "O processo do playsms não está em execução"
-
-msgid "playSMS daemon is running"
-msgstr "O processo do playsms está em execução"
-
-msgid "playSMS daemon status"
-msgstr "Estado do processo do playsms "

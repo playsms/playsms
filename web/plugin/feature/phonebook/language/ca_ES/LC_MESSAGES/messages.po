@@ -23,6 +23,9 @@ msgstr "Afegir contacte"
 msgid "Add group"
 msgstr "Afegir grup"
 
+msgid "All users"
+msgstr ""
+
 msgid "Anyone"
 msgstr "Qualsevol"
 
@@ -161,6 +164,9 @@ msgstr "Error esborrant grup"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "No es pot esborrar el grup fins que sigui buit"
+
+msgid "User"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Heu d'omplir tots els camps"

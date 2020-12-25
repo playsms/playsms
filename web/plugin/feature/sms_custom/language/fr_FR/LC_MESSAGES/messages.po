@@ -25,6 +25,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'URL script personnalisé ?"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL du script personnalisé"
+
 msgid "Edit SMS custom"
 msgstr "Éditer URL script personnalisé"
 

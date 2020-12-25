@@ -17,6 +17,9 @@ msgstr "Legg til kontakt"
 msgid "Add group"
 msgstr "Legg til gruppe"
 
+msgid "All users"
+msgstr ""
+
 msgid "Anyone"
 msgstr "Alle"
 
@@ -156,6 +159,9 @@ msgstr "Feil ved sletning av gruppe"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Kan ikke slette gruppe før den er tom"
+
+msgid "User"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Du må utfylle alle felter"

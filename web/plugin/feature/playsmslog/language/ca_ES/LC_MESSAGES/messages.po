@@ -10,12 +10,3 @@ msgstr ""
 
 msgid "View log"
 msgstr "Veure registres"
-
-msgid "playSMS daemon is NOT running"
-msgstr ""
-
-msgid "playSMS daemon is running"
-msgstr ""
-
-msgid "playSMS daemon status"
-msgstr ""

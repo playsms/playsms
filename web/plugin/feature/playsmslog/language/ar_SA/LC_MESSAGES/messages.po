@@ -19,12 +19,3 @@ msgstr "تحديث"
 
 msgid "View log"
 msgstr "عرض السجل"
-
-msgid "playSMS daemon is NOT running"
-msgstr "الخدمة فعالة"
-
-msgid "playSMS daemon is running"
-msgstr "الخدمة فعالة"
-
-msgid "playSMS daemon status"
-msgstr "حالة الخدمة"

@@ -24,6 +24,10 @@ msgstr "Alle obligatoriske felter skal udfyldes"
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Er du sikker på at du ønsker at slette tilpasset SMS"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "Tilpasset SMS URL"
+
 msgid "Edit SMS custom"
 msgstr "Rediger tilpasset SMS"
 

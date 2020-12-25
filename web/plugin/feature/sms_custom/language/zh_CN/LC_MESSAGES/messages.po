@@ -18,6 +18,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "确定删除短信自定义关键字 ?"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "短信字定义链接"
+
 msgid "Edit SMS custom"
 msgstr "编辑短信自定义"
 

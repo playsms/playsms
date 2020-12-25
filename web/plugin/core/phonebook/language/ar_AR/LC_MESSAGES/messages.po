@@ -1,5 +1,0 @@
-msgid "Cannot find PHP PEAR-DB"
-msgstr ""
-
-msgid "FATAL ERROR"
-msgstr ""

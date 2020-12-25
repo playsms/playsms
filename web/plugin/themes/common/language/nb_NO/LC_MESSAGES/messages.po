@@ -4,6 +4,10 @@ msgstr "Legg til"
 msgid "Administrator"
 msgstr "Administrator"
 
+#, fuzzy
+msgid "All users"
+msgstr "Slett bruker"
+
 msgid "Ban"
 msgstr "Bannlys"
 
@@ -13,11 +17,17 @@ msgstr "Kjp"
 msgid "Compose message"
 msgstr "Lag melding"
 
+msgid "Credit"
+msgstr ""
+
 msgid "Delete"
 msgstr "Slett"
 
 msgid "Delete user"
 msgstr "Slett bruker"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr "Rediger"
@@ -37,6 +47,9 @@ msgstr "Kjr"
 msgid "Group"
 msgstr "Gruppe"
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr "Hjem"
 
@@ -46,8 +59,15 @@ msgstr "Idle"
 msgid "Import"
 msgstr "Importer"
 
+msgid "Lock"
+msgstr ""
+
 msgid "Logged in as"
 msgstr "Logget inn som"
+
+#, fuzzy
+msgid "Login"
+msgstr "Logg inn som"
 
 msgid "Login as"
 msgstr "Logg inn som"
@@ -111,6 +131,15 @@ msgstr "Innstillinger"
 
 msgid "Unban"
 msgstr "Fjern bannlysning"
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "User"
+msgstr ""
 
 msgid "User configuration"
 msgstr "Brukerkonfigurasjon"

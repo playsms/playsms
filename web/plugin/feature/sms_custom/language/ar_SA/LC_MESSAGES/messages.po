@@ -26,6 +26,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "هل تود بالتأكيد حذف الرسالة المخصصة؟"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "رابط الرسالة المخصصة"
+
 msgid "Edit SMS custom"
 msgstr "التحرير"
 

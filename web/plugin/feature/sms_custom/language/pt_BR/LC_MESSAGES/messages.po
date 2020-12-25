@@ -17,6 +17,10 @@ msgstr "Todos os campos obrigatórios devem ser preenchidos"
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Tem certeza que quer remover o SMS personalizado?"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL do SMS personalizado"
+
 msgid "Edit SMS custom"
 msgstr "Editar SMS personalizado"
 

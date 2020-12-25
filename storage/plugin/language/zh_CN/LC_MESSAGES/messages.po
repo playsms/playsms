@@ -211,7 +211,7 @@ msgid "Add subuser"
 msgstr ""
 
 msgid "Additional URL parameter"
-msgstr "增加的链接参数"
+msgstr "附加链接参数"
 
 msgid "Address"
 msgstr ""
@@ -527,6 +527,10 @@ msgstr ""
 msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "短信字定义链接"
+
 msgid "DEFAULT"
 msgstr ""
 
@@ -655,6 +659,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Edit"
@@ -1182,6 +1189,9 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr ""
 
@@ -1298,8 +1308,9 @@ msgstr ""
 msgid "Keyword separator"
 msgstr ""
 
+#, fuzzy
 msgid "Keywords"
-msgstr ""
+msgstr "关键字"
 
 msgid "Languages"
 msgstr ""
@@ -1344,6 +1355,9 @@ msgid "Local playnet password"
 msgstr ""
 
 msgid "Local playnet username"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Logged in as"
@@ -1552,8 +1566,9 @@ msgstr ""
 msgid "Member list for keyword"
 msgstr "会员列表关键字"
 
+#, fuzzy
 msgid "Members"
-msgstr ""
+msgstr "浏览人数"
 
 msgid "Message"
 msgstr "信息"
@@ -1695,7 +1710,7 @@ msgid "No"
 msgstr ""
 
 msgid "No changes have been made"
-msgstr "没有改变"
+msgstr "未做改变"
 
 msgid "No changes made"
 msgstr ""
@@ -2653,7 +2668,13 @@ msgstr "未知短信格式"
 msgid "Unlimited"
 msgstr ""
 
+msgid "Unlock"
+msgstr ""
+
 msgid "Update status"
+msgstr ""
+
+msgid "Upload"
 msgstr ""
 
 msgid "Upload file"
@@ -2987,15 +3008,6 @@ msgstr ""
 msgid "one time every week"
 msgstr ""
 
-msgid "playSMS daemon is NOT running"
-msgstr ""
-
-msgid "playSMS daemon is running"
-msgstr ""
-
-msgid "playSMS daemon status"
-msgstr ""
-
 msgid "playSMS web URL"
 msgstr "短信网络链接"
 
@@ -3027,10 +3039,10 @@ msgid "valid entries"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "将被短信传入日期/时间替换"
+msgstr "用短信收到日期/时间替换"
 
 msgid "will be replaced by SMS raw message"
-msgstr "将被发件人数替换"
+msgstr "被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3053,7 +3065,7 @@ msgid "will be replaced by receiver number"
 msgstr "将被发件人数替换"
 
 msgid "will be replaced by sender number"
-msgstr "将被发件人数替换"
+msgstr "被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by service name"

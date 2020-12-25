@@ -534,6 +534,9 @@ msgstr ""
 msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
+msgid "Custom URL"
+msgstr ""
+
 msgid "DEFAULT"
 msgstr ""
 
@@ -2971,15 +2974,6 @@ msgid "one time every month"
 msgstr ""
 
 msgid "one time every week"
-msgstr ""
-
-msgid "playSMS daemon is NOT running"
-msgstr ""
-
-msgid "playSMS daemon is running"
-msgstr ""
-
-msgid "playSMS daemon status"
 msgstr ""
 
 msgid "playSMS web URL"

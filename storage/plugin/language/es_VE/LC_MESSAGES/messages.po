@@ -219,6 +219,9 @@ msgstr ""
 msgid "All queues have been removed"
 msgstr ""
 
+msgid "All users"
+msgstr ""
+
 msgid "Allow users to select SMS footer while on Send SMS page"
 msgstr ""
 
@@ -482,6 +485,10 @@ msgstr ""
 msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "URL personalizado de SMS"
+
 msgid "DEFAULT"
 msgstr ""
 
@@ -598,6 +605,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Edit"
@@ -1054,6 +1064,9 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr ""
 
@@ -1208,6 +1221,9 @@ msgid "Local playnet password"
 msgstr ""
 
 msgid "Local playnet username"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Logged in as"
@@ -2301,7 +2317,7 @@ msgid "Statistics"
 msgstr "Estatus"
 
 msgid "Status"
-msgstr "Estatus"
+msgstr "Estado"
 
 msgid "Submit"
 msgstr ""
@@ -2450,7 +2466,13 @@ msgstr "Formato de SMS desconocido"
 msgid "Unlimited"
 msgstr ""
 
+msgid "Unlock"
+msgstr ""
+
 msgid "Update status"
+msgstr ""
+
+msgid "Upload"
 msgstr ""
 
 msgid "Use JSON format URL"
@@ -2735,7 +2757,7 @@ msgid "incorrect"
 msgstr "Incorrecto"
 
 msgid "keyword"
-msgstr "Clave"
+msgstr "clave"
 
 msgid "mobile"
 msgstr ""
@@ -2760,15 +2782,6 @@ msgid "one time every month"
 msgstr ""
 
 msgid "one time every week"
-msgstr ""
-
-msgid "playSMS daemon is NOT running"
-msgstr ""
-
-msgid "playSMS daemon is running"
-msgstr ""
-
-msgid "playSMS daemon status"
 msgstr ""
 
 msgid "playSMS web URL"
@@ -2799,10 +2812,10 @@ msgid "username"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "será reemplazado por fecha/hora de SMS entrante"
+msgstr "sera reemplazado por SMS entrante hora/fecha"
 
 msgid "will be replaced by SMS raw message"
-msgstr "sera reemplazado por el celular emisor"
+msgstr "sera reemplazado por número de emisor"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -2826,7 +2839,7 @@ msgid "will be replaced by receiver number"
 msgstr "sera reemplazado por el celular emisor"
 
 msgid "will be replaced by sender number"
-msgstr "sera reemplazado por el celular emisor"
+msgstr "sera reemplazado por número de emisor"
 
 #, fuzzy
 msgid "will be replaced by service name"

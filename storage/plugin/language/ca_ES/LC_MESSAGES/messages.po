@@ -549,6 +549,9 @@ msgstr ""
 msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
+msgid "Custom URL"
+msgstr ""
+
 msgid "DEFAULT"
 msgstr ""
 
@@ -683,6 +686,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Edit"
@@ -1123,7 +1129,7 @@ msgid "Gateway host"
 msgstr ""
 
 msgid "Gateway module configurations has been saved"
-msgstr "Les configuracions del modul de sortida s'han guardat"
+msgstr "S'han guardat les configuracions del modul de sortida"
 
 msgid "Gateway name"
 msgstr "Nom de la sortida"
@@ -1205,6 +1211,9 @@ msgid "HTTP Kannel admin password"
 msgstr ""
 
 msgid "HTTP Kannel admin port"
+msgstr ""
+
+msgid "Hide"
 msgstr ""
 
 msgid "Home"
@@ -1384,6 +1393,9 @@ msgid "Local playnet password"
 msgstr ""
 
 msgid "Local playnet username"
+msgstr ""
+
+msgid "Lock"
 msgstr ""
 
 msgid "Logged in as"
@@ -2724,7 +2736,13 @@ msgstr ""
 msgid "Unlimited"
 msgstr ""
 
+msgid "Unlock"
+msgstr ""
+
 msgid "Update status"
+msgstr ""
+
+msgid "Upload"
 msgstr ""
 
 msgid "Upload file"
@@ -3064,15 +3082,6 @@ msgid "one time every month"
 msgstr ""
 
 msgid "one time every week"
-msgstr ""
-
-msgid "playSMS daemon is NOT running"
-msgstr ""
-
-msgid "playSMS daemon is running"
-msgstr ""
-
-msgid "playSMS daemon status"
 msgstr ""
 
 msgid "playSMS web URL"

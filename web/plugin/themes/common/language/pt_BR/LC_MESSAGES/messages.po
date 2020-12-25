@@ -11,6 +11,10 @@ msgstr "Adicionar"
 msgid "Administrator"
 msgstr "Administrador"
 
+#, fuzzy
+msgid "All users"
+msgstr "Excluir usurio"
+
 msgid "Ban"
 msgstr "Banir"
 
@@ -20,11 +24,17 @@ msgstr "Comprar"
 msgid "Compose message"
 msgstr "Compor mensagem"
 
+msgid "Credit"
+msgstr ""
+
 msgid "Delete"
 msgstr "Excluir"
 
 msgid "Delete user"
 msgstr "Excluir usurio"
+
+msgid "Download"
+msgstr ""
 
 msgid "Edit"
 msgstr "Editar"
@@ -44,6 +54,9 @@ msgstr "Ir"
 msgid "Group"
 msgstr "Grupo"
 
+msgid "Hide"
+msgstr ""
+
 msgid "Home"
 msgstr "Inicio"
 
@@ -53,8 +66,15 @@ msgstr "Inativo"
 msgid "Import"
 msgstr "Importar"
 
+msgid "Lock"
+msgstr ""
+
 msgid "Logged in as"
 msgstr "Logado como"
+
+#, fuzzy
+msgid "Login"
+msgstr "Logar como"
 
 msgid "Login as"
 msgstr "Logar como"
@@ -118,6 +138,15 @@ msgstr "Configurações"
 
 msgid "Unban"
 msgstr "Desbanir"
+
+msgid "Unlock"
+msgstr ""
+
+msgid "Upload"
+msgstr ""
+
+msgid "User"
+msgstr ""
 
 msgid "User configuration"
 msgstr "Configurações de usuário"

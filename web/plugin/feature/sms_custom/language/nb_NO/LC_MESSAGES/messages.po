@@ -20,6 +20,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS custom ?"
 msgstr "Er du sikker på at du vil slette den egendefinerte SMS-en?"
 
+#, fuzzy
+msgid "Custom URL"
+msgstr "Tilpasset SMS-URL"
+
 msgid "Edit SMS custom"
 msgstr "Rediger egendefinert SMS"
 
