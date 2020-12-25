@@ -101,10 +101,7 @@ switch (_OP_) {
 				'lang' => substr($user_config['language_module'], 0, 2),
 				'chars' => _('chars'),
 				'SMS' => _('SMS') 
-			),
-			'ifs' => array(
-				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js') 
-			) 
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
