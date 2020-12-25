@@ -54,19 +54,40 @@ function themes_submenu($content = '') {
 	return $ret;
 }
 
-function themes_get_menu_tree($menus = '') {
+// fixme anton - was themes_buildmenu()
+function themes_menu_tree($menus = []) {
 	global $menu_config;
+	
+	$ret = '';
 	
 	if ($menus) {
 		$menu_config = $menus;
 	}
-	$ret = themes_buildmenu($menu_config);
+	
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get(), 'themes_menu_tree', array(
+			$menu_config 
+		));
+	}
+	
+	if (!$ret) {
+		$ret = core_hook('common', 'themes_menu_tree', array(
+			$menu_config 
+		));
+	}
 	
 	return $ret;
 }
 
-function themes_buildmenu($menu_config) {
+// fixme anton - this will be removed later, use themes_menu_tree() instead
+function themes_buildmenu($menus = []) {
+	global $menu_config;
+	
 	$ret = '';
+	
+	if ($menus) {
+		$menu_config = $menus;
+	}
 	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_buildmenu', array(
@@ -81,6 +102,12 @@ function themes_buildmenu($menu_config) {
 	}
 	
 	return $ret;
+}
+
+// fixme anton - this will be removed later, an alias to themes_menu_tree()
+function themes_get_menu_tree($menus = '') {
+
+	return themes_menu_tree($menus);
 }
 
 function themes_navbar($num, $nav, $max_nav, $url, $page) {

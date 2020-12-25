@@ -19,7 +19,7 @@ function common_hook_themes_apply($content) {
 			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
 			'HTTP_PATH_THEMES' => $core_config['http_path']['themes'],
 			'THEMES_MODULE' => core_themes_get(),
-			'THEMES_MENU_TREE' => themes_get_menu_tree(),
+			'THEMES_MENU_TREE' => themes_menu_tree(),
 			'THEMES_SUBMENU' => themes_submenu(),
 			'THEMES_LANG' => ($themes_lang ? $themes_lang : 'en'),
 			'CREDIT_SHOW_URL' => _u('index.php?app=ws&op=credit'),
@@ -66,7 +66,7 @@ function common_hook_themes_submenu($content = '') {
 	return $ret;
 }
 
-function common_hook_themes_buildmenu($menu_config) {
+function common_hook_themes_menu_tree($menu_config) {
 	global $core_config, $user_config, $icon_config;
 	
 	$main_menu = "";
