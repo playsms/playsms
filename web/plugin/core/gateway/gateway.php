@@ -213,7 +213,6 @@ switch (_OP_) {
 					" . _gateway_display_smsc() . "
 				</div>
 			</div>
-			<script type=\"text/javascript\" src=\"" . $core_config['http_path']['plug'] . "/themes/common/jscss/jquery.cookie.js\"></script>
 			<script type=\"text/javascript\">
 				$(document).ready(function() {
 					$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
@@ -225,7 +224,7 @@ switch (_OP_) {
 					var lastTab = $.cookie('gateway_last_tab');
 					if (lastTab) {
 						$('ul.nav-tabs').children().removeClass('active');
-						$('a[href='+ lastTab +']').parents('li:first').addClass('active');
+						$('a[href=\"'+ lastTab +'\"]').parents('li:first').addClass('active');
 						$('div.tab-content').children().removeClass('in active');
 						$(lastTab).addClass('in active');
 					}
