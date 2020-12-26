@@ -141,25 +141,38 @@ function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$nav_end = (($nav) * $max_nav);
 		$start = 1;
 		$end = ceil($num / $max_nav);
-		$nav_pages = "<div class=playsms-nav-bar>";
-		$nav_pages .= "<a href='" . _u($url . '&page=1&nav=1') . "'> << </a>";
-		$nav_pages .= ($start == $nav) ? " < " : "<a href='" . _u($url . '&page=' . ((($nav - 2) * $max_nav) + 1) . '&nav=' . ($nav - 1)) . "'> < </a>";
-		$nav_pages .= ($start == $nav) ? "" : " ... ";
+		
+		$nav_pages = "<div class=playsms-nav-bar><ul class=pagination>";
+		$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=1&nav=1') . "'> << </a></li>";
+		
+		if ($nav == $start) {
+			$nav_pages .= "";
+		} else {
+			$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=' . ((($nav - 2) * $max_nav) + 1) . '&nav=' . ($nav - 1)) . "'> < </a></li>";
+		}
+		
 		for ($i = $nav_start; $i <= $nav_end; $i++) {
 			if ($i > $num) {
 				break;
 			}
-			;
+			
 			if ($i == $page) {
-				$nav_pages .= "<u>$i</u> ";
+				$page_active = 'active';
 			} else {
-				$nav_pages .= "<a href='" . _u($url . '&page=' . $i . '&nav=' . $nav) . "'>" . $i . "</a> ";
+				$page_active = '';
 			}
+			
+			$nav_pages .= "<li class='page-item " . $page_active . "'><a class=page-link href='" . _u($url . '&page=' . $i . '&nav=' . $nav) . "'>" . $i . "</a></li>";
 		}
-		$nav_pages .= ($end == $nav) ? "" : "..";
-		$nav_pages .= ($end == $nav) ? " > " : "<a href='" . _u($url . '&page=' . (($nav * $max_nav) + 1) . '&nav=' . ($nav + 1)) . "'> > </a>";
-		$nav_pages .= "<a href='" . _u($url . '&page=' . $num . '&nav=' . $end) . "'> >> </a>";
-		$nav_pages .= "</div>";
+		
+		if ($nav == $end) {
+			$nav_pages .= "";
+		} else {
+			$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=' . (($nav * $max_nav) + 1) . '&nav=' . ($nav + 1)) . "'> > </a></li>";
+		}
+
+		$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=' . $num . '&nav=' . $end) . "'> >> </a></li>";
+		$nav_pages .= "</ul></div>";
 	}
 	
 	return $nav_pages;
