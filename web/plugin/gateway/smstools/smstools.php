@@ -27,7 +27,7 @@ include $core_config['apps_path']['plug'] . "/gateway/smstools/config.php";
 switch (_OP_) {
 	case "manage":
 		$content .= _dialog() . "
-			<h2>" . _('Manage smstools') . "</h2>
+			<h2 class=page-header-title>" . _('Manage smstools') . "</h2>
 			<form action=index.php?app=main&inc=gateway_smstools&op=manage_save method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

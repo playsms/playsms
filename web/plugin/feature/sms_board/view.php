@@ -38,8 +38,8 @@ switch (_OP_) {
 		$output_html = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=html";
 
 		$content = "
-			<h2>" . _('Manage board') . "</h2>
-			<h3>" . _('View board') . " : " . $board_keyword . "</h3>
+			<h2 class=page-header-title>" . _('Manage board') . "</h2>
+			<p class=lead>" . _('View board') . " : " . $board_keyword . "</p>
 			<table class=playsms-table>
 				<tr><td class=label-sizer>" . _('PHP serialize output') . "</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
 				<tr><td>" . _('JSON output') . "</td><td><a href=\"" . _u($output_json) . "\" target=_blank>" . _u($output_json) . "</a></td></tr>

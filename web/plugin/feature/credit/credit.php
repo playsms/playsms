@@ -54,8 +54,8 @@ switch (_OP_) {
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage credit') . "</h2>
-			<h3>" . _('List of transactions') . "</h3>
+			<h2 class=page-header-title>" . _('Manage credit') . "</h2>
+			<h3 class=page-header-subtitle>" . _('List of transactions') . "</h3>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_feature_credit name=fm_feature_credit action=\"" . _u('index.php?app=main&inc=feature_credit&op=actions') . "\" method=POST>
 			" . _CSRF_FORM_ . "
@@ -123,8 +123,8 @@ switch (_OP_) {
 					});
 				});
 			</script>
-			<h2>" . _('Manage credit') . "</h2>
-			<h3>" . _('Add credit') . "</h3>
+			<h2 class=page-header-title>" . _('Manage credit') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add credit') . "</h3>
 			<form id=fm_feature_credit_add name=id_feature_credit_add action=\"" . _u('index.php?app=main&inc=feature_credit&op=actions&go=add') . "\" method=POST>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
@@ -161,8 +161,8 @@ switch (_OP_) {
 					});
 				});
 			</script>
-			<h2>" . _('Manage credit') . "</h2>
-			<h3>" . _('Reduce credit') . "</h3>
+			<h2 class=page-header-title>" . _('Manage credit') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Reduce credit') . "</h3>
 			<form id=fm_feature_credit_reduce name=id_feature_credit_reduce action=\"" . _u('index.php?app=main&inc=feature_credit&op=actions&go=reduce') . "\" method=POST>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

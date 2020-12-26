@@ -25,7 +25,7 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "acl_list":
 		$content = _dialog() . "
-			<h2>" . _('Manage ACL') . "</h2>
+			<h2 class=page-header-title>" . _('Manage ACL') . "</h2>
 			<p>" . _button('index.php?app=main&inc=core_acl&op=add', _('Add ACL')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -62,8 +62,8 @@ switch (_OP_) {
 	
 	case "add":
 		$content = _dialog() . "
-			<h2>" . _('Manage ACL') . "</h2>
-			<h3>" . _('Add ACL') . "</h3>
+			<h2 class=page-header-title>" . _('Manage ACL') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add ACL') . "</h3>
 			<form action=index.php?app=main&inc=core_acl&op=add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
@@ -117,8 +117,8 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$content = _dialog() . "
-			<h2>" . _('Manage ACL') . "</h2>
-			<h3>" . _('Edit ACL') . "</h3>
+			<h2 class=page-header-title>" . _('Manage ACL') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit ACL') . "</h3>
 			<form action=index.php?app=main&inc=core_acl&op=edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=id value='" . $id . "'>

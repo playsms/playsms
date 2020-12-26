@@ -39,7 +39,7 @@ if ($poll_id = (int) $_REQUEST['poll_id']) {
 switch (_OP_) {
 	case "sms_poll_list" :
 		$content = _dialog() . "
-			<h2>" . _('Manage poll') . "</h2>
+			<h2 class=page-header-title>" . _('Manage poll') . "</h2>
 			" . _button('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
 		$content .= "
 			<div class=table-responsive>
@@ -203,8 +203,8 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage poll') . "</h2>
-			<h3>" . _('Add SMS poll') . "</h3>
+			<h2 class=page-header-title>" . _('Manage poll') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS poll') . "</h3>
 			<form action=\"index.php?app=main&inc=feature_sms_poll&op=sms_poll_add_yes\" method=\"post\">
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
@@ -298,8 +298,8 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage poll') . "</h2>
-			<h3>" . _('Edit SMS poll') . "</h3>
+			<h2 class=page-header-title>" . _('Manage poll') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS poll') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=poll_id value=\"$poll_id\">
@@ -331,7 +331,7 @@ switch (_OP_) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
 			<br />
-			<h3>" . _('Edit SMS poll choices') . "</h3>";
+			<p class=lead>" . _('Edit SMS poll choices') . "</p>";
 		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
 		$db_result = dba_query($db_query);
 		$content .= "

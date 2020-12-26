@@ -93,8 +93,8 @@ switch (_OP_) {
 		}
 		$select_smsc .= "</select>";
 		$content = _dialog() . "
-			<h2>" . _('Route SMS outgoing') . "</h2>
-			<h3>" . _('Edit route') . "</h3>
+			<h2 class=page-header-title>" . _('Route SMS outgoing') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit route') . "</h3>
 			<form action='index.php?app=main&inc=feature_outgoing&op=outgoing_edit_save' method='post'>
 			" . _CSRF_FORM_ . "
 			<input type='hidden' name='rid' value=\"$rid\">
@@ -168,8 +168,8 @@ switch (_OP_) {
 		}
 		$select_smsc .= "</select>";
 		$content = _dialog() . "
-			<h2>" . _('Route outgoing SMS') . "</h2>
-			<h3>" . _('Add route') . "</h3>
+			<h2 class=page-header-title>" . _('Route outgoing SMS') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add route') . "</h3>
 			<form action='index.php?app=main&inc=feature_outgoing&op=outgoing_add_yes' method='post'>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

@@ -16,8 +16,8 @@ switch (_OP_) {
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		$content = _dialog() . "
-			<h2>"._('Group inbox')."</h2>
-			<h3>"._('Member list')."</h3>
+			<h2 class=page-header-title>"._('Group inbox')."</h2>
+			<h3 class=page-header-subtitle>"._('Member list')."</h3>
 			<table class=playsms-table>
 			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
@@ -95,8 +95,8 @@ switch (_OP_) {
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		$content = _dialog() . "
-			<h2>"._('Group inbox')."</h2>
-			<h3>"._('Add member')."</h3>
+			<h2 class=page-header-title>"._('Group inbox')."</h2>
+			<h3 class=page-header-subtitle>"._('Add member')."</h3>
 			<table class=playsms-table>
 			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
@@ -179,8 +179,8 @@ switch (_OP_) {
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		$content = _dialog() . "
-			<h2>"._('Group inbox')."</h2>
-			<h3>"._('Delete member')."</h3>
+			<h2 class=page-header-title>"._('Group inbox')."</h2>
+			<h3 class=page-header-subtitle>"._('Delete member')."</h3>
 			<table width='100%>
 			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>

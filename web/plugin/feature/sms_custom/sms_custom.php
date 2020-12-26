@@ -31,7 +31,7 @@ if ($custom_id = $_REQUEST['custom_id']) {
 switch (_OP_) {
 	case "sms_custom_list":
 		$content .= _dialog() . "
-			<h2>" . _('Manage custom') . "</h2>
+			<h2 class=page-header-title>" . _('Manage custom') . "</h2>
 			" . _button('index.php?app=main&inc=feature_sms_custom&op=sms_custom_add', _('Add SMS custom'));
 		if (!auth_isadmin()) {
 			$query_user_only = "WHERE uid='" . $user_config['uid'] . "'";
@@ -109,8 +109,8 @@ switch (_OP_) {
 		}
 		
 		$content .= _dialog() . "
-			<h2>" . _('Manage custom') . "</h2>
-			<h3>" . _('Edit SMS custom') . "</h3>
+			<h2 class=page-header-title>" . _('Manage custom') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS custom') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=custom_id value=$custom_id>
@@ -203,8 +203,8 @@ switch (_OP_) {
 		}
 		
 		$content .= _dialog() . "
-			<h2>" . _('Manage custom') . "</h2>
-			<h3>" . _('Add SMS custom') . "</h3>
+			<h2 class=page-header-title>" . _('Manage custom') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS custom') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_custom&op=sms_custom_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

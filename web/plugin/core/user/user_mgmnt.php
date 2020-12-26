@@ -31,21 +31,21 @@ switch (_OP_) {
 				'flag_deleted' => 0,
 				'status' => 2 
 			);
-			$form_sub_title = "<h3>" . _('List of administrators') . "</h3>";
+			$form_sub_title = _('List of administrators');
 			$disabled_on_admin = 'disabled';
 		} else if ($view == 'users') {
 			$conditions = array(
 				'flag_deleted' => 0,
 				'status' => 3 
 			);
-			$form_sub_title = "<h3>" . _('List of users') . "</h3>";
+			$form_sub_title = _('List of users');
 			$disabled_on_users = 'disabled';
 		} else if ($view == 'subusers') {
 			$conditions = array(
 				'flag_deleted' => 0,
 				'status' => 4 
 			);
-			$form_sub_title = "<h3>" . _('List of subusers') . "</h3>";
+			$form_sub_title = _('List of subusers');
 			$disabled_on_subusers = 'disabled';
 			$parent_column_title = "<th width='12%'>" . _('Parent') . "</th>";
 		}
@@ -78,11 +78,13 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-			<h2>" . _('Manage account') . "</h2>
-			<input type='button' " . $disabled_on_admin . " value='" . _('Administrators') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=admin') . "')\" class=\"button\" />
-			<input type='button' " . $disabled_on_users . " value='" . _('Users') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=users') . "')\" class=\"button\" />
-			<input type='button' " . $disabled_on_subusers . " value='" . _('Subusers') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=subusers') . "')\" class=\"button\" />
-			" . $form_sub_title . "
+			<h2 class=page-header-title>" . _('Manage account') . "</h2>
+			<p>
+				<input type='button' " . $disabled_on_admin . " value='" . _('Administrators') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=admin') . "')\" class=\"button\" />
+				<input type='button' " . $disabled_on_users . " value='" . _('Users') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=users') . "')\" class=\"button\" />
+				<input type='button' " . $disabled_on_subusers . " value='" . _('Subusers') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=subusers') . "')\" class=\"button\" />
+			</p>
+			<p class=lead>" . $form_sub_title . "</p>
 			<p>" . $search['form'] . "</p>
 			<div class=actions_box>
 				<div class=pull-left>
@@ -212,8 +214,8 @@ switch (_OP_) {
 		$option_acl = _select('add_acl_id', array_flip(acl_getall()));
 		
 		$content .= "
-		<h2>" . _('Manage account') . "</h2>
-		<h3>" . _('Add account') . "</h3>
+		<h2 class=page-header-title>" . _('Manage account') . "</h2>
+		<h3 class=page-header-subtitle>" . _('Add account') . "</h3>
 		<form action='index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add_yes&view=" . $view . "' method=POST>
 		" . _CSRF_FORM_ . "
 		<table class=playsms-table>

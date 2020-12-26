@@ -30,7 +30,7 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-			<h2>" . _('Manage twilio') . "</h2>
+			<h2 class=page-header-title>" . _('Manage twilio') . "</h2>
 			<form action=index.php?app=main&inc=gateway_twilio&op=manage_save method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>

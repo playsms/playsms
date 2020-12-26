@@ -49,8 +49,8 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 
 		$content .= _dialog() . "
-			<h2>" . _('Manage ACL') . "</h2>
-			<h3>" . _('View report') . "</h3>
+			<h2 class=page-header-title>" . _('Manage ACL') . "</h2>
+			<p class=lead>" . _('View report') . "</p>
 
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tr>
@@ -62,7 +62,7 @@ switch (_OP_) {
 					<td>" . $acl_name . "</td>
 				</tr>
 			</table>			
-			<h4>" . _('List of accounts') . "</h4>
+			<p class=lead>" . _('List of accounts') . "</p>
 			<p>" . $search['form'] . "</p>
 			<div class=table-responsive>
 			<table class=playsms-table-list>

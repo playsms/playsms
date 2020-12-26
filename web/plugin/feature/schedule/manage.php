@@ -33,8 +33,8 @@ switch (_OP_) {
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
 			$content = _dialog() . "
-				<h2>" . _('Schedule messages') . "</h2>
-				<h3>" . _('Manage schedule') . "</h3>
+				<h2 class=page-header-title>" . _('Schedule messages') . "</h2>
+				<h3 class=page-header-subtitle>" . _('Manage schedule') . "</h3>
 				" . _CSRF_FORM_ . "
 				<input type=hidden name=id value='$id'>
 				<table class=playsms-table>
@@ -78,7 +78,7 @@ switch (_OP_) {
 			$list = dba_search(_DB_PREF_ . '_featureSchedule_dst', $fields, $conditions, $keywords, $extras);
 			
 			$content .= "
-				<h3>" . _('List of destinations') . "</h3>
+				<p class=lead>" . _('List of destinations') . "</p>
 				<form name=fm_schedule_dst_list id=fm_schedule_dst_list action='" . $base_url . "' method=post>
 				" . _CSRF_FORM_ . "
 				<p>" . $search['form'] . "</p>						
@@ -129,9 +129,9 @@ switch (_OP_) {
 		$schedule_message = $db_row['message'];
 		if ($schedule_id && $schedule_name && $schedule_message) {
 			$content = _dialog() . "
-				<h2>" . _('Schedule messages') . "</h2>
-				<h3>" . _('Manage schedule') . "</h3>
-				<h4>" . _('Add destination') . "</h4>
+				<h2 class=page-header-title>" . _('Schedule messages') . "</h2>
+				<h3 class=page-header-subtitle>" . _('Manage schedule') . "</h3>
+				<p class=lead>" . _('Add destination') . "</p>
 				<form action=index.php?app=main&inc=feature_schedule&route=manage&op=dst_add_yes method=post>
 				" . _CSRF_FORM_ . "
 				<input type=hidden name=schedule_id value='" . $schedule_id . "'>
@@ -230,9 +230,9 @@ switch (_OP_) {
 			$destination = $db_row['destination'];
 			
 			$content = _dialog() . "
-				<h2>" . _('Schedule messages') . "</h2>
-				<h3>" . _('Manage schedule') . "</h3>
-				<h4>" . _('Edit destination') . "</h4>
+				<h2 class=page-header-title>" . _('Schedule messages') . "</h2>
+				<h3 class=page-header-subtitle>" . _('Manage schedule') . "</h3>
+				<p class=lead>" . _('Edit destination') . "</p>
 				<form action=index.php?app=main&inc=feature_schedule&route=manage&op=dst_edit_yes method=post>
 				" . _CSRF_FORM_ . "
 				<input type=hidden name=schedule_id value='" . $schedule_id . "'>

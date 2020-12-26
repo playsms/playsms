@@ -30,7 +30,7 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-			<h2>" . _('Manage gammu') . "</h2>
+			<h2 class=page-header-title>" . _('Manage gammu') . "</h2>
 			<form action=index.php?app=main&inc=gateway_gammu&op=manage_save method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

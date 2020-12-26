@@ -446,3 +446,23 @@ table.sortable thead, table.sortable th {
 	margin-left : -23%;
 	top: 15%;
 }
+
+h2 {
+	font-size: 45px;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 35px;
+	margin-bottom: 20px;
+}
+
+.page-header-title {
+	font-size: 45px;
+	margin-bottom: 20px;
+}
+
+.page-header-subtitle {
+	font-size: 35px;
+	margin-bottom: 20px;
+}

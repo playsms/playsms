@@ -30,7 +30,7 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-			<h2>" . _('Manage dev') . "</h2>
+			<h2 class=page-header-title>" . _('Manage dev') . "</h2>
 			<table class=playsms-table>
 				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>dev</td></tr></tbody>
 			</table>

@@ -14,7 +14,7 @@ tinymce.init({
 });
 </script>
 {{ DIALOG_DISPLAY }}
-<h2>{{ Manage site }}</h2>
+<h2 class="page-header-title">{{ Manage site }}</h2>
 <form id=fm_core_site name=id_core_site action="{{ ACTION_URL }}" method=POST>
 	{{ CSRF_FORM }}
 	<ul class='nav nav-tabs nav-justified'>
@@ -23,7 +23,7 @@ tinymce.init({
 	</ul>
 	<div class=tab-content>
 		<div id='tabs-site-configuration' class='tab-pane fade in active'>
-			<h4>{{ Site configuration }}</h4>
+			<p class="lead">{{ Site configuration }}</p>
 			<table class=playsms-table>
 				<tbody>
 					<tr>
@@ -90,7 +90,7 @@ tinymce.init({
 			</table>
 		</div>
 		<div id='tabs-information-page' class='tab-pane fade'>
-			<h4>{{ Information page }}</h4>
+			<p class="lead">{{ Information page }}</p>
 			<table class=playsms-table>
 				<tbody>
 					<tr>

@@ -14,17 +14,19 @@ tinymce.init({
 });
 </script>
 {{ DIALOG_DISPLAY }}
-<h2>{{ Main configuration }}</h2>
+<h2 class="page-header-title">{{ Main configuration }}</h2>
 <form id=fm_main_config name=id_main_config action="{{ ACTION_URL }}" method=POST>
 	{{ CSRF_FORM }}
-	<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
-		<li class=active><a href='#tabs-default-settings' data-toggle=tab>{{ Default settings }}</a></li>
-		<li><a href='#tabs-site-configuration' data-toggle=tab>{{ Default site configuration }}</a></li>
-		<li><a href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
-	</ul>
+	<p>
+		<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
+			<li class=active><a href='#tabs-default-settings' data-toggle=tab>{{ Default settings }}</a></li>
+			<li><a href='#tabs-site-configuration' data-toggle=tab>{{ Default site configuration }}</a></li>
+			<li><a href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
+		</ul>
+	</p>
 	<div class=tab-content>
 		<div id='tabs-default-settings' class='tab-pane fade in active'>
-			<h4>{{ Default settings }}</h4>
+			<p class="lead">{{ Default settings }}</p>
 			<table class=playsms-table>
 				<tbody>
 					<tr>
@@ -87,7 +89,7 @@ tinymce.init({
 			</table>
 		</div>
 		<div id='tabs-site-configuration' class='tab-pane fade'>
-			<h4>{{ Default site configuration }}</h4>
+			<p class="lead">{{ Default site configuration }}</p>
 			<table class=playsms-table>
 				<tbody>
 					<tr>
@@ -170,7 +172,7 @@ tinymce.init({
 			</table>
 		</div>
 		<div id='tabs-information-page' class='tab-pane fade'>
-			<h4>{{ Information page }}</h4>
+			<p class="lead">{{ Information page }}</p>
 			<table class=playsms-table>
 				<tbody>
 					<tr>

@@ -18,7 +18,7 @@ $sms_command_bin = $plugin_config['sms_command']['bin'];
 switch (_OP_) {
 	case "sms_command_list":
 		$content = _dialog() . "
-			<h2>" . _('Manage command') . "</h2>
+			<h2 class=page-header-title>" . _('Manage command') . "</h2>
 			"._button('index.php?app=main&inc=feature_sms_command&op=sms_command_add', _('Add SMS command'));
 		if (! auth_isadmin()) {
 			$query_user_only = "WHERE uid='".$user_config['uid']."'";
@@ -87,8 +87,8 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage command') . "</h2>
-			<h3>" . _('Edit SMS command') . "</h3>
+			<h2 class=page-header-title>" . _('Manage command') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS command') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_command&op=sms_command_edit_yes method=post>
 			"._CSRF_FORM_."
 			<input type=hidden name=command_id value=$command_id>
@@ -181,8 +181,8 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage command') . "</h2>
-			<h3>" . _('Add SMS command') . "</h3>
+			<h2 class=page-header-title>" . _('Manage command') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS command') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_command&op=sms_command_add_yes method=post>
 			"._CSRF_FORM_."
 			<table class=playsms-table>

@@ -23,7 +23,7 @@ if (!auth_isadmin()) {
 }
 
 $content .= "
-	<h2>" . _('Manage plugin') . "</h2>
+	<h2 class=page-header-title>" . _('Manage plugin') . "</h2>
 	<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
 		<li class=active><a href='#tabs-core' data-toggle=tab>" . _('Core') . "</a></li>
 		<li><a href='#tabs-feature' data-toggle=tab>" . _('Features') . "</a></li>

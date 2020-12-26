@@ -41,7 +41,7 @@ switch (_OP_) {
 		$queue_home_link = "";
 		
 		if ($queue_code = trim($_REQUEST['queue_code'])) {
-			$queue_label = "<h4>" . sprintf(_('List of queue %s'), $queue_code) . "</h4>";
+			$queue_label = "<p class=lead>" . sprintf(_('List of queue %s'), $queue_code) . "</p>";
 			$queue_home_link = _back($base_url);
 			$base_url .= '&queue_code=' . $queue_code;
 			$search = themes_search($search_category, $base_url);
@@ -83,7 +83,7 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('All sent messages') . "</h2>
+			<h2 class=page-header-title>" . _('All sent messages') . "</h2>
 			" . $queue_label . "
 			<p>" . $search['form'] . "</p>
 			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=main&inc=feature_report&route=all_outgoing&op=actions&queue_code=" . $queue_code . "\" method=POST>

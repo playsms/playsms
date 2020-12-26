@@ -47,7 +47,7 @@ switch (_OP_) {
 		}
 		
 		$content .= _dialog() . "
-			<h2>" . _('Manage kannel') . "</h2>
+			<h2 class=page-header-title>" . _('Manage kannel') . "</h2>
 			<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
 				<li class=active><a href='#tabs-configuration' data-toggle=tab>" . _('Configuration') . "</a></li>
 				<li><a href='#tabs-operational' data-toggle=tab>" . _('Operational') . "</a></li>

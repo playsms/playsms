@@ -46,8 +46,8 @@ switch (_OP_) {
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
 		
 		$content = _dialog() . "
-			<h2>" . _('Report') . "</h2>
-			<h3>" . _('List of my credit transactions') . "</h3>
+			<h2 class=page-header-title>" . _('Report') . "</h2>
+			<p class=lead>" . _('List of my credit transactions') . "</p>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_feature_credit name=fm_feature_credit action=\"" . _u('index.php?app=main&inc=feature_report&route=credit&op=actions') . "\" method=POST>
 			" . _CSRF_FORM_ . "

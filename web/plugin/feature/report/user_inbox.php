@@ -33,7 +33,7 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox';
 		
 		if ($in_sender = trim($_REQUEST['in_sender'])) {
-			$subpage_label = "<h4>" . sprintf(_('List of messages from %s'), $in_sender) . "</h4>";
+			$subpage_label = "<p class=lead>" . sprintf(_('List of messages from %s'), $in_sender) . "</p>";
 			$home_link = _back($base_url);
 			$base_url .= '&in_sender=' . urlencode($in_sender);
 			$search = themes_search($search_category, $base_url);

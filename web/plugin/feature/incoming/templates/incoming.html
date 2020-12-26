@@ -1,16 +1,17 @@
 {{ DIALOG_DISPLAY }}
-<h2>{{ PAGE_TITLE }}</h2>
+<h2 class="page-header-title">{{ PAGE_TITLE }}</h2>
 <form role="form" action="{{ ACTION_URL }}" method=post>
 	{{ CSRF_FORM }}
-	<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
-		<li class=active><a href='#tabs-pre-rules' data-toggle=tab>{{ Pre rules }}</a></li>
-		<li><a href='#tabs-post-rules' data-toggle=tab>{{ Post rules }}</a></li>
-		<li><a href='#tabs-settings' data-toggle=tab>{{ Settings }}</a></li>
-	</ul>
+	<p>
+		<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
+			<li class=active><a href='#tabs-pre-rules' data-toggle=tab>{{ Pre rules }}</a></li>
+			<li><a href='#tabs-post-rules' data-toggle=tab>{{ Post rules }}</a></li>
+			<li><a href='#tabs-settings' data-toggle=tab>{{ Settings }}</a></li>
+		</ul>
+	</p>
 	<div class=tab-content>
 		<div id='tabs-pre-rules' class='tab-pane fade in active'>
-			<h4>{{ Pre rules }} {{ HINT_PRE_RULES }}</h4>
-			<br />
+			<p class="lead">{{ Pre rules }} {{ HINT_PRE_RULES }}</p>
 			<loop.form_pre_rules>
 			<div class="form-group">
 				<label for="{{ form_pre_rules.id }}">{{ form_pre_rules.label }}</label>
@@ -21,8 +22,7 @@
 			<p><input type=submit class=button value='{{ Save }}'></p>
 		</div>
 		<div id='tabs-post-rules' class='tab-pane fade'>
-			<h4>{{ Post rules }} {{ HINT_POST_RULES }}</h4>
-			<br />
+			<p class="lead">{{ Post rules }} {{ HINT_POST_RULES }}</p>
 			<loop.form_post_rules>
 			<div class="form-group">
 				<label for="{{ form_post_rules.id }}">{{ form_post_rules.label }}</label>
@@ -33,8 +33,7 @@
 			<p><input type=submit class=button value='{{ Save }}'></p>
 		</div>
 		<div id='tabs-settings' class='tab-pane fade'>
-			<h4>{{ Settings }}</h4>
-			<br />
+			<p class="lead">{{ Settings }}</p>
 			<loop.form_settings>
 			<div class="form-group">
 				<label for="{{ form_settings.id }}">{{ form_settings.label }}</label>

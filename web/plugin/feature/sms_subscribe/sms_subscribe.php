@@ -39,7 +39,7 @@ if ($subscribe_id = (int) $_REQUEST['subscribe_id']) {
 switch (_OP_) {
 	case "sms_subscribe_list":
 		$content = _dialog() . "
-			<h2>" . _('Manage subscribe') . "</h2>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
 			" . _button('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -129,8 +129,8 @@ switch (_OP_) {
 		$select_durations = _select('add_duration', $plugin_config['sms_subscribe']['durations']);
 		$content = _dialog() . "
 			<link rel='stylesheet' type='text/css' href='" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css' />
-			<h2>" . _('Manage subscribe') . "</h2>
-			<h3>" . _('Add SMS subscribe') . "</h3>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS subscribe') . "</h3>
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
@@ -299,8 +299,8 @@ switch (_OP_) {
 		}
 		$content = _dialog() . "
 			<link rel='stylesheet' type='text/css' href='" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css' />
-			<h2>" . _('Manage subscribe') . "</h2>
-			<h3>" . _('Edit SMS subscribe') . "</h3>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS subscribe') . "</h3>
 			<form name=\"form_subscribe_edit\" id=\"form_subscribe_edit\" action=index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=subscribe_id value=\"$subscribe_id\">
@@ -481,8 +481,8 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
 		$db_result = dba_query($db_query);
 		$content = _dialog() . "
-			<h2>" . _('Manage subscribe') . "</h2>
-			<h3>" . _('Member list for keyword') . " $subscribe_name</h3>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
+			<p class=lead>" . _('Member list for keyword') . " $subscribe_name</p>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
@@ -523,8 +523,8 @@ switch (_OP_) {
 	
 	case "msg_list":
 		$content = _dialog() . "
-			<h2>" . _('Manage subscribe') . "</h2>
-			<h3>" . _('SMS messages list for keyword') . " $subscribe_name</h3>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
+			<p class=lead>" . _('SMS messages list for keyword') . " $subscribe_name</p>
 			<p>" . _button('index.php?app=main&inc=feature_sms_subscribe&op=msg_add&&subscribe_id=' . $subscribe_id, _('Add message')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -569,8 +569,8 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$edit_mbr_msg = $db_row['msg'];
 		$content = _dialog() . "
-			<h2>" . _('Manage subscribe') . "</h2>
-			<h3>" . _('Edit message') . "</h3>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit message') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden value=$subscribe_id name=subscribe_id>
@@ -617,8 +617,8 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$subscribe_name = $db_row['subscribe_keyword'];
 		$content = _dialog() . "
-			<h2>" . _('Manage subscribe') . "</h2>
-			<h3>" . _('Add message') . "</h3>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add message') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden value=$subscribe_id name=subscribe_id>
@@ -682,8 +682,8 @@ switch (_OP_) {
 		$message = core_display_html($db_row['msg']);
 		$counter = $db_row['counter'];
 		$content = _dialog() . "
-			<h2>" . _('Manage subscribe') . "</h2>
-			<h3>" . _('Message detail') . "</h3>
+			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Message detail') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_subscribe&op=msg_send method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden value='$subscribe_id' name=subscribe_id>

@@ -39,10 +39,10 @@ switch (_OP_) {
 		$stat = sms_poll_statistics($poll_id);
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage poll') . "</h2>
-			<h3>" . _('Keyword') . " : " . $poll_keyword . "</h3>
+			<h2 class=page-header-title>" . _('Manage poll') . "</h2>
+			<p class=lead>" . _('Keyword') . " : " . $poll_keyword . "</p>
 			
-			<h3>" . _('Statistics') . "</h3>
+			<p class=lead>" . _('Statistics') . "</p>
 			<table class=playsms-table>
 				<tr><td class=label-sizer>" . _('Senders sent once') . "</td><td width=5>:</td><td>" . $stat['once'] . "</td></tr>
 				<tr><td>" . _('Senders sent multiple votes') . "</td><td>:</td><td>" . $stat['multi'] . "</td></tr>
@@ -54,13 +54,13 @@ switch (_OP_) {
 				<tr><td>" . _('Grand total SMS') . "</td><td>:</td><td>" . $stat['all'] . "</td></tr>
 			</table>
 
-			<h3>" . _('Result table') . "</h3>
+			<p class=lead>" . _('Result table') . "</p>
 			" . sms_poll_output_html($poll_id, $poll_keyword) . "
 			
-			<h3>" . _('Result graph') . "</h3>
+			<p class=lead>" . _('Result graph') . "</p>
 			<img src=\"" . $output_graph . "\">
 					
-			<h3>" . _('Webservices links') . "</h3>
+			<p class=lead>" . _('Webservices links') . "</p>
 			<table class=playsms-table>
 				<tr><td class=label-sizer>" . _('PHP serialize output') . "</td><td width=5>:</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
 				<tr><td>" . _('JSON output') . "</td><td>:</td><td><a href=\"" . _u($output_json) . "\" target=_blank>" . _u($output_json) . "</a></td></tr>

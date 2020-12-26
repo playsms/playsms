@@ -10,8 +10,7 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-	    <h2>"._('Manage template')."</h2>
-	    <p>
+	    <h2 class=page-header-title>"._('Manage template')."</h2>
 	    <form action=index.php?app=main&inc=gateway_template&op=manage_save method=post>
 	    "._CSRF_FORM_."
 	    <table class=playsms-table cellpadding=1 cellspacing=2 border=0>

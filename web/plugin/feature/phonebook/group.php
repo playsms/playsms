@@ -45,8 +45,8 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
 		
 		$content = _dialog() . "
-			<h2>" . _('Phonebook') . "</h2>
-			<h3>" . _('Group') . "</h3>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Group') . "</h3>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_phonebook_group_list name=fm_phonebook_group_list action='index.php?app=main&inc=feature_phonebook&route=group&op=actions' method=post>
 			" . _CSRF_FORM_ . "
@@ -100,8 +100,8 @@ switch (_OP_) {
 			<option value='1'>" . _('Group') . "</option>
 			<option value='2'>" . _('All users') . "</option>";
 		$content = _dialog() . "
-			<h2>" . _('Phonebook') . "</h2>
-			<h3>" . _('Add group') . "</h3>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add group') . "</h3>
 			<p>
 			<form action=\"index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=add\" method=POST>
 			" . _CSRF_FORM_ . "
@@ -135,8 +135,8 @@ switch (_OP_) {
 			<option value='1' $selected_1>" . _('Members') . "</option>
 			<option value='2' $selected_2>" . _('Anyone') . "</option>";
 		$content = _dialog() . "
-			<h2>" . _('Phonebook') . "</h2>
-			<h3>" . _('Edit group') . "</h3>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit group') . "</h3>
 			<p>
 			<form action=\"index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=edit\" method=POST>
 			" . _CSRF_FORM_ . "

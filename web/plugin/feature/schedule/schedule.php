@@ -25,7 +25,7 @@ if (!auth_isvalid()) {
 switch (_OP_) {
 	case "list":
 		$content = _dialog() . "
-			<h2>" . _('Schedule messages') . "</h2>
+			<h2 class=page-header-title>" . _('Schedule messages') . "</h2>
 			<p>" . _button('index.php?app=main&inc=feature_schedule&op=add', _('Add SMS schedule')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -67,8 +67,8 @@ switch (_OP_) {
 	
 	case "add":
 		$content = _dialog() . "
-			<h2>" . _('Schedule messages') . "</h2>
-			<h3>" . _('Add SMS schedule') . "</h3>
+			<h2 class=page-header-title>" . _('Schedule messages') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS schedule') . "</h3>
 			<form action=index.php?app=main&inc=feature_schedule&op=add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>

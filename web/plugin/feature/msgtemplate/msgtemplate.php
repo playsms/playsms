@@ -16,7 +16,7 @@ switch (_OP_) {
 	case "list":
 		$fm_name = "fm_smstemp";
 		$content = _dialog() . "
-			<h2>"._('Message template')."</h2>
+			<h2 class=page-header-title>"._('Message template')."</h2>
 			<form id=$fm_name name=$fm_name action='index.php?app=main&inc=feature_msgtemplate&op=actions' method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
@@ -68,8 +68,8 @@ switch (_OP_) {
 		break;
 	case "add":
 		$content = _dialog() . "
-			<h2>"._('Message template')."</h2>
-			<h3>"._('Add message template')."</h3>
+			<h2 class=page-header-title>"._('Message template')."</h2>
+			<h3 class=page-header-subtitle>"._('Add message template')."</h3>
 			<form action='index.php?app=main&inc=feature_msgtemplate&op=actions&go=add' method=POST>
 			"._CSRF_FORM_."
 			<table class=playsms-table>
@@ -90,8 +90,8 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$content = _dialog() . "
-			<h2>"._('Message template')."</h2>
-			<h3>"._('Edit message template')."</h3>
+			<h2 class=page-header-title>"._('Message template')."</h2>
+			<h3 class=page-header-subtitle>"._('Edit message template')."</h3>
 			<form action='index.php?app=main&inc=feature_msgtemplate&op=actions&go=edit' method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=item_count value='".$i."'>

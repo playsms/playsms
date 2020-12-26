@@ -31,7 +31,7 @@ if ($board_id = $_REQUEST['board_id']) {
 switch (_OP_) {
 	case "sms_board_list":
 		$content = _dialog() . "
-			<h2>" . _('Manage board') . "</h2>
+			<h2 class=page-header-title>" . _('Manage board') . "</h2>
 			<p>" . _button('index.php?app=main&inc=feature_sms_board&op=sms_board_add', _('Add SMS board')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -97,8 +97,8 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage board') . "</h2>
-			<h3>" . _('Edit SMS board') . "</h3>
+			<h2 class=page-header-title>" . _('Manage board') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS board') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_board&op=sms_board_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=board_id value=$board_id>
@@ -184,8 +184,8 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage board') . "</h2>
-			<h3>" . _('Add SMS board') . "</h3>
+			<h2 class=page-header-title>" . _('Manage board') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS board') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_board&op=sms_board_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>

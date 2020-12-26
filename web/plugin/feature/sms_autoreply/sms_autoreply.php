@@ -39,7 +39,7 @@ if ($autoreply_id = (int) $_REQUEST['autoreply_id']) {
 switch (_OP_) {
 	case "sms_autoreply_list":
 		$content = _dialog() . "
-			<h2>" . _('Manage autoreply') . "</h2>
+			<h2 class=page-header-title>" . _('Manage autoreply') . "</h2>
 			" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		$content .= "
 			<div class=table-responsive>
@@ -94,7 +94,7 @@ switch (_OP_) {
 		$manage_autoreply_keyword = $db_row['autoreply_keyword'];
 		$o_uid = $db_row['uid'];
 		$content = _dialog() . "
-			<h2>" . _('Manage autoreply') . "</h2>
+			<h2 class=page-header-title>" . _('Manage autoreply') . "</h2>
 			<p>" . _('SMS autoreply keyword') . ": " . $manage_autoreply_keyword . "</p>
 			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id, _('Add SMS autoreply scenario')) . "</p>
 			<div class=table-responsive>
@@ -171,8 +171,8 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage autoreply') . "</h2>
-			<h3>" . _('Add SMS autoreply') . "</h3>
+			<h2 class=page-header-title>" . _('Manage autoreply') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS autoreply') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
@@ -227,8 +227,8 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $list[0]['smsc']) . "</td></tr>";
 		}
 		$content = _dialog() . "
-			<h2>" . _('Manage autoreply') . "</h2>
-			<h3>" . _('Edit SMS autoreply') . "</h3>
+			<h2 class=page-header-title>" . _('Manage autoreply') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS autoreply') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\"> 
@@ -287,8 +287,8 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
 		$content = _dialog() . "
-			<h2>" . _('Manage autoreply') . "</h2>
-			<h3>" . _('Add SMS autoreply scenario') . "</h3>
+			<h2 class=page-header-title>" . _('Manage autoreply') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS autoreply scenario') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">
@@ -348,8 +348,8 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
 		$content = _dialog() . "
-			<h2>" . _('Manage autoreply') . "</h2>
-			<h3>" . _('Edit SMS autoreply scenario') . "</h3>
+			<h2 class=page-header-title>" . _('Manage autoreply') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS autoreply scenario') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=autoreply_id value=\"$autoreply_id\">

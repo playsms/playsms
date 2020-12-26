@@ -35,7 +35,7 @@ switch (_OP_) {
 		$option_try_disable_footer .= "<option value=\"0\" " . $selected['no'] . ">" . _('no') . "</option>";
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage uplink') . "</h2>
+			<h2 class=page-header-title>" . _('Manage uplink') . "</h2>
 			<form action=index.php?app=main&inc=gateway_uplink&op=manage_save method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

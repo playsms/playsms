@@ -47,7 +47,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_tblSMSInbox AS A', 'B.username, A.in_id, A.in_uid, A.in_datetime, A.in_sender, A.in_msg', $conditions, $keywords, $extras, $join);
 		
 		$content = _dialog() . "
-			<h2>" . _('All inbox') . "</h2>
+			<h2 class=page-header-title>" . _('All inbox') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_all_inbox name=fm_all_inbox action=\"index.php?app=main&inc=feature_report&route=all_inbox&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "

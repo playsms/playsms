@@ -29,7 +29,7 @@ switch (_OP_) {
 		$datetime = core_get_datetime();
 		
 		$content .= _dialog() . "
-			<h2>" . _('Simulate incoming SMS') . "</h2>
+			<h2 class=page-header-title>" . _('Simulate incoming SMS') . "</h2>
 			<form action=\"index.php?app=main&inc=gateway_dev&route=simulate&op=simulate_yes\" method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

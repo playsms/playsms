@@ -27,7 +27,7 @@ switch (_OP_) {
 		$nav = themes_nav($count, "index.php?app=main&inc=feature_queuelog&op=queuelog_list");
 		
 		$content = _dialog() . "
-			<h2>" . _('View SMS queue') . "</h2>";
+			<h2 class=page-header-title>" . _('View SMS queue') . "</h2>";
 		
 		$count = queuelog_countall();
 		if ($count) {

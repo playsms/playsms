@@ -27,7 +27,7 @@ include $core_config['apps_path']['plug'] . "/gateway/playnet/config.php";
 switch (_OP_) {
 	case "manage":
 		$content = _dialog() . "
-			<h2>" . _('Manage playnet') . "</h2>
+			<h2 class=page-header-title>" . _('Manage playnet') . "</h2>
 			<form action=index.php?app=main&inc=gateway_playnet&op=manage_save method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

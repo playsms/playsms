@@ -30,7 +30,7 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-			<h2>" . _('Manage blocked') . "</h2>
+			<h2 class=page-header-title>" . _('Manage blocked') . "</h2>
 			<table class=playsms-table>
 				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>blocked</td></tr></tbody>
 			</table>

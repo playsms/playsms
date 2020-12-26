@@ -81,7 +81,7 @@ switch (_OP_) {
 		}
 		
 		$content = _dialog() . "
-			<h2>" . _('Phonebook') . "</h2>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=main&inc=feature_phonebook' method=post>
 			" . _CSRF_FORM_ . "
@@ -198,8 +198,8 @@ switch (_OP_) {
 			$list_of_group .= "<option value=" . $db_row['id'] . ">" . $db_row['name'] . " - " . _('code') . ": " . $db_row['code'] . "</option>";
 		}
 		$content = _dialog() . "
-			<h2>" . _('Phonebook') . "</h2>
-			<h3>" . _('Add contact') . "</h3>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add contact') . "</h3>
 			<form action=\"index.php?app=main&inc=feature_phonebook&op=actions&go=add\" name=fm_addphone method=POST>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
@@ -238,8 +238,8 @@ switch (_OP_) {
 			$list_of_group .= "<option value=" . $db_row['id'] . " $selected>" . $db_row['name'] . " - " . _('code') . ": " . $db_row['code'] . "</option>";
 		}
 		$content = _dialog() . "
-			<h2>" . _('Phonebook') . "</h2>
-			<h3>" . _('Edit contact') . "</h3>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit contact') . "</h3>
 			<form action=\"index.php?app=main&inc=feature_phonebook&op=actions&go=edit\" name=fm_addphone method=POST>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=pid value=\"" . $pid . "\">

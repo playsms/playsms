@@ -24,7 +24,7 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case 'list':
-		$content = _dialog() . '<h2>' . _('Send from file') . '</h2><p />';
+		$content = _dialog() . '<h2 class=page-header-title>' . _('Send from file') . '</h2><p />';
 		if (auth_isadmin()) {
 			$info_format = _('destination number, message, username');
 		} else {
@@ -125,21 +125,21 @@ switch (_OP_) {
 			break;
 		}
 		
-		$content = '<h2>' . _('Send from file') . '</h2><p />';
-		$content .= '<h3>' . _('Confirmation') . '</h3><p />';
-		$content .= _('Uploaded file') . ': ' . $filename . '<p />';
+		$content = '<h2 class=page-header-title>' . _('Send from file') . '</h2>';
+		$content .= '<p class=lead>' . _('Confirmation') . '</p>';
+		$content .= '<p>' . _('Uploaded file') . ': ' . $filename . '</p>';
 		
 		if ($valid) {
 			$content .= _('Found valid entries in uploaded file') . ' (' . _('valid entries') . ': ' . $valid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
 			/*
-			 * $content .= '<h4>' . _('Valid entries') . '</h4>'; $content .= " <div class=table-responsive> <table class=playsms-table-list> <thead><tr> <th width=20%>" . _('Destination number') . "</th> <th width=60%>" . _('Message') . "</th> <th width=20%>" . _('Username') . "</th> </tr></thead> <tbody>"; $j = 0; foreach ($item_valid as $item) { if ($item[0] && $item[1] && $item[2]) { $content .= " <tr> <td>" . $item[0] . "</td> <td>" . $item[1] . "</td> <td>" . $item[2] . "</td> </tr>"; } } $content .= "</tbody></table></div>";
+			 * $content .= '<p class=lead>' . _('Valid entries') . '</p>'; $content .= " <div class=table-responsive> <table class=playsms-table-list> <thead><tr> <th width=20%>" . _('Destination number') . "</th> <th width=60%>" . _('Message') . "</th> <th width=20%>" . _('Username') . "</th> </tr></thead> <tbody>"; $j = 0; foreach ($item_valid as $item) { if ($item[0] && $item[1] && $item[2]) { $content .= " <tr> <td>" . $item[0] . "</td> <td>" . $item[1] . "</td> <td>" . $item[2] . "</td> </tr>"; } } $content .= "</tbody></table></div>";
 			 */
 		}
 		
 		if ($invalid) {
 			$content .= '<p /><br />';
 			$content .= _('Found invalid entries in uploaded file') . ' (' . _('invalid entries') . ': ' . $invalid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
-			$content .= '<h4>' . _('Invalid entries') . '</h4>';
+			$content .= '<p class=lead>' . _('Invalid entries') . '</p>';
 			$content .= "
 				<div class=table-responsive>
 				<table class=playsms-table-list>
@@ -162,7 +162,7 @@ switch (_OP_) {
 			$content .= "</tbody></table></div>";
 		}
 		
-		$content .= '<h4>' . _('Your choice') . '</h4><p />';
+		$content .= '<p class=lead>' . _('Your choice') . '</p>';
 		$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">";
 		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sid . "'>";
 		$content .= "<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\"></p>";

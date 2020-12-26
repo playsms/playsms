@@ -43,7 +43,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_featureStoplist', '*', '', $keywords, $extras);
 		
 		$content = _dialog() . "
-			<h2>" . _('Manage stoplist') . "</h2>
+			<h2 class=page-header-title>" . _('Manage stoplist') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form name=fm_stoplist_list id=fm_stoplist_list action='index.php?app=main&inc=feature_stoplist&op=actions' method=post>
 			" . _CSRF_FORM_ . "
@@ -153,8 +153,8 @@ switch (_OP_) {
 	
 	case "stoplist_add":
 		$content = _dialog() . "
-			<h2>" . _('Manage stoplist') . "</h2>
-			<h3>" . _('Add blocked mobile numbers') . " " . _hint(_('Multiple mobile numbers must be comma-separated')) . "</h3>
+			<h2 class=page-header-title>" . _('Manage stoplist') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add blocked mobile numbers') . "</h3>
 			<form action='index.php?app=main&inc=feature_stoplist&op=stoplist_add_yes' method='post'>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>

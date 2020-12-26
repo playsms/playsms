@@ -51,7 +51,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_id, in_sender, in_keyword, in_datetime, in_feature, in_message', $conditions, $keywords, $extras);
 		
 		$content = _dialog() . "
-			<h2>" . _('My feature messages') . "</h2>
+			<h2 class=page-header-title>" . _('My feature messages') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form id=fm_incoming name=fm_incoming action=\"index.php?app=main&inc=feature_report&route=user_incoming&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "

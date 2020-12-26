@@ -22,7 +22,7 @@ if ($quiz_id = (int) $_REQUEST['quiz_id']) {
 switch (_OP_) {
 	case "sms_quiz_list" :
 		$content = _dialog() . "
-			<h2>" . _('Manage quiz') . "</h2>
+			<h2 class=page-header-title>" . _('Manage quiz') . "</h2>
 			" . _button('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add', _('Add SMS quiz')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -85,8 +85,8 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
 		$content = _dialog() . "
-			<h2>" . _('Manage quiz') . "</h2>
-			<h3>" . _('Add SMS quiz') . "</h3>
+			<h2 class=page-header-title>" . _('Manage quiz') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add SMS quiz') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_add_yes method=post>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
@@ -153,8 +153,8 @@ switch (_OP_) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
 		$content = _dialog() . "
-			<h2>" . _('Manage quiz') . "</h2>
-			<h3>" . _('Edit SMS quiz') . "</h3>
+			<h2 class=page-header-title>" . _('Manage quiz') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit SMS quiz') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit_yes method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=quiz_id value=\"$quiz_id\">
@@ -213,8 +213,8 @@ switch (_OP_) {
 		$db_answer_result = dba_query($quiz_answer_query);
 		$db_answer_row = dba_fetch_array($db_answer_result);
 		$content = _dialog() . "
-			<h2>" . _('Manage quiz') . "</h2>
-			<h3>" . _('Received answer list for keyword') . " " . $db_answer_row['quiz_keyword'] . "</h3>";
+			<h2 class=page-header-title>" . _('Manage quiz') . "</h2>
+			<p class=lead>" . _('Received answer list for keyword') . " " . $db_answer_row['quiz_keyword'] . "</p>";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz_log WHERE quiz_id='$quiz_id' ORDER BY in_datetime DESC";
 		$db_result = dba_query($db_query);
 		$content .= "

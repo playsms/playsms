@@ -38,9 +38,9 @@ if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 switch (_OP_) {
 	case "list":
 		$content = _dialog() . "
-			<h2>" . _('Schedule messages') . "</h2>
-			<h3>" . _('Manage schedule') . "</h3>
-			<h4>" . _('Import') . "</h4>
+			<h2 class=page-header-title>" . _('Schedule messages') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Manage schedule') . "</h3>
+			<p class=lead>" . _('Import') . "</p>
 			<p>Schedule ID : " . $schedule_id . "</p>
 			<table class=ps_table>
 				<tbody>
@@ -74,8 +74,8 @@ switch (_OP_) {
 		$fnpb = $_FILES['fnpb'];
 		$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 		$content = "
-			<h2>" . _('Schedule messages') . "</h2>
-			<h3>" . _('Import confirmation') . "</h3>
+			<h2 class=page-header-title>" . _('Schedule messages') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Import confirmation') . "</h3>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>

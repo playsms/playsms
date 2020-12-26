@@ -61,8 +61,8 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$content .= "
-			<h2>" . _('Manage subuser') . "</h2>
-			<h3>" . _('List of subusers') . "</h3>
+			<h2 class=page-header-title>" . _('Manage subuser') . "</h2>
+			<p class=lead>" . _('List of subusers') . "</p>
 			<p>" . $search['form'] . "</p>			
 			<div class=actions_box>
 				<div class=pull-left>
@@ -164,8 +164,8 @@ switch (_OP_) {
 		$option_acl = _select('add_acl_id', array_flip(acl_getallbyuid($user_config['uid'])));
 		
 		$content .= "
-		<h2>" . _('Manage subuser') . "</h2>
-		<h3>" . _('Add subuser') . "</h3>
+		<h2 class=page-header-title>" . _('Manage subuser') . "</h2>
+		<h3 class=page-header-subtitle>" . _('Add subuser') . "</h3>
 		<form action='index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_add_yes' method=POST>
 		" . _CSRF_FORM_ . "
 		<table class=playsms-table>

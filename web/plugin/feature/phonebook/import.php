@@ -27,8 +27,8 @@ $uid = $user_config['uid'];
 switch (_OP_) {
 	case "list":
 		$content = _dialog() . "
-			<h2>" . _('Phonebook') . "</h2>
-			<h3>" . _('Import') . "</h3>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Import') . "</h3>
 			<table class=ps_table>
 				<tbody>
 					<tr>
@@ -60,8 +60,8 @@ switch (_OP_) {
 		$fnpb = $_FILES['fnpb'];
 		$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 		$content = "
-			<h2>" . _('Phonebook') . "</h2>
-			<h3>" . _('Import confirmation') . "</h3>
+			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Import confirmation') . "</h3>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>

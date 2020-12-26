@@ -25,7 +25,7 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "simplerate_list":
 		$content = _dialog() . "
-			<h2>" . _('Manage SMS rate') . "</h2>
+			<h2 class=page-header-title>" . _('Manage SMS rate') . "</h2>
 			<p>" . _button('index.php?app=main&inc=feature_simplerate&op=simplerate_add', _('Add rate')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -75,8 +75,8 @@ switch (_OP_) {
 		$prefix = simplerate_getprefix($rateid);
 		$rate = simplerate_getbyid($rateid);
 		$content = _dialog() . "
-			<h2>" . _('Manage SMS rate') . "</h2>
-			<h3>" . _('Edit rate') . "</h3>
+			<h2 class=page-header-title>" . _('Manage SMS rate') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Edit rate') . "</h3>
 			<form action='index.php?app=main&inc=feature_simplerate&op=simplerate_edit_save' method='post'>
 			" . _CSRF_FORM_ . "
 			<input type='hidden' name='rateid' value=\"$rateid\">
@@ -118,8 +118,8 @@ switch (_OP_) {
 		break;
 	case "simplerate_add":
 		$content = _dialog() . "
-			<h2>" . _('Manage SMS rate') . "</h2>
-			<h3>" . _('Add rate') . "</h3>
+			<h2 class=page-header-title>" . _('Manage SMS rate') . "</h2>
+			<h3 class=page-header-subtitle>" . _('Add rate') . "</h3>
 			<form action='index.php?app=main&inc=feature_simplerate&op=simplerate_add_yes' method='post'>
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
