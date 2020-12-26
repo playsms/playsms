@@ -82,3 +82,11 @@
 	height: 100%;
 	overflow: hidden;
 }
+
+#main-footer {
+	background-color: #fafafa;
+}
+
+.playsms-login-box {
+	background-color: #f5f5f5;
+}
