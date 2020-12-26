@@ -55,15 +55,14 @@ switch (_OP_) {
 				<div class=pull-left>
 					<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=add') . "'>" . $icon_config['add'] . "</a>
 				</div>
-				<div class=pull-right>" . $nav['form'] . "</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
 				<th width=60%>" . _('Name') . "</th>
-				<th width=35%>" . _('Group code') . "</th>
-				<th width=5%>" . _('Action') . "</th>
+				<th width=39%>" . _('Group code') . "</th>
+				<th width=1%>" . $icon_config['action'] . "</th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -79,8 +78,10 @@ switch (_OP_) {
 				<tr>
 					<td><a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $gpid) . "'>" . $name . "</a></td>
 					<td>" . $phonebook_flag_sender[$flag_sender] . " " . $code . "</td>
-					<td>
-						<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=delete&gpid=' . $gpid) . "' onClick=\"return SureConfirm();\">" . $icon_config['delete'] . "</a>
+					<td>" . _confirm(
+								_('Are you sure you want to delete this group ?') . " (" ._('Group') . " : " . $name . ")", 
+								_u('index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=delete&gpid=' . $gpid), 
+								'delete') . "
 					</td>
 				</tr>";
 		}
@@ -89,6 +90,7 @@ switch (_OP_) {
 			</tbody>
 			</table>
 			</div>
+			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		

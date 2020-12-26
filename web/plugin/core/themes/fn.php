@@ -432,34 +432,21 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
 }
 
 /**
- * Display error string from function parameter or session
+ * Display information or error string from function parameter or session
  *
- * @param array $content
- *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
- *        Type of dialog: default, info, primary, success, warning, danger
- * @param string $title
- *        Dialog title
+ * @param array $contents
+ *        Array of contents of dialog, format: $content[Type of dialog][] = message
+ *        Type of dialog: info, success, warning, danger, confirmation
  * @return string HTML string of error strings
  */
-function themes_dialog($content = array(), $title = '') {
-	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_dialog', array(
-			$content,
-			$title 
-		));
-		
-		if ($ret) {
-			
-			// returns on hooked
-			return $ret;
-		}
-	}
+function themes_dialog($contents = array()) {
+	$ret = '';
 	
-	if (is_array($content) && (count($content) > 0) && $content['dialog']) {
-		$contents = $content['dialog'];
-	} else {
+	if (!(is_array($contents) && (count($contents) > 0))) {
 		if ($_SESSION['dialog']) {
-			$contents = $_SESSION['dialog'];
+			if (is_array($_SESSION['dialog']) && (count($_SESSION['dialog']) > 0)) {
+				$contents = $_SESSION['dialog'];
+			}
 		} else {
 			if (is_array($_SESSION['error_string'])) {
 				$contents['info'] = $_SESSION['error_string'];
@@ -469,47 +456,95 @@ function themes_dialog($content = array(), $title = '') {
 		}
 	}
 	
-	$ret = '';
-	
 	foreach ($contents as $type => $data) {
-		$message = '';
+		$dialog_message = '';
 		$continue = FALSE;
 		
 		foreach ($data as $text) {
 			if (trim($text)) {
-				$message .= '<div class=playsms-dialog-text>' . trim($text) . '</div>';
+				$dialog_message = core_display_html(trim($text));
 				$continue = TRUE;
 			}
 		}
 		
 		if ($continue) {
 			switch (strtoupper(trim($type))) {
-				case 'DEFAULT':
 				case 'INFO':
-				case 'PRIMARY':
 				case 'SUCCESS':
 				case 'WARNING':
 				case 'DANGER':
-					$dialog_type = strtoupper(trim($type));
+					$dialog_type = trim($type);
 					break;
-				default :
+				case 'CONFIRMATION':
 					$dialog_type = 'PRIMARY';
+				default :
+					$dialog_type = 'INFO';
+			}
+			$dialog_type = strtolower($dialog_type);
+			
+			if (core_themes_get()) {
+				$ret = core_hook(core_themes_get(), 'themes_dialog', array(
+					$dialog_type,
+					$dialog_message
+				));
 			}
 			
-			$dialog_title = ($title ? $title : _('Information'));
-			
-			$ret .= "
-				<script type='text/javascript'>
-					BootstrapDialog.show({
-						type: BootstrapDialog.TYPE_" . $dialog_type . ",
-						title: '" . $dialog_title . "',
-						message: '" . $message . "',
-						closable: true,
-						draggable: true
-					})
-				</script>
-			";
+			if (!$ret) {
+				$ret = core_hook('common', 'themes_dialog', array(
+					$dialog_type,
+					$dialog_message
+				));
+			}
+		
+			return $ret;
 		}
+	}
+
+	return $ret;
+}
+
+/**
+ * Display confirmation dialog
+ *
+ * @param string $message
+ *        Dialog message
+ * @param string $url
+ *        Goto URL when confirmed
+ * @param string $icon
+ *        $icon_config[icon name] or icon name
+ * @param boolean $form
+ *        Is URL form name
+ * @return string HTML string of error strings
+ */
+function themes_dialog_confirmation($message, $url, $icon = '', $form = false) {
+	global $icon_config;
+	
+	$ret = '';
+	
+	if (!$icon) {
+		$icon = $icon_config['action'];
+	}
+	
+	if (strlen($icon) <= 15) {
+		$icon = ( isset($icon_config[$icon]) ? $icon_config[$icon] : $icon_config['action'] );
+	}
+	
+	if (core_themes_get()) {
+		$ret = core_hook(core_themes_get(), 'themes_dialog_confirmation', array(
+			$message,
+			$url,
+			$icon,
+			$form
+		));
+	}
+	
+	if (!$ret) {
+		$ret = core_hook('common', 'themes_dialog_confirmation', array(
+			$message,
+			$url,
+			$icon,
+			$form
+		));
 	}
 	
 	return $ret;

@@ -177,3 +177,85 @@ function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 	
 	return $nav_pages;
 }
+
+function common_hook_themes_dialog($type, $message) {
+	$modal_id = uniqid();
+
+	$ret .= "
+		<!-- Modal " . $modal_id . " -->
+		<div class='modal fade' id='dialog_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_box_title' aria-hidden='true'>
+			<div class='modal-dialog' role='document'>
+				<div class='modal-content'>
+					<div class='modal-header bg-" . $type . "'>
+						<h5 class='modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
+					</div>
+					<div class='modal-body'>
+						" . $message . "
+					</div>
+					<div class='modal-footer'>
+						<button type='button' id='dialog_box_close_" . $modal_id . "' class='btn btn-primary' data-dismiss='modal'>" . _('Close') . "</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#dialog_box_" . $modal_id . "').modal('show');
+				$('#dialog_box_" . $modal_id . "').on('shown.bs.modal', function(event) {
+					$('#dialog_box_close_" . $modal_id . "').focus();
+				});
+			});
+		</script>
+		<!-- /Modal " . $modal_id . "-->
+	";
+
+	return $ret;
+}
+
+function common_hook_themes_dialog_confirmation($message, $url, $icon, $form) {
+	$modal_id = uniqid();
+	
+	if ($form) {
+		$action = "$('#" . $url . "').submit();";
+	} else {
+		$action = "window.location.href = \"" . $url . "\"";
+	}
+	
+	$ret .= "
+		<!-- Modal " . $modal_id . "-->
+		<a href='#' data-toggle='modal' data-target='#dialog_confirmation_box_" . $modal_id . "' id='confirmation_icon_" . $modal_id . "' class='confirmation-icon'>" . $icon . "</a>
+		
+		<div class='modal fade' id='dialog_confirmation_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_confirmation_box_title_" . $modal_id . "' aria-hidden='true'>
+			<div class='modal-dialog' role='document'>
+				<div class='modal-content'>
+					<div class='modal-header bg-danger'>
+						<h5 class='modal-title' id='dialog_confirmation_box_title_" . $modal_id . "'>" . _('Please confirm') . "</h5>
+					</div>
+					<div class='modal-body'>
+						" . $message . "
+					</div>
+					<div class='modal-footer'>
+						<button type='button' id='confirmation_button_no_" . $modal_id . "' class='btn btn-primary' data-dismiss='modal'>" . _('No') . "</button>
+						<button type='button' id='confirmation_button_yes_" . $modal_id . "' class='btn btn-danger' data-dismiss='modal'>" . _('Yes') . "</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type='text/javascript'>
+			$(document).ready(function() {
+				$('#dialog_confirmation_box_" . $modal_id . "').on('shown.bs.modal', function(event) {
+					$('#confirmation_button_no_" . $modal_id . "').focus();
+					$('#confirmation_button_yes_" . $modal_id . "').click(function() {
+						" . $action . "
+						return false;
+					});
+				});
+			});
+		</script>
+		<!-- /Modal " . $modal_id . "-->
+	";
+
+	return $ret;
+}

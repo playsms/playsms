@@ -116,18 +116,48 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
 }
 
 /**
- * Display error string from function parameter or session
+ * Display information or error string from function parameter or session
  * Shortcut to themes_dialog()
  *
- * @param array $content
- *        Array of contents of dialog, format: $content['dialog'][<Type_of_dialog>]
- *        Type of dialog: default, info, primary, success, warning, danger
- * @param string $title
- *        Dialog title
+ * @param array $contents
+ *        Array of contents of dialog, format: $content[Type of dialog][] = dialog message
+ *        Type of dialog: info, success, warning, danger, confirmation
  * @return string HTML string of error strings
  */
-function _dialog($content = array(), $title = '') {
-	return themes_dialog($content, $title);
+function _dialog($contents = array()) {
+	return themes_dialog($contents);
+}
+
+/**
+ * Display confirmation dialog
+ * Shortcut to themes_dialog_confirmation()
+ *
+ * @param string $message
+ *        Dialog message
+ * @param string $url
+ *        Goto URL when confirmed
+ * @param string $icon
+ *        $icon_config[icon name] or icon name, or empty
+ * @return string HTML string of error strings
+ */
+function _confirm($message, $url, $icon = '') {
+	return themes_dialog_confirmation($message, $url, $icon, false);
+}
+
+/**
+ * Display submit confirmation dialog
+ * Shortcut to themes_dialog_confirmation() with form option set to true
+ *
+ * @param string $message
+ *        Dialog message
+ * @param string $form
+ *        Form name
+ * @param string $icon
+ *        $icon_config[icon name] or icon name, or empty
+ * @return string HTML string of error strings
+ */
+function _submit($message, $form, $icon = '') {
+	return themes_dialog_confirmation($message, $form, $icon, true);
 }
 
 /**

@@ -49,6 +49,7 @@ $icon_config = array(
 	'message' => "<span class='playsms-icon fa fa-comment-o' alt='" . _('Message') . "' title='" . _('Message') . "'></span>",
 	'inbox' => "<span class='playsms-icon fa fa-inbox' alt='" . _('Inbox') . "' title='" . _('Inbox') . "'></span>",
 	'info' => "<span class='playsms-icon fa fa-info-circle' alt='" . _('Info') . "' title='" . _('Info') . "'></span>",
+	'action' => "<span class='playsms-icon fa fa-check' alt='" . _('Action') . "' title='" . _('Action') . "'></span>",
 );
 
 // menu structure

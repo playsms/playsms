@@ -61,27 +61,6 @@ function ConfirmURL(text, goto_url) {
 	}
 }
 
-function SureConfirm() {
-	BootstrapDialog.show({
-		type : BootstrapDialog.TYPE_DANGER,
-		title : 'Are you sure ?',
-		message : text,
-		buttons : [ {
-			label : 'No',
-			cssClass : 'btn-primary',
-			action : function(dialogItself) {
-				return false;
-			}
-		}, {
-			label : 'Yes',
-			cssClass : 'btn-success',
-			action : function() {
-				return true;
-			}
-		} ]
-	});
-}
-
 function SubmitConfirm(text, form_name) {
 	if (text) {
 		BootstrapDialog.show({

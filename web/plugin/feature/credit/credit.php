@@ -66,9 +66,7 @@ switch (_OP_) {
 					<a href=\"" . _u('index.php?app=main&inc=feature_credit&op=credit_reduce') . "\">" . $icon_config['reduce'] . "</a>
 					<a href=\"" . _u('index.php?app=main&inc=feature_credit&op=actions&go=export') . "\">" . $icon_config['export'] . "</a>
 				</div>
-				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete these transactions ?') . "', 'fm_feature_credit');\">" . $icon_config['delete'] . "</a>
-				</div>
+				<div class=pull-right>" . _submit(_('Are you sure you want to delete these transactions ?'), 'fm_feature_credit', 'delete') . "</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -76,8 +74,8 @@ switch (_OP_) {
 			<tr>
 				<th width=20%>" . _('User') . "</th>
 				<th width=40%>" . _('Transaction datetime') . "</th>
-				<th width=35%>" . _('Amount') . "</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
+				<th width=39%>" . _('Amount') . "</th>
+				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
 			</tr>
 			</thead>
 			<tbody>";
