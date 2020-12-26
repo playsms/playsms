@@ -52,17 +52,15 @@ switch (_OP_) {
 				<div class=pull-left>
 					<a href='" . _u('index.php?app=main&inc=feature_stoplist&op=stoplist_add') . "'>" . $icon_config['add'] . "</a>
 				</div>
-				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete ?') . "', 'fm_stoplist_list');\">" . $icon_config['delete'] . "</a>
-				</div>
+				<div class=pull-right>" . _submit(_('Are you sure you want to delete ?'), 'fm_stoplist_list', 'delete') . "</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 				<thead>
 					<tr>
 						<th width=45%>" . _('User') . "</th>
-						<th width=50%>" . _('Blocked mobile') . "</th>
-						<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_stoplist_list)></th>
+						<th width=59%>" . _('Blocked mobile') . "</th>
+						<th width=1%><input type=checkbox onclick=CheckUncheckAll(document.fm_stoplist_list)></th>
 					</tr>
 				</thead>
 				<tbody>";

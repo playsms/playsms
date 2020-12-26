@@ -61,29 +61,6 @@ function ConfirmURL(text, goto_url) {
 	}
 }
 
-function SubmitConfirm(text, form_name) {
-	if (text) {
-		BootstrapDialog.show({
-			type : BootstrapDialog.TYPE_DANGER,
-			title : 'Please confirm',
-			message : text,
-			buttons : [ {
-				label : 'No',
-				cssClass : 'btn-primary',
-				action : function(dialogItself) {
-					dialogItself.close();
-				}
-			}, {
-				label : 'Yes',
-				cssClass : 'btn-success',
-				action : function() {
-					document.getElementById(form_name).submit();
-				}
-			} ]
-		});
-	}
-}
-
 function SetSmsTemplate() {
 	sellength = document.forms.fm_sendsms.smstemplate.length;
 	for (i = 0; i < sellength; i++) {

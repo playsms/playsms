@@ -56,9 +56,7 @@ switch (_OP_) {
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=all_inbox&op=actions&go=export') . "\">" . $icon_config['export'] . "</a>
 				</div>
-				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete these items ?') . "', 'fm_all_inbox');\">" . $icon_config['delete'] . "</a>
-				</div>
+				<div class=pull-right>" . _submit(_('Are you sure you want to delete ?'), 'fm_all_inbox', 'delete') . "</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>

@@ -56,9 +56,7 @@ switch (_OP_) {
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=sandbox&op=actions&go=export') . "\">" . $icon_config['export'] . "</a>
 				</div>
-				<div class=pull-right>
-					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete these items ?') . "', 'fm_sandbox');\">" . $icon_config['delete'] . "</a>
-				</div>
+				<div class=pull-right>" . _submit(_('Are you sure you want to delete ?'), 'fm_sandbox', 'delete') . "</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>

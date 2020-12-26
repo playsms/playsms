@@ -81,7 +81,7 @@ switch (_OP_) {
 				'HOME_LINK' => $home_link,
 				'Inbox' => _('Inbox'),
 				'Export' => $icon_config['export'],
-				'Delete' => $icon_config['delete'],
+				'Delete' => _submit(_('Are you sure you want to delete ?'), 'fm_inbox', 'delete'),
 				'DateTime' => _('Date/Time'),
 				'From' => _('From'),
 				'Message' => _('Message'),

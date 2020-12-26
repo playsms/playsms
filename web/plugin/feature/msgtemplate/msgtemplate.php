@@ -14,24 +14,21 @@ if ($tid = $_REQUEST['tid']) {
 
 switch (_OP_) {
 	case "list":
-		$fm_name = "fm_smstemp";
 		$content = _dialog() . "
 			<h2 class=page-header-title>"._('Message template')."</h2>
-			<form id=$fm_name name=$fm_name action='index.php?app=main&inc=feature_msgtemplate&op=actions' method=POST>
+			<form id='fm_smstemp' name='fm_smstemp' action='index.php?app=main&inc=feature_msgtemplate&op=actions' method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
 			<div class=actions_box>
 			<div class=pull-left><a href='"._u('index.php?app=main&inc=feature_msgtemplate&op=add')."'>".$icon_config['add']."</a></div>
-			<div class=pull-right>
-				<a href='#' onClick=\"return SubmitConfirm('"._('Are you sure you want to delete these items ?')."', '".$fm_name."');\">".$icon_config['delete']."</a>
-			</div>
+			<div class=pull-right>" . _submit(_('Are you sure you want to delete ?'), 'fm_smstemp', 'delete') . "</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=30%>"._('Name')."</th>
-				<th width=65%>"._('Content')."</th>
-				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.".$fm_name.")></th>
+				<th width=69%>"._('Content')."</th>
+				<th width=1%><input type=checkbox onclick=CheckUncheckAll(document.fm_smstemp)></th>
 			</tr></thead>
 			<tbody>";
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureMsgtemplate WHERE uid='".$user_config['uid']."' ORDER BY t_title";
