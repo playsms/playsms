@@ -42,6 +42,13 @@ $icon_config = array(
 	'download' => "<span class='playsms-icon fa fa-download' alt='" . _('Download') . "' title='" . _('Download') . "'></span>",
 	'lock' => "<span class='playsms-icon fa fa-lock' alt='" . _('Lock') . "' title='" . _('Lock') . "'></span>",
 	'unlock' => "<span class='playsms-icon fa fa-unlock' alt='" . _('Unlock') . "' title='" . _('Unlock') . "'></span>",
+	'key' => "<span class='playsms-icon fa fa-key' alt='" . _('Key') . "' title='" . _('Key') . "'></span>",
+	'keyword' => "<span class='playsms-icon fa fa-key' alt='" . _('Keyword') . "' title='" . _('Keyword') . "'></span>",
+	'feature' => "<span class='playsms-icon fa fa-plug' alt='" . _('Feature') . "' title='" . _('Feature') . "'></span>",
+	'sms' => "<span class='playsms-icon fa fa-comment-o' alt='" . _('SMS') . "' title='" . _('SMS') . "'></span>",
+	'message' => "<span class='playsms-icon fa fa-comment-o' alt='" . _('Message') . "' title='" . _('Message') . "'></span>",
+	'inbox' => "<span class='playsms-icon fa fa-inbox' alt='" . _('Inbox') . "' title='" . _('Inbox') . "'></span>",
+	'info' => "<span class='playsms-icon fa fa-info-circle' alt='" . _('Info') . "' title='" . _('Info') . "'></span>",
 );
 
 // menu structure

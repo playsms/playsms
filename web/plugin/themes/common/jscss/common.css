@@ -310,10 +310,7 @@ table.sortable thead, table.sortable th {
 }
 
 #user_inbox_msg {
-	padding-right: 2px;
-	padding-bottom: 12px;
 	border-radius: 3px;
-	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -322,10 +319,7 @@ table.sortable thead, table.sortable th {
 }
 
 #user_incoming_msg {
-	padding-right: 2px;
-	padding-bottom: 12px;
 	border-radius: 3px;
-	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -334,10 +328,7 @@ table.sortable thead, table.sortable th {
 }
 
 #user_outgoing_msg {
-	padding-right: 2px;
-	padding-bottom: 12px;
 	border-radius: 3px;
-	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -346,10 +337,7 @@ table.sortable thead, table.sortable th {
 }
 
 #all_inbox_msg {
-	padding-right: 2px;
-	padding-bottom: 12px;
 	border-radius: 3px;
-	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -358,10 +346,7 @@ table.sortable thead, table.sortable th {
 }
 
 #all_incoming_msg {
-	padding-right: 2px;
-	padding-bottom: 12px;
 	border-radius: 3px;
-	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -370,10 +355,7 @@ table.sortable thead, table.sortable th {
 }
 
 #all_outgoing_msg {
-	padding-right: 2px;
-	padding-bottom: 12px;
 	border-radius: 3px;
-	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -382,10 +364,7 @@ table.sortable thead, table.sortable th {
 }
 
 #sandbox_msg {
-	padding-right: 2px;
-	padding-bottom: 12px;
 	border-radius: 3px;
-	padding: 8px;
 	word-break: break-all;
 	-ms-word-break: break-all;
 	-webkit-hyphens: auto;
@@ -406,7 +385,6 @@ table.sortable thead, table.sortable th {
 #msg_option {
 	text-align: left;
 	padding-right: 2px;
-	padding-bottom: 12px;
 }
 
 #msg_template {
