@@ -18,7 +18,7 @@
 					<if.enable_logo>
 					<tr>
 						<td>
-							<a href="{{ HTTP_PATH_BASE }}"><img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}"></a>
+							<img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}">
 						</td>
 					</tr>
 					</if.enable_logo>
@@ -26,14 +26,14 @@
 					<if.show_web_title>
 					<tr>
 						<td align="center">
-							<h1><a href={{ HTTP_PATH_BASE }}>{{ WEB_TITLE }}</a></h1>
+							<p class="lead">{{ WEB_TITLE }}</p>
 						</td>
 					</tr>
 					</if.show_web_title>
 
 					<tr>
 						<td align="center">
-							<h3>{{ Recover password }}</h3>
+							<p class="lead">{{ Recover password }}</p>
 						</td>
 					</tr>
 					
@@ -45,16 +45,16 @@
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 
+					<if.enable_captcha>
 					<tr>
-						<td>
-						<if.enable_captcha>
-							<p>
-								<img src="{{ CAPTCHA_IMAGE }}">
-								<input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=6>
-							</p>
-						</if.enable_captcha>
-						</td>
+						<td><p><img src="{{ CAPTCHA_IMAGE }}"></p></td>
 					</tr>
+					<tr>
+						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=6></td>
+					</tr>
+					<tr><td>&nbsp;</td></tr>
+					</if.enable_captcha>
+
 					<tr>
 						<td><input type=submit class=button value='{{ Submit }}'></td>
 					</tr>
