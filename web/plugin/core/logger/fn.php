@@ -46,7 +46,8 @@ function logger_print($log, $level='', $label='') {
 			$dt = date($core_config['datetime']['format'], time());
 
 			// REMOTE_ADDR HTTP_HOST DATE TIME PID USERNAME TYPE LABEL # LOG
-			$message = stripslashes($remote." ".$host." ".$dt." "._PID_." ".$username." ".$type." ".$label." # ".$log);
+			//$message = stripslashes($remote." ".$host." ".$dt." "._PID_." ".$username." ".$type." ".$label." # ".$log);
+			$message = $remote." ".$host." ".$dt." "._PID_." ".$username." ".$type." ".$label." # ".$log;
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
@@ -93,7 +94,8 @@ function logger_audit() {
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {
 			$dt = date($core_config['datetime']['format'], time());
-			$message = stripslashes($host." ".$dt." "._PID_." ".$username." ip:".$ip." ".$log);
+			//$message = stripslashes($host." ".$dt." "._PID_." ".$username." ip:".$ip." ".$log);
+			$message = $host." ".$dt." "._PID_." ".$username." ip:".$ip." ".$log;
 			$message = str_replace("\n", " ", $message);
 			$message = str_replace("\r", " ", $message);
 			$message .= "\n";
