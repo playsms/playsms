@@ -44,32 +44,18 @@ switch (_OP_) {
 			<p>" . $search['form'] . "</p>
 			<form name=fm_firewall_list id=fm_firewall_list action='index.php?app=main&inc=feature_firewall&op=actions' method=post>
 			" . _CSRF_FORM_ . "
+			<input type=hidden name=go value=delete>
+			<div class=actions_box>
+				<div class=pull-left>
+					<a href='" . _u('index.php?app=main&inc=feature_firewall&op=firewall_add') . "'>" . $icon_config['add'] . "</a>
+				</div>
+				<div class=pull-right>
+					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete ?') . "', 'fm_firewall_list');\">" . $icon_config['delete'] . "</a>
+				</div>
+			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 				<thead>
-					<tr>
-						<td colspan=3>
-							<div class=actions_box>
-								<div class=pull-left>
-									<a href='" . _u('index.php?app=main&inc=feature_firewall&op=firewall_add') . "'>" . $icon_config['add'] . "</a>
-								</div>
-								<script type='text/javascript'>
-									$(document).ready(function() {
-										$('#action_go').click(function(){
-											$('#fm_firewall_list').submit();
-										});
-									});
-								</script>
-								<div class=pull-right>
-									<select name=go class=search_input_category>
-										<option value=>" . _('Select') . "</option>
-										<option value=delete>" . _('Delete') . "</option>
-									</select>
-									<a href='#' id=action_go>" . $icon_config['go'] . "</a>
-								</div>
-							</div>
-						</td>
-					</tr>
 					<tr>
 						<th width=45%>" . _('User') . "</th>
 						<th width=50%>" . _('Blocked IP address') . "</th>

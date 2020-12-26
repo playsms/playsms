@@ -86,37 +86,35 @@ switch (_OP_) {
 			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=main&inc=feature_phonebook' method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden id=action_route name=route value=''>
+			<p>
+				<div class=actions_box>
+					<div class=pull-left>
+						<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list') . "'>" . $icon_config['user_group'] . "</a>
+						<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list') . "'>" . $icon_config['import'] . "</a>
+						<a href='" . _u('index.php?app=main&inc=feature_phonebook&op=actions&go=export') . "'>" . $icon_config['export'] . "</a>
+						<a href='" . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add') . "'>" . $icon_config['user_add'] . "</a>
+					</div>
+					<script type='text/javascript'>
+						$(document).ready(function() {
+							$('#action_go').click(function(){
+								$('input[name=route]').attr('value','phonebook_go');
+								$('#fm_phonebook_list').submit();
+							});
+						});
+					</script>
+					<div class=pull-right>
+						<select name=op class=search_input_category>
+							<option value=>" . _('Select') . "</option>
+							<option value=delete>" . _('Delete') . "</option>
+							" . $action_move_options . "
+						</select>
+						<a href='#' id=action_go>" . $icon_config['go'] . "</a>
+					</div>
+				</div>
+			</p>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead>
-			<tr>
-					<td colspan=6>
-						<div class=actions_box>
-							<div class=pull-left>
-								<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list') . "'>" . $icon_config['user_group'] . "</a>
-								<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list') . "'>" . $icon_config['import'] . "</a>
-								<a href='" . _u('index.php?app=main&inc=feature_phonebook&op=actions&go=export') . "'>" . $icon_config['export'] . "</a>
-								<a href='" . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add') . "'>" . $icon_config['user_add'] . "</a>
-							</div>
-							<script type='text/javascript'>
-								$(document).ready(function() {
-									$('#action_go').click(function(){
-										$('input[name=route]').attr('value','phonebook_go');
-										$('#fm_phonebook_list').submit();
-									});
-								});
-							</script>
-							<div class=pull-right>
-								<select name=op class=search_input_category>
-									<option value=>" . _('Select') . "</option>
-									<option value=delete>" . _('Delete') . "</option>
-									" . $action_move_options . "
-								</select>
-								<a href='#' id=action_go>" . $icon_config['go'] . "</a>
-							</div>
-						</div>
-					</td>
-			</tr>
 			<tr>
 				<th width=20%>" . _('Name') . "</th>
 				<th width=20%>" . _('Mobile') . "</th>

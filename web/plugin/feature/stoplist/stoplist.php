@@ -41,45 +41,31 @@ switch (_OP_) {
 			'OFFSET' => $nav['offset'] 
 		);
 		$list = dba_search(_DB_PREF_ . '_featureStoplist', '*', '', $keywords, $extras);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage stoplist') . "</h2>
 			<p>" . $search['form'] . "</p>
 			<form name=fm_stoplist_list id=fm_stoplist_list action='index.php?app=main&inc=feature_stoplist&op=actions' method=post>
 			" . _CSRF_FORM_ . "
+			<input type=hidden name=go value=delete>
+			<div class=actions_box>
+				<div class=pull-left>
+					<a href='" . _u('index.php?app=main&inc=feature_stoplist&op=stoplist_add') . "'>" . $icon_config['add'] . "</a>
+				</div>
+				<div class=pull-right>
+					<a href='#' onClick=\"return SubmitConfirm('" . _('Are you sure you want to delete ?') . "', 'fm_stoplist_list');\">" . $icon_config['delete'] . "</a>
+				</div>
+			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 				<thead>
-					<tr>
-						<td colspan=3>
-							<div class=actions_box>
-								<div class=pull-left>
-									<a href='" . _u('index.php?app=main&inc=feature_stoplist&op=stoplist_add') . "'>" . $icon_config['add'] . "</a>
-								</div>
-								<script type='text/javascript'>
-									$(document).ready(function() {
-										$('#action_go').click(function(){
-											$('#fm_stoplist_list').submit();
-										});
-									});
-								</script>
-								<div class=pull-right>
-									<select name=go class=search_input_category>
-										<option value=>" . _('Select') . "</option>
-										<option value=delete>" . _('Delete') . "</option>
-									</select>
-									<a href='#' id=action_go>" . $icon_config['go'] . "</a>
-								</div>
-							</div>
-						</td>
-					</tr>
 					<tr>
 						<th width=45%>" . _('User') . "</th>
 						<th width=50%>" . _('Blocked mobile') . "</th>
 						<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_stoplist_list)></th>
 					</tr>
 				</thead>
-			<tbody>";
+				<tbody>";
 		
 		$i = $nav['top'];
 		$j = 0;
