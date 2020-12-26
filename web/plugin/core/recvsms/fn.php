@@ -20,6 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc = '') {
 	global $core_config;
+	
 	if ($core_config['isrecvsmsd']) {
 		$c_isrecvsmsd = 1;
 		
@@ -296,6 +297,12 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	// fixme anton - all incoming messages set to user with uid=1 if no one owns it
 	$c_uid = ($c_uid ? $c_uid : 1);
 	
+	// fixme anton - addslahses before saving to db
+	$sms_sender = addslashes($sms_sender);
+	$sms_receiver = addslashes($sms_receiver);
+	$target_keyword = addslashes($target_keyword);
+	$message = addslashes($message);
+	
 	$db_query = "
 		INSERT INTO " . _DB_PREF_ . "_tblSMSIncoming
 		(in_uid,in_feature,in_gateway,in_sender,in_receiver,in_keyword,in_message,in_datetime,in_status)
@@ -383,11 +390,19 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			
 			// forward to Inbox
 			if ($fwd_to_inbox = $user['fwd_to_inbox']) {
+
+				// fixme anton - addslahses before saving to db
+				$c_sms_sender = addslashes($sms_sender);
+				$c_sms_receiver = addslashes($sms_receiver);
+				$c_message = addslashes($message);
+	
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_tblSMSInbox
 					(in_sender,in_receiver,in_uid,in_msg,in_datetime,reference_id)
-					VALUES ('$sms_sender','$sms_receiver','$uid','$message','" . core_adjust_datetime($sms_datetime) . "','$reference_id')
+					VALUES ('$c_sms_sender','$c_sms_receiver','$uid','$c_message','" . core_adjust_datetime($sms_datetime) . "','$reference_id')
 				";
+				
+				// fixme anton - no need to log addslashes string
 				_log("saving sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user . " reference_id:" . $reference_id, 2, "recvsms_inbox_add");
 				if ($inbox_id = @dba_insert_id($db_query)) {
 					_log("saved id:" . $inbox_id . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " target:" . $target_user, 2, "recvsms_inbox_add");
