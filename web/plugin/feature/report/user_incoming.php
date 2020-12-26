@@ -68,9 +68,10 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=20%>" . _('From') . "</th>
-				<th width=20%>" . _('Keyword') . "</th>
-				<th width=55%>" . _('Content') . "</th>
+				<th width=15%>" . _('Date/Time') . "</th>
+				<th width=15%>" . _('From') . "</th>
+				<th width=15%>" . _('Keyword') . "</th>
+				<th width=50%>" . _('Content') . "</th>
 				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></th>
 			</tr>
 			</thead>
@@ -83,15 +84,11 @@ switch (_OP_) {
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
 			$current_sender = report_resolve_sender($user_config['uid'], $in_sender);
-			$in_keyword = $list[$j]['in_keyword'];
+			$in_keyword = ( $list[$j]['in_keyword'] ? $list[$j]['in_keyword'] : '-' );
 			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
-			$in_feature = $list[$j]['in_feature'];
+			$in_feature = ( $list[$j]['in_feature'] ? $list[$j]['in_feature'] : '-' );
 			// $in_status = ($list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />');
 			// $in_status = strtolower($in_status);
-			$c_feature = '';
-			if ($in_feature) {
-				$c_feature = "<br />" . $in_feature;
-			}
 			$msg = trim($list[$j]['in_message']);
 			$in_message = core_display_text($msg);
 			$reply = '';
@@ -100,12 +97,15 @@ switch (_OP_) {
 				$reply = _sendsms($in_sender, $msg);
 				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
-			$c_message = "<div id=\"user_incoming_msg\">" . $in_message . "</div><div id=\"msg_label\">" . $in_datetime . "&nbsp;" . $in_status . "</div><div id=\"msg_option\">" . $reply . "&nbsp" . $forward . "</div>";
+			$c_message = "
+				<div id=\"user_incoming_msg\">" . $in_message . "</div>
+				<div id=\"msg_option\">" . $reply . " " . $forward . "</div>";
 			$i--;
 			$content .= "
 				<tr>
+					<td>$in_datetime</td>
 					<td>$current_sender</td>
-					<td>" . $in_keyword . $c_feature . "</td>
+					<td>" . $icon_config['keyword'] . " " . $in_keyword . "<br />" . $icon_config['feature'] . " " . $in_feature . "</td>
 					<td>$c_message</td>
 					<td>
 						<input type=hidden name=itemid" . $j . " value=\"$in_id\">
