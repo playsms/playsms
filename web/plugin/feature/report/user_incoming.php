@@ -71,8 +71,8 @@ switch (_OP_) {
 				<th width=15%>" . _('Date/Time') . "</th>
 				<th width=15%>" . _('From') . "</th>
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=50%>" . _('Content') . "</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></th>
+				<th width=54%>" . _('Content') . "</th>
+				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_incoming)></th>
 			</tr>
 			</thead>
 			<tbody>";
