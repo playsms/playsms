@@ -64,9 +64,10 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=20%>" . _('From') . "</th>
-				<th width=75%>" . _('Content') . "</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_sandbox)></th>
+				<th width=15%>" . _('Date/Time') . "</th>
+				<th width=15%>" . _('From') . "</th>
+				<th width=69%>" . _('Content') . "</th>
+				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_sandbox)></th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -92,10 +93,11 @@ switch (_OP_) {
 				$reply = _sendsms($in_sender, $msg);
 				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
-			$c_message = "<div id=\"sandbox_msg\">" . $in_message . "</div><div id=\"msg_label\">" . $in_datetime . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
+			$c_message = "<div id=\"sandbox_msg\">" . $in_message . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
 			$i--;
 			$content .= "
 				<tr>
+					<td>$in_datetime</td>
 					<td>$current_sender</td>
 					<td>$c_message</td>
 					<td>

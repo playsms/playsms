@@ -100,9 +100,14 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=20%>" . _('To') . "</th>
-				<th width=75%>" . _('Message') . "</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_user_outgoing)></th>
+				<th width=15%>" . _('Date/Time') . "</th>
+				<th width=15%>" . _('To') . "</th>
+				<th width=70%>" . _('Message') . "</th>
+				<th width=1%><span class='playsms-icon' title='" . _('Count') . "'>#</span></th>
+				<th width=1%><span class='playsms-icon fa fa-table' title='" . _('Rate') . "'></span></th>
+				<th width=1%><span class='playsms-icon fa fa-money' title='" . _('Charge') . "'></span></th>
+				<th width=1%><span class='playsms-icon fa fa-check' title='" . _('Status') . "'></span></th>
+				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_user_outgoing)></th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -134,13 +139,13 @@ switch (_OP_) {
 			// 2 = failed
 			// 3 = delivered
 			if ($p_status == "1") {
-				$p_status = "<span class=status_sent title='" . _('Sent') . "'/>";
+				$p_status = "<span class=status_sent title='" . _('Sent') . "'></span>";
 			} else if ($p_status == "2") {
-				$p_status = "<span class=status_failed title='" . _('Failed') . "'/>";
+				$p_status = "<span class=status_failed title='" . _('Failed') . "'></span>";
 			} else if ($p_status == "3") {
-				$p_status = "<span class=status_delivered title='" . _('Delivered') . "'/>";
+				$p_status = "<span class=status_delivered title='" . _('Delivered') . "'></span>";
 			} else {
-				$p_status = "<span class=status_pending title='" . _('Pending') . "'/>";
+				$p_status = "<span class=status_pending title='" . _('Pending') . "'></span>";
 			}
 			
 			// get billing info
@@ -163,14 +168,18 @@ switch (_OP_) {
 				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
 			$c_message = "
-				<div id=\"msg_label\">" . $p_datetime . "&nbsp;" . _('count') . ":" . $p_count . "&nbsp;" . _('rate') . ":" . $p_rate . "&nbsp;" . _('cost') . ":" . $p_charge . "&nbsp;" . $p_status . "</div>
 				<div id=\"user_outgoing_msg\">" . $p_msg . "</div>
-				<div id=\"msg_option\">" . $resend . "&nbsp" . $forward . "</div>";
+				<div id=\"msg_option\">" . $resend . " " . $forward . "</div>";
 			$i--;
 			$content .= "
 				<tr>
+					<td>$p_datetime</td>
 					<td><div>" . $current_p_dst . "</div><div>" . $queue_view_link . "</div></td>
 					<td>$c_message</td>
+					<td>$p_count</td>
+					<td>$p_rate</td>
+					<td>$p_charge</td>
+					<td>$p_status</td>
 					<td>
 						<input type=hidden name=itemid" . $j . " value=\"$smslog_id\">
 						<input type=checkbox name=checkid" . $j . ">

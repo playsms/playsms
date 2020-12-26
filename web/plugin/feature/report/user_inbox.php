@@ -82,6 +82,7 @@ switch (_OP_) {
 				'Inbox' => _('Inbox'),
 				'Export' => $icon_config['export'],
 				'Delete' => $icon_config['delete'],
+				'DateTime' => _('Date/Time'),
 				'From' => _('From'),
 				'Message' => _('Message'),
 				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?'),

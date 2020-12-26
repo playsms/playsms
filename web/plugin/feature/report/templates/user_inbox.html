@@ -17,22 +17,25 @@
 <table class=playsms-table-list>
 	<thead>
 		<tr>
-			<th width=20%>{{ From }}</th>
-			<th width=75%>{{ Message }}</th>
-			<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></th>
+			<th width=15%>{{ DateTime }}</th>
+			<th width=15%>{{ From }}</th>
+			<th width=69%>{{ Message }}</th>
+			<th width=1%><input type=checkbox onclick=CheckUncheckAll(document.fm_inbox)></th>
 		</tr>
 	</thead>
 	<tbody>
 		<loop.data>
 		<tr class={{ data.tr_class }}>
 			<td>
+				{{ data.in_datetime }}
+			</td>
+			<td>
 				<div>{{ data.current_sender }}</div>
 				<div>{{ data.view_all_link }}</div>
 			</td>
 			<td>
-				<div id="msg_label">{{ data.in_datetime }}</div>
 				<div id="user_inbox_msg">{{ data.in_msg }}</div>
-				<div id="msg_option">{{ data.reply }}&nbsp{{ data.forward }}</div>
+				<div id="msg_option">{{ data.reply }} {{ data.forward }}</div>
 			</td>
 			<td>
 				<input type=hidden name=itemid{{ data.j }} value={{ data.in_id }}>

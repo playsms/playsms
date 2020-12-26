@@ -101,11 +101,15 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=20%>" . _('User') . "</th>
-				<th width=15%>" . _('SMSC') . "</th>
-				<th width=20%>" . _('To') . "</th>
-				<th width=40%>" . _('Message') . "</th>
-				<th width=5% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_all_outgoing)></th>
+				<th width=10%>" . _('User') . "</th>
+				<th width=15%>" . _('Date/Time') . "</th>
+				<th width=15%>" . _('To') . "</th>
+				<th width=55%>" . _('Message') . "</th>
+				<th width=1%><span class='playsms-icon' title='" . _('Count') . "'>#</span></th>
+				<th width=1%><span class='playsms-icon fa fa-table' title='" . _('Rate') . "'></span></th>
+				<th width=1%><span class='playsms-icon fa fa-money' title='" . _('Charge') . "'></span></th>
+				<th width=1%><span class='playsms-icon fa fa-check' title='" . _('Status') . "'></span></th>
+				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_all_outgoing)></th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -170,16 +174,19 @@ switch (_OP_) {
 				$forward = _sendsms('', $msg, '', $icon_config['forward']);
 			}
 			$c_message = "
-				<div id=\"msg_label\">" . $p_datetime . "&nbsp;" . _('count') . ":" . $p_count . "&nbsp;" . _('rate') . ":" . $p_rate . "&nbsp;" . _('cost') . ":" . $p_charge . "&nbsp;" . $p_status . "</div>
 				<div id=\"all_outgoing_msg\">" . $p_msg . "</div>
-				<div id=\"msg_option\">" . $resend . "&nbsp" . $forward . "</div>";
+				<div id=\"msg_option\">" . $resend . " " . $forward . "</div>";
 			$i--;
 			$content .= "
 				<tr>
 					<td>$p_username</td>
-					<td><div>" . $p_smsc . "</div><div>" . $p_gateway . "</td>
+					<td>$p_datetime</td>
 					<td><div>" . $current_p_dst . "</div><div>" . $queue_view_link . "</div></td>
 					<td>$c_message</td>
+					<td>$p_count</td>
+					<td>$p_rate</td>
+					<td>$p_charge</td>
+					<td>$p_status</td>
 					<td>
 						<input type=hidden name=itemid" . $j . " value=\"$smslog_id\">
 						<input type=checkbox name=checkid" . $j . ">
