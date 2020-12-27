@@ -47,7 +47,10 @@ switch (_OP_) {
 		foreach ($data as $row) {
 			$c_rid = $row['id'];
 			$c_action = "<a href='" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $c_rid) . "'>" . $icon_config['edit'] . "</a> ";
-			$c_action .= "<a href='javascript: ConfirmURL(\"" . _('Are you sure ?') . "\", \"" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_del&rid=' . $c_rid) . "\")'>" . $icon_config['delete'] . "</a> ";
+			$c_action .= _confirm(
+				_('Are you sure you want to delete ?'),
+				_u('index.php?app=main&inc=feature_outgoing&op=outgoing_del&rid=' . $c_rid),
+				'delete');
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
 				'username' => ($row['username'] ? $row['username'] : '*'),

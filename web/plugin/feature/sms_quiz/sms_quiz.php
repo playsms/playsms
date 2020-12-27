@@ -58,7 +58,11 @@ switch (_OP_) {
 				}
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=' . $db_row['quiz_id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
 				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=' . $db_row['quiz_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS quiz with all its choices and answers ?') . " (" . _('keyword') . ": " . $db_row['quiz_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=' . $db_row['quiz_id']) . "')\">" . $icon_config['delete'] . "</a>";
+				 $action .= _confirm(
+					_('Are you sure you want to delete SMS quiz with all its choices and answers ?') . " (" . _('keyword') . ": " . $db_row['quiz_keyword'] . ")",
+					_u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=' . $db_row['quiz_id']),
+					'delete');
+
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -235,7 +239,10 @@ switch (_OP_) {
 			} else {
 				$iscorrect = "<font color=red>" . _('incorrect') . "</font>";
 			}
-			$action = "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete this answer ?') . "','" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_del&quiz_id=' . $quiz_id . '&answer_id=' . $db_row['answer_id']) . "')\">" . $icon_config['delete'] . "</a>";
+			$action = _confirm(
+				_('Are you sure you want to delete this answer ?'),
+				_u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_del&quiz_id=' . $quiz_id . '&answer_id=' . $db_row['answer_id']),
+				'delete');
 			$i++;
 			$content .= "
 				<tr>

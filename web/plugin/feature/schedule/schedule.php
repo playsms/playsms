@@ -46,7 +46,10 @@ switch (_OP_) {
 			$status = ($db_row['flag_active'] == 1 ? $status_active : $status_inactive);
 			$action = "<a href=\"" . _u('index.php?app=main&inc=feature_schedule&route=manage&op=list&id=' . $db_row['id']) . "\">" . $icon_config['manage'] . "</a>&nbsp;";
 			$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_schedule&route=edit&op=list&id=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS schedule ?') . " (" . _('Schedule ID') . ": " . $db_row['id'] . ")','" . _u('index.php?app=main&inc=feature_schedule&op=del&id=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
+			$action .= _confirm(
+				_('Are you sure you want to delete SMS schedule ?') . " (" . _('Schedule ID') . ": " . $db_row['id'] . ")",
+				_u('index.php?app=main&inc=feature_schedule&op=del&id=' . $db_row['id']),
+				'delete');
 			$i++;
 			$content .= "
 					<tr>

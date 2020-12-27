@@ -101,8 +101,11 @@ switch (_OP_) {
 			$toggle_status = ((auth_isadmin()) ? "<a href='" . _u('index.php?app=main&inc=core_sender_id&op=toggle_status&id=' . $list[$j]['id']) . "'>" . $status . "</a>" : $status);
 			$action = "
 				<a href='" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $list[$j]['id']) . "'>" . $icon_config['edit'] . "</a>
-				<a href=\"javascript: ConfirmURL('" . addslashes(_('Are you sure you want to delete sender ID') . ' ? (' . _('Sender ID') . ': ' . $list[$j]['registry_key'] . ')') . "','" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_delete&id=' . $list[$j]['id']) . "')\">" . $icon_config['delete'] . "</a>
 			";
+			$action .= _confirm(
+				_('Are you sure you want to delete sender ID') . " ? (" . _('Sender ID') . ": " . $list[$j]['registry_key'] . ")",
+				_u('index.php?app=main&inc=core_sender_id&op=sender_id_delete&id=' . $list[$j]['id']),
+				'delete');
 			$sender_id_list[] = array(
 				'username' => $username,
 				'sender_id' => core_sanitize_sender($list[$j]['registry_key']),
