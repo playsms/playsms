@@ -62,7 +62,10 @@ switch (_OP_) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id=' . $db_row['custom_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_del&custom_id=' . $db_row['custom_id']) . "')\">" . $icon_config['delete'] . "</a>";
+				$action .= _confirm(
+					_('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")",
+					_u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_del&custom_id=' . $db_row['custom_id']),
+					'delete');
 				$sms_receiver = '';
 				if ($db_row['sms_receiver']) {
 					$sms_receiver = "<div name=sms_custom_sms_receiver><span class=\"playsms-icon fa fa-phone-square\" alt=\"" . _('Receiver number') . "\" title=\"" . _('Receiver number') . "\"></span>" . $db_row['sms_receiver'] . "</div>";
