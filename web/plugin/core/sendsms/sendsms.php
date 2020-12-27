@@ -35,6 +35,11 @@ switch (_OP_) {
 			$_SESSION['tmp']['themes']['layout'] = 'contentonly';
 		}
 		
+		// clear return_url as we are not in popup
+		if ($_REQUEST['popup'] != 1) {
+			$_SESSION['tmp']['sendsms']['return_url'] = '';
+		}
+		
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
 		$ismatched = FALSE;
