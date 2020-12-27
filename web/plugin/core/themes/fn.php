@@ -506,17 +506,23 @@ function themes_dialog($contents = array()) {
 /**
  * Display confirmation dialog
  *
- * @param string $message
- *        Dialog message
+ * @param string $content
+ *        Dialog message or page URL to load
  * @param string $url
  *        Goto URL when confirmed
  * @param string $icon
- *        $icon_config[icon name] or icon name
+ *        $icon_config[icon name] or icon name, or empty
+ * @param string $title
+ *        Dialog title
  * @param boolean $form
- *        Is URL form name
+ *        If $url is form name instead
+ * @param boolean $load
+ *        If $content is page URL to load instead
+ * @param boolean $nofooter
+ *        Show or hide dialog confirmation buttons
  * @return string HTML string of error strings
  */
-function themes_dialog_confirmation($message, $url, $icon = '', $form = false) {
+function themes_dialog_confirmation($content, $url, $icon = '', $title = '', $form = false, $load = false, $nofooter = false) {
 	global $icon_config;
 	
 	$ret = '';
@@ -525,25 +531,44 @@ function themes_dialog_confirmation($message, $url, $icon = '', $form = false) {
 		$icon = $icon_config['action'];
 	}
 	
-	if (strlen($icon) <= 15) {
+	if ($icon == preg_replace('/[^a-zA-Z0-9\-_.]/', '', $icon)) {
 		$icon = ( isset($icon_config[$icon]) ? $icon_config[$icon] : $icon_config['action'] );
+	}
+	
+	if (!$title) {
+		$title = _('Please confirm');
+	}
+	
+	if ($form) {
+		$url = core_display_text($url);
+		$url = preg_replace('/[^a-zA-Z0-9\-_.]/', '', $url);
+	}
+	
+	if (!$load) {
+		$content = core_display_html($content);
 	}
 	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_dialog_confirmation', array(
-			$message,
+			$content,
 			$url,
 			$icon,
-			$form
+			$title,
+			$form,
+			$load,
+			$nofooter
 		));
 	}
 	
 	if (!$ret) {
 		$ret = core_hook('common', 'themes_dialog_confirmation', array(
-			$message,
+			$content,
 			$url,
 			$icon,
-			$form
+			$title,
+			$form,
+			$load,
+			$nofooter
 		));
 	}
 	
@@ -868,25 +893,21 @@ function themes_input($type = 'text', $name = '', $value = '', $tag_params = arr
  *        Default destination
  * @param string $message
  *        Default or previous message
- * @param string $return_url
- *        If empty this would be $_SERVER['REQUEST_URI']
  * @param string $button_icon
  *        If empty this would be a reply icon
- * @return string Javascript PopupSendsms()
+ * @return string
  */
-function themes_popup_sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
+function themes_popup_sendsms($to = "", $message = "", $button_icon = "") {
 	global $icon_config;
 	
 	$ret = '';
 	
-	$return_url = ($return_url ? $return_url : $_SERVER['REQUEST_URI']);
 	$button_icon = ($button_icon ? $button_icon : $icon_config['reply']);
 	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_popup_sendsms', array(
 			$to,
 			$message,
-			$return_url,
 			$button_icon 
 		));
 	}
@@ -895,13 +916,17 @@ function themes_popup_sendsms($to = "", $message = "", $return_url = "", $button
 		$ret = core_hook('common', 'themes_popup_sendsms', array(
 			$to,
 			$message,
-			$return_url,
 			$button_icon 
 		));
 	}
 	
 	if (!$ret) {
-		$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode($return_url) . "');\">" . $button_icon . "</a>";
+
+		// set return_url
+		$_SESSION['tmp']['sendsms']['return_url'] = $_SERVER['REQUEST_URI'];
+		
+		$content_to_load = _u('index.php?app=main&inc=core_sendsms&op=sendsms&to=' . urlencode($to) . '&message=' . urlencode($message) . '&popup=1');
+		$ret = _confirm($content_to_load, '#', $button_icon, _('Compose message'), false, true, true);
 	}
 	
 	return $ret;

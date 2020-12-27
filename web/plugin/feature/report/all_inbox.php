@@ -87,7 +87,7 @@ switch (_OP_) {
 			$forward = '';
 			if ($msg && $in_sender) {
 				$reply = _sendsms($in_sender, $msg);
-				$forward = _sendsms('', $msg, '', $icon_config['forward']);
+				$forward = _sendsms('', $msg, $icon_config['forward']);
 			}
 			$c_message = "<div id=\"all_inbox_msg\">" . $in_msg . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
 			$i--;

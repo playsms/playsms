@@ -1,8 +1,93 @@
+{{ DIALOG_DISPLAY }}
+
+<form name="{{ SENDSMS_FORM_ID }}" id="{{ SENDSMS_FORM_ID }}" action="index.php?app=main&inc=core_sendsms&op=sendsms_yes" method="POST" role="form">
+	{{ CSRF_FORM }} 
+	<input type="hidden" value="{{ sms_footer_length }}" name="footerlen">
+	<input type="hidden" value="{{ per_sms_length }}" name="maxchar">
+	<input type="hidden" value="{{ per_sms_length_unicode }}" name="maxchar_unicode">
+	<input type="hidden" value="{{ max_sms_length }}" name="hiddcount">
+	<input type="hidden" value="{{ max_sms_length_unicode }}" name="hiddcount_unicode">
+	<input type="hidden" value="{{ chars }}" name="chars">
+	<input type="hidden" value="{{ SMS }}" name="SMS">
+
+	<if.normal>
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="page-header-title">{{ Compose message }}</h2>
+		</div>
+	</div>
+	</if.normal>
+	
+	<div class="row">
+
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="msg_combo_sendto">{{ Send to }}</label>
+				<input type="hidden" name="p_num_text" id="msg_combo_sendto" class="form-control" value="{{ to }}">
+				<p class="help-block">{{ HINT_SEND_TO }}</p>
+			</div>
+			<div class="form-group">
+				<label for="message">{{ Message template }}</label>
+				{{ sms_template }}
+			</div>
+			<div class="form-group">
+				<label for="message">{{ Message }}</label>
+				<textarea name="message" id="message" class="form-control">{{ message }}</textarea>
+				<div id="msg_text_counter" name="msg_text_counter"></div>
+			</div>
+			<div class="form-group">
+				<label for="msg_schedule">{{ Schedule }}</label>
+				<input type="text" name="sms_schedule" id="msg_schedule" class="form-control" value="{{ sms_schedule }}">
+				<p class="help-block">{{ HINT_SCHEDULE }}</p>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label for="msg_sender">{{ Sender ID }}</label>
+				<div id="msg_sender">{{ sms_sender_id }}</div>
+			</div>
+			<div class="form-group">
+				<label for="msg_footer">{{ Message footer }}</label>
+				<input type="text" name="sms_footer" id="msg_footer" class="form-control" value="{{ sms_footer }}">
+			</div>
+			<div class="form-group">
+				<label for="msg_options">{{ Options }}</label>
+				<div id="msg_options">
+					<div class="form-check">
+						<input type=checkbox name="msg_flash" id="msg_flash" class="form-check-input">
+						<label for="msg_unicode" class="form-check-label">{{ Flash message }}</label>
+					</div>
+					<div class="form-check">
+						<input type=checkbox name="msg_unicode" id="msg_unicode" class="form-check-label">							
+						<label for="msg_unicode" class="form-check-label">{{ Unicode message }}</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<input type=submit class='button' value='{{ Send }}'>
+			</div>
+		</div>
+	</div>
+</form>
+
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#msg_combo_sendto").select2({
+			<if.popup>
+			var CURRENT_CSRF_TOKEN = $("#{{ SENDSMS_FORM_ID }} input[name='X-CSRF-Token']").val();
+			$("input[name='X-CSRF-Token']").each(function(){
+				$(this).val(CURRENT_CSRF_TOKEN);
+			});
+			</if.popup>
+			
+			$("#{{ SENDSMS_FORM_ID }} input[name='p_num_text']").select2({
 			multiple: true,
-			/* placeholder: "{{ Send to }}", */
+			placeholder: "{{ SENDTO_PLACEHOLDER_TEXT }}",
 			allowClear: true,
 			selectOnBlur: true,
 			minimumInputLength: 2,
@@ -38,114 +123,18 @@
 				}
 			}
 		});
-		$("#message").focus();
-		$("#msg_schedule").datetimepicker({
+
+		$("#{{ SENDSMS_FORM_ID }} textarea[name='message']").on('focus blur click keyup', function() {
+			SmsSetCounter('{{ SENDSMS_FORM_ID }}', 'msg_text_counter');
+		});
+		$("#{{ SENDSMS_FORM_ID }} textarea[name='message']").focus();
+
+		$("#{{ SENDSMS_FORM_ID }} input[name='msg_unicode']").on('focus blur click keyup', function() {
+			SmsSetCounter('{{ SENDSMS_FORM_ID }}', 'msg_text_counter');
+		});
+		$("#{{SENDSMS_FORM_ID }} input[name='sms_schedule']").datetimepicker({
 			language: '{{ lang }}',
 			format: 'YYYY-MM-DD HH:mm'
 		});
 	});
 </script>
-{{ DIALOG_DISPLAY }}
-
-<form name="fm_sendsms" id="fm_sendsms"
-	action="index.php?app=main&inc=core_sendsms&op=sendsms_yes"
-	method="POST" role="form">
-	{{ CSRF_FORM }} <input type="hidden" value="{{ sms_footer_length }}"
-		name="footerlen"> <input type="hidden"
-		value="{{ per_sms_length }}" name="maxchar"> <input
-		type="hidden" value="{{ per_sms_length_unicode }}"
-		name="maxchar_unicode"> <input type="hidden"
-		value="{{ max_sms_length }}" name="hiddcount"> <input
-		type="hidden" value="{{ max_sms_length_unicode }}"
-		name="hiddcount_unicode"> <input type="hidden"
-		value="{{ chars }}" name="chars"> <input type="hidden"
-		value="{{ SMS }}" name="SMS"> <input type="hidden"
-		value="{{ return_url }}" name="return_url">
-
-	<div class="row">
-		<div class="col-sm-12">
-			<h2 class="page-header-title">{{ Compose message }}</h2>
-		</div>
-	</div>
-	<div class="row">
-
-		<div class="col-sm-4">
-			<div class="form-group">
-				<label for="msg_combo_sendto">{{ Send to }}</label>
-				<p>
-					<input type="hidden" name="p_num_text" id=msg_combo_sendto
-						style="width: 100%" value="{{ to }}">
-				</p>
-				<p class="help-block">{{ HINT_SEND_TO }}</p>
-			</div>
-			<div class="form-group">
-				<label for="message">{{ Message }}</label>
-				<p>{{ sms_template }}</p>
-				<p>
-					<textarea name="message" id=message style="width: 100%"
-						onFocus="SmsSetCounter();" onClick="SmsSetCounter();"
-						onkeypress="SmsSetCounter();" onblur="SmsSetCounter();"
-						onKeyUp="SmsSetCounter();">{{ message }}</textarea>
-				</p>
-				<p>
-					<input type="text" id=txtcount name="txtcount" style="width: 100%"
-						value="0 char : 0 SMS" size="17"
-						onFocus="document.frmSendSms.message.focus();" readonly>
-				</p>
-			</div>
-		</div>
-
-		<div class="col-sm-4">
-			<div class="form-group">
-				<label for="msg_sender">{{ Sender ID }}</label>
-				<p>{{ sms_sender_id }}</p>
-			</div>
-			<div class="form-group">
-				<label for="msg_footer">{{ Message footer }}</label>
-				<p>
-					<input type="text" name="sms_footer" id="msg_footer"
-						style="width: 100%" value="{{ sms_footer }}">
-				</p>
-			</div>
-			<div class="form-group">
-				<label for="msg_options">{{ Options }}</label>
-				<div id="msg_options">
-					<div class="checkbox">
-						<label> <input type=checkbox name=msg_flash id="msg_flash">
-							{{ Flash message }}
-						</label>
-					</div>
-					<div class="checkbox">
-						<label> <input type=checkbox name=msg_unicode
-							id="msg_unicode" onClick="SmsSetCounter();"
-							onkeypress="SmsSetCounter();" onblur="SmsSetCounter();">
-							{{ Unicode message }}
-						</label>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-sm-4">
-			<div class="form-group">
-				<label for="msg_schedule">{{ Schedule }}</label>
-				<div class="input-group date" id="msg_schedule" style="width: 100%">
-					<input type="text" name="sms_schedule" class="form-control"
-						value="{{ sms_schedule }}" /> <span class="input-group-addon">
-						<span class="playsms-icon fa fa-calendar"></span>
-					</span>
-				</div>
-				<p class="help-block">{{ HINT_SCHEDULE }}</p>
-			</div>
-		</div>
-
-	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="form-group">
-				<input type=submit class=button value='{{ Send }}'>
-			</div>
-		</div>
-	</div>
-
-</form>

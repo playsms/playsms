@@ -1,42 +1,3 @@
-html {
-	height: 100%;
-}
-
-body {
-	height: 100%;
-}
-
-input, select, option, textarea {
-	font-size: 12pt;
-	font-weight: normal;
-	border: 1px solid;
-	padding-left: 5px;
-	margin-right: 2px;
-	margin-bottom: 2px;
-	border-radius: 3px;
-	width: 400px;
-}
-
-input[type="checkbox"] {
-	width: auto;
-}
-
-input[type="button"], input[type="submit"], .button, .submit {
-	width: auto;
-}
-
-textarea {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	resize: none;
-	outline: none;
-}
-
-table.sortable thead, table.sortable th {
-	cursor: pointer;
-}
-
 .error_string {
 	font-weight: normal;
 	font-size: medium;
@@ -246,7 +207,7 @@ table.sortable thead, table.sortable th {
 }
 
 .playsms-responsive {
-	width: 400px;
+	/* */
 }
 
 .playsms-dialog-text {
@@ -392,7 +353,6 @@ table.sortable thead, table.sortable th {
 }
 
 #msg_template_select {
-	width: 280px;
 	outline: none;
 }
 
@@ -401,30 +361,16 @@ table.sortable thead, table.sortable th {
 }
 
 #msg_combo_sendto {
-	width: 280px;
 	height: 100px;
 	margin-bottom: 10px;
 }
 
 #message {
-	width: 280px;
-	height: 100px;
-	resize: none;
 	outline: none;
 }
 
 #submenu-credit-show {
 	display: inline;
-}
-
-h2 {
-	font-size: 45px;
-	margin-bottom: 20px;
-}
-
-h3 {
-	font-size: 35px;
-	margin-bottom: 20px;
 }
 
 .page-header-title {
@@ -437,27 +383,6 @@ h3 {
 	margin-bottom: 20px;
 }
 
-.modal-body {
-	overflow: auto;
+.playsms-login-box {
+	/* */
 }
-
-/* https://stackoverflow.com/a/21323821 */
-.modal {
-	text-align: center;
-	padding: 0!important;
-}
-
-.modal:before {
-	content: '';
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-	margin-right: -4px;
-}
-
-.modal-dialog {
-	display: inline-block;
-	text-align: left;
-	vertical-align: middle;
-}
-/* /.modal  */

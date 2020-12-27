@@ -27,7 +27,13 @@ switch (_OP_) {
 		
 		// get $to and $message from session or query string
 		$to = stripslashes($_REQUEST['to']);
-		$message = (stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim(stripslashes($_SESSION['tmp']['message'])));
+		$message = (stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim(stripslashes($_SESSION['tmp']['sendsms']['message'])));
+		unset($_SESSION['tmp']['sendsms']['message']);
+		
+		// set themes_layout for popup
+		if ($_REQUEST['popup'] == 1) {
+			$_SESSION['tmp']['themes']['layout'] = 'contentonly';
+		}
 		
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
@@ -40,37 +46,39 @@ switch (_OP_) {
 			}
 			$option_values .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
-		$sms_sender_id = "<select name=sms_sender style='width: 100%'>" . $option_values . "</select>";
+		$sms_sender_id = "<select name=sms_sender class='form-control'>" . $option_values . "</select>";
 		
 		if (!$ismatched) {
-			$sms_sender_id = "<input type='text' style='width: 100%' name='sms_sender' value='" . $sms_from . "' readonly>";
+			$sms_sender_id = "<input type='text' class='form-control' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
 		
 		// SMS footer
 		$sms_footer = $user_config['footer'];
 		
+		// Send SMS form ID
+		$sendsms_form_id = 'msg_form_id_' . uniqid();
+		
 		// message template
-		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
+		$option_values = "<option value=\"\" default></option>";
 		$c_templates = sendsms_get_template();
 		for ($i = 0; $i < count($c_templates); $i++) {
 			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
 			$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
 		}
 		if ($c_templates[0]) {
-			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick=\"SetSmsTemplate();\">$option_values</select></div>";
+			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select class='form-control' onClick=\"SetSmsTemplate('" . $sendsms_form_id . "');\">$option_values</select></div>";
 		}
-		
-		$layout = ($_REQUEST['popup'] == 1 ? 'sendsms_popup' : 'sendsms');
 		
 		// build form
 		unset($tpl);
 		$tpl = array(
-			'name' => $layout,
+			'name' => 'sendsms',
 			'vars' => array(
 				'Compose message' => _('Compose message'),
 				'Sender ID' => _('Sender ID'),
 				'Message footer' => _('Message footer'),
 				'Send to' => _('Send to'),
+				'Message template' => _('Templates'),
 				'Message' => _('Message'),
 				'Flash message' => _('Flash message'),
 				'Unicode message' => _('Unicode message'),
@@ -79,6 +87,8 @@ switch (_OP_) {
 				'Schedule' => _('Schedule'),
 				'Options' => _('Options'),
 				'DIALOG_DISPLAY' => _dialog(),
+				'SENDSMS_FORM_ID' => $sendsms_form_id,
+				'SENDTO_PLACEHOLDER_TEXT' => _('Select receiver'),
 				'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users'),
@@ -88,7 +98,6 @@ switch (_OP_) {
 				'to' => $to,
 				'sms_sender_id' => $sms_sender_id,
 				'sms_template' => $sms_template,
-				'return_url' => $_REQUEST['return_url'],
 				
 				// 'sms_schedule' => core_display_datetime(core_get_datetime()),
 				'sms_schedule' => '',
@@ -101,19 +110,16 @@ switch (_OP_) {
 				'lang' => substr($user_config['language_module'], 0, 2),
 				'chars' => _('chars'),
 				'SMS' => _('SMS') 
+			),
+			'ifs' => array(
+				'normal' => ( $_REQUEST['popup'] == 1 ? false : true ),
+				'popup' => ( $_REQUEST['popup'] == 1 ? true : false )
 			)
 		);
 		_p(tpl_apply($tpl));
 		break;
 	
 	case "sendsms_yes":
-		
-		// popup related
-		$return_url = trim(htmlspecialchars_decode($_REQUEST['return_url']));
-		if ($_REQUEST['submit'] == _('Cancel')) {
-			header("Location: " . $return_url);
-			exit();
-		}
 		
 		// sender ID
 		$sms_sender = trim($_REQUEST['sms_sender']);
@@ -148,7 +154,7 @@ switch (_OP_) {
 		$message = $_REQUEST['message'];
 		
 		// save it in session for next form
-		$_SESSION['tmp']['message'] = $message;
+		$_SESSION['tmp']['sendsms']['message'] = $message;
 		
 		// destination numbers
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {
@@ -175,8 +181,15 @@ switch (_OP_) {
 		} else {
 			$_SESSION['dialog']['danger'][] = _('You must select receiver and your message should not be empty');
 		}
+
+		if ($return_url = $_SESSION['tmp']['sendsms']['return_url']) {
 		
-		if ($return_url) {
+			// clear return_url as we are out of popup
+			$_SESSION['tmp']['sendsms']['return_url'] = '';
+			
+			// also clear themes_layout
+			$_SESSION['tmp']['themes']['layout'] = '';
+			
 			header("Location: " . $return_url);
 		} else {
 			header("Location: " . _u('index.php?app=main&inc=core_sendsms&op=sendsms'));

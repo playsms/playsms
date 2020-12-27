@@ -103,7 +103,7 @@ switch (_OP_) {
 			$forward = '';
 			if ($msg && $in_sender) {
 				$reply = _sendsms($in_sender, $msg);
-				$forward = _sendsms('', $msg, '', $icon_config['forward']);
+				$forward = _sendsms('', $msg, $icon_config['forward']);
 			}
 			$message_count = $list[$j]['message_count'];
 			$view_all_link = "";

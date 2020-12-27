@@ -6,8 +6,9 @@ function common_hook_themes_apply($content) {
 	
 	$themes_lang = strtolower(substr($user_config['language_module'], 0, 2));
 	
-	if ($themes_layout = trim($_REQUEST['_themes_layout_'])) {
+	if ($themes_layout = trim($_SESSION['tmp']['themes']['layout'])) {
 		$themes_layout = 'themes_layout_' . $themes_layout;
+		unset($_SESSION['tmp']['themes']['layout']);
 	} else {
 		$themes_layout = 'themes_layout';
 	}
@@ -213,13 +214,29 @@ function common_hook_themes_dialog($type, $message) {
 	return $ret;
 }
 
-function common_hook_themes_dialog_confirmation($message, $url, $icon, $form) {
+function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $form, $load, $nofooter) {
 	$modal_id = uniqid();
 	
 	if ($form) {
 		$action = "$('#" . $url . "').submit();";
 	} else {
-		$action = "window.location.href = \"" . $url . "\"";
+		$action = "window.location.href = \"" . $url . "\";";
+	}
+	
+	if ($load) {
+		$url_to_load = $content;
+		$content_load_js = "$('#dialog_confirmation_box_content_" . $modal_id . "').load('" . $url_to_load . "');";
+		$content = "";
+	}
+	
+	if ($nofooter) {
+		$modal_footer = "";
+	} else {
+		$modal_footer = ";
+			<div class='modal-footer'>
+				<button type='button' id='confirmation_button_no_" . $modal_id . "' class='btn btn-primary' data-dismiss='modal'>" . _('No') . "</button>
+				<button type='button' id='confirmation_button_yes_" . $modal_id . "' class='btn btn-danger' data-dismiss='modal'>" . _('Yes') . "</button>
+			</div>";
 	}
 	
 	$ret .= "
@@ -230,15 +247,14 @@ function common_hook_themes_dialog_confirmation($message, $url, $icon, $form) {
 			<div class='modal-dialog' role='document'>
 				<div class='modal-content'>
 					<div class='modal-header bg-danger'>
-						<h5 class='modal-title' id='dialog_confirmation_box_title_" . $modal_id . "'>" . _('Please confirm') . "</h5>
+						<h5 class='modal-title' id='dialog_confirmation_box_title_" . $modal_id . "'>" . $title . "</h5>
 					</div>
 					<div class='modal-body'>
-						" . $message . "
+						<div id='dialog_confirmation_box_content_" . $modal_id . "'>
+							" . $content . "
+						</div>
 					</div>
-					<div class='modal-footer'>
-						<button type='button' id='confirmation_button_no_" . $modal_id . "' class='btn btn-primary' data-dismiss='modal'>" . _('No') . "</button>
-						<button type='button' id='confirmation_button_yes_" . $modal_id . "' class='btn btn-danger' data-dismiss='modal'>" . _('Yes') . "</button>
-					</div>
+					" . $modal_footer . "
 				</div>
 			</div>
 		</div>
@@ -251,6 +267,7 @@ function common_hook_themes_dialog_confirmation($message, $url, $icon, $form) {
 						" . $action . "
 						return false;
 					});
+					" . $content_load_js . "
 				});
 			});
 		</script>

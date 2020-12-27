@@ -67,28 +67,125 @@
 	}
 }
 
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+h1 {
+	font-size: 60px;
+	margin-bottom: 20px;
+}
+
+h2 {
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+
+h4 {
+	font-size: 35px;
+	margin-bottom: 20px;
+}
+
+h5 {
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+
+h6 {
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+input, select, option, textarea {
+	font-size: 12pt;
+	font-weight: normal;
+	border: 1px solid;
+	padding-left: 5px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	border-radius: 3px;
+	width: 400px;
+}
+
+input[type="checkbox"] {
+	width: auto;
+}
+
+input[type="button"], input[type="submit"], .button, .submit {
+	width: auto;
+}
+
+textarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	resize: none;
+	outline: none;
+}
+
+.modal-body {
+	overflow: auto;
+}
+
+/* https://stackoverflow.com/a/21323821 */
+.modal {
+	text-align: center;
+	padding: 0!important;
+}
+
+.modal:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -4px;
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+
+/* /.modal  */
+
+table.sortable thead, table.sortable th {
+	cursor: pointer;
+}
+
+/* ----- */
+
+#main-submenu {
+	padding: 0;
+	background-color: #f5f5f5;
+	border-radius: 3px;
+	top: 63px;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+
 #main-content {
 	padding-top: 50px;
 	height: 100%;
 	overflow: hidden;
 }
 
-#main-submenu {
-	padding: 0;
-	background-color: #f5f5f5;
-	border-radius: 3px;
-	top: 49px;
-	position: fixed;
-	width: 100%;
-	z-index: 1000;
-}
-
-#main-submenu div {
-	padding: 5px;
-}
-
 #main-footer {
 	background-color: #fafafa;
+}
+
+.playsms-responsive {
+	width: 400px;
 }
 
 .playsms-login-box {

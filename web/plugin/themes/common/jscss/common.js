@@ -6,34 +6,6 @@ function CheckUncheckAll(the_form) {
 	}
 }
 
-function PopupSendSms(sms_to, sms_message, dialog_title, return_url) {
-	BootstrapDialog.show({
-		type : BootstrapDialog.TYPE_PRIMARY,
-		title : dialog_title,
-		closable : false,
-		closeByBackdrop : false,
-		closeByKeyboard : false,
-		draggable: true,
-		message : function(dialog) {
-			var $message = $('<div></div>');
-			var pageToLoad = dialog.getData('pageToLoad');
-			$message.load(pageToLoad);
-
-			return $message;
-		},
-		data : {
-			'pageToLoad' : 'index.php?app=main&inc=core_sendsms&op=sendsms&to='
-					+ sms_to + '&message=' + sms_message
-					+ '&popup=1&_themes_layout_=contentonly' + '&return_url='
-					+ return_url
-		}
-	});
-}
-
-function PopupReplySms(sms_to, sms_message, dialog_title, return_url) {
-	PopupSendSms(sms_to, sms_message, dialog_title, return_url);
-}
-
 function linkto(url) {
 	window.location.href = url;
 }
@@ -61,50 +33,14 @@ function ConfirmURL(text, goto_url) {
 	}
 }
 
-function SetSmsTemplate() {
-	sellength = document.forms.fm_sendsms.smstemplate.length;
+function SetSmsTemplate(form_name) {
+	sellength = document.getElementById(form_name).smstemplate.length;
 	for (i = 0; i < sellength; i++) {
-		if (document.forms.fm_sendsms.smstemplate.options[i].selected == true) {
-			document.forms.fm_sendsms.message.value = document.forms.fm_sendsms.smstemplate.options[i].value;
+		if (document.getElementById(form_name).smstemplate.options[i].selected == true) {
+			document.getElementById(form_name).message.value = document.getElementById(form_name).smstemplate.options[i].value;
 		}
 	}
-}
-
-function SmsTextCounter() {
-	var msg = document.fm_sendsms.message;
-	var msg_len = parseInt(msg.value.length);
-	var msg_unicode = document.fm_sendsms.msg_unicode;
-	var footerlen = parseInt(document.forms.fm_sendsms.footerlen.value);
-	var maxChar = document.forms.fm_sendsms.maxchar.value;
-	var maxChar_unicode = document.forms.fm_sendsms.maxchar_unicode.value;
-	var maxlimit = document.fm_sendsms.hiddcount.value;
-	var maxlimit_unicode = document.fm_sendsms.hiddcount_unicode.value;
-	var chars = document.fm_sendsms.chars.value;
-	var SMS = document.fm_sendsms.SMS.value;
-	var limit;
-	var devider;
-	var msgcount;
-	var result;
-
-	if (msg_unicode.checked) {
-		limit = maxlimit_unicode;
-		devider = 70;
-		if (msg_len > 70) {
-			devider = 67;
-		}
-	} else {
-		limit = maxlimit;
-		devider = 160;
-		if (msg_len > 160) {
-			devider = 153;
-		}
-	}
-	if (msg_len > limit) {
-		msg.value = msg.value.substring(0, limit);
-	}
-	msgcount = Math.ceil((msg_len + footerlen) / devider);
-	result = msg_len + footerlen + ' ' + chars + ' : ' + msgcount + ' ' + SMS;
-	return result;
+	document.getElementById(form_name).message.focus();
 }
 
 function isGSMAlphabet(text) {
@@ -113,19 +49,57 @@ function isGSMAlphabet(text) {
 	return regexp.test(text);
 }
 
-function SmsSetCounter() {
-	var msg = document.fm_sendsms.message;
-	var ftr = document.fm_sendsms.msg_footer;
-	var msg_unicode = document.fm_sendsms.msg_unicode;
+function SmsTextCounter(form_name) {
+	var msg = document.getElementById(form_name).message;
+	var msglen = parseInt(msg.value.length, 10);
+	var msg_unicode = document.getElementById(form_name).msg_unicode;
+	var footerlen = parseInt(document.getElementById(form_name).footerlen.value, 10);
+	var maxChar = parseInt(document.getElementById(form_name).maxchar.value, 10);
+	var maxChar_unicode = parseInt(document.getElementById(form_name).maxchar_unicode.value, 10);
+	var maxlimit = parseInt(document.getElementById(form_name).hiddcount.value, 10);
+	var maxlimit_unicode = parseInt(document.getElementById(form_name).hiddcount_unicode.value, 10);
+	var chars = parseInt(document.getElementById(form_name).chars.value, 10);
+	var SMS = document.getElementById(form_name).SMS.value;
+	var limit;
+	var devider;
+	var msgcount;
+	var result;
+
+	if (msg_unicode.checked) {
+		limit = maxlimit_unicode;
+		devider = 70;
+		if (msglen > 70) {
+			devider = 67;
+		}
+	} else {
+		limit = maxlimit;
+		devider = 160;
+		if (msglen > 160) {
+			devider = 153;
+		}
+	}
+	if (msglen > limit) {
+		msg.value = msg.value.substring(0, limit);
+	}
+	msgcount = Math.ceil((msglen + footerlen) / parseInt(devider));
+	msglen = parseInt(msglen) + parseInt(footerlen);
+	result = msgcount + ' / ' + msglen;
+	return result;
+}
+
+function SmsSetCounter(form_name, span_id) {
+	var msg = document.getElementById(form_name).message;
+	var ftr = document.getElementById(form_name).msg_footer;
+	var msg_unicode = document.getElementById(form_name).msg_unicode;
 	var detect = !isGSMAlphabet(msg.value + ftr.value);
 	msg_unicode.checked = detect;
 	if (ftr.value.length > 0) {
-		document.forms.fm_sendsms.footerlen.value = ftr.value.length + 1;
+		document.getElementById(form_name).footerlen.value = ftr.value.length + 1;
 	} else {
-		document.forms.fm_sendsms.footerlen.value = 0;
+		document.getElementById(form_name).footerlen.value = 0;
 	}
-	var ilen = SmsTextCounter();
-	document.fm_sendsms.txtcount.value = ilen;
+	var ilen = SmsTextCounter(form_name);
+	document.getElementById(form_name).querySelector('#' + span_id).textContent = ilen;
 }
 
 /*

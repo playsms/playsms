@@ -132,16 +132,24 @@ function _dialog($contents = array()) {
  * Display confirmation dialog
  * Shortcut to themes_dialog_confirmation()
  *
- * @param string $message
- *        Dialog message
+ * @param string $content
+ *        Dialog message or page URL to load
  * @param string $url
  *        Goto URL when confirmed
  * @param string $icon
  *        $icon_config[icon name] or icon name, or empty
+ * @param string $title
+ *        Dialog title
+ * @param boolean $form
+ *        If $url is form name instead
+ * @param boolean $load
+ *        If $content is page URL to load instead
+ * @param boolean $nofooter
+ *        Show or hide dialog confirmation buttons
  * @return string HTML string of error strings
  */
-function _confirm($message, $url, $icon = '') {
-	return themes_dialog_confirmation($message, $url, $icon, false);
+function _confirm($content, $url, $icon = '', $title = '', $form = false, $load = false, $nofooter = false) {
+	return themes_dialog_confirmation($content, $url, $icon, $title, $form, $load, $nofooter);
 }
 
 /**
@@ -157,7 +165,7 @@ function _confirm($message, $url, $icon = '') {
  * @return string HTML string of error strings
  */
 function _submit($message, $form, $icon = '') {
-	return themes_dialog_confirmation($message, $form, $icon, true);
+	return themes_dialog_confirmation($message, $form, $icon, '', true);
 }
 
 /**
@@ -195,14 +203,12 @@ function _log($log, $level, $label) {
  *        Default destination
  * @param string $message
  *        Default or previous message
- * @param string $return_url
- *        If empty this would be $_SERVER['REQUEST_URI']
  * @param string $button_icon
  *        If empty this would be a reply icon
- * @return string Javascript PopupSendsms()
+ * @return string
  */
-function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
-	return themes_popup_sendsms($to, $message, $return_url, $button_icon);
+function _sendsms($to = "", $message = "", $button_icon = "") {
+	return themes_popup_sendsms($to, $message, $button_icon);
 }
 
 /**
