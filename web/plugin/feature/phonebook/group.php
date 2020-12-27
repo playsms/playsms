@@ -79,7 +79,7 @@ switch (_OP_) {
 					<td><a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $gpid) . "'>" . $name . "</a></td>
 					<td>" . $phonebook_flag_sender[$flag_sender] . " " . $code . "</td>
 					<td>" . _confirm(
-								_('Are you sure you want to delete this group ?') . " (" ._('Group') . " : " . $name . ")", 
+								_('Are you sure you want to delete this group ?') . " (" ._('group') . " : " . $name . ")", 
 								_u('index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=delete&gpid=' . $gpid), 
 								'delete') . "
 					</td>
