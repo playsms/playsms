@@ -78,14 +78,14 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-			<if.popup>
-			var CURRENT_CSRF_TOKEN = $("#{{ SENDSMS_FORM_ID }} input[name='X-CSRF-Token']").val();
-			$("input[name='X-CSRF-Token']").each(function(){
-				$(this).val(CURRENT_CSRF_TOKEN);
-			});
-			</if.popup>
+		<if.popup>
+		var CURRENT_CSRF_TOKEN = $("#{{ SENDSMS_FORM_ID }} input[name='X-CSRF-Token']").val();
+		$("input[name='X-CSRF-Token']").each(function(){
+			$(this).val(CURRENT_CSRF_TOKEN);
+		});
+		</if.popup>
 			
-			$("#{{ SENDSMS_FORM_ID }} input[name='p_num_text']").select2({
+		$("#{{ SENDSMS_FORM_ID }} input[name='p_num_text']").select2({
 			multiple: true,
 			placeholder: "{{ SENDTO_PLACEHOLDER_TEXT }}",
 			allowClear: true,
