@@ -64,15 +64,17 @@ switch (_OP_) {
 		$sendsms_form_id = 'msg_form_id_' . uniqid();
 		
 		// message template
-		$option_values = "<option value=\"\" default></option>";
+		$option_values = "<option value=\"\" title=\"\" default></option>";
 		$c_templates = sendsms_get_template();
 		for ($i = 0; $i < count($c_templates); $i++) {
 			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
-			$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
 		}
-		if ($c_templates[0]) {
-			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select class='form-control' onClick=\"SetSmsTemplate('" . $sendsms_form_id . "');\">$option_values</select></div>";
-		}
+		$sms_template = "
+			<div id=msg_template>
+				<select name=smstemplate id=msg_template_select class='form-control' onClick=\"SetSmsTemplate('" . $sendsms_form_id . "');\">
+					" . $option_values . "
+				</select>
+			</div>";
 		
 		// build form
 		unset($tpl);
