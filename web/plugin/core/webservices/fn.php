@@ -511,6 +511,23 @@ function webservices_output($operation, $requests, $returns) {
 			'charset' => 'utf-8' 
 		) 
 	);
+
+	// fixme anton
+	// this is special treatment to allow hooks from certain core plugin
+	// plugin core phonebook
+	if ($ret_intercept = core_hook('phonebook', 'webservices_output', array(
+		$operation,
+		$requests,
+		$returns 
+	))) {
+		if ($ret_intercept['modified']) {
+			$returns['modified'] = TRUE;
+			$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
+			$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
+			$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
+			$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
+		}
+	}
 	
 	// plugin feature
 	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
