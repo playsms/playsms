@@ -41,14 +41,17 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$action = "<a href=\"" . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_edit&rateid=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete rate ?') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")','" . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_del&rateid=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
+			$action .= _confirm(
+				_('Are you sure you want to delete rate ?') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")",
+				_u('index.php?app=main&inc=feature_simplerate&op=simplerate_del&rateid=' . $db_row['id']),
+				'delete');
 			$i++;
 			$content .= "
 				<tr>
 					<td>" . $db_row['dst'] . "</td>
 					<td>" . $db_row['prefix'] . "</td>
 					<td>" . $db_row['rate'] . "</td>
-					<td>$action</td>
+					<td>" . $action . "</td>
 				</tr>";
 		}
 		$content .= "

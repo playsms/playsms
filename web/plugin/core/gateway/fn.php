@@ -280,7 +280,7 @@ function _gateway_display_smsc() {
 			$c_link_edit = "<a href='" . _u($smsc['link_edit']) . "'>" . $icon_config['edit'] . "</a>";
 			
 			$smsc['link_del'] = "index.php?app=main&inc=core_gateway&op=del_smsc&id=" . $smsc['id'];
-			$c_link_del = "<a href=\"javascript: ConfirmURL('" . _('Are you sure ?') . "', '" . _u($smsc['link_del']) . "')\">" . $icon_config['delete'] . "</span></a>";
+			$c_link_del = _confirm(_('Are you sure ?'), _u($smsc['link_del']), 'delete');
 		}
 		
 		$content .= "

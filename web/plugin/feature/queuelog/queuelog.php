@@ -54,7 +54,7 @@ switch (_OP_) {
 				<th width=15%>" . _('Scheduled') . "</th>
 				<th width=10%>" . _('Count') . "</th>
 				<th width=30%>" . _('Message') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=1%>" . $icon_config['action'] . "</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -69,7 +69,10 @@ switch (_OP_) {
 			$c_count = $data[$c]['sms_count'];
 			
 			$c_message = stripslashes(core_display_text($data[$c]['message']));
-			$c_action = "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete queue")) . " " . $c_queue_code . " ?','" . _u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete&queue=' . $c_queue_code) . "')\">" . $icon_config['delete'] . "</a>";
+			$c_action = _confirm(
+				_("Are you sure you want to delete queue ?") . " (" . _('queue'). ": " . $c_queue_code . ")",
+				_u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete&queue=' . $c_queue_code),
+				'delete');
 			$content .= "
 				<tr>
 			";

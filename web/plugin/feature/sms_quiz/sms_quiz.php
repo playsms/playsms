@@ -56,8 +56,8 @@ switch (_OP_) {
 				if ($db_row['quiz_enable']) {
 					$quiz_status = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_status&quiz_id=' . $db_row['quiz_id'] . '&ps=0') . "\"><span class=status_enabled /></a>";
 				}
-				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=' . $db_row['quiz_id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
-				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=' . $db_row['quiz_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
+				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_answer_view&quiz_id=' . $db_row['quiz_id']) . "\">" . $icon_config['view'] . "</a>";
+				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_edit&quiz_id=' . $db_row['quiz_id']) . "\">" . $icon_config['edit'] . "</a>";
 				 $action .= _confirm(
 					_('Are you sure you want to delete SMS quiz with all its choices and answers ?') . " (" . _('keyword') . ": " . $db_row['quiz_keyword'] . ")",
 					_u('index.php?app=main&inc=feature_sms_quiz&op=sms_quiz_del&quiz_id=' . $db_row['quiz_id']),

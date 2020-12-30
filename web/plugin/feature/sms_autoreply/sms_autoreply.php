@@ -64,9 +64,12 @@ switch (_OP_) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $db_row['autoreply_id']) . "\">" . $icon_config['manage'] . "</a>&nbsp;";
-				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit&autoreply_id=' . $db_row['autoreply_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS autoreply ?') . " (" . _('keyword') . ": " . $db_row['autoreply_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=' . $db_row['autoreply_id']) . "')\">" . $icon_config['delete'] . "</a>";
+				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $db_row['autoreply_id']) . "\">" . $icon_config['manage'] . "</a>";
+				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit&autoreply_id=' . $db_row['autoreply_id']) . "\">" . $icon_config['edit'] . "</a>";
+				$action .= _confirm(
+					_('Are you sure you want to delete SMS autoreply ?') . " (" . _('keyword') . ": " . $db_row['autoreply_keyword'] . ")",
+					_u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=' . $db_row['autoreply_id']),
+					'delete');
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -123,7 +126,10 @@ switch (_OP_) {
 					$list_of_param .= $db_row['autoreply_scenario_param' . $i] . "&nbsp;";
 				}
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $db_row['autoreply_scenario_id']) . "\">" . $icon_config['edit'] . "</a>";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete this SMS autoreply scenario ?') . "','" . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $db_row['autoreply_scenario_id']) . "')\">" . $icon_config['delete'] . "</a>";
+				$action .= _confirm(
+					_('Are you sure you want to delete this SMS autoreply scenario ?'),
+					_u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $db_row['autoreply_scenario_id']),
+					'delete');
 				if (auth_isadmin()) {
 					$option_owner = "<td>" . $owner . "</td>";
 				}

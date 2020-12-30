@@ -48,7 +48,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=20%>" . _('Title') . "</th>
+				<th width=25%>" . _('Title') . "</th>
 				<th width=5% nowrap>" . _('Once') . " " . _hint(_('Senders sent once')) . "</th>
 				<th width=5% nowrap>" . _('Multi') . " " . _hint(_('Senders sent multi votes')) . "</th>
 				<th width=5% nowrap>" . _('Valid') . " " . _hint(_('Total valid SMS')) . "</th>
@@ -56,18 +56,18 @@ switch (_OP_) {
 				<th width=5% nowrap>" . _('All') . " " . _hint(_('Grand total SMS')) . "</th>
 				<th width=15%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=15%>" . _('Action') . "</th>";
+				<th width=10%>" . _('Action') . "</th>";
 		} else {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=35%>" . _('Title') . "</th>
+				<th width=40%>" . _('Title') . "</th>
 				<th width=5% nowrap>" . _('Once') . " " . _hint(_('Senders sent once')) . "</th>
 				<th width=5% nowrap>" . _('Multi') . " " . _hint(_('Senders sent multi votes')) . "</th>
 				<th width=5% nowrap>" . _('Valid') . " " . _hint(_('Total valid SMS')) . "</th>
 				<th width=5% nowrap>" . _('Invalid') . " " . _hint(_('Total invalid SMS')) . "</th>
 				<th width=5% nowrap>" . _('All') . " " . _hint(_('Grand total SMS')) . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=15%>" . _('Action') . "</th>";
+				<th width=10%>" . _('Action') . "</th>";
 		}
 		$content .= "
 			</tr></thead>
@@ -84,10 +84,13 @@ switch (_OP_) {
 				if ($db_row['poll_enable']) {
 					$poll_status = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_status&poll_id=' . $db_row['poll_id'] . '&ps=0') . "\"><span class=status_enabled /></a>";
 				}
-				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&route=view&op=list&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
-				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&route=export&op=list&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['export'] . "</a>&nbsp;";
-				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS poll with all its choices and votes ?') . " (" . _('keyword') . ": " . $db_row['poll_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_del&poll_id=' . $db_row['poll_id']) . "')\">" . $icon_config['delete'] . "</a>";
+				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&route=view&op=list&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['view'] . "</a>";
+				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&route=export&op=list&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['export'] . "</a>";
+				$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $db_row['poll_id']) . "\">" . $icon_config['edit'] . "</a>";
+				$action .= _confirm(
+					_('Are you sure you want to delete SMS poll with all its choices and votes ?') . " (" . _('keyword') . ": " . $db_row['poll_keyword'] . ")",
+					_u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_del&poll_id=' . $db_row['poll_id']),
+					'delete');
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -339,8 +342,8 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=20%>" . _('Choice keyword') . "</th>
-				<th width=70%>" . _('Description') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=79%>" . _('Description') . "</th>
+				<th width=1%>" . $icon_config['action'] . "</th>
 			</tr></thead>
 			<tbody>";
 		$i = 0;
@@ -348,12 +351,16 @@ switch (_OP_) {
 			$choice_id = $db_row['choice_id'];
 			$choice_keyword = $db_row['choice_keyword'];
 			$choice_title = $db_row['choice_title'];
+			$action = _confirm(
+				_('Are you sure you want to delete choice ?') . " (" . _('choice') . ": " . $choice_keyword . ")",
+				_u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=' . $poll_id . '&choice_id=' . $choice_id), 
+				'delete');
 			$i++;
 			$content .= "
 				<tr>
-					<td>$choice_keyword</td>
-					<td>$choice_title</td>
-					<td><a href=\"javascript:ConfirmURL('" . _('Are you sure you want to delete choice ?') . " (" . _('title') . ": " . addslashes($choice_title) . ", " . _('keyword') . ": " . $choice_keyword . ")','" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=' . $poll_id . '&choice_id=' . $choice_id) . "');\">" . $icon_config['delete'] . "</a></td>
+					<td>" . $choice_keyword . "</td>
+					<td>" . $choice_title . "</td>
+					<td>" . $action . "</td>
 				</tr>";
 		}
 		$content .= "

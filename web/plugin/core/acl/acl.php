@@ -42,7 +42,10 @@ switch (_OP_) {
 		while ($db_row = dba_fetch_array($db_result)) {
 			$action = "<a href=\"" . _u('index.php?app=main&inc=core_acl&route=view&op=user_list&id=' . $db_row['id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
 			$action .= "<a href=\"" . _u('index.php?app=main&inc=core_acl&op=edit&id=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete ACL ?') . " (" . _('ACL ID') . ": " . $db_row['id'] . ")','" . _u('index.php?app=main&inc=core_acl&op=del&id=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
+			$action .= _confirm(
+				_('Are you sure you want to delete ACL ?') . " (" . _('ACL ID') . ": " . $db_row['id'] . ")", 
+				_u('index.php?app=main&inc=core_acl&op=del&id=' . $db_row['id']), 
+				'delete');
 			$i++;
 			$content .= "
 					<tr>

@@ -95,7 +95,7 @@ switch (_OP_) {
 				</tr></thead>
 				<tbody>";
 			foreach ($list as $db_row) {
-				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_edit&schedule_id=' . $id . '&id=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
+				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_edit&schedule_id=' . $id . '&id=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>";
 				$action .= _confirm(
 					_('Are you sure you want to remove this number from SMS schedule ?') . " (" . $db_row['name'] . " " . $db_row['destination'] . ")",
 					_u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_del&schedule_id=' . $id . '&id=' . $db_row['id']),

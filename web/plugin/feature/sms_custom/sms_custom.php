@@ -61,7 +61,7 @@ switch (_OP_) {
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id=' . $db_row['custom_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
+				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_edit&custom_id=' . $db_row['custom_id']) . "\">" . $icon_config['edit'] . "</a>";
 				$action .= _confirm(
 					_('Are you sure you want to delete SMS custom ?') . " (" . _('keyword') . ": " . $db_row['custom_keyword'] . ")",
 					_u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_del&custom_id=' . $db_row['custom_id']),

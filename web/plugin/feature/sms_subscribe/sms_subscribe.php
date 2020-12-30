@@ -85,8 +85,11 @@ switch (_OP_) {
 				if ($db_row['subscribe_enable']) {
 					$subscribe_status = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=' . $db_row['subscribe_id'] . '&ps=0') . "\"><span class=status_enabled /></a>";
 				}
-				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=' . $db_row['subscribe_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete SMS subscribe ?') . " (" . _('keyword') . ": " . $db_row['subscribe_keyword'] . ")','" . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=' . $db_row['subscribe_id']) . "')\">" . $icon_config['delete'] . "</a>";
+				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=' . $db_row['subscribe_id']) . "\">" . $icon_config['edit'] . "</a>";
+				$action .= _confirm(
+					_('Are you sure you want to delete SMS subscribe ?') . " (" . _('keyword') . ": " . $db_row['subscribe_keyword'] . ")",
+					_u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=' . $db_row['subscribe_id']),
+					'delete');
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -487,13 +490,16 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=50%>" . _('Phone number') . "</th>
-				<th width=40%>" . _('Member join datetime') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=49%>" . _('Member join datetime') . "</th>
+				<th width=1%>" . $icon_config['action'] . "</th>
 			</tr></thead>
 			<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$action = "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete this member ?') . "','" . _u('index.php?app=main&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=' . $subscribe_id . '&mbr_id=' . $db_row['member_id']) . "')\">" . $icon_config['delete'] . "</a>";
+			$action = _confirm(
+				_('Are you sure you want to delete this member ?'),
+				_u('index.php?app=main&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=' . $subscribe_id . '&mbr_id=' . $db_row['member_id']),
+				'delete');
 			$i++;
 			$content .= "
 				<tr>
@@ -540,9 +546,12 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
-			$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_view&subscribe_id=' . $db_row['subscribe_id'] . '&msg_id=' . $db_row['msg_id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
-			$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=' . $subscribe_id . '&msg_id=' . $db_row['msg_id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete this message?') . "','" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_del&subscribe_id=' . $subscribe_id . '&msg_id=' . $db_row['msg_id']) . "')\">" . $icon_config['delete'] . "</a>";
+			$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_view&subscribe_id=' . $db_row['subscribe_id'] . '&msg_id=' . $db_row['msg_id']) . "\">" . $icon_config['view'] . "</a>";
+			$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=' . $subscribe_id . '&msg_id=' . $db_row['msg_id']) . "\">" . $icon_config['edit'] . "</a>";
+			$action .= _confirm(
+				_('Are you sure you want to delete this message?'),
+				_u('index.php?app=main&inc=feature_sms_subscribe&op=msg_del&subscribe_id=' . $subscribe_id . '&msg_id=' . $db_row['msg_id']),
+				'delete');
 			$i++;
 			$content .= "
 				<tr>
