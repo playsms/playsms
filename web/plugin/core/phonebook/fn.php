@@ -166,3 +166,68 @@ function phonebook_search_user($uid, $keyword = "", $count = 0) {
 	$ret = core_call_hook();
 	return $ret;
 }
+
+function phonebook_webservices_output($keyword, $items) {
+	global $core_config;
+	
+	$ret = array();
+	$ret_final = array();
+	
+	// feature list
+	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		$c_feature = $core_config['plugins']['list']['feature'][$c];
+		$ret = core_hook($c_feature, 'phonebook_webservices_output', array(
+			$keyword,
+			$items
+		));
+		if ($ret['modified']) {
+			$items = ( $ret['param']['items'] ? $ret['param']['items'] : $items );
+			$ret_final['modified'] = $ret['modified'];
+			$ret_final['cancel'] = $ret['cancel'];
+			$ret_final['param']['items'] = $items;
+		}
+	}
+	
+	return $ret_final;
+}
+
+function phonebook_hook_webservices_output($operation, $requests, $returns) {
+	$items = array();
+	
+	$keyword = stripslashes($requests['keyword']);
+	if (!$keyword) {
+		$keyword = $requests['tag'];
+	}
+	
+	if (!($operation == 'phonebook' && $keyword)) {
+		return FALSE;
+	}
+	
+	if (!auth_isvalid()) {
+		return FALSE;
+	}
+	
+	if ($returns['modified'] && $returns['param']['operation'] == 'phonebook' && isset($returns['param']['content'])) {
+		$items = json_decode($returns['param']['content'], TRUE);
+	}
+	
+	$ret = phonebook_webservices_output($keyword, $items);
+
+	if ($ret['modified'] && isset($ret['param']['items'])) {
+		$items = $ret['param']['items'];
+	} else {
+		$items[] = array(
+			'id' => $keyword,
+			'text' => $keyword 
+		);
+	}
+	
+	$returns['modified'] = TRUE;
+	$returns['param']['content'] = json_encode($items);
+	
+	if ($requests['debug'] == '1') {
+		$returns['param']['content-type'] = "text/plain";
+	}
+	
+	return $returns;
+}

@@ -301,34 +301,17 @@ function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0, $
 	return $ret;
 }
 
-function phonebook_hook_webservices_output($operation, $requests, $returns) {
+function phonebook_hook_phonebook_webservices_output($keyword, $items) {
 	global $user_config;
 	
-	$keyword = stripslashes($requests['keyword']);
-	if (!$keyword) {
-		$keyword = $requests['tag'];
-	}
-	
-	if (!($operation == 'phonebook' && $keyword)) {
-		return FALSE;
-	}
-	
-	if (!auth_isvalid()) {
-		return FALSE;
-	}
-	
-	if ($returns['modified'] && $returns['param']['operation'] == 'phonebook') {
-		$item = json_decode($returns['param']['content'], TRUE);
-	} else {
-		$item = array();
-	}
+	$ret = array();
 	
 	if ($keyword && $user_config['uid']) {
 		if (substr($keyword, 0, 1) == '@') {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_user($user_config['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array(
+				$items[] = array(
 					'id' => '@' . $data['username'],
 					'text' => '@' . $data['name'] 
 				);
@@ -337,7 +320,7 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 			$keyword = substr($keyword, 1);
 			$list = phonebook_search_group($user_config['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array(
+				$items[] = array(
 					'id' => '#' . $data['code'],
 					'text' => _('Group') . ': ' . $data['group_name'] . ' (' . $data['code'] . ')' 
 				);
@@ -345,7 +328,7 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 		} else {
 			$list = phonebook_search($user_config['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array(
+				$items[] = array(
 					'id' => $data['p_num'],
 					'text' => $data['p_desc'] . ' (' . $data['p_num'] . ')' 
 				);
@@ -353,22 +336,10 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 		}
 	}
 	
-	// safety net
-	if (count($item) == 0) {
-		$item[] = array(
-			'id' => $keyword,
-			'text' => $keyword 
-		);
-	}
+	$ret['modified'] = TRUE;
+	$ret['param']['items'] = $items;
 	
-	$returns['modified'] = TRUE;
-	$returns['param']['content'] = json_encode($item);
-	
-	if ($requests['debug'] == '1') {
-		$returns['param']['content-type'] = "text/plain";
-	}
-	
-	return $returns;
+	return $ret;
 }
 
 /**
