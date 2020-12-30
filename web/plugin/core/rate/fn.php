@@ -42,7 +42,43 @@ function rate_deductusercredit($uid, $amount = 0) {
 }
 
 function rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
-	return core_call_hook();
+	$ret = core_call_hook();
+
+	// fixme anton - we'll calculate count, rate and charge if no hook found	
+	// count, rate, charge must exists (can be zero)
+	if (!(isset($ret[0]) && isset($ret[1]) && isset($ret[2]))) {
+		// default length per SMS
+		$length = ($unicode ? 70 : 160);
+
+		// connector pdu length
+		$minus = ($unicode ? 3 : 7);
+
+		// count unicodes as normal SMS
+		$user = user_getdatabyuid($uid);
+		if ($unicode && $user['opt']['enable_credit_unicode']) {
+			$length = 140;
+		}
+
+		// get sms count
+		$count = 1;
+		if ($sms_len > $length) {
+			$count = ceil($sms_len / ($length - $minus));
+		}
+
+		// calculate charges
+		$rate = 0;
+		$charge = 0;
+
+		_log('uid:' . $uid . ' u:' . $user['username'] . ' len:' . $sms_len . ' unicode:' . $unicode . ' to:' . $sms_to . ' enable_credit_unicode:' . (int) $user['opt']['enable_credit_unicode'] . ' count:' . $count . ' rate:' . $rate . ' charge:' . $charge, 3, 'rate_getcharges');
+
+		$ret = array(
+			$count,
+			$rate,
+			$charge
+		);
+	}
+	
+	return $ret;
 }
 
 function rate_cansend($username, $sms_len, $unicode, $sms_to) {
