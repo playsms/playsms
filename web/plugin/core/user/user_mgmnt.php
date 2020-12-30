@@ -125,11 +125,17 @@ switch (_OP_) {
 			if ($list[$i]['uid'] != '1' || $list[$i]['uid'] != $user_config['uid']) {
 				if (user_banned_get($list[$i]['uid'])) {
 					// unban
-					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to unban account")) . " " . $list[$i]['username'] . " ?','" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_unban&uname=' . $list[$i]['username']) . "&view=" . $view . "')\">" . $icon_config['unban'] . "</a>";
+					$action .= _confirm(
+						_("Are you sure you want to unban account") . " " . $list[$i]['username'] . " ?",
+						_u("index.php?app=main&inc=core_user&route=user_mgmnt&op=user_unban&uname=" . $list[$i]['username'] . "&view=" . $view),
+						'unban');
 					$banned_icon = $icon_config['ban'];
 				} else {
 					// ban
-					$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to ban account")) . " " . $list[$i]['username'] . " ?','" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_ban&uname=' . $list[$i]['username']) . "&view=" . $view . "')\">" . $icon_config['ban'] . "</a>";
+					$action .= _confirm(
+						_("Are you sure you want to ban account") . " " . $list[$i]['username'] . " ?",
+						_u("index.php?app=main&inc=core_user&route=user_mgmnt&op=user_ban&uname=" . $list[$i]['username'] . "&view=" . $view),
+						'ban');
 					$banned_icon = '';
 				}
 			}
@@ -139,7 +145,10 @@ switch (_OP_) {
 			if (count($subusers) > 0) {
 				$action .= _hint(_('Please remove all subusers from this user to delete'));
 			} else {
-				$action .= "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete user")) . " " . $list[$i]['username'] . " ?','" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del&uname=' . $list[$i]['username']) . "&view=" . $view . "')\">" . $icon_config['user_delete'] . "</a>";
+				$action .= _confirm(
+					_("Are you sure you want to delete user") . " " . $list[$i]['username'] . " ?",
+					_u("index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "&view=" . $view),
+					'user_delete');
 			}
 			
 			// subuser shows parent column

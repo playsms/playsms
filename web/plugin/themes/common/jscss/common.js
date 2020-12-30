@@ -10,29 +10,6 @@ function linkto(url) {
 	window.location.href = url;
 }
 
-function ConfirmURL(text, goto_url) {
-	if (text) {
-		BootstrapDialog.show({
-			type : BootstrapDialog.TYPE_DANGER,
-			title : 'Please confirm',
-			message : text,
-			buttons : [ {
-				label : 'No',
-				cssClass : 'btn-primary',
-				action : function(dialogItself) {
-					dialogItself.close();
-				}
-			}, {
-				label : 'Yes',
-				cssClass : 'btn-success',
-				action : function() {
-					document.location = goto_url;
-				}
-			} ]
-		});
-	}
-}
-
 function SetSmsTemplate(form_name) {
 	sellength = document.getElementById(form_name).smstemplate.length;
 	for (i = 0; i < sellength; i++) {

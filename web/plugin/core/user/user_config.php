@@ -164,10 +164,16 @@ switch (_OP_) {
 			
 
 			if ($is_parent) {
-				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del" . $url_uname . "')\">";
+				$button_delete = _confirm(
+					_('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")", 
+					_u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del' . $url_uname),
+					"<input type=button class=button value='" . _('Delete') . "'>");
 				$button_back = _back('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list');
 			} else {
-				$button_delete = "<input type=button class=button value='" . _('Delete') . "' onClick=\"javascript: ConfirmURL('" . _('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")','index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del" . $url_uname . "&view=" . $view . "')\">";
+				$button_delete = _confirm(
+					_('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")",
+					_u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del' . $url_uname . '&view=' . $view),
+					"<input type=button class=button value='" . _('Delete') . "'>");
 				$button_back = _back('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view);
 			}
 		} else {

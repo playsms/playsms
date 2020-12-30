@@ -31,7 +31,13 @@ switch (_OP_) {
 		
 		$count = queuelog_countall();
 		if ($count) {
-			$content .= "<p><a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete ALL queues")) . " ?','" . _u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete_all') . "')\">" . $icon_config['delete'] . _("Delete ALL queues") . " ($count)</a></p>";
+			$content .= "
+				<p>
+					" . _confirm(
+							_("Are you sure you want to delete ALL queues ?"), 
+							_u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete_all'),
+							$icon_config['delete'] . _("Delete ALL queues") . " ($count)") . "
+				</p>";
 		}
 		
 		$content .= "<div align=center>" . $nav['form'] . "</div>
