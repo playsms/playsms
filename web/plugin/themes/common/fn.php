@@ -182,8 +182,8 @@ function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 function common_hook_themes_dialog($type, $message) {
 	$modal_id = uniqid();
 
+	$ret .= "<!-- Modal " . $modal_id . " -->";
 	$ret .= "
-		<!-- Modal " . $modal_id . " -->
 		<div class='modal fade' id='dialog_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_box_title' aria-hidden='true'>
 			<div class='modal-dialog' role='document'>
 				<div class='modal-content'>
@@ -208,8 +208,7 @@ function common_hook_themes_dialog($type, $message) {
 				});
 			});
 		</script>
-		<!-- /Modal " . $modal_id . "-->
-	";
+		<!-- /Modal " . $modal_id . "-->";
 
 	return $ret;
 }
@@ -239,10 +238,9 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 			</div>";
 	}
 	
+	$ret .= "<!-- Modal " . $modal_id . "-->";
+	$ret .= "<a href='#' data-toggle='modal' data-target='#dialog_confirmation_box_" . $modal_id . "' id='confirmation_icon_" . $modal_id . "' class='confirmation-icon'>" . $icon . "</a>";
 	$ret .= "
-		<!-- Modal " . $modal_id . "-->
-		<a href='#' data-toggle='modal' data-target='#dialog_confirmation_box_" . $modal_id . "' id='confirmation_icon_" . $modal_id . "' class='confirmation-icon'>" . $icon . "</a>
-		
 		<div class='modal fade' id='dialog_confirmation_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_confirmation_box_title_" . $modal_id . "' aria-hidden='true'>
 			<div class='modal-dialog' role='document'>
 				<div class='modal-content'>
@@ -271,8 +269,7 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 				});
 			});
 		</script>
-		<!-- /Modal " . $modal_id . "-->
-	";
+		<!-- /Modal " . $modal_id . "-->";
 
 	return $ret;
 }
