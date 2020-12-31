@@ -68,7 +68,7 @@ switch (_OP_) {
 					'delete');
 				$sms_receiver = '';
 				if ($db_row['sms_receiver']) {
-					$sms_receiver = "<div name=sms_custom_sms_receiver><span class=\"playsms-icon fa fa-phone-square\" alt=\"" . _('Receiver number') . "\" title=\"" . _('Receiver number') . "\"></span>" . $db_row['sms_receiver'] . "</div>";
+					$sms_receiver = "<div name=sms_custom_sms_receiver><span class=\"playsms-icon fas fa-phone-square\" alt=\"" . _('Receiver number') . "\" title=\"" . _('Receiver number') . "\"></span>" . $db_row['sms_receiver'] . "</div>";
 				}
 				$custom_url = $db_row['custom_url'];
 				if (auth_isadmin()) {
@@ -79,9 +79,9 @@ switch (_OP_) {
 					<tr>
 						<td>" . $db_row['service_name'] . "</td>
 						<td>
-							<div name=sms_custom_keywords><span class=\"playsms-icon fa fa-key\" alt=\"" . _('Keywords') . "\" title=\"" . _('Keywords') . "\"></span>" . $db_row['custom_keyword'] . "</div>
+							<div name=sms_custom_keywords><span class=\"playsms-icon fas fa-key\" alt=\"" . _('Keywords') . "\" title=\"" . _('Keywords') . "\"></span>" . $db_row['custom_keyword'] . "</div>
 							" . $sms_receiver . "
-							<div name=sms_custom_url><span class=\"playsms-icon fa fa-external-link\" alt=\"" . _('Custom URL') . "\" title=\"" . _('Custom URL') . "\"></span>" . $custom_url . "</div>
+							<div name=sms_custom_url><span class=\"playsms-icon fas fa-external-link\" alt=\"" . _('Custom URL') . "\" title=\"" . _('Custom URL') . "\"></span>" . $custom_url . "</div>
 						</td>
 						" . $show_owner . "
 						<td>$action</td>

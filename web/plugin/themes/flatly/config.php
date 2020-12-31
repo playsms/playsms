@@ -13,7 +13,7 @@ $themes_config['flatly']['main'] = array(
 // override common action icons
 /*
 $themes_config['flatly']['icon'] = array(
-	'edit' => "<span class='playsms-icon fa fa-pencil' alt='"._('Edit')."' title='"._('Edit')."'></span>",
-	'delete' => "<span class='playsms-icon fa fa-trash' alt='"._('Delete')."' title='"._('Delete')."'></span>",
+	'edit' => "<span class='playsms-icon fas fa-pencil' alt='"._('Edit')."' title='"._('Edit')."'></span>",
+	'delete' => "<span class='playsms-icon fas fa-trash' alt='"._('Delete')."' title='"._('Delete')."'></span>",
 );
 */

@@ -300,7 +300,7 @@ function themes_hint($text) {
 	}
 	
 	if (!$ret) {
-		$ret = "<i class='playsms-tooltip fa fa-info-circle' data-toggle=tooltip title='" . $text . "' rel=tooltip></i>";
+		$ret = "<i class='playsms-tooltip fas fa-info-circle' data-toggle=tooltip title='" . $text . "' rel=tooltip></i>";
 	}
 	
 	return $ret;
@@ -316,7 +316,7 @@ function themes_mandatory($text) {
 	}
 	
 	if (!$ret) {
-		$ret = $text . " <i class='playsms-mandatory fa fa-exclamation-triangle' data-toggle=tooltip title='" . _('This field is required') . "' rel=tooltip></i>";
+		$ret = $text . " <i class='playsms-mandatory fas fa-exclamation-triangle' data-toggle=tooltip title='" . _('This field is required') . "' rel=tooltip></i>";
 	}
 	
 	return $ret;
