@@ -222,6 +222,8 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 		);
 	}
 	
+	$items = array_unique($items);
+	
 	$returns['modified'] = TRUE;
 	$returns['param']['content'] = json_encode($items);
 	
