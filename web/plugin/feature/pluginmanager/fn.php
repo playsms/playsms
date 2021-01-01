@@ -81,15 +81,16 @@ function pluginmanager_display($plugin_category) {
 			$plugin_info = core_xml_to_array($fc);
 			$plugin_info['status'] = $subdir_tab[$l]['status'];
 		}
+		$last_update = ( $plugin_info['last_update'] ? $plugin_info['last_update'] : $plugin_info['date'] );
 		if ($plugin_info['name']) {
 			$content .= "
 				<tr>
-					<td>" . $plugin_info['name'] . "</td>
-					<td>" . $plugin_info['description'] . "</td>
-					<td>" . $plugin_info['release'] . "</td>
-					<td>" . $plugin_info['author'] . "</td>
-					<td>" . $plugin_info['date'] . "</td>
-					<td>" . $plugin_info['status'] . "</td>
+					<td>" . core_display_text($plugin_info['name']) . "</td>
+					<td>" . core_display_text($plugin_info['description']) . "</td>
+					<td>" . core_display_text($plugin_info['release']) . "</td>
+					<td>" . core_display_text($plugin_info['author']) . "</td>
+					<td>" . core_display_text($last_update)  . "</td>
+					<td>" . core_display_html($plugin_info['status']) . "</td>
 				</tr>";
 		}
 	}
