@@ -107,7 +107,13 @@ function themes_buildmenu($menus = []) {
 // fixme anton - this will be removed later, an alias to themes_menu_tree()
 function themes_get_menu_tree($menus = '') {
 
-	return themes_menu_tree($menus);
+	$returns = themes_menu_tree($menus);
+	
+	if (!$returns) {
+		$returns = themes_buildmenu($menus);
+	}
+
+	return $returns;;
 }
 
 function themes_navbar($num, $nav, $max_nav, $url, $page) {
@@ -381,22 +387,21 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 	
 	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
 	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
-	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+	$width = ($tag_params['width'] ? $tag_params['width'] : '100%');
 	
 	$js = '
-			<script language="javascript" type="text/javascript">
-				$(document).ready(function() {
-					$("#' . $css_id . '").select2({
-						placeholder: "' . $placeholder . '",
-						width: "' . $width . '",
-						separator: [\',\'],
-						tokenSeparators: [\',\'],
-					});
+		<script language="javascript" type="text/javascript">
+			$(document).ready(function() {
+				$("#' . $css_id . '").select2({
+					placeholder: "' . $placeholder . '",
+					width: "' . $width . '",
+					separator: [\',\'],
+					tokenSeparators: [\',\'],
 				});
-			</script>
-		';
+			});
+		</script>';
 	
-	$ret = $js . PHP_EOL . '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>';
+	$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>' . $js;
 	
 	return $ret;
 }
