@@ -30,11 +30,11 @@ switch (_OP_) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width=10%>" . _('ID') . "</th>
+				<th width=5%>" . _('ID') . "</th>
 				<th width=20%>" . _('Name') . "</th>
-				<th width=50%>" . _('Message') . "</th>
+				<th width=59%>" . _('Message') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=6% nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND flag_deleted='0' ORDER BY name";
@@ -57,7 +57,7 @@ switch (_OP_) {
 						<td>" . $db_row['name'] . "</td>
 						<td>" . $db_row['message'] . "</td>
 						<td>" . $status . "</td>
-						<td>" . $action . "</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 		}
 		$content .= "

@@ -74,8 +74,8 @@ switch (_OP_) {
 			<tr>
 				<th width=20%>" . _('User') . "</th>
 				<th width=40%>" . _('Transaction datetime') . "</th>
-				<th width=39%>" . _('Amount') . "</th>
-				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
+				<th width=37%>" . _('Amount') . "</th>
+				<th width=3% class=\"sorttable_nosort\" nowrap><input type=checkbox onclick=CheckUncheckAll(document.fm_feature_credit)></th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -88,7 +88,7 @@ switch (_OP_) {
 					<td>" . $row['username'] . "</td>
 					<td>" . core_display_datetime($row['create_datetime']) . "</td>
 					<td>" . core_display_credit($row['amount']) . "</td>
-					<td>
+					<td nowrap>
 						<input type=hidden name=itemid" . $j . " value=\"" . $row['id'] . "\">
 						<input type=checkbox name=checkid" . $j . ">
 					</td>

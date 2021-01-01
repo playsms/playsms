@@ -59,8 +59,8 @@ switch (_OP_) {
 				<thead>
 					<tr>
 						<th width=45%>" . _('User') . "</th>
-						<th width=59%>" . _('Blocked mobile') . "</th>
-						<th width=1%><input type=checkbox onclick=CheckUncheckAll(document.fm_stoplist_list)></th>
+						<th width=57%>" . _('Blocked mobile') . "</th>
+						<th width=3% nowrap><input type=checkbox onclick=CheckUncheckAll(document.fm_stoplist_list)></th>
 					</tr>
 				</thead>
 				<tbody>";
@@ -80,7 +80,7 @@ switch (_OP_) {
 				<tr>
 					<td>$username</td>
 					<td>$mobile</td>
-					<td>
+					<td nowrap>
 						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
 						<input type=checkbox name=checkid[" . $j . "]>
 					</td>

@@ -45,16 +45,16 @@ switch (_OP_) {
 			$content .= "
 				<thead><tr>
 					<th width=20%>" . _('Service name') . "</th>
-					<th width=50%>" . _('Service data') . "</th>
+					<th width=54%>" . _('Service data') . "</th>
 					<th width=20%>" . _('User') . "</th>
-					<th width=10%>" . _('Action') . "</th>
+					<th width=6% nowrap>" . _('Action') . "</th>
 				</tr></thead>";
 		} else {
 			$content .= "
 				<thead><tr>
 					<th width=20%>" . _('Service name') . "</th>
-					<th width=70%>" . _('Service data') . "</th>
-					<th width=10%>" . _('Action') . "</th>
+					<th width=74%>" . _('Service data') . "</th>
+					<th width=6% nowrap>" . _('Action') . "</th>
 				</tr></thead>";
 		}
 		$content .= "<tbody>";
@@ -81,10 +81,10 @@ switch (_OP_) {
 						<td>
 							<div name=sms_custom_keywords><span class=\"playsms-icon fas fa-key\" alt=\"" . _('Keywords') . "\" title=\"" . _('Keywords') . "\"></span>" . $db_row['custom_keyword'] . "</div>
 							" . $sms_receiver . "
-							<div name=sms_custom_url><span class=\"playsms-icon fas fa-external-link\" alt=\"" . _('Custom URL') . "\" title=\"" . _('Custom URL') . "\"></span>" . $custom_url . "</div>
+							<div name=sms_custom_url><span class=\"playsms-icon fas fa-link\" alt=\"" . _('Custom URL') . "\" title=\"" . _('Custom URL') . "\"></span>" . $custom_url . "</div>
 						</td>
 						" . $show_owner . "
-						<td>$action</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 		}

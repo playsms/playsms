@@ -89,9 +89,9 @@ switch (_OP_) {
 				<table class=playsms-table-list>
 				<thead><tr>
 					<th width=30%>" . _('Name') . "</th>
-					<th width=30%>" . _('Destination') . "</th>
+					<th width=34%>" . _('Destination') . "</th>
 					<th width=30%>" . _('Schedule') . "</th>
-					<th width=10%>" . _('Action') . "</th>
+					<th width=6% nowrap>" . _('Action') . "</th>
 				</tr></thead>
 				<tbody>";
 			foreach ($list as $db_row) {
@@ -106,7 +106,7 @@ switch (_OP_) {
 						<td>" . $db_row['name'] . "</td>
 						<td>" . $db_row['destination'] . "</td>
 						<td>" . core_display_datetime($db_row['schedule']) . "</td>
-						<td>" . $action . "</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 			$content .= "

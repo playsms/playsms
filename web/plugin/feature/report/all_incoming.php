@@ -70,8 +70,8 @@ switch (_OP_) {
 				<th width=15%>" . _('Date/Time') . "</th>
 				<th width=15%>" . _('From') . "</th>
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=44%>" . _('Content') . "</th>
-				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_all_incoming)></th>
+				<th width=41%>" . _('Content') . "</th>
+				<th width=3% class=\"sorttable_nosort\" nowrap><input type=checkbox onclick=CheckUncheckAll(document.fm_all_incoming)></th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -109,7 +109,7 @@ switch (_OP_) {
 					<td>$current_sender</td>
 					<td>" . $icon_config['keyword'] . " " . $in_keyword . "<br />" . $icon_config['feature'] . " " . $in_feature . "</td>
 					<td>$c_message</td>
-					<td>
+					<td nowrap>
 						<input type=hidden name=itemid" . $j . " value=\"$in_id\">
 						<input type=checkbox name=checkid" . $j . ">
 					</td>

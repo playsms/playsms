@@ -49,7 +49,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>" . _('Queue Code') . "</th>
-				<th width=15%>" . _('User') . "</th>
+				<th width=10%>" . _('User') . "</th>
 			";
 		} else {
 			$content .= "
@@ -58,9 +58,9 @@ switch (_OP_) {
 		}
 		$content .= "
 				<th width=15%>" . _('Scheduled') . "</th>
-				<th width=10%>" . _('Count') . "</th>
-				<th width=30%>" . _('Message') . "</th>
-				<th width=1%>" . $icon_config['action'] . "</th>
+				<th width=3%>#</th>
+				<th width=49%>" . _('Message') . "</th>
+				<th width=3% nowrap>" . $icon_config['action'] . "</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -96,7 +96,7 @@ switch (_OP_) {
 					<td>" . $c_datetime_scheduled . "</td>
 					<td>" . $c_count . "</td>
 					<td>" . $c_message . "</td>
-					<td>" . $c_action . "</td>
+					<td nowrap>" . $c_action . "</td>
 				</tr>
 			";
 		}

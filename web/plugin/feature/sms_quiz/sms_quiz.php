@@ -30,16 +30,16 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>" . _('Keyword') . "</th>
-				<th width=40%>" . _('Question') . "</th>
+				<th width=42%>" . _('Question') . "</th>
 				<th width=20%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=8% nowrap>" . _('Action') . "</th>";
 		} else {
 			$content .= "
 				<th width=20%>" . _('Keyword') . "</th>
-				<th width=60%>" . _('Question') . "</th>
+				<th width=62%>" . _('Question') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=8% nowrap>" . _('Action') . "</th>";
 		}
 		$content .= "
 			</thead></tr>
@@ -73,7 +73,7 @@ switch (_OP_) {
 						<td>" . $db_row['quiz_question'] . "</td>
 						" . $option_owner . "
 						<td>$quiz_status</td>
-						<td>$action</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 		}
@@ -225,19 +225,19 @@ switch (_OP_) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width=30%>" . _('Datetime') . "</th>
-				<th width=20%>" . _('Sender') . "</th>
-				<th width=30%>" . _('Answer') . "</th>
+				<th width=20%>" . _('Datetime') . "</th>
+				<th width=32%>" . _('Sender') . "</th>
+				<th width=35%>" . _('Answer') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=3% nowrap>" . $icon_config['action'] . "</th>
 			</tr></thead>
 			<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($db_row['quiz_answer'] == $db_answer_row['quiz_answer']) {
-				$iscorrect = "<font color=green>" . _('correct') . "</font>";
+				$iscorrect = "<font color=green>" . ucwords(_('correct')) . "</font>";
 			} else {
-				$iscorrect = "<font color=red>" . _('incorrect') . "</font>";
+				$iscorrect = "<font color=red>" . ucwords(_('incorrect')) . "</font>";
 			}
 			$action = _confirm(
 				_('Are you sure you want to delete this answer ?'),
@@ -249,8 +249,8 @@ switch (_OP_) {
 					<td>" . $db_row['in_datetime'] . "</td>
 					<td>" . $db_row['quiz_sender'] . "</td>
 					<td>" . $db_row['quiz_answer'] . "</td>
-					<td>$iscorrect</td>
-					<td>$action</td>
+					<td>" . $iscorrect . "</td>
+					<td nowrap>" . $action . "</td>
 				</tr>";
 		}
 		$content .= "</tbody>

@@ -60,9 +60,9 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead>
 			<tr>
-				<th width=60%>" . _('Name') . "</th>
-				<th width=39%>" . _('Group code') . "</th>
-				<th width=1%>" . $icon_config['action'] . "</th>
+				<th width=50%>" . _('Name') . "</th>
+				<th width=47%>" . _('Group code') . "</th>
+				<th width=3% nowrap>" . $icon_config['action'] . "</th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -78,7 +78,7 @@ switch (_OP_) {
 				<tr>
 					<td><a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $gpid) . "'>" . $name . "</a></td>
 					<td>" . $phonebook_flag_sender[$flag_sender] . " " . $code . "</td>
-					<td>" . _confirm(
+					<td nowrap>" . _confirm(
 								_('Are you sure you want to delete this group ?') . " (" ._('group') . " : " . $name . ")", 
 								_u('index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=delete&gpid=' . $gpid), 
 								'delete') . "

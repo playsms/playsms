@@ -39,14 +39,14 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>" . _('Keyword') . "</th>
-				<th width=50%>" . _('Forward') . "</th>
+				<th width=52%>" . _('Forward') . "</th>
 				<th width=20%>" . _('User') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=8%>" . _('Action') . "</th>";
 		} else {
 			$content .= "
 				<th width=20%>" . _('Keyword') . "</th>
-				<th width=70%>" . _('Forward') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=72%>" . _('Forward') . "</th>
+				<th width=8% nowrap>" . _('Action') . "</th>";
 		}
 		$content .= "
 			</tr></thead>
@@ -74,7 +74,7 @@ switch (_OP_) {
 						<td>" . $db_row['board_keyword'] . "</td>
 						<td>" . $db_row['board_forward_email'] . "</td>
 						" . $option_owner . "
-						<td>$action</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 		}

@@ -96,14 +96,14 @@ switch (_OP_) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width='14%'>" . _('Registered') . "</th>
+				<th width='15%'>" . _('Registered') . "</th>
 				" . $parent_column_title . "
-				<th width='12%'>" . _('Username') . "</th>
-				<th width='14%'>" . _('Name') . "</th>
-				<th width='14%'>" . _('Mobile') . "</th>
+				<th width='15%'>" . _('Username') . "</th>
+				<th width='15%'>" . _('Name') . "</th>
+				<th width='15%'>" . _('Mobile') . "</th>
 				<th width='10%'>" . _('Credit') . "</th>
-				<th width='12%'>" . _('ACL') . "</th>										
-				<th width='12%'>" . _('Action') . "</th>
+				<th width='14%'>" . _('ACL') . "</th>										
+				<th width='6%' nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
@@ -167,7 +167,7 @@ switch (_OP_) {
 					<td>" . $list[$i]['mobile'] . "</td>
 					<td>" . rate_getusercredit($list[$i]['username']) . "</td>
 					<td>" . acl_getnamebyuid($list[$i]['uid']) . "</td>
-					<td>" . $action . "</td>
+					<td nowrap>" . $action . "</td>
 				</tr>";
 		}
 		$content .= "

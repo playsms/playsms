@@ -48,7 +48,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=25%>" . _('Title') . "</th>
+				<th width=27%>" . _('Title') . "</th>
 				<th width=5% nowrap>" . _('Once') . " " . _hint(_('Senders sent once')) . "</th>
 				<th width=5% nowrap>" . _('Multi') . " " . _hint(_('Senders sent multi votes')) . "</th>
 				<th width=5% nowrap>" . _('Valid') . " " . _hint(_('Total valid SMS')) . "</th>
@@ -56,18 +56,18 @@ switch (_OP_) {
 				<th width=5% nowrap>" . _('All') . " " . _hint(_('Grand total SMS')) . "</th>
 				<th width=15%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=8% nowrap>" . _('Action') . "</th>";
 		} else {
 			$content .= "
 				<th width=15%>" . _('Keyword') . "</th>
-				<th width=40%>" . _('Title') . "</th>
+				<th width=42%>" . _('Title') . "</th>
 				<th width=5% nowrap>" . _('Once') . " " . _hint(_('Senders sent once')) . "</th>
 				<th width=5% nowrap>" . _('Multi') . " " . _hint(_('Senders sent multi votes')) . "</th>
 				<th width=5% nowrap>" . _('Valid') . " " . _hint(_('Total valid SMS')) . "</th>
 				<th width=5% nowrap>" . _('Invalid') . " " . _hint(_('Total invalid SMS')) . "</th>
 				<th width=5% nowrap>" . _('All') . " " . _hint(_('Grand total SMS')) . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=8% nowrap>" . _('Action') . "</th>";
 		}
 		$content .= "
 			</tr></thead>
@@ -107,7 +107,7 @@ switch (_OP_) {
 						<td>" . $stat['all'] . "</td>
 						" . $option_owner . "
 						<td>$poll_status</td>
-						<td>$action</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 		}
@@ -342,8 +342,8 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=20%>" . _('Choice keyword') . "</th>
-				<th width=79%>" . _('Description') . "</th>
-				<th width=1%>" . $icon_config['action'] . "</th>
+				<th width=77%>" . _('Description') . "</th>
+				<th width=3% nowrap>" . $icon_config['action'] . "</th>
 			</tr></thead>
 			<tbody>";
 		$i = 0;
@@ -360,7 +360,7 @@ switch (_OP_) {
 				<tr>
 					<td>" . $choice_keyword . "</td>
 					<td>" . $choice_title . "</td>
-					<td>" . $action . "</td>
+					<td nowrap>" . $action . "</td>
 				</tr>";
 		}
 		$content .= "

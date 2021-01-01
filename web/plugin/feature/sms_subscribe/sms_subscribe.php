@@ -48,17 +48,17 @@ switch (_OP_) {
 			$content .= "
 				<th width=20%>" . _('Keyword') . "</th>
 				<th width=20%>" . _('Members') . "</th>
-				<th width=20%>" . _('Messages') . "</th>
+				<th width=24%>" . _('Messages') . "</th>
 				<th width=20%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=6% nowrap>" . _('Action') . "</th>";
 		} else {
 			$content .= "
 				<th width=20%>" . _('Keyword') . "</th>
 				<th width=30%>" . _('Members') . "</th>
-				<th width=30%>" . _('Messages') . "</th>
+				<th width=34%>" . _('Messages') . "</th>
 				<th width=10%>" . _('Status') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=6% nowrap>" . _('Action') . "</th>";
 		}
 		$content .= "
 			</tr></thead>
@@ -101,7 +101,7 @@ switch (_OP_) {
 						<td><a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id=' . $db_row['subscribe_id']) . "\">" . $messages . "</a></td>
 						" . $option_owner . "
 						<td>$subscribe_status</td>
-						<td>$action</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 		}
@@ -490,8 +490,8 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=50%>" . _('Phone number') . "</th>
-				<th width=49%>" . _('Member join datetime') . "</th>
-				<th width=1%>" . $icon_config['action'] . "</th>
+				<th width=47%>" . _('Member join datetime') . "</th>
+				<th width=3%>" . $icon_config['action'] . "</th>
 			</tr></thead>
 			<tbody>";
 		$i = 0;
@@ -505,7 +505,7 @@ switch (_OP_) {
 				<tr>
 					<td>" . $db_row['member_number'] . "</td>
 					<td>" . $db_row['member_since'] . "</td>
-					<td>$action</td>
+					<td nowrap>" . $action . "</td>
 					</tr>";
 		}
 		$content .= "
@@ -535,11 +535,11 @@ switch (_OP_) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width=40%>" . _('Message') . "</th>
+				<th width=42%>" . _('Message') . "</th>
 				<th width=20%>" . _('Created') . "</th>
 				<th width=20%>" . _('Last update') . "</th>
 				<th width=10%>" . _('Sent') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=8% nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$i = 0;
@@ -559,7 +559,7 @@ switch (_OP_) {
 					<td>" . core_display_datetime($db_row['create_datetime']) . "</td>
 					<td>" . core_display_datetime($db_row['update_datetime']) . "</td>
 					<td>" . $db_row['counter'] . "</td>
-					<td>$action</td>
+					<td nowrap>" . $action . "</td>
 					</tr>";
 		}
 		$content .= "

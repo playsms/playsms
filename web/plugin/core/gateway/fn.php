@@ -219,8 +219,8 @@ function _gateway_display() {
 		<table class=playsms-table-list id='gateway_view'>
 			<thead><tr>
 				<th width=40%>" . _('Name') . "</th>
-				<th width=50%>" . _('Description') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=54%>" . _('Description') . "</th>
+				<th width=6% nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 	foreach ($gw_list as $gw) {
@@ -236,7 +236,7 @@ function _gateway_display() {
 			<tr>
 				<td>" . $gw['name'] . "</td>
 				<td>" . $gw['description'] . "</td>
-				<td>
+				<td nowrap>
 					" . $c_link_manage . "
 					" . $c_link_add . "
 				</td>
@@ -267,8 +267,8 @@ function _gateway_display_smsc() {
 		<table class=playsms-table-list id='gateway_view_smsc'>
 			<thead><tr>
 				<th width=40%>" . _('Name') . "</th>
-				<th width=50%>" . _('Gateway') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=52%>" . _('Gateway') . "</th>
+				<th width=8% nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 	foreach ($smsc_list as $smsc) {
@@ -287,7 +287,7 @@ function _gateway_display_smsc() {
 			<tr>
 				<td>" . $smsc['name'] . "</td>
 				<td>" . $smsc['gateway'] . "</td>
-				<td>
+				<td nowrap>
 					" . $c_link_edit . "
 					" . $c_link_del . "
 				</td>

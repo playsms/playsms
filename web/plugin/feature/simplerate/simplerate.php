@@ -30,10 +30,10 @@ switch (_OP_) {
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>
-				<th width='50%'>" . _('Destination') . "</th>
-				<th width='20%'>" . _('Prefix') . "</th>
-				<th width='20%'>" . _('Rate') . "</th>
-				<th width='10%'>" . _('Action') . "</th>
+				<th width=54%>" . _('Destination') . "</th>
+				<th width=20%>" . _('Prefix') . "</th>
+				<th width=20%>" . _('Rate') . "</th>
+				<th width=6% nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$i = 0;
@@ -51,7 +51,7 @@ switch (_OP_) {
 					<td>" . $db_row['dst'] . "</td>
 					<td>" . $db_row['prefix'] . "</td>
 					<td>" . $db_row['rate'] . "</td>
-					<td>" . $action . "</td>
+					<td nowrap>" . $action . "</td>
 				</tr>";
 		}
 		$content .= "

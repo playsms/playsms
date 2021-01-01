@@ -102,12 +102,12 @@ switch (_OP_) {
 				<th width=10%>" . _('User') . "</th>
 				<th width=15%>" . _('Date/Time') . "</th>
 				<th width=15%>" . _('To') . "</th>
-				<th width=55%>" . _('Message') . "</th>
+				<th width=53%>" . _('Message') . "</th>
 				<th width=1%><span class='playsms-icon' title='" . _('Count') . "'>#</span></th>
 				<th width=1%><span class='playsms-icon fas fa-table' title='" . _('Rate') . "'></span></th>
 				<th width=1%><span class='playsms-icon fas fa-file-invoice' title='" . _('Charge') . "'></span></th>
 				<th width=1%><span class='playsms-icon fas fa-check' title='" . _('Status') . "'></span></th>
-				<th width=1% class=\"sorttable_nosort\"><input type=checkbox onclick=CheckUncheckAll(document.fm_all_outgoing)></th>
+				<th width=3% class=\"sorttable_nosort\" nowrap><input type=checkbox onclick=CheckUncheckAll(document.fm_all_outgoing)></th>
 			</tr>
 			</thead>
 			<tbody>";
@@ -185,7 +185,7 @@ switch (_OP_) {
 					<td>$p_rate</td>
 					<td>$p_charge</td>
 					<td>$p_status</td>
-					<td>
+					<td nowrap>
 						<input type=hidden name=itemid" . $j . " value=\"$smslog_id\">
 						<input type=checkbox name=checkid" . $j . ">
 					</td>

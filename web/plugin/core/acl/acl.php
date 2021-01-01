@@ -31,9 +31,9 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=10%>" . _('ID') . "</th>
-				<th width=40%>" . _('Name') . "</th>
+				<th width=42%>" . _('Name') . "</th>
 				<th width=40%>" . _('Subuser ACL') . "</th>
-				<th width=10%>" . _('Action') . "</th>
+				<th width=8% nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted='0' ORDER BY name";
@@ -52,7 +52,7 @@ switch (_OP_) {
 						<td>" . $db_row['id'] . "</td>
 						<td>" . trim(strtoupper($db_row['name'])) . "</td>
 						<td>" . trim(strtoupper($db_row['acl_subuser'])) . "</td>
-						<td>" . $action . "</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 		}
 		$content .= "

@@ -47,13 +47,13 @@ switch (_OP_) {
 			<thead><tr>";
 		if (auth_isadmin()) {
 			$content .= "
-				<th width=70%>" . _('Keyword') . "</th>
+				<th width=72%>" . _('Keyword') . "</th>
 				<th width=20%>" . _('User') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=8% nowrap>" . _('Action') . "</th>";
 		} else {
 			$content .= "
-				<th width=90%>" . _('Keyword') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=92%>" . _('Keyword') . "</th>
+				<th width=8% nowrap>" . _('Action') . "</th>";
 		}
 		$content .= "</tr></thead><tbody>";
 		if (!auth_isadmin()) {
@@ -78,7 +78,7 @@ switch (_OP_) {
 					<tr>
 						<td>" . $db_row['autoreply_keyword'] . "</td>
 						" . $option_owner . "
-						<td>$action</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 		}
@@ -106,14 +106,14 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$content .= "
 				<th width=20%>" . _('SMS') . " " . _hint(_('SMS is case-insensitive')) . "</th>
-				<th width=50%>" . _('Reply') . "</th>
+				<th width=54%>" . _('Reply') . "</th>
 				<th width=20%>" . _('User') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=6% nowrap>" . _('Action') . "</th>";
 		} else {
 			$content .= "
 				<th width=20%>" . _('SMS') . " " . _hint(_('SMS is case-insensitive')) . "</th>
-				<th width=70%>" . _('Reply') . "</th>
-				<th width=10%>" . _('Action') . "</th>";
+				<th width=74%>" . _('Reply') . "</th>
+				<th width=6% nowrap>" . _('Action') . "</th>";
 		}
 		$content .= "</tr></thead><tbody>";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' ORDER BY autoreply_scenario_param1";
@@ -139,7 +139,7 @@ switch (_OP_) {
 						<td>" . $manage_autoreply_keyword . " " . $list_of_param . "</td>
 						<td align=left>" . $db_row['autoreply_scenario_result'] . "</td>
 						" . $option_owner . "
-						<td>" . $action . "</td>
+						<td nowrap>" . $action . "</td>
 					</tr>";
 			}
 		}

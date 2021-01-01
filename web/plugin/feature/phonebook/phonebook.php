@@ -116,10 +116,10 @@ switch (_OP_) {
 				<tr>
 					<th width=20%>" . _('Name') . "</th>
 					<th width=20%>" . _('Mobile') . "</th>
-					<th width=25%>" . _('Email') . "</th>
+					<th width=27%>" . _('Email') . "</th>
 					<th width=15%>" . _('Group code') . "</th>
 					<th width=15%>" . _('Tags') . "</th>
-					<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_list)></th>
+					<th width=3% nowrap><input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_list)></th>
 				</tr>
 				</thead>
 				<tbody>";
@@ -168,7 +168,7 @@ switch (_OP_) {
 					<td>$email</td>
 					<td>$group_code</td>
 					<td>$tags</td>
-					<td>
+					<td nowrap>
 						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
 						<input type=checkbox name=checkid[" . $j . "]>
 					</td>

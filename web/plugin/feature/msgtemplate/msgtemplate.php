@@ -27,8 +27,8 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 			<thead><tr>
 				<th width=30%>"._('Name')."</th>
-				<th width=69%>"._('Content')."</th>
-				<th width=1%><input type=checkbox onclick=CheckUncheckAll(document.fm_smstemp)></th>
+				<th width=67%>"._('Content')."</th>
+				<th width=3% nowrap><input type=checkbox onclick=CheckUncheckAll(document.fm_smstemp)></th>
 			</tr></thead>
 			<tbody>";
 		$db_query = "SELECT * FROM "._DB_PREF_."_featureMsgtemplate WHERE uid='".$user_config['uid']."' ORDER BY t_title";
@@ -43,7 +43,7 @@ switch (_OP_) {
 				<tr>
 					<td><a href='"._u('index.php?app=main&inc=feature_msgtemplate&op=edit&tid='.$tid)."'>".$temp_title."</a></td>
 					<td>$temp_text</td>
-					<td><input type=checkbox name=chkid".$i."></td>
+					<td nowrap><input type=checkbox name=chkid".$i."></td>
 					<input type=hidden name=chkid_value".$i." value='".$db_row['tid']."'>
 				</tr>";
 		}
