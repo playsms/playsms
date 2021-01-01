@@ -1,0 +1,191 @@
+@media screen and (min-width: 768px) {
+	.playsms-responsive, input, select, option, textarea {
+		width: 400px;
+	}
+	.playsms-label-sizer {
+		width: 350px;
+	}
+	.playsms-input-sizer {
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 768px) and (min-width: 600px) {
+	.playsms-responsive, input, select, option, textarea {
+		width: 335px;
+	}
+	.playsms-label-sizer {
+		width: 345px;
+	}
+	.playsms-input-sizer {
+		width: 345px;
+	}
+	.dropdown-menu hr {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 600px) and (min-width: 480px) {
+	.playsms-responsive, input, select, option, textarea {
+		width: 251px;
+	}
+	.playsms-label-sizer {
+		width: 261px;
+	}
+	.playsms-input-sizer {
+		width: 261px;
+	}
+	.dropdown-menu hr {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 480px) and (min-width: 320px) {
+	.playsms-responsive, input, select, option, textarea {
+		width: 320px;
+	}
+	.playsms-label-sizer {
+		width: 310px;
+	}
+	.playsms-input-sizer {
+		width: 310px;
+	}
+	.dropdown-menu hr {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.playsms-responsive, input, select, option, textarea {
+		width: 240px;
+	}
+	.playsms-label-sizer {
+		width: 230px;
+	}
+	.playsms-input-sizer {
+		width: 230px;
+	}
+	.dropdown-menu hr {
+		display: none;
+	}
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+input, select, option, textarea {
+	font-size: 12pt;
+	font-weight: normal;
+	border: 1px solid;
+	padding-left: 5px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	border-radius: 3px;
+}
+
+input[type="checkbox"] {
+	width: auto;
+}
+
+input[type="button"], input[type="submit"], .button, .submit {
+	width: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+textarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	resize: none;
+	outline: none;
+}
+
+table.sortable thead, table.sortable th {
+	cursor: pointer;
+}
+
+
+/* IDs */
+
+#main-submenu {
+	padding: 0;
+	background-color: #f5f5f5;
+	border-radius: 3px;
+	top: 62px;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+
+#main-content {
+	padding-top: 45px;
+	height: 100%;
+	overflow: hidden;
+}
+
+#main-footer {
+	height: 40px;
+	line-height: 40px;
+	background-color: #f5f5f5;
+}
+
+
+/* Classes */
+
+.navbar-right { float: right !important; }
+
+.modal-body {
+	overflow: auto;
+}
+
+/* https://stackoverflow.com/a/21323821 */
+.modal {
+	text-align: center;
+	padding: 0!important;
+}
+
+.modal:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -4px;
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+}
+
+/* /.modal  */
+
+.playsms-login-box {
+	background-color: #f5f5f5;
+}
+
+.playsms-login-input {
+	width: 256px;
+}
+
+.playsms-mandatory {
+	margin-top: 5px;
+}
+
+.playsms-tooltip {
+	margin-top: 5px;
+}
+
+.playsms-icon {
+	width: 20px;
+}
+
+.playsms-actions-box {
+	margin-bottom: 1px;
+}

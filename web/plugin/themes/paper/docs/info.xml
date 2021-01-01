@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
-	<name>default</name>
-	<alias>Theme default</alias>
-	<description>Theme default</description>
-	<release>1.0</release>
+	<name>paper</name>
+	<alias>Themes paper</alias>
+	<description>Default themes rename to themes paper</description>
+	<release>1.2</release>
 	<date>2013-11-24</date>
+	<last_update>2021-01-01</last_update>
 	<author>Anton Raharja</author>
 	<language_file>1</language_file>
 	<sql_file>0</sql_file>
