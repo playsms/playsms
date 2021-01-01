@@ -191,3 +191,15 @@ table.sortable thead, table.sortable th {
 .playsms-login-box {
 	background-color: #f5f5f5;
 }
+
+.playsms-mandatory {
+	margin-top: 5px;
+}
+
+.playsms-tooltip {
+	margin-top: 5px;
+}
+
+.playsms-icon {
+	width: 15px;
+}

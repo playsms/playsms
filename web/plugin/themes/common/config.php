@@ -5,7 +5,7 @@ defined('_SECURE_') or die('Forbidden');
 
 $icon_config = array(
 	'add' => "<span class='playsms-icon fas fa-plus' alt='" . _('Add') . "' title='" . _('Add') . "'></span>",
-	'edit' => "<span class='playsms-icon fas fa-pencil' alt='" . _('Edit') . "' title='" . _('Edit') . "'></span>",
+	'edit' => "<span class='playsms-icon fas fa-edit' alt='" . _('Edit') . "' title='" . _('Edit') . "'></span>",
 	'delete' => "<span class='playsms-icon fas fa-trash' alt='" . _('Delete') . "' title='" . _('Delete') . "'></span>",
 	'view' => "<span class='playsms-icon fas fa-eye' alt='" . _('View') . "' title='" . _('View') . "'></span>",
 	'hide' => "<span class='playsms-icon fas fa-eye-slash' alt='" . _('Hide') . "' title='" . _('Hide') . "'></span>",
