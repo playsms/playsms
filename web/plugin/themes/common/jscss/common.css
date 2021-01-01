@@ -215,7 +215,7 @@
 /* IDs */
 
 /* Wrapper for page content to push down footer */
-#main-body { //
+#main-body {
 	min-width: 240px;
 	width: auto !important;
 	min-height: 100%;
