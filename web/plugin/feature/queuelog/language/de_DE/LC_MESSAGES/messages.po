@@ -5,18 +5,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr "Aktion"
-
 #, fuzzy
 msgid "All queues have been removed"
 msgstr "Queue wurde gelscht"
 
 #, fuzzy
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 
 msgid "Count"
@@ -42,3 +40,6 @@ msgstr "Benutzer"
 
 msgid "View SMS queue"
 msgstr "Zeige SMS Queue"
+
+msgid "queue"
+msgstr ""

@@ -20,8 +20,8 @@ msgstr "إجراءات"
 msgid "Add route"
 msgstr "اضف مسار"
 
-msgid "Are you sure ?"
-msgstr "هل أنت متأكد؟"
+msgid "Are you sure you want to delete ?"
+msgstr ""
 
 msgid "Destination name"
 msgstr "اسم الوجهة"

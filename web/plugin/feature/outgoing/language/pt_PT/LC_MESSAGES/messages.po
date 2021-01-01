@@ -18,8 +18,8 @@ msgstr "Ação"
 msgid "Add route"
 msgstr "Adicionar rota"
 
-msgid "Are you sure ?"
-msgstr "Tem a certeza?"
+msgid "Are you sure you want to delete ?"
+msgstr ""
 
 msgid "Destination name"
 msgstr "Nome de destino"

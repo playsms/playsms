@@ -12,16 +12,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
-msgid "Action"
-msgstr "Ação"
-
 msgid "All queues have been removed"
 msgstr "Todas as filas foram removidas"
 
-msgid "Are you sure you want to delete ALL queues"
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Tem certeza que quer apagar todas as filas"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Tem certeza que deseja apagar a fila"
 
 msgid "Count"
@@ -47,3 +46,6 @@ msgstr "Utilizador"
 
 msgid "View SMS queue"
 msgstr "Visualizar SMS pendentes"
+
+msgid "queue"
+msgstr ""

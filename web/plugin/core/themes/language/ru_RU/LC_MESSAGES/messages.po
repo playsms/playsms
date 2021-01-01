@@ -24,7 +24,7 @@ msgstr "Назад"
 msgid "Compose message"
 msgstr ""
 
-msgid "Information"
+msgid "Please confirm"
 msgstr ""
 
 msgid "Please select"

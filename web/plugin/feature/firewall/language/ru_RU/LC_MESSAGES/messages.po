@@ -15,13 +15,13 @@ msgstr ""
 msgid "Add blocked IP addresses"
 msgstr ""
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Blocked IP address"
 msgstr ""
 
 msgid "Comma separated values for multiple IP addresses"
-msgstr ""
-
-msgid "Delete"
 msgstr ""
 
 msgid "IP address"
@@ -40,14 +40,8 @@ msgstr "Маршрут удалён"
 msgid "Manage firewall"
 msgstr ""
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr ""
-
 msgid "Save"
 msgstr "Сохранить"
-
-msgid "Select"
-msgstr ""
 
 msgid "Select username"
 msgstr ""

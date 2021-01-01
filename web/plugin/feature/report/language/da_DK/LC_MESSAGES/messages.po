@@ -30,6 +30,10 @@ msgstr "Alle sendte beskeder"
 msgid "Amount"
 msgstr "Beløb"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "Er du sikker på at du vil slette disse emner?"
+
 msgid "Are you sure you want to delete these items ?"
 msgstr "Er du sikker på at du vil slette disse emner?"
 
@@ -42,14 +46,25 @@ msgstr "Listen over bandlyste brugere"
 msgid "Billing"
 msgstr "Afregning"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Content"
 msgstr "Indhold"
+
+#, fuzzy
+msgid "Count"
+msgstr "antal"
 
 msgid "Credit"
 msgstr "Kredit"
 
 msgid "Current IP address"
 msgstr "Aktuel IP-adresser"
+
+#, fuzzy
+msgid "Date/Time"
+msgstr "Bandlyst dato/tid"
 
 msgid "Deleted"
 msgstr "Slettet"
@@ -113,6 +128,9 @@ msgstr "Mine sendte beskeder"
 msgid "Pending"
 msgstr "Afventer"
 
+msgid "Rate"
+msgstr ""
+
 msgid "Report"
 msgstr "Rapport"
 
@@ -166,15 +184,6 @@ msgstr "Brugeragent"
 
 msgid "Whose online"
 msgstr "Hvem er online"
-
-msgid "cost"
-msgstr "pris"
-
-msgid "count"
-msgstr "antal"
-
-msgid "rate"
-msgstr "frekvens"
 
 msgid "username"
 msgstr "brugernavn"

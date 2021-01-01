@@ -189,6 +189,9 @@ msgstr ""
 msgid "You must fill all fields"
 msgstr ""
 
+msgid "choice"
+msgstr ""
+
 msgid "keyword"
 msgstr ""
 
@@ -205,7 +208,4 @@ msgid "one time every month"
 msgstr ""
 
 msgid "one time every week"
-msgstr ""
-
-msgid "title"
 msgstr ""

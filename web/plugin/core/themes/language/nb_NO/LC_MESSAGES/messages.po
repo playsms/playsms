@@ -20,8 +20,8 @@ msgstr "Tilbake"
 msgid "Compose message"
 msgstr "Send melding"
 
-msgid "Information"
-msgstr "Informasjon"
+msgid "Please confirm"
+msgstr ""
 
 msgid "Please select"
 msgstr "Vennligst velg"

@@ -15,7 +15,8 @@ msgstr ""
 msgid "Add message template"
 msgstr "Tilføj beskedskabelon"
 
-msgid "Are you sure you want to delete these items ?"
+#, fuzzy
+msgid "Are you sure you want to delete ?"
 msgstr "Er du sikker på at du ønsker at slette disse emner ?"
 
 msgid "Content"

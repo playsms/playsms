@@ -8,16 +8,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr "Handling"
-
 msgid "All queues have been removed"
 msgstr "Alle køer har blitt fjernet"
 
-msgid "Are you sure you want to delete ALL queues"
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Er du sikker på at du vil slette ALLE køer"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Er du sikker på at du vil slette køen"
 
 msgid "Count"
@@ -43,3 +42,6 @@ msgstr "Bruker"
 
 msgid "View SMS queue"
 msgstr "Se SMS-kø"
+
+msgid "queue"
+msgstr ""

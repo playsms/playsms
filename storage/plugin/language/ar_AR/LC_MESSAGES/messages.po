@@ -289,10 +289,13 @@ msgstr ""
 msgid "Are you sure you want to ban subuser"
 msgstr ""
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Are you sure you want to delete ACL ?"
 msgstr ""
 
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr ""
 
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -324,7 +327,7 @@ msgstr ""
 msgid "Are you sure you want to delete choice ?"
 msgstr ""
 
-msgid "Are you sure you want to delete queue"
+msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
 msgid "Are you sure you want to delete rate ?"
@@ -349,6 +352,9 @@ msgid "Are you sure you want to delete this SMS autoreply scenario ?"
 msgstr ""
 
 msgid "Are you sure you want to delete this answer ?"
+msgstr ""
+
+msgid "Are you sure you want to delete this group ?"
 msgstr ""
 
 msgid "Are you sure you want to delete this group inbox ?"
@@ -444,6 +450,9 @@ msgstr ""
 msgid "Changes have been made"
 msgstr ""
 
+msgid "Charge"
+msgstr ""
+
 msgid "Check email sender"
 msgstr ""
 
@@ -463,6 +472,9 @@ msgid "City"
 msgstr ""
 
 msgid "Click the status button to enable or disable status"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "Comma separated"
@@ -1351,6 +1363,9 @@ msgstr ""
 msgid "Local playnet username"
 msgstr ""
 
+msgid "Logged in as"
+msgstr ""
+
 msgid "Login"
 msgstr ""
 
@@ -1362,6 +1377,9 @@ msgstr ""
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+
+msgid "Logout"
 msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
@@ -1629,13 +1647,7 @@ msgstr ""
 msgid "Multi"
 msgstr ""
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr ""
-
 msgid "Multiple entries separated by comma"
-msgstr ""
-
-msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "My credit transactions"
@@ -1793,6 +1805,9 @@ msgstr ""
 msgid "Phonebook"
 msgstr ""
 
+msgid "Please confirm"
+msgstr ""
+
 msgid "Please remove all subusers from this user to delete"
 msgstr ""
 
@@ -1803,9 +1818,6 @@ msgid "Please select CSV file"
 msgstr ""
 
 msgid "Please select CSV file for phonebook entries"
-msgstr ""
-
-msgid "Please select template"
 msgstr ""
 
 msgid "Please type the displayed captcha phrase correctly"
@@ -2320,6 +2332,12 @@ msgstr ""
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select receiver"
+msgstr ""
+
+msgid "Select template"
+msgstr ""
+
 msgid "Select username"
 msgstr ""
 
@@ -2523,6 +2541,9 @@ msgid "Tags"
 msgstr ""
 
 msgid "Template installation path"
+msgstr ""
+
+msgid "Templates"
 msgstr ""
 
 msgid "Temporary password has been emailed. You must login immediately."
@@ -2862,6 +2883,9 @@ msgstr ""
 msgid "Your choice"
 msgstr ""
 
+msgid "Your credit"
+msgstr ""
+
 msgid "Your current callback URL authcode is"
 msgstr ""
 
@@ -2898,16 +2922,13 @@ msgstr ""
 msgid "chars"
 msgstr ""
 
+msgid "choice"
+msgstr ""
+
 msgid "code"
 msgstr ""
 
 msgid "correct"
-msgstr ""
-
-msgid "cost"
-msgstr ""
-
-msgid "count"
 msgstr ""
 
 msgid "create an account to send SMS"
@@ -2982,13 +3003,13 @@ msgstr ""
 msgid "prefix"
 msgstr ""
 
+msgid "queue"
+msgstr ""
+
 msgid "queued"
 msgstr ""
 
-msgid "rate"
-msgstr ""
-
-msgid "title"
+msgid "return"
 msgstr ""
 
 msgid "twilio is a bulk SMS provider"

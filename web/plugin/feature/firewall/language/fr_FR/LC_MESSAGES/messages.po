@@ -9,14 +9,14 @@ msgstr ""
 msgid "Add blocked IP addresses"
 msgstr "Ajouter des adresses IP bloquées"
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Blocked IP address"
 msgstr "Adresses IP bloquées"
 
 msgid "Comma separated values for multiple IP addresses"
 msgstr ""
-
-msgid "Delete"
-msgstr "Supprimer"
 
 msgid "IP address"
 msgstr "Adresse IP"
@@ -33,14 +33,8 @@ msgstr "Les adresses IP ont été supprimées"
 msgid "Manage firewall"
 msgstr "Gérer pare-feu"
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr "En cas d'adresses IP multiples, veuillez séparer par une virgule"
-
 msgid "Save"
 msgstr "Enregistrer"
-
-msgid "Select"
-msgstr "Sélectionner"
 
 msgid "Select username"
 msgstr "Veuillez sélectionner un nom d'utilisateur"

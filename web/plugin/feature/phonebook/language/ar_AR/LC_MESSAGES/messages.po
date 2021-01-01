@@ -1,6 +1,3 @@
-msgid "Action"
-msgstr ""
-
 msgid "Add contact"
 msgstr ""
 
@@ -11,6 +8,9 @@ msgid "All users"
 msgstr ""
 
 msgid "Anyone"
+msgstr ""
+
+msgid "Are you sure you want to delete this group ?"
 msgstr ""
 
 msgid "CSV file format"

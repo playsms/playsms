@@ -31,6 +31,10 @@ msgstr "Все принятые сообщения"
 msgid "Amount"
 msgstr "Количество"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "Вы уверены, что хотите удалить эти элементы?"
+
 msgid "Are you sure you want to delete these items ?"
 msgstr "Вы уверены, что хотите удалить эти элементы?"
 
@@ -43,14 +47,25 @@ msgstr "Список заблокированных пользователей"
 msgid "Billing"
 msgstr "Потрачено"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Content"
 msgstr "Текст"
+
+#, fuzzy
+msgid "Count"
+msgstr "количество"
 
 msgid "Credit"
 msgstr "Баланс"
 
 msgid "Current IP address"
 msgstr "Текущий IP адрес"
+
+#, fuzzy
+msgid "Date/Time"
+msgstr "Время блокировки"
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -115,6 +130,9 @@ msgstr "Сообщение"
 msgid "Pending"
 msgstr "Ожидает"
 
+msgid "Rate"
+msgstr ""
+
 msgid "Report"
 msgstr "Отчёт"
 
@@ -168,15 +186,6 @@ msgstr "User agent пользователя"
 
 msgid "Whose online"
 msgstr "Пользователи в системе"
-
-msgid "cost"
-msgstr "стоимость"
-
-msgid "count"
-msgstr "количество"
-
-msgid "rate"
-msgstr "цена"
 
 msgid "username"
 msgstr "имя пользователя"

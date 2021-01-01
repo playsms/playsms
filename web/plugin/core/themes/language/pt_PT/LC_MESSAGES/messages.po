@@ -24,8 +24,8 @@ msgstr "Voltar"
 msgid "Compose message"
 msgstr "Enviar Mensagem"
 
-msgid "Information"
-msgstr "Informação"
+msgid "Please confirm"
+msgstr ""
 
 msgid "Please select"
 msgstr "Por favor selecione"

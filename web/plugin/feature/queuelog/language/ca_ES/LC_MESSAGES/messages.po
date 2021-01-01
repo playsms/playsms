@@ -17,18 +17,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-msgid "Action"
-msgstr "Acció"
-
 #, fuzzy
 msgid "All queues have been removed"
 msgstr "S'ha esborrat la cua"
 
 #, fuzzy
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Esteu segur que voleu esborrar la cua"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Esteu segur que voleu esborrar la cua"
 
 msgid "Count"
@@ -54,3 +52,6 @@ msgstr "Usuari"
 
 msgid "View SMS queue"
 msgstr "Veure la cua de SMS"
+
+msgid "queue"
+msgstr ""

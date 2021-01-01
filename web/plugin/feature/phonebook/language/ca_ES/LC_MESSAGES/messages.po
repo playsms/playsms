@@ -14,9 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
-msgid "Action"
-msgstr "Acció"
-
 msgid "Add contact"
 msgstr "Afegir contacte"
 
@@ -28,6 +25,9 @@ msgstr ""
 
 msgid "Anyone"
 msgstr "Qualsevol"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "CSV file format"
 msgstr ""

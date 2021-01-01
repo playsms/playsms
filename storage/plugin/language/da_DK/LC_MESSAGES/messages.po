@@ -309,10 +309,15 @@ msgstr "Er du sikker på at du ønsker at bandlyse kontoen"
 msgid "Are you sure you want to ban subuser"
 msgstr "Er du sikker på at du ønsker at bandlyse underbrugeren"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "Er du sikker på at du vil slette disse emner?"
+
 msgid "Are you sure you want to delete ACL ?"
 msgstr "Er du sikker på at du ønsker at slette ACL?"
 
-msgid "Are you sure you want to delete ALL queues"
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Er du sikker på at du ønsker at slette ALLE køer"
 
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -349,7 +354,8 @@ msgstr "Er du sikker på at du ønsker at slette SMS abonnement?"
 msgid "Are you sure you want to delete choice ?"
 msgstr "Er du sikker på at du ønsker at slette valget?"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Er du sikker på at du ønsker at slette køen"
 
 msgid "Are you sure you want to delete rate ?"
@@ -375,6 +381,9 @@ msgstr "Er du sikker på at du ønsker at slette dette SMS autosvar system?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Er du sikker på at du ønsker at slette dette svar?"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Er du sikker på at du ønsker at slette denne gruppe-indbakke?"
@@ -473,6 +482,9 @@ msgstr "Catch-all liste"
 msgid "Changes have been made"
 msgstr "Der er foretaget ændringer"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Check email sender"
 msgstr "Tjek e-mail afsender"
 
@@ -493,6 +505,9 @@ msgstr "By"
 
 msgid "Click the status button to enable or disable status"
 msgstr "Klik på statusknappen for at aktivere eller deaktivere status"
+
+msgid "Close"
+msgstr ""
 
 msgid "Comma separated"
 msgstr "Kommasepareret"
@@ -1277,6 +1292,9 @@ msgstr "Indkommende SMS rute ændringer er blevet gemt"
 msgid "Incoming SMS time is in local time"
 msgstr "Indkommende SMS tid er i lokal tid"
 
+msgid "Info"
+msgstr ""
+
 msgid "Infobip API URL"
 msgstr "Infobip API URL"
 
@@ -1342,6 +1360,9 @@ msgstr "Kannel specifikt"
 
 msgid "Kannel status"
 msgstr "Kannel status"
+
+msgid "Key"
+msgstr ""
 
 msgid "Keyword"
 msgstr "Nøgleord"
@@ -1712,14 +1733,8 @@ msgstr "Flyt til"
 msgid "Multi"
 msgstr "Flere"
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr "Flere IP adresser skal adskilles med komma"
-
 msgid "Multiple entries separated by comma"
 msgstr "Flere emner adskilt med komma"
-
-msgid "Multiple mobile numbers must be comma-separated"
-msgstr ""
 
 msgid "My account"
 msgstr ""
@@ -1887,6 +1902,9 @@ msgstr "Telefonnummer"
 msgid "Phonebook"
 msgstr "Telefonbog"
 
+msgid "Please confirm"
+msgstr ""
+
 msgid "Please remove all subusers from this user to delete"
 msgstr "Fjern venligst alle underbrugere fra denne bruger før sletning"
 
@@ -1898,9 +1916,6 @@ msgstr "Vælg venligst en CSV fil"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Vælg CSV fil med telefonbogsemner"
-
-msgid "Please select template"
-msgstr "Vælg venligst skabelon"
 
 msgid "Please type the displayed captcha phrase correctly"
 msgstr "Indtast venligst den viste captcha sætning korrekt"
@@ -2442,6 +2457,13 @@ msgstr "Vælg"
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr "Vælg nej, hvis de indkommende SMS tider er i UTC"
 
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "Vælg venligst skabelon"
+
 msgid "Select username"
 msgstr "Vælg brugernavn"
 
@@ -2650,6 +2672,9 @@ msgstr "Tags"
 
 msgid "Template installation path"
 msgstr "Skabelon installationssti"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
@@ -3045,17 +3070,14 @@ msgstr "blokeret"
 msgid "chars"
 msgstr "tegn"
 
+msgid "choice"
+msgstr ""
+
 msgid "code"
 msgstr "kode"
 
 msgid "correct"
 msgstr "rigtigt"
-
-msgid "cost"
-msgstr "pris"
-
-msgid "count"
-msgstr "antal"
 
 msgid "create an account to send SMS"
 msgstr "opret en konto for at sende SMS"
@@ -3129,17 +3151,14 @@ msgstr "playSMS web URL"
 msgid "prefix"
 msgstr "præfiks"
 
+msgid "queue"
+msgstr ""
+
 msgid "queued"
 msgstr "i kø"
 
-msgid "rate"
-msgstr "frekvens"
-
 msgid "return"
 msgstr ""
-
-msgid "title"
-msgstr "titel"
 
 msgid "twilio is a bulk SMS provider"
 msgstr "twilio er en masse-SMS leverandør"

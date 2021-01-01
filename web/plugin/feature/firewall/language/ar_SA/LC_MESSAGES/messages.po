@@ -17,14 +17,14 @@ msgstr ""
 msgid "Add blocked IP addresses"
 msgstr "إضافة عنوان آي بي محظور"
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Blocked IP address"
 msgstr "عنواين آي بي المحظورة"
 
 msgid "Comma separated values for multiple IP addresses"
 msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
-
-msgid "Delete"
-msgstr "حذف"
 
 msgid "IP address"
 msgstr "عنوان آي بي"
@@ -41,14 +41,8 @@ msgstr "تم حذف عناوين آي بي"
 msgid "Manage firewall"
 msgstr "إدارة الجدار الناري"
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
-
 msgid "Save"
 msgstr "حفظ"
-
-msgid "Select"
-msgstr "اختيار"
 
 msgid "Select username"
 msgstr "اختيار اسم المستخدم"

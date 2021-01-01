@@ -5,9 +5,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr "Action"
-
 msgid "Add contact"
 msgstr "Ajouter contact"
 
@@ -19,6 +16,9 @@ msgstr ""
 
 msgid "Anyone"
 msgstr "Tous"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "CSV file format"
 msgstr "Format de fichier CSV"

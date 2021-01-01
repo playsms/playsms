@@ -17,8 +17,8 @@ msgstr "Voltar"
 msgid "Compose message"
 msgstr "Compor mensagem"
 
-msgid "Information"
-msgstr "Informações"
+msgid "Please confirm"
+msgstr ""
 
 msgid "Please select"
 msgstr "Por favor selecione"

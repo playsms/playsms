@@ -26,6 +26,10 @@ msgstr "Alle sendte beskjeder"
 msgid "Amount"
 msgstr "Beløp"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "Er du sikker på at du vil slette disse emnene?"
+
 msgid "Are you sure you want to delete these items ?"
 msgstr "Er du sikker på at du vil slette disse emnene?"
 
@@ -38,14 +42,25 @@ msgstr "Listen over bannlyste brukere"
 msgid "Billing"
 msgstr "Fakturering"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Content"
 msgstr "Innhold"
+
+#, fuzzy
+msgid "Count"
+msgstr "antall"
 
 msgid "Credit"
 msgstr "Kreditt"
 
 msgid "Current IP address"
 msgstr "Nåværende IP-adresse"
+
+#, fuzzy
+msgid "Date/Time"
+msgstr "Bannlyst dato/tid"
 
 msgid "Deleted"
 msgstr "Slettet"
@@ -109,6 +124,9 @@ msgstr "Mine sendte meldinger"
 msgid "Pending"
 msgstr "Avventer"
 
+msgid "Rate"
+msgstr ""
+
 msgid "Report"
 msgstr "Rapport"
 
@@ -162,15 +180,6 @@ msgstr "Brukeragent"
 
 msgid "Whose online"
 msgstr "Hvem er online"
-
-msgid "cost"
-msgstr "pris"
-
-msgid "count"
-msgstr "antall"
-
-msgid "rate"
-msgstr "frekvens"
 
 msgid "username"
 msgstr "brukernavn"

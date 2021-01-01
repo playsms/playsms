@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: es_VE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -273,10 +275,13 @@ msgstr ""
 msgid "Are you sure you want to ban subuser"
 msgstr ""
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Are you sure you want to delete ACL ?"
 msgstr ""
 
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr ""
 
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -312,7 +317,7 @@ msgstr "Está Ud. seguro de querer borrar la subscripción SMS ?"
 msgid "Are you sure you want to delete choice ?"
 msgstr "Está Ud. seguro de quere borrar la opción ?"
 
-msgid "Are you sure you want to delete queue"
+msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
 msgid "Are you sure you want to delete rate ?"
@@ -335,6 +340,9 @@ msgstr "Está Ud. seguro de querer borrar este SMS de auto-respuesta ?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Está Ud. seguro ed querer borrar esta respuesta ?"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "Are you sure you want to delete this member ?"
 msgstr "Está Ud. seguro de querer eliminar el miembro ?"
@@ -429,6 +437,9 @@ msgid "City"
 msgstr ""
 
 msgid "Click the status button to enable or disable status"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "Comma separated"
@@ -934,6 +945,9 @@ msgstr ""
 msgid "Fail to upload CSV file for phonebook"
 msgstr ""
 
+msgid "Feature"
+msgstr ""
+
 msgid "Features"
 msgstr ""
 
@@ -1101,10 +1115,16 @@ msgstr ""
 msgid "Import confirmation"
 msgstr ""
 
+msgid "Inbox"
+msgstr ""
+
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Info"
 msgstr ""
 
 msgid "Infobip API URL"
@@ -1162,6 +1182,9 @@ msgid "Kannel specific"
 msgstr ""
 
 msgid "Kannel status"
+msgstr ""
+
+msgid "Key"
 msgstr ""
 
 msgid "Keyword"
@@ -1502,13 +1525,7 @@ msgstr ""
 msgid "Multi"
 msgstr ""
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr ""
-
 msgid "Multiple entries separated by comma"
-msgstr ""
-
-msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "My account"
@@ -1657,6 +1674,9 @@ msgstr "Número de celular"
 msgid "Phonebook"
 msgstr ""
 
+msgid "Please confirm"
+msgstr ""
+
 msgid "Please remove all subusers from this user to delete"
 msgstr ""
 
@@ -1667,9 +1687,6 @@ msgid "Please select CSV file"
 msgstr ""
 
 msgid "Please select CSV file for phonebook entries"
-msgstr ""
-
-msgid "Please select template"
 msgstr ""
 
 msgid "Please type the displayed captcha phrase correctly"
@@ -2173,6 +2190,12 @@ msgstr ""
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select receiver"
+msgstr ""
+
+msgid "Select template"
+msgstr ""
+
 msgid "Select username"
 msgstr ""
 
@@ -2349,6 +2372,9 @@ msgid "Tags"
 msgstr ""
 
 msgid "Template installation path"
+msgstr ""
+
+msgid "Templates"
 msgstr ""
 
 msgid "Temporary password has been emailed. You must login immediately."
@@ -2721,6 +2747,9 @@ msgstr ""
 msgid "chars"
 msgstr ""
 
+msgid "choice"
+msgstr ""
+
 msgid "code"
 msgstr ""
 
@@ -2790,14 +2819,14 @@ msgstr "URL web de playSMS"
 msgid "prefix"
 msgstr "prefijo"
 
+msgid "queue"
+msgstr ""
+
 msgid "queued"
 msgstr ""
 
 msgid "return"
 msgstr ""
-
-msgid "title"
-msgstr "título"
 
 msgid "twilio is a bulk SMS provider"
 msgstr ""

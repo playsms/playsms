@@ -303,10 +303,15 @@ msgstr "Tem certeza que deseja banir essa conta"
 msgid "Are you sure you want to ban subuser"
 msgstr "Tem certeza que deseja banir esse sub-usuário"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "Tem certeza que deseja excluír esses ítens?"
+
 msgid "Are you sure you want to delete ACL ?"
 msgstr "Tem certeza que deseja excluír a regra"
 
-msgid "Are you sure you want to delete ALL queues"
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Tem certeza que deseja excluír TODAS as filas"
 
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -340,7 +345,8 @@ msgstr "Tem certeza que quer remover essa assinatura?"
 msgid "Are you sure you want to delete choice ?"
 msgstr "Tem certeza que quer remover essa opção?"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Tem certeza que deseja excluir a fila"
 
 msgid "Are you sure you want to delete rate ?"
@@ -366,6 +372,9 @@ msgstr "Tem certeza que quer remover esse cenário de auto-resposta SMS?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Tem certeza que quer remover essa resposta?"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Tem certeza que deseja remover este grupo de caixa de entrada?"
@@ -463,6 +472,9 @@ msgstr "Lista de coringas"
 msgid "Changes have been made"
 msgstr "Alterações foram realizadas"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Check email sender"
 msgstr "Verificar remetente do email"
 
@@ -483,6 +495,9 @@ msgstr "Cidade"
 
 msgid "Click the status button to enable or disable status"
 msgstr "Clique no botão de status para habilitar ou desabilitar o status"
+
+msgid "Close"
+msgstr ""
 
 msgid "Comma separated"
 msgstr "Separados por vírgula"
@@ -1268,6 +1283,9 @@ msgstr "Alterações de rota para SMS recebidos foram salvas"
 msgid "Incoming SMS time is in local time"
 msgstr "A hora do SMS recebido está na hora local"
 
+msgid "Info"
+msgstr ""
+
 msgid "Infobip API URL"
 msgstr "URL da API do infobip"
 
@@ -1334,6 +1352,9 @@ msgstr "Específico do Kannel"
 
 msgid "Kannel status"
 msgstr "Status do Kannel"
+
+msgid "Key"
+msgstr ""
 
 msgid "Keyword"
 msgstr "Palavra-chave"
@@ -1704,14 +1725,8 @@ msgstr "Mover para"
 msgid "Multi"
 msgstr "Multi"
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr "Multipos endereços IPs devem ser separados por vírgula"
-
 msgid "Multiple entries separated by comma"
 msgstr "Multiplas entradas separadas por vírgula (,)"
-
-msgid "Multiple mobile numbers must be comma-separated"
-msgstr "Múltiplos números de celular devem ser separados por vírgula"
 
 msgid "My account"
 msgstr "Minha conta"
@@ -1879,6 +1894,9 @@ msgstr "Telefone"
 msgid "Phonebook"
 msgstr "Contatos"
 
+msgid "Please confirm"
+msgstr ""
+
 msgid "Please remove all subusers from this user to delete"
 msgstr "Por favor remova todos os sub-usuários deste para excluír"
 
@@ -1890,9 +1908,6 @@ msgstr "Por favor selecione arquivo CSV"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Por favor selecione o arquivo CSV para entradas dos contatos"
-
-msgid "Please select template"
-msgstr "Por favor selecione um modelo"
 
 msgid "Please type the displayed captcha phrase correctly"
 msgstr "O captcha digitado não confere."
@@ -2430,6 +2445,13 @@ msgstr "Selecionar"
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr "Selecione 'não' se o horário do recebimento do SMS estiver em UTC"
 
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "Por favor selecione um modelo"
+
 msgid "Select username"
 msgstr "Selecionar nome de usuário"
 
@@ -2640,6 +2662,9 @@ msgstr "Tags"
 
 msgid "Template installation path"
 msgstr "Caminho de instalação do template"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
@@ -3037,17 +3062,14 @@ msgstr "bloqueado"
 msgid "chars"
 msgstr "caracteres"
 
+msgid "choice"
+msgstr ""
+
 msgid "code"
 msgstr "código"
 
 msgid "correct"
 msgstr "incorreto"
-
-msgid "cost"
-msgstr "custo"
-
-msgid "count"
-msgstr "contagem"
 
 msgid "create an account to send SMS"
 msgstr "criar uma conta para enviar SMS"
@@ -3121,17 +3143,14 @@ msgstr "URL web do playSMS"
 msgid "prefix"
 msgstr "prefixo"
 
+msgid "queue"
+msgstr ""
+
 msgid "queued"
 msgstr "na fila"
 
-msgid "rate"
-msgstr "taxa"
-
 msgid "return"
 msgstr "voltar"
-
-msgid "title"
-msgstr "título"
 
 msgid "twilio is a bulk SMS provider"
 msgstr "Twilio é um provedor de SMS em massa"

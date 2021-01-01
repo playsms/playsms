@@ -14,9 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
-msgid "Action"
-msgstr "الإجراء"
-
 msgid "Add contact"
 msgstr "أضف جهة اتصال"
 
@@ -28,6 +25,9 @@ msgstr ""
 
 msgid "Anyone"
 msgstr "الكل"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "CSV file format"
 msgstr "صيغة ملف CSV"

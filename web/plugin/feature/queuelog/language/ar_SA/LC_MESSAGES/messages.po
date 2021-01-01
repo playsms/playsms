@@ -14,16 +14,15 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
-msgid "Action"
-msgstr "إجراءات"
-
 msgid "All queues have been removed"
 msgstr "تم حذف كافة الرسائل في الطابور"
 
-msgid "Are you sure you want to delete ALL queues"
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "هل تود بالتأكيد حذف كافة الرسائل في الطابور؟"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "هل تود بالتأكيد حذف الطابور؟"
 
 msgid "Count"
@@ -49,3 +48,6 @@ msgstr "المستخدم"
 
 msgid "View SMS queue"
 msgstr "عرض طابور الإرسال"
+
+msgid "queue"
+msgstr ""

@@ -18,8 +18,8 @@ msgstr "Handling"
 msgid "Add route"
 msgstr "Tilføj rute"
 
-msgid "Are you sure ?"
-msgstr "Er du sikker?"
+msgid "Are you sure you want to delete ?"
+msgstr ""
 
 msgid "Destination name"
 msgstr "Destinationsnavn"

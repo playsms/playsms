@@ -197,6 +197,9 @@ msgstr "XML формат"
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
+msgid "choice"
+msgstr ""
+
 msgid "keyword"
 msgstr "ключевое слово"
 
@@ -214,6 +217,3 @@ msgstr "раз в месяц"
 
 msgid "one time every week"
 msgstr "раз в неделю"
-
-msgid "title"
-msgstr "название"

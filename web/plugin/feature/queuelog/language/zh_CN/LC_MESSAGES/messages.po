@@ -5,16 +5,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr ""
-
 msgid "All queues have been removed"
 msgstr ""
 
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr ""
 
-msgid "Are you sure you want to delete queue"
+msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
 msgid "Count"
@@ -39,4 +36,7 @@ msgid "User"
 msgstr ""
 
 msgid "View SMS queue"
+msgstr ""
+
+msgid "queue"
 msgstr ""

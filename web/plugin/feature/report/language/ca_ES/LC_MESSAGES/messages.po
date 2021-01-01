@@ -32,6 +32,9 @@ msgstr ""
 msgid "Amount"
 msgstr ""
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Are you sure you want to delete these items ?"
 msgstr ""
 
@@ -44,13 +47,22 @@ msgstr ""
 msgid "Billing"
 msgstr "Facturació"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Content"
+msgstr ""
+
+msgid "Count"
 msgstr ""
 
 msgid "Credit"
 msgstr "Crèdit"
 
 msgid "Current IP address"
+msgstr ""
+
+msgid "Date/Time"
 msgstr ""
 
 msgid "Deleted"
@@ -115,6 +127,9 @@ msgstr ""
 msgid "Pending"
 msgstr "Pendents"
 
+msgid "Rate"
+msgstr ""
+
 msgid "Report"
 msgstr "Informe"
 
@@ -167,15 +182,6 @@ msgid "User agent"
 msgstr ""
 
 msgid "Whose online"
-msgstr ""
-
-msgid "cost"
-msgstr ""
-
-msgid "count"
-msgstr ""
-
-msgid "rate"
 msgstr ""
 
 msgid "username"

@@ -33,9 +33,6 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-msgid "Please select template"
-msgstr ""
-
 msgid "Prefix with # for groups and @ for users"
 msgstr ""
 
@@ -43,6 +40,12 @@ msgid "SMS"
 msgstr ""
 
 msgid "Schedule"
+msgstr ""
+
+msgid "Select receiver"
+msgstr ""
+
+msgid "Select template"
 msgstr ""
 
 msgid "Send"
@@ -73,6 +76,9 @@ msgid "Sender ID"
 msgstr ""
 
 msgid "System error has occured"
+msgstr ""
+
+msgid "Templates"
 msgstr ""
 
 msgid "Unicode message"

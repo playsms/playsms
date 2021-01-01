@@ -16,14 +16,14 @@ msgstr ""
 msgid "Add blocked mobile numbers"
 msgstr "إضافة عنوان آي بي محظور"
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Blocked mobile"
 msgstr "تم الحظر"
 
 msgid "Comma separated values for multiple mobile numbers"
 msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
-
-msgid "Delete"
-msgstr "حذف"
 
 msgid "Manage stoplist"
 msgstr "المستخدمون الفرعيون"
@@ -40,14 +40,8 @@ msgstr "تم حظر عناوين آي بي"
 msgid "Mobile numbers have been deleted"
 msgstr "تم حذف عناوين آي بي"
 
-msgid "Multiple mobile numbers must be comma-separated"
-msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
-
 msgid "Save"
 msgstr "حفظ"
-
-msgid "Select"
-msgstr "اختيار"
 
 msgid "User"
 msgstr "المستخدم"

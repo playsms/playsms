@@ -48,9 +48,6 @@ msgstr "التذييل"
 msgid "Options"
 msgstr "خيارات"
 
-msgid "Please select template"
-msgstr "الرجاء اختيار قالب "
-
 msgid "Prefix with # for groups and @ for users"
 msgstr "استخدم # للمجموعات و @ للمستخدمين"
 
@@ -59,6 +56,13 @@ msgstr "رسالة قصيرة"
 
 msgid "Schedule"
 msgstr "الجدول"
+
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "الرجاء اختيار قالب "
 
 msgid "Send"
 msgstr " إرسال"
@@ -89,6 +93,9 @@ msgstr "اسم المرسل"
 
 msgid "System error has occured"
 msgstr "خطأ في النظام"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "رسالة يونيكود"

@@ -20,7 +20,7 @@ msgstr "Acció"
 msgid "Add route"
 msgstr "Afegir tarifa"
 
-msgid "Are you sure ?"
+msgid "Are you sure you want to delete ?"
 msgstr ""
 
 #, fuzzy

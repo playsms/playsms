@@ -23,6 +23,10 @@ msgstr "Todas as mensagens enviadas"
 msgid "Amount"
 msgstr "Quantidade"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "Tem certeza que deseja excluír esses ítens?"
+
 msgid "Are you sure you want to delete these items ?"
 msgstr "Tem certeza que deseja excluír esses ítens?"
 
@@ -35,14 +39,25 @@ msgstr "Lista de usuários banidos"
 msgid "Billing"
 msgstr "Faturamento"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Content"
 msgstr "Conteúdo"
+
+#, fuzzy
+msgid "Count"
+msgstr "contagem"
 
 msgid "Credit"
 msgstr "Crédito"
 
 msgid "Current IP address"
 msgstr "Endereço de IP atual"
+
+#, fuzzy
+msgid "Date/Time"
+msgstr "Dia/hora do banimento"
 
 msgid "Deleted"
 msgstr "Excluído"
@@ -106,6 +121,9 @@ msgstr "Minhas mensagens enviadas"
 msgid "Pending"
 msgstr "Pendente"
 
+msgid "Rate"
+msgstr ""
+
 msgid "Report"
 msgstr "Relatório"
 
@@ -159,15 +177,6 @@ msgstr "User agent"
 
 msgid "Whose online"
 msgstr "Quem está online"
-
-msgid "cost"
-msgstr "custo"
-
-msgid "count"
-msgstr "contagem"
-
-msgid "rate"
-msgstr "taxa"
 
 msgid "username"
 msgstr "nome de usuário"

@@ -1,3 +1,6 @@
+msgid "Action"
+msgstr ""
+
 msgid "Add"
 msgstr ""
 
@@ -11,6 +14,9 @@ msgid "Ban"
 msgstr ""
 
 msgid "Buy"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "Compose message"
@@ -32,6 +38,9 @@ msgid "Edit"
 msgstr ""
 
 msgid "Export"
+msgstr ""
+
+msgid "Feature"
 msgstr ""
 
 msgid "Features"
@@ -56,6 +65,21 @@ msgid "Idle"
 msgstr ""
 
 msgid "Import"
+msgstr ""
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Key"
+msgstr ""
+
+msgid "Keyword"
 msgstr ""
 
 msgid "Lock"
@@ -97,10 +121,16 @@ msgstr ""
 msgid "Manage subuser"
 msgstr ""
 
+msgid "Message"
+msgstr ""
+
 msgid "Move"
 msgstr ""
 
 msgid "My account"
+msgstr ""
+
+msgid "No"
 msgstr ""
 
 msgid "Offline"
@@ -122,6 +152,9 @@ msgid "Reports"
 msgstr ""
 
 msgid "Resend"
+msgstr ""
+
+msgid "SMS"
 msgstr ""
 
 msgid "Settings"
@@ -146,6 +179,9 @@ msgid "User preference"
 msgstr ""
 
 msgid "View"
+msgstr ""
+
+msgid "Yes"
 msgstr ""
 
 msgid "Your credit"

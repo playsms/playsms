@@ -18,8 +18,8 @@ msgstr "Действие"
 msgid "Add route"
 msgstr "Добавить маршрут"
 
-msgid "Are you sure ?"
-msgstr "Вы уверены?"
+msgid "Are you sure you want to delete ?"
+msgstr ""
 
 msgid "Destination name"
 msgstr "Назначение"

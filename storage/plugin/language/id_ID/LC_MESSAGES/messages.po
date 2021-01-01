@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: id_ID\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -296,10 +298,13 @@ msgstr ""
 msgid "Are you sure you want to ban subuser"
 msgstr ""
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Are you sure you want to delete ACL ?"
 msgstr ""
 
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr ""
 
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -334,7 +339,7 @@ msgstr "Anda yakin ingin menghapus layanan SMS berlangganan?"
 msgid "Are you sure you want to delete choice ?"
 msgstr "Anda yakin ingin menghapus pilihan?"
 
-msgid "Are you sure you want to delete queue"
+msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
 msgid "Are you sure you want to delete rate ?"
@@ -360,6 +365,9 @@ msgstr "Anda yakin ingin menghapus skenario layanan balas SMS otomatis ini?"
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Anda yakin ingin menghapus jawaban ini?"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Apakah anda yakin ingin menghapus grup kotak masuk ini ?"
@@ -460,6 +468,9 @@ msgstr "Daftar kotak tangkap semua"
 msgid "Changes have been made"
 msgstr ""
 
+msgid "Charge"
+msgstr ""
+
 msgid "Check email sender"
 msgstr ""
 
@@ -480,6 +491,9 @@ msgid "City"
 msgstr ""
 
 msgid "Click the status button to enable or disable status"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "Comma separated"
@@ -1267,6 +1281,9 @@ msgstr ""
 msgid "Incoming SMS time is in local time"
 msgstr ""
 
+msgid "Info"
+msgstr ""
+
 msgid "Infobip API URL"
 msgstr "URL Infobip API"
 
@@ -1334,6 +1351,9 @@ msgstr ""
 
 msgid "Kannel status"
 msgstr "Status kannel"
+
+msgid "Key"
+msgstr ""
 
 msgid "Keyword"
 msgstr "Kata Kunci"
@@ -1703,13 +1723,7 @@ msgstr ""
 msgid "Multi"
 msgstr ""
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr ""
-
 msgid "Multiple entries separated by comma"
-msgstr ""
-
-msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "My account"
@@ -1877,6 +1891,9 @@ msgstr "Nomor telepon"
 msgid "Phonebook"
 msgstr "Buku telepon"
 
+msgid "Please confirm"
+msgstr ""
+
 msgid "Please remove all subusers from this user to delete"
 msgstr ""
 
@@ -1888,9 +1905,6 @@ msgstr "Silahkan pilih file CSV"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Pilih berkas CSV untuk isian buku telepon"
-
-msgid "Please select template"
-msgstr ""
 
 msgid "Please type the displayed captcha phrase correctly"
 msgstr ""
@@ -2434,6 +2448,12 @@ msgstr ""
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select receiver"
+msgstr ""
+
+msgid "Select template"
+msgstr ""
+
 msgid "Select username"
 msgstr ""
 
@@ -2642,6 +2662,9 @@ msgstr ""
 
 msgid "Template installation path"
 msgstr "Jalur instalasi template"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
@@ -3040,17 +3063,14 @@ msgstr ""
 msgid "chars"
 msgstr ""
 
+msgid "choice"
+msgstr ""
+
 msgid "code"
 msgstr "kode"
 
 msgid "correct"
 msgstr "benar"
-
-msgid "cost"
-msgstr ""
-
-msgid "count"
-msgstr ""
 
 msgid "create an account to send SMS"
 msgstr ""
@@ -3127,17 +3147,14 @@ msgstr "Alamat web playSMS"
 msgid "prefix"
 msgstr "awalan"
 
-msgid "queued"
+msgid "queue"
 msgstr ""
 
-msgid "rate"
+msgid "queued"
 msgstr ""
 
 msgid "return"
 msgstr ""
-
-msgid "title"
-msgstr "judul"
 
 msgid "twilio is a bulk SMS provider"
 msgstr "Twilio adalah penyedia SMS bulk"

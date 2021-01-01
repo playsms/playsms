@@ -200,6 +200,9 @@ msgstr "XML output"
 msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
 
+msgid "choice"
+msgstr ""
+
 msgid "keyword"
 msgstr "nøgleord"
 
@@ -217,6 +220,3 @@ msgstr "én gang om måneden"
 
 msgid "one time every week"
 msgstr "én gang om ugen"
-
-msgid "title"
-msgstr "titel"

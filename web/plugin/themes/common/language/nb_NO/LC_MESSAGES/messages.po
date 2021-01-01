@@ -1,3 +1,6 @@
+msgid "Action"
+msgstr ""
+
 msgid "Add"
 msgstr "Legg til"
 
@@ -13,6 +16,9 @@ msgstr "Bannlys"
 
 msgid "Buy"
 msgstr "Kjp"
+
+msgid "Close"
+msgstr ""
 
 msgid "Compose message"
 msgstr "Lag melding"
@@ -34,6 +40,9 @@ msgstr "Rediger"
 
 msgid "Export"
 msgstr "Eksporter"
+
+msgid "Feature"
+msgstr ""
 
 msgid "Features"
 msgstr ""
@@ -58,6 +67,21 @@ msgstr "Idle"
 
 msgid "Import"
 msgstr "Importer"
+
+msgid "Inbox"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
+msgid "Key"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
 
 msgid "Lock"
 msgstr ""
@@ -99,11 +123,17 @@ msgstr "Hndter side"
 msgid "Manage subuser"
 msgstr "Hndter underbruker"
 
+msgid "Message"
+msgstr ""
+
 msgid "Move"
 msgstr "Flytt"
 
 msgid "My account"
 msgstr "Min konto"
+
+msgid "No"
+msgstr ""
 
 msgid "Offline"
 msgstr "Avlogget"
@@ -125,6 +155,9 @@ msgstr "Rapporter"
 
 msgid "Resend"
 msgstr "Send p nytt"
+
+msgid "SMS"
+msgstr ""
 
 msgid "Settings"
 msgstr "Innstillinger"
@@ -149,6 +182,9 @@ msgstr "Brukerpreferanser"
 
 msgid "View"
 msgstr "Se"
+
+msgid "Yes"
+msgstr ""
 
 msgid "Your credit"
 msgstr "Din kreditt"

@@ -42,9 +42,6 @@ msgstr "Meldingsfooter"
 msgid "Options"
 msgstr "Innstillinger"
 
-msgid "Please select template"
-msgstr "Vennligst velg mal"
-
 msgid "Prefix with # for groups and @ for users"
 msgstr "Prefiks med # for grupper og @ for brukere"
 
@@ -53,6 +50,13 @@ msgstr "SMS"
 
 msgid "Schedule"
 msgstr "Tidsskjema"
+
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "Vennligst velg mal"
 
 msgid "Send"
 msgstr "Send"
@@ -83,6 +87,9 @@ msgstr "SenderID"
 
 msgid "System error has occured"
 msgstr "Systemfeil har oppstått"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Unicode-melding"

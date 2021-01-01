@@ -32,6 +32,10 @@ msgstr "كافة الرسائل المرسلة"
 msgid "Amount"
 msgstr "القيمة"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "هل ترغب في حذف هذه العناصر بالتأكيد؟"
+
 msgid "Are you sure you want to delete these items ?"
 msgstr "هل ترغب في حذف هذه العناصر بالتأكيد؟"
 
@@ -44,14 +48,25 @@ msgstr "قائمة المستخدمين المحظورين"
 msgid "Billing"
 msgstr "الفوترة"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Content"
 msgstr "المحتوى"
+
+#, fuzzy
+msgid "Count"
+msgstr "العدد"
 
 msgid "Credit"
 msgstr "الرصيد"
 
 msgid "Current IP address"
 msgstr "عنوان آي بي"
+
+#, fuzzy
+msgid "Date/Time"
+msgstr "وقت وتاريخ الحظر"
 
 msgid "Deleted"
 msgstr "تم الحذف"
@@ -115,6 +130,9 @@ msgstr "رسائلي المرسلة"
 msgid "Pending"
 msgstr "قيد الإرسال"
 
+msgid "Rate"
+msgstr ""
+
 msgid "Report"
 msgstr "التقرير"
 
@@ -168,15 +186,6 @@ msgstr "متصفح المستخدم"
 
 msgid "Whose online"
 msgstr "المتصلون"
-
-msgid "cost"
-msgstr "التكلفة"
-
-msgid "count"
-msgstr "العدد"
-
-msgid "rate"
-msgstr "التعرفة"
 
 msgid "username"
 msgstr "اسم المستخدم"

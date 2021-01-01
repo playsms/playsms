@@ -56,17 +56,22 @@ msgid "Are you sure ?"
 msgstr ""
 
 #, fuzzy
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ?"
+msgstr "Mchten Sie diese Elemente wirklich löchen?"
+
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 
 msgid "Are you sure you want to delete sender ID"
 msgstr ""
 
-msgid "Are you sure you want to delete these items ?"
-msgstr "Mchten Sie diese Elemente wirklich löchen?"
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Gruppen-Inbox wirklich löschen?"
@@ -102,6 +107,9 @@ msgid "Changes have been made"
 msgstr ""
 
 msgid "Click the status button to enable or disable status"
+msgstr ""
+
+msgid "Close"
 msgstr ""
 
 msgid "Compose message"
@@ -251,6 +259,9 @@ msgstr ""
 msgid "Fail to upload CSV file for phonebook"
 msgstr "Fehler beim Hochladen der CSV-Datei für Telefonbuch"
 
+msgid "Feature"
+msgstr ""
+
 msgid "Features"
 msgstr ""
 
@@ -339,6 +350,15 @@ msgstr "Importiere obige Telefonbucheinträge?"
 msgid "Import confirmation"
 msgstr "Import-Bestätigung"
 
+msgid "Inbox"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Information"
+msgstr ""
+
 msgid "Invalid CSV file"
 msgstr "Ungültige CSV-Datei"
 
@@ -347,6 +367,12 @@ msgstr "Ungültige Einträge"
 
 msgid "Invalid session ID"
 msgstr "Ungültige Session-ID"
+
+msgid "Key"
+msgstr ""
+
+msgid "Keyword"
+msgstr ""
 
 msgid "Keywords"
 msgstr "Schlagworte"
@@ -459,6 +485,9 @@ msgstr "Name"
 msgid "New SMSC has been added"
 msgstr ""
 
+msgid "No"
+msgstr ""
+
 msgid "No changes have been made"
 msgstr "Es wurden KEINE Änderungen vorgenommen"
 
@@ -548,6 +577,9 @@ msgid "Restrict sender to regular members or catch-all members only"
 msgstr "Sender auf gültige Mitglieder oder Catch-All-Mitglieder beschränken"
 
 msgid "Routed SMSC"
+msgstr ""
+
+msgid "SMS"
 msgstr ""
 
 msgid "SMS has been sent to valid numbers in uploaded file"
@@ -753,6 +785,9 @@ msgstr "nein"
 
 msgid "of"
 msgstr "von"
+
+msgid "queue"
+msgstr ""
 
 msgid "return"
 msgstr ""

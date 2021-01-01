@@ -46,9 +46,6 @@ msgstr "Besked bundtekst"
 msgid "Options"
 msgstr "Indstillinger"
 
-msgid "Please select template"
-msgstr "Vælg venligst skabelon"
-
 msgid "Prefix with # for groups and @ for users"
 msgstr "Præfiks med # for grupper og @ for brugere"
 
@@ -57,6 +54,13 @@ msgstr "SMS"
 
 msgid "Schedule"
 msgstr "Skema"
+
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "Vælg venligst skabelon"
 
 msgid "Send"
 msgstr "Send"
@@ -87,6 +91,9 @@ msgstr "Afsender ID"
 
 msgid "System error has occured"
 msgstr "Der opstod en systemfejl"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Unicode besked"

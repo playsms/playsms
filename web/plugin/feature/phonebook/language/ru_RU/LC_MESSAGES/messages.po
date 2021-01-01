@@ -11,9 +11,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Action"
-msgstr "Действие"
-
 msgid "Add contact"
 msgstr "Добавить контакт"
 
@@ -25,6 +22,9 @@ msgstr ""
 
 msgid "Anyone"
 msgstr "Кому угодно"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "CSV file format"
 msgstr ""

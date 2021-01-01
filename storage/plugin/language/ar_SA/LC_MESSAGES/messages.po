@@ -308,10 +308,15 @@ msgstr "هل تود بالتأكيد حظر الحساب؟"
 msgid "Are you sure you want to ban subuser"
 msgstr "هل تود بالتأكيد حظر المستخدم الفرعي؟"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "هل ترغب في حذف هذه العناصر بالتأكيد؟"
+
 msgid "Are you sure you want to delete ACL ?"
 msgstr "هل تود بالتأكيد حذف ACL؟"
 
-msgid "Are you sure you want to delete ALL queues"
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "هل تود بالتأكيد حذف كافة الرسائل في الطابور؟"
 
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -343,7 +348,8 @@ msgstr "هل تود بالتأكيد حذف رسالة الاشتراك؟"
 msgid "Are you sure you want to delete choice ?"
 msgstr "هل تود بالتأكيد حذف هذا الخيار؟"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "هل تود بالتأكيد حذف الطابور؟"
 
 msgid "Are you sure you want to delete rate ?"
@@ -369,6 +375,9 @@ msgstr "هل تود بالتأكيد حذف سيناريو الرد التلقا
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "هل تود بالتأكيد حذف هذه الإجابة؟"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "هل تود بالتأكيد حذف هذه المجموعة؟"
@@ -466,6 +475,9 @@ msgstr "قائمة التقاط الكل"
 msgid "Changes have been made"
 msgstr ""
 
+msgid "Charge"
+msgstr ""
+
 msgid "Check email sender"
 msgstr "تأكد من مرسل البريد"
 
@@ -486,6 +498,9 @@ msgstr "المدينة"
 
 msgid "Click the status button to enable or disable status"
 msgstr "اضغط على زر الحالة لتمكين أو تعطيل حالة اسم المرسل"
+
+msgid "Close"
+msgstr ""
 
 msgid "Comma separated"
 msgstr "القيم المتعددة يجب وضع فاصلة بينها"
@@ -575,8 +590,9 @@ msgstr "التاريخ"
 msgid "Date and time"
 msgstr "وقت وتاريخ الحظر"
 
+#, fuzzy
 msgid "Date/Time"
-msgstr ""
+msgstr "وقت وتاريخ الحظر"
 
 msgid "Datetime"
 msgstr "الوقت"
@@ -1266,6 +1282,9 @@ msgstr "تم حفظ مسار الرسالة الواردة"
 msgid "Incoming SMS time is in local time"
 msgstr ""
 
+msgid "Info"
+msgstr ""
+
 msgid "Infobip API URL"
 msgstr ""
 
@@ -1330,6 +1349,9 @@ msgid "Kannel specific"
 msgstr ""
 
 msgid "Kannel status"
+msgstr ""
+
+msgid "Key"
 msgstr ""
 
 msgid "Keyword"
@@ -1699,14 +1721,8 @@ msgstr "نقل إلى"
 msgid "Multi"
 msgstr "متعدد"
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
-
 msgid "Multiple entries separated by comma"
 msgstr ""
-
-msgid "Multiple mobile numbers must be comma-separated"
-msgstr "عنواين آي بي المتعددة يجب وضع فاصلة بينها"
 
 msgid "My account"
 msgstr ""
@@ -1874,6 +1890,9 @@ msgstr "رقم الهاتف"
 msgid "Phonebook"
 msgstr " دليل الهاتف"
 
+msgid "Please confirm"
+msgstr ""
+
 msgid "Please remove all subusers from this user to delete"
 msgstr "الرجاء إزالة كافة المستخدمين الفرعيين من هذا المستخدم للحذف"
 
@@ -1885,9 +1904,6 @@ msgstr "الرجاء اختيار ملف CSV  "
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "الرجاء اختيار ملف CSV  لإدخالات دليل الهاتف"
-
-msgid "Please select template"
-msgstr "الرجاء اختيار قالب "
 
 msgid "Please type the displayed captcha phrase correctly"
 msgstr "الرجاء إدخال الرمز بشكل صحيح"
@@ -2416,6 +2432,13 @@ msgstr "اختيار"
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "الرجاء اختيار قالب "
+
 msgid "Select username"
 msgstr "اختيار اسم المستخدم"
 
@@ -2620,6 +2643,9 @@ msgstr "التسميات"
 
 msgid "Template installation path"
 msgstr "مسار تنصيب القالب"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
@@ -3015,17 +3041,14 @@ msgstr "تم الحظر"
 msgid "chars"
 msgstr "الأحرف"
 
+msgid "choice"
+msgstr ""
+
 msgid "code"
 msgstr "الرمز"
 
 msgid "correct"
 msgstr "صحيحة"
-
-msgid "cost"
-msgstr "التكلفة"
-
-msgid "count"
-msgstr "العدد"
 
 msgid "create an account to send SMS"
 msgstr ""
@@ -3099,17 +3122,14 @@ msgstr ""
 msgid "prefix"
 msgstr "المقدمة"
 
+msgid "queue"
+msgstr ""
+
 msgid "queued"
 msgstr "تم الوضع في الطابور"
 
-msgid "rate"
-msgstr "التعرفة"
-
 msgid "return"
 msgstr ""
-
-msgid "title"
-msgstr "العنوان"
 
 msgid "twilio is a bulk SMS provider"
 msgstr ""

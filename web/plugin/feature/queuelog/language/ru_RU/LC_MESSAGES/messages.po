@@ -11,18 +11,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Action"
-msgstr "Действие"
-
 #, fuzzy
 msgid "All queues have been removed"
 msgstr "Очередь удалена"
 
 #, fuzzy
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Вы уверены, что хотите удалить очередь?"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Вы уверены, что хотите удалить очередь?"
 
 msgid "Count"
@@ -48,3 +46,6 @@ msgstr "Пользователь"
 
 msgid "View SMS queue"
 msgstr "Просмотр очереди"
+
+msgid "queue"
+msgstr ""

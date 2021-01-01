@@ -5,16 +5,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr "Action"
-
 msgid "All queues have been removed"
 msgstr "Toutes les files d'attente ont été supprimées"
 
-msgid "Are you sure you want to delete ALL queues"
+#, fuzzy
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Êtes-vous sûr de vouloir supprimer TOUTES les files d'attente"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Êtes-vous sûr de vouloir supprimer la file d'attente"
 
 msgid "Count"
@@ -40,3 +39,6 @@ msgstr "Utilisateur"
 
 msgid "View SMS queue"
 msgstr "Afficher la file d'attente des SMS"
+
+msgid "queue"
+msgstr ""

@@ -8,7 +8,8 @@ msgstr ""
 msgid "Add message template"
 msgstr "Nachrichten-Vorlage hinzufügen"
 
-msgid "Are you sure you want to delete these items ?"
+#, fuzzy
+msgid "Are you sure you want to delete ?"
 msgstr "Mchten Sie diese Elemente wirklich löchen?"
 
 msgid "Content"

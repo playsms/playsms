@@ -8,14 +8,14 @@ msgstr ""
 msgid "Add blocked mobile numbers"
 msgstr "Adicionar celulares bloqueados"
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Blocked mobile"
 msgstr "Celular bloqueado"
 
 msgid "Comma separated values for multiple mobile numbers"
 msgstr "Múltiplos valores separados por vírgula"
-
-msgid "Delete"
-msgstr "Excluír"
 
 msgid "Manage stoplist"
 msgstr "Gerenciar stoplist"
@@ -32,14 +32,8 @@ msgstr "Os números de celular foram bloqueados"
 msgid "Mobile numbers have been deleted"
 msgstr "Os números de celular foram excluídos"
 
-msgid "Multiple mobile numbers must be comma-separated"
-msgstr "Múltiplos números de celular devem ser separados por vírgula"
-
 msgid "Save"
 msgstr "Salvar"
-
-msgid "Select"
-msgstr "Selecionar"
 
 msgid "User"
 msgstr "Usuário"

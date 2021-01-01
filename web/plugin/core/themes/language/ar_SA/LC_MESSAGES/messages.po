@@ -26,8 +26,8 @@ msgstr "رجوع"
 msgid "Compose message"
 msgstr "إنشاء رسالة"
 
-msgid "Information"
-msgstr "المعلومات"
+msgid "Please confirm"
+msgstr ""
 
 msgid "Please select"
 msgstr "الرجاء اختيار  "

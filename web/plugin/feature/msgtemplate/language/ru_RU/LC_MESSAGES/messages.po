@@ -14,7 +14,8 @@ msgstr ""
 msgid "Add message template"
 msgstr "Добавить шаблон"
 
-msgid "Are you sure you want to delete these items ?"
+#, fuzzy
+msgid "Are you sure you want to delete ?"
 msgstr "Вы уверены, что хотите удалить выбранное?"
 
 msgid "Content"

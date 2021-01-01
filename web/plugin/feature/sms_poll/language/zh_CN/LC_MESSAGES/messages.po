@@ -193,6 +193,9 @@ msgstr ""
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
+msgid "choice"
+msgstr ""
+
 msgid "keyword"
 msgstr "关键字"
 
@@ -211,6 +214,3 @@ msgstr ""
 
 msgid "one time every week"
 msgstr ""
-
-msgid "title"
-msgstr "标题"

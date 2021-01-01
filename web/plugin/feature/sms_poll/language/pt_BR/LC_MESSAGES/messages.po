@@ -190,6 +190,9 @@ msgstr "Saída XML"
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
 
+msgid "choice"
+msgstr ""
+
 msgid "keyword"
 msgstr "palavra-chave"
 
@@ -207,6 +210,3 @@ msgstr "uma vez por mês"
 
 msgid "one time every week"
 msgstr "uma vez por semana"
-
-msgid "title"
-msgstr "título"

@@ -38,9 +38,6 @@ msgstr "Rodapé da mensagem"
 msgid "Options"
 msgstr "Opções"
 
-msgid "Please select template"
-msgstr "Por favor selecione um modelo"
-
 msgid "Prefix with # for groups and @ for users"
 msgstr "Use o prefixo # para grupos e @ para usuários"
 
@@ -49,6 +46,13 @@ msgstr "SMS"
 
 msgid "Schedule"
 msgstr "Agendamento"
+
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "Por favor selecione um modelo"
 
 msgid "Send"
 msgstr "Enviar"
@@ -79,6 +83,9 @@ msgstr "ID do Remetente"
 
 msgid "System error has occured"
 msgstr "Ocorreu um erro de systema"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Mensagem unicode"

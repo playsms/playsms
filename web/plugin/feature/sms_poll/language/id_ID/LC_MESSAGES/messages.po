@@ -198,6 +198,9 @@ msgstr "Keluaran XML"
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
+msgid "choice"
+msgstr ""
+
 msgid "keyword"
 msgstr "kata kunci"
 
@@ -216,6 +219,3 @@ msgstr ""
 
 msgid "one time every week"
 msgstr ""
-
-msgid "title"
-msgstr "judul"

@@ -47,9 +47,6 @@ msgstr "Подпись сообщения"
 msgid "Options"
 msgstr "Параметры"
 
-msgid "Please select template"
-msgstr "Выберите шаблон"
-
 msgid "Prefix with # for groups and @ for users"
 msgstr "# для поиска групп, @ для поиска пользователей"
 
@@ -58,6 +55,13 @@ msgstr "СМС"
 
 msgid "Schedule"
 msgstr "Запланировать"
+
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "Выберите шаблон"
 
 msgid "Send"
 msgstr "Отправить"
@@ -87,6 +91,9 @@ msgid "Sender ID"
 msgstr "Имя отправителя"
 
 msgid "System error has occured"
+msgstr ""
+
+msgid "Templates"
 msgstr ""
 
 msgid "Unicode message"

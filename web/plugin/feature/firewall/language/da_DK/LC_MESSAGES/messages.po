@@ -15,14 +15,14 @@ msgstr ""
 msgid "Add blocked IP addresses"
 msgstr "Tilføj blokeret IP adresse"
 
+msgid "Are you sure you want to delete ?"
+msgstr ""
+
 msgid "Blocked IP address"
 msgstr "Blokeret IP adresse"
 
 msgid "Comma separated values for multiple IP addresses"
 msgstr "Kommaseparerede værdier ved flere IP adresser"
-
-msgid "Delete"
-msgstr "Slet"
 
 msgid "IP address"
 msgstr "IP adresse"
@@ -39,14 +39,8 @@ msgstr "IP adresse er blevet slettet"
 msgid "Manage firewall"
 msgstr "Håndter firewall"
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr "Flere IP adresser skal adskilles med komma"
-
 msgid "Save"
 msgstr "Gem"
-
-msgid "Select"
-msgstr "Vælg"
 
 msgid "Select username"
 msgstr "Vælg brugernavn"

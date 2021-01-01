@@ -316,11 +316,15 @@ msgstr "Вы уверены, что хотите заблокировать по
 msgid "Are you sure you want to ban subuser"
 msgstr "Вы уверены, что хотите заблокировать дочернего пользователя"
 
+#, fuzzy
+msgid "Are you sure you want to delete ?"
+msgstr "Вы уверены, что хотите удалить эти элементы?"
+
 msgid "Are you sure you want to delete ACL ?"
 msgstr ""
 
 #, fuzzy
-msgid "Are you sure you want to delete ALL queues"
+msgid "Are you sure you want to delete ALL queues ?"
 msgstr "Вы уверены, что хотите удалить очередь?"
 
 msgid "Are you sure you want to delete SMS autoreply ?"
@@ -354,7 +358,8 @@ msgstr "Вы уверены, что хотите удалить рассылку
 msgid "Are you sure you want to delete choice ?"
 msgstr "Вы уверены, что хотите удалить вариант?"
 
-msgid "Are you sure you want to delete queue"
+#, fuzzy
+msgid "Are you sure you want to delete queue ?"
 msgstr "Вы уверены, что хотите удалить очередь?"
 
 msgid "Are you sure you want to delete rate ?"
@@ -380,6 +385,9 @@ msgstr "Вы уверены, что хотите удалить сценарий
 
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Вы уверены, что хотите удалить этот ответ?"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Вы уверены, что хотите удалить эту группу принятых?"
@@ -479,6 +487,9 @@ msgstr "Перехватывающие"
 msgid "Changes have been made"
 msgstr "Изменения сохранены"
 
+msgid "Charge"
+msgstr ""
+
 msgid "Check email sender"
 msgstr "Проверять отправителя"
 
@@ -499,6 +510,9 @@ msgstr "Город"
 
 msgid "Click the status button to enable or disable status"
 msgstr "Нажмите для включения или отключения"
+
+msgid "Close"
+msgstr ""
 
 msgid "Comma separated"
 msgstr "Разделённый запятыми"
@@ -1284,6 +1298,9 @@ msgstr "Правила для входящих сообщений были со�
 msgid "Incoming SMS time is in local time"
 msgstr "Входящие СМС по местному времени"
 
+msgid "Info"
+msgstr ""
+
 msgid "Infobip API URL"
 msgstr "Infobip API URL"
 
@@ -1350,6 +1367,9 @@ msgstr "Настройки Kannel"
 
 msgid "Kannel status"
 msgstr "Состояние Kannel"
+
+msgid "Key"
+msgstr ""
 
 msgid "Keyword"
 msgstr "Ключевое слово"
@@ -1720,13 +1740,7 @@ msgstr "Переместить в"
 msgid "Multi"
 msgstr "Множественные"
 
-msgid "Multiple IP addresses must be comma-separated"
-msgstr ""
-
 msgid "Multiple entries separated by comma"
-msgstr ""
-
-msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
 msgid "My account"
@@ -1898,6 +1912,9 @@ msgstr "Номер телефоа"
 msgid "Phonebook"
 msgstr "Контакты"
 
+msgid "Please confirm"
+msgstr ""
+
 msgid "Please remove all subusers from this user to delete"
 msgstr ""
 "Пожалуйста, снимите всех дочерних пользователей с этого пользователя, чтобы "
@@ -1911,9 +1928,6 @@ msgstr "Выберите CSV файл"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Выберите CSV файл контактов"
-
-msgid "Please select template"
-msgstr "Выберите шаблон"
 
 msgid "Please type the displayed captcha phrase correctly"
 msgstr "Пожалуйста, введите символы с картинки"
@@ -2455,6 +2469,13 @@ msgstr "Выберите"
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr "Нет если время входящих СМС по гринвичу"
 
+msgid "Select receiver"
+msgstr ""
+
+#, fuzzy
+msgid "Select template"
+msgstr "Выберите шаблон"
+
 msgid "Select username"
 msgstr ""
 
@@ -2660,6 +2681,9 @@ msgstr ""
 
 msgid "Template installation path"
 msgstr "Установочный путь шаблона"
+
+msgid "Templates"
+msgstr ""
 
 msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
@@ -3057,17 +3081,14 @@ msgstr "заблокировано"
 msgid "chars"
 msgstr "симв"
 
+msgid "choice"
+msgstr ""
+
 msgid "code"
 msgstr "код"
 
 msgid "correct"
 msgstr "правиьно"
-
-msgid "cost"
-msgstr "стоимость"
-
-msgid "count"
-msgstr "количество"
 
 msgid "create an account to send SMS"
 msgstr "Создать учётную запись для отправки СМС"
@@ -3141,17 +3162,14 @@ msgstr "URL playSMS сервера"
 msgid "prefix"
 msgstr "префикс"
 
+msgid "queue"
+msgstr ""
+
 msgid "queued"
 msgstr "в очереди"
 
-msgid "rate"
-msgstr "цена"
-
 msgid "return"
 msgstr ""
-
-msgid "title"
-msgstr "название"
 
 msgid "twilio is a bulk SMS provider"
 msgstr "twilio это массовый СМС провайдер"

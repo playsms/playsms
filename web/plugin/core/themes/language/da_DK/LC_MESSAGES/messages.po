@@ -24,8 +24,8 @@ msgstr "Tilbage"
 msgid "Compose message"
 msgstr "Opret besked"
 
-msgid "Information"
-msgstr "Information"
+msgid "Please confirm"
+msgstr ""
 
 msgid "Please select"
 msgstr "Vælg venligst"
