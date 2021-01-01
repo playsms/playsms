@@ -54,7 +54,7 @@ switch (_OP_) {
 			}
 		}
 		if ($ismatched) {
-			$sms_sender_id = _select('sms_sender', $user_sender_id, $sms_from, [], 'sms_sender', 'form-control');
+			$sms_sender_id = _select('sms_sender', $user_sender_id, $sms_from, [], '', 'form-control');
 		} else {
 			$sms_sender_id = "<input type='text' class='form-control' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
@@ -70,7 +70,7 @@ switch (_OP_) {
 		foreach (sendsms_get_template() as $c_template) {
 			$c_template_option[$c_template['title']] = $c_template['text'];
 		}
-		$sms_template = _select('smstemplate', $c_template_option, '', [], 'msg_template_select', 'form-control');
+		$sms_template = _select('smstemplate', $c_template_option, '', [], '', 'form-control');
 		
 		// build form
 		unset($tpl);

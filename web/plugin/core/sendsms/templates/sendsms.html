@@ -22,38 +22,50 @@
 
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="msg_combo_sendto">{{ Send to }}</label>
-				<input type="hidden" name="p_num_text" id="msg_combo_sendto" class="form-control" value="{{ to }}">
+				<label for="msg_combo_sendto_label">{{ Send to }}</label>
+				<div id="msg_combo_sendto_label">
+					<input type="hidden" name="p_num_text" id="msg_combo_sendto" class="form-control" value="{{ to }}">
+				</div>
 				<p class="help-block">{{ HINT_SEND_TO }}</p>
 			</div>
 			<div class="form-group">
-				<label for="message">{{ Message template }}</label>
-				{{ sms_template }}
+				<label for="msg_template_select_label">{{ Message template }}</label>
+				<div id="msg_template_select_label">
+					{{ sms_template }}
+				</div>
 			</div>
 			<div class="form-group">
-				<label for="message">{{ Message }}</label>
-				<textarea name="message" id="message" class="form-control">{{ message }}</textarea>
+				<label for="message_label">{{ Message }}</label>
+				<div class="message_label">
+					<textarea rows="4" name="message" id="message" class="form-control">{{ message }}</textarea>
+				</div>
 				<div id="msg_text_counter" name="msg_text_counter"></div>
-			</div>
-			<div class="form-group">
-				<label for="msg_schedule">{{ Schedule }}</label>
-				<input type="text" name="sms_schedule" id="msg_schedule" class="form-control" value="{{ sms_schedule }}">
-				<p class="help-block">{{ HINT_SCHEDULE }}</p>
 			</div>
 		</div>
 
 		<div class="col-sm-6">
 			<div class="form-group">
-				<label for="msg_sender">{{ Sender ID }}</label>
-				<div id="msg_sender">{{ sms_sender_id }}</div>
+				<label for="msg_schedule_label">{{ Schedule }}</label>
+				<div id="msg_schedule_label">
+					<input type="text" name="sms_schedule" id="msg_schedule" class="form-control" value="{{ sms_schedule }}">
+				</div>
+				<p class="help-block">{{ HINT_SCHEDULE }}</p>
 			</div>
 			<div class="form-group">
-				<label for="msg_footer">{{ Message footer }}</label>
-				<input type="text" name="sms_footer" id="msg_footer" class="form-control" value="{{ sms_footer }}">
+				<label for="msg_sender_label">{{ Sender ID }}</label>
+				<div id="msg_sender_label">
+					{{ sms_sender_id }}
+				</div>
 			</div>
 			<div class="form-group">
-				<label for="msg_options">{{ Options }}</label>
-				<div id="msg_options">
+				<label for="msg_footer_label">{{ Message footer }}</label>
+				<div class="msg_footer_label">"
+					<input type="text" name="sms_footer" id="msg_footer" class="form-control" value="{{ sms_footer }}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="msg_options_label">{{ Options }}</label>
+				<div id="msg_options_label">
 					<div class="form-check">
 						<input type=checkbox name="msg_flash" id="msg_flash" class="form-check-input">
 						<label for="msg_unicode" class="form-check-label">{{ Flash message }}</label>
