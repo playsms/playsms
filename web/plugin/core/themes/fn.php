@@ -387,7 +387,7 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 	
 	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
 	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
-	$width = ($tag_params['width'] ? $tag_params['width'] : '100%');
+	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
 	
 	$js = '
 		<script language="javascript" type="text/javascript">
