@@ -1,72 +1,30 @@
 @media screen and (min-width: 768px) {
-	.playsms-responsive, input, select, option, textarea {
-		width: 400px;
-	}
-	.playsms-label-sizer {
-		width: 350px;
-	}
-	.playsms-input-sizer {
+	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
 		width: 400px;
 	}
 }
 
 @media screen and (max-width: 768px) and (min-width: 600px) {
-	.playsms-responsive, input, select, option, textarea {
-		width: 335px;
-	}
-	.playsms-label-sizer {
-		width: 345px;
-	}
-	.playsms-input-sizer {
-		width: 345px;
-	}
-	.dropdown-menu hr {
-		display: none;
+	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
+		width: 330px;
 	}
 }
 
 @media screen and (max-width: 600px) and (min-width: 480px) {
-	.playsms-responsive, input, select, option, textarea {
-		width: 251px;
-	}
-	.playsms-label-sizer {
-		width: 261px;
-	}
-	.playsms-input-sizer {
-		width: 261px;
-	}
-	.dropdown-menu hr {
-		display: none;
+	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
+		width: 300px;
 	}
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px) {
-	.playsms-responsive, input, select, option, textarea {
-		width: 320px;
-	}
-	.playsms-label-sizer {
-		width: 310px;
-	}
-	.playsms-input-sizer {
-		width: 310px;
-	}
-	.dropdown-menu hr {
-		display: none;
+	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
+		width: 240px;
 	}
 }
 
 @media screen and (max-width: 320px) {
-	.playsms-responsive, input, select, option, textarea {
-		width: 240px;
-	}
-	.playsms-label-sizer {
-		width: 230px;
-	}
-	.playsms-input-sizer {
-		width: 230px;
-	}
-	.dropdown-menu hr {
-		display: none;
+	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
+		width: 160px;
 	}
 }
 

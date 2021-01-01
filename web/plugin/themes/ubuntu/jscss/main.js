@@ -11,4 +11,5 @@ $(document).ready(function() {
 	$('.playsms-table').addClass('table-condensed');
 	$('.playsms-tooltip').tooltip();
 	$('.playsms-mandatory').tooltip();
+	$('.form-control').addClass('playsms-input-sizer');
 });
