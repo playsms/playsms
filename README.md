@@ -1,6 +1,6 @@
 # README
 
-This playSMS version is development version **1.4.4-beta**
+This playSMS version is development version **1.4.4-beta1**
 
 Latest stable release is playSMS version **1.4.3**
 
