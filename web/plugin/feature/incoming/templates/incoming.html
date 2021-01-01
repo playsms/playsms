@@ -2,15 +2,15 @@
 <h2 class="page-header-title">{{ PAGE_TITLE }}</h2>
 <form role="form" action="{{ ACTION_URL }}" method=post>
 	{{ CSRF_FORM }}
-	<p>
-		<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
-			<li class=active><a href='#tabs-pre-rules' data-toggle=tab>{{ Pre rules }}</a></li>
-			<li><a href='#tabs-post-rules' data-toggle=tab>{{ Post rules }}</a></li>
-			<li><a href='#tabs-settings' data-toggle=tab>{{ Settings }}</a></li>
+	<div class="playsms-actions-box">
+		<ul class='nav nav-tabs nav-justified' id='playsms-tab-incoming'>
+			<li class='nav-item'><a class='nav-link' href='#tabs-pre-rules' data-toggle=tab>{{ Pre rules }}</a></li>
+			<li class='nav-item'><a class='nav-link' href='#tabs-post-rules' data-toggle=tab>{{ Post rules }}</a></li>
+			<li class='nav-item'><a class='nav-link' href='#tabs-settings' data-toggle=tab>{{ Settings }}</a></li>
 		</ul>
-	</p>
+	</div>
 	<div class=tab-content>
-		<div id='tabs-pre-rules' class='tab-pane fade in active'>
+		<div id='tabs-pre-rules' class='tab-pane fade'>
 			<p class="lead">{{ Pre rules }} {{ HINT_PRE_RULES }}</p>
 			<loop.form_pre_rules>
 			<div class="form-group">
@@ -45,20 +45,3 @@
 		</div>
 	</div>
 </form>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-		//save the latest tab using a cookie:
-		$.cookie('incoming_last_tab', $(e.target).attr('href'));
-	});
-	
-	//activate latest tab, if it exists:
-	var lastTab = $.cookie('incoming_last_tab');
-	if (lastTab) {
-		$('ul.nav-tabs').children().removeClass('active');
-		$('a[href="'+ lastTab +'"]').parents('li:first').addClass('active');
-		$('div.tab-content').children().removeClass('in active');
-		$(lastTab).addClass('in active');
-	}
-});
-</script>

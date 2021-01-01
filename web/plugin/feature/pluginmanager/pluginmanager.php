@@ -24,15 +24,17 @@ if (!auth_isadmin()) {
 
 $content .= "
 	<h2 class=page-header-title>" . _('Manage plugin') . "</h2>
-	<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
-		<li class=active><a href='#tabs-core' data-toggle=tab>" . _('Core') . "</a></li>
-		<li><a href='#tabs-feature' data-toggle=tab>" . _('Features') . "</a></li>
-		<li><a href='#tabs-gateway' data-toggle=tab>" . _('Gateways') . "</a></li>
-		<li><a href='#tabs-theme' data-toggle=tab>" . _('Themes') . "</a></li>
-		<li><a href='#tabs-language' data-toggle=tab>" . _('Languages') . "</a></li>
-	</ul>
+	<div class='playsms-actions-box'>
+		<ul class='nav nav-tabs nav-justified' id='playsms-tab-pluginmanager'>
+			<li class='nav-item'><a class='nav-link' href='#tabs-core' data-toggle=tab>" . _('Core') . "</a></li>
+			<li class='nav-item'><a class='nav-link' href='#tabs-feature' data-toggle=tab>" . _('Features') . "</a></li>
+			<li class='nav-item'><a class='nav-link' href='#tabs-gateway' data-toggle=tab>" . _('Gateways') . "</a></li>
+			<li class='nav-item'><a class='nav-link' href='#tabs-theme' data-toggle=tab>" . _('Themes') . "</a></li>
+			<li class='nav-item'><a class='nav-link' href='#tabs-language' data-toggle=tab>" . _('Languages') . "</a></li>
+		</ul>
+	</div>
 	<div class=tab-content>
-		<div id='tabs-core' class='tab-pane fade in active'>
+		<div id='tabs-core' class='tab-pane fade'>
 			" . pluginmanager_display('core') . "
 		</div>
 		<div id='tabs-feature' class='tab-pane fade'>
@@ -47,24 +49,6 @@ $content .= "
 		<div id='tabs-language' class='tab-pane fade'>
 			" . pluginmanager_display('language') . "
 		</div>
-	</div>
-	<script type=\"text/javascript\">
-	$(document).ready(function() {
-		$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
-			//save the latest tab using a cookie:
-			$.cookie('pluginmanager_last_tab', $(e.target).attr('href'));
-		});
-	
-		//activate latest tab, if it exists:
-		var lastTab = $.cookie('pluginmanager_last_tab');
-		if (lastTab) {
-			$('ul.nav-tabs').children().removeClass('active');
-			$('a[href=\"'+ lastTab +'\"]').parents('li:first').addClass('active');
-			$('div.tab-content').children().removeClass('in active');
-			$(lastTab).addClass('in active');
-		}
-	});
-	</script>
-	";
+	</div>";
 
 _p($content);

@@ -17,15 +17,15 @@ tinymce.init({
 <h2 class="page-header-title">{{ Main configuration }}</h2>
 <form id=fm_main_config name=id_main_config action="{{ ACTION_URL }}" method=POST>
 	{{ CSRF_FORM }}
-	<p>
-		<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
-			<li class=active><a href='#tabs-default-settings' data-toggle=tab>{{ Default settings }}</a></li>
-			<li><a href='#tabs-site-configuration' data-toggle=tab>{{ Default site configuration }}</a></li>
-			<li><a href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
+	<div class="playsms-actions-box">
+		<ul class='nav nav-tabs nav-justified' id='playsms-tab-main_config'>
+			<li class="nav-item"><a class="nav-link" href='#tabs-default-settings' data-toggle="tab">{{ Default settings }}</a></li>
+			<li class="nav-item"><a class="nav-link" href='#tabs-site-configuration' data-toggle="tab">{{ Default site configuration }}</a></li>
+			<li class="nav-item"><a class="nav-link" href='#tabs-information-page' data-toggle="tab">{{ Information page }}</a></li>
 		</ul>
-	</p>
+	</div>
 	<div class=tab-content>
-		<div id='tabs-default-settings' class='tab-pane fade in active'>
+		<div id='tabs-default-settings' class='tab-pane fade'>
 			<p class="lead">{{ Default settings }}</p>
 			<table class=playsms-table>
 				<tbody>
@@ -189,20 +189,3 @@ tinymce.init({
 	</div>
 	<p><input type="submit" class="button" value="{{ Save }}">
 </form>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-		//save the latest tab using a cookie:
-		$.cookie('main_config_last_tab', $(e.target).attr('href'));
-	});
-	
-	//activate latest tab, if it exists:
-	var lastTab = $.cookie('main_config_last_tab');
-	if (lastTab) {
-		$('ul.nav-tabs').children().removeClass('active');
-		$('a[href="'+ lastTab +'"]').parents('li:first').addClass('active');
-		$('div.tab-content').children().removeClass('in active');
-		$(lastTab).addClass('in active');
-	}
-});
-</script>

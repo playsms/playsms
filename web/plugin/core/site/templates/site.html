@@ -17,12 +17,14 @@ tinymce.init({
 <h2 class="page-header-title">{{ Manage site }}</h2>
 <form id=fm_core_site name=id_core_site action="{{ ACTION_URL }}" method=POST>
 	{{ CSRF_FORM }}
-	<ul class='nav nav-tabs nav-justified'>
-		<li class=active><a href='#tabs-site-configuration' data-toggle=tab>{{ Site configuration }}</a></li>
-		<li><a href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
-	</ul>
+	<div class="playsms-actions-box">
+		<ul class='nav nav-tabs nav-justified' id='playsms-tab-site'>
+			<li class='nav-item'><a class='nav-link' href='#tabs-site-configuration' data-toggle=tab>{{ Site configuration }}</a></li>
+			<li class='nav-item'><a class='nav-link' href='#tabs-information-page' data-toggle=tab>{{ Information page }}</a></li>
+		</ul>
+	</div>
 	<div class=tab-content>
-		<div id='tabs-site-configuration' class='tab-pane fade in active'>
+		<div id='tabs-site-configuration' class='tab-pane fade'>
 			<p class="lead">{{ Site configuration }}</p>
 			<table class=playsms-table>
 				<tbody>
@@ -107,20 +109,3 @@ tinymce.init({
 	</div>
 	<p><input type="submit" class="button" value="{{ Save }}">
 </form>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-		//save the latest tab using a cookie:
-		$.cookie('site_config_last_tab', $(e.target).attr('href'));
-	});
-	
-	//activate latest tab, if it exists:
-	var lastTab = $.cookie('site_config_last_tab');
-	if (lastTab) {
-		$('ul.nav-tabs').children().removeClass('active');
-		$('a[href="'+ lastTab +'"]').parents('li:first').addClass('active');
-		$('div.tab-content').children().removeClass('in active');
-		$(lastTab).addClass('in active');
-	}
-});
-</script>

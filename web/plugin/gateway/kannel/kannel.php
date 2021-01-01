@@ -48,12 +48,14 @@ switch (_OP_) {
 		
 		$content .= _dialog() . "
 			<h2 class=page-header-title>" . _('Manage kannel') . "</h2>
-			<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
-				<li class=active><a href='#tabs-configuration' data-toggle=tab>" . _('Configuration') . "</a></li>
-				<li><a href='#tabs-operational' data-toggle=tab>" . _('Operational') . "</a></li>
-			</ul>
+			<div class=playsms-actions-box>
+				<ul class='nav nav-tabs nav-justified' id='playsms-tab-kannel'>
+					<li class='nav-item'><a class='nav-link' href='#tabs-configuration' data-toggle=tab>" . _('Configuration') . "</a></li>
+					<li class='nav-item'><a class='nav-link' href='#tabs-operational' data-toggle=tab>" . _('Operational') . "</a></li>
+				</ul>
+			</div>
 			<div class=tab-content>
-				<div id='tabs-configuration' class='tab-pane fade in active'>
+				<div id='tabs-configuration' class='tab-pane fade'>
 					<form action=index.php?app=main&inc=gateway_kannel&op=manage_save method=post>
 					" . _CSRF_FORM_ . "
 					<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
@@ -122,23 +124,6 @@ switch (_OP_) {
 					</p>
 					</form>
 				</div>
-				<script type=\"text/javascript\">
-					$(document).ready(function() {
-						$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
-							//save the latest tab using a cookie:
-							$.cookie('gateway_kannel_last_tab', $(e.target).attr('href'));
-						});
-						
-						//activate latest tab, if it exists:
-						var lastTab = $.cookie('gateway_kannel_last_tab');
-						if (lastTab) {
-							$('ul.nav-tabs').children().removeClass('active');
-							$('a[href=\"'+ lastTab +'\"]').parents('li:first').addClass('active');
-							$('div.tab-content').children().removeClass('in active');
-							$(lastTab).addClass('in active');
-						}
-					});
-				</script>
 			</div>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;

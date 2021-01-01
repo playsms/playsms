@@ -201,36 +201,20 @@ switch (_OP_) {
 	default :
 		$content = "
 			<p class=lead>" . _('List of gateways and SMSCs') . "</p>
-			<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
-				<li class=active><a href='#tabs-gateway' data-toggle=tab>" . _('Gateways') . "</a></li>
-				<li><a href='#tabs-virtual' data-toggle=tab>" . _('SMSCs') . "</a></li>
-			</ul>
+			<div class='playsms-actions-box'>
+				<ul class='nav nav-tabs nav-justified' id='playsms-tab-gateway'>
+					<li class='nav-item'><a class='nav-link' href='#tabs-gateway' data-toggle=tab>" . _('Gateways') . "</a></li>
+					<li class='nav-item'><a class='nav-link' href='#tabs-virtual' data-toggle=tab>" . _('SMSCs') . "</a></li>
+				</ul>
+			</div>
 			<div class=tab-content>
-				<div id='tabs-gateway' class='tab-pane fade in active'>
+				<div id='tabs-gateway' class='tab-pane fade'>
 					" . _gateway_display() . "
 				</div>
 				<div id='tabs-virtual' class='tab-pane fade'>
 					" . _gateway_display_smsc() . "
 				</div>
-			</div>
-			<script type=\"text/javascript\">
-				$(document).ready(function() {
-					$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
-						//save the latest tab using a cookie:
-						$.cookie('gateway_last_tab', $(e.target).attr('href'));
-					});
-					
-					//activate latest tab, if it exists:
-					var lastTab = $.cookie('gateway_last_tab');
-					if (lastTab) {
-						$('ul.nav-tabs').children().removeClass('active');
-						$('a[href=\"'+ lastTab +'\"]').parents('li:first').addClass('active');
-						$('div.tab-content').children().removeClass('in active');
-						$(lastTab).addClass('in active');
-					}
-				});
-			</script>
-		";
+			</div>";
 }
 $final_content = _dialog() . "
 	<h2 class=page-header-title>" . _('Manage gateway and SMSC') . "</h2>

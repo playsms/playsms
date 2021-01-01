@@ -30,9 +30,6 @@
 <!-- JQuery 3.5.1 -->
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/jquery/jquery.min.js"></script>
 
-<!-- JQuery Cookie 1.4.1 -->
-<script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/jquery-cookie/jquery.cookie.js"></script>
-
 <!-- JQuery Tablesorter 2.9.1 -->
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/jquery-tablesorter/jquery.tablesorter.min.js"></script>
 
@@ -85,6 +82,16 @@
 			$("#submenu-credit-show").load("{{ CREDIT_SHOW_URL }}");
 		}, 10000);
 
+		var tabId = $('ul.nav-tabs').attr('id');
+	    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+    	    localStorage.setItem('activeTab-' + tabId, $(e.target).attr('href'));
+	    });
+    	var activeTab = localStorage.getItem('activeTab-' + tabId);
+	    if(activeTab){
+    	    $('a[href="' + activeTab + '"]').tab('show');
+	    } else {
+	    	$('#' + tabId + ' a:first').tab('show');
+	    }
 	});
 </script>
 </if.valid>
