@@ -42,18 +42,20 @@ switch (_OP_) {
 		
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
+		$user_sender_id = sender_id_getall($user_config['username']);
 		$ismatched = FALSE;
-		foreach (sender_id_getall($user_config['username']) as $sender_id) {
+		foreach ($user_sender_id as $sender_id) {
 			$selected = '';
 			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
 				$ismatched = TRUE;
+				
+				break;
 			}
-			$option_values .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
-		$sms_sender_id = "<select name=sms_sender class='form-control'>" . $option_values . "</select>";
-		
-		if (!$ismatched) {
+		if ($ismatched) {
+			$sms_sender_id = _select('sms_sender', $user_sender_id, $sms_from, [], 'sms_sender', 'form-control');
+		} else {
 			$sms_sender_id = "<input type='text' class='form-control' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
 		
@@ -64,17 +66,11 @@ switch (_OP_) {
 		$sendsms_form_id = 'msg_form_id_' . uniqid();
 		
 		// message template
-		$option_values = "<option value=\"\" title=\"\" default></option>";
-		$c_templates = sendsms_get_template();
-		for ($i = 0; $i < count($c_templates); $i++) {
-			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
+		$c_template_option[_('Select template')] = '';
+		foreach (sendsms_get_template() as $c_template) {
+			$c_template_option[$c_template['title']] = $c_template['text'];
 		}
-		$sms_template = "
-			<div id=msg_template>
-				<select name=smstemplate id=msg_template_select class='form-control' onClick=\"SetSmsTemplate('" . $sendsms_form_id . "');\">
-					" . $option_values . "
-				</select>
-			</div>";
+		$sms_template = _select('smstemplate', $c_template_option, '', [], 'msg_template_select', 'form-control');
 		
 		// build form
 		unset($tpl);

@@ -124,6 +124,10 @@
 			}
 		});
 
+		$("#{{ SENDSMS_FORM_ID }} select[name='smstemplate']").on('click', function() {
+			SetSmsTemplate('{{ SENDSMS_FORM_ID }}');
+		});
+
 		$("#{{ SENDSMS_FORM_ID }} textarea[name='message']").on('focus blur click keyup', function() {
 			SmsSetCounter('{{ SENDSMS_FORM_ID }}', 'msg_text_counter');
 		});
