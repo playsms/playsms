@@ -6,16 +6,16 @@
 	<table class=playsms-table>
 		<tbody>
 			<tr>
-				<td class=label-sizer>{{ Gateway }}</td>
+				<td class=playsms-label-sizer>{{ Gateway }}</td>
 				<td><input type="text" name='gateway' value='{{ GATEWAY }}'	readonly></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ SMSC name }}</td>
+				<td class=playsms-label-sizer>{{ SMSC name }}</td>
 				<td><input type="text" value="{{ NAME }}" readonly></td>
 			</tr>
 			<loop.dynamic_variables>
 			<tr>
-				<td class=label-sizer>{{ dynamic_variables.title }}</td>
+				<td class=playsms-label-sizer>{{ dynamic_variables.title }}</td>
 				<td><input type="text" name="{{ dynamic_variables.key }}" value="{{ dynamic_variables.value }}"></td>
 			</tr>
 			</loop.dynamic_variables>

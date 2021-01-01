@@ -34,7 +34,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 				<tbody>
-				<tr><td class=label-sizer>" . _('Message') . "</td><td><input type=text name=message value=\"$message\" maxlength=250></td></tr>
+				<tr><td class=playsms-label-sizer>" . _('Message') . "</td><td><input type=text name=message value=\"$message\" maxlength=250></td></tr>
 				<tr><td>" . _('Sender') . "</td><td><input type=text name=sender value=\"$sender\" maxlength=20></td></tr>
 				<tr><td>" . _('Receiver') . "</td><td><input type=text name=receiver value=\"$receiver\" maxlength=20></td></tr>
 				<tr><td>" . _('Date/Time') . "</td><td><input type=text name=datetime value=\"" . core_display_datetime($datetime) . "\" maxlength=20></td></tr>

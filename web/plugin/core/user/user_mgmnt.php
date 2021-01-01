@@ -86,7 +86,7 @@ switch (_OP_) {
 			</p>
 			<p class=lead>" . $form_sub_title . "</p>
 			<p>" . $search['form'] . "</p>
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add&view=' . $view) . "\">" . $icon_config['add'] . "</a>
 				</div>
@@ -220,7 +220,7 @@ switch (_OP_) {
 		";
 		
 		// get access control list
-		$option_acl = _select('add_acl_id', array_flip(acl_getall()));
+		$select_acls = _select('add_acl_id', array_flip(acl_getall()));
 		
 		$content .= "
 		<h2 class=page-header-title>" . _('Manage account') . "</h2>
@@ -230,10 +230,10 @@ switch (_OP_) {
 		<table class=playsms-table>
 		<tbody>
 		<tr>
-			<td class=label-sizer>" . _('Account status') . "</td><td><select name='add_status'>$option_status</select></td>
+			<td class=playsms-label-sizer>" . _('Account status') . "</td><td><select name='add_status'>$option_status</select></td>
 		</tr>
 		<tr>
-			<td>" . _('Access Control List') . "</td><td>" . $option_acl . "</td>
+			<td>" . _('Access Control List') . "</td><td>" . $select_acls . "</td>
 		</tr>
 		<tr>
 			<td>" . _('Parent account') . " (" . _('for subuser only') . ") </td><td>" . $select_parents . " " . _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')) . "</td>

@@ -4,7 +4,7 @@
 {{ CSRF_FORM }}
 <table class=playsms-table>
 	<tbody>
-		<tr><td class=label-sizer>{{ Gateway name }}</td><td>nexmo</td></tr>
+		<tr><td class=playsms-label-sizer>{{ Gateway name }}</td><td>nexmo</td></tr>
 		<tr><td>{{ Nexmo URL }}</td><td><input type=text maxlength=250 name=up_url value="{{ nexmo_param_url }}"> {{ HINT_JSON_FORMAT }}</td></tr>
 		<tr><td>{{ API key }}</td><td><input type=text maxlength=30 name=up_api_key value="{{ nexmo_param_api_key }}"></td></tr>
 		<tr><td>{{ API secret }}</td><td><input type=password maxlength=30 name=up_api_secret value=""> {{ HINT_FILL_SECRET }}</td></tr>

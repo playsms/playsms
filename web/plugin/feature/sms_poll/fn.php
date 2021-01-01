@@ -346,7 +346,7 @@ function sms_poll_output_html($poll_id, $poll_keyword) {
 			<table class=playsms-table>
 			<thead>
 			<tr>
-				<th class=label-sizer>" . _('Choice keyword') . "</th>
+				<th class=playsms-label-sizer>" . _('Choice keyword') . "</th>
 				<th>" . _('Description') . "</th>
 				<th>" . _('Number of votes') . "</th>
 			</tr>

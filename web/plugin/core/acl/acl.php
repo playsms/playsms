@@ -71,7 +71,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Name')) . "</td><td><input type=text maxlength=100 name=name></td>
+				<td class=playsms-label-sizer>" . _mandatory(_('Name')) . "</td><td><input type=text maxlength=100 name=name></td>
 			</tr>
 			<tr>
 				<td>" . _('Subuser ACL') . "</td><td><input type=text name=acl_subuser> " . _hint(_('Comma separated for multiple entries')) . "</td>
@@ -127,7 +127,7 @@ switch (_OP_) {
 			<input type=hidden name=id value='" . $id . "'>
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td class=label-sizer>" . _('ACL ID') . "</td><td>" . $id . "</td>
+				<td class=playsms-label-sizer>" . _('ACL ID') . "</td><td>" . $id . "</td>
 			</tr>
 			<tr>
 				<td>" . _('Name') . "</td><td>" . strtoupper($db_row['name']) . "</td>

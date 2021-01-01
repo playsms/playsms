@@ -33,7 +33,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('Gateway name') . "</td><td>playnet</td>
+					<td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>playnet</td>
 				</tr>
 				<tr>
 					<td>" . _('Module sender ID') . "</td><td><input type=text maxlength=16 name=up_module_sender value=\"" . $plugin_config['playnet']['module_sender'] . "\"> " . _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')) . "</td>

@@ -85,7 +85,7 @@ switch (_OP_) {
 			<input type='hidden' name='rateid' value=\"$rateid\">
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\"></td>
+				<td class=playsms-label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\"></td>
 			</tr>
 			<tr>
 				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='up_prefix' value=\"$prefix\"></td>
@@ -127,7 +127,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
+				<td class=playsms-label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
 			</tr>
 			<tr>
 				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\"></td>

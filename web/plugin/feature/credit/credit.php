@@ -60,7 +60,7 @@ switch (_OP_) {
 			<form id=fm_feature_credit name=fm_feature_credit action=\"" . _u('index.php?app=main&inc=feature_credit&op=actions') . "\" method=POST>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=feature_credit&op=credit_add') . "\">" . $icon_config['add'] . "</a>
 					<a href=\"" . _u('index.php?app=main&inc=feature_credit&op=credit_reduce') . "\">" . $icon_config['reduce'] . "</a>
@@ -128,7 +128,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 					<tr>
-						<td class=label-sizer>" . _('Add credit to users') . "</td>
+						<td class=playsms-label-sizer>" . _('Add credit to users') . "</td>
 						<td>" . $select_user . "</td>
 					</tr>
 					<tr>
@@ -166,7 +166,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 					<tr>
-						<td class=label-sizer>" . _('Reduce credit from users') . "</td>
+						<td class=playsms-label-sizer>" . _('Reduce credit from users') . "</td>
 						<td>" . $select_user . "</td>
 					</tr>
 					<tr>

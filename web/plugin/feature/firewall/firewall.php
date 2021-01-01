@@ -45,7 +45,7 @@ switch (_OP_) {
 			<form name=fm_firewall_list id=fm_firewall_list action='index.php?app=main&inc=feature_firewall&op=actions' method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href='" . _u('index.php?app=main&inc=feature_firewall&op=firewall_add') . "'>" . $icon_config['add'] . "</a>
 				</div>
@@ -140,11 +140,11 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Select username')) . "</td>
+				<td class=playsms-label-sizer>" . _mandatory(_('Select username')) . "</td>
 				<td>" . themes_select_users_single('add_username') . "</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('IP addresses')) . "</td>
+				<td class=playsms-label-sizer>" . _mandatory(_('IP addresses')) . "</td>
 				<td><input type=text name='add_ip_address' required> " . _hint(_('Comma separated values for multiple IP addresses')) . "
 				</td>
 			</tr>

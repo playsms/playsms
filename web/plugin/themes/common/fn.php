@@ -79,19 +79,19 @@ function common_hook_themes_menu_tree($menu_config) {
 			
 			// devider or valid entry
 			if (($sub_menu_url == '#') && ($sub_menu_title == '-')) {
-				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li class=\"divider\"></li>";
+				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li class=\"nav-item divider\"></li>";
 			} else if ($sub_menu_url == '#') {
-				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li>" . $sub_menu_title . "</li>";
+				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li class=\"nav-item\">" . $sub_menu_title . "</li>";
 			} else if ($sub_menu_url && $sub_menu_title) {
 				if (acl_checkurl($sub_menu_url)) {
-					$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
+					$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a class=\"nav-link\" href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
 				}
 			}
 		}
 		
 		if (count($m)) {
 			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
-			$main_menu .= "<ul class='dropdown-menu'>";
+			$main_menu .= "<ul class='nav dropdown-menu'>";
 			
 			ksort($m);
 			foreach ($m as $mm) {
@@ -106,29 +106,26 @@ function common_hook_themes_menu_tree($menu_config) {
 	
 	$content = "
 		<nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
-			<div class='navbar-inner'>
-				<div class='container'>
-					<div class='navbar-header'>
-						<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-							<span class='icon-bar'></span>
-							<span class='icon-bar'></span>
-							<span class='icon-bar'></span>
-						</button>
-						<a href='" . _u($core_config['main']['main_website_url']) . "' class='brand navbar-brand'>" . $core_config['main']['main_website_name'] . "</a>
-					</div>
-					<div class='navbar-collapse collapse'>
-						<ul class='nav navbar-nav'>
-							<li class='active'><a href='" . _u(_HTTP_PATH_BASE_) . "'>" . _('Home') . "</a></li>
-							" . $main_menu . "
-						</ul>
-						<ul class='nav navbar-nav navbar-right'>
-							<li><a href='" . _u('index.php?app=main&inc=core_auth&route=logout') . "'>" . $icon_config['logout'] . "</a></li>
-						</ul>
-					</div>
+			<div class='container'>
+				<div class='navbar-header'>
+					<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+					</button>
+					<a href='" . _u($core_config['main']['main_website_url']) . "' class='brand navbar-brand'>" . $core_config['main']['main_website_name'] . "</a>
+				</div>
+				<div class='navbar-collapse collapse'>
+					<ul class='nav navbar-nav'>
+						<li class='active'><a href='" . _u(_HTTP_PATH_BASE_) . "'>" . _('Home') . "</a></li>
+						" . $main_menu . "
+					</ul>
+					<ul class='nav navbar-nav navbar-right'>
+						<li><a href='" . _u('index.php?app=main&inc=core_auth&route=logout') . "'>" . $icon_config['logout'] . "</a></li>
+					</ul>
 				</div>
 			</div>
-		</nav>
-	";
+		</nav>";
 	
 	return $content;
 }

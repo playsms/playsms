@@ -4,7 +4,7 @@
 {{ CSRF_FORM }}
 <table class=playsms-table>
 	<tbody>
-		<tr><td class=label-sizer>{{ Gateway name }}</td><td>jasmin</td></tr>
+		<tr><td class=playsms-label-sizer>{{ Gateway name }}</td><td>jasmin</td></tr>
 		<tr><td>{{ Jasmin send SMS URL }}</td><td><input type=text maxlength=250 name=up_url value="{{ jasmin_param_url }}"></td></tr>
 		<tr><td>{{ Callback URL }}</td><td><input type=text maxlength=250 name=up_callback_url value="{{ jasmin_param_callback_url }}">  {{ HINT_CALLBACK_URL }}</td></tr>
 		<tr><td>{{ API username }}</td><td><input type=text maxlength=30 name=up_api_username value="{{ jasmin_param_api_username }}"></td></tr>

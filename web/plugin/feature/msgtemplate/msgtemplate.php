@@ -19,9 +19,9 @@ switch (_OP_) {
 			<form id='fm_smstemp' name='fm_smstemp' action='index.php?app=main&inc=feature_msgtemplate&op=actions' method=POST>
 			"._CSRF_FORM_."
 			<input type=hidden name=go value=delete>
-			<div class=actions_box>
-			<div class=pull-left><a href='"._u('index.php?app=main&inc=feature_msgtemplate&op=add')."'>".$icon_config['add']."</a></div>
-			<div class=pull-right>" . _submit(_('Are you sure you want to delete ?'), 'fm_smstemp', 'delete') . "</div>
+			<div class=playsms-actions-box>
+				<div class=pull-left><a href='"._u('index.php?app=main&inc=feature_msgtemplate&op=add')."'>".$icon_config['add']."</a></div>
+				<div class=pull-right>" . _submit(_('Are you sure you want to delete ?'), 'fm_smstemp', 'delete') . "</div>
 			</div>
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -71,7 +71,7 @@ switch (_OP_) {
 			"._CSRF_FORM_."
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>"._('Message template name')."</td><td><input type=text maxlength=100 name=t_title></td>
+				<td class=playsms-label-sizer>"._('Message template name')."</td><td><input type=text maxlength=100 name=t_title></td>
 			</tr>
 			<tr>
 				<td>"._('Message template content')."</td><td><textarea type=text name=t_text></textarea></td>
@@ -95,7 +95,7 @@ switch (_OP_) {
 			<input type=hidden name=tid value='".$tid."'>
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>"._('Message template name')."</td><td><input type=text maxlength=100 name=t_title value='".$db_row['t_title']."'></td>
+				<td class=playsms-label-sizer>"._('Message template name')."</td><td><input type=text maxlength=100 name=t_title value='".$db_row['t_title']."'></td>
 			</tr>
 			<tr>
 				<td>"._('Message template content')."</td><td><textarea type=text name=t_text>".$db_row['t_text']."</textarea></td>

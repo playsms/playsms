@@ -16,13 +16,13 @@
 	<table class=playsms-table>
 		<tbody>
 			<tr>
-				<td class=label-sizer>{{ Email to SMS address }}</td>
+				<td class=playsms-label-sizer>{{ Email to SMS address }}</td>
 				<td><input type="text"
 					value="{{ $items_global['features']['mailsms']['email'] }}"
 					readonly></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ PIN for email to SMS }}</td>
+				<td class=playsms-label-sizer>{{ PIN for email to SMS }}</td>
 				<td><input type="password" maxlength="40" name="pin"
 					value="{{ $items['features']['mailsms_user']['pin'] }}" required>
 					<i id="mailsms-show-pin" class="playsms-icon fas fa-eye"></i></td>

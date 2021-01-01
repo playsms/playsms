@@ -44,7 +44,7 @@ switch (_OP_) {
 			
 			<p class=lead>" . _('Statistics') . "</p>
 			<table class=playsms-table>
-				<tr><td class=label-sizer>" . _('Senders sent once') . "</td><td width=5>:</td><td>" . $stat['once'] . "</td></tr>
+				<tr><td class=playsms-label-sizer>" . _('Senders sent once') . "</td><td width=5>:</td><td>" . $stat['once'] . "</td></tr>
 				<tr><td>" . _('Senders sent multiple votes') . "</td><td>:</td><td>" . $stat['multi'] . "</td></tr>
 				<tr><td>" . _('Grand total senders') . "</td><td>:</td><td>" . $stat['sender'] . "</td></tr>
 				<tr><td>" . _('Total one time vote SMS') . "</td><td>:</td><td>" . $stat['once_sms'] . "</td></tr>
@@ -62,7 +62,7 @@ switch (_OP_) {
 					
 			<p class=lead>" . _('Webservices links') . "</p>
 			<table class=playsms-table>
-				<tr><td class=label-sizer>" . _('PHP serialize output') . "</td><td width=5>:</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
+				<tr><td class=playsms-label-sizer>" . _('PHP serialize output') . "</td><td width=5>:</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
 				<tr><td>" . _('JSON output') . "</td><td>:</td><td><a href=\"" . _u($output_json) . "\" target=_blank>" . _u($output_json) . "</a></td></tr>
 				<tr><td>" . _('XML output') . "</td><td>:</td><td><a href=\"" . _u($output_xml) . "\" target=_blank>" . _u($output_xml) . "</a></td></tr>
 				<tr><td>" . _('HTML output') . "</td><td>:</td><td><a href=\"" . _u($output_html) . "\" target=_blank>" . _u($output_html) . "</a></td></tr>

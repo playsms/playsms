@@ -41,7 +41,7 @@ switch (_OP_) {
 			<h2 class=page-header-title>" . _('Manage board') . "</h2>
 			<p class=lead>" . _('View board') . " : " . $board_keyword . "</p>
 			<table class=playsms-table>
-				<tr><td class=label-sizer>" . _('PHP serialize output') . "</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
+				<tr><td class=playsms-label-sizer>" . _('PHP serialize output') . "</td><td><a href=\"" . _u($output_serialize) . "\" target=_blank>" . _u($output_serialize) . "</a></td></tr>
 				<tr><td>" . _('JSON output') . "</td><td><a href=\"" . _u($output_json) . "\" target=_blank>" . _u($output_json) . "</a></td></tr>
 				<tr><td>" . _('XML output') . "</td><td><a href=\"" . _u($output_xml) . "\" target=_blank>" . _u($output_xml) . "</a></td></tr>
 				<tr><td>" . _('RSS 0.91 output') . "</td><td><a href=\"" . _u($output_rss091) . "\" target=_blank>" . _u($output_rss091) . "</a></td></tr>

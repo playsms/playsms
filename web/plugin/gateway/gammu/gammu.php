@@ -36,7 +36,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('Gateway name') . "</td><td>gammu</td>
+					<td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>gammu</td>
 				</tr>
 				<tr>
 					<td>" . _('Spool folder') . "</td><td><input type=text name=up_path value=\"" . $plugin_config['gammu']['path'] . "\"></td>

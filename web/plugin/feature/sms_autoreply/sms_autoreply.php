@@ -184,7 +184,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _mandatory(_('SMS autoreply keyword')) . "</td>
+					<td class=playsms-label-sizer>" . _mandatory(_('SMS autoreply keyword')) . "</td>
 					<td><input type=text size=10 maxlength=10 name=add_autoreply_keyword value=\"$add_autoreply_keyword\"></td>
 				</tr>
 				" . $select_reply_smsc . "
@@ -241,7 +241,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('SMS autoreply keyword') . "</td>
+					<td class=playsms-label-sizer>" . _('SMS autoreply keyword') . "</td>
 					<td><input type=text value=\"$edit_autoreply_keyword\" readonly></td>					
 				</tr>
 				" . $select_reply_smsc . "
@@ -301,7 +301,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('SMS autoreply keyword') . "</td><td>" . $autoreply_keyword . "</td>
+					<td class=playsms-label-sizer>" . _('SMS autoreply keyword') . "</td><td>" . $autoreply_keyword . "</td>
 				</tr>";
 		for ($i = 1; $i <= 7; $i++) {
 			$content .= "
@@ -363,7 +363,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('SMS autoreply keyword') . "</td><td>" . $autoreply_keyword . "</td>
+					<td class=playsms-label-sizer>" . _('SMS autoreply keyword') . "</td><td>" . $autoreply_keyword . "</td>
 				</tr>";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
 		$db_result = dba_query($db_query);

@@ -212,7 +212,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('SMS poll keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
+				<td class=playsms-label-sizer>" . _('SMS poll keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
 			</tr>
 			<tr>
 				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=add_poll_title value=\"$add_poll_title\"></td>
@@ -309,7 +309,7 @@ switch (_OP_) {
 			<input type=hidden name=edit_poll_keyword value=\"$edit_poll_keyword\">
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('SMS poll keyword') . "</td><td>$edit_poll_keyword</td>
+				<td class=playsms-label-sizer>" . _('SMS poll keyword') . "</td><td>$edit_poll_keyword</td>
 			</tr>
 			<tr>
 				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=edit_poll_title value=\"$edit_poll_title\"></td>
@@ -374,7 +374,7 @@ switch (_OP_) {
 			<input type=hidden name=poll_id value=\"$poll_id\">
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td class=label-sizer>" . _('Choice keyword') . "</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
+				<td class=playsms-label-sizer>" . _('Choice keyword') . "</td><td><input type=text size=3 maxlength=10 name=add_choice_keyword></td>
 			</tr>
 			<tr>
 				<td>" . _('Choice description') . "</td><td><input type=text maxlength=250 name=add_choice_title></td>

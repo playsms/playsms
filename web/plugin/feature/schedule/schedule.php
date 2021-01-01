@@ -76,7 +76,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Schedule name')) . "</td><td><input type=text maxlength=100 name=name></td>
+				<td class=playsms-label-sizer>" . _mandatory(_('Schedule name')) . "</td><td><input type=text maxlength=100 name=name></td>
 			</tr>
 			<tr>
 				<td>" . _mandatory(_('Scheduled message')) . "</td><td><input type=text name=message></td>

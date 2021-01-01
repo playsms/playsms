@@ -51,7 +51,7 @@ switch (_OP_) {
 			<form id=fm_phonebook_group_list name=fm_phonebook_group_list action='index.php?app=main&inc=feature_phonebook&route=group&op=actions' method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=add') . "'>" . $icon_config['add'] . "</a>
 				</div>
@@ -110,7 +110,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 			<tbody>
 				<tr>
-					<td class=label-sizer>" . _('Group name') . "</td>
+					<td class=playsms-label-sizer>" . _('Group name') . "</td>
 					<td><input type=text name=group_name value=\"" . _lastpost('group_name') . "\"></td>
 				</tr>
 				<tr>
@@ -146,7 +146,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 			<tbody>
 			<tr>
-				<td class=label-sizer>" . _('Group name') . "</td>
+				<td class=playsms-label-sizer>" . _('Group name') . "</td>
 				<td><input type=text name=group_name value=\"" . phonebook_groupid2name($user_config['uid'], $gpid) . "\"></td>
 			</tr>
 			<tr>

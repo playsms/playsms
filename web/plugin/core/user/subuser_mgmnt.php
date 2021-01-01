@@ -64,7 +64,7 @@ switch (_OP_) {
 			<h2 class=page-header-title>" . _('Manage subuser') . "</h2>
 			<p class=lead>" . _('List of subusers') . "</p>
 			<p>" . $search['form'] . "</p>			
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_add') . "\">" . $icon_config['add'] . "</a>
 				</div>
@@ -181,7 +181,7 @@ switch (_OP_) {
 		<table class=playsms-table>
 		<tbody>
 		<tr>
-			<td class=label-sizer>" . _('Access Control List') . "</td><td>" . $option_acl . "</td>
+			<td class=playsms-label-sizer>" . _('Access Control List') . "</td><td>" . $option_acl . "</td>
 		</tr>
 		<tr>
 			<td>" . _mandatory(_('Username')) . "</td><td><input type='text' maxlength='30' name='add_username' value=\"$add_username\"></td>

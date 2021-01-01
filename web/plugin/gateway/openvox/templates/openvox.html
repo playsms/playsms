@@ -4,7 +4,7 @@
 {{ CSRF_FORM }}
 <table class=playsms-table>
 	<tbody>
-		<tr><td class=label-sizer>{{ Gateway name }}</td><td>openvox</td></tr>
+		<tr><td class=playsms-label-sizer>{{ Gateway name }}</td><td>openvox</td></tr>
 		<tr><td>{{ Gateway host }}</td><td><input type=text maxlength=250 name=up_gateway_host value="{{ openvox_param_gateway_host }}"></td></tr>
 		<tr><td>{{ Gateway port }}</td><td><input type=text maxlength=250 name=up_gateway_port value="{{ openvox_param_gateway_port }}"></td></tr>
 		<tr><td>{{ Username }}</td><td><input type=text maxlength=30 name=up_username value="{{ openvox_param_username }}"></td></tr>

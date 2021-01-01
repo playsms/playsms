@@ -121,7 +121,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _mandatory(_('Service name')) . "</td><td><input type=text size=30 maxlength=255 name=edit_service_name value=\"" . $edit_service_name . "\"></td>
+					<td class=playsms-label-sizer>" . _mandatory(_('Service name')) . "</td><td><input type=text size=30 maxlength=255 name=edit_service_name value=\"" . $edit_service_name . "\"></td>
 				</tr>
 				<tr>
 					<td>" . _('SMS custom keywords') . "</td><td>" . $edit_custom_keyword . "</td>
@@ -213,7 +213,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _mandatory(_('Service name')) . "</td><td><input type=text size=30 maxlength=255 name=add_service_name value=\"" . _lastpost('add_service_name') . "\"></td>
+					<td class=playsms-label-sizer>" . _mandatory(_('Service name')) . "</td><td><input type=text size=30 maxlength=255 name=add_service_name value=\"" . _lastpost('add_service_name') . "\"></td>
 				</tr>
 					<tr>
 					<td>" . _mandatory(_('SMS custom keywords')) . "</td><td><input type=text size=30 maxlength=255 name=add_custom_keyword value=\"" . _lastpost('add_custom_keyword') . "\"> " . _hint('Multiple keywords seperated by space') . "</td>

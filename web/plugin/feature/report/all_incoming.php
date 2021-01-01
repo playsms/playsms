@@ -56,7 +56,7 @@ switch (_OP_) {
 			<form id=fm_all_incoming name=fm_all_incoming action=\"index.php?app=main&inc=feature_report&route=all_incoming&op=actions\" method=POST>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=all_incoming&op=actions&go=export') . "\">" . $icon_config['export'] . "</a>
 				</div>

@@ -40,47 +40,47 @@
 	<table class=playsms-table>
 		<tbody>
 			<tr>
-				<td class=label-sizer>{{ Email to SMS address }}</td>
+				<td class=playsms-label-sizer>{{ Email to SMS address }}</td>
 				<td><input type="text" maxlength="250" name="email" value="{{ $items_global['features']['mailsms']['email'] }}" required></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Enable fetch new emails }}</td>
+				<td class=playsms-label-sizer>{{ Enable fetch new emails }}</td>
 				<td><select id="mailsms-enable" name="enable_fetch">{{ $option_enable_fetch }}</select></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ New emails fetch interval }}</td>
+				<td class=playsms-label-sizer>{{ New emails fetch interval }}</td>
 				<td><input type="text" name="fetch_interval" value="{{ $items_global['features']['mailsms']['fetch_interval'] }}"> {{ HINT_FETCH_INTERVAL }}</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Check email sender }}</td>
+				<td class=playsms-label-sizer>{{ Check email sender }}</td>
 				<td><select id="mailsms-check-sender" name="check_sender">{{ $option_check_sender }}</select></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Email protocol }}</td>
+				<td class=playsms-label-sizer>{{ Email protocol }}</td>
 				<td><select id="mailsms-protocol" name="protocol">{{ $option_protocol }}</select></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Use SSL }}</td>
+				<td class=playsms-label-sizer>{{ Use SSL }}</td>
 				<td><select id="mailsms-ssl" name="ssl">{{ $option_ssl }}</select></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ No validate cert option }}</td>
+				<td class=playsms-label-sizer>{{ No validate cert option }}</td>
 				<td><select id="mailsms-novalidate-cert" name="novalidate_cert">{{ $option_novalidate_cert }}</select></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Mail server address }}</td>
+				<td class=playsms-label-sizer>{{ Mail server address }}</td>
 				<td><input type="text" name="server" value="{{ $items_global['features']['mailsms']['server'] }}"></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Mail server port }}</td>
+				<td class=playsms-label-sizer>{{ Mail server port }}</td>
 				<td><input type="text" name="port" value="{{ $items_global['features']['mailsms']['port'] }}"></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Mailbox username }}</td>
+				<td class=playsms-label-sizer>{{ Mailbox username }}</td>
 				<td><input type="text" name="username" value="{{ $items_global['features']['mailsms']['username'] }}"></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Mailbox password }}</td>
+				<td class=playsms-label-sizer>{{ Mailbox password }}</td>
 				<td>
 					<input type="password" name="password" value=""> {{ HINT_PASSWORD }}
 				</td>

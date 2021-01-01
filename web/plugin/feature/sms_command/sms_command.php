@@ -99,7 +99,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>"._('SMS command keyword') . "</td><td>".$edit_command_keyword."</td>
+					<td class=playsms-label-sizer>"._('SMS command keyword') . "</td><td>".$edit_command_keyword."</td>
 				</tr>
 				<tr>
 					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$user_config['uid'] . "</td>
@@ -191,7 +191,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>"._('SMS command keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\"></td>
+					<td class=playsms-label-sizer>"._('SMS command keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_command_keyword value=\"$add_command_keyword\"></td>
 				</tr>
 				<tr>
 					<td>"._('SMS command exec path') . "</td><td>" . $sms_command_bin.'/'.$user_config['uid'] . "</td>

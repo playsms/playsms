@@ -48,7 +48,7 @@ switch (_OP_) {
 			<form name=fm_stoplist_list id=fm_stoplist_list action='index.php?app=main&inc=feature_stoplist&op=actions' method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href='" . _u('index.php?app=main&inc=feature_stoplist&op=stoplist_add') . "'>" . $icon_config['add'] . "</a>
 				</div>
@@ -143,7 +143,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Mobile numbers')) . "</td>
+				<td class=playsms-label-sizer>" . _mandatory(_('Mobile numbers')) . "</td>
 				<td><input type=text name='add_mobile' required> " . _hint(_('Comma separated values for multiple mobile numbers')) . "
 				</td>
 			</tr>

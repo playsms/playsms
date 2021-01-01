@@ -9,25 +9,25 @@
 		<tbody>
 			<if.isadmin>
 			<tr>
-				<td class=label-sizer>{{ User }}</td>
+				<td class=playsms-label-sizer>{{ User }}</td>
 				<td>{{ $select_users }}</td>
 			</tr>
 			</if.isadmin>
 			<tr>
-				<td class=label-sizer>{{ Sender ID }}</td>
+				<td class=playsms-label-sizer>{{ Sender ID }}</td>
 				<td><input type="text" name="sender_id" value="{{ $items['sender_id'] }}" {{ input_tag }}></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Description }}</td>
+				<td class=playsms-label-sizer>{{ Description }}</td>
 				<td><input type="text" name="description" value="{{ $items['description'] }}"></td>
 			</tr>
 			<if.isadmin>
 			<tr>
-				<td class=label-sizer>{{ Approve sender ID }}</td>
+				<td class=playsms-label-sizer>{{ Approve sender ID }}</td>
 				<td>{{ $select_approve }}</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>{{ Set as default }}</td>
+				<td class=playsms-label-sizer>{{ Set as default }}</td>
 				<td>{{ $select_default }} {{ HINT_DEFAULT }}</td>
 			</tr>
 			</if.isadmin>

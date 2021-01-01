@@ -86,8 +86,7 @@ switch (_OP_) {
 			<form name=fm_phonebook_list id=fm_phonebook_list action='index.php?app=main&inc=feature_phonebook' method=post>
 			" . _CSRF_FORM_ . "
 			<input type=hidden id=action_route name=route value=''>
-			<p>
-				<div class=actions_box>
+				<div class=playsms-actions-box>
 					<div class=pull-left>
 						<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=list') . "'>" . $icon_config['user_group'] . "</a>
 						<a href='" . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list') . "'>" . $icon_config['import'] . "</a>
@@ -111,20 +110,19 @@ switch (_OP_) {
 						<a href='#' id=action_go>" . $icon_config['go'] . "</a>
 					</div>
 				</div>
-			</p>
-			<div class=table-responsive>
-			<table class=playsms-table-list>
-			<thead>
-			<tr>
-				<th width=20%>" . _('Name') . "</th>
-				<th width=20%>" . _('Mobile') . "</th>
-				<th width=25%>" . _('Email') . "</th>
-				<th width=15%>" . _('Group code') . "</th>
-				<th width=15%>" . _('Tags') . "</th>
-				<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_list)></th>
-			</tr>
-			</thead>
-			<tbody>";
+				<div class=table-responsive>
+				<table class=playsms-table-list>
+				<thead>
+				<tr>
+					<th width=20%>" . _('Name') . "</th>
+					<th width=20%>" . _('Mobile') . "</th>
+					<th width=25%>" . _('Email') . "</th>
+					<th width=15%>" . _('Group code') . "</th>
+					<th width=15%>" . _('Tags') . "</th>
+					<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_phonebook_list)></th>
+				</tr>
+				</thead>
+				<tbody>";
 		
 		$i = $nav['top'];
 		$j = 0;
@@ -202,7 +200,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tbody>
-			<tr><td class=label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
+			<tr><td class=playsms-label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name></td></tr>
 			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $phone . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email></td></tr>
@@ -243,7 +241,7 @@ switch (_OP_) {
 			<input type=hidden name=pid value=\"" . $pid . "\">
 			<table class=playsms-table>
 			<tbody>
-			<tr><td class=label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
+			<tr><td class=playsms-label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name value=\"" . $list[0]['name'] . "\"></td></tr>
 			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $list[0]['mobile'] . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email value=\"" . $list[0]['email'] . "\"></td></tr>

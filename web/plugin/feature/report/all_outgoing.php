@@ -89,7 +89,7 @@ switch (_OP_) {
 			<form id=fm_all_outgoing name=fm_all_outgoing action=\"index.php?app=main&inc=feature_report&route=all_outgoing&op=actions&queue_code=" . $queue_code . "\" method=POST>
 			" . _CSRF_FORM_ . "
 			<input type=hidden name=go value=delete>
-			<div class=actions_box>
+			<div class=playsms-actions-box>
 				<div class=pull-left>
 					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=all_outgoing&op=actions&go=export&queue_code=' . $queue_code) . "\">" . $icon_config['export'] . "</a>
 				</div>

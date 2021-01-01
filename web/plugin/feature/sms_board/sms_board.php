@@ -109,7 +109,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 			<tbody>
 			<tr>
-				<td class=label-sizer>" . _('SMS board keyword') . "</td><td>" . $edit_board_keyword . "</td>
+				<td class=playsms-label-sizer>" . _('SMS board keyword') . "</td><td>" . $edit_board_keyword . "</td>
 			</tr>
 			<tr>
 				<td>" . _('SMS board reply message') . "</td><td><input type=text maxlength=100 name=edit_board_reply value=\"" . $edit_board_reply . "\"></td>
@@ -194,7 +194,7 @@ switch (_OP_) {
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 			<tbody>
 			<tr>
-				<td class=label-sizer>" . _('SMS board keyword') . "</td><td><input type=text maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
+				<td class=playsms-label-sizer>" . _('SMS board keyword') . "</td><td><input type=text maxlength=30 name=add_board_keyword value=\"$add_board_keyword\"></td>
 			</tr>
 			<tr>
 				<td>" . _('SMS board reply message') . "</td><td><input type=text maxlength=100 name=add_board_reply></td>

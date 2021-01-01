@@ -54,7 +54,7 @@ switch (_OP_) {
 
 			<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tr>
-					<td class=label-sizer>" . _('ACL ID') . "</td>
+					<td class=playsms-label-sizer>" . _('ACL ID') . "</td>
 					<td>" . $id . "</td>
 				</tr>
 				<tr>

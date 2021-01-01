@@ -39,7 +39,7 @@ switch (_OP_) {
 				<input type=hidden name=id value='$id'>
 				<table class=playsms-table>
 				<tr>
-					<td class=label-sizer>" . _('Schedule ID') . "</td><td>" . $id . "</td>
+					<td class=playsms-label-sizer>" . _('Schedule ID') . "</td><td>" . $id . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Schedule name') . "</td><td>" . $name . "</td>
@@ -140,7 +140,7 @@ switch (_OP_) {
 				<input type=hidden name=schedule_id value='" . $schedule_id . "'>
 				<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tr>
-					<td class=label-sizer>" . _('Schedule name') . "</td><td>" . $schedule_name . "</td>
+					<td class=playsms-label-sizer>" . _('Schedule name') . "</td><td>" . $schedule_name . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Scheduled message') . "</td><td>" . $schedule_message . "</td>
@@ -242,7 +242,7 @@ switch (_OP_) {
 				<input type=hidden name=id value='" . $id . "'>
 				<table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 				<tr>
-					<td class=label-sizer>" . _('Schedule name') . "</td><td>" . $schedule_name . "</td>
+					<td class=playsms-label-sizer>" . _('Schedule name') . "</td><td>" . $schedule_name . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Scheduled message') . "</td><td>" . $schedule_message . "</td>

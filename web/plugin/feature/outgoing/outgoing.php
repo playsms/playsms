@@ -103,7 +103,7 @@ switch (_OP_) {
 			<input type='hidden' name='rid' value=\"$rid\">
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
+				<td class=playsms-label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
 			</tr>
 			<tr>
 				<td>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='up_dst' value=\"$dst\" required></td>
@@ -177,7 +177,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
+				<td class=playsms-label-sizer>" . _('User') . "</td><td>" . $select_users . "</td>
 			</tr>
 			<tr>
 				<td>" . _mandatory(_('Destination name')) . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\" required></td>

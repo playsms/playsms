@@ -15,7 +15,7 @@ switch (_OP_) {
 	    "._CSRF_FORM_."
 	    <table class=playsms-table cellpadding=1 cellspacing=2 border=0>
 		<tr>
-		    <td class=label-sizer>"._('Gateway name')."</td><td>template</td>
+		    <td class=playsms-label-sizer>"._('Gateway name')."</td><td>template</td>
 		</tr>
 		<tr>
 		    <td>"._('Template installation path')."</td><td><input type=text maxlength=250 name=up_path value=\"".$template_param['path']."\"> ("._('No trailing slash')." \"/\")</td>

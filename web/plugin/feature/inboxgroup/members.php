@@ -19,7 +19,7 @@ switch (_OP_) {
 			<h2 class=page-header-title>"._('Group inbox')."</h2>
 			<h3 class=page-header-subtitle>"._('Member list')."</h3>
 			<table class=playsms-table>
-			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td class=playsms-label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
 			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>
@@ -98,7 +98,7 @@ switch (_OP_) {
 			<h2 class=page-header-title>"._('Group inbox')."</h2>
 			<h3 class=page-header-subtitle>"._('Add member')."</h3>
 			<table class=playsms-table>
-			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td class=playsms-label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
 			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>
@@ -182,7 +182,7 @@ switch (_OP_) {
 			<h2 class=page-header-title>"._('Group inbox')."</h2>
 			<h3 class=page-header-subtitle>"._('Delete member')."</h3>
 			<table width='100%>
-			<tr><td class=label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
+			<tr><td class=playsms-label-sizer>"._('Receiver number')."</td><td>".$in_receiver."</td></tr>
 			<tr><td>"._('Keywords')."</td><td>".$keywords."</td></tr>
 			<tr><td>"._('Description')."</td><td>".$description."</td></tr>
 			<tr><td>"._('Members')."</td><td>".$c_members."</td></tr>

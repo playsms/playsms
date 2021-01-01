@@ -32,7 +32,7 @@ switch (_OP_) {
 		$content .= "
 			<h2 class=page-header-title>" . _('Manage blocked') . "</h2>
 			<table class=playsms-table>
-				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>blocked</td></tr></tbody>
+				<tbody><tr><td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>blocked</td></tr></tbody>
 			</table>
 		";
 		$content.= _back('index.php?app=main&inc=core_gateway&op=gateway_list');

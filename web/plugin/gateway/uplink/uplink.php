@@ -41,7 +41,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 				<tr>
-					<td class=label-sizer>" . _('Gateway name') . "</td><td>uplink</td>
+					<td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>uplink</td>
 				</tr>
 				<tr>
 					<td>" . _mandatory(_('Master URL')) . "</td><td><input type=text maxlength=250 name=up_master value=\"" . $plugin_config['uplink']['master'] . "\"></td>

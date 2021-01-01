@@ -38,10 +38,10 @@
 					</tr>
 					
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Username }}" name=username value='{{ $lastpost['username'] }}' maxlength=100></td>
+						<td><input type=text class="playsms-login-input form-control" placeholder="{{ Username }}" name=username value='{{ $lastpost['username'] }}' maxlength=100></td>
 					</tr>
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Email }}" name=email value='{{ $lastpost['email'] }}' maxlength=100></td>
+						<td><input type=text class="playsms-login-input form-control" placeholder="{{ Email }}" name=email value='{{ $lastpost['email'] }}' maxlength=100></td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 
@@ -50,7 +50,7 @@
 						<td><p><img src="{{ CAPTCHA_IMAGE }}"></p></td>
 					</tr>
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=6></td>
+						<td><input type=text class="playsms-login-input form-control" placeholder="{{ Verify captcha }}" name=captcha maxlength=6></td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 					</if.enable_captcha>

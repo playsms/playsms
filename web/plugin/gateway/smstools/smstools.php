@@ -33,7 +33,7 @@ switch (_OP_) {
 			<table class=playsms-table>
 				<tbody>
 					<tr>
-						<td class=label-sizer>" . _('Gateway name') . "</td><td>smstools</td>
+						<td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>smstools</td>
 					</tr>
 					<tr>
 						<td>" . _('Default default_queue directory') . "</td><td><input type=text name=up_default_queue value=\"" . $plugin_config['smstools']['default_queue'] . "\"></td>

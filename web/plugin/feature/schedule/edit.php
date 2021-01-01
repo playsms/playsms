@@ -40,7 +40,7 @@ switch (_OP_) {
 			<input type=hidden name=id value='$id'>
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('Schedule ID') . "</td><td>" . $id . "</td>
+				<td class=playsms-label-sizer>" . _('Schedule ID') . "</td><td>" . $id . "</td>
 			</tr>
 			<tr>
 				<td>" . _mandatory(_('Schedule name')) . "</td><td><input type=text maxlength=100 name=name value=\"" . $name . "\"></td>

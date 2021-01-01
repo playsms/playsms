@@ -23,7 +23,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('Gateway name') . "</td><td>infobip</td>
+				<td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>infobip</td>
 			</tr>
 			<tr>
 				<td>" . _('Username') . "</td><td><input type=text maxlength=30 name=up_username value=\"" . $plugin_config['infobip']['username'] . "\"></td>

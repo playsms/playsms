@@ -138,10 +138,10 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('SMS subscribe keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
+				<td class=playsms-label-sizer>" . _('SMS subscribe keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_subscribe_keyword value=\"$add_subscribe_keyword\"></td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMS subscribe parameter') . "</td><td>	<input type=text size=10 maxlength=20 name=add_subscribe_param value=\"$add_subscribe_param\"></td>
+				<td class=playsms-label-sizer>" . _('SMS subscribe parameter') . "</td><td>	<input type=text size=10 maxlength=20 name=add_subscribe_param value=\"$add_subscribe_param\"></td>
 			</tr>
 			<tr>
 				<td>" . _('SMS subscribe reply') . "</td>
@@ -310,10 +310,10 @@ switch (_OP_) {
 			<input type=hidden name=edit_subscribe_keyword value=\"$edit_subscribe_keyword\">
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('SMS subscribe keyword') . "</td><td>$edit_subscribe_keyword</td>
+				<td class=playsms-label-sizer>" . _('SMS subscribe keyword') . "</td><td>$edit_subscribe_keyword</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMS subscribe parameter') . "</td>
+				<td class=playsms-label-sizer>" . _('SMS subscribe parameter') . "</td>
 				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_subscribe_param value=\"$edit_subscribe_param\">
@@ -336,7 +336,7 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMS unsubscribe parameter') . "</td>
+				<td class=playsms-label-sizer>" . _('SMS unsubscribe parameter') . "</td>
 				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_unsubscribe_param value=\"$edit_unsubscribe_param\">
@@ -359,7 +359,7 @@ switch (_OP_) {
 				</td>
 			</tr>
 			<tr>
-				<td class=label-sizer>" . _('SMS forward parameter') . "</td>				
+				<td class=playsms-label-sizer>" . _('SMS forward parameter') . "</td>				
 				<td>
 					<input type=text size=10 maxlength=20 name=edit_forward_param value=\"$edit_forward_param\">
 				</td>
@@ -586,7 +586,7 @@ switch (_OP_) {
 			<input type=hidden value=$msg_id name=msg_id>
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('SMS subscribe keyword') . "</td><td>$subscribe_name</td>
+				<td class=playsms-label-sizer>" . _('SMS subscribe keyword') . "</td><td>$subscribe_name</td>
 			</tr>
 			<tr>
 				<td colspan=2>
@@ -633,7 +633,7 @@ switch (_OP_) {
 			<input type=hidden value=$subscribe_id name=subscribe_id>
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('SMS subscribe keyword') . "</td><td>$subscribe_name</td>
+				<td class=playsms-label-sizer>" . _('SMS subscribe keyword') . "</td><td>$subscribe_name</td>
 			</tr>
 			<tr>
 				<td colspan=2>
@@ -698,7 +698,7 @@ switch (_OP_) {
 			<input type=hidden value='$subscribe_id' name=subscribe_id>
 			<input type=hidden value='$msg_id' name=msg_id>
 			<table class=playsms-table>
-			<tr><td class=label-sizer>" . _('SMS subscribe keyword') . "</td><td>$subscribe_name</td></tr>
+			<tr><td class=playsms-label-sizer>" . _('SMS subscribe keyword') . "</td><td>$subscribe_name</td></tr>
 			<tr><td>" . _('Message ID') . "</td><td>" . $msg_id . "</td></tr>
 			<tr><td>" . _('Message') . "</td><td>" . $message . "</td></tr>
 			<tr><td>" . _('Sent') . "</td><td>" . $counter . "</td></tr>
