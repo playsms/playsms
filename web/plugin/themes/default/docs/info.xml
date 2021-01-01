@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>default</name>
+	<alias>Theme default</alias>
+	<description>Theme default for playSMS with Bootstrap 4</description>
+	<release>1.2</release>
+	<date>2013-11-24</date>
+	<last_update>2021-01-01</last_update>
+	<author>Anton Raharja</author>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>
