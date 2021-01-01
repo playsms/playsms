@@ -12,13 +12,13 @@
 	<table class=playsms-table-list id='gatewaymanager_view'>
 		<thead><tr>
 			<if.isadmin>
-			<th width=15%>{{ Username }}</th>
+			<th width=10%>{{ Username }}</th>
 			</if.isadmin>
-			<th width=15%>{{ Sender ID }}</th>
-			<th width=30%>{{ Description }}</th>
+			<th width=20%>{{ Sender ID }}</th>
+			<th width=40%>{{ Description }}</th>
 			<th width=20%>{{ Last update }}</th>
-			<th width=10%>{{ Status }} <if.isadmin>{{ HINT_STATUS }}</if.isadmin></th>
-			<th width=10%>{{ Action }}</th>
+			<th width=5%>{{ Status }} <if.isadmin>{{ HINT_STATUS }}</if.isadmin></th>
+			<th width=5% nowrap>{{ $icon_config['action'] }}</th>
 		</tr></thead>
 		<tbody>
 			<loop.sender_id_list>

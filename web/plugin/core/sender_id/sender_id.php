@@ -128,6 +128,7 @@ switch (_OP_) {
 				'HINT_STATUS' => _hint(_('Click the status button to enable or disable status')),
 				'Sender ID' => _('Sender ID'),
 				'Username' => _('Username'),
+				'Description' => _('Description'),
 				'Last update' => _('Last update') 
 			),
 			'ifs' => array(
