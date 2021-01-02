@@ -127,14 +127,14 @@ switch (_OP_) {
 					// unban
 					$action .= _confirm(
 						_("Are you sure you want to unban account") . " " . $list[$i]['username'] . " ?",
-						_u("index.php?app=main&inc=core_user&route=user_mgmnt&op=user_unban&uname=" . $list[$i]['username'] . "&view=" . $view),
+						_u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_unban&uname=' . $list[$i]['username'] . '&view=' . $view),
 						'unban');
 					$banned_icon = $icon_config['ban'];
 				} else {
 					// ban
 					$action .= _confirm(
 						_("Are you sure you want to ban account") . " " . $list[$i]['username'] . " ?",
-						_u("index.php?app=main&inc=core_user&route=user_mgmnt&op=user_ban&uname=" . $list[$i]['username'] . "&view=" . $view),
+						_u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_ban&uname=' . $list[$i]['username'] . '&view=' . $view),
 						'ban');
 					$banned_icon = '';
 				}
@@ -147,7 +147,7 @@ switch (_OP_) {
 			} else {
 				$action .= _confirm(
 					_("Are you sure you want to delete user") . " " . $list[$i]['username'] . " ?",
-					_u("index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del&uname=" . $list[$i]['username'] . "&view=" . $view),
+					_u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del&uname=' . $list[$i]['username'] . '&view=' . $view),
 					'user_delete');
 			}
 			
