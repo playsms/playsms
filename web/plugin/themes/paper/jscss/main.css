@@ -1,30 +1,50 @@
 @media screen and (min-width: 768px) {
-	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
-		width: 400px;
+	input, textarea, select, option {
+		max-width: 384px;
+		width: 100%;
+	}
+	.playsms-label-sizer, .playsms-input-sizer {
+		width: 384px;
 	}
 }
 
 @media screen and (max-width: 768px) and (min-width: 600px) {
-	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
-		width: 330px;
+	input, textarea, select, option {
+		max-width: 300px;
+		width: 100%;
 	}
-}
-
-@media screen and (max-width: 600px) and (min-width: 480px) {
-	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
+	.playsms-label-sizer, .playsms-input-sizer {
 		width: 300px;
 	}
 }
 
-@media screen and (max-width: 480px) and (min-width: 320px) {
-	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
+@media screen and (max-width: 600px) and (min-width: 480px) {
+	input, textarea, select, option {
+		max-width: 240px;
+		width: 100%;
+	}
+	.playsms-label-sizer, .playsms-input-sizer {
 		width: 240px;
 	}
 }
 
-@media screen and (max-width: 320px) {
-	.playsms-label-sizer, .playsms-input-sizer, input, select, option, textarea {
+@media screen and (max-width: 480px) and (min-width: 320px) {
+	input, textarea, select, option {
+		max-width: 160px;
+		width: 100%;
+	}
+	.playsms-label-sizer, .playsms-input-sizer {
 		width: 160px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	input, textarea, select, option {
+		max-width: 120px;
+		width: 100%;
+	}
+	.playsms-label-sizer, .playsms-input-sizer {
+		width: 120px;
 	}
 }
 
@@ -52,8 +72,8 @@ input[type="checkbox"] {
 
 input[type="button"], input[type="submit"], .button, .submit {
 	width: auto;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 textarea {
@@ -133,7 +153,7 @@ table.sortable thead, table.sortable th {
 }
 
 .playsms-mandatory {
-	margin-top: 5px;
+	margin-top: 12px;
 }
 
 .playsms-tooltip {
@@ -146,4 +166,14 @@ table.sortable thead, table.sortable th {
 
 .playsms-actions-box {
 	margin-bottom: 1px;
+}
+
+/* custom dropdown-menu */
+.nav.dropdown-menu a {
+	padding: 5px 10px 5px 10px;
+}
+
+/* custom label */
+.label {
+	display: block;
 }
