@@ -1,92 +1,53 @@
-<table width='100%'>
-	<tbody>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="playsms-input-sizer">
+			{{ DIALOG_DISPLAY }}
+			
+			<form class="form-signin" action="{{ URL_ACTION }}" method="POST">
+			{{ CSRF_FORM }}
+		
+			<div class="text-center">
+				<img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}">
+				<h1 class="page-header-title">{{ WEB_TITLE }}</h1>
+				<p class="lead">{{ Register an account }}</p>
+			</div>
+	
+			<div class="form-group">
+				<input type=text id="input_username" class="playsms-input-sizer" placeholder="{{ Username }}" name="username" value="{{ $lastpost['username'] }}" maxlength="100" autofocus required>
+			</div>
+	
+			<div class="form-group">
+				<input type=text id="input_name" class="playsms-input-sizer" placeholder="{{ Name }}" name="name" value="{{ $lastpost['name'] }}" maxlength="100" required>
+			</div>
 
-	<tr><td>{{ DIALOG_DISPLAY }}</td></tr>
-	<tr>
-		<td align="center">
+			<div class="form-group">
+				<input type=text id="input_email" class="playsms-input-sizer" placeholder="{{ Email }}" name="email" value="{{ $lastpost['email'] }}" maxlength="100" required>
+			</div>
 
-		<table class="playsms-login-box">
-			<tbody>
+			<div class="form-group">
+				<input type=text id="input_mobile" class="playsms-input-sizer" placeholder="{{ Mobile }}" name="mobile" value="{{ $lastpost['mobile'] }}" maxlength="100">
+			</div>
 
-			<tr>
-				<td>
-				<form action="{{ URL_ACTION }}" method=POST>
-				{{ CSRF_FORM }}
-				<table width="80%" align="center">
-					<tbody>
+			<div class="form-group">
+				<img id="input_captcha_image" class="playsms-input-sizer" src="{{ CAPTCHA_IMAGE }}">
+			</div>
+			
+			<div class="form-group">
+				<input type=text id="input_captcha" class="playsms-input-sizer" placeholder="{{ Verify captcha }}" name="captcha" maxlength="6">
+			</div>
+			
+			<div class="form-group">
+				<button class="button" type="submit">{{ Submit }}</button>
+			</div>
 
-					<if.enable_logo>
-					<tr>
-						<td>
-							<img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}">
-						</td>
-					</tr>
-					</if.enable_logo>
+			</form>
 
-					<if.show_web_title>
-					<tr>
-						<td align="center">
-							<p class="lead">{{ WEB_TITLE }}</p>
-						</td>
-					</tr>
-					</if.show_web_title>
-
-					<tr>
-						<td align="center">
-							<p class="lead">{{ Register an account }}</p>
-						</td>
-					</tr>
-					
-					<tr>
-						<td><input type=text class="playsms-login-input" placeholder="{{ Name }}" name=name value='{{ $lastpost['name'] }}' maxlength=100></td>
-					</tr>
-					<tr>
-						<td><input type=text class="playsms-login-input" placeholder="{{ Username }}" name=username value='{{ $lastpost['username'] }}' maxlength=100></td>
-					</tr>
-					<tr>
-						<td><input type=text class="playsms-login-input" placeholder="{{ Mobile }}" name=mobile value='{{ $lastpost['mobile'] }}' maxlength=100></td>
-					</tr>
-					<tr>
-						<td><input type=text class="playsms-login-input" placeholder="{{ Email }}" name=email value='{{ $lastpost['email'] }}' maxlength=100></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-
-					<if.enable_captcha>
-					<tr>
-						<td><p><img src="{{ CAPTCHA_IMAGE }}"></p></td>
-					</tr>
-					<tr>
-						<td><input type=text class="playsms-login-input" placeholder="{{ Verify captcha }}" name=captcha maxlength=6></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-					</if.enable_captcha>
-
-					<tr>
-						<td><input type=submit class=button value='{{ Submit }}'></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-
-					<tr>
-						<td>
-							<if.enable_forgot>
-							<p><a href='{{ URL_FORGOT }}'>{{ Recover password }}</a></p>
-							</if.enable_forgot>
-							<p><a href='{{ URL_LOGIN }}'>{{ Login }}</a></p>
-						</td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-
-					</tbody>
-				</table>
-				</form>
-				</td>
-			</tr>
-
-			</tbody>
-		</table>
-
-		</td>
-	</tr>
-
-	</tbody>
-</table>
+			<div class="form-group">
+				<if.enable_forgot>
+				<p><a href="{{ URL_FORGOT }}">{{ Recover password }}</a></p>
+				</if.enable_forgot>
+				<p><a href="{{ URL_LOGIN }}">{{ Login }}</a></p>
+			</div>	
+		</div>
+	</div>
+</div>
