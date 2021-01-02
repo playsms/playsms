@@ -31,10 +31,10 @@ switch (_OP_) {
 		$pre_rules = incoming_pre_rules_get();
 		
 		// scan message for @username
-		$select_match_username = _yesno('incoming_match_username', $pre_rules['match_username'], '', '', '', 'playsms-incoming-match-username', 'form-control');
+		$select_match_username = _yesno('incoming_match_username', $pre_rules['match_username'], '', '', '', 'playsms-incoming-match-username');
 		
 		// scan message for #groupcode
-		$select_match_groupcode = _yesno('incoming_match_groupcode', $pre_rules['match_groupcode'], '', '', '', 'playsms-incoming-match-groupcode', 'form-control');
+		$select_match_groupcode = _yesno('incoming_match_groupcode', $pre_rules['match_groupcode'], '', '', '', 'playsms-incoming-match-groupcode');
 		
 		$form_pre_rules = array(
 			array(
@@ -57,7 +57,7 @@ switch (_OP_) {
 		$post_rules = incoming_post_rules_get();
 		
 		// sandbox match receiver number and sender ID
-		$select_match_sender_id = _yesno('sandbox_match_sender_id', $post_rules['match_sender_id'], '', '', '', 'playsms-sandbox-match-sender-id', 'form-control');
+		$select_match_sender_id = _yesno('sandbox_match_sender_id', $post_rules['match_sender_id'], '', '', '', 'playsms-sandbox-match-sender-id');
 		
 		// sandbox prefix
 		unset($params);
@@ -66,7 +66,7 @@ switch (_OP_) {
 			'maxlength' => 30,
 			'placeholder' => _('Insert keyword') 
 		);
-		$input_prefix = _input('text', 'sandbox_prefix', $post_rules['insert_prefix'], $params, 'playsms-sandbox-prefix', 'form-control');
+		$input_prefix = _input('text', 'sandbox_prefix', $post_rules['insert_prefix'], $params, 'playsms-sandbox-prefix');
 		
 		// sandbox forward to users
 		unset($params);
@@ -83,7 +83,7 @@ switch (_OP_) {
 			'maxlength' => 255,
 			'placeholder' => _('URL') 
 		);
-		$input_url = _input('text', 'forward_to_url', $post_rules['forward_to_url'], $params, 'playsms-forward-to-url', 'form-control');
+		$input_url = _input('text', 'forward_to_url', $post_rules['forward_to_url'], $params, 'playsms-forward-to-url');
 		
 		$form_post_rules = array(
 			array(
@@ -120,10 +120,10 @@ switch (_OP_) {
 		$settings = incoming_settings_get();
 		
 		// settings to leave copy on sandbox
-		$settings_leave_copy_sandbox = _yesno('settings_leave_copy_sandbox', $settings['leave_copy_sandbox'], '', '', '', 'settings_leave_copy_sandbox', 'form-control');
+		$settings_leave_copy_sandbox = _yesno('settings_leave_copy_sandbox', $settings['leave_copy_sandbox'], '', '', '', 'settings_leave_copy_sandbox');
 		
 		// settings to match with all approved sender ID
-		$settings_match_all_sender_id = _yesno('settings_match_all_sender_id', $settings['match_all_sender_id'], '', '', '', 'settings_match_all_sender_id', 'form-control');
+		$settings_match_all_sender_id = _yesno('settings_match_all_sender_id', $settings['match_all_sender_id'], '', '', '', 'settings_match_all_sender_id');
 		
 		$form_settings = array(
 			array(
