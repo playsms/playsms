@@ -54,9 +54,9 @@ switch (_OP_) {
 			}
 		}
 		if ($ismatched) {
-			$sms_sender_id = _select('sms_sender', $user_sender_id, $sms_from, [], '', 'form-control');
+			$sms_sender_id = _select('sms_sender', $user_sender_id, $sms_from);
 		} else {
-			$sms_sender_id = "<input type='text' class='form-control' name='sms_sender' value='" . $sms_from . "' readonly>";
+			$sms_sender_id = "<input type='text' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
 		
 		// SMS footer
@@ -70,7 +70,7 @@ switch (_OP_) {
 		foreach (sendsms_get_template() as $c_template) {
 			$c_template_option[$c_template['title']] = $c_template['text'];
 		}
-		$sms_template = _select('smstemplate', $c_template_option, '', [], '', 'form-control');
+		$sms_template = _select('smstemplate', $c_template_option);
 		
 		// build form
 		unset($tpl);
@@ -94,6 +94,7 @@ switch (_OP_) {
 				'SENDTO_PLACEHOLDER_TEXT' => _('Select receiver'),
 				'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'THEMES_MODULE' => core_themes_get(),
 				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users'),
 				'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm'),
 				'HINT_UNICODE_MESSAGE' => _hint('Unicode message detected automatically'),
