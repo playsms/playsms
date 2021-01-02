@@ -1,10 +1,10 @@
 @media screen and (min-width: 768px) {
 	input, textarea, select, option {
-		max-width: 384px;
+		max-width: 350px;
 		width: 100%;
 	}
 	.playsms-label-sizer, .playsms-input-sizer {
-		width: 384px;
+		width: 350px
 	}
 }
 
@@ -95,14 +95,14 @@ table.sortable thead, table.sortable th {
 	padding: 0;
 	background-color: #f5f5f5;
 	border-radius: 3px;
-	top: 48px;
+	top: 46px;
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
 }
 
 #main-content {
-	padding-top: 35px;
+	padding-top: 90px;
 	height: 100%;
 	overflow: hidden;
 }

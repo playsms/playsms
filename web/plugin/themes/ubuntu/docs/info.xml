@@ -2,10 +2,10 @@
 <plugin>
 	<name>ubuntu</name>
 	<alias>Themes ubuntu</alias>
-	<description>Themes ubuntu for playSMS based on Ubuntu bootstrap css from bootswatch.com</description>
-	<release>1.2</release>
+	<description>Themes ubuntu for playSMS based on united bootstrap css from bootswatch.com</description>
+	<release>1.3</release>
 	<date>2013-11-24</date>
-	<last_update>2021-01-01</last_update>
+	<last_update>2021-01-03</last_update>
 	<author>Anton Raharja</author>
 	<language_file>1</language_file>
 	<sql_file>0</sql_file>

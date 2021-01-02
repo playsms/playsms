@@ -118,11 +118,12 @@
 }
 
 .search_input_category {
-	width: 130px;
+	width: 110px !important;
+	display: inline;
 }
 
 .search_input_keyword {
-	width: 270px;
+	width: 220px !important;
 }
 
 .dropdown-menu {
@@ -211,6 +212,10 @@
 	padding: 0;
 	width: 100%;
 	margin-bottom: 10px;
+}
+
+.playsms-table-list {
+	width: 100%;
 }
 
 /* IDs */

@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	$(".button").addClass("btn btn-primary");
 	
+	$(".playsms-navbar").addClass("bg-primary");
+
 	$(".playsms-table-list").addClass("table table-striped table-hover table-condensed");
 	$(".playsms-table-list").tablesorter();
 	
@@ -10,6 +12,9 @@ $(document).ready(function() {
 	
 	$(".playsms-mandatory").tooltip();
 	
+	$('.pull-left').addClass('float-left');
+	$('.pull-right').addClass('float-right');
+
 	$(".form-control").addClass("playsms-input-sizer");
 	
 	$("input[type='text']").addClass("form-control playsms-input-sizer");

@@ -53,7 +53,7 @@ function common_hook_themes_submenu($content = '') {
 	$credit = core_display_credit(rate_getusercredit($user_config['username']));
 	$tooltips_credit = _('Your credit');
 	
-	$ret = '<div>';
+	$ret = '<div class="playsms-submenu">';
 	$ret .= '<span class="playsms-icon fas fa-user" alt="' . $tooltips_logged_in . '" title="' . $tooltips_logged_in . '"></span>' . $logged_in;
 	$ret .= $separator . '<span class="playsms-icon fas fa-credit-card" alt="' . $tooltips_credit . '" title="' . $tooltips_credit . '"></span><div id="submenu-credit-show">' . $credit . '</div>';
 	
@@ -107,7 +107,7 @@ function common_hook_themes_menu_tree($menu_config) {
 	}
 	
 	$content = "
-		<nav class='navbar navbar-expand-md navbar-dark fixed-top bg-dark' role='navigation'>
+		<nav class='playsms-navbar navbar navbar-expand-md fixed-top' role='navigation'>
 				<div class='container'>
 					<div class='navbar-header'>
 						<button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbar-collapse'>
@@ -183,10 +183,10 @@ function common_hook_themes_dialog($type, $message) {
 	$ret .= "<!-- Modal " . $modal_id . " -->";
 	$ret .= "
 		<div class='modal fade' id='dialog_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_box_title' aria-hidden='true'>
-			<div class='modal-dialog' role='document'>
+			<div class='modal-dialog modal-dialog-centered' role='document'>
 				<div class='modal-content'>
-					<div class='modal-header text-light bg-" . $type . "'>
-						<h5 class='modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
+					<div class='playsms-modal-header modal-header text-light bg-" . $type . "'>
+						<h5 class='playsms-modal-title modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
 					</div>
 					<div class='modal-body'>
 						" . $message . "
@@ -229,7 +229,7 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 	if ($nofooter) {
 		$modal_footer = "";
 	} else {
-		$modal_footer = ";
+		$modal_footer = "
 			<div class='modal-footer'>
 				<button type='button' id='confirmation_button_no_" . $modal_id . "' class='btn btn-primary' data-dismiss='modal'>" . _('No') . "</button>
 				<button type='button' id='confirmation_button_yes_" . $modal_id . "' class='btn btn-danger' data-dismiss='modal'>" . _('Yes') . "</button>
@@ -240,10 +240,10 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 	$ret .= "<a href='#' data-toggle='modal' data-target='#dialog_confirmation_box_" . $modal_id . "' id='confirmation_icon_" . $modal_id . "' class='confirmation-icon'>" . $icon . "</a>";
 	$ret .= "
 		<div class='modal fade' id='dialog_confirmation_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_confirmation_box_title_" . $modal_id . "' aria-hidden='true'>
-			<div class='modal-dialog' role='document'>
+			<div class='modal-dialog modal-lg modal-dialog-centered' role='document'>
 				<div class='modal-content'>
-					<div class='modal-header text-light bg-dark'>
-						<h5 class='modal-title' id='dialog_confirmation_box_title_" . $modal_id . "'>" . $title . "</h5>
+					<div class='playsms-modal-header modal-header text-light bg-primary'>
+						<h5 class='playsms-modal-title modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
 					</div>
 					<div class='modal-body'>
 						<div id='dialog_confirmation_box_content_" . $modal_id . "'>

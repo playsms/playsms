@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
-	<name>flatly</name>
-	<alias>Themes flatly</alias>
-	<description>Themes flatly for playSMS based on flatly bootstrap css from bootswatch.com</description>
+	<name>materia</name>
+	<alias>Themes materia</alias>
+	<description>Default themes rename to themes materia</description>
 	<release>1.3</release>
 	<date>2013-11-24</date>
 	<last_update>2021-01-03</last_update>
