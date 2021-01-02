@@ -35,7 +35,7 @@ if (_OP_ == 'forgot') {
 		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
 			unset($_SESSION['tmp']['captcha']);
 		} else {
-			_log("fail to verify captcha u:" . $username . " e:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+			_log("fail to verify captcha u:" . $username . " e:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 
@@ -82,34 +82,34 @@ if (_OP_ == 'forgot') {
 						'mail_body' => $email_body 
 					);
 					if (sendmail($mail_data)) {
-						_log("temporary password has been emailed u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+						_log("temporary password has been emailed u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 	
 						$_SESSION['dialog']['info'][] = _('Temporary password has been emailed. You must login immediately.');
 						
 						header("Location: " . _u($core_config['http_path']['base']));
 						exit();
 					} else {
-						_log("fail to send email u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+						_log("fail to send email u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 						
 						$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 					}
 				} else {
-					_log("fail to save temporary password u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+					_log("fail to save temporary password u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 	
 					$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 				}
 			} else {
-				_log("username and email pair not found u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+				_log("username and email pair not found u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 	
 				$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 			}
 		} else {
-			_log("empty username or email u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+			_log("empty username or email u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 	
 			$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 		}
 	} else {
-		_log("attempted to recover password while disabled u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "forgot");
+		_log("attempted to recover password while disabled u:" . $username . " email:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 		
 		$_SESSION['dialog']['danger'][] = _('Recover password disabled');
 	}

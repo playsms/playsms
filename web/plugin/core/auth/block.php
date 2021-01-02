@@ -22,8 +22,10 @@ defined('_SECURE_') or die('Forbidden');
 if (_OP_ == 'block') {
 	
 	if (auth_isvalid()) {
+		_log("WARNING: no access or blocked. sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'] . " uid:" . $user_config['uid'] . " app:" . _APP_ . " inc:" . _INC_ . " op:" . _OP_ . " route:" . _ROUTE_, 2, "auth block");
+
 		$_SESSION['dialog']['danger'][] = _('You have no access to this page');
-		_log("WARNING: no access or blocked. sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'] . " uid:" . $user_config['uid'] . " app:" . _APP_ . " inc:" . _INC_ . " op:" . _OP_ . " route:" . _ROUTE_, 2, "auth_block");
+
 		header("Location: " . _u('index.php?app=main&inc=core_auth&route=block'));
 	} else {
 		header("Location: " . _u('index.php?app=main&inc=core_auth&route=login'));

@@ -28,13 +28,13 @@ if (auth_isvalid()) {
 		auth_login_return();
 
 		if (auth_isvalid()) {
-			_log("re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
+			_log("re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth logout");
 		} else {
-			_log("fail to re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
+			_log("fail to re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth logout");
 		}
 		header('Location: '._u(_HTTP_PATH_BASE_));
 	} else {
-		_log("u:".$_SESSION['username']." uid:" . $_SESSION['uid'] . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "logout");
+		_log("u:".$_SESSION['username']." uid:" . $_SESSION['uid'] . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth logout");
 		
 		// destroy user session for complete logout
 		auth_session_destroy();

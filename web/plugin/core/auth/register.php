@@ -21,12 +21,12 @@ defined('_SECURE_') or die('Forbidden');
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
 
+if (auth_isvalid()) {
+	header("Location: " . _u($core_config['http_path']['base']));
+	exit();
+}
+
 if (_OP_ == 'register') {
-	
-	if (auth_isvalid()) {
-		header("Location: " . _u($core_config['http_path']['base']));
-		exit();
-	}
 
 	if ($auth_captcha_form_register) {
 		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
@@ -44,9 +44,27 @@ if (_OP_ == 'register') {
 	$data = array();
 	$data['name'] = trim($_REQUEST['name']);
 	$data['username'] = trim($_REQUEST['username']);
-	$data['mobile'] = trim($_REQUEST['mobile']);
 	$data['email'] = trim($_REQUEST['email']);
+	$data['mobile'] = trim($_REQUEST['mobile']);
 
+	if ($core_config['main']['enable_register']) {
+		if (!($data['name'] && $data['username'] && $data['email'])) {
+			_log("incomplete registration data name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth register");
+		
+			$_SESSION['dialog']['danger'][] = _('Incomplete registration data');
+
+			header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
+			exit();
+		}
+	} else {
+		_log("attempted to register an account while disabled name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth register");
+		
+		$_SESSION['dialog']['danger'][] = _('Register an account is disabled');
+
+		header("Location: " . _u($core_config['http_path']['base']));
+		exit();
+	}
+	
 	// force non-admin, status=3 is user and status=4 is subuser
 	$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
 
