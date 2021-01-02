@@ -79,19 +79,21 @@ function common_hook_themes_menu_tree($menu_config) {
 			
 			// devider or valid entry
 			if (($sub_menu_url == '#') && ($sub_menu_title == '-')) {
-				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li class=\"nav-item divider\"></li>";
+				$m[$sub_menu_index . '.' . $sub_menu_title] = "<div class='dropdown-divider'></div>";
 			} else if ($sub_menu_url == '#') {
-				$m[$sub_menu_index . '.' . $sub_menu_title] = "<li class=\"nav-item\">" . $sub_menu_title . "</li>";
+				$m[$sub_menu_index . '.' . $sub_menu_title] = "<div class='dropdown-item'>" . $sub_menu_title . "</div>";
 			} else if ($sub_menu_url && $sub_menu_title) {
 				if (acl_checkurl($sub_menu_url)) {
-					$m[$sub_menu_index . '.' . $sub_menu_title] = "<li><a class=\"nav-link\" href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a></li>";
+					$m[$sub_menu_index . '.' . $sub_menu_title] = "<a class='dropdown-item' href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a>";
 				}
 			}
 		}
 		
 		if (count($m)) {
-			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
-			$main_menu .= "<ul class='nav dropdown-menu'>";
+			$main_menu .= "
+				<div class='nav-item dropdown'>
+					<a href='#' data-toggle='dropdown' id='" . core_sanitize_alphanumeric($menu_title) . "' class='nav-item nav-link dropdown-toggle'>" . $menu_title . "</a>
+					<div class='dropdown-menu' aria-labelledby='" . core_sanitize_alphanumeric($menu_title) . "'>";
 			
 			ksort($m);
 			foreach ($m as $mm) {
@@ -99,33 +101,32 @@ function common_hook_themes_menu_tree($menu_config) {
 			}
 			unset($m);
 			
-			$main_menu .= "</ul>";
-			$main_menu .= "</li>";
+			$main_menu .= "</div>";
+			$main_menu .= "</div>";
 		}
 	}
 	
 	$content = "
-		<nav class='navbar navbar-inverse navbar-fixed-top' role='navigation'>
-			<div class='container'>
-				<div class='navbar-header'>
-					<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-						<span class='icon-bar'></span>
-						<span class='icon-bar'></span>
-						<span class='icon-bar'></span>
-					</button>
-					<a href='" . _u($core_config['main']['main_website_url']) . "' class='brand navbar-brand'>" . $core_config['main']['main_website_name'] . "</a>
+		<nav class='navbar navbar-expand-md navbar-dark fixed-top bg-dark' role='navigation'>
+				<div class='container'>
+					<div class='navbar-header'>
+						<button type='button' class='navbar-toggler' data-toggle='collapse' data-target='#navbar-collapse'>
+							<span class='navbar-toggler-icon'></span>
+						</button>
+						<a href='" . _u($core_config['main']['main_website_url']) . "' class='navbar-brand'>" . $core_config['main']['main_website_name'] . "</a>
+					</div>
+					<div id='navbar-collapse' class='navbar-collapse collapse justify-content-between'>
+						<div class='navbar-nav'>
+							<a class='nav-item nav-link' href='" . _u(_HTTP_PATH_BASE_) . "'>" . _('Home') . "</a>
+							" . $main_menu . "
+						</div>
+						<div class='navbar-nav'>
+							<a class='nav-item nav-link' href='" . _u('index.php?app=main&inc=core_auth&route=logout') . "'>" . $icon_config['logout'] . "</a>
+						</div>
+					</div>
 				</div>
-				<div class='navbar-collapse collapse'>
-					<ul class='nav navbar-nav'>
-						<li class='active'><a href='" . _u(_HTTP_PATH_BASE_) . "'>" . _('Home') . "</a></li>
-						" . $main_menu . "
-					</ul>
-					<ul class='nav navbar-nav navbar-right'>
-						<li><a href='" . _u('index.php?app=main&inc=core_auth&route=logout') . "'>" . $icon_config['logout'] . "</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>";
+		</nav>
+	";
 	
 	return $content;
 }
@@ -184,7 +185,7 @@ function common_hook_themes_dialog($type, $message) {
 		<div class='modal fade' id='dialog_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_box_title' aria-hidden='true'>
 			<div class='modal-dialog' role='document'>
 				<div class='modal-content'>
-					<div class='modal-header bg-" . $type . "'>
+					<div class='modal-header text-light bg-" . $type . "'>
 						<h5 class='modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
 					</div>
 					<div class='modal-body'>
@@ -216,7 +217,7 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 	if ($form) {
 		$action = "$('#" . $url . "').submit();";
 	} else {
-		$action = "window.location.href = \"" . $url . "\";";
+		$action = "window.location.href = '" . $url . "';";
 	}
 	
 	if ($load) {
@@ -241,7 +242,7 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 		<div class='modal fade' id='dialog_confirmation_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_confirmation_box_title_" . $modal_id . "' aria-hidden='true'>
 			<div class='modal-dialog' role='document'>
 				<div class='modal-content'>
-					<div class='modal-header bg-danger'>
+					<div class='modal-header text-light bg-dark'>
 						<h5 class='modal-title' id='dialog_confirmation_box_title_" . $modal_id . "'>" . $title . "</h5>
 					</div>
 					<div class='modal-body'>

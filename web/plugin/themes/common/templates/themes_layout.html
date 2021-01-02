@@ -30,11 +30,11 @@
 	<!-- Font Awesome 5 -->
 	<link rel="stylesheet" type="text/css" href="{{ HTTP_PATH_THEMES }}/common/jscss/font-awesome/css/all.min.css" />
 
-	<!-- Bootstrap 3 Bootswatch -->
-	<link rel="stylesheet" type="text/css" href="{{ HTTP_PATH_THEMES }}/{{ THEMES_MODULE }}/jscss/bootstrap/css/bootstrap.min.css" />
+	<!-- Bootstrap 4 Bootswatch -->
+	<link rel="stylesheet" type="text/css" href="{{ HTTP_PATH_THEMES }}/{{ THEMES_MODULE }}/jscss/bootswatch-purple/bootstrap.min.css" />
 
-	<!-- Bootstrap 3 datetimepicker -->
-	<link rel="stylesheet" type="text/css" href="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" />
+	<!-- Bootstrap 4 datetimepicker -->
+	<link rel="stylesheet" type="text/css" href="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap4-datetimepicker/css/bootstrap-datetimepicker.css" />
 
 	<!-- Select2 -->
 	<link rel="stylesheet" type="text/css" href="{{ HTTP_PATH_THEMES }}/common/jscss/select2/select2.css" />
@@ -52,14 +52,14 @@
 <!-- JQuery Tablesorter 2.9.1 -->
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/jquery-tablesorter/jquery.tablesorter.min.js"></script>
 
-<!-- Bootstrap 3.4.1 -->
-<script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap3/js/bootstrap.min.js"></script>
+<!-- Bootstrap 4 -->
+<script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap4/js/bootstrap.bundle.min.js"></script>
 
 <!-- Moment 2.9.0 -->
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/moment/moment.min.js"></script>
 
-<!-- Bootstrap 3 datetimepicker -->
-<script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<!-- Bootstrap 4 datetimepicker -->
+<script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/bootstrap4-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 
 <!-- Select2 -->
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/select2/select2.min.js"></script>
@@ -69,27 +69,25 @@
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/common.js"></script>
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/{{ THEMES_MODULE }}/jscss/main.js"></script>
 
-<div id="main-body">
-	<div class="container">
-		<if.valid>
-			<div id="main-menu">
-				{{ THEMES_MENU_TREE }}
-			</div>
-			<div id="main-submenu">
-				{{ THEMES_SUBMENU }}
-			</div>
-		</if.valid>
-		<div id="main-content">
-			{{ CONTENT }}
+<div class="container">
+	<if.valid>
+		<div id="main-menu">
+			{{ THEMES_MENU_TREE }}
 		</div>
+		<div id="main-submenu">
+			{{ THEMES_SUBMENU }}
+		</div>
+	</if.valid>
+	<div id="main-content">
+		{{ CONTENT }}
 	</div>
 </div>
 
-<div id="main-footer">
+<footer id="main-footer">
 	<div class="container">
 		<p class="text-muted credit">{{ LAYOUT_FOOTER }}</p>
 	</div>
-</div>
+</footer>
 
 <if.valid>
 <script type="text/javascript">
@@ -101,15 +99,15 @@
 		}, 10000);
 
 		var tabId = $('ul.nav-tabs').attr('id');
-	    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-    	    localStorage.setItem('activeTab-' + tabId, $(e.target).attr('href'));
-	    });
-    	var activeTab = localStorage.getItem('activeTab-' + tabId);
-	    if(activeTab){
-    	    $('a[href="' + activeTab + '"]').tab('show');
-	    } else {
-	    	$('#' + tabId + ' a:first').tab('show');
-	    }
+		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+			localStorage.setItem('activeTab-' + tabId, $(e.target).attr('href'));
+		});
+		var activeTab = localStorage.getItem('activeTab-' + tabId);
+		if(activeTab){
+			$('a[href="' + activeTab + '"]').tab('show');
+		} else {
+			$('#' + tabId + ' a:first').tab('show');
+		}
 	});
 </script>
 </if.valid>
