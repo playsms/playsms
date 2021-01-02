@@ -1,82 +1,46 @@
-<table width='100%'>
-	<tbody>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="playsms-input-sizer">
+			{{ DIALOG_DISPLAY }}
+			
+			<form class="form-signin" action="{{ URL_ACTION }}" method="POST">
+			{{ CSRF_FORM }}
+		
+			<div class="text-center">
+				<img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}">
+				<h1 class="page-header-title">{{ WEB_TITLE }}</h1>
+			</div>
+	
+			<div class="form-group">
+				<input type=text id="input_email" class="playsms-input-sizer" placeholder="{{ Username or email }}" name="username" maxlength="100" autofocus required>
+			</div>
+	
+			<div class="form-group">
+				<input type=password id="input_password" class="playsms-input-sizer" placeholder="{{ Password }}" name="password" maxlength="100" required>
+			</div>
+	
+			<div class="form-group">
+				<img id="input_captcha_image" class="playsms-input-sizer" src="{{ CAPTCHA_IMAGE }}">
+			</div>
+			
+			<div class="form-group">
+				<input type=text id="input_captcha" class="playsms-input-sizer" placeholder="{{ Verify captcha }}" name="captcha" maxlength="6">
+			</div>
+		
+			<div class="form-group">
+				<button class="button" type="submit">{{ Login }}</button>
+			</div>
 
-	<tr><td>{{ DIALOG_DISPLAY }}</td></tr>
-	<tr>
-		<td align="center">
+			</form>
 
-		<table class="playsms-login-box">
-			<tbody>
-
-			<tr>
-				<td>
-				<form action="{{ URL_ACTION }}" method=POST>
-				{{ CSRF_FORM }}
-				<table width="80%" align="center">
-					<tbody>
-
-					<if.enable_logo>
-					<tr>
-						<td>
-							<img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}">
-						</td>
-					</tr>
-					</if.enable_logo>
-
-					<if.show_web_title>
-					<tr>
-						<td align="center">
-							<p class="lead">{{ WEB_TITLE }}</p>
-						</td>
-					</tr>
-					</if.show_web_title>
-
-					<tr>
-						<td><input type=text class="playsms-login-input" placeholder="{{ Username or email }}" name=username maxlength=100></td>
-					</tr>
-					<tr>
-						<td><input type=password class="playsms-login-input" placeholder="{{ Password }}" name=password maxlength=100></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-
-					<if.enable_captcha>
-					<tr>
-						<td><p><img src="{{ CAPTCHA_IMAGE }}"></p></td>
-					</tr>
-					<tr>
-						<td><input type=text class="playsms-login-input" placeholder="{{ Verify captcha }}" name=captcha maxlength=6></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-					</if.enable_captcha>
-
-					<tr>
-						<td><input type=submit class=button value='{{ Login }}'></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-
-					<tr>
-						<td>
-							<if.enable_register>
-							<p><a href="{{ URL_REGISTER }}">{{ Register an account }}</a></p>
-							</if.enable_register>
-							<if.enable_forgot>
-							<p><a href="{{ URL_FORGOT }}">{{ Recover password }}</a></p>
-							</if.enable_forgot>
-						</td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-
-					</tbody>
-				</table>
-				</form>
-				</td>
-			</tr>
-
-			</tbody>
-		</table>
-
-		</td>
-	</tr>
-
-	</tbody>
-</table>
+			<div class="form-group">
+				<if.enable_register>
+				<p><a href="{{ URL_REGISTER }}">{{ Register an account }}</a></p>
+				</if.enable_register>
+				<if.enable_forgot>
+				<p><a href="{{ URL_FORGOT }}">{{ Recover password }}</a></p>
+				</if.enable_forgot>
+			</div>	
+		</div>
+	</div>
+</div>
