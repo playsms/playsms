@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$(".button").addClass("btn btn-primary");
 	
-	$(".playsms-navbar").addClass("bg-primary");
+	$(".playsms-navbar").addClass("navbar-dark bg-primary");
 
 	$(".playsms-table-list").addClass("table table-striped table-hover table-condensed");
 	$(".playsms-table-list").tablesorter();

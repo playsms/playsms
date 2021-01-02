@@ -1,50 +1,70 @@
 @media screen and (min-width: 768px) {
 	input, textarea, select, option {
-		max-width: 350px;
+		max-width: 307px;
 		width: 100%;
 	}
-	.playsms-label-sizer, .playsms-input-sizer {
-		width: 350px
+	.playsms-label-sizer, .playsms-input-sizer, .playsms-login-box {
+		width: 307px
+	}
+	.playsms-login-input {
+		width: 100%;
+	}
+	#main-submenu {
+		top: 80px;
+	}
+	#main-content {
+		padding-top: 130px;
 	}
 }
 
 @media screen and (max-width: 768px) and (min-width: 600px) {
 	input, textarea, select, option {
-		max-width: 300px;
+		max-width: 230px;
 		width: 100%;
 	}
-	.playsms-label-sizer, .playsms-input-sizer {
-		width: 300px;
+	.playsms-label-sizer, .playsms-input-sizer, .playsms-login-box {
+		width: 230px;
+	}
+	.playsms-login-input {
+		width: 100%;
+	}
+	#main-submenu {
+		top: 80px;
+	}
+	#main-content {
+		padding-top: 130px;
 	}
 }
 
-@media screen and (max-width: 600px) and (min-width: 480px) {
+@media screen and (max-width: 600px) and (min-width: 480px){
 	input, textarea, select, option {
-		max-width: 240px;
+		max-width: 230px;
 		width: 100%;
 	}
-	.playsms-label-sizer, .playsms-input-sizer {
-		width: 240px;
+	.playsms-label-sizer, .playsms-input-sizer, .playsms-login-box {
+		width: 230px;
+	}
+	.playsms-login-input {
+		width: 100%;
+	}
+	#main-content {
+		padding-top: 100px;
 	}
 }
 
-@media screen and (max-width: 480px) and (min-width: 320px) {
+@media screen and (max-width: 480px) {
 	input, textarea, select, option {
-		max-width: 160px;
+		max-width: 210px;
 		width: 100%;
 	}
-	.playsms-label-sizer, .playsms-input-sizer {
-		width: 160px;
+	.playsms-label-sizer, .playsms-input-sizer, .playsms-login-box {
+		width: 210px;
 	}
-}
-
-@media screen and (max-width: 320px) {
-	input, textarea, select, option {
-		max-width: 120px;
+	.playsms-login-input {
 		width: 100%;
 	}
-	.playsms-label-sizer, .playsms-input-sizer {
-		width: 120px;
+	#main-content {
+		padding-top: 100px;
 	}
 }
 
@@ -91,18 +111,18 @@ table.sortable thead, table.sortable th {
 
 /* IDs */
 
+#main-menu {
+	z-index: 2;
+}
+
 #main-submenu {
-	padding: 0;
+	z-index: 1;
 	background-color: #f5f5f5;
-	border-radius: 3px;
-	top: 72px;
+	border-radius: 0 0 3px 3px;
 	position: fixed;
-	width: 100%;
-	z-index: 1000;
 }
 
 #main-content {
-	padding-top: 118px;
 	height: 100%;
 	overflow: hidden;
 }
@@ -148,8 +168,9 @@ table.sortable thead, table.sortable th {
 	background-color: #f5f5f5;
 }
 
-.playsms-login-input {
-	width: 256px;
+.playsms-logo {
+	max-width: 100%;
+	margin-bottom: 10px;
 }
 
 .playsms-mandatory {
@@ -168,12 +189,10 @@ table.sortable thead, table.sortable th {
 	margin-bottom: 1px;
 }
 
-/* custom dropdown-menu */
 .nav.dropdown-menu a {
 	padding: 5px 10px 5px 10px;
 }
 
-/* custom label */
 .label {
 	display: block;
 }
