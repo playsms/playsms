@@ -161,19 +161,18 @@
 	display: inline-block;
 }
 
-.playsms-login-box {
-	border-radius: 3px;
-	width: 100%;
-	max-width: 320px;
-}
-
 .playsms-logo {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 30px;
-	padding-bottom: 20px;
-	max-width: 220px;
+}
+
+.playsms-login-box {
+	/* */
+}
+
+.playsms-login-input {
+	/* */
 }
 
 .playsms-label-sizer {
@@ -220,40 +219,24 @@
 
 /* IDs */
 
-/* Wrapper for page content to push down footer */
-#main-body {
-	min-width: 240px;
-	width: auto !important;
-	min-height: 100%;
-	height: auto;
-	/* Negative indent footer by its height */
-	margin: 0 auto -40px;
-	/* Pad bottom by footer height */
-	padding: 40px 0 40px 0;
-}
-
 #main-menu {
+	position: fixed;
 	width: 100%;
-}
-
-#main-content {
-	padding-top: 40px;
-	height: 100%;
-	overflow: hidden;
-	margin-bottom: 40px;
 }
 
 #main-submenu {
-	padding: 0;
-	border-radius: 3px;
-	top: 50px;
 	position: fixed;
 	width: 100%;
-	z-index: 1000;
 }
 
 #main-submenu div {
 	padding: 5px;
+}
+
+#main-content {
+	height: 100%;
+	overflow: hidden;
+	padding-bottom: 50px;
 }
 
 #main-footer {

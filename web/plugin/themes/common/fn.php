@@ -183,7 +183,7 @@ function common_hook_themes_dialog($type, $message) {
 	$ret .= "<!-- Modal " . $modal_id . " -->";
 	$ret .= "
 		<div class='modal fade' id='dialog_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_box_title' aria-hidden='true'>
-			<div class='modal-dialog modal-dialog-centered' role='document'>
+			<div class='modal-dialog' role='document'>
 				<div class='modal-content'>
 					<div class='playsms-modal-header modal-header text-light bg-" . $type . "'>
 						<h5 class='playsms-modal-title modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
@@ -240,7 +240,7 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 	$ret .= "<a href='#' data-toggle='modal' data-target='#dialog_confirmation_box_" . $modal_id . "' id='confirmation_icon_" . $modal_id . "' class='confirmation-icon'>" . $icon . "</a>";
 	$ret .= "
 		<div class='modal fade' id='dialog_confirmation_box_" . $modal_id . "' tabindex='-1' role='dialog' aria-labelledby='dialog_confirmation_box_title_" . $modal_id . "' aria-hidden='true'>
-			<div class='modal-dialog modal-lg modal-dialog-centered' role='document'>
+			<div class='modal-dialog modal-lg' role='document'>
 				<div class='modal-content'>
 					<div class='playsms-modal-header modal-header text-light bg-primary'>
 						<h5 class='playsms-modal-title modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
