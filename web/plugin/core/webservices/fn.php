@@ -756,10 +756,11 @@ function webservices_account_conf($uid, $data = array()) {
 
 function webservices_credit_view($username) {
 	$credit = rate_getusercredit($username);
+	$credit = (float) $credit;
 	
 	$json['status'] = 'OK';
 	$json['error'] = '0';
-	$json['balance'] = (float) $credit;
+	$json['balance'] = core_display_credit($credit);
 	
 	return $json;
 }
@@ -770,7 +771,7 @@ function webservices_credit_add($username, $amount) {
 	if (rate_addusercredit($uid, $amount)) {
 		$json['status'] = 'OK';
 		$json['error'] = '0';
-		$json['amount'] = $amount;
+		$json['amount'] = core_display_credit($amount);
 		$json['balance'] = rate_getusercredit($username);
 	} else {
 		$json['status'] = 'ERR';
@@ -786,7 +787,7 @@ function webservices_credit_deduct($username, $amount) {
 	if (rate_deductusercredit($uid, $amount)) {
 		$json['status'] = 'OK';
 		$json['error'] = '0';
-		$json['amount'] = $amount;
+		$json['amount'] = core_display_credit($amount);
 		$json['balance'] = rate_getusercredit($username);
 	} else {
 		$json['status'] = 'ERR';

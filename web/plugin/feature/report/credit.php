@@ -73,7 +73,7 @@ switch (_OP_) {
 			$content .= "
 				<tr>
 					<td>" . core_display_datetime($row['create_datetime']) . "</td>
-					<td>" . $row['amount'] . "</td>
+					<td>" . core_display_credit($row['amount']) . "</td>
 				</tr>";
 			$j++;
 		}
