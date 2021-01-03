@@ -108,16 +108,15 @@ $core_config['apps_path']['apps'] = $core_config['apps_path']['storage'] . '/app
 $core_config['apps_path']['libs'] = $core_config['apps_path']['storage'] . '/libs';
 
 // plugins directory
-$core_config['apps_path']['plug'] = $core_config['apps_path']['base'] . '/plugin';
+$core_config['apps_path']['plug'] = $core_config['apps_path']['storage'] . '/plugin';
 $core_config['http_path']['plug'] = $core_config['http_path']['base'] . '/plugin';
 
 // themes directories
 $core_config['apps_path']['themes'] = $core_config['apps_path']['plug'] . '/themes';
-$core_config['http_path']['themes'] = $core_config['http_path']['plug'] . '/themes';
+$core_config['http_path']['themes'] = $core_config['http_path']['base'] . '/plugin/themes';
 
-// themes directories
+// common template directory
 $core_config['apps_path']['tpl'] = $core_config['apps_path']['themes'] . '/common/templates';
-$core_config['http_path']['tpl'] = $core_config['http_path']['themes'] . '/common/templates';
 
 // storage directory
 if (!isset($core_config['apps_path']['storage'])) {
@@ -140,7 +139,6 @@ define('_APPS_PATH_THEMES_', $core_config['apps_path']['themes']);
 define('_HTTP_PATH_THEMES_', $core_config['http_path']['themes']);
 
 define('_APPS_PATH_TPL_', $core_config['apps_path']['tpl']);
-define('_HTTP_PATH_TPL_', $core_config['http_path']['tpl']);
 
 define('_APPS_PATH_STORAGE_', $core_config['apps_path']['storage']);
 
