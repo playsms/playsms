@@ -29,7 +29,7 @@ if (_APP_) {
 		case 'main':
 			// _APP_=main to access main application
 			logger_audit();
-			$fn = $core_config['apps_path']['apps'] . '/main.php';
+			$fn = $core_config['apps_path']['app'] . '/main.php';
 			if (file_exists($fn)) {
 				include $fn;
 			}
@@ -38,7 +38,7 @@ if (_APP_) {
 		case 'webservice':
 		case 'webservices':
 			// _APP_=webservices to access webservices, replacement of input.php and output.php
-			$fn = $core_config['apps_path']['apps'] . '/webservices.php';
+			$fn = $core_config['apps_path']['app'] . '/webservices.php';
 			if (file_exists($fn)) {
 				include $fn;
 			}

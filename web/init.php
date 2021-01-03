@@ -18,13 +18,68 @@
  */
 include 'config.php';
 
-// load main config.php from storage/custom/
-$fn = $core_config['apps_path']['storage'] . '/custom/config.php';
-if (file_exists($fn)) {
-	include $fn;
+// defines storage
+$fn = $core_config['apps_path']['storage'];
+if (is_dir($fn)) {
+	define('_APPS_PATH_STORAGE_', $fn);
 } else {
 	ob_end_clean();
-	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config'));
+	die(_('FATAL ERROR') . ' : ' . _('Fail to locate storage'));
+}
+
+// defines base
+$fn = $core_config['apps_path']['base'];
+if (is_dir($fn)) {
+	define('_APPS_PATH_BASE_', $fn);
+	define('_HTTP_PATH_BASE_', $core_config['http_path']['base']);
+} else {
+	ob_end_clean();
+	die(_('FATAL ERROR') . ' : ' . _('Fail to locate base'));
+}
+
+// defines custom/override
+$fn = $core_config['apps_path']['custom'] = _APPS_PATH_STORAGE_ . '/custom/' . $core_config['application']['dir'];
+if (is_dir($fn)) {
+	define('_APPS_PATH_CUSTOM_', $core_config['apps_path']['custom']);
+} else {
+	ob_end_clean();
+	die(_('FATAL ERROR') . ' : ' . _('Fail to locate custom'));
+}
+
+// defines temporary
+$core_config['apps_path']['tmp'] = _APPS_PATH_STORAGE_ . '/tmp/' . $core_config['application']['dir'];
+if (is_dir($fn)) {
+	define('_APPS_PATH_TMP_', $core_config['apps_path']['tmp']);
+} else {
+	ob_end_clean();
+	die(_('FATAL ERROR') . ' : ' . _('Fail to locate tmp'));
+}
+
+// defines application
+$fn = _APPS_PATH_STORAGE_ . '/' . $core_config['application']['dir'];
+if (is_dir($fn)) {
+	$core_config['apps_path']['application'] = $fn;
+	define('_APPS_PATH_APPLICATION_', $core_config['apps_path']['application']);
+} else {
+	ob_end_clean();
+	die(_('FATAL ERROR') . ' : ' . _('Fail to locate application'));
+}
+
+// load application config
+$fn = _APPS_PATH_APPLICATION_ . '/config.php';
+if (file_exists($fn)) {
+
+	include $fn;
+} else {
+
+	$fn = _APPS_PATH_CUSTOM_ . '/configs/config.php';
+	if (file_exists($fn)) {
+		
+		include $fn;
+	} else {
+		ob_end_clean();
+		die(_('FATAL ERROR') . ' : ' . _('Fail to load application config'));
+	}
 }
 
 // security, checked by essential files under subdir
@@ -39,8 +94,12 @@ if (!defined('_PHP_VER_')) {
 	define('_PHP_VER_', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 }
 
-// $DAEMON_PROCESS is special variable passed by daemon script
-$core_config['daemon_process'] = $DAEMON_PROCESS;
+// (bool) $DAEMON_PROCESS is special variable passed by daemon script
+if (isset($DAEMON_PROCESS) && $DAEMON_PROCESS) {
+	$core_config['daemon_process'] = true;
+} else {
+	$core_config['daemon_process'] = false;
+}
 
 // do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
@@ -100,27 +159,14 @@ define('_SMTP_PASS_', $core_config['smtp']['pass']);
 define('_SMTP_HOST_', $core_config['smtp']['host']);
 define('_SMTP_PORT_', $core_config['smtp']['port']);
 
-// fixme anton - not sets on web/config.php
-//$c_script_filename = __FILE__;
-//$c_php_self = $_SERVER['SCRIPT_NAME'];
-//$c_http_host = $_SERVER['HTTP_HOST'];
-
-// base application directory
-// fixme anton - not sets on web/config.php
-//$core_config['apps_path']['base'] = dirname($c_script_filename);
-
-// base application http path
-// fixme anton - not sets on web/config.php
-//$core_config['http_path']['base'] = ($core_config['ishttps'] ? 'https://' : 'http://') . $c_http_host . (dirname($c_php_self) == '/' ? '/' : dirname($c_php_self));
-
-// apps directories
-$core_config['apps_path']['apps'] = $core_config['apps_path']['storage'] . '/apps';
+// app directories
+$core_config['apps_path']['app'] = $core_config['apps_path']['application'] . '/app';
 
 // libraries directory
-$core_config['apps_path']['libs'] = $core_config['apps_path']['storage'] . '/libs';
+$core_config['apps_path']['libs'] = $core_config['apps_path']['application'] . '/lib';
 
 // plugins directory
-$core_config['apps_path']['plug'] = $core_config['apps_path']['storage'] . '/plugin';
+$core_config['apps_path']['plug'] = $core_config['apps_path']['application'] . '/plugin';
 $core_config['http_path']['plug'] = $core_config['http_path']['base'] . '/plugin';
 
 // themes directories
@@ -130,17 +176,8 @@ $core_config['http_path']['themes'] = $core_config['http_path']['base'] . '/plug
 // common template directory
 $core_config['apps_path']['tpl'] = $core_config['apps_path']['themes'] . '/common/templates';
 
-// storage directory
-if (!isset($core_config['apps_path']['storage'])) {
-	// fixme anton - old location is under webroot and http accessible, this is not safe
-	$core_config['apps_path']['storage'] = $core_config['apps_path']['base'] . '/storage';
-}
-
 // set defines
-define('_APPS_PATH_BASE_', $core_config['apps_path']['base']);
-define('_HTTP_PATH_BASE_', $core_config['http_path']['base']);
-
-define('_APPS_PATH_APPS_', $core_config['apps_path']['apps']);
+define('_APPS_PATH_APP_', $core_config['apps_path']['app']);
 
 define('_APPS_PATH_LIBS_', $core_config['apps_path']['libs']);
 
@@ -151,8 +188,6 @@ define('_APPS_PATH_THEMES_', $core_config['apps_path']['themes']);
 define('_HTTP_PATH_THEMES_', $core_config['http_path']['themes']);
 
 define('_APPS_PATH_TPL_', $core_config['apps_path']['tpl']);
-
-define('_APPS_PATH_STORAGE_', $core_config['apps_path']['storage']);
 
 // system sender ID
 define('_SYSTEM_SENDER_ID_', '@admin');
@@ -363,7 +398,7 @@ if (!(file_exists($fn1) && file_exists($fn2))) {
 }
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', _APPS_PATH_STORAGE_ . '/tmp/plugin/language/');
+	bindtextdomain('messages', _APPS_PATH_TMP_ . '/plugin/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
@@ -404,3 +439,4 @@ $core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ? $co
 //print_r($user_config); die();
 //print_r($core_config); die();
 //print_r($GLOBALS); die();
+//print_r($_SESSION); die();

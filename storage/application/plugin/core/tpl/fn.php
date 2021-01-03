@@ -34,7 +34,7 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
 	
 	$t->setConfig(array(
 		'echo' => '_p',
-		'dir_cache' => _APPS_PATH_STORAGE_ . '/tmp/plugin/core/tpl' 
+		'dir_cache' => _APPS_PATH_TMP_ . '/plugin/core/tpl' 
 	));
 	
 	$t->setTemplate($fn);
@@ -106,7 +106,7 @@ function tpl_apply($tpl, $injected = array()) {
 		// search for customization
 		
 		// 1. check on custom plugin directory on storage
-		$fn = _APPS_PATH_STORAGE_ . '/custom/' . _INC_CAT_ . '/' . _INC_PLUGIN_ . '/templates/' . $tpl_name . '.html';
+		$fn = _APPS_PATH_CUSTOM_ . '/templates/' . _INC_CAT_ . '/' . _INC_PLUGIN_ . '/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
 			

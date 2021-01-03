@@ -28,6 +28,7 @@ venv
 web/config.php
 web/lib/composer/*
 storage/composer/vendor/*
+storage/custom/application/configs/config.php
 
 install.conf
 install.conf.backup
