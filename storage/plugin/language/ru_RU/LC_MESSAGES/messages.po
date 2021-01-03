@@ -556,8 +556,9 @@ msgstr ""
 msgid "Core"
 msgstr "Основные"
 
+#, fuzzy
 msgid "Count"
-msgstr "Кол-во"
+msgstr "количество"
 
 msgid "Country"
 msgstr "Страна"
@@ -1297,6 +1298,9 @@ msgstr "Правила для входящих сообщений были со�
 
 msgid "Incoming SMS time is in local time"
 msgstr "Входящие СМС по местному времени"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Info"
 msgstr ""
@@ -2066,7 +2070,14 @@ msgstr "Уменьшение средств пользователям"
 msgid "Refresh"
 msgstr "Обновить"
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
+msgstr "Регистрация пользователя"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Регистрация пользователя"
 
 msgid "Registered"

@@ -542,8 +542,9 @@ msgstr ""
 msgid "Core"
 msgstr "Kjerne"
 
+#, fuzzy
 msgid "Count"
-msgstr "Antall"
+msgstr "antall"
 
 msgid "Country"
 msgstr "Land"
@@ -1284,6 +1285,9 @@ msgstr "Endringer for innkommende SMS-rute har blitt lagret"
 
 msgid "Incoming SMS time is in local time"
 msgstr "Innkommende SMS-tid er i lokal tid"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Info"
 msgstr ""
@@ -2046,7 +2050,14 @@ msgstr "Reduser kreditt fra brukere"
 msgid "Refresh"
 msgstr "Oppdater"
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
+msgstr "Registrer konto"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Registrer konto"
 
 msgid "Registered"

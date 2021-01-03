@@ -16,9 +16,6 @@ msgstr "Tem certeza que deseja excluír TODAS as filas"
 msgid "Are you sure you want to delete queue ?"
 msgstr "Tem certeza que deseja excluir a fila"
 
-msgid "Count"
-msgstr "Contador"
-
 msgid "Delete ALL queues"
 msgstr "Excluír TODAS as filas"
 

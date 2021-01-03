@@ -550,8 +550,9 @@ msgstr ""
 msgid "Core"
 msgstr "Core"
 
+#, fuzzy
 msgid "Count"
-msgstr "Quantité"
+msgstr "quantité"
 
 msgid "Country"
 msgstr "Pays"
@@ -1297,6 +1298,9 @@ msgstr ""
 
 msgid "Incoming SMS time is in local time"
 msgstr "L'heure des SMS entrants est en heure locale"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Info"
 msgstr ""
@@ -2074,7 +2078,14 @@ msgstr "Réduire le crédit des utilisateurs"
 msgid "Refresh"
 msgstr "Rafraîchir"
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
+msgstr "Inscrire un nouveau compte"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Inscrire un nouveau compte"
 
 msgid "Registered"

@@ -33,6 +33,9 @@ msgstr "فشل استعادة كلمة المرور"
 msgid "Home"
 msgstr "الرئيسة"
 
+msgid "Incomplete registration data"
+msgstr ""
+
 msgid "Invalid username or password"
 msgstr "اسم المستخدم أو كلمة المرور غير صحيحين"
 
@@ -69,6 +72,10 @@ msgid "Recover password disabled"
 msgstr "تم تعطيل استعادة كلمة المرور"
 
 msgid "Register an account"
+msgstr "إنشاء حساب"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "إنشاء حساب"
 
 msgid "Submit"

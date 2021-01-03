@@ -474,9 +474,6 @@ msgstr ""
 msgid "Click the status button to enable or disable status"
 msgstr ""
 
-msgid "Close"
-msgstr ""
-
 msgid "Comma separated"
 msgstr ""
 
@@ -1228,6 +1225,9 @@ msgstr ""
 msgid "Incoming SMS time is in local time"
 msgstr ""
 
+msgid "Incomplete registration data"
+msgstr ""
+
 msgid "Infobip API URL"
 msgstr ""
 
@@ -1363,9 +1363,6 @@ msgstr ""
 msgid "Local playnet username"
 msgstr ""
 
-msgid "Logged in as"
-msgstr ""
-
 msgid "Login"
 msgstr ""
 
@@ -1377,9 +1374,6 @@ msgstr ""
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
-msgstr ""
-
-msgid "Logout"
 msgstr ""
 
 msgid "Lowest credit limit to trigger notification"
@@ -1948,6 +1942,9 @@ msgid "Refresh"
 msgstr ""
 
 msgid "Register an account"
+msgstr ""
+
+msgid "Register an account is disabled"
 msgstr ""
 
 msgid "Registered"
@@ -2883,9 +2880,6 @@ msgstr ""
 msgid "Your choice"
 msgstr ""
 
-msgid "Your credit"
-msgstr ""
-
 msgid "Your current callback URL authcode is"
 msgstr ""
 
@@ -3007,9 +3001,6 @@ msgid "queue"
 msgstr ""
 
 msgid "queued"
-msgstr ""
-
-msgid "return"
 msgstr ""
 
 msgid "twilio is a bulk SMS provider"

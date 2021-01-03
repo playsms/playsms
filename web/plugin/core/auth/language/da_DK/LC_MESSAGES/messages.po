@@ -30,6 +30,10 @@ msgstr "Kunne ikke gendanne adgangskode"
 msgid "Home"
 msgstr "Hjem"
 
+#, fuzzy
+msgid "Incomplete registration data"
+msgstr "Ny konto registrering"
+
 msgid "Invalid username or password"
 msgstr "Ugyldigt brugernavn eller adgangskode"
 
@@ -68,6 +72,10 @@ msgid "Recover password disabled"
 msgstr "Gendan adgangskode er deaktiveret"
 
 msgid "Register an account"
+msgstr "Registrer en konto"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Registrer en konto"
 
 msgid "Submit"

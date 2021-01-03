@@ -144,8 +144,18 @@ msgstr "Plogget"
 msgid "Preferences"
 msgstr "Preferanse"
 
+msgid "Recover password"
+msgstr ""
+
 msgid "Reduce"
 msgstr "Reduser"
+
+msgid "Register"
+msgstr ""
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Hndter konto"
 
 msgid "Reply"
 msgstr "Svar"

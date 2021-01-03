@@ -152,8 +152,18 @@ msgstr "Online"
 msgid "Preferences"
 msgstr "Preferências"
 
+msgid "Recover password"
+msgstr ""
+
 msgid "Reduce"
 msgstr "Reduzir"
+
+msgid "Register"
+msgstr ""
+
+#, fuzzy
+msgid "Register an account"
+msgstr "Gerenciar Contas"
 
 msgid "Reply"
 msgstr "Responder"

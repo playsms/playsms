@@ -29,9 +29,6 @@ msgstr "Esteu segur que voleu esborrar la cua"
 msgid "Are you sure you want to delete queue ?"
 msgstr "Esteu segur que voleu esborrar la cua"
 
-msgid "Count"
-msgstr "Total"
-
 msgid "Delete ALL queues"
 msgstr ""
 

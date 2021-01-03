@@ -142,7 +142,16 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
+msgid "Recover password"
+msgstr ""
+
 msgid "Reduce"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Register an account"
 msgstr ""
 
 msgid "Reply"

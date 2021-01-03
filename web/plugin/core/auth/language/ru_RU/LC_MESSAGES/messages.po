@@ -31,6 +31,9 @@ msgstr "Не удалось восстановить пароль"
 msgid "Home"
 msgstr "Главная"
 
+msgid "Incomplete registration data"
+msgstr ""
+
 msgid "Invalid username or password"
 msgstr "Неправильное имя пользователя или пароль"
 
@@ -69,6 +72,10 @@ msgid "Recover password disabled"
 msgstr "Восстановление пароля отключено"
 
 msgid "Register an account"
+msgstr "Регистрация пользователя"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Регистрация пользователя"
 
 msgid "Submit"

@@ -27,6 +27,9 @@ msgstr "Feil ved gjenoppretting av passord"
 msgid "Home"
 msgstr "Hjem"
 
+msgid "Incomplete registration data"
+msgstr ""
+
 msgid "Invalid username or password"
 msgstr "Ugyldig brukernavn eller passord"
 
@@ -65,6 +68,10 @@ msgid "Recover password disabled"
 msgstr "Gjennoppretning av passord er deaktivert"
 
 msgid "Register an account"
+msgstr "Registrer konto"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Registrer konto"
 
 msgid "Submit"

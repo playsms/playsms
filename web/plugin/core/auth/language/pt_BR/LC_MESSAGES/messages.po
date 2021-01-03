@@ -23,6 +23,10 @@ msgstr "Falha ao recuperar senha"
 msgid "Home"
 msgstr "Início"
 
+#, fuzzy
+msgid "Incomplete registration data"
+msgstr "Registrar nova conta"
+
 msgid "Invalid username or password"
 msgstr "Usuário ou senha inválidos"
 
@@ -61,6 +65,10 @@ msgid "Recover password disabled"
 msgstr "Recuperação de senha desabilitado"
 
 msgid "Register an account"
+msgstr "Registrar uma conta"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Registrar uma conta"
 
 msgid "Submit"

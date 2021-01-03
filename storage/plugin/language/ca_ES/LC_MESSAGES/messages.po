@@ -542,7 +542,7 @@ msgid "Core"
 msgstr ""
 
 msgid "Count"
-msgstr "Total"
+msgstr ""
 
 msgid "Country"
 msgstr ""
@@ -1279,6 +1279,9 @@ msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Info"
@@ -2035,7 +2038,13 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
+msgstr ""
+
+msgid "Register an account is disabled"
 msgstr ""
 
 msgid "Registered"

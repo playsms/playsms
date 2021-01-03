@@ -19,9 +19,6 @@ msgstr "Er du sikker på at du vil slette ALLE køer"
 msgid "Are you sure you want to delete queue ?"
 msgstr "Er du sikker på at du vil slette køen"
 
-msgid "Count"
-msgstr "Antall"
-
 msgid "Delete ALL queues"
 msgstr "Slett ALLE køer"
 

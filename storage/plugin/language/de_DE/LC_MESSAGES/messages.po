@@ -133,9 +133,6 @@ msgstr "Inhalt"
 msgid "Core"
 msgstr ""
 
-msgid "Count"
-msgstr "Anzahl"
-
 msgid "Credit"
 msgstr ""
 
@@ -561,7 +558,16 @@ msgstr "Empfängernummer"
 msgid "Receiver number does not exist"
 msgstr "Empfängernummer existiert nicht"
 
+msgid "Recover password"
+msgstr ""
+
 msgid "Reduce"
+msgstr ""
+
+msgid "Register"
+msgstr ""
+
+msgid "Register an account"
 msgstr ""
 
 msgid "Reply"

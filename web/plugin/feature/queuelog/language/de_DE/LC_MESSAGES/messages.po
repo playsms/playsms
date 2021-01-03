@@ -17,9 +17,6 @@ msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 msgid "Are you sure you want to delete queue ?"
 msgstr "Mchten Sie wirklich die Warteschlange lschen?"
 
-msgid "Count"
-msgstr "Anzahl"
-
 msgid "Delete ALL queues"
 msgstr ""
 

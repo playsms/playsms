@@ -548,6 +548,7 @@ msgstr ""
 msgid "Core"
 msgstr "núcleo"
 
+#, fuzzy
 msgid "Count"
 msgstr "Contador"
 
@@ -1292,6 +1293,9 @@ msgstr "Configurações de roteamento de sms recebidas foram guardadas  "
 
 msgid "Incoming SMS time is in local time"
 msgstr "A hora das mensagens recebidas é a hora local"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Info"
 msgstr ""
@@ -2062,7 +2066,14 @@ msgstr "Reduzir crédito de utilizadores"
 msgid "Refresh"
 msgstr "Recarregar"
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
+msgstr "Registar uma conta"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Registar uma conta"
 
 msgid "Registered"

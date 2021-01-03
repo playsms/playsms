@@ -541,6 +541,7 @@ msgstr "نسخ الرسالة للوارد عند وجود @اسم_المستخ�
 msgid "Core"
 msgstr "النواة"
 
+#, fuzzy
 msgid "Count"
 msgstr "العدد"
 
@@ -1280,6 +1281,9 @@ msgid "Incoming SMS route changes has been saved"
 msgstr "تم حفظ مسار الرسالة الواردة"
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Info"
@@ -2037,7 +2041,14 @@ msgstr "سحب رصيد من المستخدمين"
 msgid "Refresh"
 msgstr "تحديث"
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
+msgstr "إنشاء حساب"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "إنشاء حساب"
 
 msgid "Registered"

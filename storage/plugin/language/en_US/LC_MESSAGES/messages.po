@@ -1263,6 +1263,9 @@ msgstr ""
 msgid "Incoming SMS time is in local time"
 msgstr ""
 
+msgid "Incomplete registration data"
+msgstr ""
+
 msgid "Info"
 msgstr ""
 
@@ -2012,7 +2015,13 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+msgid "Register"
+msgstr ""
+
 msgid "Register an account"
+msgstr ""
+
+msgid "Register an account is disabled"
 msgstr ""
 
 msgid "Registered"
