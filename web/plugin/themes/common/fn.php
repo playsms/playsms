@@ -2,7 +2,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 function common_hook_themes_apply($content) {
-	global $core_config, $user_config;
+	global $core_config, $user_config, $icon_config;
 	
 	$themes_lang = strtolower(substr($user_config['language_module'], 0, 2));
 	
@@ -24,19 +24,29 @@ function common_hook_themes_apply($content) {
 			'THEMES_SUBMENU' => themes_submenu(),
 			'THEMES_LANG' => ($themes_lang ? $themes_lang : 'en'),
 			'CREDIT_SHOW_URL' => _u('index.php?app=ws&op=credit'),
+			'LOGOUT_URL' => _u('index.php?app=main&inc=core_auth&op=logout'),
+			'FORGOT_URL' => _u('index.php?app=main&inc=core_auth&op=forgot'),
+			'REGISTER_URL' => _u('index.php?app=main&inc=core_auth&op=register'),
 			'NAME' => $user_config['name'],
 			'USERNAME' => $user_config['username'],
 			'GRAVATAR' => $user_config['opt']['gravatar'],
 			'LAYOUT_FOOTER' => $core_config['main']['layout_footer'],
-			'Logout' => _('Logout') 
+			'Logout' => _('Logout'),
+			'Login' => _('Login'),
+			'Register' => _('Register'),
+			'Register an account' => _('Register an account'),
+			'Recover password' => _('Recover password'),
+			'Home' => _('Home')
 		),
 		'ifs' => array(
-			'valid' => auth_isvalid() 
+			'valid' => auth_isvalid(),
+			'logout' => !auth_isvalid()
 		) 
 	);
 	$content = tpl_apply($tpl, array(
 		'core_config',
-		'user_config' 
+		'user_config',
+		'icon_config'
 	));
 	
 	return $content;
