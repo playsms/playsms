@@ -18,6 +18,15 @@
  */
 include 'config.php';
 
+// load main config.php from storage/custom/
+$fn = $core_config['apps_path']['storage'] . '/custom/config.php';
+if (file_exists($fn)) {
+	include $fn;
+} else {
+	ob_end_clean();
+	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config'));
+}
+
 // security, checked by essential files under subdir
 define('_SECURE_', 1);
 
@@ -91,15 +100,18 @@ define('_SMTP_PASS_', $core_config['smtp']['pass']);
 define('_SMTP_HOST_', $core_config['smtp']['host']);
 define('_SMTP_PORT_', $core_config['smtp']['port']);
 
-$c_script_filename = __FILE__;
-$c_php_self = $_SERVER['SCRIPT_NAME'];
-$c_http_host = $_SERVER['HTTP_HOST'];
+// fixme anton - not sets on web/config.php
+//$c_script_filename = __FILE__;
+//$c_php_self = $_SERVER['SCRIPT_NAME'];
+//$c_http_host = $_SERVER['HTTP_HOST'];
 
 // base application directory
-$core_config['apps_path']['base'] = dirname($c_script_filename);
+// fixme anton - not sets on web/config.php
+//$core_config['apps_path']['base'] = dirname($c_script_filename);
 
 // base application http path
-$core_config['http_path']['base'] = ($core_config['ishttps'] ? 'https://' : 'http://') . $c_http_host . (dirname($c_php_self) == '/' ? '/' : dirname($c_php_self));
+// fixme anton - not sets on web/config.php
+//$core_config['http_path']['base'] = ($core_config['ishttps'] ? 'https://' : 'http://') . $c_http_host . (dirname($c_php_self) == '/' ? '/' : dirname($c_php_self));
 
 // apps directories
 $core_config['apps_path']['apps'] = $core_config['apps_path']['storage'] . '/apps';
