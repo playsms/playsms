@@ -101,13 +101,12 @@ $core_config['apps_path']['base'] = dirname($c_script_filename);
 // base application http path
 $core_config['http_path']['base'] = ($core_config['ishttps'] ? 'https://' : 'http://') . $c_http_host . (dirname($c_php_self) == '/' ? '/' : dirname($c_php_self));
 
+// apps directories
+$core_config['apps_path']['apps'] = $core_config['apps_path']['storage'] . '/apps';
+
 // libraries directory
 $core_config['apps_path']['libs'] = $core_config['apps_path']['base'] . '/lib';
 $core_config['http_path']['libs'] = $core_config['http_path']['base'] . '/lib';
-
-// core plugins directories
-$core_config['apps_path']['incs'] = $core_config['apps_path']['base'] . '/inc';
-$core_config['http_path']['incs'] = $core_config['http_path']['base'] . '/inc';
 
 // plugins directory
 $core_config['apps_path']['plug'] = $core_config['apps_path']['base'] . '/plugin';
@@ -134,8 +133,7 @@ define('_HTTP_PATH_BASE_', $core_config['http_path']['base']);
 define('_APPS_PATH_LIBS_', $core_config['apps_path']['libs']);
 define('_HTTP_PATH_LIBS_', $core_config['http_path']['libs']);
 
-define('_APPS_PATH_INCS_', $core_config['apps_path']['incs']);
-define('_HTTP_PATH_INCS_', $core_config['http_path']['incs']);
+define('_APPS_PATH_APPS_', $core_config['apps_path']['apps']);
 
 define('_APPS_PATH_PLUG_', $core_config['apps_path']['plug']);
 define('_HTTP_PATH_PLUG_', $core_config['http_path']['plug']);
