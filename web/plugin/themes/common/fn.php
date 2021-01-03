@@ -55,9 +55,9 @@ function common_hook_themes_apply($content) {
 function common_hook_themes_submenu($content = '') {
 	global $user_config;
 	
-	$separator = "&nbsp;&nbsp;&nbsp;";
+	$separator = "<span class='ml-3' />";
 	
-	$logged_in = $user_config['username'];
+	$logged_in = ( $user_config['name'] ? $user_config['name'] : $user_config['username'] );
 	$tooltips_logged_in = _('Logged in as') . ' ' . $logged_in;
 	
 	$credit = core_display_credit(rate_getusercredit($user_config['username']));
@@ -99,21 +99,27 @@ function common_hook_themes_menu_tree($menu_config) {
 			}
 		}
 		
+		$found = false;
 		if (count($m)) {
-			$main_menu .= "
+			$main_menu_tree = "
 				<div class='nav-item dropdown'>
 					<a href='#' data-toggle='dropdown' id='" . core_sanitize_alphanumeric($menu_title) . "' class='nav-item nav-link dropdown-toggle'>" . $menu_title . "</a>
 					<div class='dropdown-menu' aria-labelledby='" . core_sanitize_alphanumeric($menu_title) . "'>";
 			
 			ksort($m);
 			foreach ($m as $mm) {
-				$main_menu .= $mm;
+				if ($mm) {
+					$main_menu_tree .= $mm;
+					$found = true;
+				}
 			}
 			unset($m);
 			
-			$main_menu .= "</div>";
-			$main_menu .= "</div>";
+			$main_menu_tree .= "</div>";
+			$main_menu_tree .= "</div>";
 		}
+		
+		$main_menu .= $main_menu_tree;
 	}
 	
 	$content = "
