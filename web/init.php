@@ -181,6 +181,20 @@ define('_NAV_', core_sanitize_query($_REQUEST['nav']));
 define('_CAT_', core_sanitize_query($_REQUEST['cat']));
 define('_PLUGIN_', core_sanitize_query($_REQUEST['plugin']));
 
+// additional global defines
+// from _INC_ we get plugin category and plugin name
+$c_plugin_category = "";
+$c_plugin_name = "";
+if (_INC_) {
+	$p = explode('_', _INC_, 2);
+	if (isset($p[0]) && isset($p[1])) {
+		$c_plugin_category = $p[0];
+		$c_plugin_name = $p[1];
+	}
+}
+define('_INC_CAT_', $c_plugin_category);
+define('_INC_PLUGIN_', $c_plugin_name);
+
 // enable anti-CSRF for anything but webservices
 if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
 	
