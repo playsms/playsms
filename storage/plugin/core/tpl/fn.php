@@ -113,13 +113,14 @@ function tpl_apply($tpl, $injected = array()) {
 			return $content;
 		}
 		
+		/* this will be removed later
 		// 2. check on custom templates directory on storage
 		$fn = _APPS_PATH_STORAGE_ . '/custom/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
 			
 			return $content;
-		}
+		}*/
 		
 		// 3. check on active themes
 		$themes = core_themes_get();
