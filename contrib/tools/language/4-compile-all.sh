@@ -12,14 +12,14 @@ if [ ! -d "$PLAYSMS/web" ]; then
 fi
 
 for j in `ls -1 "$PLAYSMS/web/plugin/language/" | grep '_'` ; do
-	mkdir -p "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES"
-	touch "$PLAYSMS/storage/plugin/index.html"
-	touch "$PLAYSMS/storage/plugin/language/index.html"
-	touch "$PLAYSMS/storage/plugin/language/$j/index.html"
-	touch "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/index.html"
-	touch "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/messages.po"
-	rm "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/.po_files" >/dev/null 2>&1
-	touch "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/.po_files"
+	mkdir -p "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES"
+	touch "$PLAYSMS/storage/tmp/plugin/index.html"
+	touch "$PLAYSMS/storage/tmp/plugin/language/index.html"
+	touch "$PLAYSMS/storage/tmp/plugin/language/$j/index.html"
+	touch "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/index.html"
+	touch "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/messages.po"
+	rm "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/.po_files" >/dev/null 2>&1
+	touch "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/.po_files"
 done
 
 rm -f /tmp/.lang_folders >/dev/null 2>&1
@@ -32,15 +32,15 @@ find $PLAYSMS/web/plugin/themes/ -type d -name "language" | grep -v "grep" | sed
 
 for i in `cat /tmp/.lang_folders` ; do
 	for j in `ls -1 "$i/language/" | grep '_'` ; do
-		echo "$i/language/$j/LC_MESSAGES/messages.po " >> "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/.po_files"
+		echo "$i/language/$j/LC_MESSAGES/messages.po " >> "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/.po_files"
 	done
 done
 
-for j in `ls -1 "$PLAYSMS/storage/plugin/language/" | grep '_'` ; do
-	PO_FILES=`cat "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/.po_files"`
-	msgcat --force-po --use-first --lang $j -t UTF-8 -s -o "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/messages.po" $PO_FILES
-	msgfmt -vv "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/messages.po" -o "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/messages.mo"
-	rm -f "$PLAYSMS/storage/plugin/language/$j/LC_MESSAGES/.po_files" >/dev/null 2>&1
+for j in `ls -1 "$PLAYSMS/storage/tmp/plugin/language/" | grep '_'` ; do
+	PO_FILES=`cat "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/.po_files"`
+	msgcat --force-po --use-first --lang $j -t UTF-8 -s -o "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/messages.po" $PO_FILES
+	msgfmt -vv "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/messages.po" -o "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/messages.mo"
+	rm -f "$PLAYSMS/storage/tmp/plugin/language/$j/LC_MESSAGES/.po_files" >/dev/null 2>&1
 done
 
 rm -f /tmp/.lang_folders >/dev/null 2>&1

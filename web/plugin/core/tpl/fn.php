@@ -34,7 +34,7 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
 	
 	$t->setConfig(array(
 		'echo' => '_p',
-		'dir_cache' => _APPS_PATH_STORAGE_ . '/plugin/core/tpl' 
+		'dir_cache' => _APPS_PATH_STORAGE_ . '/tmp/plugin/core/tpl' 
 	));
 	
 	$t->setTemplate($fn);

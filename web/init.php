@@ -343,7 +343,7 @@ if (!(file_exists($fn1) && file_exists($fn2))) {
 }
 
 if (function_exists('bindtextdomain')) {
-	bindtextdomain('messages', _APPS_PATH_STORAGE_ . '/plugin/language/');
+	bindtextdomain('messages', _APPS_PATH_STORAGE_ . '/tmp/plugin/language/');
 	bind_textdomain_codeset('messages', 'UTF-8');
 	textdomain('messages');
 }
