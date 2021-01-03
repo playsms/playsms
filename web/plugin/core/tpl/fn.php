@@ -105,7 +105,15 @@ function tpl_apply($tpl, $injected = array()) {
 		
 		// search for customization
 		
-		// 1. check on custom templates directory on storage
+		// 1. check on custom plugin directory on storage
+		$fn = _APPS_PATH_STORAGE_ . '/custom/' . _INC_CAT_ . '/' . _INC_PLUGIN_ . '/templates/' . $tpl_name . '.html';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl, $injected);
+			
+			return $content;
+		}
+		
+		// 2. check on custom templates directory on storage
 		$fn = _APPS_PATH_STORAGE_ . '/custom/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
@@ -113,7 +121,7 @@ function tpl_apply($tpl, $injected = array()) {
 			return $content;
 		}
 		
-		// 2. check on active themes
+		// 3. check on active themes
 		$themes = core_themes_get();
 		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
@@ -122,7 +130,7 @@ function tpl_apply($tpl, $injected = array()) {
 			return $content;
 		}
 		
-		// 3. check on common directory on themes
+		// 4. check on common directory on themes
 		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
@@ -133,10 +141,7 @@ function tpl_apply($tpl, $injected = array()) {
 		// look from plugins
 		
 		// 1. search from currently displayed on web (active) plugin
-		$c_inc = explode('_', _INC_);
-		$plugin_category = $c_inc[0];
-		$plugin_name = str_replace($plugin_category . '_', '', _INC_);
-		$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
+		$fn = _APPS_PATH_PLUG_ . '/' . _INC_CAT_ . '/' . _INC_PLUGIN_ . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
 			
