@@ -1,11 +1,9 @@
 .playsmslog_view {
-	height: 400px;
+	max-width: 100%;
+	width: 100%;
+	font-size: 8pt;
 }
 
 #playsmslog_view {
-	width: 100%;
-	height: 100%;
-	border: 1px solid #ECF0F1;
-	padding: 5px;
-	font-size: 10pt;
+	height: 400px;
 }

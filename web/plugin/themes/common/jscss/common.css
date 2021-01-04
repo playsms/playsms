@@ -213,7 +213,7 @@
 	margin-bottom: 10px;
 }
 
-.playsms-table-list {
+.playsms-table, .playsms-table-list {
 	width: 100%;
 }
 

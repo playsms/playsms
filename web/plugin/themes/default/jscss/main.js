@@ -6,7 +6,7 @@ $(document).ready(function() {
 	$(".playsms-table-list").addClass("table table-striped table-hover table-condensed");
 	$(".playsms-table-list").tablesorter();
 	
-	$(".playsms-table").addClass("table table-hover table-condensed");
+	$(".playsms-table").addClass("table-sm table-hover table-condensed");
 	
 	$(".playsms-tooltip").tooltip();
 	
