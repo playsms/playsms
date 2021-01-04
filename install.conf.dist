@@ -35,15 +35,12 @@ WEBSERVERUSER="www-data"
 # note: please make sure your web server group
 WEBSERVERGROUP="www-data"
 
-# Path to playSMS extracted source files
-PATHSRC="$(pwd)"
+# playSMS web URL
+URLWEB="https://localhost/playsms"
 
 # Path to playSMS web files
 # note: please make sure your web root path, in this example its /var/www/html
 PATHWEB="/home/komodo/public_html/playsms"
-
-# Path to playSMS additional files
-PATHLIB="/home/komodo/lib"
 
 # Path to playSMS daemon and other binary files
 PATHBIN="/home/komodo/bin"
@@ -57,6 +54,9 @@ PATHSTR="/home/komodo/storage"
 # Path to playSMS daemon configuration file
 # note: this example will create playsmsd.conf in /etc
 PATHCONF="/home/komodo/etc"
+
+# Path to playSMS extracted source files
+PATHSRC="$(pwd)"
 
 
 # END OF INSTALL DATA

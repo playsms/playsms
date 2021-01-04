@@ -17,7 +17,7 @@ $core_config['apps_path']['storage']	= '#PATHSTR#';
 $core_config['apps_path']['base'] 		= '#PATHWEB#';
 
 // web/base http url
-$core_config['http_path']['base'] 		= '#PLAYSMSURL#';
+$core_config['http_path']['base'] 		= '#URLWEB#';
 
 // Application ID
 $core_config['application']['name']		= 'default';

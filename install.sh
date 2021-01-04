@@ -40,15 +40,17 @@ fi
 
 clear
 echo
-echo "playSMS Install Script for Ubuntu (Debian based)"
+echo "playSMS Install Script"
 echo
-echo "=================================================================="
+echo "==================================================================="
 echo "WARNING:"
+echo "- This install script WILL NOT backup currently installed playSMS"
 echo "- This install script WILL NOT upgrade currently installed playSMS"
 echo "- This install script WILL REMOVE your current playSMS database"
-echo "- This install script is compatible ONLY with playSMS version 1.4"
+echo "- This install script is compatible ONLY with playSMS version 1.4.4"
+echo "- This install script designed to work only on Linux OS"
 echo "- Please BACKUP before proceeding"
-echo "=================================================================="
+echo "==================================================================="
 echo
 
 USERID=$(id -u)
@@ -57,7 +59,7 @@ if [ "$USERID" = "0" ]; then
 	echo
 	echo "That means you need to make sure that you know what you're doing"
 	echo
-	echo "=================================================================="
+	echo "==================================================================="
 	echo
 	echo "Proceed ?"
 	echo
@@ -75,7 +77,7 @@ if [ "$USERID" = "0" ]; then
 		confirm=
 	done
 	echo
-	echo "=================================================================="
+	echo "==================================================================="
 	echo
 else
 	echo "You are NOT running this installation script as root"
@@ -83,7 +85,7 @@ else
 	echo "That means you need to make sure that this Linux user has"
 	echo "permission to create necessary directories"
 	echo
-	echo "=================================================================="
+	echo "==================================================================="
 	echo
 	echo "Proceed ?"
 	echo
@@ -101,7 +103,7 @@ else
 		confirm=
 	done
 	echo
-	echo "=================================================================="
+	echo "==================================================================="
 	echo
 fi
 
@@ -112,33 +114,28 @@ echo
 
 echo "Admin username      = $ADMINUSERNAME"
 echo "Admin password      = $ADMINPASSWORD"
-echo
 echo "MySQL username      = $DBUSER"
 echo "MySQL password      = $DBPASS"
 echo "MySQL database      = $DBNAME"
 echo "MySQL host          = $DBHOST"
 echo "MySQL port          = $DBPORT"
-echo
 
 if [ "$USERID" = "0" ]; then
 echo "Web server user     = $WEBSERVERUSER"
 echo "Web server group    = $WEBSERVERGROUP"
-echo
 fi
 
-echo "playSMS source path = $PATHSRC"
-echo "playSMS version     = $PLAYSMSSRCVER"
-echo
+echo "playSMS web URL     = $URLWEB"
 echo "playSMS web path    = $PATHWEB"
-echo "playSMS lib path    = $PATHLIB"
 echo "playSMS bin path    = $PATHBIN"
 echo "playSMS log path    = $PATHLOG"
 echo "playSMS storage     = $PATHSTR"
-echo
 echo "playSMS conf path   = $PATHCONF"
+echo "playSMS source path = $PATHSRC"
+echo "playSMS version     = $PLAYSMSSRCVER"
 echo
 
-echo "=================================================================="
+echo "==================================================================="
 echo
 echo "Please read and confirm INSTALL DATA above"
 echo
@@ -156,9 +153,54 @@ do
 	confirm=
 done
 echo
-echo "=================================================================="
+echo "==================================================================="
 echo
+sleep 1
 
+echo "Checking $PATHWEB..."
+echo
+if [ -d "$PATHWEB" ] && [ -f "$PATHWEB/init.php" ] && [ -f "$PATHWEB/config.php" ]; then
+	echo "ERROR: playSMS found installed on $PATHWEB"
+	echo
+	echo "Please backup and remove/empty $PATHWEB before proceeding"
+	echo
+	exit 1
+fi
+sleep 1
+
+echo "Checking $PATHSTR..."
+echo
+if [ -d "$PATHSTR" ] && [ -d "$PATHSTR/composer" ] && [ -d "$PATHSTR/custom" ] && [ -d "$PATHSTR/tmp" ]; then
+	echo "ERROR: playSMS found installed on $PATHSTR"
+	echo
+	echo "Please backup and remove/empty $PATHSTR before proceeding"
+	echo
+	exit 1
+fi
+sleep 1
+
+echo "Checking $PATHBIN/playsmsd..."
+echo
+if [ -f "$PATHBIN/playsmsd" ]; then
+	echo "WARNING: playSMS daemon found installed on $PATHBIN"
+	echo
+	confirm=
+	while [ -z $confirm ]
+	do
+		echo "To continue and replace $PATHBIN/playsmsd press [y/Y] or press [Control+C] to cancel"
+		read -p "> " confirm
+		if [[ $confirm == 'y' ]]; then
+			break
+		fi
+		if [[ $confirm == 'Y' ]]; then
+			break
+		fi
+		confirm=
+	done
+	echo
+fi
+echo "==================================================================="
+echo
 sleep 1
 
 echo "Are you sure ?"
@@ -179,7 +221,7 @@ do
 	confirm=
 done
 echo
-echo "=================================================================="
+echo "==================================================================="
 echo
 echo "Installation is in progress"
 echo
@@ -193,13 +235,51 @@ echo -n .
 sleep 1
 echo
 echo
-echo "=================================================================="
+echo "==================================================================="
 echo
-
 sleep 1
 
+set +e
+echo "Setup database..."
+echo
+DBCREATE=$(mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME)
+if [ ! $DBCREATE ]; then
+	echo
+	echo "WARNING: unable to create database $DBNAME"
+	echo
+	echo "Database $DBNAME already exists or user $DBUSER don't have permission to create it"
+	echo
+	confirm=
+	while [ -z $confirm ]
+	do
+		echo "To continue and replace $DBNAME press [y/Y] or press [Control+C] to cancel"
+		read -p "> " confirm
+		if [[ $confirm == 'y' ]]; then
+			break
+		fi
+		if [[ $confirm == 'Y' ]]; then
+			break
+		fi
+		confirm=
+	done
+	echo
+fi
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < $PATHSRC/db/playsms.sql
+ADMINPASSWORD=$(echo -n $ADMINPASSWORD | md5sum | cut -d' ' -f1)
+mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME -e "UPDATE playsms_tblUser SET username='$ADMINUSERNAME',password='$ADMINPASSWORD',salt='' WHERE uid=1"
 set -e
 
+echo -n "Copying files."
+echo -n .
+mkdir -p $PATHWEB $PATHLOG $PATHSTR
+echo -n .
+cp -rf $PATHSRC/web/* $PATHWEB
+echo -n .
+cp -rf $PATHSRC/storage/* $PATHSTR
+echo -n .
+echo
+
+echo
 echo "Getting composer..."
 echo
 
@@ -238,43 +318,34 @@ else
 	exit 1
 fi
 
-set +e
-echo "Setup database..."
-mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < $PATHSRC/db/playsms.sql
-ADMINPASSWORD=$(echo -n $ADMINPASSWORD | md5sum | cut -d' ' -f1)
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME -e "UPDATE playsms_tblUser SET username='$ADMINUSERNAME',password='$ADMINPASSWORD',salt='' WHERE uid=1"
-echo
-set -e
-
-echo -n "Copying files."
+cp $PATHSTR/custom/application/configs/config-dist.php $PATHSTR/custom/application/configs/config.php
 echo -n .
-mkdir -p $PATHWEB $PATHLIB $PATHLOG $PATHSTR
+sed -i "s|#DBHOST#|$DBHOST|g" $PATHSTR/custom/application/configs/config.php
 echo -n .
-cp -rf $PATHSRC/web/* $PATHWEB
+sed -i "s|#DBPORT#|$DBPORT|g" $PATHSTR/custom/application/configs/config.php
 echo -n .
-cp -rf $PATHSRC/storage/* $PATHSTR
+sed -i "s|#DBNAME#|$DBNAME|g" $PATHSTR/custom/application/configs/config.php
+echo -n .
+sed -i "s|#DBUSER#|$DBUSER|g" $PATHSTR/custom/application/configs/config.php
+echo -n .
+sed -i "s|#DBPASS#|$DBPASS|g" $PATHSTR/custom/application/configs/config.php
 echo -n .
 
 cp $PATHWEB/config-dist.php $PATHWEB/config.php
 echo -n .
-sed -i "s|#DBHOST#|$DBHOST|g" $PATHWEB/config.php
-echo -n .
-sed -i "s|#DBPORT#|$DBPORT|g" $PATHWEB/config.php
-echo -n .
-sed -i "s|#DBNAME#|$DBNAME|g" $PATHWEB/config.php
-echo -n .
-sed -i "s|#DBUSER#|$DBUSER|g" $PATHWEB/config.php
-echo -n .
-sed -i "s|#DBPASS#|$DBPASS|g" $PATHWEB/config.php
-echo -n .
 sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
+echo -n .
+sed -i "s|#PATHBIN#|$PATHBIN|g" $PATHWEB/config.php
 echo -n .
 sed -i "s|#PATHSTR#|$PATHSTR|g" $PATHWEB/config.php
 echo -n .
+sed -i "s|#PATHWEB#|$PATHWEB|g" $PATHWEB/config.php
+echo -n .
+sed -i "s|#URLWEB#|$URLWEB|g" $PATHWEB/config.php
+echo -n .
 
 if [ "$USERID" = "0" ]; then
-	chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHLOG $PATHSTR
+	chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHLOG/* $PATHSTR/tmp $PATHWEB/*
 	echo -n .
 fi
 
@@ -282,15 +353,16 @@ mkdir -p $PATHCONF $PATHBIN
 echo -n .
 touch $PATHCONF/playsmsd.conf
 echo -n .
-echo "PLAYSMS_PATH=\"$PATHWEB\"" > $PATHCONF/playsmsd.conf
-echo "PLAYSMS_LIB=\"$PATHLIB\"" >> $PATHCONF/playsmsd.conf
-echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
-echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_URL=\"$URLWEB\"" > $PATHCONF/playsmsd.conf
+echo "PLAYSMS_WEB=\"$PATHWEB\"" > $PATHCONF/playsmsd.conf
 echo "PLAYSMS_STR=\"$PATHSTR\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
 echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
 echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> $PATHCONF/playsmsd.conf
 chmod 644 $PATHCONF/playsmsd.conf
 echo -n .
+rm -f $PATHBIN/playsmsd
 cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
 chmod 700 $PATHBIN/playsmsd
 echo -n .
@@ -307,12 +379,14 @@ $PATHBIN/playsmsd $PATHCONF/playsmsd.conf restart
 sleep 3
 echo
 
+echo "Checking playSMS daemon status..."
 $PATHBIN/playsmsd $PATHCONF/playsmsd.conf status
 sleep 3
 echo
 
+echo "playSMS install script finished"
 echo
-echo "playSMS has been installed on your system"
+echo "Please review installation log above before testing"
 echo
 
 cp install.conf install.conf.backup >/dev/null 2>&1
