@@ -31,6 +31,9 @@ msgstr ""
 msgid "Fail to connect to database"
 msgstr ""
 
+msgid "Fail to load application config"
+msgstr ""
+
 msgid "Fail to load language"
 msgstr ""
 
@@ -38,6 +41,21 @@ msgid "Fail to load main config from registry"
 msgstr ""
 
 msgid "Fail to load themes"
+msgstr ""
+
+msgid "Fail to locate application"
+msgstr ""
+
+msgid "Fail to locate base"
+msgstr ""
+
+msgid "Fail to locate custom"
+msgstr ""
+
+msgid "Fail to locate storage"
+msgstr ""
+
+msgid "Fail to locate tmp"
 msgstr ""
 
 msgid "Features"
