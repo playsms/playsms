@@ -128,7 +128,13 @@ if (!$core_config['daemon_process']) {
 	@ini_set('session.use_cookies', TRUE);
 	@ini_set('session.use_only_cookies', TRUE);
 	@ini_set('session.cookie_httponly', TRUE);
-	@ini_set('session.cookie_secure', TRUE);
+
+	// set only when using HTTPS	
+	if (isset($_SERVER['HTTPS'])) {
+		if (strtolower($_SERVER['HTTPS']) === 'on' || $_SERVER['HTTPS'] == '1') {
+			@ini_set('session.cookie_secure', TRUE);
+		}
+	}
 
 	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
 		header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');

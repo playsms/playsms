@@ -1265,6 +1265,27 @@ function core_last_post_empty() {
 }
 
 /**
+ * Check if HTTPS enabled
+ * 
+ * @return boolean TRUE
+ */
+function core_ssl() {
+	if (isset($_SERVER['HTTPS'])) {
+		if ('on' === strtolower($_SERVER['HTTPS'])) {
+
+			return true;
+		} 
+
+		if ('1' == $_SERVER['HTTPS']) {
+
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+/**
  * Include composer based packages
  */
 if (file_exists(_APPS_PATH_STORAGE_ . '/composer/vendor/autoload.php')) {
