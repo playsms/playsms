@@ -94,6 +94,22 @@ if (!defined('_PHP_VER_')) {
 	define('_PHP_VER_', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 }
 
+// set global date/time variables
+$date_format = 'Y-m-d';
+$time_format = 'H:i:s';
+$datetime_format = $date_format . ' ' . $time_format;
+$date_now = date($date_format, time());
+$time_now = date($time_format, time());
+$datetime_now = date($datetime_format, time());
+$datetime_format_stamp = 'YmdHis';
+$datetime_now_stamp = date($datetime_format_stamp, time());
+
+$core_config['datetime']['format'] = $datetime_format;
+$core_config['datetime']['now'] = $datetime_now;
+$core_config['datetime']['now_date'] = $date_now;
+$core_config['datetime']['now_time'] = $time_now;
+$core_config['datetime']['now_stamp'] = $datetime_now_stamp;
+
 // (bool) $DAEMON_PROCESS is special variable passed by daemon script
 if (isset($DAEMON_PROCESS) && $DAEMON_PROCESS) {
 	$core_config['daemon_process'] = true;
@@ -112,9 +128,7 @@ if (!$core_config['daemon_process']) {
 	@ini_set('session.use_cookies', TRUE);
 	@ini_set('session.use_only_cookies', TRUE);
 	@ini_set('session.cookie_httponly', TRUE);
-	if ($core_config['ishttps']) {
-		ini_set('session.cookie_secure', TRUE);
-	}
+	@ini_set('session.cookie_secure', TRUE);
 
 	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
 		header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
@@ -298,19 +312,6 @@ if (!$core_config['main']) {
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config from registry'));
 }
-
-// set global date/time variables
-$date_format = 'Y-m-d';
-$time_format = 'H:i:s';
-$datetime_format = $date_format . ' ' . $time_format;
-$date_now = date($date_format, time());
-$time_now = date($time_format, time());
-$datetime_now = date($datetime_format, time());
-$datetime_format_stamp = 'YmdHis';
-$datetime_now_stamp = date($datetime_format_stamp, time());
-
-$core_config['datetime']['format'] = $datetime_format;
-$core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
 // --- playSMS Specifics --- //
 
