@@ -2,7 +2,7 @@
 
 
 -- version
-UPDATE `playsms_tblRegistry` SET `registry_value` = '1.4.4-beta2' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
+UPDATE `playsms_tblRegistry` SET `registry_value` = '1.4.4-beta3' WHERE `registry_group` = 'core' AND `registry_family` = 'config' AND `registry_key` = 'playsms_version' ;
 
 -- tblUser
 ALTER TABLE `playsms_tblUser` MODIFY COLUMN `password` VARCHAR(255) NOT NULL DEFAULT '' ;
