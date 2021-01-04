@@ -37,7 +37,7 @@ case "$1" in
   *)
     #Passing all the parameters to the playsms daemon
     DAEMON=$PLAYSMS_BIN/playsmsd
-    DAEMON_OPTIONS=$PLAYSMS_PATH
+    DAEMON_OPTIONS=$PLAYSMS_WEB
     $DAEMON $1
 esac
 

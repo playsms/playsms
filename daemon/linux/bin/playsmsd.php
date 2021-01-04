@@ -24,7 +24,10 @@ set_time_limit(0);
 
 error_reporting(0);
 
+
 // functions
+// ================================================================================
+
 
 /**
  * Get pid for certain playsmsd process
@@ -168,7 +171,7 @@ function playsmsd_check($json)
 
     $data = array(
         'PLAYSMSD_CONF' => $PLAYSMSD_CONF,
-        'PLAYSMS_PATH' => $PLAYSMS_INSTALL_PATH,
+        'PLAYSMS_WEB' => $PLAYSMS_INSTALL_PATH,
         'PLAYSMS_LIB' => $PLAYSMS_LIB_PATH,
         'PLAYSMS_BIN' => $PLAYSMS_DAEMON_PATH,
         'PLAYSMS_LOG' => $PLAYSMS_LOG_PATH,
@@ -225,7 +228,10 @@ function playsmsd_log($debug_file = '')
     }
 }
 
+
 // main procedure
+// ================================================================================
+
 
 $PLAYSMSD_CONF = '';
 $argument = $argv;
@@ -244,20 +250,25 @@ $ini = array();
 $ini_files = array(
     $PLAYSMSD_CONF,
     './playsmsd.conf',
-    '~/playsmsd.conf',
+    '../etc/playsmsd.conf',
     '~/etc/playsmsd.conf',
     '/etc/playsmsd.conf',
     '/usr/local/etc/playsmsd.conf',
+    '../playsmsd.conf',
+    '~/playsmsd.conf',
     '~/bin/playsmsd.conf',
+    '~/sbin/playsmsd.conf',
     '/usr/bin/playsmsd.conf',
+    '/usr/sbin/playsmsd.conf',
     '/usr/local/bin/playsmsd.conf',
+    '/usr/local/sbin/playsmsd.conf'
 );
 
 $continue = false;
 foreach ($ini_files as $PLAYSMSD_CONF) {
     if ($PLAYSMSD_CONF && file_exists($PLAYSMSD_CONF)) {
         $ini = @parse_ini_file($PLAYSMSD_CONF);
-        if ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'] && $ini['PLAYSMS_LOG']) {
+        if (isset($ini['PLAYSMS_WEB']) && $PLAYSMS_INSTALL_PATH = $ini['PLAYSMS_WEB']) {
             $continue = true;
             break;
         }
@@ -270,18 +281,8 @@ if (!$continue) {
 }
 
 // playSMS installation location
-$PLAYSMS_INSTALL_PATH = ($ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/home/komodo/public_html/playsms');
-
 if (!file_exists($PLAYSMS_INSTALL_PATH)) {
     echo "Cannot find installation path " . $PLAYSMS_INSTALL_PATH . "\n";
-    exit();
-}
-
-// playSMS lib location
-$PLAYSMS_LIB_PATH = ($ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/home/komodo/lib');
-
-if (!file_exists($PLAYSMS_LIB_PATH)) {
-    echo "Cannot find lib path " . $PLAYSMS_LIB_PATH . "\n";
     exit();
 }
 
@@ -329,7 +330,7 @@ $LOOP_FLAG = (strtolower($argument[2]) ? strtolower($argument[2]) : 'loop');
 $CMD_PARAM = $argument[3];
 
 // playsmsd
-$PLAYSMSD_BIN = "$PLAYSMS_DAEMON_PATH/playsmsd";
+$PLAYSMSD_BIN = $PLAYSMS_DAEMON_PATH . '/playsmsd';
 
 if (!is_executable($PLAYSMSD_BIN)) {
     echo "playSMS daemon script " . $PLAYSMSD_BIN . " is not executable\n";
@@ -381,6 +382,7 @@ switch ($COMMAND) {
         exit();
         break;
 
+    case 'info':
     case 'check':
 
         // non-JSON output
@@ -408,7 +410,7 @@ switch ($COMMAND) {
 }
 
 if (!$COMMAND) {
-    echo "Usage: playsmsd <start|stop|restart|status|check|check_json|log|version>\n";
+    echo "Usage: playsmsd <start|stop|restart|status|info|check|check_json|log|version>\n";
     exit();
 }
 
@@ -419,7 +421,8 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
     $DAEMON_PROCESS = true;
 
     $continue = false;
-    if (file_exists('init.php')) {
+    if (file_exists('config.php') && file_exists('init.php')) {
+    	include 'config.php';
         include 'init.php';
         $fn = $core_config['apps_path']['libs'] . '/function.php';
         if ($core_config['daemon_process'] && file_exists($fn)) {
