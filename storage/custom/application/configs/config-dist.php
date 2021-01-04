@@ -46,9 +46,6 @@ $core_config['logaudit']	= true;
 // log audit file
 $core_config['logauditfile']	= 'audit.log';
 
-// are we using http or https ? the default is using https
-$core_config['ishttps']		= true;
-
 // are we using dlrd or not. the default is using dlrd
 $core_config['isdlrd']		= true;
 
