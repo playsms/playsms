@@ -24,9 +24,7 @@ if (!auth_isadmin()) {
 
 include $core_config['apps_path']['plug'] . "/gateway/nexmo/config.php";
 
-$callback_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin/gateway/nexmo/callback.php";
-$callback_url = str_replace("//", "/", $callback_url);
-$callback_url = "http://" . $callback_url;
+$callback_url = _HTTP_PATH_BASE_ . "/index.php?app=call&cat=gateway&plugin=nexmo&access=callback";
 
 switch (_OP_) {
 	case "manage" :

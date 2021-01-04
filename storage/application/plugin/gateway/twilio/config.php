@@ -6,7 +6,7 @@ $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['twilio']['name'] = 'twilio';
 	$plugin_config['twilio']['url'] = ($db_row['cfg_url'] ? $db_row['cfg_url'] : 'https://api.twilio.com');
-	$plugin_config['twilio']['callback_url'] = ($db_row['cfg_callback_url'] ? $db_row['cfg_callback_url'] : $core_config['http_path']['base'] . 'plugin/gateway/twilio/callback.php');
+	$plugin_config['twilio']['callback_url'] = ($db_row['cfg_callback_url'] ? $db_row['cfg_callback_url'] : _HTTP_PATH_BASE_ . '/index.php?app=call&cat=gateway&plugin=twilio&access=callback');
 	$plugin_config['twilio']['account_sid'] = $db_row['cfg_account_sid'];
 	$plugin_config['twilio']['auth_token'] = $db_row['cfg_auth_token'];
 	$plugin_config['twilio']['module_sender'] = $db_row['cfg_module_sender'];

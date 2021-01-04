@@ -3,7 +3,7 @@ defined('_SECURE_') or die('Forbidden');
 
 $callback_url = '';
 if (!$core_config['daemon_process']) {
-	$callback_url = _HTTP_PATH_BASE_ . "/plugin/gateway/generic/callback.php";
+	$callback_url = _HTTP_PATH_BASE_ . "/index.php?app=call&cat=gateway&plugin=generic&access=callback";
 }
 
 $data = registry_search(0, 'gateway', 'generic');

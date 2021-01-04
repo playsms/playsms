@@ -91,3 +91,17 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	
 	return $ok;
 }
+
+function twilio_hook_call($requests) {
+	// please note that we must globalize these 2 variables
+	global $core_config, $plugin_config;
+	$called_from_hook_call = true;
+	$access = $requests['access'];
+	
+	if ($access == 'callback') {
+		$fn = $core_config['apps_path']['plug'] . '/gateway/twilio/callback.php';
+		_log("start load:" . $fn, 2, "twilio call");
+		include $fn;
+		_log("end load callback", 2, "twilio call");
+	}
+}
