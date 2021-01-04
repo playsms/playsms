@@ -64,7 +64,7 @@ switch (_OP_) {
 			$local_length = $c_user[0]['local_length'];
 			$replace_zero = $c_user[0]['replace_zero'];
 			$acl_id = (int) $c_user[0]['acl_id'];
-			$credit = rate_getusercredit($c_username);
+			$credit = core_display_credit(rate_getusercredit($c_username));
 		} else {
 			$_SESSION['dialog']['info'][] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
