@@ -131,7 +131,7 @@ switch (_OP_) {
 		$add_forward_param = 'BC';
 		$select_durations = _select('add_duration', $plugin_config['sms_subscribe']['durations']);
 		$content = _dialog() . "
-			<link rel='stylesheet' type='text/css' href='" . _HTTP_PATH_THEMES_ . "/common/jscss/sms_subscribe.css' />
+			<link rel='stylesheet' type='text/css' href='" . _HTTP_PATH_BASE_ . "/plugin/feature/sms_subcribe/jscss/sms_subscribe.css' />
 			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
 			<h3 class=page-header-subtitle>" . _('Add SMS subscribe') . "</h3>
 			<form name=\"form_subscribe_add\" id=\"form_subscribe_add\" action=index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add_yes method=post>

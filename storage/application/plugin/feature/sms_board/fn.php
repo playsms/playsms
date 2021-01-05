@@ -200,7 +200,7 @@ function sms_board_output_html($keyword, $line = "10") {
 	if ($db_row = dba_fetch_array($db_result)) {
 		$css_url = trim($db_row['board_css']);
 		if (!$css_url) {
-			$css_url = $core_config['http_path']['themes'] . '/common/jscss/sms_board.css';
+			$css_url = _HTTP_PATH_BASE_ . '/plugin/feature/sms_board/jscss/sms_board.css';
 		}
 		$template = trim($db_row['board_pref_template']);
 		$db_query1 = "SELECT * FROM " . _DB_PREF_ . "_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";

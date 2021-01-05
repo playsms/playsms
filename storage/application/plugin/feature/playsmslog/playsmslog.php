@@ -29,7 +29,7 @@ switch (_OP_) {
 		$tpl = array(
 			'name' => 'playsmslog',
 			'vars' => array(
-				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+				'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
 				'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'),
 				'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'),
 				'LOG' => playsmslog_view(),
