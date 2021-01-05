@@ -19,10 +19,6 @@
 defined('_SECURE_') or die('Forbidden');
 
 function acl_getall() {
-	$ret = array(
-		'0' => _('DEFAULT') 
-	);
-	
 	$conditions = array(
 		'flag_deleted' => 0 
 	);
