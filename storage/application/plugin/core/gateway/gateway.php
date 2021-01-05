@@ -217,7 +217,7 @@ switch (_OP_) {
 			</div>";
 }
 $final_content = _dialog() . "
-	<h2 class=page-header-title>" . _('Manage gateway and SMSC') . "</h2>
+	<h2 class=page-header-title>" . _('Manage SMSC') . "</h2>
 	" . $content;
 
 _p($final_content);

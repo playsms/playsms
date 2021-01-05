@@ -122,7 +122,7 @@ if (auth_isadmin()) {
 	);
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=core_gateway&op=gateway_list',
-		_('Manage gateway and SMSC') ,
+		_('Manage SMSC') ,
 		3
 	);
 } else if ($user_config['status'] == 3) {
