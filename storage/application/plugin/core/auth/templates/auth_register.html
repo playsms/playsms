@@ -7,9 +7,12 @@
 			{{ CSRF_FORM }}
 		
 			<div class="text-center">
+				<if.enable_logo>
 				<img class="playsms-logo" src="{{ logo_url }}" alt="{{ WEB_TITLE }}">
+				</if.enable_logo>
+				<if.show_web_title>
 				<h1 class="page-header-title">{{ WEB_TITLE }}</h1>
-				<p class="lead">{{ Register an account }}</p>
+				</if.show_web_title>
 			</div>
 	
 			<div class="form-group">
