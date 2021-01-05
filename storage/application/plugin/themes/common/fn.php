@@ -119,7 +119,9 @@ function common_hook_themes_menu_tree($menu_config) {
 			$main_menu_tree .= "</div>";
 		}
 		
-		$main_menu .= $main_menu_tree;
+		if ($found) {
+			$main_menu .= $main_menu_tree;
+		}
 	}
 	
 	$content = "
