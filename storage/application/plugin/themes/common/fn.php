@@ -157,7 +157,7 @@ function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$start = 1;
 		$end = ceil($num / $max_nav);
 		
-		$nav_pages = "<div class=playsms-nav-bar><ul class=pagination>";
+		$nav_pages = "<div class=playsms-pagination><ul class=pagination>";
 		$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=1&nav=1') . "'> << </a></li>";
 		
 		if ($nav == $start) {

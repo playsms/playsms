@@ -138,12 +138,11 @@
 	/* */
 }
 
-.playsms-nav-form {
-	width: 100%;
-	text-align: center;
+.playsms-navbar {
+	/* */
 }
 
-.playsms-nav-bar {
+.playsms-pagination {
 	padding: 0;
 	margin: 0;
 }
