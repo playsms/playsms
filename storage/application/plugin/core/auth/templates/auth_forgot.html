@@ -1,6 +1,6 @@
 <div class="container">
-	<div class="row justify-content-center">
-		<div class="playsms-input-sizer">
+	<div class="row d-flex align-items-center min-vh-100 justify-content-center">
+		<div class="playsms-login-box">
 			{{ DIALOG_DISPLAY }}
 			
 			<form class="form-signin" action="{{ URL_ACTION }}" method="POST">
@@ -13,6 +13,7 @@
 				<if.show_web_title>
 				<h1 class="page-header-title">{{ WEB_TITLE }}</h1>
 				</if.show_web_title>
+				<p class="lead">{{ Recover password }}</p>
 			</div>
 	
 			<div class="form-group">

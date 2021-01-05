@@ -69,19 +69,21 @@
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/common/jscss/common.js"></script>
 <script type="text/javascript" src="{{ HTTP_PATH_THEMES }}/{{ THEMES_MODULE }}/jscss/main.js"></script>
 
+<if.valid>
 <div class="container">
-	<if.valid>
 		<div id="main-menu">
 			{{ THEMES_MENU_TREE }}
 		</div>
 		<div id="main-submenu">
 			{{ THEMES_SUBMENU }}
 		</div>
-	</if.valid>
 	<div id="main-content">
+	</if.valid>
 		{{ CONTENT }}
+	<if.valid>
 	</div>
 </div>
+</if.valid>
 
 <if.valid>
 <footer id="main-footer">

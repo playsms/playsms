@@ -162,25 +162,28 @@
 }
 
 .playsms-logo {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	max-width: 300px;
+	width: 100%;
 }
 
 .playsms-login-box {
-	/* */
+	max-width: 300px;
+	width: 100%;
 }
 
 .playsms-login-input {
-	/* */
+	max-width: 300px;
+	width: 100%;
 }
 
 .playsms-label-sizer {
-	/* */
+	max-width: 300px;
+	width: 100%;
 }
 
 .playsms-input-sizer {
-	/* */
+	max-width: 300px;
+	width: 100%;
 }
 
 .playsms-dialog-text {
@@ -198,7 +201,7 @@
 }
 
 .playsms-login-box {
-	background-color: #f5f5f5;
+	/* */
 }
 
 .playsms-login-input {
@@ -220,12 +223,10 @@
 /* IDs */
 
 #main-menu {
-	position: fixed;
 	width: 100%;
 }
 
 #main-submenu {
-	position: fixed;
 	width: 100%;
 }
 
@@ -236,17 +237,12 @@
 #main-content {
 	height: 100%;
 	overflow: hidden;
-	padding-bottom: 50px;
 }
 
 #main-footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	/* Set the fixed height of the footer here */
-	height: 40px;
-	line-height: 40px; /* Vertically center the text there */
-	background-color: #f5f5f5;
 }
 
 #main-footer p {
