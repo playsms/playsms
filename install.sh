@@ -112,7 +112,7 @@ PLAYSMSSRCVER=$(cat $PATHSRC/VERSION.txt)
 echo "INSTALL DATA:"
 echo
 
-echo "Admin username      = $ADMINUSERNAME"
+echo "Admin username      = admin"
 echo "Admin password      = $ADMINPASSWORD"
 echo "MySQL username      = $DBUSER"
 echo "MySQL password      = $DBPASS"
@@ -199,6 +199,42 @@ if [ -f "$PATHBIN/playsmsd" ]; then
 	done
 	echo
 fi
+sleep 1
+
+echo "Checking database..."
+echo
+FOUND_DATABASE=`mysql -u$DBUSER -p$DBPASS -h$DBHOST --skip-column-names --batch -e "SHOW DATABASES LIKE '$DBNAME'" | wc -l`
+if [ "$FOUND_DATABASE" == "1" ]; then
+	echo "Found database '$DBNAME'"
+	echo
+	echo "This install script will empty database '$DBNAME'"
+	echo
+	confirm=
+	while [ -z $confirm ]
+	do
+		echo "To continue emptying database '$DBNAME' press [y/Y] or press [Control+C] to cancel"
+		read -p "> " confirm
+		if [[ $confirm == 'y' ]]; then
+			break
+		fi
+		if [[ $confirm == 'Y' ]]; then
+			break
+		fi
+		confirm=
+	done
+	echo
+else
+	echo "ERROR: database '$DBNAME' not found"
+	echo
+	echo "Please create database '$DBNAME' before proceeding"
+	echo 
+	echo "Please note that database user '$DBUSER' must be granted permission"
+	echo "SELECT, INSERT, UPDATE, DELETE to database '$DBNAME'"
+	echo
+	exit 1
+fi
+sleep 1
+
 echo "==================================================================="
 echo
 sleep 1
@@ -242,31 +278,9 @@ sleep 1
 set +e
 echo "Setup database..."
 echo
-DBCREATE=$(mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME)
-if [ ! $DBCREATE ]; then
-	echo
-	echo "WARNING: unable to create database $DBNAME"
-	echo
-	echo "Database $DBNAME already exists or user $DBUSER don't have permission to create it"
-	echo
-	confirm=
-	while [ -z $confirm ]
-	do
-		echo "To continue and replace $DBNAME press [y/Y] or press [Control+C] to cancel"
-		read -p "> " confirm
-		if [[ $confirm == 'y' ]]; then
-			break
-		fi
-		if [[ $confirm == 'Y' ]]; then
-			break
-		fi
-		confirm=
-	done
-	echo
-fi
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < $PATHSRC/db/playsms.sql
+mysql -u$DBUSER -p$DBPASS -h$DBHOST -P$DBPORT $DBNAME < $PATHSRC/db/playsms.sql
 ADMINPASSWORD=$(echo -n $ADMINPASSWORD | md5sum | cut -d' ' -f1)
-mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME -e "UPDATE playsms_tblUser SET username='$ADMINUSERNAME',password='$ADMINPASSWORD',salt='' WHERE uid=1"
+mysql -u$DBUSER -p$DBPASS -h$DBHOST -P$DBPORT $DBNAME -e "UPDATE playsms_tblUser SET password='$ADMINPASSWORD',salt='' WHERE uid=1"
 set -e
 
 echo -n "Copying files."

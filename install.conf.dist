@@ -6,9 +6,6 @@
 
 # Please do not change variable name, you may change only the value
 
-# Web UI admin's username
-ADMINUSERNAME="admin"
-
 # Web UI admin's password
 ADMINPASSWORD="changemeplease"
 
