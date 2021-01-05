@@ -20,12 +20,10 @@ $(document).ready(function() {
 	$("input[type='text']").addClass("form-control playsms-input-sizer");
 	$("input[type='password']").addClass("form-control playsms-input-sizer");
 	$("input[type='file']").addClass("form-control playsms-input-sizer");
-	$("input[type='hidden']").addClass("playsms-input-sizer");
 	
 	$("input[type='text']").css("display", "inline");
 	$("input[type='password']").css("display", "inline");
 	$("input[type='file']").css("display", "inline");
-	$("input[type='hidden']").css("display", "inline");
 
 	$("textarea").addClass("form-control playsms-input-sizer");
 	
