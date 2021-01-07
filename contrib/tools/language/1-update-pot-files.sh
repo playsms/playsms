@@ -13,13 +13,13 @@ fi
 
 set -e
 
-touch $PLAYSMS/storage/tmp/plugin/language/messages.pot
-touch $PLAYSMS/storage/tmp/plugin/language/index.html
+touch $PLAYSMS/storage/tmp/application/plugin/language/messages.pot
+touch $PLAYSMS/storage/tmp/application/plugin/language/index.html
 
-xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/plugin/language/messages.pot $PLAYSMS/web/init.php
-xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/plugin/language/messages.pot $PLAYSMS/web/index.php
-find $PLAYSMS/web/lib/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/plugin/language/messages.pot {} \;
-find $PLAYSMS/web/inc/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/plugin/language/messages.pot {} \;
+xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/application/plugin/language/messages.pot $PLAYSMS/web/init.php
+xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/application/plugin/language/messages.pot $PLAYSMS/web/index.php
+find $PLAYSMS/web/lib/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/application/plugin/language/messages.pot {} \;
+find $PLAYSMS/web/inc/ -iname "*.php" -exec xgettext -L PHP --omit-header --no-location --sort-output --from-code=utf-8 -j -o $PLAYSMS/storage/tmp/application/plugin/language/messages.pot {} \;
 
 rm -f /tmp/.lang_folders >/dev/null 2>&1
 touch /tmp/.lang_folders

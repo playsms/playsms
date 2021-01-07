@@ -424,9 +424,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
         $fn = $core_config['apps_path']['libs'] . '/function.php';
         if ($core_config['daemon_process'] && file_exists($fn)) {
             include $fn;
-            if ($core_config['apps_path']['incs']) {
-                $continue = true;
-            }
+            $continue = true;
         }
     }
 

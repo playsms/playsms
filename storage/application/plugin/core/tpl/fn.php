@@ -34,7 +34,7 @@ function _tpl_apply($fn, $tpl, $injected = array()) {
 	
 	$t->setConfig(array(
 		'echo' => '_p',
-		'dir_cache' => _APPS_PATH_STORAGE_ . '/tmp/plugin/core/tpl' 
+		'dir_cache' => _APPS_PATH_TMP_ . '/plugin/core/tpl' 
 	));
 	
 	$t->setTemplate($fn);
@@ -105,15 +105,24 @@ function tpl_apply($tpl, $injected = array()) {
 		
 		// search for customization
 		
-		// 1. check on custom templates directory on storage
-		$fn = _APPS_PATH_STORAGE_ . '/custom/templates/' . $tpl_name . '.html';
+		// 1. check on custom plugin directory on storage
+		$fn = _APPS_PATH_CUSTOM_ . '/templates/' . _INC_CAT_ . '/' . _INC_PLUGIN_ . '/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
 			
 			return $content;
 		}
 		
-		// 2. check on active themes
+		/* this will be removed later
+		// 2. check on custom templates directory on storage
+		$fn = _APPS_PATH_STORAGE_ . '/custom/templates/' . $tpl_name . '.html';
+		if (file_exists($fn)) {
+			$content = _tpl_apply($fn, $tpl, $injected);
+			
+			return $content;
+		}*/
+		
+		// 3. check on active themes
 		$themes = core_themes_get();
 		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
@@ -122,7 +131,7 @@ function tpl_apply($tpl, $injected = array()) {
 			return $content;
 		}
 		
-		// 3. check on common directory on themes
+		// 4. check on common directory on themes
 		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
@@ -133,10 +142,7 @@ function tpl_apply($tpl, $injected = array()) {
 		// look from plugins
 		
 		// 1. search from currently displayed on web (active) plugin
-		$c_inc = explode('_', _INC_);
-		$plugin_category = $c_inc[0];
-		$plugin_name = str_replace($plugin_category . '_', '', _INC_);
-		$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
+		$fn = _APPS_PATH_PLUG_ . '/' . _INC_CAT_ . '/' . _INC_PLUGIN_ . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
 			
