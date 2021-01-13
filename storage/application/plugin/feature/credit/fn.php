@@ -314,12 +314,12 @@ function _credit_low_notif() {
 		$balance = _credit_getbyuid($uid);
 		$username = $db_row['username'];
 		
-		// if balance under credit lowest limit and never been notified then notify admins, parent_uid and uid
+		// if lowest credit limit is non-zero and balance is under/same as lowest credit limit, and never been notified then notify admins, parent_uid and uid
 		$credit_lowest_limit = (float) $core_config['main']['credit_lowest_limit'];
 		$reg = registry_search($uid, 'feature', 'credit', 'lowest_limit_notif');
 		$notified = ($reg['feature']['credit']['lowest_limit_notif'] ? TRUE : FALSE);
 		
-		if (($balance <= $credit_lowest_limit) && !$notified) {
+		if (($credit_lowest_limit > 0) && ($balance <= $credit_lowest_limit) && !$notified) {
 		
 			// set notified
 			registry_update($uid, 'feature', 'credit', array(
