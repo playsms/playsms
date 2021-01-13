@@ -37,20 +37,20 @@ URLWEB="https://localhost/playsms"
 
 # Path to playSMS web files
 # note: please make sure your web root path, in this example its /var/www/html
-PATHWEB="/home/komodo/public_html/playsms"
+PATHWEB="/home/example/public_html/playsms"
 
 # Path to playSMS daemon and other binary files
-PATHBIN="/home/komodo/bin"
+PATHBIN="/home/example/bin"
 
 # Path to playSMS log files
-PATHLOG="/home/komodo/log"
+PATHLOG="/home/example/log"
 
 # Path to playSMS storage
-PATHSTR="/home/komodo/storage"
+PATHSTR="/home/example/storage"
 
 # Path to playSMS daemon configuration file
 # note: this example will create playsmsd.conf in /etc
-PATHCONF="/home/komodo/etc"
+PATHCONF="/home/example/etc"
 
 # Path to playSMS extracted source files
 PATHSRC="$(pwd)"
