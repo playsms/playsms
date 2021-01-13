@@ -38,7 +38,8 @@ function logger_print($log, $level='', $label='') {
 	$label = str_replace(' ', '__', $label);
 	$label = ( $label ? $label : '-' );
 
-	$username = ( $user_config['username'] ? $user_config['username'] : '-' );
+	$username = ( $user_config['username'] ? $user_config['username'] : $_SESSION['username'] );
+	$username = ( trim($username) ? trim($username) : '-' );
 	if (logger_get_level() >= $level) {
 		$type = 'L'.$level;
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
@@ -89,7 +90,8 @@ function logger_audit() {
 		}
 		$log = trim($log);
 		$logauditfile = ( $core_config['logauditfile'] ? $core_config['logauditfile'] : 'audit.log' );
-		$username = ( $user_config['username'] ? $user_config['username'] : '-' );
+		$username = ( $user_config['username'] ? $user_config['username'] : $_SESSION['username'] );
+		$username = ( trim($username) ? trim($username) : '-' );
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {
