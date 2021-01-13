@@ -119,21 +119,43 @@ if (isset($DAEMON_PROCESS) && $DAEMON_PROCESS) {
 
 // do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
-
-	@ini_set('session.cookie_lifetime', 0);
-	@ini_set('session.cookie_samesite', 'Strict');
-	@ini_set('session.cache_limiter', 'nocache');
-	@ini_set('session.use_trans_sid', FALSE);
-	@ini_set('session.use_strict_mode', TRUE);
-	@ini_set('session.use_cookies', TRUE);
-	@ini_set('session.use_only_cookies', TRUE);
-	@ini_set('session.cookie_httponly', TRUE);
+	ini_set('session.cookie_lifetime', 0);
+	ini_set('session.cookie_samesite', 'Strict');
+	ini_set('session.cache_limiter', 'nocache');
+	ini_set('session.use_trans_sid', FALSE);
+	ini_set('session.use_strict_mode', TRUE);
+	ini_set('session.use_cookies', TRUE);
+	ini_set('session.use_only_cookies', TRUE);
+	ini_set('session.cookie_httponly', TRUE);
 
 	// set only when using HTTPS	
+	$session_cookie_secure = 0;
 	if (isset($_SERVER['HTTPS'])) {
 		if (strtolower($_SERVER['HTTPS']) === 'on' || $_SERVER['HTTPS'] == '1') {
-			@ini_set('session.cookie_secure', TRUE);
+			ini_set('session.cookie_secure', TRUE);
+			$session_cookie_secure = 1;
 		}
+	}
+
+	session_start([
+		'cookie_lifetime' => 0,
+		'cookie_samesite' => 'Strict',
+		'cache_limiter' => 'nocache',
+		'use_trans_sid' => 0,
+		'use_strict_mode' => 1,
+		'use_cookies' => 1,
+		'cookie_httponly' => 1,
+		'cookie_secure' => $session_cookie_secure,
+	]);
+
+	if (!isset($_SESSION['last_update'])) {
+		$_SESSION['last_update'] =  time();
+	}
+
+	// regenerate session ID every 20 minutes
+	if (time() >= ($_SESSION['last_update'] + (20 * 60))) {
+		session_regenerate_id(TRUE);
+		$_SESSION['last_update'] = time();
 	}
 
 	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
@@ -141,17 +163,8 @@ if (!$core_config['daemon_process']) {
 	} else {
 		header('Pragma: no-cache');
 	}
-	header('X-Frame-Options: SAMEORIGIN');
-	@session_start();
 
-	if (!isset($_SESSION['last_update'])) {
-		$_SESSION['last_update'] =  time();
-	}
-
-	if (time() >= ($_SESSION['last_update'] + (60 * 60))) {
-		@session_regenerate_id(TRUE);
-		$_SESSION['last_update'] = time();
-	}
+	header('X-Frame-Options: SAMEORIGIN');	
 }
 
 // output buffering starts even from daemon script
