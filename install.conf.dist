@@ -37,7 +37,7 @@ URLWEB="https://localhost/playsms"
 
 # Path to playSMS web files
 # note: please make sure your web root path, in this example its /var/www/html
-PATHWEB="/home/example/public_html/playsms"
+PATHWEB="/home/example/web"
 
 # Path to playSMS daemon and other binary files
 PATHBIN="/home/example/bin"
