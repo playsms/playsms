@@ -26,9 +26,24 @@ if (_OP_ == 'login') {
 	$username_or_email = trim($_REQUEST['username']);
 	$password = trim($_REQUEST['password']);
 	
+	// verify captcha
 	if ($auth_captcha_form_login) {
-		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
-			unset($_SESSION['tmp']['captcha']);
+		$session_captcha_phrase = strtolower($_SESSION['tmp']['captcha']['phrase']);
+		$session_captcha_time = (int) $_SESSION['tmp']['captcha']['time'];
+		unset($_SESSION['tmp']['captcha']);
+	
+		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == $session_captcha_phrase)) {
+		
+			// captcha timeout 15 minutes
+			if (time() > ($session_captcha_time + (15 * 60))) {
+				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth login");
+
+				$_SESSION['dialog']['danger'][] = _('Captcha was expired, please try again');
+
+				header("Location: " . _u($core_config['http_path']['base']));
+				exit();
+			}
+			
 		} else {
 			_log("fail to verify captcha u:" . $username_or_email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth login");
 
@@ -90,11 +105,16 @@ if (_OP_ == 'login') {
 		'username' => _lastpost('username')
 	);
 	
-	// captcha
-	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
-	$captcha = new CaptchaBuilder(null, $phraseBuilder);
-	$captcha->build($auth_captcha_width, $auth_captcha_height);
-	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
+	// prepare captcha phrase and set the time
+	if ($auth_captcha_form_login) {
+		$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
+		$captcha = new CaptchaBuilder(null, $phraseBuilder);
+		$captcha->build($auth_captcha_width, $auth_captcha_height);
+		$_SESSION['tmp']['captcha'] = [
+			'phrase' => $captcha->getPhrase(),
+			'time' => time(),
+		];
+	}
 
 	unset($tpl);
 	$tpl = array(

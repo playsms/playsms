@@ -31,9 +31,24 @@ if (_OP_ == 'forgot') {
 		exit();
 	}
 
+	// verify captcha
 	if ($auth_captcha_form_forgot) {
-		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && (strtolower($_REQUEST['captcha']) == strtolower($_SESSION['tmp']['captcha']))) {
-			unset($_SESSION['tmp']['captcha']);
+		$session_captcha_phrase = strtolower($_SESSION['tmp']['captcha']['phrase']);
+		$session_captcha_time = (int) $_SESSION['tmp']['captcha']['time'];
+		unset($_SESSION['tmp']['captcha']);
+	
+		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == $session_captcha_phrase)) {
+		
+			// captcha timeout 15 minutes
+			if (time() > ($session_captcha_time + (15 * 60))) {
+				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
+
+				$_SESSION['dialog']['danger'][] = _('Captcha was expired, please try again');
+
+				header("Location: " . _u('index.php?app=main&inc=core_auth&route=forgot'));
+				exit();
+			}
+			
 		} else {
 			_log("fail to verify captcha u:" . $username . " e:" . $email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth forgot");
 
@@ -133,11 +148,16 @@ if (_OP_ == 'forgot') {
 		'email' => _lastpost('email')
 	);
 	
-	// captcha
-	$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
-	$captcha = new CaptchaBuilder(null, $phraseBuilder);
-	$captcha->build($auth_captcha_width, $auth_captcha_height);
-	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
+	// prepare captcha phrase and set the time
+	if ($auth_captcha_form_forgot) {
+		$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
+		$captcha = new CaptchaBuilder(null, $phraseBuilder);
+		$captcha->build($auth_captcha_width, $auth_captcha_height);
+		$_SESSION['tmp']['captcha'] = [
+			'phrase' => $captcha->getPhrase(),
+			'time' => time(),
+		];
+	}
 	
 	$tpl = array(
 		'name' => 'auth_forgot',
