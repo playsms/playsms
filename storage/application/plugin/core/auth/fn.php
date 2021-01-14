@@ -194,13 +194,69 @@ function auth_validate_token($token) {
  * @return boolean TRUE if valid
  */
 function auth_isvalid() {
-	if (session_id() && $_SESSION['uid']) {
-		$hash = user_session_get('', session_id());
-		if (session_id() == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
-			if ($hash[key($hash)]['http_user_agent'] && ($hash[key($hash)]['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT']))) {
-				return acl_checkurl($_REQUEST, $_SESSION['uid']);
-			}
+	if (session_id() && $_SESSION['uid'] && ($login_sid = $_SESSION['login_sid'])) {
+		$username = $_SESSION['username'];
+		$uid = $_SESSION['uid'];
+		
+		// check if user have closed the browser or disconnected for too long (1 hour)
+		if (time() > ($_SESSION['last_update'] + (60 * 60))) {
+			_log("invalid due to inactivity", 2, "auth_isvalid");
+			
+			auth_session_destroy();
+			
+			return FALSE;
 		}
+
+		// check if user logged in for too long (6 hours)
+		if (time() > ($_SESSION['login_time'] + (6 * 60 * 60))) {
+			_log("invalid due to login time limit", 2, "auth_isvalid");
+			
+			auth_session_destroy();
+			
+			return FALSE;
+		}
+		
+		// check if user still using the same browser
+		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT'])))) {
+			_log("invalid due to HTTP_USER_AGENT changed sess:[" . $_SESSION['http_user_agent'] . "] reg:[" . core_sanitize_string($_SERVER['HTTP_USER_AGENT']) . "]", 2, "auth_isvalid");
+			
+			auth_session_destroy();
+			
+			return FALSE;
+		}
+		
+		// check if user still browsing from the same IP address
+		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $_SERVER['REMOTE_ADDR']))) {
+			_log("invalid due to REMOTE_ADDR changed ip:" . $_SESSION['ip'], 2, "auth_isvalid");
+			
+			auth_session_destroy();
+			
+			return FALSE;				
+		}
+		
+		// get registry
+		$d = user_session_get($uid);
+		
+		// check if user session's HTTP_USER_AGENT the same as recorded HTTP_USER_AGENT in registry
+		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == stripslashes($d[$login_sid]['http_user_agent'])))) {
+			_log("invalid due to recorded HTTP_USER_AGENT not match sess:[" . $_SESSION['http_user_agent'] . "] reg:[" . $d[$login_sid]['http_user_agent'] . "]", 2, "auth_isvalid");
+			
+			auth_session_destroy();
+			
+			return FALSE;				
+		}
+		
+		// check if user session's IP the same as recorded IP in registry
+		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $d[$login_sid]['ip']))) {
+			_log("invalid due to recorded IP address not match ip:" . $_SESSION['ip'] . " reg:" . $d[$login_sid]['ip'], 2, "auth_isvalid");
+			
+			auth_session_destroy();
+			
+			return FALSE;				
+		}
+		
+		// check againts ACL
+		return acl_checkurl($_REQUEST, $uid);
 	}
 	
 	return FALSE;
@@ -302,15 +358,20 @@ function auth_block() {
  */
 function auth_session_setup($uid) {
 	global $core_config;
-
+	
 	@session_regenerate_id(TRUE);
 	
 	$c_user = user_getdatabyuid($uid);
-	if ($c_user['username']) {
+	if ($c_user['uid'] && $c_user['username'] && $c_user['status']) {
 		// set session
-		$_SESSION['username'] = $c_user['username'];
+		$_SESSION['login_sid'] = session_id();
 		$_SESSION['uid'] = $c_user['uid'];
+		$_SESSION['username'] = $c_user['username'];
 		$_SESSION['status'] = $c_user['status'];
+		$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+		$_SESSION['http_user_agent'] = core_sanitize_string($_SERVER['HTTP_USER_AGENT']);
+		$_SESSION['last_update'] = time();
+		$_SESSION['login_time'] = time();
 		if (!is_array($_SESSION['tmp']['login_as'])) {
 			$_SESSION['tmp']['login_as'] = array();
 		}
@@ -318,6 +379,8 @@ function auth_session_setup($uid) {
 		// save session in registry
 		if (!$core_config['daemon_process']) {
 			user_session_set($c_user['uid']);
+			
+			_log("session setup uid:" . $_SESSION['uid'] . " hash:" . $_SESSION['login_sid'], 2, "auth_session_setup");
 		}
 	}
 }
@@ -326,6 +389,11 @@ function auth_session_setup($uid) {
  * Destroy user session
  */
 function auth_session_destroy() {
+	$login_sid = $_SESSION['login_sid'];
+	$uid = $_SESSION['uid'];
+	
+	user_session_remove($uid);
+
 	$_SESSION = array();
 
 	if (ini_get('session.use_cookies')) {
@@ -335,8 +403,10 @@ function auth_session_destroy() {
 			$params['secure'], $params['httponly']
 		);
 	}
-
+	
 	session_destroy();
+
+	_log("session destroyed uid:" . $uid . " hash:" . $login_sid, 2, "auth_session_destroy");
 }
 
 function auth_login_as($uid) {

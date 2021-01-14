@@ -290,7 +290,6 @@ switch (_OP_) {
 		break;
 	
 	case "login_as":
-		user_session_remove($_SESSION['uid'], session_id());
 		$uid = user_username2uid($_REQUEST['uname']);
 		auth_login_as($uid);
 		if (auth_isvalid()) {

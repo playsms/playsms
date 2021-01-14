@@ -26,7 +26,7 @@ if (!auth_isadmin()) {
 // if kick action
 if (_OP_ == 'kick') {
 	if ($hash = $_GET['hash']) {
-		user_session_remove('', '', $hash);
+		user_session_remove('', $hash);
 		header('Location: ' . _u('index.php?app=main&inc=feature_report&route=online'));
 		exit();
 	}
