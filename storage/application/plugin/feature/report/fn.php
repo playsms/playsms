@@ -307,7 +307,7 @@ function report_hook_playsmsd() {
 	$users = report_whoseonline(0, FALSE, TRUE);
 	foreach ($users as $user) {
 		foreach ($user as $hash) {
-			user_session_remove('', '', $hash['hash']);
+			user_session_remove('', $hash['hash']);
 			_log('login session removed uid:' . $hash['uid'] . ' hash:' . $hash['hash'], 3, 'report_hook_playsmsd');
 		}
 	}

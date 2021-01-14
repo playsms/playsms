@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 if (auth_isvalid()) {
-	user_session_remove($_SESSION['uid'], session_id());
+	user_session_remove($_SESSION['uid']);
 
 	// if old_login exists then try to return to it
 	if (auth_login_as_check()) {

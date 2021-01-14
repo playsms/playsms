@@ -367,11 +367,6 @@ if (auth_isvalid()) {
 	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['gravatar'] = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user_config['email'])));
-	if (!$core_config['daemon_process']) {
-		
-		// save login session information
-		user_session_set();
-	}
 	
 	// special setting to credit unicode SMS the same as normal SMS length
 	// for example: 2 unicode SMS (140 chars length) will be deducted as 1 credit just like a normal SMS (160 chars length)
@@ -380,6 +375,18 @@ if (auth_isvalid()) {
 	if (!$user_config['opt']['enable_credit_unicode']) {
 		// global config overriden by user config
 		$user_config['opt']['enable_credit_unicode'] = (int) $core_config['main']['enable_credit_unicode'];
+	}
+	
+	// update last_update
+	if (!$core_config['daemon_process']) {
+
+		// dont update on webservices call		
+		if (!((_APP_ == 'ws') || (_APP_ == 'webservices'))) {
+			// update session last_update
+			user_session_update($_SESSION['uid'], [
+				'last_update' => core_get_datetime(),
+			]);
+		}
 	}
 }
 

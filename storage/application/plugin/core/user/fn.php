@@ -645,25 +645,62 @@ function user_edit_conf($uid, $data = array()) {
  */
 function user_session_set($uid = '') {
 	global $core_config, $user_config;
+	
 	if (!$core_config['daemon_process']) {
 		$uid = ($uid ? $uid : $user_config['uid']);
-		
-		// fixme anton - do not make this based on IP, not working properly when clients assigned ranged dynamic IPs
-		// $hash = md5($uid.$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT']);
-		$hash = md5($uid . $_SERVER['HTTP_USER_AGENT']);
-		
-		$json = array(
-			'ip' => $_SERVER['REMOTE_ADDR'],
-			'last_update' => core_get_datetime(),
+
+		if ($uid && ($login_sid = $_SESSION['login_sid'])) {
+			$json = array(
+				'ip' => $_SERVER['REMOTE_ADDR'],
+				'last_update' => core_get_datetime(),
 			
-			// fixme anton - https://www.exploit-database.net/?id=92909
-			'http_user_agent' => core_sanitize_string($_SERVER['HTTP_USER_AGENT']),
+				// fixme anton - https://www.exploit-database.net/?id=92909
+				'http_user_agent' => core_sanitize_string($_SERVER['HTTP_USER_AGENT']),
 			
-			'sid' => session_id(),
-			'uid' => $uid 
-		);
-		$item[$hash] = json_encode($json);
-		registry_update(1, 'auth', 'login_session', $item);
+				'uid' => $uid 
+			);		
+			registry_update(1, 'auth', 'login_session', [
+				$login_sid => json_encode($json),
+			]);
+			
+			_log("login session saved in registry uid:" . $uid . " hash:" . $login_sid, 2, "user_session_set");
+		}
+	}
+}
+
+/**
+ * Update user's login session information
+ *
+ * @param integer $uid
+ *        User ID
+ */
+function user_session_update($uid = '', $data = array()) {
+	global $core_config, $user_config;
+	
+	if (!$core_config['daemon_process']) {
+		$uid = ($uid ? $uid : $user_config['uid']);
+
+		if ($uid && ($login_sid = $_SESSION['login_sid'])) {
+			$d = user_session_get($uid);
+			if (isset($d[$login_sid]) && ($d = $d[$login_sid])) {			
+			
+				foreach ($d as $key => $val) {
+					if (isset($d[$key]) && isset($data[$key])) {
+						$d[$key] = core_sanitize_string($data[$key]);
+					}
+				}
+			
+				registry_update(1, 'auth', 'login_session', [
+					$login_sid => json_encode($d),
+				]);
+			
+				// debug
+				//_log("login session updated in registry uid:" . $uid . " hash:" . $login_sid . " data:" . json_encode($data), 2, "user_session_update");
+			} else {
+				// debug
+				//_log("fail to update login session in registry uid:" . $uid . " hash:" . $login_sid . " data:" . json_encode($data), 2, "user_session_update");
+			}
+		}
 	}
 }
 
@@ -672,37 +709,39 @@ function user_session_set($uid = '') {
  *
  * @param integer $uid
  *        User ID
- * @param string $sid
- *        Session ID
  * @return array login sessions
  */
-function user_session_get($uid = '', $sid = '') {
+function user_session_get($uid = '') {
 	global $user_config;
+	
 	$ret = array();
-	$h = registry_search(1, 'auth', 'login_session');
-	$hashes = $h['auth']['login_session'];
-	foreach ($hashes as $key => $val) {
-		$d = core_object_to_array(json_decode($val));
-		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['sid'] && $d['uid']) {
+	
+	if ($uid && ($login_sid = $_SESSION['login_sid'])) {
+		$h = registry_search(1, 'auth', 'login_session', $login_sid);
+		$d = core_object_to_array(json_decode($h['auth']['login_session'][$login_sid]));
+		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['uid']) {
 		
 			// fixme anton - https://www.exploit-database.net/?id=92909
 			$d['http_user_agent'] = core_sanitize_string($d['http_user_agent']);
-		
-			if ($uid || $sid) {
-				if ($uid && ($uid == $d['uid'])) {
-					$ret[$key] = $d;
-					return $ret;
-				}
-				if ($sid && ($sid == $d['sid'])) {
-					$ret[$key] = $d;
-					return $ret;
-				}
-			} else {
-				$c_ret[$key] = $d;
-			}
+
+			return [ $login_sid => $d ];
 		}
 	}
-	$ret = $c_ret;
+	unset($login_sid);
+	
+	$h = registry_search(1, 'auth', 'login_session');
+	$hashes = $h['auth']['login_session'];
+	foreach ($hashes as $login_sid => $data) {
+		$d = core_object_to_array(json_decode($data));
+		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['uid']) {
+		
+			// fixme anton - https://www.exploit-database.net/?id=92909
+			$d['http_user_agent'] = core_sanitize_string($d['http_user_agent']);
+
+			$ret[$login_sid] = $d;
+		}
+	}
+
 	return $ret;
 }
 
@@ -711,27 +750,30 @@ function user_session_get($uid = '', $sid = '') {
  *
  * @param integer $uid
  *        User ID
- * @param string $sid
- *        Session ID
+ * @param string $hash
+ *        Registry hash
  * @return boolean
  */
-function user_session_remove($uid = '', $sid = '', $hash = '') {
+function user_session_remove($uid = '', $hash = '') {
+	global $user_config;
+	
 	$ret = FALSE;
+	
 	if ($hash) {
 		if (registry_remove(1, 'auth', 'login_session', $hash)) {
-			return TRUE;
-		}
-	} else if ($sid) {
-		$hash = user_session_get('', $sid);
-		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
-			return TRUE;
+			$ret = TRUE;
 		}
 	} else if ($uid) {
-		$hash = user_session_get($uid);
-		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
+		$d = user_session_get($uid);
+		if (registry_remove(1, 'auth', 'login_session', key($d))) {
 			$ret = TRUE;
 		}
 	}
+
+	if ($ret) {
+		_log("login session removed from registry uid:" . $uid . " hash:" . $hash, 2, "user_session_remove");
+	}
+	
 	return $ret;
 }
 

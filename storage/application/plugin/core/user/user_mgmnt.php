@@ -355,8 +355,8 @@ switch (_OP_) {
 		break;
 	
 	case "login_as":
-		user_session_remove($_SESSION['uid'], session_id());
-		$uid = user_username2uid($_REQUEST['uname']);
+		//user_session_remove($_SESSION['uid']);
+		$uid = user_username2uid(core_sanitize_username($_REQUEST['uname']));
 		auth_login_as($uid);
 		if (auth_isvalid()) {
 			_log("login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "user_mgmnt");
