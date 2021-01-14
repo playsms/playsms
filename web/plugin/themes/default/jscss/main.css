@@ -44,7 +44,7 @@ table.sortable thead, table.sortable th {
 /* IDs */
 
 #main-menu, .playsms-navbar {
-	height: 50px;
+	min-height: 70px;
 }
 
 #main-submenu {
