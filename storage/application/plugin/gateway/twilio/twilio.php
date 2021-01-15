@@ -44,13 +44,13 @@ switch (_OP_) {
 				<tr><td>" . _('Module timezone') . "</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value=\"" . $plugin_config['twilio']['datetime_timezone'] . "\"> " . _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')) . "</td></tr>
 				</tbody>
 			</table>
-			<p><input type=submit class=button value=\"" . _('Save') . "\">
+			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
 			</form>
-			<br />
-			" . _('Notes') . ":<br />
-			- " . _('Your callback URL should be accessible from twilio') . "<br />
-			- " . _('twilio will push DLR and incoming SMS to your callback URL') . "<br />
-			- " . _('twilio is a bulk SMS provider') . ", <a href=\"http://www.twilio.com\" target=\"_blank\">" . _('free credits are available for testing purposes') . "</a><br />";
+			<p class='lead'>" . _('Notes') . ":</p>
+			<ul>
+				<li>" . _('Your callback URL should be accessible from twilio') . "</li>
+				<li>" . _('twilio will push DLR and incoming SMS to your callback URL') . "</li>
+			</ul>";
 		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;

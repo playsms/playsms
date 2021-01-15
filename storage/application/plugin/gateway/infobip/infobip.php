@@ -42,13 +42,13 @@ switch (_OP_) {
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
-			<br />
-			" . _('Notes') . ":<br />
-			- " . _('Your callback URL is') . " " . $callback_url . "<br />
-			- " . _('Your DLR URL is') . " " . $dlr_url . "<br />
-			- " . _('Your callback URL should be accessible from Infobip') . "<br />
-			- " . _('Infobip will push DLR and incoming SMS to above URL') . "<br />
-			- " . _('Infobip is a bulk SMS provider') . ", <a href=\"http://www.infobip.com\" target=\"_blank\">" . _('create an account to send SMS') . "</a>";
+			<p class='lead'>" . _('Notes') . ":</p>
+			<ul>
+				<li>" . _('Your callback URL is') . " <strong>" . $callback_url . "</strong></li>
+				<li>" . _('Your DLR URL is') . " <strong>" . $dlr_url . "</strong></li>
+				<li>" . _('Your callback URL should be accessible from Infobip') . "</li>
+				<li>" . _('Infobip will push DLR and incoming SMS to above URL') . "</li>
+			</ul>";
 		$content .= '<p>' . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;

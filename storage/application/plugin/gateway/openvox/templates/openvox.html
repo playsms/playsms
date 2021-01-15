@@ -13,8 +13,9 @@
 </table>
 <p><input type=submit class=button value="{{ Save }}">
 </form>
-<br />
-{{ Notes }}:<br />
-- {{ CALLBACK_URL_IS }} {{ callback_url }}<br />
-- {{ CALLBACK_URL_ACCESSIBLE }}<br />
-{{ BUTTON_BACK }}
+<p class="lead">{{ Notes }}:</p>
+<ul>
+	<li>{{ CALLBACK_URL_IS }} <strong>{{ callback_url }}</strong></li>
+	<li>{{ CALLBACK_URL_ACCESSIBLE }}</li>
+</ul>
+<p>{{ BUTTON_BACK }}</p>

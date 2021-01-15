@@ -12,12 +12,12 @@
 		<tr><td>{{ Module timezone }}</td><td><input type=text size=5 maxlength=5 name=up_global_timezone value="{{ nexmo_param_datetime_timezone }}"> {{ HINT_TIMEZONE }}</td></tr>
 	</tbody>
 </table>
-<p><input type=submit class=button value="{{ Save }}">
+<p><input type=submit class=button value="{{ Save }}"></p>
 </form>
-<br />
-{{ Notes }}:<br />
-- {{ CALLBACK_URL_IS }} {{ callback_url }}<br />
-- {{ CALLBACK_URL_ACCESSIBLE }}<br />
-- {{ NEXMO_PUSH_DLR }}<br />
-- {{ NEXMO_IS_BULK }}, <a href="http://www.nexmo.com" target="_blank">{{ NEXMO_FREE_CREDIT }}</a><br />
-{{ BUTTON_BACK }}
+<p class="lead">{{ Notes }}:</p>
+<ul>
+	<li>{{ CALLBACK_URL_IS }} <strong>{{ callback_url }}</strong></li>
+	<li>{{ CALLBACK_URL_ACCESSIBLE }}</li>
+	<li>{{ NEXMO_PUSH_DLR }}</li>
+</ul>
+<p>{{ BUTTON_BACK }}</p>
