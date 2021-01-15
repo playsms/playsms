@@ -74,21 +74,25 @@ switch (_OP_) {
 					$dup = false;
 					$sms_to = trim($data[0]);
 					$sms_msg = trim($data[1]);
+					
+					$skip = FALSE;
 					if (auth_isadmin()) {
 						if ($sms_username = trim($data[2])) {
 							if ($uid = user_username2uid($sms_username)) {
+								// user found
 								$data[2] = $sms_username;
 							} else {
-								$sms_username = $user_config['username'];
-								$uid = $user_config['uid'];
-								$data[2] = $sms_username;
+								// username filled but user not found
+								$skip = TRUE;
 							}
 						} else {
+							// username not defined or empty
 							$sms_username = $user_config['username'];
 							$uid = $user_config['uid'];
 							$data[2] = $sms_username;
 						}
 					} else {
+						// not an admin
 						$sms_username = $user_config['username'];
 						$uid = $user_config['uid'];
 						$data[2] = $sms_username;
@@ -97,7 +101,7 @@ switch (_OP_) {
 					// check dups
 					$dup = ( in_array($sms_to, $all_numbers) ? TRUE : FALSE );
 					
-					if ($sms_to && $sms_msg && $uid && !$dup) {
+					if ($sms_to && $sms_msg && $uid && !$skip && !$dup) {
 						$all_numbers[] = $sms_to;
 						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
 						$db_query .= "VALUES ('$uid','$sid','" . core_get_datetime() . "','$sms_to','" . addslashes($sms_msg) . "','$sms_username')";
@@ -126,40 +130,125 @@ switch (_OP_) {
 		}
 		
 		$content = '<h2 class=page-header-title>' . _('Send from file') . '</h2>';
-		$content .= '<p class=lead>' . _('Confirmation') . '</p>';
+		$content .= '<p class=lead>' . _('Confirmation') . '</p>';	
 		$content .= '<p>' . _('Uploaded file') . ': ' . $filename . '</p>';
+		$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">";
+		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sid . "'>";
+		$content .= "<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\"></p>";
+		$content .= "</form>";
 		
 		if ($valid) {
 			$content .= _('Found valid entries in uploaded file') . ' (' . _('valid entries') . ': ' . $valid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
-			/*
-			 * $content .= '<p class=lead>' . _('Valid entries') . '</p>'; $content .= " <div class=table-responsive> <table class=playsms-table-list> <thead><tr> <th width=20%>" . _('Destination number') . "</th> <th width=60%>" . _('Message') . "</th> <th width=20%>" . _('Username') . "</th> </tr></thead> <tbody>"; $j = 0; foreach ($item_valid as $item) { if ($item[0] && $item[1] && $item[2]) { $content .= " <tr> <td>" . $item[0] . "</td> <td>" . $item[1] . "</td> <td>" . $item[2] . "</td> </tr>"; } } $content .= "</tbody></table></div>";
-			 */
+			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-up" alt="' . _('Valid entries') . '"></span>' . _('Valid entries') . '</p>';
+			$content .= "
+				<div class=table-responsive>
+					<table id=table-valid-entries class=playsms-table-list>
+					<thead>
+						<tr>
+							<th width=20%>" . _('Destination number') . "</th>
+							<th width=60%>" . _('Message') . "</th>
+							<th width=20%>" . _('Username') . "</th>
+						</tr>
+					</thead>
+					<tbody>";
+			$j = 0;
+			foreach ($item_valid as $item) {
+				$content .= "
+					<tr>
+						<td>" . $item[0] . "</td>
+						<td>" . $item[1] . "</td>
+						<td>" . $item[2] . "</td>
+					</tr>"; 
+			} $content .= "
+					<tfoot>
+						<tr>
+							<td id='table-valid-pager' colspan=3>
+							<div class='form-inline pull-right'>
+								<div class='btn-group btn-group-sm mx-1' role='group'>
+									<button type='button' class='btn btn-secondary first'>&#8676;</button>
+									<button type='button' class='btn btn-secondary prev'>&larr;</button>
+									<span class='pagedisplay'></span>
+								</div>
+								<div class='btn-group btn-group-sm mx-1' role='group'>
+									<button type='button' class='btn btn-secondary next' title='next'>&rarr;</button>
+									<button type='button' class='btn btn-secondary last' title='last'>&#8677;</button>
+								</div>
+								<select class='form-control-sm custom-select px-1 pagesize' title='" . _('Select page size') . "'>
+									<option selected='selected' value='10'>10</option>
+									<option value='20'>20</option>
+									<option value='50'>50</option>
+									<option value='100'>100</option>
+								</select>
+							</div>
+							</td>
+						</tr>
+					</tfoot>
+					</tbody>
+					</table>
+				</div>
+				<script type='text/javascript'>
+					$(document).ready(function() { 
+						$('#table-valid-entries').tablesorterPager({container: $('#table-valid-pager')}); 
+					});
+				</script>";
 		}
 		
 		if ($invalid) {
 			$content .= '<p /><br />';
 			$content .= _('Found invalid entries in uploaded file') . ' (' . _('invalid entries') . ': ' . $invalid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
-			$content .= '<p class=lead>' . _('Invalid entries') . '</p>';
+			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-down" alt="' . _('Invalid entries') . '"></span>' . _('Invalid entries') . '</p>';
 			$content .= "
 				<div class=table-responsive>
-				<table class=playsms-table-list>
-				<thead><tr>
-					<th width='20%'>" . _('Destination number') . "</th>
-					<th width='60%'>" . _('Message') . "</th>
-					<th width='20%'>" . _('Username') . "</th>
-				</tr></thead>";
+					<table id=table-invalid-entries class=playsms-table-list>
+					<thead>
+						<tr>
+							<th width='20%'>" . _('Destination number') . "</th>
+							<th width='60%'>" . _('Message') . "</th>
+							<th width='20%'>" . _('Username') . "</th>
+						</tr>
+					</thead>
+					<tbody>";
 			$j = 0;
 			foreach ($item_invalid as $item) {
-				if ($item[0] && $item[1] && $item[2]) {
-					$content .= "
-						<tr>
-							<td>" . $item[0] . "</td>
-							<td>" . $item[1] . "</td>
-							<td>" . $item[2] . "</td>
-						</tr>";
-				}
+				$content .= "
+					<tr>
+						<td>" . $item[0] . "</td>
+						<td>" . $item[1] . "</td>
+						<td>" . $item[2] . "</td>
+					</tr>";
 			}
-			$content .= "</tbody></table></div>";
+			$content .= "
+					<tfoot>
+						<tr>
+							<td id='table-invalid-pager' colspan=3>
+							<div class='form-inline pull-right'>
+								<div class='btn-group btn-group-sm mx-1' role='group'>
+									<button type='button' class='btn btn-secondary first'>&#8676;</button>
+									<button type='button' class='btn btn-secondary prev'>&larr;</button>
+									<span class='pagedisplay'></span>
+								</div>
+								<div class='btn-group btn-group-sm mx-1' role='group'>
+									<button type='button' class='btn btn-secondary next' title='next'>&rarr;</button>
+									<button type='button' class='btn btn-secondary last' title='last'>&#8677;</button>
+								</div>
+								<select class='form-control-sm custom-select px-1 pagesize' title='" . _('Select page size') . "'>
+									<option selected='selected' value='10'>10</option>
+									<option value='20'>20</option>
+									<option value='50'>50</option>
+									<option value='100'>100</option>
+								</select>
+							</div>
+							</td>
+						</tr>
+					</tfoot>
+					</tbody>
+					</table>
+				</div>
+				<script type='text/javascript'>
+					$(document).ready(function() { 
+						$('#table-invalid-entries').tablesorterPager({container: $('#table-invalid-pager')}); 
+					});
+				</script>";
 		}
 		
 		$content .= '<p class=lead>' . _('Your choice') . '</p>';
