@@ -44,7 +44,10 @@ $tpl = array(
 		'Current IP address' => _('Current IP address') ,
 		'User agent' => _('User agent') ,
 		'Action' => 'Action',
-	)
+	),
+	'injects' => array(
+		'icon_config',
+	),
 );
 
 // display admin users
