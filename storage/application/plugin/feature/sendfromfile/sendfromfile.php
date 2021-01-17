@@ -22,10 +22,16 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
+// fixme anton - perhaps we just need to check $_SESSION['status'] == 2
+$sendfromfile_isadmin = FALSE;
+if (auth_isadmin()) {
+	$sendfromfile_isadmin = TRUE;
+}
+
 switch (_OP_) {
 	case 'list':
 		$content = _dialog() . '<h2 class=page-header-title>' . _('Send from file') . '</h2><p />';
-		if (auth_isadmin()) {
+		if ($sendfromfile_isadmin) {
 			$info_format = _('destination number, message, username');
 		} else {
 			$info_format = _('destination number, message');
@@ -72,13 +78,14 @@ switch (_OP_) {
 				$continue = true;
 				while ((($data = fgetcsv($fd, $fs, ',')) !== FALSE) && $continue) {
 					$dup = false;
-					$sms_to = trim($data[0]);
-					$sms_msg = trim($data[1]);
+					$data[0] = core_sanitize_sender($data[0]);
+					$data[1] = core_sanitize_string($data[1]);
 					
 					$skip = FALSE;
-					if (auth_isadmin()) {
-						if ($sms_username = trim($data[2])) {
-							if ($uid = user_username2uid($sms_username)) {
+					if ($sendfromfile_isadmin) {
+						if ($sms_username = core_sanitize_username($data[2])) {
+							// if supplied username is clean  and it exists
+							if (($sms_username == $data[2]) && ($uid = user_username2uid($sms_username))) {
 								// user found
 								$data[2] = $sms_username;
 							} else {
@@ -99,12 +106,12 @@ switch (_OP_) {
 					}
 					
 					// check dups
-					$dup = ( in_array($sms_to, $all_numbers) ? TRUE : FALSE );
+					$dup = ( in_array($data[0], $all_numbers) ? TRUE : FALSE );
 					
-					if ($sms_to && $sms_msg && $uid && !$skip && !$dup) {
-						$all_numbers[] = $sms_to;
+					if ($data[0] && $data[1] && $uid && !$skip && !$dup) {
+						$all_numbers[] = $data[0];
 						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
-						$db_query .= "VALUES ('$uid','$sid','" . core_get_datetime() . "','$sms_to','" . addslashes($sms_msg) . "','$sms_username')";
+						$db_query .= "VALUES ('$uid','$sid','" . core_get_datetime() . "','$data[0]','" . addslashes($data[1]) . "','$sms_username')";
 						if ($db_result = dba_insert_id($db_query)) {
 							$item_valid[$valid] = $data;
 							$valid++;
@@ -112,7 +119,7 @@ switch (_OP_) {
 							$item_invalid[$invalid] = $data;
 							$invalid++;
 						}
-					} else if ($sms_to || $sms_msg) {
+					} else if (($data[0] || $data[1]) && !$dup) {
 						$item_invalid[$invalid] = $data;
 						$invalid++;
 					}
@@ -143,23 +150,43 @@ switch (_OP_) {
 			$content .= "
 				<div class=table-responsive>
 					<table id=table-valid-entries class=playsms-table-list>
-					<thead>
-						<tr>
-							<th width=20%>" . _('Destination number') . "</th>
-							<th width=60%>" . _('Message') . "</th>
-							<th width=20%>" . _('Username') . "</th>
-						</tr>
+					<thead>";
+			if ($sendfromfile_isadmin) {
+				$content .= "
+					<tr>
+						<th width=20%>" . _('Destination number') . "</th>
+						<th width=60%>" . _('Message') . "</th>
+						<th width=20%>" . _('Username') . "</th>
+					</tr>";
+			} else {
+				$content .= "
+					<tr>
+						<th width=20%>" . _('Destination number') . "</th>
+						<th width=80%>" . _('Message') . "</th>
+					</tr>";
+			}
+			$content .= "
 					</thead>
 					<tbody>";
 			$j = 0;
 			foreach ($item_valid as $item) {
-				$content .= "
-					<tr>
-						<td>" . $item[0] . "</td>
-						<td>" . $item[1] . "</td>
-						<td>" . $item[2] . "</td>
-					</tr>"; 
-			} $content .= "
+				if ($sendfromfile_isadmin) {
+					$content .= "
+						<tr>
+							<td>" . $item[0] . "</td>
+							<td>" . $item[1] . "</td>
+							<td>" . $item[2] . "</td>
+						</tr>";
+				} else {
+					$content .= "
+						<tr>
+							<td>" . $item[0] . "</td>
+							<td>" . $item[1] . "</td>
+						</tr>";
+				}
+			}
+			$content .= "
+					</tbody>
 					<tfoot>
 						<tr>
 							<td id='table-valid-pager' colspan=3>
@@ -183,7 +210,6 @@ switch (_OP_) {
 							</td>
 						</tr>
 					</tfoot>
-					</tbody>
 					</table>
 				</div>
 				<script type='text/javascript'>
@@ -200,24 +226,43 @@ switch (_OP_) {
 			$content .= "
 				<div class=table-responsive>
 					<table id=table-invalid-entries class=playsms-table-list>
-					<thead>
-						<tr>
-							<th width='20%'>" . _('Destination number') . "</th>
-							<th width='60%'>" . _('Message') . "</th>
-							<th width='20%'>" . _('Username') . "</th>
-						</tr>
+					<thead>";
+			if ($sendfromfile_isadmin) {
+				$content .= "
+					<tr>
+						<th width=20%>" . _('Destination number') . "</th>
+						<th width=60%>" . _('Message') . "</th>
+						<th width=20%>" . _('Username') . "</th>
+					</tr>";
+			} else {
+				$content .= "
+					<tr>
+						<th width=20%>" . _('Destination number') . "</th>
+						<th width=80%>" . _('Message') . "</th>
+					</tr>";
+			}
+			$content .= "
 					</thead>
 					<tbody>";
 			$j = 0;
 			foreach ($item_invalid as $item) {
-				$content .= "
-					<tr>
-						<td>" . $item[0] . "</td>
-						<td>" . $item[1] . "</td>
-						<td>" . $item[2] . "</td>
-					</tr>";
+				if ($sendfromfile_isadmin) {
+					$content .= "
+						<tr>
+							<td>" . $item[0] . "</td>
+							<td>" . $item[1] . "</td>
+							<td>" . $item[2] . "</td>
+						</tr>";
+				} else {
+					$content .= "
+						<tr>
+							<td>" . $item[0] . "</td>
+							<td>" . $item[1] . "</td>
+						</tr>";
+				}
 			}
 			$content .= "
+					</tbody>
 					<tfoot>
 						<tr>
 							<td id='table-invalid-pager' colspan=3>
@@ -241,7 +286,6 @@ switch (_OP_) {
 							</td>
 						</tr>
 					</tfoot>
-					</tbody>
 					</table>
 				</div>
 				<script type='text/javascript'>
@@ -284,19 +328,19 @@ switch (_OP_) {
 			$db_result = dba_query($db_query);
 			while ($db_row = dba_fetch_array($db_result)) {
 				$c_sms_to = $db_row['sms_to'];
-				$c_username = $db_row['sms_username'];
 				$c_sms_msg = $db_row['sms_msg'];
+				$c_username = $db_row['sms_username'];
 				$c_hash = md5($c_username . $c_sms_msg);
 				if ($c_sms_to && $c_username && $c_sms_msg) {
-					$data[$c_hash]['username'] = $c_username;
-					$data[$c_hash]['message'] = $c_sms_msg;
 					$data[$c_hash]['sms_to'][] = $c_sms_to;
+					$data[$c_hash]['message'] = $c_sms_msg;
+					$data[$c_hash]['username'] = $c_username;
 				}
 			}
 			foreach ($data as $hash => $item) {
-				$username = $item['username'];
-				$message = $item['message'];
 				$sms_to = $item['sms_to'];
+				$message = $item['message'];
+				$username = $item['username'];
 				_log('hash:' . $hash . ' u:' . $username . ' m:[' . $message . '] to_count:' . count($sms_to), 3, 'sendfromfile upload_process');
 				if ($username && $message && count($sms_to)) {
 					$type = 'text';
