@@ -1,7 +1,7 @@
 <h2 class="page-header-title">{{ Report }}</h2>
 <h3 class="page-header-subtitle">{{ All reports }}</h3>
 <div class=table-responsive>
-<table class=playsms-table-list>
+<table id=playsms-table-list class=playsms-table-list>
 	<thead>
 		<tr>
 			<th width=20%>{{ User }}</th>
@@ -25,18 +25,45 @@
 				<td>{{ data.c_credit }}</td>
 			</tr>
 		</loop.data>
-
-		<thead>
-			<tr>
-				<th>{{ Total }}: {{ sum_total }}</td>
-				<th>{{ sum_num_rows_pending }}</th>
-				<th>{{ sum_num_rows_sent }}</th>
-				<th>{{ sum_num_rows_delivered }}</th>
-				<th>{{ sum_num_rows_failed }}</th>
-				<th>{{ sum_billing }}</th>
-				<th>{{ sum_credit }}</th>
-			</tr>
-		</thead>
 	</tbody>
+	<thead>
+		<tr>
+			<th>{{ Total }}: {{ sum_total }}</td>
+			<th>{{ sum_num_rows_pending }}</th>
+			<th>{{ sum_num_rows_sent }}</th>
+			<th>{{ sum_num_rows_delivered }}</th>
+			<th>{{ sum_num_rows_failed }}</th>
+			<th>{{ sum_billing }}</th>
+			<th>{{ sum_credit }}</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td id='playsms-table-pager' class='playsms-table-pager' colspan=7>
+			<div class='form-inline pull-right'>
+				<div class='btn-group btn-group-sm mx-1' role='group'>
+					<button type='button' class='btn btn-secondary first'>&#8676;</button>
+					<button type='button' class='btn btn-secondary prev'>&larr;</button>
+					<span class='pagedisplay'></span>
+				</div>
+				<div class='btn-group btn-group-sm mx-1' role='group'>
+					<button type='button' class='btn btn-secondary next' title='next'>&rarr;</button>
+					<button type='button' class='btn btn-secondary last' title='last'>&#8677;</button>
+				</div>
+				<select class='form-control-sm custom-select px-1 pagesize' title='{{ Select page size }}'>
+					<option selected='selected' value='10'>10</option>
+					<option value='20'>20</option>
+					<option value='50'>50</option>
+					<option value='100'>100</option>
+				</select>
+			</div>
+			</td>
+		</tr>
+	</tfoot>
 </table>
 </div>
+<script type='text/javascript'>
+	$(document).ready(function() { 
+		$('#playsms-table-list').tablesorterPager({container: $('#playsms-table-pager')}); 
+	});
+</script>

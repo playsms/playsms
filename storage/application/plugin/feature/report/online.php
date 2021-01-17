@@ -44,6 +44,7 @@ $tpl = array(
 		'Current IP address' => _('Current IP address') ,
 		'User agent' => _('User agent') ,
 		'Action' => 'Action',
+		'Select page size' => _('Select page size'),
 	),
 	'injects' => array(
 		'icon_config',

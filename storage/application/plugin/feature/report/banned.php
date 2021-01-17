@@ -48,6 +48,7 @@ $tpl = array(
 		'Email' => _('Email') ,
 		'Ban date/time' => _('Ban date/time') ,
 		'Action' => 'Action',
+		'Select page size' => _('Select page size'),
 	)
 );
 

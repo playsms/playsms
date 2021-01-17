@@ -33,7 +33,8 @@ $tpl = array(
 		'Delivered' => _('Delivered'),
 		'Failed' => _('Failed'),
 		'Billing' => _('Billing'),
-		'Credit' => _('Credit') 
+		'Credit' => _('Credit'),
+		'Select page size' => _('Select page size'),
 	) 
 );
 // p_status values mapped to tpl array elements
