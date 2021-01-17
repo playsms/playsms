@@ -24,8 +24,6 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case "queuelog_list":
-		$nav = themes_nav($count, "index.php?app=main&inc=feature_queuelog&op=queuelog_list");
-		
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('View SMS queue') . "</h2>";
 		
@@ -40,9 +38,9 @@ switch (_OP_) {
 				</p>";
 		}
 		
-		$content .= "<div align=center>" . $nav['form'] . "</div>
+		$content .= "
 			<div class=table-responsive>
-			<table class=playsms-table-list>
+			<table id=playsms-table-list class=playsms-table-list>
 			<thead>
 			<tr>
 		";
@@ -101,10 +99,37 @@ switch (_OP_) {
 			";
 		}
 		$content .= "
-			</tbody></table>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td id='playsms-table-pager' class='playsms-table-pager' colspan=6>
+						<div class='form-inline pull-right'>
+							<div class='btn-group btn-group-sm mx-1' role='group'>
+								<button type='button' class='btn btn-secondary first'>&#8676;</button>
+								<button type='button' class='btn btn-secondary prev'>&larr;</button>
+								<span class='pagedisplay'></span>
+							</div>
+							<div class='btn-group btn-group-sm mx-1' role='group'>
+								<button type='button' class='btn btn-secondary next' title='next'>&rarr;</button>
+								<button type='button' class='btn btn-secondary last' title='last'>&#8677;</button>
+							</div>
+							<select class='form-control-sm custom-select px-1 pagesize' title='{{ Select page size }}'>
+								<option selected='selected' value='10'>10</option>
+								<option value='20'>20</option>
+								<option value='50'>50</option>
+								<option value='100'>100</option>
+							</select>
+						</div>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
 			</div>
-			<div align=center>" . $nav['form'] . "</div>
-		";
+			<script type='text/javascript'>
+				$(document).ready(function() { 
+					$('#playsms-table-list').tablesorterPager({container: $('#playsms-table-pager')}); 
+				});
+			</script>";
 		_p($content);
 		break;
 	case "queuelog_delete":
