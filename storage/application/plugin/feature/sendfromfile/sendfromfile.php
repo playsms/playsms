@@ -149,7 +149,7 @@ switch (_OP_) {
 			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-up" alt="' . _('Valid entries') . '"></span>' . _('Valid entries') . '</p>';
 			$content .= "
 				<div class=table-responsive>
-					<table id=table-valid-entries class=playsms-table-list>
+					<table id=playsms-table-list class=playsms-table-list>
 					<thead>";
 			if ($sendfromfile_isadmin) {
 				$content .= "
@@ -189,7 +189,7 @@ switch (_OP_) {
 					</tbody>
 					<tfoot>
 						<tr>
-							<td id='table-valid-pager' colspan=3>
+							<td id='playsms-table-pager' class='playsms-table-pager' colspan=3>
 							<div class='form-inline pull-right'>
 								<div class='btn-group btn-group-sm mx-1' role='group'>
 									<button type='button' class='btn btn-secondary first'>&#8676;</button>
@@ -214,7 +214,7 @@ switch (_OP_) {
 				</div>
 				<script type='text/javascript'>
 					$(document).ready(function() { 
-						$('#table-valid-entries').tablesorterPager({container: $('#table-valid-pager')}); 
+						$('#playsms-table-list').tablesorterPager({container: $('#playsms-table-pager')}); 
 					});
 				</script>";
 		}
