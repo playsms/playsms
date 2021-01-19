@@ -50,7 +50,7 @@ switch (_OP_) {
 				<tr>
 					<td>" . $db_row['dst'] . "</td>
 					<td>" . $db_row['prefix'] . "</td>
-					<td>" . $db_row['rate'] . "</td>
+					<td>" . core_display_credit($db_row['rate']) . "</td>
 					<td nowrap>" . $action . "</td>
 				</tr>";
 		}
@@ -91,7 +91,7 @@ switch (_OP_) {
 				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='up_prefix' value=\"$prefix\"></td>
 			</tr>
 			<tr>
-				<td>" . _('Rate') . "</td><td><input type='text' maxlength=14 name='up_rate' value=\"$rate\"></td>
+				<td>" . _('Rate') . "</td><td><input type='text' maxlength=14 name='up_rate' value=\"" . core_display_credit($rate) . "\"></td>
 			</tr>
 			</table>
 			<p><input type='submit' class='button' value='" . _('Save') . "'></p>
@@ -104,7 +104,7 @@ switch (_OP_) {
 		$up_dst = $_POST['up_dst'];
 		$up_prefix = $_POST['up_prefix'];
 		$up_prefix = preg_replace('/[^0-9.]*/', '', $up_prefix);
-		$up_rate = $_POST['up_rate'];
+		$up_rate = (float) $_POST['up_rate'];
 		$_SESSION['dialog']['info'][] = _('No changes made!');
 		if ($rateid && $up_dst && ($up_prefix >= 0) && ($up_rate >= 0)) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSimplerate SET c_timestamp='" . time() . "',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
@@ -133,7 +133,7 @@ switch (_OP_) {
 				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\"></td>
 			</tr>
 			<tr>
-				<td>" . _('Rate') . "</td><td><input type='text' maxlength=14 name='add_rate' value=\"$add_rate\"></td>
+				<td>" . _('Rate') . "</td><td><input type='text' maxlength=14 name='add_rate' value=\"" . core_display_credit($add_rate) . "\"></td>
 			</tr>
 			</table>
 			<input type='submit' class='button' value='" . _('Save') . "'>
@@ -145,7 +145,7 @@ switch (_OP_) {
 		$add_dst = $_POST['add_dst'];
 		$add_prefix = $_POST['add_prefix'];
 		$add_prefix = preg_replace('/[^0-9.]*/', '', $add_prefix);
-		$add_rate = $_POST['add_rate'];
+		$add_rate = (float) $_POST['add_rate'];
 		if ($add_dst && ($add_prefix >= 0) && ($add_rate >= 0)) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSimplerate WHERE prefix='$add_prefix'";
 			$db_result = dba_query($db_query);
