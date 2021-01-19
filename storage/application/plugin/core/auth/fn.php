@@ -202,7 +202,7 @@ function auth_isvalid() {
 		if (time() > ($_SESSION['last_update'] + (60 * 60))) {
 			_log("invalid due to inactivity", 2, "auth_isvalid");
 			
-			auth_session_destroy();
+			//auth_session_destroy();
 			
 			return FALSE;
 		}
@@ -211,7 +211,7 @@ function auth_isvalid() {
 		if (time() > ($_SESSION['login_time'] + (6 * 60 * 60))) {
 			_log("invalid due to login time limit", 2, "auth_isvalid");
 			
-			auth_session_destroy();
+			//auth_session_destroy();
 			
 			return FALSE;
 		}
@@ -220,7 +220,7 @@ function auth_isvalid() {
 		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT'])))) {
 			_log("invalid due to HTTP_USER_AGENT changed sess:[" . $_SESSION['http_user_agent'] . "] reg:[" . core_sanitize_string($_SERVER['HTTP_USER_AGENT']) . "]", 2, "auth_isvalid");
 			
-			auth_session_destroy();
+			//auth_session_destroy();
 			
 			return FALSE;
 		}
@@ -229,7 +229,7 @@ function auth_isvalid() {
 		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $_SERVER['REMOTE_ADDR']))) {
 			_log("invalid due to REMOTE_ADDR changed ip:" . $_SESSION['ip'], 2, "auth_isvalid");
 			
-			auth_session_destroy();
+			//auth_session_destroy();
 			
 			return FALSE;				
 		}
@@ -241,7 +241,7 @@ function auth_isvalid() {
 		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == stripslashes($d[$login_sid]['http_user_agent'])))) {
 			_log("invalid due to recorded HTTP_USER_AGENT not match sess:[" . $_SESSION['http_user_agent'] . "] reg:[" . $d[$login_sid]['http_user_agent'] . "]", 2, "auth_isvalid");
 			
-			auth_session_destroy();
+			//auth_session_destroy();
 			
 			return FALSE;				
 		}
@@ -250,7 +250,7 @@ function auth_isvalid() {
 		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $d[$login_sid]['ip']))) {
 			_log("invalid due to recorded IP address not match ip:" . $_SESSION['ip'] . " reg:" . $d[$login_sid]['ip'], 2, "auth_isvalid");
 			
-			auth_session_destroy();
+			//auth_session_destroy();
 			
 			return FALSE;				
 		}
@@ -269,9 +269,9 @@ function auth_isvalid() {
  */
 function auth_isadmin() {
 	if ($_SESSION['status'] == 2) {
-		if (auth_isvalid()) {
+		//if (auth_isvalid()) {
 			return TRUE;
-		}
+		//}
 	}
 	return FALSE;
 }
@@ -283,9 +283,9 @@ function auth_isadmin() {
  */
 function auth_isuser() {
 	if ($_SESSION['status'] == 3) {
-		if (auth_isvalid()) {
+		//if (auth_isvalid()) {
 			return TRUE;
-		}
+		//}
 	}
 	return FALSE;
 }
@@ -297,9 +297,9 @@ function auth_isuser() {
  */
 function auth_issubuser() {
 	if ($_SESSION['status'] == 4) {
-		if (auth_isvalid()) {
+		//if (auth_isvalid()) {
 			return TRUE;
-		}
+		//}
 	}
 	return FALSE;
 }
@@ -313,9 +313,9 @@ function auth_issubuser() {
  */
 function auth_isstatus($status) {
 	if ($_SESSION['status'] == (int) $status) {
-		if (auth_isvalid()) {
+		//if (auth_isvalid()) {
 			return TRUE;
-		}
+		//}
 	}
 	return FALSE;
 }
@@ -328,7 +328,7 @@ function auth_isstatus($status) {
  * @return boolean TRUE if valid and visitor has certain ACL
  */
 function auth_isacl($acl) {
-	if (auth_isvalid()) {
+	//if (auth_isvalid()) {
 		if (auth_isadmin()) {
 			return TRUE;
 		} else {
@@ -338,7 +338,7 @@ function auth_isacl($acl) {
 				return TRUE;
 			}
 		}
-	}
+	//}
 	return FALSE;
 }
 
