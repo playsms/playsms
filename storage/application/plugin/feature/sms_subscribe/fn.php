@@ -88,7 +88,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 			$msg0 .= $c_arr[$i] . ' ';
 		}
 		$message = trim($msg0);
-		$bc_to = '';
+		$bc_to = array();
 		$db_query1 = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id'";
 		$db_result1 = dba_query($db_query1);
 		while ($db_row1 = dba_fetch_array($db_result1)) {
