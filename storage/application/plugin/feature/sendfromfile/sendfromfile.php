@@ -22,16 +22,10 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-// fixme anton - perhaps we just need to check $_SESSION['status'] == 2
-$sendfromfile_isadmin = FALSE;
-if (auth_isadmin()) {
-	$sendfromfile_isadmin = TRUE;
-}
-
 switch (_OP_) {
 	case 'list':
 		$content = _dialog() . '<h2 class=page-header-title>' . _('Send from file') . '</h2><p />';
-		if ($sendfromfile_isadmin) {
+		if (auth_isadmin()) {
 			$info_format = _('destination number, message, username');
 		} else {
 			$info_format = _('destination number, message');
@@ -58,77 +52,26 @@ switch (_OP_) {
 	
 		// fixme anton - https://www.exploit-database.net/?id=92843
 		$filename = core_sanitize_filename($_FILES['fncsv']['name']);		
-		if ($filename == $_FILES['fncsv']['name']) {
-			$continue = TRUE;
+		if ($filename && $filename == $_FILES['fncsv']['name']) {
+			$fn = $_FILES['fncsv']['tmp_name'];
+			$fs = (int) $_FILES['fncsv']['size'];
+			if ($fs && ($fs == filesize($fn)) && file_exists($fn)) {
+				$continue = TRUE;
+			} else {
+				_log("file is empty or does not exists fn:" . $_FILES['fncsv']['name'] . " file:" . $fn, 2, "sendfromfile upload_confirm");
+				$_FILES = array();
+
+				$continue = FALSE;
+			}
 		} else {
+			_log("insecure file name detected fn:" . $_FILES['fncsv']['name'], 2, "sendfromfile upload_confirm");
+			$_FILES = array();
+
 			$continue = FALSE;
 		}
 		
-		$fn = $_FILES['fncsv']['tmp_name'];
-		$fs = (int) $_FILES['fncsv']['size'];
-		$all_numbers = array();
-		$valid = 0;
-		$invalid = 0;
-		$item_valid = array();
-		$item_invalid = array();
-		
-		if ($continue && ($fs == filesize($fn)) && file_exists($fn)) {
-			if (($fd = fopen($fn, 'r')) !== FALSE) {
-				$sid = md5(uniqid('SID', true));
-				$continue = true;
-				while ((($data = fgetcsv($fd, $fs, ',')) !== FALSE) && $continue) {
-					$dup = false;
-					$data[0] = core_sanitize_sender($data[0]);
-					$data[1] = core_sanitize_string($data[1]);
-					
-					$skip = FALSE;
-					if ($sendfromfile_isadmin) {
-						if ($sms_username = core_sanitize_username($data[2])) {
-							// if supplied username is clean  and it exists
-							if (($sms_username == $data[2]) && ($uid = user_username2uid($sms_username))) {
-								// user found
-								$data[2] = $sms_username;
-							} else {
-								// username filled but user not found
-								$skip = TRUE;
-							}
-						} else {
-							// username not defined or empty
-							$sms_username = $user_config['username'];
-							$uid = $user_config['uid'];
-							$data[2] = $sms_username;
-						}
-					} else {
-						// not an admin
-						$sms_username = $user_config['username'];
-						$uid = $user_config['uid'];
-						$data[2] = $sms_username;
-					}
-					
-					// check dups
-					$dup = ( in_array($data[0], $all_numbers) ? TRUE : FALSE );
-					
-					if ($data[0] && $data[1] && $uid && !$skip && !$dup) {
-						$all_numbers[] = $data[0];
-						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
-						$db_query .= "VALUES ('$uid','$sid','" . core_get_datetime() . "','$data[0]','" . addslashes($data[1]) . "','$sms_username')";
-						if ($db_result = dba_insert_id($db_query)) {
-							$item_valid[$valid] = $data;
-							$valid++;
-						} else {
-							$item_invalid[$invalid] = $data;
-							$invalid++;
-						}
-					} else if (($data[0] || $data[1]) && !$dup) {
-						$item_invalid[$invalid] = $data;
-						$invalid++;
-					}
-					$num_of_rows = $valid + $invalid;
-					if ($num_of_rows >= $sendfromfile_row_limit) {
-						$continue = false;
-					}
-				}
-			}
+		if ($continue) {
+			list($all_numbers, $item_valid, $item_invalid, $valid, $invalid, $num_of_rows, $sendfromfile_id) = sendfromfile_verify($fn);
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Invalid CSV file');
 			header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
@@ -139,19 +82,25 @@ switch (_OP_) {
 		$content = '<h2 class=page-header-title>' . _('Send from file') . '</h2>';
 		$content .= '<p class=lead>' . _('Confirmation') . '</p>';	
 		$content .= '<p>' . _('Uploaded file') . ': ' . $filename . '</p>';
+
 		$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">";
-		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sid . "'>";
+		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
 		$content .= "<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\"></p>";
 		$content .= "</form>";
-		
-		if ($valid) {
+
+		if ($sendfromfile_id && $valid) {
+			$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">";
+			$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
+			$content .= "<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\"></p>";
+			$content .= "</form>";			
+
 			$content .= _('Found valid entries in uploaded file') . ' (' . _('valid entries') . ': ' . $valid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
 			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-up" alt="' . _('Valid entries') . '"></span>' . _('Valid entries') . '</p>';
 			$content .= "
 				<div class=table-responsive>
 					<table id=playsms-table-list class=playsms-table-list>
 					<thead>";
-			if ($sendfromfile_isadmin) {
+			if (auth_isadmin()) {
 				$content .= "
 					<tr>
 						<th width=20%>" . _('Destination number') . "</th>
@@ -170,7 +119,7 @@ switch (_OP_) {
 					<tbody>";
 			$j = 0;
 			foreach ($item_valid as $item) {
-				if ($sendfromfile_isadmin) {
+				if (auth_isadmin()) {
 					$content .= "
 						<tr>
 							<td>" . $item[0] . "</td>
@@ -227,7 +176,7 @@ switch (_OP_) {
 				<div class=table-responsive>
 					<table id=table-invalid-entries class=playsms-table-list>
 					<thead>";
-			if ($sendfromfile_isadmin) {
+			if (auth_isadmin()) {
 				$content .= "
 					<tr>
 						<th width=20%>" . _('Destination number') . "</th>
@@ -246,7 +195,7 @@ switch (_OP_) {
 					<tbody>";
 			$j = 0;
 			foreach ($item_invalid as $item) {
-				if ($sendfromfile_isadmin) {
+				if (auth_isadmin()) {
 					$content .= "
 						<tr>
 							<td>" . $item[0] . "</td>
@@ -295,23 +244,24 @@ switch (_OP_) {
 				</script>";
 		}
 		
-		$content .= '<p class=lead>' . _('Your choice') . '</p>';
 		$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">";
-		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sid . "'>";
+		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
 		$content .= "<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\"></p>";
 		$content .= "</form>";
-		$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">";
-		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sid . "'>";
-		$content .= "<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\"></p>";
-		$content .= "</form>";
+
+		if ($sendfromfile_id && $valid) {
+			$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">";
+			$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
+			$content .= "<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\"></p>";
+		}
 		
 		_p($content);
 		break;
 	
 	case 'upload_cancel':
-		if ($sid = $_REQUEST['sid']) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
-			dba_query($db_query);
+		if ($sendfromfile_id = $_REQUEST['sid']) {
+			sendfromfile_destroy($sendfromfile_id);
+
 			$_SESSION['dialog']['danger'][] = _('Send from file has been cancelled');
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Invalid session ID');
@@ -321,37 +271,10 @@ switch (_OP_) {
 		break;
 	
 	case 'upload_process':
-		@set_time_limit(0);
-		if ($sid = $_REQUEST['sid']) {
-			$data = array();
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
-			$db_result = dba_query($db_query);
-			while ($db_row = dba_fetch_array($db_result)) {
-				$c_sms_to = $db_row['sms_to'];
-				$c_sms_msg = $db_row['sms_msg'];
-				$c_username = $db_row['sms_username'];
-				$c_hash = md5($c_username . $c_sms_msg);
-				if ($c_sms_to && $c_username && $c_sms_msg) {
-					$data[$c_hash]['sms_to'][] = $c_sms_to;
-					$data[$c_hash]['message'] = $c_sms_msg;
-					$data[$c_hash]['username'] = $c_username;
-				}
-			}
-			foreach ($data as $hash => $item) {
-				$sms_to = $item['sms_to'];
-				$message = $item['message'];
-				$username = $item['username'];
-				_log('hash:' . $hash . ' u:' . $username . ' m:[' . $message . '] to_count:' . count($sms_to), 3, 'sendfromfile upload_process');
-				if ($username && $message && count($sms_to)) {
-					$type = 'text';
-					$unicode = core_detect_unicode($message);
-					$message = addslashes($message);
-					list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, $type, $unicode);
-				}
-			}
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
-			dba_query($db_query);
-			$_SESSION['dialog']['info'][] = _('SMS has been sent to valid numbers in uploaded file');
+		if ($sendfromfile_id = $_REQUEST['sid']) {
+			sendfromfile_process($sendfromfile_id);
+
+			$_SESSION['dialog']['info'][] = _('SMS to valid numbers in uploaded file has been delivered to queue');
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Invalid session ID');
 		}
