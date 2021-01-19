@@ -72,3 +72,7 @@ $core_config['sendsmsd_chunk_size'] = 100;
 
 // webservices require username
 $core_config['webservices_username']	= false;
+
+// use alternate $_SESSION['REMOTE_ADDR']
+// keep this empty unless you know what you are doing
+$core_config['remote_addr'] = '';

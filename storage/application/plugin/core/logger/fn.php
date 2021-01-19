@@ -22,7 +22,7 @@ defined('_SECURE_') or die('Forbidden');
 function logger_print($log, $level='', $label='') {
 	global $core_config, $user_config;
 
-	$remote = ( trim($_SERVER['REMOTE_ADDR']) ? trim($_SERVER['REMOTE_ADDR']) : '-' );
+	$remote = ( trim(_REMOTE_ADDR_) ? trim(_REMOTE_ADDR_) : '-' );
 	$host = ( trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-' );
 	$logfile = ( $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log' );
 
@@ -92,7 +92,7 @@ function logger_audit() {
 		$logauditfile = ( $core_config['logauditfile'] ? $core_config['logauditfile'] : 'audit.log' );
 		$username = ( $user_config['username'] ? $user_config['username'] : $_SESSION['username'] );
 		$username = ( trim($username) ? trim($username) : '-' );
-		$ip = $_SERVER['REMOTE_ADDR'];
+		$ip = _REMOTE_ADDR_;
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {
 			$dt = date($core_config['datetime']['format'], time());

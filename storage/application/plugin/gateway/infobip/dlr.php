@@ -13,7 +13,7 @@ if (!$called_from_hook_call) {
 	$requests = $_REQUEST;
 }
 
-$remote_addr = $_SERVER['REMOTE_ADDR'];
+$remote_addr = _REMOTE_ADDR_;
 
 // srosa 20100531: added var below
 $remote_host = $_SERVER['HTTP_HOST'];

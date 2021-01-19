@@ -38,7 +38,7 @@ if (_OP_ == 'register') {
 		
 			// captcha timeout 15 minutes
 			if (time() > ($session_captcha_time + (15 * 60))) {
-				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth register");
+				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . _REMOTE_ADDR_, 2, "auth register");
 
 				$_SESSION['dialog']['danger'][] = _('Captcha was expired, please try again');
 
@@ -47,7 +47,7 @@ if (_OP_ == 'register') {
 			}
 			
 		} else {
-			_log("fail to verify captcha ip:" . $_SERVER['REMOTE_ADDR'], 2, "register");
+			_log("fail to verify captcha ip:" . _REMOTE_ADDR_, 2, "register");
 
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 
@@ -64,7 +64,7 @@ if (_OP_ == 'register') {
 
 	if ($core_config['main']['enable_register']) {
 		if (!($data['name'] && $data['username'] && $data['email'])) {
-			_log("incomplete registration data name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth register");
+			_log("incomplete registration data name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . _REMOTE_ADDR_, 2, "auth register");
 		
 			$_SESSION['dialog']['danger'][] = _('Incomplete registration data');
 
@@ -72,7 +72,7 @@ if (_OP_ == 'register') {
 			exit();
 		}
 	} else {
-		_log("attempted to register an account while disabled name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth register");
+		_log("attempted to register an account while disabled name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . _REMOTE_ADDR_, 2, "auth register");
 		
 		$_SESSION['dialog']['danger'][] = _('Register an account is disabled');
 

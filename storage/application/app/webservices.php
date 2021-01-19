@@ -478,7 +478,7 @@ if (_OP_) {
 				$nets = explode(',', $user['webservices_ip']);
 				if (is_array($nets)) {
 					foreach ($nets as $net) {
-						if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
+						if (core_net_match($net, _REMOTE_ADDR_)) {
 							$continue = true;
 						}
 					}
@@ -560,15 +560,15 @@ if (_OP_) {
 						// setup login session after successful login
 						auth_session_setup($c_uid);
 						
-						_log("webservices logged in u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
+						_log("webservices logged in u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_, 3, "webservices");
 					} else {
-						_log("webservices invalid login u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
+						_log("webservices invalid login u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_, 3, "webservices");
 					}
 				} else {
-					_log("webservices error unable to remove registry u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
+					_log("webservices error unable to remove registry u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_, 3, "webservices");
 				}
 			} else {
-				_log("webservices invalid user u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_, 3, "webservices");
+				_log("webservices invalid user u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_, 3, "webservices");
 			}
 			
 			// redirect to index.php no matter what
@@ -627,7 +627,7 @@ $json['error_string'] = $ws_error_string[$json['error']];
 $json['timestamp'] = time();
 
 if ($log_this) {
-	_log("u:" . $u . " ip:" . $_SERVER['REMOTE_ADDR'] . " op:" . _OP_ . ' timestamp:' . $json['timestamp'] . ' status:' . $json['status'] . ' error:' . $json['error'] . ' error_string:' . $json['error_string'], 3, "webservices");
+	_log("u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_ . ' timestamp:' . $json['timestamp'] . ' status:' . $json['status'] . ' error:' . $json['error'] . ' error_string:' . $json['error_string'], 3, "webservices");
 }
 
 if ($format == 'SERIALIZE') {

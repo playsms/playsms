@@ -94,6 +94,14 @@ if (!defined('_PHP_VER_')) {
 	define('_PHP_VER_', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 }
 
+// saves remote IP address from alternate source or server's REMOTE_ADDR
+if ($c_remote_addr = trim($core_config['remote_addr'])) {
+	define('_REMOTE_ADDR_', $c_remote_addr);
+} else {
+	define('_REMOTE_ADDR_', $_SERVER['REMOTE_ADDR']);
+}
+unset($c_remote_addr);
+
 // set global date/time variables
 $date_format = 'Y-m-d';
 $time_format = 'H:i:s';
@@ -279,7 +287,7 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
-			_log('WARNING: possible CSRF attack. sid:' . session_id() . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'init');
+			_log('WARNING: possible CSRF attack. sid:' . session_id() . ' ip:' . _REMOTE_ADDR_, 2, 'init');
 			auth_block();
 		}
 	}

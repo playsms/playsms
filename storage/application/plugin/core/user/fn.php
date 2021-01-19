@@ -367,7 +367,7 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 					$data['credit'] = rate_getusercredit($data['username']);
 					$data['register_password'] = $register_password;
 					
-					_log('registered status:' . $data['status'] . ' u:' . $data['username'] . ' uid:' . $ret['uid'] . ' email:' . $data['email'] . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' mobile:' . $data['mobile'] . ' credit:' . $data['credit'], 2, 'user_add');
+					_log('registered status:' . $data['status'] . ' u:' . $data['username'] . ' uid:' . $ret['uid'] . ' email:' . $data['email'] . ' ip:' . _REMOTE_ADDR_ . ' mobile:' . $data['mobile'] . ' credit:' . $data['credit'], 2, 'user_add');
 					
 					// save $data on returns
 					$ret['data'] = $data;
@@ -651,7 +651,7 @@ function user_session_set($uid = '') {
 
 		if ($uid && ($login_sid = $_SESSION['login_sid'])) {
 			$json = array(
-				'ip' => $_SERVER['REMOTE_ADDR'],
+				'ip' => _REMOTE_ADDR_,
 				'last_update' => core_get_datetime(),
 			
 				// fixme anton - https://www.exploit-database.net/?id=92909

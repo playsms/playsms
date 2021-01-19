@@ -36,7 +36,7 @@ if (_OP_ == 'login') {
 		
 			// captcha timeout 15 minutes
 			if (time() > ($session_captcha_time + (15 * 60))) {
-				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth login");
+				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . _REMOTE_ADDR_, 2, "auth login");
 
 				$_SESSION['dialog']['danger'][] = _('Captcha was expired, please try again');
 
@@ -45,7 +45,7 @@ if (_OP_ == 'login') {
 			}
 			
 		} else {
-			_log("fail to verify captcha u:" . $username_or_email . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth login");
+			_log("fail to verify captcha u:" . $username_or_email . " ip:" . _REMOTE_ADDR_, 2, "auth login");
 
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 
@@ -77,9 +77,9 @@ if (_OP_ == 'login') {
 			auth_session_setup($uid);
 			
 			if (auth_isvalid()) {
-				_log("u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth login");
+				_log("u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . _REMOTE_ADDR_, 2, "auth login");
 			} else {
-				_log("unable to setup session u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . $_SERVER['REMOTE_ADDR'], 2, "auth login");
+				_log("unable to setup session u:" . $_SESSION['username'] . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . _REMOTE_ADDR_, 2, "auth login");
 				$_SESSION['dialog']['danger'][] = _('Unable to login');
 			}
 		} else {

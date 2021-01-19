@@ -33,7 +33,7 @@ if ($smsc = $requests['smsc']) {
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 }
 
-$remote_addr = $_SERVER['REMOTE_ADDR'];
+$remote_addr = _REMOTE_ADDR_;
 // srosa 20100531: added var below
 $remote_host = $_SERVER['HTTP_HOST'];
 // srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
