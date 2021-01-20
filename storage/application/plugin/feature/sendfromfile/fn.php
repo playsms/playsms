@@ -134,6 +134,7 @@ function sendfromfile_verify($csv_file) {
 		// stop verifying when limit reached
 		$num_of_rows = $valid + $discharged;
 		if ($num_of_rows > $sendfromfile_row_limit) {
+			$error_strings[] = sprintf(_('Send from file limit of %d SMS have been reached'), $sendfromfile_row_limit);
 
 			$continue = false;
 		}
