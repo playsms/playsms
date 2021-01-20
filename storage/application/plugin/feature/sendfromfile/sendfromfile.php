@@ -71,7 +71,7 @@ switch (_OP_) {
 		}
 		
 		if ($continue) {
-			list($all_numbers, $item_valid, $item_invalid, $valid, $invalid, $num_of_rows, $sendfromfile_id) = sendfromfile_verify($fn);
+			list($all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings) = sendfromfile_verify($fn);
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Invalid CSV file');
 			header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
@@ -83,19 +83,41 @@ switch (_OP_) {
 		$content .= '<p class=lead>' . _('Confirmation') . '</p>';	
 		$content .= '<p>' . _('Uploaded file') . ': ' . $filename . '</p>';
 
-		$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">";
-		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
-		$content .= "<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\"></p>";
-		$content .= "</form>";
+		if (count($error_strings)) {
+			$content .= "<p class=lead>" . _('Verification results') . "</p>";
+			$content .= "<ul>";
+			foreach ($error_strings as $err) {
+				$content .= "<li>" . $err . "</li>";
+			}
+			$content .= "</ul>";
+		}
+
+		$content .= "
+			<p class='lead'>" . _('Your choice') . "</p>
+			<div class='container'><div class='row'>
+				<div class='col_sm'>
+					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">
+						" . _CSRF_FORM_ . "
+						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\">
+					</form>
+				</div>";
 
 		if ($sendfromfile_id && $valid) {
-			$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">";
-			$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
-			$content .= "<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\"></p>";
-			$content .= "</form>";			
+    		$content .= "
+				<div class='col_sm'>
+					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">
+						" . _CSRF_FORM_ . "
+						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\">
+					</form>
+				</div>";
+		}
+		$content .= "</div></div>"; // div container
 
-			$content .= _('Found valid entries in uploaded file') . ' (' . _('valid entries') . ': ' . $valid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
+		if ($valid) {
 			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-up" alt="' . _('Valid entries') . '"></span>' . _('Valid entries') . '</p>';
+			$content .= _('Found valid entries in uploaded file') . ' (' . _('valid entries') . ': ' . $valid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
 			$content .= "
 				<div class=table-responsive>
 					<table id=playsms-table-list class=playsms-table-list>
@@ -118,20 +140,22 @@ switch (_OP_) {
 					</thead>
 					<tbody>";
 			$j = 0;
-			foreach ($item_valid as $item) {
-				if (auth_isadmin()) {
-					$content .= "
-						<tr>
-							<td>" . $item[0] . "</td>
-							<td>" . $item[1] . "</td>
-							<td>" . $item[2] . "</td>
-						</tr>";
-				} else {
-					$content .= "
-						<tr>
-							<td>" . $item[0] . "</td>
-							<td>" . $item[1] . "</td>
-						</tr>";
+			foreach ($item_valid as $sender_uid => $item_data) {
+				foreach ($item_data as $item) {
+					if (auth_isadmin()) {
+						$content .= "
+							<tr>
+								<td>" . $item['sms_to'] . "</td>
+								<td>" . $item['sms_msg'] . "</td>
+								<td>" . $item['sms_username'] . "</td>
+							</tr>";
+					} else {
+						$content .= "
+							<tr>
+								<td>" . $item['sms_to'] . "</td>
+								<td>" . $item['sms_msg'] . "</td>
+							</tr>";
+					}
 				}
 			}
 			$content .= "
@@ -166,15 +190,15 @@ switch (_OP_) {
 						$('#playsms-table-list').tablesorterPager({container: $('#playsms-table-pager')}); 
 					});
 				</script>";
-		}
+		} // if valid
 		
-		if ($invalid) {
-			$content .= '<p /><br />';
-			$content .= _('Found invalid entries in uploaded file') . ' (' . _('invalid entries') . ': ' . $invalid . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
-			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-down" alt="' . _('Invalid entries') . '"></span>' . _('Invalid entries') . '</p>';
+		if ($discharged) {
+			$content .= '<p />';
+			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-down" alt="' . _('Discharged entries') . '"></span>' . _('Discharged entries') . '</p>';
+			$content .= _('Found discharged entries in uploaded file') . ' (' . _('discharged entries') . ': ' . $discharged . ' ' . _('of') . ' ' . $num_of_rows . ')<p />';
 			$content .= "
 				<div class=table-responsive>
-					<table id=table-invalid-entries class=playsms-table-list>
+					<table id=table-discharged-entries class=playsms-table-list>
 					<thead>";
 			if (auth_isadmin()) {
 				$content .= "
@@ -194,27 +218,29 @@ switch (_OP_) {
 					</thead>
 					<tbody>";
 			$j = 0;
-			foreach ($item_invalid as $item) {
-				if (auth_isadmin()) {
-					$content .= "
-						<tr>
-							<td>" . $item[0] . "</td>
-							<td>" . $item[1] . "</td>
-							<td>" . $item[2] . "</td>
-						</tr>";
-				} else {
-					$content .= "
-						<tr>
-							<td>" . $item[0] . "</td>
-							<td>" . $item[1] . "</td>
-						</tr>";
+			foreach ($item_discharged as $sender_uid => $item_data) {
+				foreach ($item_data as $item) {
+					if (auth_isadmin()) {
+						$content .= "
+							<tr>
+								<td>" . $item['sms_to'] . "</td>
+								<td>" . $item['sms_msg'] . "</td>
+								<td>" . $item['sms_username'] . "</td>
+							</tr>";
+					} else {
+						$content .= "
+							<tr>
+								<td>" . $item['sms_to'] . "</td>
+								<td>" . $item['sms_msg'] . "</td>
+							</tr>";
+					}
 				}
 			}
 			$content .= "
 					</tbody>
 					<tfoot>
 						<tr>
-							<td id='table-invalid-pager' colspan=3>
+							<td id='table-discharged-pager' colspan=3>
 							<div class='form-inline pull-right'>
 								<div class='btn-group btn-group-sm mx-1' role='group'>
 									<button type='button' class='btn btn-secondary first'>&#8676;</button>
@@ -239,21 +265,33 @@ switch (_OP_) {
 				</div>
 				<script type='text/javascript'>
 					$(document).ready(function() { 
-						$('#table-invalid-entries').tablesorterPager({container: $('#table-invalid-pager')}); 
+						$('#table-discharged-entries').tablesorterPager({container: $('#table-discharged-pager')}); 
 					});
 				</script>";
-		}
-		
-		$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">";
-		$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
-		$content .= "<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\"></p>";
-		$content .= "</form>";
+		} // if discharged
+
+		$content .= "
+			<p class='lead'>" . _('Your choice') . "</p>
+			<div class='container'><div class='row'>
+				<div class='col_sm'>
+					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">
+						" . _CSRF_FORM_ . "
+						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\">
+					</form>
+				</div>";
 
 		if ($sendfromfile_id && $valid) {
-			$content .= "<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">";
-			$content .= _CSRF_FORM_ . "<input type=hidden name=sid value='" . $sendfromfile_id . "'>";
-			$content .= "<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\"></p>";
+			$content .= "
+				<div class='col_sm'>
+					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">
+						" . _CSRF_FORM_ . "
+						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\">
+					</form>
+				</div>";
 		}
+		$content .= "</div></div>"; // div container
 		
 		_p($content);
 		break;
