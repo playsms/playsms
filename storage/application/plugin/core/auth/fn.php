@@ -269,9 +269,9 @@ function auth_isvalid() {
  */
 function auth_isadmin() {
 	if ($_SESSION['status'] == 2) {
-		//if (auth_isvalid()) {
+		if (auth_isvalid()) {
 			return TRUE;
-		//}
+		}
 	}
 	return FALSE;
 }
@@ -283,9 +283,9 @@ function auth_isadmin() {
  */
 function auth_isuser() {
 	if ($_SESSION['status'] == 3) {
-		//if (auth_isvalid()) {
+		if (auth_isvalid()) {
 			return TRUE;
-		//}
+		}
 	}
 	return FALSE;
 }
@@ -297,9 +297,9 @@ function auth_isuser() {
  */
 function auth_issubuser() {
 	if ($_SESSION['status'] == 4) {
-		//if (auth_isvalid()) {
+		if (auth_isvalid()) {
 			return TRUE;
-		//}
+		}
 	}
 	return FALSE;
 }
@@ -313,9 +313,9 @@ function auth_issubuser() {
  */
 function auth_isstatus($status) {
 	if ($_SESSION['status'] == (int) $status) {
-		//if (auth_isvalid()) {
+		if (auth_isvalid()) {
 			return TRUE;
-		//}
+		}
 	}
 	return FALSE;
 }
@@ -328,17 +328,15 @@ function auth_isstatus($status) {
  * @return boolean TRUE if valid and visitor has certain ACL
  */
 function auth_isacl($acl) {
-	//if (auth_isvalid()) {
-		if (auth_isadmin()) {
+	if (auth_isadmin()) {
+		return TRUE;
+	} else {
+		$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
+		$user_acl_name = acl_getname($user_acl_id);
+		if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
 			return TRUE;
-		} else {
-			$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
-			$user_acl_name = acl_getname($user_acl_id);
-			if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
-				return TRUE;
-			}
 		}
-	//}
+	}
 	return FALSE;
 }
 
