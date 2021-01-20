@@ -58,6 +58,8 @@ function simplebilling_hook_billing_finalize($smslog_id) {
 	if ($db_result = dba_affected_rows($db_query)) {
 		_log("saved smslog_id:" . $smslog_id, 2, "simplebilling finalize");
 		$ok = true;
+	} else {
+		_log("fail to save smslog_id:" . $smslog_id, 2, "simplebilling finalize");
 	}
 	return $ok;
 }
@@ -69,6 +71,8 @@ function simplebilling_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			billing_finalize($smslog_id);
+		} else {
+			_log("fail to find billing smslog_id:" . $smslog_id, 2, "simplebilling setsmsdeliverystatus");
 		}
 	}
 }
