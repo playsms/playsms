@@ -66,7 +66,7 @@ function sendfromfile_verify($csv_file) {
 
 		$skip = false;
 		// if admin
-		if (auth_isadmin()) {
+		if ($_SESSION['status'] == 2) {
 			if ($item_username = core_sanitize_username($data[2])) {
 				// if supplied username is clean and it exists
 				if (!($item_username == $data[2])) {

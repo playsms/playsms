@@ -25,7 +25,7 @@ if (!auth_isvalid()) {
 switch (_OP_) {
 	case 'list':
 		$content = _dialog() . '<h2 class=page-header-title>' . _('Send from file') . '</h2><p />';
-		if (auth_isadmin()) {
+		if ($_SESSION['status'] == 2) {
 			$info_format = _('destination number, message, username');
 		} else {
 			$info_format = _('destination number, message');
@@ -122,7 +122,7 @@ switch (_OP_) {
 				<div class=table-responsive>
 					<table id=playsms-table-list class=playsms-table-list>
 					<thead>";
-			if (auth_isadmin()) {
+			if ($_SESSION['status'] == 2) {
 				$content .= "
 					<tr>
 						<th width=20%>" . _('Destination number') . "</th>
@@ -142,7 +142,7 @@ switch (_OP_) {
 			$j = 0;
 			foreach ($item_valid as $sender_uid => $item_data) {
 				foreach ($item_data as $item) {
-					if (auth_isadmin()) {
+					if ($_SESSION['status'] == 2) {
 						$content .= "
 							<tr>
 								<td>" . $item['sms_to'] . "</td>
@@ -200,7 +200,7 @@ switch (_OP_) {
 				<div class=table-responsive>
 					<table id=table-discharged-entries class=playsms-table-list>
 					<thead>";
-			if (auth_isadmin()) {
+			if ($_SESSION['status'] == 2) {
 				$content .= "
 					<tr>
 						<th width=20%>" . _('Destination number') . "</th>
@@ -220,7 +220,7 @@ switch (_OP_) {
 			$j = 0;
 			foreach ($item_discharged as $sender_uid => $item_data) {
 				foreach ($item_data as $item) {
-					if (auth_isadmin()) {
+					if ($_SESSION['status'] == 2) {
 						$content .= "
 							<tr>
 								<td>" . $item['sms_to'] . "</td>
