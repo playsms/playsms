@@ -13,7 +13,7 @@ ALTER TABLE `playsms_tblBilling`  ADD `parent_uid` INT(11) NOT NULL DEFAULT '0' 
 
 -- featureSendfromfile
 ALTER TABLE `playsms_featureSendfromfile` 
-	ADD `sms_uid` INT(11) NOT NULL DEFAULT '11' AFTER `sms_username`, 
+	ADD `sms_uid` INT(11) NOT NULL DEFAULT '0' AFTER `sms_username`, 
 	ADD `hash` VARCHAR(40) NOT NULL DEFAULT '' AFTER `sms_uid`, 
 	ADD `unicode` INT(11) NOT NULL DEFAULT '0' AFTER `hash`, 
 	ADD `charge` FLOAT NOT NULL DEFAULT '0' AFTER `unicode`, 
