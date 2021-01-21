@@ -25,7 +25,7 @@ defined('_SECURE_') or die('Forbidden');
  * @return void
  */
 function sendfromfile_verify($csv_file) {
-	global $user_config, $sendfromfile_row_limit;
+	global $user_config, $plugin_config;
 
 	$all_numbers = array();
 	$item_valid = array();
@@ -132,9 +132,9 @@ function sendfromfile_verify($csv_file) {
 		}
 
 		// stop verifying when limit reached
-		$num_of_rows = $valid + $discharged;
-		if ($num_of_rows > $sendfromfile_row_limit) {
-			$error_strings[] = sprintf(_('Send from file limit of %d SMS have been reached'), $sendfromfile_row_limit);
+		$num_of_rows = (int) ($valid + $discharged);
+		if ($num_of_rows > (int) $plugin_config['feature']['sendfromfile']['row_limit']) {
+			$error_strings[] = sprintf(_('Send from file limit of %d SMS have been reached'), (int) $plugin_config['feature']['sendfromfile']['row_limit']);
 
 			$continue = false;
 		}

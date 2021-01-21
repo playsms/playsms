@@ -9,4 +9,6 @@ $menu_config[$menutab][] = array(
 	1 
 );
 
-$sendfromfile_row_limit = 5000;
+$plugin_config['feature']['sendfromfile'] = [ 
+	'row_limit' => 5000, 
+];
