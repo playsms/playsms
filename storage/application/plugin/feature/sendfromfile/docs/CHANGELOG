@@ -1,2 +1,6 @@
+Version 1.1
+- check total charges and user's balance to avoid negative balance
+- see verified and discharged rows in tables with pager
+
 Version 1.0
 - changelog started
