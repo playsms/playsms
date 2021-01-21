@@ -556,9 +556,9 @@ if ($COMMAND == 'version') {
                         if (sendsms_queue_update($db_row['queue_code'], array(
                             'flag' => 1,
                         ))) {
-                            _log('enforce init finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            _log('destination not found enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
                         } else {
-                            _log('fail to enforce init finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            _log('destination not found fail to enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
                         }
                     }
                 }
@@ -585,9 +585,9 @@ if ($COMMAND == 'version') {
                         if (sendsms_queue_update($db_row['queue_code'], array(
                             'flag' => 1,
                         ))) {
-                            _log('enforce finish process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            _log('chunk not found enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
                         } else {
-                            _log('fail to enforce finish process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            _log('chunk not found fail to enforce process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
                         }
                     }
                 }
