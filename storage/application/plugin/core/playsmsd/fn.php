@@ -101,10 +101,13 @@ function playsmsd_allrunning()
         }
     }
 
-	$all_running = true;
-    foreach ($pids as $service_name => $service_pids) {
-	    if (!$run[$service_name]) {
-    		$all_running = false;
+	$all_running = false;
+	if ($pids) {
+		$all_running = true;
+	    foreach ($pids as $service_name => $service_pids) {
+		    if (!$run[$service_name]) {
+    			$all_running = false;
+	    	}
     	}
     }
 
