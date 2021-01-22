@@ -16,7 +16,8 @@
  * You should have received a copy of the GNU General Public License
  * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
-include 'config.php';
+
+include 'appsetup.php';
 
 // defines storage
 $fn = $core_config['apps_path']['storage'];

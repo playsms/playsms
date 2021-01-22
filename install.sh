@@ -159,7 +159,7 @@ sleep 1
 
 echo "Checking $PATHWEB..."
 echo
-if [ -d "$PATHWEB" ] && [ -f "$PATHWEB/init.php" ] && [ -f "$PATHWEB/config.php" ]; then
+if [ -d "$PATHWEB" ] && [ -f "$PATHWEB/init.php" ] && [ -f "$PATHWEB/appsetup.php" ]; then
 	echo "ERROR: playSMS found installed on $PATHWEB"
 	echo
 	echo "Please backup and remove/empty $PATHWEB before proceeding"
@@ -345,17 +345,17 @@ echo -n .
 sed -i "s|#DBPASS#|$DBPASS|g" $PATHSTR/custom/application/configs/config.php
 echo -n .
 
-cp $PATHWEB/config-dist.php $PATHWEB/config.php
+cp $PATHWEB/appsetup-dist.php $PATHWEB/appsetup.php
 echo -n .
-sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/config.php
+sed -i "s|#PATHLOG#|$PATHLOG|g" $PATHWEB/appsetup.php
 echo -n .
-sed -i "s|#PATHBIN#|$PATHBIN|g" $PATHWEB/config.php
+sed -i "s|#PATHBIN#|$PATHBIN|g" $PATHWEB/appsetup.php
 echo -n .
-sed -i "s|#PATHSTR#|$PATHSTR|g" $PATHWEB/config.php
+sed -i "s|#PATHSTR#|$PATHSTR|g" $PATHWEB/appsetup.php
 echo -n .
-sed -i "s|#PATHWEB#|$PATHWEB|g" $PATHWEB/config.php
+sed -i "s|#PATHWEB#|$PATHWEB|g" $PATHWEB/appsetup.php
 echo -n .
-sed -i "s|#URLWEB#|$URLWEB|g" $PATHWEB/config.php
+sed -i "s|#URLWEB#|$URLWEB|g" $PATHWEB/appsetup.php
 echo -n .
 
 if [ "$USERID" = "0" ]; then

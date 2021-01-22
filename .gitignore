@@ -25,6 +25,7 @@ venv
 .project
 .codio
 
+web/appsetup.php
 web/config.php
 web/lib/composer/*
 storage/composer/vendor/*
