@@ -239,13 +239,13 @@ function sendfromfile_process($sendfromfile_id) {
 		if ($item['username'] && $item['message'] && count($item['sms_to'])) {
 
 			// send SMS to queue
-			list($ok, $to, $itemlog_id, $queue_code) = sendsms_helper($item['username'], $item['sms_to'], addslashes($item['message']), 'text', $item['unicode']);
+			list($ok, $to, $smslog_id, $queue_code) = sendsms_helper($item['username'], $item['sms_to'], addslashes($item['message']), 'text', $item['unicode']);
 			
 			// update send from file data
 			for ($i=0;$i<count($to);$i++) {
 				$db_query = "
 					UPDATE " . _DB_PREF_ . "_featureSendfromfile 
-					SET smslog_id='" . $itemlog_id[$i] . "', queue_code='" . $queue_code[$i] . "', status='" . $ok[$i] . "', flag_processed=1
+					SET smslog_id='" . $smslog_id[$i] . "', queue_code='" . $queue_code[$i] . "', status='" . $ok[$i] . "', flag_processed=1
 					WHERE hash='" . $hash. "' AND sms_to='" . $to[$i] . "'";
 				dba_query($db_query);
 				//_log("i:" . $i . " db_query:[" . trim($db_query) . "]", 2, "sendfromfile_process");
