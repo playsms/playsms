@@ -489,7 +489,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		return $ret;
 	}
 	
-	if (rate_cansend($username, core_smslen($sms_msg . $sms_footer), $unicode, $sms_to)) {
+	if (rate_cansend($uid, core_smslen($sms_msg . $sms_footer), $unicode, $sms_to)) {
 		$p_status = 0;
 	} else {
 		$p_status = 2;

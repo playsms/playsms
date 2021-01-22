@@ -81,7 +81,7 @@ function rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 	return $ret;
 }
 
-function rate_cansend($username, $sms_len, $unicode, $sms_to) {
+function rate_cansend($uid, $sms_len, $unicode, $sms_to) {
 	return core_call_hook();
 }
 
