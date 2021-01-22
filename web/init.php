@@ -451,22 +451,19 @@ if (auth_isvalid()) {
 
 
 // limit the number of DLR processed by dlrd in one time
-$core_config['dlrd_limit'] = ($core_config['dlrd_limit'] ? $core_config['dlrd_limit'] : 1000);
+$core_config['dlrd_limit'] = ($core_config['dlrd_limit'] ? $core_config['dlrd_limit'] : 10000);
 
 // limit the number of incoming SMS processed by recvsmsd in one time
-$core_config['recvsmsd_limit'] = ($core_config['recvsmsd_limit'] ? $core_config['recvsmsd_limit'] : 1000);
-
-// limit the length of each queue processed by sendsmsd in one time
-$core_config['sendsmsd_limit'] = ($core_config['sendsmsd_limit'] ? $core_config['sendsmsd_limit'] : 1000);
+$core_config['recvsmsd_limit'] = ($core_config['recvsmsd_limit'] ? $core_config['recvsmsd_limit'] : 10000);
 
 // limit the number of queue processed by sendsmsd in one time
-$core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config['sendsmsd_queue'] : 10);
+$core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config['sendsmsd_queue'] : 100);
 
 // limit the number of chunk per queue
-$core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 20);
+$core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 10);
 
 // chunk size
-$core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ? $core_config['sendsmsd_chunk_size'] : 100);
+$core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ? $core_config['sendsmsd_chunk_size'] : 1000);
 
 // fixme anton - debug
 //print_r($icon_config); die();
