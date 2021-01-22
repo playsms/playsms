@@ -1,5 +1,15 @@
 #!/bin/bash
 
+USERID=$(id -u)
+if [ "$USERID" = "0" ]; then
+	echo
+	echo "You are running this installation script as root"
+	echo
+	echo "Aborting installation, please run as normal Linux user"
+	echo
+	exit 1
+fi
+
 INSTALLCONF="./install.conf"
 
 if [ -n "$1" ]; then
@@ -53,60 +63,6 @@ echo "- Please BACKUP before proceeding"
 echo "==================================================================="
 echo
 
-USERID=$(id -u)
-if [ "$USERID" = "0" ]; then
-	echo "You ARE running this installation script as root"
-	echo
-	echo "That means you need to make sure that you know what you're doing"
-	echo
-	echo "==================================================================="
-	echo
-	echo "Proceed ?"
-	echo
-	confirm=
-	while [ -z $confirm ]
-	do
-		echo "When you're ready press [y/Y] or press [Control+C] to cancel"
-		read -p "> " confirm
-		if [[ $confirm == 'y' ]]; then
-			break
-		fi
-		if [[ $confirm == 'Y' ]]; then
-			break
-		fi
-		confirm=
-	done
-	echo
-	echo "==================================================================="
-	echo
-else
-	echo "You are NOT running this installation script as root"
-	echo
-	echo "That means you need to make sure that this Linux user has"
-	echo "permission to create necessary directories"
-	echo
-	echo "==================================================================="
-	echo
-	echo "Proceed ?"
-	echo
-	confirm=
-	while [ -z $confirm ]
-	do
-		echo "When you're ready press [y/Y] or press [Control+C] to cancel"
-		read -p "> " confirm
-		if [[ $confirm == 'y' ]]; then
-			break
-		fi
-		if [[ $confirm == 'Y' ]]; then
-			break
-		fi
-		confirm=
-	done
-	echo
-	echo "==================================================================="
-	echo
-fi
-
 PLAYSMSSRCVER=$(cat $PATHSRC/VERSION.txt)
 
 echo "INSTALL DATA:"
@@ -119,18 +75,11 @@ echo "MySQL password      = $DBPASS"
 echo "MySQL database      = $DBNAME"
 echo "MySQL host          = $DBHOST"
 echo "MySQL port          = $DBPORT"
-
-if [ "$USERID" = "0" ]; then
-echo "Web server user     = $WEBSERVERUSER"
-echo "Web server group    = $WEBSERVERGROUP"
-fi
-
 echo "playSMS web URL     = $URLWEB"
 echo "playSMS web path    = $PATHWEB"
 echo "playSMS bin path    = $PATHBIN"
 echo "playSMS log path    = $PATHLOG"
 echo "playSMS storage     = $PATHSTR"
-echo "playSMS conf path   = $PATHCONF"
 echo "playSMS source path = $PATHSRC"
 echo "playSMS version     = $PLAYSMSSRCVER"
 echo
@@ -224,11 +173,11 @@ if [ "$FOUND_DATABASE" == "1" ]; then
 	done
 	echo
 else
-	echo "ERROR: database '$DBNAME' not found"
+	echo "ERROR: database '$DBNAME' not found or user have no permission to access '$DBNAME'"
 	echo
-	echo "Please create database '$DBNAME' before proceeding"
+	echo "Database '$DBNAME' must be created prior to running this installation script"
 	echo 
-	echo "Please note that database user '$DBUSER' must be granted permission"
+	echo "Also note that database user '$DBUSER' must be granted permission"
 	echo "SELECT, INSERT, UPDATE, DELETE to database '$DBNAME'"
 	echo
 	exit 1
@@ -358,23 +307,7 @@ echo -n .
 sed -i "s|#URLWEB#|$URLWEB|g" $PATHWEB/appsetup.php
 echo -n .
 
-if [ "$USERID" = "0" ]; then
-	chown -R $WEBSERVERUSER.$WEBSERVERGROUP $PATHLOG/* $PATHSTR/tmp $PATHWEB/*
-	echo -n .
-fi
-
-mkdir -p $PATHCONF $PATHBIN
-echo -n .
-touch $PATHCONF/playsmsd.conf
-echo -n .
-echo "PLAYSMS_URL=\"$URLWEB\"" > $PATHCONF/playsmsd.conf
-echo "PLAYSMS_WEB=\"$PATHWEB\"" > $PATHCONF/playsmsd.conf
-echo "PLAYSMS_STR=\"$PATHSTR\"" >> $PATHCONF/playsmsd.conf
-echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
-echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
-echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
-echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> $PATHCONF/playsmsd.conf
-chmod 644 $PATHCONF/playsmsd.conf
+mkdir -p $PATHBIN
 echo -n .
 rm -f $PATHBIN/playsmsd
 cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
@@ -384,17 +317,17 @@ echo "done"
 echo
 
 echo "Checking installation..."
-$PATHBIN/playsmsd $PATHCONF/playsmsd.conf check
+$PATHBIN/playsmsd check
 sleep 3
 echo
 
 echo "Restarting playSMS daemon..."
-$PATHBIN/playsmsd $PATHCONF/playsmsd.conf restart
+$PATHBIN/playsmsd restart
 sleep 3
 echo
 
 echo "Checking playSMS daemon status..."
-$PATHBIN/playsmsd $PATHCONF/playsmsd.conf status
+$PATHBIN/playsmsd status
 sleep 3
 echo
 
@@ -402,7 +335,5 @@ echo "playSMS install script finished"
 echo
 echo "Please review installation log above before testing"
 echo
-
-cp install.conf install.conf.backup >/dev/null 2>&1
 
 exit 0

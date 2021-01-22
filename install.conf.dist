@@ -24,14 +24,6 @@ DBHOST="localhost"
 # MySQL database port
 DBPORT="3306"
 
-# Web server's user, for example apache2 user by default is www-data
-# note: please make sure your web server user
-WEBSERVERUSER="www-data"
-
-# Web server's group, for example apache2 group by default is www-data
-# note: please make sure your web server group
-WEBSERVERGROUP="www-data"
-
 # playSMS web URL
 URLWEB="https://localhost/playsms"
 
@@ -47,10 +39,6 @@ PATHLOG="/home/example/log"
 
 # Path to playSMS storage
 PATHSTR="/home/example/storage"
-
-# Path to playSMS daemon configuration file
-# note: this example will create playsmsd.conf in /etc
-PATHCONF="/home/example/etc"
 
 # Path to playSMS extracted source files
 PATHSRC="$(pwd)"
