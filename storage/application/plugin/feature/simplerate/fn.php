@@ -136,8 +136,6 @@ function simplerate_hook_rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	global $core_config;
 
-	_log("start rate_cansend", 3, "simplerate_hook_rate_cand");
-	
 	$uid = user_username2uid($username);
 	list($count, $rate, $charge) = rate_getcharges($uid, $sms_len, $unicode, $sms_to);
 

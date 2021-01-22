@@ -150,8 +150,6 @@ function playsmsd_allstopped()
  */
 function playsmsd_start()
 {
-    global $PLAYSMS_BIN;
-
     if (playsmsd_allrunning()) {
         echo "playsmsd is already running\n";
         playsmsd_pids_show();
@@ -160,13 +158,13 @@ function playsmsd_start()
     }
 
     // stop all daemons
-    shell_exec('$PLAYSMS_BIN stop >/dev/null 2>&1 & printf "%u" $!');
+    shell_exec(_PLAYSMSD_ . ' stop >/dev/null 2>&1 & printf "%u" $!');
     sleep(1);
 
     // run playsmsd services
     $services = playsmsd_services();
     foreach ($services as $service) {
-	    $pids[$service] = shell_exec('nohup ionice -c3 nice -n19 ' . $PLAYSMS_BIN . ' _fork_ ' . $service . ' >/dev/null 2>&1 & printf "%u" $!');
+	    $pids[$service] = shell_exec('nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ ' . $service . ' >/dev/null 2>&1 & printf "%u" $!');
     }
 
     if (playsmsd_allrunning()) {
@@ -223,13 +221,13 @@ function playsmsd_stop()
  */
 function playsmsd_check($json)
 {
-    global $PLAYSMS_WEB, $PLAYSMS_STR, $PLAYSMS_LOG, $PLAYSMS_BIN;
+    global $core_config;
 
     $data = array(
-        'PLAYSMS_WEB' => $PLAYSMS_WEB,
-        'PLAYSMS_STR' => $PLAYSMS_STR,
-        'PLAYSMS_LOG' => $PLAYSMS_LOG,
-        'PLAYSMS_BIN' => $PLAYSMS_BIN,
+        'PLAYSMS_WEB' => $core_config['apps_path']['base'],
+        'PLAYSMS_STR' => $core_config['apps_path']['storage'],
+        'PLAYSMS_LOG' => $core_config['apps_path']['logs'],
+        'PLAYSMS_BIN' => _PLAYSMSD_,
         'IS_RUNNING' => playsmsd_allrunning(),
         'PIDS' => playsmsd_pids(),
     );

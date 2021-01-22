@@ -46,7 +46,12 @@ $PLAYSMS_WEB = '';
 // init
 // ================================================================================
 
-//error_reporting(0);
+if (!(PHP_SAPI == 'cli')) {
+	echo "playSMS daemon must be called from cli";
+	exit();
+}
+
+error_reporting(0);
 
 set_time_limit(0);
 
@@ -78,36 +83,30 @@ if (!(file_exists($PLAYSMS_WEB . '/appsetup.php') && file_exists($PLAYSMS_WEB . 
 	echo "playSMS web not found in " . $PLAYSMS_WEB . "\n";
 }
 
-// include application's config file
-include $PLAYSMS_WEB . '/appsetup.php';
-
-// verify playSMS daemon location
-$PLAYSMS_BIN = realpath($argv[0]);
-if (!is_executable($PLAYSMS_BIN)) {
-    echo "playSMS daemon script " . $PLAYSMS_BIN . " is not executable\n";
+// verify and define playSMS daemon location
+define('_PLAYSMSD_', realpath($argv[0]));
+if (!is_executable(_PLAYSMSD_)) {
+    echo "playSMS daemon script " . _PLAYSMSD_ . " is not executable\n";
     exit();
-}
-
-// verify playSMS log directory location
-$PLAYSMS_LOG = $core_config['apps_path']['logs'];
-if (!is_dir($PLAYSMS_LOG)) {
-	echo "playSMS log directory " . $PLAYSMS_LOG . " not found\n";
-}
-
-// verify playSMS storage directory location
-$PLAYSMS_STR = $core_config['apps_path']['storage'];
-if (!is_dir($PLAYSMS_STR)) {
-	echo "playSMS storage directory " . $PLAYSMS_STR . " not found\n";
 }
 
 // move base operation to $PLAYSMS_WEB
 chdir($PLAYSMS_WEB);
 
+// we don't need this anymore
+unset($PLAYSMS_WEB);
+
 // load app init and functions
-$fn = $PLAYSMS_STR . '/' . $core_config['application']['dir'] . '/lib/function.php';
-if (file_exists('init.php') && file_exists($fn)) {
+if (file_exists('init.php')) {
     include 'init.php';
-    include $fn;
+    
+	$fn = $core_config['apps_path']['libs'] . '/function.php';
+	if (file_exists($fn)) {    
+	    include $fn;
+	} else {
+	    echo "playSMS is not properly installed\n";
+    	exit();
+	}
 } else {
     echo "playSMS is not properly installed\n";
     exit();
@@ -378,7 +377,7 @@ if ($LOOP_FLAG == 'once') {
                     foreach ($queue as $q) {
                         $is_sending = (playsmsd_pid_get($q) ? true : false);
                         if (!$is_sending) {
-                            $RUN_THIS = 'nohup ionice -c3 nice -n19 ' . $PLAYSMS_BIN . ' _fork_ sendqueue once ' . $q . ' >/dev/null 2>&1 & printf "%u" $!';
+                            $RUN_THIS = 'nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ sendqueue once ' . $q . ' >/dev/null 2>&1 & printf "%u" $!';
                             echo $COMMAND . " execute: " . $RUN_THIS . "\n";
                             shell_exec($RUN_THIS);
                         }
