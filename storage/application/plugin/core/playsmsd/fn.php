@@ -23,11 +23,26 @@ defined('_SECURE_') or die('Forbidden');
  *
  * @param string $process
  *        process name
- * @return integer PID
+ * @return array PIDs
  */
-function playsmsd_pid_get($process)
+function playsmsd_pid_get($process = '')
 {
-    return (int) trim(shell_exec('ps -eo pid,command|grep playsmsd|grep "' . $process . '"|grep -v grep|sed -e "s/^ *//" -e "s/ *$//"|cut -d" " -f1|tr "\n" " "'));
+	$returns = array();
+	
+	$check_process = '';
+	if ($process) {
+		$check_process = '|grep ' . $process;
+	}
+	
+	$pids = trim(shell_exec('ps -eo pid,command|grep playsmsd|grep _fork_' . $check_process . '|grep -v grep|sed -e "s/^[[:space:]]*//"|cut -d" " -f1'));
+    $pids = explode("\n", $pids);
+    foreach ($pids as $pid) {
+    	if ($pid) {
+	    	$returns[] = $pid;
+	    }
+    }
+
+	return $returns;
 }
 
 /**
@@ -37,9 +52,14 @@ function playsmsd_pid_get($process)
  */
 function playsmsd_pids()
 {
+	$pids = array();
+	
     $services = playsmsd_services();
     foreach ($services as $service) {
-    	$pids[$service] = playsmsd_pid_get($service);
+    	$service_pids = playsmsd_pid_get($service);
+    	foreach ($service_pids as $pid) {
+	    	$pids[$service][] = $pid;
+    	}
     }
     
     return $pids;
@@ -51,32 +71,75 @@ function playsmsd_pids()
 function playsmsd_pids_show()
 {
     $pids = playsmsd_pids();
-    foreach ($pids as $service => $pid) {
-    	echo $service . " at pid " . $pid . "\n";
+    foreach ($pids as $service_name => $service_pids) {
+    	foreach ($service_pids as $pid) {
+    		if ($pid) {
+	    		echo $service_name . " at pid " . $pid . "\n";
+	    	}
+    	}
    	}
 }
 
 /**
- * Check whether or not playsmsd processes are running
+ * Check whether or not all playsmsd services are running
  *
  * @return boolean TRUE if all processes are running
  */
-function playsmsd_isrunning()
+function playsmsd_allrunning()
 {
-	$isrunning = false;
+	$run = array();
 	
     $pids = playsmsd_pids();
-    foreach ($pids as $pid) {
-        if ($pid) {
-            $isrunning = true;
-        } else {
-            $isrunning = false;
+    foreach ($pids as $service_name => $service_pids) {
+    	foreach ($service_pids as $pid) {
+		   	$run[$service_name] = false;    	
+		    if ($pid) {
+    		    $run[$service_name] = true;
 
-            break;
+    	        continue;
+        	}
         }
     }
 
-    return $isrunning;
+	$all_running = true;
+    foreach ($pids as $service_name => $service_pids) {
+	    if (!$run[$service_name]) {
+    		$all_running = false;
+    	}
+    }
+
+    return $all_running;
+}
+
+/**
+ * Check whether or not all playsmsd services are not running
+ *
+ * @return boolean TRUE if no services are running
+ */
+function playsmsd_allstopped()
+{
+	$run = array();
+	
+	$pids = playsmsd_pids();
+    foreach ($pids as $service_name => $service_pids) {
+		foreach ($service_pids as $pid) {
+		    $run[$service_name] = false;    	
+		    if ($pid) {
+    		    $run[$service_name] = true;
+
+    		    continue;
+        	}
+        }
+    }
+
+	$all_stopped = true;
+    foreach ($pids as $service_name => $service_pids) {
+	    if ($run[$service_name]) {
+    		$all_stopped = false;
+    	}
+    }
+
+    return $all_stopped;
 }
 
 /**
@@ -86,7 +149,7 @@ function playsmsd_start()
 {
     global $PLAYSMS_BIN;
 
-    if (playsmsd_isrunning()) {
+    if (playsmsd_allrunning()) {
         echo "playsmsd is already running\n";
         playsmsd_pids_show();
         
@@ -100,10 +163,10 @@ function playsmsd_start()
     // run playsmsd services
     $services = playsmsd_services();
     foreach ($services as $service) {
-	    $pids[$service] = shell_exec('nohup ionice -c3 nice -n19 ' . $PLAYSMS_BIN . ' ' . $service . ' >/dev/null 2>&1 & printf "%u" $!');
+	    $pids[$service] = shell_exec('nohup ionice -c3 nice -n19 ' . $PLAYSMS_BIN . ' _fork_ ' . $service . ' >/dev/null 2>&1 & printf "%u" $!');
     }
 
-    if (playsmsd_isrunning()) {
+    if (playsmsd_allrunning()) {
         echo "playsmsd has been started\n";
         playsmsd_pids_show();
     } else {
@@ -113,36 +176,38 @@ function playsmsd_start()
 
 /**
  * Stop playsmsd scripts
+ * 
+ * @return boolean TRUE if all services stopped
  */
 function playsmsd_stop()
 {
     $pids = playsmsd_pids();
-    foreach ($pids as $key => $val) {
-        if ($key && $val) {
-            echo $key . " at pid " . $val . " will be killed..\n";
-            shell_exec("kill " . $val . " >/dev/null 2>&1");
-        }
+    foreach ($pids as $service_name => $service_pids) {
+    	foreach ($service_pids as $pid) {
+    		if ($pid) {
+	    	    echo $service_name . " at pid " . $pid . " will be killed..\n";
+        		shell_exec("kill " . $pid . " >/dev/null 2>&1");
+       		}
+       	}
     }
 
-    if (playsmsd_isrunning()) {
+	$pids = playsmsd_pid_get();
+	foreach ($pids as $pid) {
+		if ($pid) {
+			echo "subprocess at pid " . $pid . " will be killed..\n";
+    		shell_exec("kill " . $pid . " >/dev/null 2>&1");
+    	}
+	}
+
+    if (playsmsd_allstopped()) {
+        echo "playsmsd has been stopped\n";
+        
+        return true;
+    } else {
         echo "Unable to stop playsmsd\n";
         playsmsd_pids_show();
-    } else {
-        echo "playsmsd has been stopped\n";
-    }
-}
-
-/**
- * Stop child scripts
- */
-function playsmsd_stop_childs()
-{
-    $pids['sendqueue'] = playsmsd_pid_get('sendqueue');
-    foreach ($pids as $key => $val) {
-        if ($key && $val) {
-            echo $key . " at pid " . $val . " will be killed..\n";
-            shell_exec("kill " . $val . " >/dev/null 2>&1");
-        }
+        
+        return false;
     }
 }
 
@@ -162,7 +227,7 @@ function playsmsd_check($json)
         'PLAYSMS_STR' => $PLAYSMS_STR,
         'PLAYSMS_LOG' => $PLAYSMS_LOG,
         'PLAYSMS_BIN' => $PLAYSMS_BIN,
-        'IS_RUNNING' => playsmsd_isrunning(),
+        'IS_RUNNING' => playsmsd_allrunning(),
         'PIDS' => playsmsd_pids(),
     );
 
@@ -170,9 +235,14 @@ function playsmsd_check($json)
         echo json_encode($data);
     } else {
         foreach ($data as $key => $val) {
-            if (is_array($val)) {
-                foreach ($val as $k => $v) {
-                    echo $key . " " . $k . " = " . $v . "\n";
+            if ($key == 'PIDS' && is_array($val)) {
+            	$pids = $val;
+                foreach ($pids as $service_name => $service_pids) {
+                	echo "PIDS " . $service_name . " = ";
+                	foreach ($service_pids as $pid) {
+                		echo $pid . " ";
+                    }
+                    echo "\n";
                 }
             } else {
                 echo $key . " = " . $val . "\n";

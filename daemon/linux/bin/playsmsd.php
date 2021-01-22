@@ -120,14 +120,21 @@ if (file_exists('init.php') && file_exists($fn)) {
 // Usage:
 // playsmsd COMMAND [LOOP_FLAG COMMAND_PARAM]
 
+$param = $argv;
+
 // Daemon service
-$COMMAND = ( isset($argv[1]) ? strtolower($argv[1]) : '' );
+$COMMAND = ( isset($param[1]) ? strtolower($param[1]) : '' );
+
+if ($COMMAND == '_fork_') {
+	array_shift($param);
+	$COMMAND = ( isset($param[1]) ? strtolower($param[1]) : '' );
+}
 
 // Loop flag: loop => execute in a loop, once => execute only once
-$LOOP_FLAG = ( isset($argv[2]) ? strtolower($argv[2]) : 'loop');
+$LOOP_FLAG = ( isset($param[2]) ? strtolower($param[2]) : 'loop');
 
 // Service parameters
-$COMMAND_PARAM = ( isset($argv[3]) ? $argv[3] : '' );
+$COMMAND_PARAM = ( isset($param[3]) ? $param[3] : '' );
 
 switch ($COMMAND) {
     case 'watchdog':
@@ -144,9 +151,6 @@ switch ($COMMAND) {
         // stop playsmsd services
         playsmsd_stop();
 
-        // stop playsmsd child scripts
-        playsmsd_stop_childs();
-
         exit();
         break;
 
@@ -154,7 +158,8 @@ switch ($COMMAND) {
 
         // stop, wait for 2 seconds and then start
         playsmsd_stop();
-        sleep(1);
+        
+        // start
         playsmsd_start();
 
         exit();
@@ -162,7 +167,7 @@ switch ($COMMAND) {
 
     case 'status':
 
-        if (playsmsd_isrunning()) {
+        if (playsmsd_allrunning()) {
             echo "playsmsd is running\n";
             playsmsd_pids_show();
         } else {
@@ -192,7 +197,7 @@ switch ($COMMAND) {
     case 'log':
 
         // View log
-        $debug_file = ($argv[2] ? $argv[2] : '');
+        $debug_file = ($param[2] ? $param[2] : '');
         playsmsd_log($debug_file);
 
         exit();
@@ -373,7 +378,7 @@ if ($LOOP_FLAG == 'once') {
                     foreach ($queue as $q) {
                         $is_sending = (playsmsd_pid_get($q) ? true : false);
                         if (!$is_sending) {
-                            $RUN_THIS = 'nohup ionice -c3 nice -n19 ' . $PLAYSMS_BIN . ' sendqueue once ' . $q . ' >/dev/null 2>&1 & printf "%u" $!';
+                            $RUN_THIS = 'nohup ionice -c3 nice -n19 ' . $PLAYSMS_BIN . ' _fork_ sendqueue once ' . $q . ' >/dev/null 2>&1 & printf "%u" $!';
                             echo $COMMAND . " execute: " . $RUN_THIS . "\n";
                             shell_exec($RUN_THIS);
                         }
