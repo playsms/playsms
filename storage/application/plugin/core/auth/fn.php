@@ -198,24 +198,6 @@ function auth_isvalid() {
 		$username = $_SESSION['username'];
 		$uid = $_SESSION['uid'];
 		
-		// check if user have closed the browser or disconnected for too long (1 hour)
-		if (time() > ($_SESSION['last_update'] + (60 * 60))) {
-			_log("invalid due to inactivity", 2, "auth_isvalid");
-			
-			//auth_session_destroy();
-			
-			return FALSE;
-		}
-
-		// check if user logged in for too long (6 hours)
-		if (time() > ($_SESSION['login_time'] + (6 * 60 * 60))) {
-			_log("invalid due to login time limit", 2, "auth_isvalid");
-			
-			//auth_session_destroy();
-			
-			return FALSE;
-		}
-		
 		// check if user still using the same browser
 		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT'])))) {
 			_log("invalid due to HTTP_USER_AGENT changed sess:[" . $_SESSION['http_user_agent'] . "] reg:[" . core_sanitize_string($_SERVER['HTTP_USER_AGENT']) . "]", 2, "auth_isvalid");
