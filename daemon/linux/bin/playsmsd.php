@@ -227,7 +227,7 @@ if ($LOOP_FLAG == 'once') {
             $param = explode('_', $COMMAND_PARAM);
             if (($param[0] == 'Q') && ($queue = $param[1])) {
                 $chunk = ((int) $param[2] ? (int) $param[2] : 0);
-                sendsmsd($queue, $chunk);
+                sendsms_daemon($queue, $chunk);
             }
         }
     }

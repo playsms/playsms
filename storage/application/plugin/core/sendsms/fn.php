@@ -235,17 +235,17 @@ function sendsms_queue_update($queue_code, $updates) {
 	return $ret;
 }
 
-function sendsmsd($single_queue = '', $chunk = 0) {
+function sendsms_daemon($single_queue = '', $chunk = 0) {
 	global $core_config;
 	
 	if ($single_queue) {
 		$queue_sql = "AND queue_code='" . $single_queue . "'";
 		
-		// _log("single queue queue_code:".$single_queue, 2, "sendsmsd");
+		// _log("single queue queue_code:".$single_queue, 2, "sendsms_daemon");
 	}
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag='3' " . $queue_sql;
 	
-	// _log("q: ".$db_query, 3, "sendsmsd");
+	// _log("q: ".$db_query, 3, "sendsms_daemon");
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_queue_id = $db_row['id'];
@@ -274,7 +274,7 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 		$continue = FALSE;
 		
 		// check delivery datetime
-		// _log("delivery datetime qeueue:" . $c_queue_code . " scheduled:" . core_display_datetime($c_schedule) . " current:" . core_display_datetime($c_current), 3, "sendsmsd");
+		// _log("delivery datetime qeueue:" . $c_queue_code . " scheduled:" . core_display_datetime($c_schedule) . " current:" . core_display_datetime($c_current), 3, "sendsms_daemon");
 		if (strtotime($c_current) >= strtotime($c_schedule)) {
 			$continue = TRUE;
 			
@@ -286,7 +286,7 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 		
 		// process queue
 		if ($continue) {
-			_log("start processing queue_code:" . $c_queue_code . " chunk:" . $chunk . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " scheduled:" . core_display_datetime($c_schedule) . " uid:" . $c_uid . " gpid:" . $c_gpid . " sender_id:" . $c_sender_id, 2, "sendsmsd");
+			_log("start processing queue_code:" . $c_queue_code . " chunk:" . $chunk . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " scheduled:" . core_display_datetime($c_schedule) . " uid:" . $c_uid . " gpid:" . $c_gpid . " sender_id:" . $c_sender_id, 2, "sendsms_daemon");
 			
 			$counter = 0;
 			
@@ -311,7 +311,7 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 				$c_dst = $db_row2['dst'];
 				$c_flag = 2;
 				$c_ok = false;
-				_log("sending queue_code:" . $c_queue_code . " smslog_id:" . $c_smslog_id . " to:" . $c_dst . " sms_count:" . $c_sms_count . " counter:" . $counter, 2, "sendsmsd");
+				_log("sending queue_code:" . $c_queue_code . " smslog_id:" . $c_smslog_id . " to:" . $c_dst . " sms_count:" . $c_sms_count . " counter:" . $counter, 2, "sendsms_daemon");
 				$ret = sendsms_process($c_smslog_id, $c_sender_id, $c_footer, $c_dst, $c_message, $c_uid, $c_gpid, $c_sms_type, $c_unicode, $c_queue_code, $c_smsc);
 				$c_dst = $ret['to'];
 				if ($ret['status']) {
@@ -321,7 +321,7 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 					// add to throttle counter
 					sendsms_throttle_count(0, $c_sms_size);
 				}
-				_log("result queue_code:" . $c_queue_code . " to:" . $c_dst . " flag:" . $c_flag . " smslog_id:" . $c_smslog_id, 2, "sendsmsd");
+				_log("result queue_code:" . $c_queue_code . " to:" . $c_dst . " flag:" . $c_flag . " smslog_id:" . $c_smslog_id, 2, "sendsms_daemon");
 				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_smslog_id'";
 				$db_result3 = dba_query($db_query3);
 				$ok[] = $c_ok;
@@ -352,12 +352,12 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 				$dt = core_get_datetime();
 				$db_query5 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue SET flag='1', datetime_update='" . $dt . "' WHERE id='$c_queue_id'";
 				if ($db_result5 = dba_affected_rows($db_query5)) {
-					_log("finish processing queue_code:" . $c_queue_code . " uid:" . $c_uid . " sender_id:" . $c_sender_id . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count, 2, "sendsmsd");
+					_log("finish processing queue_code:" . $c_queue_code . " uid:" . $c_uid . " sender_id:" . $c_sender_id . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count, 2, "sendsms_daemon");
 				} else {
-					_log("fail to finalize process queue_code:" . $c_queue_code . " uid:" . $c_uid . " sender_id:" . $c_sender_id . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " sms_processed:" . $sms_processed, 2, "sendsmsd");
+					_log("fail to finalize process queue_code:" . $c_queue_code . " uid:" . $c_uid . " sender_id:" . $c_sender_id . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " sms_processed:" . $sms_processed, 2, "sendsms_daemon");
 				}
 			} else {
-				_log("partially processing queue_code:" . $c_queue_code . " uid:" . $c_uid . " sender_id:" . $c_sender_id . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " sms_processed:" . $sms_processed . " counter:" . $counter, 2, "sendsmsd");
+				_log("partially processing queue_code:" . $c_queue_code . " uid:" . $c_uid . " sender_id:" . $c_sender_id . " queue_count:" . $c_queue_count . " sms_count:" . $c_sms_count . " sms_processed:" . $sms_processed . " counter:" . $counter, 2, "sendsms_daemon");
 			}
 		}
 	}
@@ -936,7 +936,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 		unset($queue);
 		unset($counts);
 		_log("sendsmsd off immediately process queue_code:" . $queue_code, 2, "sendsms");
-		list($ok, $to, $smslog_id, $queue, $counts) = sendsmsd($queue_code);
+		list($ok, $to, $smslog_id, $queue, $counts) = sendsms_daemon($queue_code);
 	}
 	
 	return array(
