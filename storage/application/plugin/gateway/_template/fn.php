@@ -39,12 +39,12 @@ function _template_hook_sendsms($smsc, $sms_sender,$sms_footer,$sms_to,$sms_msg,
 	// custom commands
 //}
 
-// hook_getsmsstatus
+// hook_dlr_fetch
 // called by index.php?app=main&inc=daemon (periodic daemon) to set sms status
 // no returns needed
 // $p_datetime	: first sms delivery datetime
 // $p_update	: last status update datetime
-function _template_hook_getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function _template_hook_dlr_fetch($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
 	// global $tmpl_param;
 	// p_status :
 	// 0 = pending

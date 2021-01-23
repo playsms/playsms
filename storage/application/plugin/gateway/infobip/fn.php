@@ -1,10 +1,10 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
+function infobip_hook_dlr_fetch($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
 	global $plugin_config;
 	
-	list($c_sms_credit, $c_sms_status) = infobip_getsmsstatus($smslog_id);
+	list($c_sms_credit, $c_sms_status) = infobip_dlr_fetch($smslog_id);
 	// pending
 	$p_status = 0;
 	if ($c_sms_status) {
@@ -22,7 +22,7 @@ function infobip_hook_playsmsd() {
 	}
 
 	if ($plugin_config['infobip']['dlr_nopush'] == '1') {
-		// force to check p_status=1 (sent) as getsmsstatus only check for p_status=0 (pending)
+		// force to check p_status=1 (sent) as dlr_fetch only check for p_status=0 (pending)
 		// $db_query = "SELECT * FROM "._DB_PREF_."_tblSMSOutgoing WHERE p_status=0 OR p_status=1";
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='1' AND p_gateway='infobip'";
 		$db_result = dba_query($db_query);
@@ -32,7 +32,7 @@ function infobip_hook_playsmsd() {
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$gpid = $db_row['p_gpid'];
-			core_hook('infobip', 'getsmsstatus', array(
+			core_hook('infobip', 'dlr_fetch', array(
 				$gpid,
 				$uid,
 				$smslog_id,
@@ -113,7 +113,7 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		if ($response['result']['status'] == 0) {
 			if ($apimsgid = trim($response['result']['messageid'])) {
 				infobip_setsmsapimsgid($smslog_id, $apimsgid);
-				list($c_sms_credit, $c_sms_status) = infobip_getsmsstatus($smslog_id);
+				list($c_sms_credit, $c_sms_status) = infobip_dlr_fetch($smslog_id);
 				// pending
 				$p_status = 0;
 				if ($c_sms_status) {
@@ -150,7 +150,7 @@ function infobip_hook_getsmsinbox() {
 	 */
 }
 
-function infobip_getsmsstatus($smslog_id) {
+function infobip_dlr_fetch($smslog_id) {
 	global $plugin_config;
 	
 	// Be carefull nopush should be set to 1 and no Push url should be defined on infobip account !
@@ -166,7 +166,7 @@ function infobip_getsmsstatus($smslog_id) {
 			$query_string = "pull?user=" . $plugin_config['infobip']['username'] . "&password=" . $plugin_config['infobip']['password'] . "&messageid=$apimsgid";
 			// $url = $plugin_config['infobip']['send_url']."/".$query_string;
 			$url = $plugin_config['infobip']['send_url'] . "/dr/" . $query_string;
-			_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 2, "infobip getsmsstatus");
+			_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " url:" . $url, 2, "infobip dlr_fetch");
 			$fd = @implode('', file($url));
 			_log("fd: " . $fd, 3, "infobip debug");
 			if ($fd != "NO_DATA") {
@@ -198,7 +198,7 @@ function infobip_getsmsstatus($smslog_id) {
 							break; // failed
 					}
 				}
-				_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "infobip getsmsstatus");
+				_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "infobip dlr_fetch");
 			}
 		}
 		return array(

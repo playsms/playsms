@@ -95,7 +95,7 @@ function dlr_update($smslog_id, $uid, $p_status) {
 	return $ok;
 }
 
-function getsmsstatus() {
+function dlr_fetch() {
 	$smscs = gateway_getall_smsc_names();
 	foreach ($smscs as $smsc) {
 		$smsc_data = gateway_get_smscbyname($smsc);
@@ -108,7 +108,7 @@ function getsmsstatus() {
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$gpid = $db_row['p_gpid'];
-			core_hook($gateway, 'getsmsstatus', array(
+			core_hook($gateway, 'dlr_fetch', array(
 				$gpid,
 				$uid,
 				$smslog_id,

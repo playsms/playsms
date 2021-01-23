@@ -131,12 +131,12 @@ function uplink_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	return $ok;
 }
 
-// hook_getsmsstatus
+// hook_dlr_fetch
 // called by index.php?app=main&inc=daemon (periodic daemon) to set sms status
 // no returns needed
 // $p_datetime : first sms delivery datetime
 // $p_update : last status update datetime
-function uplink_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
+function uplink_hook_dlr_fetch($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
 	
 	// global $plugin_config;
 	// p_status :
@@ -171,7 +171,7 @@ function uplink_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_date
 				
 				$ws->getOutgoing();
 				
-				// _log('getsmsstatus url:[' . $ws->getWebservicesUrl() . '] smsc:[' . $smsc . ']', 3, 'uplink_hook_getsmsstatus');
+				// _log('dlr_fetch url:[' . $ws->getWebservicesUrl() . '] smsc:[' . $smsc . ']', 3, 'uplink_hook_dlr_fetch');
 				
 
 				$response = $ws->getData()->data[0];

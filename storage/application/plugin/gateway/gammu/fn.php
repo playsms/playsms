@@ -18,7 +18,7 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
+function gammu_hook_dlr_fetch($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
 	global $plugin_config;
 	
 	$smscs = gateway_getall_smsc_names($plugin_config['gammu']['name']);
@@ -90,7 +90,7 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 		} else {
 			
 			// delete the file if exists
-			_log("smslog_id:" . $smslog_id . " unlink the_fn:" . $the_fn . " p_status:" . $p_status . " smsc:" . $smsc, 2, "gammu_hook_getsmsstatus");
+			_log("smslog_id:" . $smslog_id . " unlink the_fn:" . $the_fn . " p_status:" . $p_status . " smsc:" . $smsc, 2, "gammu_hook_dlr_fetch");
 			@unlink($the_fn);
 		}
 	}

@@ -18,7 +18,7 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_datetime = '', $p_update = '') {
+function smstools_hook_dlr_fetch($gpid = 0, $uid = '', $smslog_id = '', $p_datetime = '', $p_update = '') {
 	global $plugin_config;
 	
 	$plugin_config['smstools']['backup'] = $plugin_config['smstools']['default_queue'] . '/backup';
@@ -72,19 +72,19 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 						('" . time() . "','" . $uid . "','" . $smslog_id . "','" . $message_id . "','1')";
 					$dlr_id = dba_insert_id($db_query);
 					if ($dlr_id) {
-						_log('DLR mapped fn:' . $fn . ' id:' . $dlr_id . ' uid:' . $uid . ' smslog_id:' . $smslog_id . ' message_id:' . $message_id, 2, 'smstools_hook_getsmsstatus');
+						_log('DLR mapped fn:' . $fn . ' id:' . $dlr_id . ' uid:' . $uid . ' smslog_id:' . $smslog_id . ' message_id:' . $message_id, 2, 'smstools_hook_dlr_fetch');
 					} else {
-						_log('Fail to map DLR fn:' . $fn . ' id:' . $dlr_id . ' uid:' . $uid . ' smslog_id:' . $smslog_id . ' message_id:' . $message_id, 2, 'smstools_hook_getsmsstatus');
+						_log('Fail to map DLR fn:' . $fn . ' id:' . $dlr_id . ' uid:' . $uid . ' smslog_id:' . $smslog_id . ' message_id:' . $message_id, 2, 'smstools_hook_dlr_fetch');
 					}
 				} else {
-					_log('No valid DLR fn:' . $fn . ' uid:' . $uid . ' smslog_id:' . $smslog_id . ' message_id:' . $message_id, 2, 'smstools_hook_getsmsstatus');
+					_log('No valid DLR fn:' . $fn . ' uid:' . $uid . ' smslog_id:' . $smslog_id . ' message_id:' . $message_id, 2, 'smstools_hook_dlr_fetch');
 				}
 				
 				if ($smslog_id) {
 					$p_status = 1;
 					dlr($smslog_id, $uid, $p_status);
 				} else {
-					_log('Error no smslog_id fn:' . $fn . ' uid:' . $uid, 2, 'smstools_hook_getsmsstatus');
+					_log('Error no smslog_id fn:' . $fn . ' uid:' . $uid, 2, 'smstools_hook_dlr_fetch');
 				}
 			}
 		}
@@ -102,7 +102,7 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 			$p_status = 2;
 			dlr($smslog_id, $uid, $p_status);
 		} else {
-			_log('Error no smslog_id efn:' . $efn . ' uid:' . $uid, 2, 'smstools_hook_getsmsstatus');
+			_log('Error no smslog_id efn:' . $efn . ' uid:' . $uid, 2, 'smstools_hook_dlr_fetch');
 		}
 	}
 	

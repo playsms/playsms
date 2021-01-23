@@ -281,7 +281,7 @@ if ($LOOP_FLAG == 'once') {
 
             case 'dlrssmsd':
                 dlrd();
-                getsmsstatus();
+                dlr_fetch();
                 break;
 
             case 'recvsmsd':
