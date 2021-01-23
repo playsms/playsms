@@ -73,7 +73,7 @@ switch (_OP_) {
 		if ($continue) {
 			list($all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings) = sendfromfile_verify($fn);
 		} else {
-			$_SESSION['dialog']['danger'][] = _('Invalid CSV file');
+			$_SESSION['dialog']['danger'][] = _('Error occurred after uploading CSV file');
 			header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 			exit();
 			break;

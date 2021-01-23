@@ -41,18 +41,23 @@ function sendfromfile_verify($csv_file) {
 	if ($csv_file && file_exists($csv_file)) {
 		$csv_file_size = filesize($csv_file);
 	} else {
-		$error_strings[] = _('CSV file not found');
+		_log("CSV file not found or empty file:" . $csv_file . " size:" . $csv_file_size, 2, "sendfromfile_verify");
+		$error_strings[] = _('Error occurred while verifying CSV file');
 
 		return [$all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings];
 	}
 
 	// open CSV file
 	if (!(($fd = fopen($csv_file, 'r')) !== false && ($sendfromfile_id = md5(uniqid('SID', true))))) {
-		$error_strings[] = _('Fail to open CSV file');
+		_log("fail to open CSV file file:" . $csv_file . " size:" . $csv_file_size . " sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+		$error_strings[] = _('Error occurred while opening CSV file');
 
 		return [$all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings];
 	}
 
+	// mark start
+	_log("start sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+	
 	// load and verify data from CSV file
 	$continue = true;
 	while ((($data = fgetcsv($fd, $csv_file_size, ',')) !== false) && $continue) {
@@ -199,6 +204,9 @@ function sendfromfile_verify($csv_file) {
 		sendfromfile_destroy($sendfromfile_id);
 	}
 
+	// mark finish
+	_log("finish sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+	
 	return [$all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings];
 }
 
@@ -216,6 +224,9 @@ function sendfromfile_process($sendfromfile_id) {
 		return;
 	}
 
+	// mark start
+	_log("start sid:" . $sendfromfile_id, 2, "sendfromfile_process");
+	
 	// set time limit to forever
 	@set_time_limit(0);
 	
@@ -252,6 +263,9 @@ function sendfromfile_process($sendfromfile_id) {
 			}			
 		}
 	}
+	
+	// mark finish
+	_log("finish sid:" . $sendfromfile_id, 2, "sendfromfile_process");
 	
 	//sendfromfile_destroy($sendfromfile_id);
 }
