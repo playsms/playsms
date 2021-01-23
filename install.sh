@@ -316,6 +316,8 @@ echo -n .
 echo "done"
 echo
 
+export PLAYSMS_WEB="$PATHWEB"
+
 echo "Checking installation..."
 $PATHBIN/playsmsd check
 sleep 3
