@@ -10,7 +10,7 @@ function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_dat
 	if ($c_sms_status) {
 		$p_status = $c_sms_status;
 	}
-	setsmsdeliverystatus($smslog_id, $uid, $p_status);
+	dlr_update($smslog_id, $uid, $p_status);
 }
 
 function infobip_hook_playsmsd() {

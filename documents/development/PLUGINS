@@ -34,7 +34,7 @@ Core functions that you can 'hook' from tools plugins:
 - rate_deduct($smslog_id)
 - rate_refund($smslog_id)
 - sendmail($mail_from,$mail_to,$mail_subject="",$mail_body="")
-- setsmsdeliverystatus($smslog_id,$uid,$p_status)
+- dlr_update($smslog_id,$uid,$p_status)
 - recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver)
 - recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$message)
 - sendsms_intercept($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid,$gpid=0,$sms_type='text',$unicode=0)
@@ -51,7 +51,7 @@ incoming or outgoing SMS.
 Core functions that you can 'hook' from feature plugins:
 - playsmsd()
 - checkavailablekeyword($keyword)
-- setsmsdeliverystatus($smslog_id,$uid,$p_status)
+- dlr_update($smslog_id,$uid,$p_status)
 - setsmsincomingaction($sms_datetime,$sms_sender,$target_keyword,$message,$sms_receiver,$raw_message)
 - recvsms_intercept($sms_datetime,$sms_sender,$message,$sms_receiver)
 - recvsms_inbox_add_intercept($sms_datetime,$sms_sender,$target_user,$message)
@@ -71,7 +71,7 @@ Core functions that you can 'hook' from gateway plugins:
 - getsmsinbox()
 - getsmsstatus($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="")
 - sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0)
-- setsmsdeliverystatus($smslog_id,$uid,$p_status)
+- dlr_update($smslog_id,$uid,$p_status)
 - webservices_output($ta,$_REQUEST)
 - call($_REQUEST)
 

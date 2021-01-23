@@ -38,7 +38,7 @@ function dlr($smslog_id, $uid, $p_status) {
 			'p_status' => $p_status,
 			'uid' => $uid 
 		));
-		setsmsdeliverystatus($smslog_id, $uid, $p_status);
+		dlr_update($smslog_id, $uid, $p_status);
 	}
 	_log("isdlrd:" . $c_isdlrd . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr");
 	return $ret;
@@ -64,27 +64,27 @@ function dlrd() {
 				'id' => $id 
 			))) {
 				_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlrd");
-				setsmsdeliverystatus($smslog_id, $uid, $p_status);
+				dlr_update($smslog_id, $uid, $p_status);
 			}
 		}
 	}
 }
 
-function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
+function dlr_update($smslog_id, $uid, $p_status) {
 	global $core_config;
 	// $p_status = 0 --> pending
 	// $p_status = 1 --> sent
 	// $p_status = 2 --> failed
 	// $p_status = 3 --> delivered
-	// _log("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "setsmsdeliverystatus");
+	// _log("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "dlr_update");
 	$ok = false;
 	$db_query = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
 	if ($aff_id = @dba_affected_rows($db_query)) {
-		// _log("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
+		// _log("saved smslog_id:".$smslog_id, 2, "dlr_update");
 		$ok = true;
 		if ($p_status > 0) {
 			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-				core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', array(
+				core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
 					$smslog_id,
 					$uid,
 					$p_status 

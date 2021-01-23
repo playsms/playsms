@@ -64,19 +64,19 @@ function simplebilling_hook_billing_finalize($smslog_id) {
 	return $ok;
 }
 
-function simplebilling_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
-	//_log("checking smslog_id:".$smslog_id, 2, "simplebilling_hook_setsmsdeliverystatus");
+function simplebilling_hook_dlr_update($smslog_id, $uid, $p_status) {
+	//_log("checking smslog_id:".$smslog_id, 2, "simplebilling_hook_dlr_update");
 	if (($p_status == 1) || ($p_status == 3)) {
 		$db_query = "SELECT status FROM " . _DB_PREF_ . "_tblBilling WHERE smslog_id='$smslog_id'";
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			if ((int) $db_row['status'] > 0) {
-				_log("billing finalized smslog_id:" . $smslog_id . " status:" . $db_row['status'], 2, "simplebilling_hook_setsmsdeliverystatus");
+				_log("billing finalized smslog_id:" . $smslog_id . " status:" . $db_row['status'], 2, "simplebilling_hook_dlr_update");
 			} else {
 				billing_finalize($smslog_id);
 			} 
 		} else {
-			_log("fail to find billing smslog_id:" . $smslog_id, 2, "simplebilling_hook_setsmsdeliverystatus");
+			_log("fail to find billing smslog_id:" . $smslog_id, 2, "simplebilling_hook_dlr_update");
 		}
 	}
 }

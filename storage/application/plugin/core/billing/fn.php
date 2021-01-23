@@ -42,7 +42,7 @@ function billing_rollback($smslog_id) {
 }
 
 /**
- * Set status that billing process is finalized, called from setsmsdeliverystatus
+ * Set status that billing process is finalized, called from dlr_update
  * @param integer $smslog_id SMS log ID
  * @return boolean TRUE if finalization succeeded
  */
