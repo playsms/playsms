@@ -48,13 +48,13 @@ $PLAYSMS_WEB = '';
 
 // check CLI
 if (!(PHP_SAPI == 'cli')) {
-	echo "playSMS daemon must be called from cli";
+	echo "playSMS daemon must be called from cli\n";
 	exit();
 }
 
 // prevent running this script as root
 if (posix_getuid() === 0) {
-	echo "playSMS daemon must not run as root";
+	echo "playSMS daemon must not run as root\n";
 	exit();
 }
 
