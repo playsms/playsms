@@ -234,7 +234,32 @@ set -e
 
 echo -n "Copying files."
 echo -n .
-mkdir -p $PATHWEB $PATHLOG $PATHSTR
+mkdir -p $PATHWEB $PATHLOG $PATHSTR $PATHBIN
+
+if [ ! -d "$PATHWEB" ]; then
+	echo "ERROR: unable to create $PATHWEB"
+	echo
+	exit 1
+fi
+
+if [ ! -d "$PATHLOG" ]; then
+	echo "ERROR: unable to create $PATHLOG"
+	echo
+	exit 1
+fi
+
+if [ ! -d "$PATHSTR" ]; then
+	echo "ERROR: unable to create $PATHSTR"
+	echo
+	exit 1
+fi
+
+if [ ! -d "$PATHBIN" ]; then
+	echo "ERROR: unable to create $PATHBIN"
+	echo
+	exit 1
+fi
+
 echo -n .
 cp -rf $PATHSRC/web/* $PATHWEB
 echo -n .
@@ -307,14 +332,18 @@ echo -n .
 sed -i "s|#URLWEB#|$URLWEB|g" $PATHWEB/appsetup.php
 echo -n .
 
-mkdir -p $PATHBIN
-echo -n .
 rm -f $PATHBIN/playsmsd
 cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
 chmod 700 $PATHBIN/playsmsd
 echo -n .
 echo "done"
 echo
+
+touch $PATHLOG/playsms.log >/dev/null 2>&1
+chmod 664 $PATHLOG/playsms.log >/dev/null 2>&1
+
+touch $PATHLOG/audit.log >/dev/null 2>&1
+chmod 664 $PATHLOG/audit.log >/dev/null 2>&1
 
 export PLAYSMS_WEB="$PATHWEB"
 
