@@ -167,7 +167,7 @@ function playsmsd_start()
     // run playsmsd services
     $services = playsmsd_services();
     foreach ($services as $service) {
-	    $pids[$service] = shell_exec('nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ ' . $service . ' >/dev/null 2>&1 & printf "%u" $!');
+	    $pids[$service] = playsmsd_run_loop($service);
     }
 
     if (playsmsd_allrunning()) {
@@ -294,16 +294,13 @@ function playsmsd_log($debug_file = '')
  * @return array Service names
  */
 function playsmsd_services() {
-
-	// fixme anton - will add core_hook() here
-
-	$services = [
-		'schedule',
-		'ratesmsd',
-		'dlrssmsd',
-		'sendsmsd',
-		'recvsmsd',
-	];
+	global $plugin_config;
+	
+	$services = array();
+	
+	if (isset($plugin_config['core']['playsmsd']['services'])) {	
+		$services = $plugin_config['core']['playsmsd']['services'];
+	}
 	
 	return $services;
 }
