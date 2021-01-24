@@ -1234,3 +1234,110 @@ function sendsms_hook_playsmsd_once($command, $command_param) {
         sendsms_daemon($queue, $chunk);
     }
 }
+
+function sendsms_hook_playsmsd_loop($command, $command_param) {
+	global $core_config;
+	
+	if ($command != 'sendsmsd') {
+		
+		return;
+	}
+	
+	// get unprocessed and delivering queues
+	// $core_config['sendsmsd_queue'] = number of simultaneous queues
+	// $core_config['sendsmsd_chunk'] = number of chunk per queue
+	$db_query = "SELECT id,queue_code,flag FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE (flag=0 || flag=3) LIMIT " . (int) $core_config['sendsmsd_queue'];
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$queue_id = $db_row['id'];
+		$queue_code = $db_row['queue_code'];
+		$flag = (int) $db_row['flag'];
+
+		// unprocessed, prepare chunks for jobs
+		if ($flag === 0) {
+			// $db_row['queue_code'] = queue code
+			// $db_row['queue_count'] = number of entries in a queue
+			// $db_row['sms_count'] = number of SMS in an entry
+			$num = 0;
+			$db_query2 = "SELECT id FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $queue_id . "'";
+			$db_result2 = dba_query($db_query2);
+			while ($db_row2 = dba_fetch_array($db_result2)) {
+				$num++;
+				$chunk = (int) floor($num / $core_config['sendsmsd_chunk_size']);
+				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET datetime_update='" . core_get_datetime() . "',chunk='" . $chunk . "' WHERE id='" . $db_row2['id'] . "'";
+				$db_result3 = dba_query($db_query3);
+
+				_log('prepare chunks queue:' . $queue_code . ' id:' . $db_row2['id'] . ' num:' . $num . ' chunk:' . $chunk, 2, 'sendsms_hook_playsmsd_loop');
+			}
+
+			if ($num > 0) {
+				// destination found, update queue to next process
+				if (sendsms_queue_update($queue_code, array(
+					'datetime_update' => core_get_datetime(),
+					'flag' => 3,
+				))) {
+					$flag = 3;
+
+					_log('destination found chunk prepared queue:' . $queue_code, 2, 'sendsms_hook_playsmsd_loop');
+				} else {
+					_log('destination found but unable to flag for next process queue:' . $queue_code, 2, 'sendsms_hook_playsmsd_loop');
+				}
+			} else {
+				// no destination found, something's not right with the queue, mark it as done (flag 1)
+				if (sendsms_queue_update($queue_code, array(
+					'flag' => 1,
+				))) {
+					_log('destination not found enforce finish queue:' . $queue_code, 2, 'sendsms_hook_playsmsd_loop');
+				} else {
+					_log('destination not found but fail to enforce finish queue:' . $queue_code, 2, 'sendsms_hook_playsmsd_loop');
+				}
+			}
+		}
+		
+		//_log('debug flag:' . $flag, 2, 'sendsms_hook_playsmsd_loop');
+
+		// next process, prepare jobs
+		if ($flag == 3) {
+			// build queue job list
+			$queue_jobs = array();
+
+			// get chunks
+			$c_chunk_found = 0;
+			$db_query2 = "SELECT chunk,flag FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $queue_id . "' GROUP BY chunk LIMIT " . $core_config['sendsmsd_chunk'];
+			$db_result2 = dba_query($db_query2);
+			while ($db_row2 = dba_fetch_array($db_result2)) {
+				if ((int) $db_row2['flag'] === 0) {
+					$c_chunk = (int) $db_row2['chunk'];
+					$queue_jobs[] = 'Q_' . $queue_code . '_' . $c_chunk;
+					_log('job ready queue:' . $queue_code . ' queue_id:' . $queue_id . ' flag:' . $db_row2['flag'], 2, 'sendsms_hook_playsmsd_loop');
+				}
+				//else {
+				//    _log('job already processed queue:' . $queue_code . ' queue_id:' . $queue_id . ' flag:' . $db_row2['flag'], 2, 'sendsms_hook_playsmsd_loop');
+				//}
+				$c_chunk_found++;
+			}
+
+			if ($c_chunk_found < 1) {
+				// no chunk found, something's not right with the queue, mark it as done (flag 1)
+				if (sendsms_queue_update($queue_code, array(
+					'flag' => 1,
+				))) {
+					_log('job not found enforce finish queue:' . $queue_code, 2, 'sendsms_hook_playsmsd_loop');
+				} else {
+					_log('job not found but fail to enforce process queue:' . $queue_code, 2, 'sendsms_hook_playsmsd_loop');
+				}
+			}
+
+			// fork jobs
+			$queue_jobs = array_unique($queue_jobs);
+			if (count($queue_jobs) > 0) {
+				foreach ($queue_jobs as $q) {
+					if ($pid = playsmsd_run_once('sendqueue', $q)) {
+						_log('sendqueue job:' . $q . ' pid:' . $pid, 2, 'sendsms_hook_playsmsd_loop');
+					}
+				}
+			}
+		}
+	} 
+	// end while $db_row
+}

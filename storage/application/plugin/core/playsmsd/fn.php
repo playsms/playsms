@@ -330,6 +330,37 @@ function playsmsd() {
 	core_hook(core_themes_get(), 'playsmsd');
 }
 
+function playsmsd_loop($command, $command_param) {
+    //_log("start command:" . $command . " param:" . $command_param, 3, "playsmsd_loop");
+
+    // plugin core & feature
+    core_call_hook();
+
+    // plugin gateway
+    $smscs = gateway_getall_smsc_names();
+    foreach ($smscs as $smsc) {
+        $smsc_data = gateway_get_smscbyname($smsc);
+        $gateways[] = $smsc_data['gateway'];
+    }
+    if (is_array($gateways)) {
+        $gateways = array_unique($gateways);
+        foreach ($gateways as $gateway) {
+            core_hook($gateway, 'playsmsd_loop', array(
+                $command,
+                $command_param,
+            ));
+        }
+    }
+
+    // plugin themes
+    core_hook(core_themes_get(), 'playsmsd_loop', array(
+        $command,
+        $command_param,
+    ));
+
+    //_log("finish command:" . $command . " param:" . $command_param, 3, "playsmsd_loop");
+}
+
 function playsmsd_once($command, $command_param) {
 	_log("start command:" . $command . " param:" . $command_param, 3, "playsmsd_once");
 	
@@ -361,7 +392,6 @@ function playsmsd_once($command, $command_param) {
 	_log("finish command:" . $command . " param:" . $command_param, 3, "playsmsd_once");	
 }
 
-
 function playsmsd_run_once($command, $command_param = '') {
 	if (isset($command)) {
 	
@@ -385,4 +415,30 @@ function playsmsd_run_once($command, $command_param = '') {
 		
 		return 0;
 	}
+}
+
+function playsmsd_run_loop($command, $command_param = '')
+{
+    if (isset($command)) {
+
+        // check if command is running
+        $is_running = (playsmsd_pid_get($command, $command_param) ? true : false);
+
+        // prevent command runs more than once
+        if ($is_running) {
+
+            return false;
+        }
+
+        // fork it
+        $pid = shell_exec('nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ ' . $command . ' loop ' . $command_param . ' >/dev/null 2>&1 & printf "%u" $!');
+
+        // log it
+        _log("command:" . $command . " param:" . $command_param . " pid:" . $pid, 3, "playsmsd_run_loop");
+
+        return $pid;
+    } else {
+
+        return 0;
+    }
 }
