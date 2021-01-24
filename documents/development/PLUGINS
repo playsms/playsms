@@ -68,7 +68,7 @@ connected to SMS gateway applications or services.
 
 Core functions that you can 'hook' from gateway plugins:
 - playsmsd()
-- getsmsinbox()
+- recvsms_fetch()
 - sendsms($sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0)
 - dlr_update($smslog_id,$uid,$p_status)
 - dlr_fetch($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="")

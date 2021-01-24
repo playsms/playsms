@@ -116,7 +116,7 @@ function smstools_hook_dlr_fetch($gpid = 0, $uid = '', $smslog_id = '', $p_datet
 	}
 }
 
-function smstools_hook_getsmsinbox() {
+function smstools_hook_recvsms_fetch() {
 	global $plugin_config;
 	
 	$plugin_config['smstools']['backup'] = $plugin_config['smstools']['default_queue'] . '/backup';
@@ -195,7 +195,7 @@ function smstools_hook_getsmsinbox() {
 							$status = (int) $status_var[0];
 						}
 						if ($message_id && $status_var[1]) {
-							_log('DLR received message_id:' . $message_id . ' status:' . $status . ' info1:[' . $status_var[1] . '] info2:[' . $status_var[2] . '] smsc:[' . $smsc . ']', 2, 'smstools_hook_getsmsinbox');
+							_log('DLR received message_id:' . $message_id . ' status:' . $status . ' info1:[' . $status_var[1] . '] info2:[' . $status_var[2] . '] smsc:[' . $smsc . ']', 2, 'smstools_hook_recvsms_fetch');
 							$db_query = "SELECT id,uid,smslog_id FROM " . _DB_PREF_ . "_gatewaySmstools_dlr WHERE message_id='" . $message_id . "' AND status='1' ORDER BY id DESC LIMIT 1";
 							$db_result = dba_query($db_query);
 							$db_row = dba_fetch_array($db_result);
@@ -207,7 +207,7 @@ function smstools_hook_getsmsinbox() {
 								if ($db_result = dba_affected_rows($db_query)) {
 									$p_status = 3;
 									dlr($smslog_id, $uid, $p_status);
-									_log('DLR smslog_id:' . $smslog_id . ' p_status:' . $p_status . ' smsc:[' . $smsc . ']', 2, 'smstools_hook_getsmsinbox');
+									_log('DLR smslog_id:' . $smslog_id . ' p_status:' . $p_status . ' smsc:[' . $smsc . ']', 2, 'smstools_hook_recvsms_fetch');
 								}
 							}
 							$is_dlr = true;
@@ -217,7 +217,7 @@ function smstools_hook_getsmsinbox() {
 					// collected: $sms_datetime, $sms_sender, $message, $sms_receiver
 					// if not a DLR then route it to incoming handler
 					if (!$is_dlr) {
-						_log('sender:' . $sms_sender . ' receiver:' . $sms_receiver . ' dt:' . $sms_datetime . ' msg:[' . $message . '] smsc:[' . $smsc . ']', 3, 'smstools_hook_getsmsinbox');
+						_log('sender:' . $sms_sender . ' receiver:' . $sms_receiver . ' dt:' . $sms_datetime . ' msg:[' . $message . '] smsc:[' . $smsc . ']', 3, 'smstools_hook_recvsms_fetch');
 						$sms_sender = addslashes($sms_sender);
 						$message = addslashes($message);
 						recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);

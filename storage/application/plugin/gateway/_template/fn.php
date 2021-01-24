@@ -54,10 +54,10 @@ function _template_hook_dlr_fetch($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 	// dlr($smslog_id,$uid,$p_status);
 }
 
-// hook_getsmsinbox
+// hook_recvsms_fetch
 // called by incoming sms processor
 // no returns needed
-function _template_hook_getsmsinbox() {
+function _template_hook_recvsms_fetch() {
 	// global $tmpl_param;
 	// $sms_datetime	: incoming sms datetime
 	// $message		: incoming sms message

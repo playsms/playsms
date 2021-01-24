@@ -98,7 +98,7 @@ function gammu_hook_dlr_fetch($gpid = 0, $uid = "", $smslog_id = "", $p_datetime
 	return;
 }
 
-function gammu_hook_getsmsinbox() {
+function gammu_hook_recvsms_fetch() {
 	// filename
 	// IN20101017_091747_00_+628123423141312345_00.txt
 	global $plugin_config;
@@ -160,7 +160,7 @@ function gammu_hook_getsmsinbox() {
 							$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
 							$parts_message = addslashes($parts_message);
 							recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, $smsc);
-							_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:[" . $parts_message . "] smsc:[" . $smsc . "]", 3, "gammu_hook_getsmsinbox");
+							_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:[" . $parts_message . "] smsc:[" . $smsc . "]", 3, "gammu_hook_recvsms_fetch");
 							
 							unset($messages);
 						}
@@ -189,7 +189,7 @@ function gammu_hook_getsmsinbox() {
 			$parts_datetime = $messages[$parts_sender][0]['msg_datetime'];
 			$parts_message = addslashes($parts_message);
 			recvsms($parts_datetime, $parts_sender, $parts_message, $sms_receiver, $smsc);
-			_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:[" . $_parts_message . "] smsc:[" . $smsc . "]", 3, "gammu_hook_getsmsinbox");
+			_log("sender:" . $parts_sender . " receiver:" . $sms_receiver . " dt:" . $parts_datetime . " msg:[" . $_parts_message . "] smsc:[" . $smsc . "]", 3, "gammu_hook_recvsms_fetch");
 			unset($messages);
 		}
 		@closedir($handle);

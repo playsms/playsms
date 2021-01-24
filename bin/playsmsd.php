@@ -267,11 +267,6 @@ if ($LOOP_FLAG == 'once') {
                 dlrd();
                 dlr_fetch();
                 break;
-
-            case 'recvsmsd':
-                recvsmsd();
-                getsmsinbox();
-                break;
         }
         // end switch $COMMAND
         

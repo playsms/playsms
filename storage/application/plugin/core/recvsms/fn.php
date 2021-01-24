@@ -51,7 +51,7 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc
 	return $ret;
 }
 
-function recvsmsd() {
+function recvsms_daemon() {
 	global $core_config;
 	$core_config['recvsmsd_limit'] = ((int) $core_config['recvsmsd_limit'] ? (int) $core_config['recvsmsd_limit'] : 200);
 	$list = dba_search(_DB_PREF_ . '_tblRecvSMS', '*', array(
@@ -72,7 +72,7 @@ function recvsmsd() {
 			), array(
 				'id' => $id 
 			))) {
-				_log("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsmsd");
+				_log("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsms_daemon");
 				recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
 			}
 		}
@@ -471,7 +471,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 	return $ok;
 }
 
-function getsmsinbox() {
+function recvsms_fetch() {
 	$smscs = gateway_getall_smsc_names();
 	foreach ($smscs as $smsc) {
 		$smsc_data = gateway_get_smscbyname($smsc);
@@ -480,7 +480,18 @@ function getsmsinbox() {
 	if (is_array($gateways)) {
 		$gateways = array_unique($gateways);
 		foreach ($gateways as $gateway) {
-			core_hook($gateway, 'getsmsinbox');
+			core_hook($gateway, 'recvsms_fetch');
 		}
 	}
+}
+
+
+function recvsms_hook_playsmsd_loop($command, $command_param) {
+	if ($command != 'recvsmsd') {
+	
+		return;
+	}
+	
+	recvsms_daemon();
+	recvsms_fetch();
 }
