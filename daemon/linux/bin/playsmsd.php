@@ -8,19 +8,18 @@
  * You can edit this script and fill only $PLAYSMS_WEB below with the location
  * of your playSMS web path, it must be a full path.
  *
- * Example: 
+ * Example:
  *
  *     $PLAYSMS_WEB = '/home/example/web';
- * 
+ *
  * You can also set $PLAYSMS_WEB outside this script instead.
- * 
+ *
  * Example, run this in console:
  *
  *     export PLAYSMS_WEB='/home/example/web'
  */
 
 $PLAYSMS_WEB = '';
-
 
 // DO NOT EDIT PAST THIS LINE
 // ================================================================================
@@ -42,20 +41,19 @@ $PLAYSMS_WEB = '';
  * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 // init
 // ================================================================================
 
 // check CLI
 if (!(PHP_SAPI == 'cli')) {
-	echo "playSMS daemon must be called from cli\n";
-	exit();
+    echo "playSMS daemon must be called from cli\n";
+    exit();
 }
 
 // prevent running this script as root
 if (posix_getuid() === 0) {
-	echo "playSMS daemon must not run as root\n";
-	exit();
+    echo "playSMS daemon must not run as root\n";
+    exit();
 }
 
 // suppress errors
@@ -71,23 +69,23 @@ $core_config['daemon_process'] = true;
 
 // get $PLAYSMS_WEB from env
 if (!$PLAYSMS_WEB) {
-	$PLAYSMS_WEB = $_SERVER['PLAYSMS_WEB'];
+    $PLAYSMS_WEB = $_SERVER['PLAYSMS_WEB'];
 }
 
 // error if $PLAYSMS_WEB undefined
 if (!$PLAYSMS_WEB) {
-	echo "\n";
-	echo "Locate playSMS web path and set in shell environment\n\n";
-	echo "For example, run this in shell once before running playSMS daemon:\n\n";
-	echo "    export PLAYSMS_WEB=\"/home/example/web\"\n\n";
-	echo "And then run playSMS daemon:\n\n";
-	echo "    playsmsd status\n\n";
-	exit();
+    echo "\n";
+    echo "Locate playSMS web path and set in shell environment\n\n";
+    echo "For example, run this in shell once before running playSMS daemon:\n\n";
+    echo "    export PLAYSMS_WEB=\"/home/example/web\"\n\n";
+    echo "And then run playSMS daemon:\n\n";
+    echo "    playsmsd status\n\n";
+    exit();
 }
 
 // make sure playSMS web is in $PLAYSMS_WEB
 if (!(file_exists($PLAYSMS_WEB . '/appsetup.php') && file_exists($PLAYSMS_WEB . '/init.php'))) {
-	echo "playSMS web not found in " . $PLAYSMS_WEB . "\n";
+    echo "playSMS web not found in " . $PLAYSMS_WEB . "\n";
 }
 
 // verify and define playSMS daemon location
@@ -106,19 +104,18 @@ unset($PLAYSMS_WEB);
 // load app init and functions
 if (file_exists('init.php')) {
     include 'init.php';
-    
-	$fn = $core_config['apps_path']['libs'] . '/function.php';
-	if (file_exists($fn)) {    
-	    include $fn;
-	} else {
-	    echo "playSMS is not properly installed\n";
-    	exit();
-	}
+
+    $fn = $core_config['apps_path']['libs'] . '/function.php';
+    if (file_exists($fn)) {
+        include $fn;
+    } else {
+        echo "playSMS is not properly installed\n";
+        exit();
+    }
 } else {
     echo "playSMS is not properly installed\n";
     exit();
 }
-
 
 // main
 // ================================================================================
@@ -129,18 +126,18 @@ if (file_exists('init.php')) {
 $param = $argv;
 
 // Daemon service
-$COMMAND = ( isset($param[1]) ? strtolower($param[1]) : '' );
+$COMMAND = (isset($param[1]) ? strtolower($param[1]) : '');
 
 if ($COMMAND == '_fork_') {
-	array_shift($param);
-	$COMMAND = ( isset($param[1]) ? strtolower($param[1]) : '' );
+    array_shift($param);
+    $COMMAND = (isset($param[1]) ? strtolower($param[1]) : '');
 }
 
 // Loop flag: loop => execute in a loop, once => execute only once
-$LOOP_FLAG = ( isset($param[2]) ? strtolower($param[2]) : 'loop');
+$LOOP_FLAG = (isset($param[2]) ? strtolower($param[2]) : 'loop');
 
 // Service parameters
-$COMMAND_PARAM = ( isset($param[3]) ? $param[3] : '' );
+$COMMAND_PARAM = (isset($param[3]) ? $param[3] : '');
 
 switch ($COMMAND) {
     case 'watchdog':
@@ -164,7 +161,7 @@ switch ($COMMAND) {
 
         // stop, wait for 2 seconds and then start
         playsmsd_stop();
-        
+
         // start
         playsmsd_start();
 
@@ -208,19 +205,18 @@ switch ($COMMAND) {
 
         exit();
         break;
-        
+
     case 'version':
-	    echo core_get_version() . PHP_EOL;
-	    
-	    exit();
-    	break;
+        echo core_get_version() . PHP_EOL;
+
+        exit();
+        break;
 }
 
 if (!$COMMAND) {
     echo "Usage: playsmsd <start|stop|restart|status|info|check|check_json|log|version>\n";
     exit();
 }
-
 
 // sub
 // ================================================================================
@@ -291,102 +287,101 @@ if ($LOOP_FLAG == 'once') {
 
             case 'sendsmsd':
 
-                // init step
+                // get unprocessed and delivering queues
                 // $core_config['sendsmsd_queue'] = number of simultaneous queues
                 // $core_config['sendsmsd_chunk'] = number of chunk per queue
-                $c_list = array();
-                $list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id, queue_code', array(
-                    'flag' => '0',
-                ));
-                foreach ($list as $db_row) {
-                    $c_datetime_scheduled = strtotime($db_row['datetime_scheduled']);
-                    if ($c_datetime_scheduled <= strtotime(core_get_datetime())) {
-                        $c_list[] = $db_row;
-                    }
-                }
+                $db_query = "SELECT id,queue_code FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE (flag=0 || flag=3) LIMIT " . (int) $core_config['sendsmsd_queue'];
+                $db_result = dba_query($db_query);
+                while ($db_row = dba_fetch_array($db_result)) {
+                    $flag = $db_row['flag'];
 
-                $list = array();
-                $sendsmsd_queue_count = (int) $core_config['sendsmsd_queue'];
-                if ($sendsmsd_queue_count > 0) {
-                    for ($i = 0; $i < $sendsmsd_queue_count; $i++) {
-                        if ($c_list[$i]) {
-                            $list[] = $c_list[$i];
-                        }
-                    }
-                } else {
-                    $list = $c_list;
-                }
-
-                foreach ($list as $db_row) {
-                    // $db_row['queue_code'] = queue code
-                    // $db_row['queue_count'] = number of entries in a queue
-                    // $db_row['sms_count'] = number of SMS in an entry
-                    $num = 0;
-                    $db_query2 = "SELECT id FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "'";
-                    $db_result2 = dba_query($db_query2);
-                    while ($db_row2 = dba_fetch_array($db_result2)) {
-                        $num++;
-                        if ($chunk = floor($num / $core_config['sendsmsd_chunk_size'])) {
-                            $db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET chunk='" . $chunk . "' WHERE id='" . $db_row2['id'] . "'";
+                    // unprocessed, prepare chunks for jobs
+                    if ((int) $flag === 0) {
+                        // $db_row['queue_code'] = queue code
+                        // $db_row['queue_count'] = number of entries in a queue
+                        // $db_row['sms_count'] = number of SMS in an entry
+                        $num = 0;
+                        $db_query2 = "SELECT id FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "'";
+                        $db_result2 = dba_query($db_query2);
+                        while ($db_row2 = dba_fetch_array($db_result2)) {
+                            $num++;
+                            $chunk = (int) floor($num / $core_config['sendsmsd_chunk_size']);
+                            $db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET datetime_update='" . core_get_datetime() . "',chunk='" . $chunk . "' WHERE id='" . $db_row2['id'] . "'";
                             $db_result3 = dba_query($db_query3);
-                        }
-                    }
 
-                    if ($num > 0) {
-                        // destination found, update queue to process step
-                        sendsms_queue_update($db_row['queue_code'], array(
-                            'flag' => 3,
-                        ));
-                    } else {
-                        // no destination found, something's not right with the queue, mark it as done (flag 1)
-                        if (sendsms_queue_update($db_row['queue_code'], array(
-                            'flag' => 1,
-                        ))) {
-                            _log('destination not found enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            _log('prepare chunks queue:' . $db_row['queue_code'] . ' id:' . $db_row2['id'] . ' num:' . $num . ' chunk:' . $chunk, 2, 'playsmsd sendsmsd');
+                        }
+
+                        if ($num > 0) {
+                            // destination found, update queue to next process
+                            if (sendsms_queue_update($db_row['queue_code'], array(
+                                'flag' => 3,
+                            ))) {
+                                $flag = 3;
+
+                                _log('destination found chunk prepared queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+
+                            } else {
+                                _log('destination found but unable to flag for next process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+
+                            }
                         } else {
-                            _log('destination not found fail to enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            // no destination found, something's not right with the queue, mark it as done (flag 1)
+                            if (sendsms_queue_update($db_row['queue_code'], array(
+                                'flag' => 1,
+                            ))) {
+                                _log('destination not found enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            } else {
+                                _log('destination not found but fail to enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            }
                         }
                     }
-                }
 
-                // process step
-                $queue = array();
+                    // next process, prepare jobs
+                    if ((int) $flag === 3) {
+                        // build queue job list
+                        $queue_jobs = array();
 
-                $list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id, queue_code', array(
-                    'flag' => '3',
-                ), '', $extras);
-                foreach ($list as $db_row) {
-                    // get chunks
-                    $c_chunk_found = 0;
-                    $db_query2 = "SELECT chunk FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "' AND flag='0' GROUP BY chunk LIMIT " . $core_config['sendsmsd_chunk'];
-                    $db_result2 = dba_query($db_query2);
-                    while ($db_row2 = dba_fetch_array($db_result2)) {
-                        $c_chunk = (int) $db_row2['chunk'];
-                        $queue[] = 'Q_' . $db_row['queue_code'] . '_' . $c_chunk;
-                        $c_chunk_found++;
-                    }
-
-                    if ($c_chunk_found < 1) {
-                        // no chunk found, something's not right with the queue, mark it as done (flag 1)
-                        if (sendsms_queue_update($db_row['queue_code'], array(
-                            'flag' => 1,
-                        ))) {
-                            _log('chunk not found enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
-                        } else {
-                            _log('chunk not found fail to enforce process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                        // get chunks
+                        $c_chunk_found = 0;
+                        $db_query2 = "SELECT chunk,flag FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "' GROUP BY chunk LIMIT " . $core_config['sendsmsd_chunk'];
+                        $db_result2 = dba_query($db_query2);
+                        while ($db_row2 = dba_fetch_array($db_result2)) {
+                            if ((int) $db_row2['flag'] === 0) {
+                                $c_chunk = (int) $db_row2['chunk'];
+                                $queue_jobs[] = 'Q_' . $db_row['queue_code'] . '_' . $c_chunk;
+                                _log('job ready queue:' . $db_row['queue_code'] . ' queue_id:' . $db_row['id'] . ' flag:' . $db_row2['flag'], 2, 'playsmsd sendsmsd');
+                            }
+                            //else {
+                            //    _log('job already processed queue:' . $db_row['queue_code'] . ' queue_id:' . $db_row['id'] . ' flag:' . $db_row2['flag'], 2, 'playsmsd sendsmsd');
+                            //}
+                            $c_chunk_found++;
                         }
-                    }
-                }
 
-                // execute step
-                $queue = array_unique($queue);
-                if (count($queue) > 0) {
-                    foreach ($queue as $q) {
-                        $is_sending = (playsmsd_pid_get($q) ? true : false);
-                        if (!$is_sending) {
-                            $RUN_THIS = 'nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ sendqueue once ' . $q . ' >/dev/null 2>&1 & printf "%u" $!';
-                            echo $COMMAND . " execute: " . $RUN_THIS . "\n";
-                            shell_exec($RUN_THIS);
+                        if ($c_chunk_found < 1) {
+                            // no chunk found, something's not right with the queue, mark it as done (flag 1)
+                            if (sendsms_queue_update($db_row['queue_code'], array(
+                                'flag' => 1,
+                            ))) {
+                                _log('job not found enforce finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            } else {
+                                _log('job not found but fail to enforce process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+                            }
+                        }
+
+                        // fork jobs
+                        $queue_jobs = array_unique($queue_jobs);
+                        if (count($queue_jobs) > 0) {
+                            foreach ($queue_jobs as $q) {
+                                $is_sending = (playsmsd_pid_get($q) ? true : false);
+                                if (!$is_sending) {
+                                    $RUN_THIS = 'nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ sendqueue once ' . $q . ' >/dev/null 2>&1 & printf "%u" $!';
+                                    echo $COMMAND . " execute: " . $RUN_THIS . "\n";
+                                    $pid = shell_exec($RUN_THIS);
+
+                                    _log('sendqueue job:' . $q . ' pid:' . $pid, 2, 'playsmsd sendsmsd');
+                                }
+                            }
                         }
                     }
                 }
@@ -400,8 +395,8 @@ if ($LOOP_FLAG == 'once') {
 
         //echo $COMMAND . " end time:" . time() . "\n";
 
-		// sleep for 0.1s
-        time_nanosleep(0, 100000000);
+        // sleep for 5s
+        sleep(5);
 
         // empty buffer, yes doubled :)
         ob_end_flush();
