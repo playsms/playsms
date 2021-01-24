@@ -25,13 +25,16 @@ defined('_SECURE_') or die('Forbidden');
  *        process name
  * @return array PIDs
  */
-function playsmsd_pid_get($process = '')
+function playsmsd_pid_get($process_marker1 = '', $process_marker2 = '')
 {
 	$returns = array();
 	
 	$check_process = '';
-	if ($process) {
-		$check_process = '|grep ' . $process;
+	if ($process_marker1) {
+		$check_process .= '|grep ' . $process_marker1;
+	}
+	if ($process_marker2) {
+		$check_process .= '|grep ' . $process_marker2;
 	}
 	
 	$pids = trim(shell_exec('ps -eo pid,command|grep playsmsd|grep _fork_' . $check_process . '|grep -v grep|sed -e "s/^[[:space:]]*//"|cut -d" " -f1'));
@@ -303,4 +306,83 @@ function playsmsd_services() {
 	];
 	
 	return $services;
+}
+
+function playsmsd() {
+	
+	// plugin feature
+	core_call_hook();
+	
+	// plugin gateway
+	$smscs = gateway_getall_smsc_names();
+	foreach ($smscs as $smsc) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$gateways[] = $smsc_data['gateway'];
+	}
+	if (is_array($gateways)) {
+		$gateways = array_unique($gateways);
+		foreach ($gateways as $gateway) {
+			core_hook($gateway, 'playsmsd');
+		}
+	}
+	
+	// plugin themes
+	core_hook(core_themes_get(), 'playsmsd');
+}
+
+function playsmsd_once($command, $command_param) {
+	_log("start command:" . $command . " param:" . $command_param, 3, "playsmsd_once");
+	
+	// plugin core & feature
+	core_call_hook();
+	
+	// plugin gateway
+	$smscs = gateway_getall_smsc_names();
+	foreach ($smscs as $smsc) {
+		$smsc_data = gateway_get_smscbyname($smsc);
+		$gateways[] = $smsc_data['gateway'];
+	}
+	if (is_array($gateways)) {
+		$gateways = array_unique($gateways);
+		foreach ($gateways as $gateway) {
+			core_hook($gateway, 'playsmsd_once', array(
+				$command,
+				$command_param,
+			));
+		}
+	}
+	
+	// plugin themes
+	core_hook(core_themes_get(), 'playsmsd_once', array(
+		$command,
+		$command_param,
+	));
+
+	_log("finish command:" . $command . " param:" . $command_param, 3, "playsmsd_once");	
+}
+
+
+function playsmsd_run_once($command, $command_param = '') {
+	if (isset($command)) {
+	
+		// check if command is running
+		$is_running = (playsmsd_pid_get($command, $command_param) ? TRUE : FALSE);
+
+		// prevent command runs more than once
+		if ($is_running) {
+	
+			return false;
+		}
+
+		// fork it
+		$pid = shell_exec('nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ ' . $command . ' once ' . $command_param . ' >/dev/null 2>&1 & printf "%u" $!');
+		
+		// log it
+		_log("command:" . $command . " param:" . $command_param . " pid:" . $pid, 3, "playsmsd_run_once");
+		
+		return $pid;
+	} else {
+		
+		return 0;
+	}
 }
