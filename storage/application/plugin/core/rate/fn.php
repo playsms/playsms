@@ -92,3 +92,12 @@ function rate_deduct($smslog_id) {
 function rate_refund($smslog_id) {
 	return core_call_hook();
 }
+
+function rate_hook_playsmsd_loop($command, $command_param) {
+	if ($command != 'ratesmsd') {
+	
+		return;
+	}
+	
+	rate_update();
+}

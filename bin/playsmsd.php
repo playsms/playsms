@@ -258,10 +258,6 @@ if ($LOOP_FLAG == 'once') {
             case 'schedule':
                 playsmsd();
                 break;
-
-            case 'ratesmsd':
-                rate_update();
-                break;
         }
         // end switch $COMMAND
         
