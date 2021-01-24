@@ -146,6 +146,9 @@ function sendfromfile_verify($csv_file) {
 	}
 	// end while
 
+	// mark collected from file to array
+	_log("collected sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+
 	$charges = (float) 0;
 	foreach ($item_valid as $sender_uid => $item_data) {
 		// get total charges
@@ -169,27 +172,29 @@ function sendfromfile_verify($csv_file) {
 
 			_log("not enough balance sid:" . $sendfromfile_id . " uid:" . $user_config['uid'] . " sender_uid:" . $sender_uid . " sms_username:" . $item_data[0]['sms_username'] . " item_count:" . $item_count . " charges:" . $charges . " balance:" . $sender_balance, 2, "sendfromfile_verify");
 			$error_strings[] = sprintf(_('%s do not have enough balance for sending %d SMS at %s credit'), $item_data[0]['sms_username'], $item_count, core_display_credit($charges));
+		} else {
 
-			// stop for this sender_uid, next
-			continue;
-		}
+			// mark save collected rows to db when sender has enough balance
+			_log("saving data to db for processing sid:" . $sendfromfile_id . " uid:" . $user_config['uid'] . " sender_uid:" . $sender_uid . " sms_username:" . $item_data[0]['sms_username'] . " item_count:" . count($item_data) . " charges:" . $charges . " balance:" . $sender_balance, 2, "sendfromfile_verify");
 
-		// save to db for delivery
-		foreach ($item_data as $key => $item) {
-			$hash = md5($item['sms_uid'] . $item['sms_username'] . $item['sms_msg']);
-			$db_query = "
-				INSERT INTO " . _DB_PREF_ . "_featureSendfromfile 
-				(uid, sid, sms_datetime, sms_to, sms_msg, sms_username, 
-				sms_uid, hash, unicode, charge, smslog_id, queue_code, status, flag_processed) 
-				VALUES 
-				('" . $user_config['uid'] . "','" . $sendfromfile_id . "','" . core_get_datetime() . "','" . $item['sms_to'] . "','" . addslashes($item['sms_msg']) . "','" . $item['sms_username'] . "',
-				'" . $sender_uid . "','" . $hash . "','" . $item['unicode']. "','" . $item['charge'] . "',0,'',0,0)";
-			dba_query($db_query);
-			//_log("db_query:[" . trim($db_query) . "]", 2, "sendfromfile_verify");
+			// save to db for delivery
+			foreach ($item_data as $key => $item) {
+				$hash = md5($item['sms_uid'] . $item['sms_username'] . $item['sms_msg']);
+				$db_query = "
+					INSERT INTO " . _DB_PREF_ . "_featureSendfromfile 
+					(uid, sid, sms_datetime, sms_to, sms_msg, sms_username, 
+					sms_uid, hash, unicode, charge, smslog_id, queue_code, status, flag_processed) 
+					VALUES 
+					('" . $user_config['uid'] . "','" . $sendfromfile_id . "','" . core_get_datetime() . "','" . $item['sms_to'] . "','" . addslashes($item['sms_msg']) . "','" . $item['sms_username'] . "',
+					'" . $sender_uid . "','" . $hash . "','" . $item['unicode']. "','" . $item['charge'] . "',0,'',0,0)";
+				dba_query($db_query);
+				//_log("debug db_query:[" . trim($db_query) . "]", 2, "sendfromfile_verify");
+			}
+
+			// mark saved			
+			_log("saved sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
 		}
 	}
-
-	//echo '<pre>'; print_r($item_discharged); echo '</pre>'; die();
 
 	if ($valid) {
 		_log("found verified entries sid:" . $sendfromfile_id . " valid:" . $valid . " discharged:" . $discharged, 2, "sendfromfile_verify");
