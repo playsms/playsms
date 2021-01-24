@@ -333,7 +333,7 @@ sed -i "s|#URLWEB#|$URLWEB|g" $PATHWEB/appsetup.php
 echo -n .
 
 rm -f $PATHBIN/playsmsd
-cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
+cp -rR $PATHSRC/bin/playsmsd.php $PATHBIN/playsmsd
 chmod 700 $PATHBIN/playsmsd
 echo -n .
 echo "done"
