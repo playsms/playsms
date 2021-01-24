@@ -214,7 +214,9 @@ function core_hook($c_plugin, $c_function, $c_param = array()) {
  */
 function core_call_hook($function_name = '', $arguments = array()) {
 	global $core_config;
+
 	$ret = NULL;
+
 	if (!$function_name) {
 		if (_PHP_VER_ >= 50400) {
 			$f = debug_backtrace(0, 2);
@@ -228,60 +230,22 @@ function core_call_hook($function_name = '', $arguments = array()) {
 		$function_name = $f[1]['function'];
 		$arguments = $f[1]['args'];
 	}
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-		if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
+
+	for ($c = 0; $c < count($core_config['plugins']['list']['core']); $c++) {
+		if ($ret = core_hook($core_config['plugins']['list']['core'][$c], $function_name, $arguments)) {
 			break;
 		}
 	}
+
+	if (!$ret) {
+		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+			if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
+				break;
+			}
+		}
+	}
+
 	return $ret;
-}
-
-function playsmsd() {
-	
-	// plugin feature
-	core_call_hook();
-	
-	// plugin gateway
-	$smscs = gateway_getall_smsc_names();
-	foreach ($smscs as $smsc) {
-		$smsc_data = gateway_get_smscbyname($smsc);
-		$gateways[] = $smsc_data['gateway'];
-	}
-	if (is_array($gateways)) {
-		$gateways = array_unique($gateways);
-		foreach ($gateways as $gateway) {
-			core_hook($gateway, 'playsmsd');
-		}
-	}
-	
-	// plugin themes
-	core_hook(core_themes_get(), 'playsmsd');
-}
-
-function playsmsd_once($param) {
-	
-	// plugin feature
-	core_call_hook();
-	
-	// plugin gateway
-	$smscs = gateway_getall_smsc_names();
-	foreach ($smscs as $smsc) {
-		$smsc_data = gateway_get_smscbyname($smsc);
-		$gateways[] = $smsc_data['gateway'];
-	}
-	if (is_array($gateways)) {
-		$gateways = array_unique($gateways);
-		foreach ($gateways as $gateway) {
-			core_hook($gateway, 'playsmsd_once', array(
-				$param 
-			));
-		}
-	}
-	
-	// plugin themes
-	core_hook(core_themes_get(), 'playsmsd_once', array(
-		$param 
-	));
 }
 
 function core_str2hex($string) {
