@@ -63,7 +63,7 @@ function dlr_daemon() {
 			), array(
 				'id' => $id 
 			))) {
-				_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlrd");
+				_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr_daemon");
 				dlr_update($smslog_id, $uid, $p_status);
 			}
 		}
