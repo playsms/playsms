@@ -1221,3 +1221,16 @@ function sendsms_throttle_count($uid, $count = 1, $limit = 0, $period = 60) {
 	
 	return FALSE;
 }
+
+function sendsms_hook_playsmsd_once($command, $command_param) {
+	if (!($command == 'sendqueue' && isset($command_param))) {
+		
+		return;
+	}
+	
+    $param = explode('_', $command_param);
+    if (($param[0] == 'Q') && ($queue = $param[1])) {
+        $chunk = ((int) $param[2] ? (int) $param[2] : 0);
+        sendsms_daemon($queue, $chunk);
+    }
+}

@@ -225,29 +225,17 @@ if ($LOOP_FLAG == 'once') {
 
     // execute one time only
 
+    //echo $COMMAND . " " . $COMMAND_PARAM . " start time:" . time() . "\n";
+
     // MAIN ONCE BLOCK
 
-    //echo $COMMAND . " start time:" . time() . "\n";
-
-    if ($COMMAND == 'sendqueue') {
-        if ($COMMAND_PARAM) {
-            $param = explode('_', $COMMAND_PARAM);
-            if (($param[0] == 'Q') && ($queue = $param[1])) {
-                $chunk = ((int) $param[2] ? (int) $param[2] : 0);
-                sendsms_daemon($queue, $chunk);
-            }
-        }
-    }
-
-    if ($COMMAND == 'playsmsd') {
-        if ($COMMAND_PARAM) {
-            playsmsd_once($COMMAND_PARAM);
-        }
+    if ($COMMAND) {
+        playsmsd_once($COMMAND, $COMMAND_PARAM);
     }
 
     // END OF ONCE BLOCK
 
-    //echo $COMMAND . " end time:" . time() . "\n";
+    //echo $COMMAND . " " . $COMMAND_PARAM . " end time:" . time() . "\n";
 
     exit();
 } else if ($LOOP_FLAG == 'loop') {
@@ -315,15 +303,14 @@ if ($LOOP_FLAG == 'once') {
                         if ($num > 0) {
                             // destination found, update queue to next process
                             if (sendsms_queue_update($db_row['queue_code'], array(
+                            	'datetime_update' => core_get_datetime(),
                                 'flag' => 3,
                             ))) {
                                 $flag = 3;
 
                                 _log('destination found chunk prepared queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
-
                             } else {
                                 _log('destination found but unable to flag for next process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
-
                             }
                         } else {
                             // no destination found, something's not right with the queue, mark it as done (flag 1)
@@ -373,14 +360,9 @@ if ($LOOP_FLAG == 'once') {
                         $queue_jobs = array_unique($queue_jobs);
                         if (count($queue_jobs) > 0) {
                             foreach ($queue_jobs as $q) {
-                                $is_sending = (playsmsd_pid_get($q) ? true : false);
-                                if (!$is_sending) {
-                                    $RUN_THIS = 'nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ sendqueue once ' . $q . ' >/dev/null 2>&1 & printf "%u" $!';
-                                    echo $COMMAND . " execute: " . $RUN_THIS . "\n";
-                                    $pid = shell_exec($RUN_THIS);
-
-                                    _log('sendqueue job:' . $q . ' pid:' . $pid, 2, 'playsmsd sendsmsd');
-                                }
+                            	if ($pid = playsmsd_run_once('sendqueue', $q)) {
+                                	_log('sendqueue job:' . $q . ' pid:' . $pid, 2, 'playsmsd sendsmsd');
+                            	}
                             }
                         }
                     }

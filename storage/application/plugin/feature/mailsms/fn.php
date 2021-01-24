@@ -28,6 +28,7 @@ function mailsms_hook_playsmsd() {
 	$c_fetch_interval = (int) $items_global['features']['mailsms']['fetch_interval'];
 	$c_fetch_interval = ($c_fetch_interval > 10 ? $c_fetch_interval : 60);
 	if (!core_playsmsd_timer($c_fetch_interval)) {
+
 		return;
 	}
 	
@@ -42,24 +43,18 @@ function mailsms_hook_playsmsd() {
 	$password = $items_global['features']['mailsms']['password'];
 	
 	if (!($enable_fetch && $protocol && $port && $server && $username && $password)) {
+
 		return;
 	}
 	
 	// _log('fetch uid:' . $uid, 3, 'mailsms_hook_playsmsd');
 	
-
-	$param = 'mailsms_fetch';
-	$is_fetching = (playsmsd_pid_get($param) ? TRUE : FALSE);
-	if (!$is_fetching) {
-		$RUN_THIS = "nohup " . $core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd playsmsd once " . $param . " >/dev/null 2>&1 &";
-		
-		// _log('execute:' . $RUN_THIS, 3, 'mailsms_hook_playsmsd');
-		shell_exec($RUN_THIS);
-	}
+	playsmsd_run_once('mailsms', 'mailsms_fetch');
 }
 
-function mailsms_hook_playsmsd_once($param) {
-	if ($param != 'mailsms_fetch') {
+function mailsms_hook_playsmsd_once($command, $command_param) {
+	if (!($command == 'mailsms' || $command_param == 'fetch')) {
+
 		return;
 	}
 	
