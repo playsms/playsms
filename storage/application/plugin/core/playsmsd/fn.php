@@ -308,6 +308,15 @@ function playsmsd_services() {
 	return $services;
 }
 
+function playsmsd_hook_playsmsd_loop($command, $command_param) {
+	if ($command != 'schedule') {
+	
+		return;
+	}
+	
+	playsmsd();
+}
+
 function playsmsd() {
 	
 	// plugin feature

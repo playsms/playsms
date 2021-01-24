@@ -254,13 +254,6 @@ if ($LOOP_FLAG == 'once') {
 
         // MAIN LOOP BLOCK
 
-        switch ($COMMAND) {
-            case 'schedule':
-                playsmsd();
-                break;
-        }
-        // end switch $COMMAND
-        
         if ($COMMAND) {
         	playsmsd_loop($COMMAND, $COMMAND_PARAM);
         }
