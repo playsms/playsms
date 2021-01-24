@@ -77,22 +77,46 @@ function dlr_update($smslog_id, $uid, $p_status) {
 	// $p_status = 2 --> failed
 	// $p_status = 3 --> delivered
 	// _log("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "dlr_update");
-	$ok = false;
-	$db_query = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
-	if ($aff_id = @dba_affected_rows($db_query)) {
-		// _log("saved smslog_id:".$smslog_id, 2, "dlr_update");
-		$ok = true;
-		if ($p_status > 0) {
-			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-				core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
-					$smslog_id,
-					$uid,
-					$p_status 
-				));
-			}
+	
+	// fixme anton
+	// dlr can be pushed by SMSC several times and sometime they're not in order
+	// so here we add logic to make them in order
+
+	switch ((int) $p_status) {
+		case 0:
+
+			return false;
+			break;
+		case 1:
+			$db_query = "
+				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
+				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
+				WHERE smslog_id='" . $smslog_id . "' AND uid='" . $uid . "' AND p_status=0";
+			break;
+		case 2:
+		case 3:
+			$db_query = "
+				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
+				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
+				WHERE smslog_id='" . $smslog_id . "' AND uid='" . $uid . "' AND p_status<>2";
+			break;
+	}
+
+	// just update	
+	dba_query($db_query);
+	
+	// hook if status not pending
+	if ($p_status > 0) {
+		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+			core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
+				$smslog_id,
+				$uid,
+				$p_status 
+			));
 		}
 	}
-	return $ok;
+
+	return true;
 }
 
 function dlr_fetch() {
