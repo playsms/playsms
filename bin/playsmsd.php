@@ -262,11 +262,6 @@ if ($LOOP_FLAG == 'once') {
             case 'ratesmsd':
                 rate_update();
                 break;
-
-            case 'dlrssmsd':
-                dlrd();
-                dlr_fetch();
-                break;
         }
         // end switch $COMMAND
         

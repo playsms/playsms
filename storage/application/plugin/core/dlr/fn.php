@@ -44,7 +44,7 @@ function dlr($smslog_id, $uid, $p_status) {
 	return $ret;
 }
 
-function dlrd() {
+function dlr_daemon() {
 	global $core_config;
 	$core_config['dlrd_limit'] = ((int) $core_config['dlrd_limit'] ? (int) $core_config['dlrd_limit'] : 200);
 	$list = dba_search(_DB_PREF_ . '_tblDLR', '*', array(
@@ -141,4 +141,14 @@ function dlr_fetch() {
 			));
 		}
 	}
+}
+
+function dlr_hook_playsmsd_loop($command, $command_param) {
+	if ($command != 'dlrssmsd') {
+	
+		return;
+	}
+	
+	dlr_daemon();
+	dlr_fetch();
 }
