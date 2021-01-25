@@ -1,32 +1,13 @@
--- phpMyAdmin SQL Dump
--- version 4.9.5deb2
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Generation Time: Jan 23, 2021 at 11:23 AM
--- Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1
--- PHP Version: 7.4.3
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `playsms`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureAutoreply`
---
 
 DROP TABLE IF EXISTS `playsms_featureAutoreply`;
 CREATE TABLE `playsms_featureAutoreply` (
@@ -36,12 +17,6 @@ CREATE TABLE `playsms_featureAutoreply` (
   `autoreply_keyword` varchar(10) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureAutoreply_scenario`
---
 
 DROP TABLE IF EXISTS `playsms_featureAutoreply_scenario`;
 CREATE TABLE `playsms_featureAutoreply_scenario` (
@@ -58,12 +33,6 @@ CREATE TABLE `playsms_featureAutoreply_scenario` (
   `autoreply_scenario_result` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureBoard`
---
-
 DROP TABLE IF EXISTS `playsms_featureBoard`;
 CREATE TABLE `playsms_featureBoard` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -79,12 +48,6 @@ CREATE TABLE `playsms_featureBoard` (
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureBoard_log`
---
-
 DROP TABLE IF EXISTS `playsms_featureBoard_log`;
 CREATE TABLE `playsms_featureBoard_log` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -99,12 +62,6 @@ CREATE TABLE `playsms_featureBoard_log` (
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureCommand`
---
-
 DROP TABLE IF EXISTS `playsms_featureCommand`;
 CREATE TABLE `playsms_featureCommand` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -115,12 +72,6 @@ CREATE TABLE `playsms_featureCommand` (
   `command_return_as_reply` int(11) NOT NULL DEFAULT 0,
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureCredit`
---
 
 DROP TABLE IF EXISTS `playsms_featureCredit`;
 CREATE TABLE `playsms_featureCredit` (
@@ -137,12 +88,6 @@ CREATE TABLE `playsms_featureCredit` (
   `flag_deleted` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureCustom`
---
-
 DROP TABLE IF EXISTS `playsms_featureCustom`;
 CREATE TABLE `playsms_featureCustom` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -156,12 +101,6 @@ CREATE TABLE `playsms_featureCustom` (
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureFirewall`
---
-
 DROP TABLE IF EXISTS `playsms_featureFirewall`;
 CREATE TABLE `playsms_featureFirewall` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -169,12 +108,6 @@ CREATE TABLE `playsms_featureFirewall` (
   `uid` int(11) NOT NULL DEFAULT 0,
   `ip_address` varchar(20) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureInboxgroup`
---
 
 DROP TABLE IF EXISTS `playsms_featureInboxgroup`;
 CREATE TABLE `playsms_featureInboxgroup` (
@@ -190,24 +123,12 @@ CREATE TABLE `playsms_featureInboxgroup` (
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureInboxgroup_catchall`
---
-
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_catchall`;
 CREATE TABLE `playsms_featureInboxgroup_catchall` (
   `id` int(11) NOT NULL,
   `rid` int(11) NOT NULL DEFAULT 0,
   `uid` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureInboxgroup_log_in`
---
 
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_log_in`;
 CREATE TABLE `playsms_featureInboxgroup_log_in` (
@@ -220,12 +141,6 @@ CREATE TABLE `playsms_featureInboxgroup_log_in` (
   `sms_receiver` varchar(20) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureInboxgroup_log_out`
---
-
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_log_out`;
 CREATE TABLE `playsms_featureInboxgroup_log_out` (
   `id` int(11) NOT NULL,
@@ -235,24 +150,12 @@ CREATE TABLE `playsms_featureInboxgroup_log_out` (
   `uid` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureInboxgroup_members`
---
-
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_members`;
 CREATE TABLE `playsms_featureInboxgroup_members` (
   `id` int(11) NOT NULL,
   `rid` int(11) NOT NULL DEFAULT 0,
   `uid` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureMsgtemplate`
---
 
 DROP TABLE IF EXISTS `playsms_featureMsgtemplate`;
 CREATE TABLE `playsms_featureMsgtemplate` (
@@ -263,20 +166,10 @@ CREATE TABLE `playsms_featureMsgtemplate` (
   `t_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_featureMsgtemplate`
---
-
 INSERT INTO `playsms_featureMsgtemplate` (`c_timestamp`, `tid`, `uid`, `t_title`, `t_text`) VALUES
 (0, 1, 1, 'Good morning', 'Hi u there, good morning!!'),
 (0, 2, 1, 'Good night have a sweet dream', 'Hi sweetheart, good night and have a sweet dream :*'),
 (0, 3, 1, 'Meeting Now', 'Hello #NAME#, please hurry up, boss summons us !');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureOutgoing`
---
 
 DROP TABLE IF EXISTS `playsms_featureOutgoing`;
 CREATE TABLE `playsms_featureOutgoing` (
@@ -287,12 +180,6 @@ CREATE TABLE `playsms_featureOutgoing` (
   `prefix` text NOT NULL,
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featurePhonebook`
---
 
 DROP TABLE IF EXISTS `playsms_featurePhonebook`;
 CREATE TABLE `playsms_featurePhonebook` (
@@ -305,12 +192,6 @@ CREATE TABLE `playsms_featurePhonebook` (
   `tags` varchar(250) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featurePhonebook_group`
---
-
 DROP TABLE IF EXISTS `playsms_featurePhonebook_group`;
 CREATE TABLE `playsms_featurePhonebook_group` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -321,24 +202,12 @@ CREATE TABLE `playsms_featurePhonebook_group` (
   `flag_sender` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featurePhonebook_group_contacts`
---
-
 DROP TABLE IF EXISTS `playsms_featurePhonebook_group_contacts`;
 CREATE TABLE `playsms_featurePhonebook_group_contacts` (
   `id` int(11) NOT NULL,
   `gpid` int(11) NOT NULL,
   `pid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featurePoll`
---
 
 DROP TABLE IF EXISTS `playsms_featurePoll`;
 CREATE TABLE `playsms_featurePoll` (
@@ -356,12 +225,6 @@ CREATE TABLE `playsms_featurePoll` (
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featurePoll_choice`
---
-
 DROP TABLE IF EXISTS `playsms_featurePoll_choice`;
 CREATE TABLE `playsms_featurePoll_choice` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -370,12 +233,6 @@ CREATE TABLE `playsms_featurePoll_choice` (
   `choice_title` varchar(250) NOT NULL DEFAULT '',
   `choice_keyword` varchar(10) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featurePoll_log`
---
 
 DROP TABLE IF EXISTS `playsms_featurePoll_log`;
 CREATE TABLE `playsms_featurePoll_log` (
@@ -387,12 +244,6 @@ CREATE TABLE `playsms_featurePoll_log` (
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureQuiz`
---
 
 DROP TABLE IF EXISTS `playsms_featureQuiz`;
 CREATE TABLE `playsms_featureQuiz` (
@@ -408,12 +259,6 @@ CREATE TABLE `playsms_featureQuiz` (
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureQuiz_log`
---
-
 DROP TABLE IF EXISTS `playsms_featureQuiz_log`;
 CREATE TABLE `playsms_featureQuiz_log` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -423,12 +268,6 @@ CREATE TABLE `playsms_featureQuiz_log` (
   `quiz_sender` varchar(20) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSchedule`
---
 
 DROP TABLE IF EXISTS `playsms_featureSchedule`;
 CREATE TABLE `playsms_featureSchedule` (
@@ -442,12 +281,6 @@ CREATE TABLE `playsms_featureSchedule` (
   `flag_deleted` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSchedule_dst`
---
-
 DROP TABLE IF EXISTS `playsms_featureSchedule_dst`;
 CREATE TABLE `playsms_featureSchedule_dst` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -458,12 +291,6 @@ CREATE TABLE `playsms_featureSchedule_dst` (
   `name` varchar(100) NOT NULL DEFAULT '',
   `destination` varchar(250) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSendfromfile`
---
 
 DROP TABLE IF EXISTS `playsms_featureSendfromfile`;
 CREATE TABLE `playsms_featureSendfromfile` (
@@ -484,12 +311,6 @@ CREATE TABLE `playsms_featureSendfromfile` (
   `flag_processed` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSimplerate`
---
-
 DROP TABLE IF EXISTS `playsms_featureSimplerate`;
 CREATE TABLE `playsms_featureSimplerate` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -499,12 +320,6 @@ CREATE TABLE `playsms_featureSimplerate` (
   `rate` decimal(13,3) NOT NULL DEFAULT 0.000
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSmssysnc`
---
-
 DROP TABLE IF EXISTS `playsms_featureSmssysnc`;
 CREATE TABLE `playsms_featureSmssysnc` (
   `id` int(11) NOT NULL,
@@ -513,12 +328,6 @@ CREATE TABLE `playsms_featureSmssysnc` (
   `recvsms_id` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureStoplist`
---
-
 DROP TABLE IF EXISTS `playsms_featureStoplist`;
 CREATE TABLE `playsms_featureStoplist` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -526,12 +335,6 @@ CREATE TABLE `playsms_featureStoplist` (
   `uid` int(11) NOT NULL DEFAULT 0,
   `mobile` varchar(20) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSubscribe`
---
 
 DROP TABLE IF EXISTS `playsms_featureSubscribe`;
 CREATE TABLE `playsms_featureSubscribe` (
@@ -552,12 +355,6 @@ CREATE TABLE `playsms_featureSubscribe` (
   `expire_msg` varchar(140) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSubscribe_member`
---
-
 DROP TABLE IF EXISTS `playsms_featureSubscribe_member`;
 CREATE TABLE `playsms_featureSubscribe_member` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -566,12 +363,6 @@ CREATE TABLE `playsms_featureSubscribe_member` (
   `member_number` varchar(20) NOT NULL DEFAULT '',
   `member_since` varchar(20) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_featureSubscribe_msg`
---
 
 DROP TABLE IF EXISTS `playsms_featureSubscribe_msg`;
 CREATE TABLE `playsms_featureSubscribe_msg` (
@@ -584,12 +375,6 @@ CREATE TABLE `playsms_featureSubscribe_msg` (
   `counter` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayGeneric_log`
---
-
 DROP TABLE IF EXISTS `playsms_gatewayGeneric_log`;
 CREATE TABLE `playsms_gatewayGeneric_log` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -597,12 +382,6 @@ CREATE TABLE `playsms_gatewayGeneric_log` (
   `local_smslog_id` int(11) NOT NULL DEFAULT 0,
   `remote_smslog_id` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayInfobip_apidata`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_apidata`;
 CREATE TABLE `playsms_gatewayInfobip_apidata` (
@@ -612,12 +391,6 @@ CREATE TABLE `playsms_gatewayInfobip_apidata` (
   `apimsgid` varchar(100) NOT NULL DEFAULT '',
   `status` varchar(15) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayInfobip_config`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_config`;
 CREATE TABLE `playsms_gatewayInfobip_config` (
@@ -633,18 +406,8 @@ CREATE TABLE `playsms_gatewayInfobip_config` (
   `cfg_dlr_nopush` varchar(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_gatewayInfobip_config`
---
-
 INSERT INTO `playsms_gatewayInfobip_config` (`c_timestamp`, `cfg_name`, `cfg_username`, `cfg_password`, `cfg_module_sender`, `cfg_send_url`, `cfg_credit`, `cfg_additional_param`, `cfg_datetime_timezone`, `cfg_dlr_nopush`) VALUES
 (0, 'infobip', '', '', '', 'http://api.infobip.com/api/v3', 0, '', '', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayJasmin_log`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayJasmin_log`;
 CREATE TABLE `playsms_gatewayJasmin_log` (
@@ -653,12 +416,6 @@ CREATE TABLE `playsms_gatewayJasmin_log` (
   `local_smslog_id` int(11) NOT NULL DEFAULT 0,
   `remote_smslog_id` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayNexmo`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayNexmo`;
 CREATE TABLE `playsms_gatewayNexmo` (
@@ -671,12 +428,6 @@ CREATE TABLE `playsms_gatewayNexmo` (
   `error_text` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayNexmo_config`
---
-
 DROP TABLE IF EXISTS `playsms_gatewayNexmo_config`;
 CREATE TABLE `playsms_gatewayNexmo_config` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -688,18 +439,8 @@ CREATE TABLE `playsms_gatewayNexmo_config` (
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_gatewayNexmo_config`
---
-
 INSERT INTO `playsms_gatewayNexmo_config` (`c_timestamp`, `cfg_name`, `cfg_url`, `cfg_api_key`, `cfg_api_secret`, `cfg_module_sender`, `cfg_datetime_timezone`) VALUES
 (0, 'nexmo', 'https://rest.nexmo.com/sms/json', '12345678', '87654321', 'playSMS', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayPlaynet_outgoing`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayPlaynet_outgoing`;
 CREATE TABLE `playsms_gatewayPlaynet_outgoing` (
@@ -718,12 +459,6 @@ CREATE TABLE `playsms_gatewayPlaynet_outgoing` (
   `unicode` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewaySmstools_dlr`
---
-
 DROP TABLE IF EXISTS `playsms_gatewaySmstools_dlr`;
 CREATE TABLE `playsms_gatewaySmstools_dlr` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -734,12 +469,6 @@ CREATE TABLE `playsms_gatewaySmstools_dlr` (
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayTemplate_config`
---
-
 DROP TABLE IF EXISTS `playsms_gatewayTemplate_config`;
 CREATE TABLE `playsms_gatewayTemplate_config` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -747,18 +476,8 @@ CREATE TABLE `playsms_gatewayTemplate_config` (
   `cfg_path` varchar(250) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_gatewayTemplate_config`
---
-
 INSERT INTO `playsms_gatewayTemplate_config` (`c_timestamp`, `cfg_name`, `cfg_path`) VALUES
 (0, 'template', '/usr/local');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayTwilio`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayTwilio`;
 CREATE TABLE `playsms_gatewayTwilio` (
@@ -769,12 +488,6 @@ CREATE TABLE `playsms_gatewayTwilio` (
   `status` varchar(20) NOT NULL DEFAULT '',
   `error_text` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayTwilio_config`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayTwilio_config`;
 CREATE TABLE `playsms_gatewayTwilio_config` (
@@ -788,18 +501,8 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_gatewayTwilio_config`
---
-
 INSERT INTO `playsms_gatewayTwilio_config` (`c_timestamp`, `cfg_name`, `cfg_url`, `cfg_callback_url`, `cfg_account_sid`, `cfg_auth_token`, `cfg_module_sender`, `cfg_datetime_timezone`) VALUES
 (0, 'twilio', 'https://api.twilio.com', 'http://localhost/playsms/plugin/gateway/twilio/callback.php', '12345678', '87654321', '+10000000000', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayUplink`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayUplink`;
 CREATE TABLE `playsms_gatewayUplink` (
@@ -811,12 +514,6 @@ CREATE TABLE `playsms_gatewayUplink` (
   `up_remote_queue_code` varchar(32) NOT NULL DEFAULT '',
   `up_dst` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayUplink_config`
---
 
 DROP TABLE IF EXISTS `playsms_gatewayUplink_config`;
 CREATE TABLE `playsms_gatewayUplink_config` (
@@ -833,18 +530,8 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_try_disable_footer` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_gatewayUplink_config`
---
-
 INSERT INTO `playsms_gatewayUplink_config` (`c_timestamp`, `cfg_name`, `cfg_master`, `cfg_username`, `cfg_password`, `cfg_token`, `cfg_module_sender`, `cfg_incoming_path`, `cfg_additional_param`, `cfg_datetime_timezone`, `cfg_try_disable_footer`) VALUES
 (0, 'uplink', 'http://playsms.master.url', '', '', '', '', '/var/spool/playsms', '', '', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblACL`
---
 
 DROP TABLE IF EXISTS `playsms_tblACL`;
 CREATE TABLE `playsms_tblACL` (
@@ -857,19 +544,10 @@ CREATE TABLE `playsms_tblACL` (
   `flag_deleted` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_tblACL`
---
-
 INSERT INTO `playsms_tblACL` (`c_timestamp`, `id`, `name`, `acl_subuser`, `url`, `flag_disallowed`, `flag_deleted`) VALUES
-(0, 1, 'DEFAULT', '', '', 1, 0),
-(0, 2, 'BROADCAST', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_schedule,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n', 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblBilling`
---
+(0, 1, 'NEW', '', 'inc=core_sendsms,\r\ninc=core_user,\r\n!inc=core_user&route=subuser_mgmnt,\r\ninc=feature_report,', 1, 0),
+(0, 2, 'BROADCAST', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_schedule,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n', 0, 0),
+(0, 3, 'MEMBER', '', '', 1, 0);
 
 DROP TABLE IF EXISTS `playsms_tblBilling`;
 CREATE TABLE `playsms_tblBilling` (
@@ -886,12 +564,6 @@ CREATE TABLE `playsms_tblBilling` (
   `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblCountry`
---
-
 DROP TABLE IF EXISTS `playsms_tblCountry`;
 CREATE TABLE `playsms_tblCountry` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -900,10 +572,6 @@ CREATE TABLE `playsms_tblCountry` (
   `country_code` varchar(10) NOT NULL DEFAULT '',
   `country_prefix` varchar(10) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `playsms_tblCountry`
---
 
 INSERT INTO `playsms_tblCountry` (`c_timestamp`, `country_id`, `country_name`, `country_code`, `country_prefix`) VALUES
 (0, 1, 'Afghanistan', 'af', '93'),
@@ -1112,12 +780,6 @@ INSERT INTO `playsms_tblCountry` (`c_timestamp`, `country_id`, `country_name`, `
 (0, 204, 'Zambia', 'zm', '260'),
 (0, 205, 'Zimbabwe', 'zw', '263');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblDLR`
---
-
 DROP TABLE IF EXISTS `playsms_tblDLR`;
 CREATE TABLE `playsms_tblDLR` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -1127,12 +789,6 @@ CREATE TABLE `playsms_tblDLR` (
   `p_status` int(11) NOT NULL DEFAULT 0,
   `uid` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblGateway`
---
 
 DROP TABLE IF EXISTS `playsms_tblGateway`;
 CREATE TABLE `playsms_tblGateway` (
@@ -1144,19 +800,9 @@ CREATE TABLE `playsms_tblGateway` (
   `data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_tblGateway`
---
-
 INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gateway`, `data`) VALUES
 (1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'blocked', 'blocked', '[]'),
 (2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'dev', 'dev', '[]');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblNotif`
---
 
 DROP TABLE IF EXISTS `playsms_tblNotif`;
 CREATE TABLE `playsms_tblNotif` (
@@ -1170,12 +816,6 @@ CREATE TABLE `playsms_tblNotif` (
   `data` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblRecvSMS`
---
-
 DROP TABLE IF EXISTS `playsms_tblRecvSMS`;
 CREATE TABLE `playsms_tblRecvSMS` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -1188,12 +828,6 @@ CREATE TABLE `playsms_tblRecvSMS` (
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblRegistry`
---
-
 DROP TABLE IF EXISTS `playsms_tblRegistry`;
 CREATE TABLE `playsms_tblRegistry` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -1204,10 +838,6 @@ CREATE TABLE `playsms_tblRegistry` (
   `registry_key` varchar(250) NOT NULL DEFAULT '',
   `registry_value` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `playsms_tblRegistry`
---
 
 INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES
 (0, 1, 1, 'core', 'config', 'playsms_version', '1.4.4-beta3'),
@@ -1239,12 +869,6 @@ INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`,
 (1404003472, 28, 1, 'core', 'main_config', 'information_content', 'Go to main configuration or manage site to edit this page'),
 (1404003471, 29, 1, 'core', 'main_config', 'default_acl', '1');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblSMSInbox`
---
-
 DROP TABLE IF EXISTS `playsms_tblSMSInbox`;
 CREATE TABLE `playsms_tblSMSInbox` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -1257,12 +881,6 @@ CREATE TABLE `playsms_tblSMSInbox` (
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `reference_id` varchar(40) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblSMSIncoming`
---
 
 DROP TABLE IF EXISTS `playsms_tblSMSIncoming`;
 CREATE TABLE `playsms_tblSMSIncoming` (
@@ -1279,12 +897,6 @@ CREATE TABLE `playsms_tblSMSIncoming` (
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `in_status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblSMSOutgoing`
---
 
 DROP TABLE IF EXISTS `playsms_tblSMSOutgoing`;
 CREATE TABLE `playsms_tblSMSOutgoing` (
@@ -1310,12 +922,6 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `queue_code` varchar(40) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblSMSOutgoing_queue`
---
-
 DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue`;
 CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `id` int(11) NOT NULL,
@@ -1336,12 +942,6 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `smsc` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblSMSOutgoing_queue_dst`
---
-
 DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue_dst`;
 CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `id` int(11) NOT NULL,
@@ -1351,12 +951,6 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `flag` int(11) NOT NULL DEFAULT 0,
   `dst` varchar(50) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_tblUser`
---
 
 DROP TABLE IF EXISTS `playsms_tblUser`;
 CREATE TABLE `playsms_tblUser` (
@@ -1398,676 +992,342 @@ CREATE TABLE `playsms_tblUser` (
   `flag_deleted` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `playsms_tblUser`
---
-
 INSERT INTO `playsms_tblUser` (`c_timestamp`, `parent_uid`, `uid`, `status`, `acl_id`, `username`, `password`, `salt`, `token`, `enable_webservices`, `webservices_ip`, `name`, `mobile`, `email`, `sender`, `footer`, `address`, `city`, `state`, `country`, `zipcode`, `credit`, `adhoc_credit`, `datetime_timezone`, `language_module`, `fwd_to_mobile`, `fwd_to_email`, `fwd_to_inbox`, `replace_zero`, `plus_sign_remove`, `plus_sign_add`, `send_as_unicode`, `local_length`, `register_datetime`, `lastupdate_datetime`, `flag_deleted`) VALUES
-(1611400979, 0, 1, 2, 0, 'admin', 'd97a6933803258561344122cc031ac37', 'ANzpSkIpknEUoG4h', '', 0, '127.0.0.1', 'Administrator', '+62000000000', 'admin@example.com', '', '@admin', '', '', '', 82, '', '0.000', '0.000', '', 'en_US', 0, 1, 1, '', 1, 0, 0, 0, '', '', 0);
+(1611603929, 0, 1, 2, 0, 'admin', 'd97a6933803258561344122cc031ac37', 'ANzpSkIpknEUoG4h', '', 0, '127.0.0.1', 'Administrator', '+62000000000', 'admin@example.com', '', '@admin', '', '', '', 82, '', '0.000', '0.000', '', 'en_US', 0, 1, 1, '', 1, 0, 0, 0, '', '', 0);
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `playsms_featureAutoreply`
---
 ALTER TABLE `playsms_featureAutoreply`
   ADD PRIMARY KEY (`autoreply_id`);
 
---
--- Indexes for table `playsms_featureAutoreply_scenario`
---
 ALTER TABLE `playsms_featureAutoreply_scenario`
   ADD PRIMARY KEY (`autoreply_scenario_id`);
 
---
--- Indexes for table `playsms_featureBoard`
---
 ALTER TABLE `playsms_featureBoard`
   ADD PRIMARY KEY (`board_id`);
 
---
--- Indexes for table `playsms_featureBoard_log`
---
 ALTER TABLE `playsms_featureBoard_log`
   ADD PRIMARY KEY (`in_id`);
 
---
--- Indexes for table `playsms_featureCommand`
---
 ALTER TABLE `playsms_featureCommand`
   ADD PRIMARY KEY (`command_id`);
 
---
--- Indexes for table `playsms_featureCredit`
---
 ALTER TABLE `playsms_featureCredit`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureCustom`
---
 ALTER TABLE `playsms_featureCustom`
   ADD PRIMARY KEY (`custom_id`);
 
---
--- Indexes for table `playsms_featureFirewall`
---
 ALTER TABLE `playsms_featureFirewall`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureInboxgroup`
---
 ALTER TABLE `playsms_featureInboxgroup`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureInboxgroup_catchall`
---
 ALTER TABLE `playsms_featureInboxgroup_catchall`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureInboxgroup_log_in`
---
 ALTER TABLE `playsms_featureInboxgroup_log_in`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureInboxgroup_log_out`
---
 ALTER TABLE `playsms_featureInboxgroup_log_out`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureInboxgroup_members`
---
 ALTER TABLE `playsms_featureInboxgroup_members`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureMsgtemplate`
---
 ALTER TABLE `playsms_featureMsgtemplate`
   ADD PRIMARY KEY (`tid`);
 
---
--- Indexes for table `playsms_featureOutgoing`
---
 ALTER TABLE `playsms_featureOutgoing`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featurePhonebook`
---
 ALTER TABLE `playsms_featurePhonebook`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featurePhonebook_group`
---
 ALTER TABLE `playsms_featurePhonebook_group`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featurePhonebook_group_contacts`
---
 ALTER TABLE `playsms_featurePhonebook_group_contacts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pid` (`pid`),
   ADD KEY `gpid` (`gpid`);
 
---
--- Indexes for table `playsms_featurePoll`
---
 ALTER TABLE `playsms_featurePoll`
   ADD PRIMARY KEY (`poll_id`);
 
---
--- Indexes for table `playsms_featurePoll_choice`
---
 ALTER TABLE `playsms_featurePoll_choice`
   ADD PRIMARY KEY (`choice_id`);
 
---
--- Indexes for table `playsms_featurePoll_log`
---
 ALTER TABLE `playsms_featurePoll_log`
   ADD PRIMARY KEY (`log_id`);
 
---
--- Indexes for table `playsms_featureQuiz`
---
 ALTER TABLE `playsms_featureQuiz`
   ADD PRIMARY KEY (`quiz_id`);
 
---
--- Indexes for table `playsms_featureQuiz_log`
---
 ALTER TABLE `playsms_featureQuiz_log`
   ADD PRIMARY KEY (`answer_id`);
 
---
--- Indexes for table `playsms_featureSchedule`
---
 ALTER TABLE `playsms_featureSchedule`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureSchedule_dst`
---
 ALTER TABLE `playsms_featureSchedule_dst`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureSendfromfile`
---
 ALTER TABLE `playsms_featureSendfromfile`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureSimplerate`
---
 ALTER TABLE `playsms_featureSimplerate`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `prefix` (`prefix`);
 
---
--- Indexes for table `playsms_featureSmssysnc`
---
 ALTER TABLE `playsms_featureSmssysnc`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureStoplist`
---
 ALTER TABLE `playsms_featureStoplist`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_featureSubscribe`
---
 ALTER TABLE `playsms_featureSubscribe`
   ADD PRIMARY KEY (`subscribe_id`);
 
---
--- Indexes for table `playsms_featureSubscribe_member`
---
 ALTER TABLE `playsms_featureSubscribe_member`
   ADD PRIMARY KEY (`member_id`);
 
---
--- Indexes for table `playsms_featureSubscribe_msg`
---
 ALTER TABLE `playsms_featureSubscribe_msg`
   ADD PRIMARY KEY (`msg_id`);
 
---
--- Indexes for table `playsms_gatewayGeneric_log`
---
 ALTER TABLE `playsms_gatewayGeneric_log`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_gatewayInfobip_apidata`
---
 ALTER TABLE `playsms_gatewayInfobip_apidata`
   ADD PRIMARY KEY (`apidata_id`);
 
---
--- Indexes for table `playsms_gatewayJasmin_log`
---
 ALTER TABLE `playsms_gatewayJasmin_log`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_gatewayNexmo`
---
 ALTER TABLE `playsms_gatewayNexmo`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_gatewayPlaynet_outgoing`
---
 ALTER TABLE `playsms_gatewayPlaynet_outgoing`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_gatewaySmstools_dlr`
---
 ALTER TABLE `playsms_gatewaySmstools_dlr`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `smslog_id` (`smslog_id`);
 
---
--- Indexes for table `playsms_gatewayTwilio`
---
 ALTER TABLE `playsms_gatewayTwilio`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_gatewayUplink`
---
 ALTER TABLE `playsms_gatewayUplink`
   ADD PRIMARY KEY (`up_id`);
 
---
--- Indexes for table `playsms_tblACL`
---
 ALTER TABLE `playsms_tblACL`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_tblBilling`
---
 ALTER TABLE `playsms_tblBilling`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_tblCountry`
---
 ALTER TABLE `playsms_tblCountry`
   ADD PRIMARY KEY (`country_id`);
 
---
--- Indexes for table `playsms_tblDLR`
---
 ALTER TABLE `playsms_tblDLR`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_tblGateway`
---
 ALTER TABLE `playsms_tblGateway`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
---
--- Indexes for table `playsms_tblNotif`
---
 ALTER TABLE `playsms_tblNotif`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_tblRecvSMS`
---
 ALTER TABLE `playsms_tblRecvSMS`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_tblRegistry`
---
 ALTER TABLE `playsms_tblRegistry`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_tblSMSInbox`
---
 ALTER TABLE `playsms_tblSMSInbox`
   ADD PRIMARY KEY (`in_id`),
   ADD KEY `in_uid` (`in_uid`);
 
---
--- Indexes for table `playsms_tblSMSIncoming`
---
 ALTER TABLE `playsms_tblSMSIncoming`
   ADD PRIMARY KEY (`in_id`),
   ADD KEY `in_uid` (`in_uid`);
 
---
--- Indexes for table `playsms_tblSMSOutgoing`
---
 ALTER TABLE `playsms_tblSMSOutgoing`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `smslog_id` (`smslog_id`),
   ADD KEY `uid` (`uid`);
 
---
--- Indexes for table `playsms_tblSMSOutgoing_queue`
---
 ALTER TABLE `playsms_tblSMSOutgoing_queue`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `queue_code` (`queue_code`);
 
---
--- Indexes for table `playsms_tblSMSOutgoing_queue_dst`
---
 ALTER TABLE `playsms_tblSMSOutgoing_queue_dst`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `playsms_tblUser`
---
 ALTER TABLE `playsms_tblUser`
   ADD PRIMARY KEY (`uid`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `playsms_featureAutoreply`
---
 ALTER TABLE `playsms_featureAutoreply`
   MODIFY `autoreply_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureAutoreply_scenario`
---
 ALTER TABLE `playsms_featureAutoreply_scenario`
   MODIFY `autoreply_scenario_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureBoard`
---
 ALTER TABLE `playsms_featureBoard`
   MODIFY `board_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureBoard_log`
---
 ALTER TABLE `playsms_featureBoard_log`
   MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureCommand`
---
 ALTER TABLE `playsms_featureCommand`
   MODIFY `command_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureCredit`
---
 ALTER TABLE `playsms_featureCredit`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureCustom`
---
 ALTER TABLE `playsms_featureCustom`
   MODIFY `custom_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureFirewall`
---
 ALTER TABLE `playsms_featureFirewall`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureInboxgroup`
---
 ALTER TABLE `playsms_featureInboxgroup`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureInboxgroup_catchall`
---
 ALTER TABLE `playsms_featureInboxgroup_catchall`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureInboxgroup_log_in`
---
 ALTER TABLE `playsms_featureInboxgroup_log_in`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureInboxgroup_log_out`
---
 ALTER TABLE `playsms_featureInboxgroup_log_out`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureInboxgroup_members`
---
 ALTER TABLE `playsms_featureInboxgroup_members`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureMsgtemplate`
---
 ALTER TABLE `playsms_featureMsgtemplate`
   MODIFY `tid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT for table `playsms_featureOutgoing`
---
 ALTER TABLE `playsms_featureOutgoing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featurePhonebook`
---
 ALTER TABLE `playsms_featurePhonebook`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featurePhonebook_group`
---
 ALTER TABLE `playsms_featurePhonebook_group`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featurePhonebook_group_contacts`
---
 ALTER TABLE `playsms_featurePhonebook_group_contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featurePoll`
---
 ALTER TABLE `playsms_featurePoll`
   MODIFY `poll_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featurePoll_choice`
---
 ALTER TABLE `playsms_featurePoll_choice`
   MODIFY `choice_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featurePoll_log`
---
 ALTER TABLE `playsms_featurePoll_log`
   MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureQuiz`
---
 ALTER TABLE `playsms_featureQuiz`
   MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureQuiz_log`
---
 ALTER TABLE `playsms_featureQuiz_log`
   MODIFY `answer_id` int(4) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSchedule`
---
 ALTER TABLE `playsms_featureSchedule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSchedule_dst`
---
 ALTER TABLE `playsms_featureSchedule_dst`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSendfromfile`
---
 ALTER TABLE `playsms_featureSendfromfile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSimplerate`
---
 ALTER TABLE `playsms_featureSimplerate`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSmssysnc`
---
 ALTER TABLE `playsms_featureSmssysnc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureStoplist`
---
 ALTER TABLE `playsms_featureStoplist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSubscribe`
---
 ALTER TABLE `playsms_featureSubscribe`
   MODIFY `subscribe_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSubscribe_member`
---
 ALTER TABLE `playsms_featureSubscribe_member`
   MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_featureSubscribe_msg`
---
 ALTER TABLE `playsms_featureSubscribe_msg`
   MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewayGeneric_log`
---
 ALTER TABLE `playsms_gatewayGeneric_log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewayInfobip_apidata`
---
 ALTER TABLE `playsms_gatewayInfobip_apidata`
   MODIFY `apidata_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewayJasmin_log`
---
 ALTER TABLE `playsms_gatewayJasmin_log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewayNexmo`
---
 ALTER TABLE `playsms_gatewayNexmo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewayPlaynet_outgoing`
---
 ALTER TABLE `playsms_gatewayPlaynet_outgoing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewaySmstools_dlr`
---
 ALTER TABLE `playsms_gatewaySmstools_dlr`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewayTwilio`
---
 ALTER TABLE `playsms_gatewayTwilio`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_gatewayUplink`
---
 ALTER TABLE `playsms_gatewayUplink`
   MODIFY `up_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblACL`
---
 ALTER TABLE `playsms_tblACL`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT for table `playsms_tblBilling`
---
 ALTER TABLE `playsms_tblBilling`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblCountry`
---
 ALTER TABLE `playsms_tblCountry`
   MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 
---
--- AUTO_INCREMENT for table `playsms_tblDLR`
---
 ALTER TABLE `playsms_tblDLR`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblGateway`
---
 ALTER TABLE `playsms_tblGateway`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT for table `playsms_tblNotif`
---
 ALTER TABLE `playsms_tblNotif`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblRecvSMS`
---
 ALTER TABLE `playsms_tblRecvSMS`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblRegistry`
---
 ALTER TABLE `playsms_tblRegistry`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
---
--- AUTO_INCREMENT for table `playsms_tblSMSInbox`
---
 ALTER TABLE `playsms_tblSMSInbox`
   MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblSMSIncoming`
---
 ALTER TABLE `playsms_tblSMSIncoming`
   MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblSMSOutgoing`
---
 ALTER TABLE `playsms_tblSMSOutgoing`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblSMSOutgoing_queue`
---
 ALTER TABLE `playsms_tblSMSOutgoing_queue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblSMSOutgoing_queue_dst`
---
 ALTER TABLE `playsms_tblSMSOutgoing_queue_dst`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `playsms_tblUser`
---
 ALTER TABLE `playsms_tblUser`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
