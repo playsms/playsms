@@ -76,6 +76,8 @@ switch (_OP_) {
 		
 		// get access control list
 		$c_option_default_acl = array_flip(acl_getall());
+		$c_option_default_acl['-'] = 0;
+		ksort($c_option_default_acl);
 		$option_default_acl = _select('edit_default_acl', $c_option_default_acl, $main_config['default_acl']);
 		
 		// get gateway options
@@ -188,7 +190,7 @@ switch (_OP_) {
 				'HINT_CUSTOM_FOOTER' => _hint(_('Allow users to select SMS footer while on Send SMS page')),
 				'HINT_SMS_LIMIT_PER_HOUR' => _hint(_('Fill with zero to disable limit')),
 				'HINT_DEFAULT_PARENT' => _hint(_('Default parent selected upon registration when the default account status on registration setting set to Subuser')),
-				'HINT_DEFAULT_ACL' => _hint(_('ACL DEFAULT will not restrict access to menus')),
+				'HINT_DEFAULT_ACL' => _hint(_('Default ACL during account registration')),
 				'HINT_USERNAME_LENGTH' => _hint(_('Maximum username length must be a number between 4 to 100')),
 				'HINT_REPLACE_ZERO' => _hint(_('Default prefix or country code to replace prefix 0 on destination number')),
 				'HINT_CREDIT_LOWEST_LIMIT' => _hint(_('Set credit value bigger than 0 to set credit lowest limit that will trigger notification')),
