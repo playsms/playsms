@@ -545,7 +545,7 @@ CREATE TABLE `playsms_tblACL` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `playsms_tblACL` (`c_timestamp`, `id`, `name`, `acl_subuser`, `url`, `flag_disallowed`, `flag_deleted`) VALUES
-(0, 1, 'NEW', '', 'inc=core_sendsms,\r\ninc=core_user,\r\n!inc=core_user&route=subuser_mgmnt,\r\ninc=feature_report,', 1, 0),
+(0, 1, 'NEW', '', 'inc=core_sendsms,\r\ninc=core_user,\r\n!inc=core_user&route=subuser_mgmnt,\r\ninc=feature_report,', 0, 0),
 (0, 2, 'BROADCAST', '', 'inc=core_sendsms,\r\ninc=core_user,\r\ninc=feature_report,\r\ninc=feature_schedule,\r\ninc=feature_msgtemplate,\r\ninc=feature_queuelog,\r\ninc=feature_credit,\r\ninc=feature_report&route=user\r\n', 0, 0),
 (0, 3, 'MEMBER', '', '', 1, 0);
 
