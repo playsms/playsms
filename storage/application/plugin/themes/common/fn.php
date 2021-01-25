@@ -82,6 +82,8 @@ function common_hook_themes_menu_tree($menu_config) {
 	
 	$main_menu = "";
 	foreach ($menu_config as $menu_title => $array_menu) {
+		$found_sub_menu = false;
+
 		foreach ($array_menu as $sub_menu) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];
@@ -95,11 +97,15 @@ function common_hook_themes_menu_tree($menu_config) {
 			} else if ($sub_menu_url && $sub_menu_title) {
 				if (acl_checkurl($sub_menu_url)) {
 					$m[$sub_menu_index . '.' . $sub_menu_title] = "<a class='dropdown-item' href='" . _u($sub_menu_url) . "'>" . $sub_menu_title . "</a>";
+					$found_sub_menu = true;
 				}
 			}
 		}
 		
-		$found = false;
+		if (!$found_sub_menu) {
+			continue;
+		}
+		
 		if (count($m)) {
 			$main_menu_tree = "
 				<div class='nav-item dropdown'>
@@ -119,9 +125,7 @@ function common_hook_themes_menu_tree($menu_config) {
 			$main_menu_tree .= "</div>";
 		}
 		
-		if ($found) {
-			$main_menu .= $main_menu_tree;
-		}
+		$main_menu .= $main_menu_tree;
 	}
 	
 	$content = "
