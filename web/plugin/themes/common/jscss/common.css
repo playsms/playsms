@@ -219,6 +219,47 @@
 	width: 100%;
 }
 
+.msg_label {
+	padding-right: 2px;
+	padding-bottom: 2px;
+}
+
+.msg_text {
+	padding-bottom: 10px;
+}
+
+.msg_option {
+	text-align: left;
+	padding-right: 10px;
+	float: left;
+}
+
+.msg_info {
+	text-align: left;
+	padding-right: 10px;
+	float: left;
+}
+
+.msg_status {
+	text-align: left;
+	padding-right: 10px;
+}
+
+.msg_price {
+	text-align: left;
+	padding-right: 10px;
+}
+
+.msg_rate {
+	text-align: left;
+	padding-right: 10px;
+}
+
+.msg_charge {
+	text-align: left;
+	padding-right: 10px;
+}
+
 /* IDs */
 
 #main-menu {
@@ -316,21 +357,6 @@
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
 	hyphens: auto;
-}
-
-#msg_price {
-	padding-top: 6px;
-	padding-right: 2px;
-}
-
-#msg_label {
-	padding-right: 2px;
-	padding-bottom: 2px;
-}
-
-#msg_option {
-	text-align: left;
-	padding-right: 2px;
 }
 
 #msg_template {

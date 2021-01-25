@@ -101,10 +101,6 @@ switch (_OP_) {
 				<th width=15%>" . _('Date/Time') . "</th>
 				<th width=15%>" . _('To') . "</th>
 				<th width=67%>" . _('Message') . "</th>
-				<th width=1%><span class='playsms-icon' title='" . _('Count') . "'>#</span></th>
-				<th width=1%><span class='playsms-icon fas fa-table' title='" . _('Rate') . "'></span></th>
-				<th width=1%><span class='playsms-icon fas fa-file-invoice' title='" . _('Charge') . "'></span></th>
-				<th width=1%><span class='playsms-icon fas fa-check' title='" . _('Status') . "'></span></th>
 				<th width=3% class=\"sorttable_nosort\" nowrap><input type=checkbox onclick=CheckUncheckAll(document.fm_user_outgoing)></th>
 			</tr>
 			</thead>
@@ -145,14 +141,18 @@ switch (_OP_) {
 			} else {
 				$p_status = "<span class=status_pending title='" . _('Pending') . "'></span>";
 			}
+			$p_status = "<span class='msg_status'>" . $p_status . "</span>";
 			
 			// get billing info
 			$billing = billing_getdata($smslog_id);
 			$p_count = ($billing['count'] ? $billing['count'] : '0');
+			$p_count = "<span class='msg_price'>" . $p_count . " sms</span>";
 			
 			$p_rate = core_display_credit($billing['rate'] ? $billing['rate'] : '0.0');
+			$p_rate = "<span class='msg_rate'><span class='playsms-icon fas fa-table' title='" . _('Rate') . "'></span>" . $p_rate . "</span>";
 			
 			$p_charge = core_display_credit($billing['charge'] ? $billing['charge'] : '0.0');
+			$p_charge = "<span class='msg_charge'><span class='playsms-icon fas fa-file-invoice-dollar' title='" . _('Charge') . "'></span>" . $p_charge . "</span>";
 			
 			// if send SMS failed then display charge as 0
 			if ($list[$j]['p_status'] == 2) {
@@ -166,18 +166,28 @@ switch (_OP_) {
 				$forward = _sendsms('', $msg, $icon_config['forward']);
 			}
 			$c_message = "
-				<div id=\"user_outgoing_msg\">" . $p_msg . "</div>
-				<div id=\"msg_option\">" . $resend . " " . $forward . "</div>";
+				<div class=\"row\">
+					<div class=\"col-sm\">
+						<div id=\"user_outgoing_msg\">
+							<div class='msg_text'>" . $p_msg . "</div>
+						</div>
+					</div>
+					<div class=\"col-sm\">
+						<div class=\"row pull-right\">
+							<div class=\"col d-none d-md-block\">
+								<div class=\"msg_option\">" . $resend . " " . $forward . "</div>
+								<div class=\"msg_info\">" . $p_status . " " . $p_count. " " . $p_rate . " " . $p_charge . "</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			";
 			$i--;
 			$content .= "
 				<tr>
 					<td>$p_datetime</td>
 					<td><div>" . $current_p_dst . "</div><div>" . $queue_view_link . "</div></td>
 					<td>$c_message</td>
-					<td>$p_count</td>
-					<td>$p_rate</td>
-					<td>$p_charge</td>
-					<td>$p_status</td>
 					<td nowrap>
 						<input type=hidden name=itemid" . $j . " value=\"$smslog_id\">
 						<input type=checkbox name=checkid" . $j . ">
