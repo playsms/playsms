@@ -171,7 +171,10 @@ switch (_OP_) {
 		}
 		
 		// get access control list
-		$option_acl = _select('add_acl_id', array_flip(acl_getallbyuid($user_config['uid'])));
+		$option_uid_acl = array_flip(acl_getallbyuid($user_config['uid']));
+		$option_uid_acl['-'] = 0;
+		ksort($option_uid_acl);
+		$option_acl = _select('add_acl_id', $option_uid_acl);
 		
 		$content .= "
 		<h2 class=page-header-title>" . _('Manage subuser') . "</h2>

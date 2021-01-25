@@ -185,6 +185,8 @@ switch (_OP_) {
 		
 		// get access control list
 		$c_option_acl = array_flip(acl_getall());
+		$c_option_acl['-'] = 0;
+		ksort($c_option_acl);
 		$option_acl = _input('text', '', acl_getname($acl_id), array(
 			'readonly' 
 		));
@@ -251,7 +253,7 @@ switch (_OP_) {
 				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')),
 				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')),
 				'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')),
-				'HINT_ACL' => _hint(_('ACL DEFAULT will not restrict access to menus')),
+				'HINT_ACL' => _hint(_('Access Control List membership')),
 				'option_new_token' => $option_new_token,
 				'option_enable_webservices' => $option_enable_webservices,
 				'option_language_module' => $option_language_module,

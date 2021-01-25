@@ -220,7 +220,10 @@ switch (_OP_) {
 		";
 		
 		// get access control list
-		$select_acls = _select('add_acl_id', array_flip(acl_getall()), $core_config['main']['default_acl']);
+		$option_acl = array_flip(acl_getall());
+		$option_acl['-'] = 0;
+		ksort($option_acl);
+		$select_acls = _select('add_acl_id', $option_acl, $core_config['main']['default_acl']);
 		
 		$content .= "
 		<h2 class=page-header-title>" . _('Manage account') . "</h2>

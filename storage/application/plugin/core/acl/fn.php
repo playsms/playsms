@@ -83,7 +83,7 @@ function acl_getname($acl_id) {
 		'flag_deleted' => 0 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'name', $conditions);
-	$ret = (trim($list[0]['name']) ? trim(strtoupper($list[0]['name'])) : _('DEFAULT'));
+	$ret = (trim($list[0]['name']) ? trim(strtoupper($list[0]['name'])) : _('-'));
 	
 	return $ret;
 }
