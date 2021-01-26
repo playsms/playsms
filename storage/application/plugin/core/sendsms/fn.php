@@ -1246,7 +1246,7 @@ function sendsms_hook_playsmsd_loop($command, $command_param) {
 	// get unprocessed and delivering queues
 	// $core_config['sendsmsd_queue'] = number of simultaneous queues
 	// $core_config['sendsmsd_chunk'] = number of chunk per queue
-	$db_query = "SELECT id,queue_code,flag FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE (flag=0 || flag=3) LIMIT " . (int) $core_config['sendsmsd_queue'];
+	$db_query = "SELECT id,queue_code,flag FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag=0 LIMIT " . (int) $core_config['sendsmsd_queue'];
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$queue_id = $db_row['id'];

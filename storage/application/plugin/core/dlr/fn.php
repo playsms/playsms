@@ -102,18 +102,19 @@ function dlr_update($smslog_id, $uid, $p_status) {
 			break;
 	}
 
-	// just update	
-	dba_query($db_query);
-	
-	// hook if status not pending
-	if ($p_status > 0) {
-		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-			core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
-				$smslog_id,
-				$uid,
-				$p_status 
-			));
+	if (dba_affected_rows($db_query)) {	
+		if ($p_status > 0) {
+			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+				core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
+					$smslog_id,
+					$uid,
+					$p_status 
+				));
+			}
 		}
+	} else {
+
+		return false;
 	}
 
 	return true;
