@@ -459,8 +459,7 @@ function playsmsd_run($run_type = 'once', $command, $command_param = '') {
 
 		// fork it
 		putenv("PLAYSMS_WEB=" . _APPS_PATH_BASE_);
-		//$RUN = 'nohup ionice -c3 nice -n19 php -q ' . $playsmsd . ' _fork_ ' . $command . ' ' . $run_type . ' ' . $command_param . ' >/dev/null 2>&1 & printf "%u" $!';
-		$RUN = 'nohup ionice -c3 nice -n19 php -q ' . $playsmsd . ' _fork_ ' . $command . ' ' . $run_type . ' ' . $command_param . ' >>nohup.out 2>&1 & printf "%u" $!';
+		$RUN = 'nohup ionice -c3 nice -n19 php -q ' . $playsmsd . ' _fork_ ' . $command . ' ' . $run_type . ' ' . $command_param . ' >/dev/null 2>&1 & printf "%u" $!';
 		$pid = shell_exec($RUN);
 		
 		// log it
