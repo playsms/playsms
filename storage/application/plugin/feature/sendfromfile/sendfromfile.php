@@ -98,7 +98,7 @@ switch (_OP_) {
 				<div class='col_sm'>
 					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">
 						" . _CSRF_FORM_ . "
-						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=hidden name=sendfromfile_id value='" . $sendfromfile_id . "'>
 						<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\">
 					</form>
 				</div>";
@@ -108,7 +108,7 @@ switch (_OP_) {
 				<div class='col_sm'>
 					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">
 						" . _CSRF_FORM_ . "
-						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=hidden name=sendfromfile_id value='" . $sendfromfile_id . "'>
 						<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\">
 					</form>
 				</div>";
@@ -276,7 +276,7 @@ switch (_OP_) {
 				<div class='col_sm'>
 					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_cancel\" method=\"post\">
 						" . _CSRF_FORM_ . "
-						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=hidden name=sendfromfile_id value='" . $sendfromfile_id . "'>
 						<input type=\"submit\" value=\"" . _('Cancel send from file') . "\" class=\"button\">
 					</form>
 				</div>";
@@ -286,7 +286,7 @@ switch (_OP_) {
 				<div class='col_sm'>
 					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">
 						" . _CSRF_FORM_ . "
-						<input type=hidden name=sid value='" . $sendfromfile_id . "'>
+						<input type=hidden name=sendfromfile_id value='" . $sendfromfile_id . "'>
 						<input type=\"submit\" value=\"" . _('Send SMS to valid entries') . "\" class=\"button\">
 					</form>
 				</div>";
@@ -297,7 +297,7 @@ switch (_OP_) {
 		break;
 	
 	case 'upload_cancel':
-		if ($sendfromfile_id = $_REQUEST['sid']) {
+		if ($sendfromfile_id = $_REQUEST['sendfromfile_id']) {
 			sendfromfile_destroy($sendfromfile_id);
 
 			$_SESSION['dialog']['danger'][] = _('Send from file has been cancelled');
@@ -309,10 +309,12 @@ switch (_OP_) {
 		break;
 	
 	case 'upload_process':
-		if ($sendfromfile_id = $_REQUEST['sid']) {
-			sendfromfile_process($sendfromfile_id);
-
-			$_SESSION['dialog']['info'][] = _('SMS to valid numbers in uploaded file has been delivered to queue');
+		if ($sendfromfile_id = $_REQUEST['sendfromfile_id']) {
+			if (playsmsd_register_once('sendfromfile_process', $sendfromfile_id)) {
+				$_SESSION['dialog']['info'][] = _('SMS to valid numbers in uploaded file has been delivered to queue');
+			} else {
+				$_SESSION['dialog']['info'][] = _('Fail to deliver uploaded SMS to queue');
+			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Invalid session ID');
 		}

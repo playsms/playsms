@@ -49,14 +49,14 @@ function sendfromfile_verify($csv_file) {
 
 	// open CSV file
 	if (!(($fd = fopen($csv_file, 'r')) !== false && ($sendfromfile_id = md5(uniqid('SID', true))))) {
-		_log("fail to open CSV file file:" . $csv_file . " size:" . $csv_file_size . " sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+		_log("fail to open CSV file file:" . $csv_file . " size:" . $csv_file_size . " sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
 		$error_strings[] = _('Error occurred while opening CSV file');
 
 		return [$all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings];
 	}
 
 	// mark start
-	_log("start sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+	_log("start sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
 	
 	// load and verify data from CSV file
 	$continue = true;
@@ -147,7 +147,7 @@ function sendfromfile_verify($csv_file) {
 	// end while
 
 	// mark collected from file to array
-	_log("collected sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+	_log("collected sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
 
 	$charges = (float) 0;
 	foreach ($item_valid as $sender_uid => $item_data) {
@@ -170,12 +170,12 @@ function sendfromfile_verify($csv_file) {
 			// delete from valid
 			unset($item_valid[$sender_uid]);
 
-			_log("not enough balance sid:" . $sendfromfile_id . " uid:" . $user_config['uid'] . " sender_uid:" . $sender_uid . " sms_username:" . $item_data[0]['sms_username'] . " item_count:" . $item_count . " charges:" . $charges . " balance:" . $sender_balance, 2, "sendfromfile_verify");
+			_log("not enough balance sendfromfile_id:" . $sendfromfile_id . " uid:" . $user_config['uid'] . " sender_uid:" . $sender_uid . " sms_username:" . $item_data[0]['sms_username'] . " item_count:" . $item_count . " charges:" . $charges . " balance:" . $sender_balance, 2, "sendfromfile_verify");
 			$error_strings[] = sprintf(_('%s do not have enough balance for sending %d SMS at %s credit'), $item_data[0]['sms_username'], $item_count, core_display_credit($charges));
 		} else {
 
 			// mark save collected rows to db when sender has enough balance
-			_log("saving data to db for processing sid:" . $sendfromfile_id . " uid:" . $user_config['uid'] . " sender_uid:" . $sender_uid . " sms_username:" . $item_data[0]['sms_username'] . " item_count:" . count($item_data) . " charges:" . $charges . " balance:" . $sender_balance, 2, "sendfromfile_verify");
+			_log("saving data to db for processing sendfromfile_id:" . $sendfromfile_id . " uid:" . $user_config['uid'] . " sender_uid:" . $sender_uid . " sms_username:" . $item_data[0]['sms_username'] . " item_count:" . count($item_data) . " charges:" . $charges . " balance:" . $sender_balance, 2, "sendfromfile_verify");
 
 			// save to db for delivery
 			foreach ($item_data as $key => $item) {
@@ -192,25 +192,25 @@ function sendfromfile_verify($csv_file) {
 			}
 
 			// mark saved			
-			_log("saved sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+			_log("saved sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
 		}
 	}
 
 	if ($valid) {
-		_log("found verified entries sid:" . $sendfromfile_id . " valid:" . $valid . " discharged:" . $discharged, 2, "sendfromfile_verify");
+		_log("found verified entries sendfromfile_id:" . $sendfromfile_id . " valid:" . $valid . " discharged:" . $discharged, 2, "sendfromfile_verify");
 		$error_strings[] = sprintf(_('Found %d of %d valid entries'), $valid, $num_of_rows);
 		if ($discharged) {
 			$error_strings[] = sprintf(_('Found %d of %d discharged entries'), $discharged, $num_of_rows);
 		}
 	} else {
-		_log("verified entries not found sid:" . $sendfromfile_id . " discharged:" . $discharged, 2, "sendfromfile_verify");
+		_log("verified entries not found sendfromfile_id:" . $sendfromfile_id . " discharged:" . $discharged, 2, "sendfromfile_verify");
 		$error_strings[] = sprintf(_('No valid entries found from %d uploaded rows'), $num_of_rows);
 
 		sendfromfile_destroy($sendfromfile_id);
 	}
 
 	// mark finish
-	_log("finish sid:" . $sendfromfile_id, 2, "sendfromfile_verify");
+	_log("finish sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
 	
 	return [$all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings];
 }
@@ -230,7 +230,7 @@ function sendfromfile_process($sendfromfile_id) {
 	}
 
 	// mark start
-	_log("start sid:" . $sendfromfile_id, 2, "sendfromfile_process");
+	_log("start sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_process");
 	
 	// set time limit to forever
 	@set_time_limit(0);
@@ -251,7 +251,7 @@ function sendfromfile_process($sendfromfile_id) {
 
 	// send SMS
 	foreach ($data as $hash => $item) {
-		_log('process sid:' . $sendfromfile_id . ' hash:' . $item['hash'] . ' u:' . $item['username'] . ' m:[' . $item['message'] . '] to_count:' . count($item['sms_to']) . ' unicode:' . $item['unicode'], 3, 'sendfromfile_process');
+		_log('process sendfromfile_id:' . $sendfromfile_id . ' hash:' . $item['hash'] . ' u:' . $item['username'] . ' m:[' . $item['message'] . '] to_count:' . count($item['sms_to']) . ' unicode:' . $item['unicode'], 3, 'sendfromfile_process');
 		if ($item['username'] && $item['message'] && count($item['sms_to'])) {
 
 			// send SMS to queue
@@ -270,7 +270,7 @@ function sendfromfile_process($sendfromfile_id) {
 	}
 	
 	// mark finish
-	_log("finish sid:" . $sendfromfile_id, 2, "sendfromfile_process");
+	_log("finish sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_process");
 	
 	//sendfromfile_destroy($sendfromfile_id);
 }
@@ -289,4 +289,17 @@ function sendfromfile_destroy($sendfromfile_id) {
 
 	$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='" . $sendfromfile_id . "'";
 	dba_query($db_query);
+}
+
+function sendfromfile_hook_playsmsd_once($command, $command_param) {
+	if (!($command == 'sendfromfile_process' && $sendfromfile_id = trim($command_param))) {
+		
+		return false;
+	}
+	
+	_log('running once command:' . $command . ' param:' . $command_param, 2, 'sendfromfile_hook_playsmsd_once');
+	
+	sendfromfile_process($sendfromfile_id);
+	
+	return true;
 }
