@@ -87,8 +87,8 @@ Please read [INSTALL](INSTALL.md "playSMS installation document") and then [FAQ]
 
 Information about code contributors can be found here:
 
-* https://github.com/antonraharja/playSMS/graphs/contributors
+* https://github.com/playsms/playsms/graphs/contributors
 
 Information about security contributors and reporters can be found here:
 
-* https://github.com/antonraharja/playSMS/security/policy
+* https://github.com/playsms/playsms/security/policy
