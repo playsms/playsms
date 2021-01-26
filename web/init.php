@@ -324,7 +324,7 @@ if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_
 }
 
 // set charset to UTF-8
-dba_query('SET NAMES utf8');
+dba_query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'");
 
 // get main config from registry and load it to $core_config['main']
 $result = registry_search(1, 'core', 'main_config');
