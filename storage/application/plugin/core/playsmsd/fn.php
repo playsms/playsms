@@ -160,8 +160,10 @@ function playsmsd_start()
         exit();
     }
 
-    // stop all daemons
-    shell_exec(_PLAYSMSD_ . ' stop >/dev/null 2>&1 & printf "%u" $!');
+    // stop all daemons - suppress stop message, prevent printed double
+    ob_start();
+    playsmsd_stop();
+    ob_end_clean();
     sleep(1);
 
     // run playsmsd services
@@ -306,12 +308,32 @@ function playsmsd_services() {
 }
 
 function playsmsd_hook_playsmsd_loop($command, $command_param) {
-	if ($command != 'schedule') {
+	if (!($command == 'schedule' || $command == 'starterd')) {
 	
 		return;
 	}
 	
-	playsmsd();
+	if ($command == 'schedule') {
+		playsmsd();
+	}
+	
+	if ($command == 'starterd') {
+		$list = playsmsd_registered();
+	
+		foreach ($list as $s) {
+			$pid = playsmsd_run($s['run_type'], $s['command'], $s['param']);
+			if ($pid) {
+				$db_query = "UPDATE " . _DB_PREF_ . "_tblPlaysmsd SET flag_run=1, start='" . core_get_datetime() . "', pid='" . $pid . "' WHERE id='" . $s['id'] . "'";
+				if ($db_result = dba_affected_rows($db_query)) {
+					_log('run type:' . $s['run_type'] . ' command:' . $s['command'] . ' param:' . $s['param'], 3, 'playsmsd_hook_playsmsd_loop');
+				} else {
+					_log('fail to mark run type:' . $s['run_type'] . ' command:' . $s['command'] . ' param:' . $s['param'], 3, 'playsmsd_hook_playsmsd_loop');
+				}
+			} else {
+				_log('fail to run type:' . $s['run_type'] . ' command:' . $s['command'] . ' param:' . $s['param'], 3, 'playsmsd_hook_playsmsd_loop');
+			}
+		}
+	}
 }
 
 function playsmsd() {
@@ -398,8 +420,14 @@ function playsmsd_once($command, $command_param) {
 	_log("finish command:" . $command . " param:" . $command_param, 3, "playsmsd_once");	
 }
 
-function playsmsd_run_once($command, $command_param = '') {
-	if (isset($command)) {
+
+// playsmsd run services
+// -----------------------------------------------------------------------------
+
+function playsmsd_run($run_type = 'once', $command, $command_param = '') {
+	global $core_config;
+	
+	if (isset($run_type) && isset($command)) {
 	
 		// check if command is running
 		$is_running = (playsmsd_pid_get($command, $command_param) ? TRUE : FALSE);
@@ -409,42 +437,135 @@ function playsmsd_run_once($command, $command_param = '') {
 	
 			return false;
 		}
+		
+		if ($core_config['daemon_process']) {
+			$playsmsd = _PLAYSMSD_;
+		} else {
+			$fn1 = realpath($core_config['apps_path']['bin'] . '/playsmsd');
+			$fn2 = realpath($core_config['apps_path']['bin'] . '/playsmsd.php');
+			if (file_exists($fn1)) {
+				$playsmsd = $fn1;
+			} else if (file_exists($fn2)) {
+				$playsmsd = $fn2;
+			} else {
+				$playsmsd = '';
+			}
+		}
+		if (!($playsmsd && file_exists(($playsmsd)))) {
+			_log('daemon not found bin:' . $playsmsd . ' run_type:' . $run_type . ' command:' . $command . ' param:' . $command_param . ' pid:' . $pid, 2, 'playsmsd_run');
+			
+			return false;
+		}
 
 		// fork it
-		$pid = shell_exec('nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ ' . $command . ' once ' . $command_param . ' >/dev/null 2>&1 & printf "%u" $!');
+		putenv("PLAYSMS_WEB=" . _APPS_PATH_BASE_);
+		//$RUN = 'nohup ionice -c3 nice -n19 php -q ' . $playsmsd . ' _fork_ ' . $command . ' ' . $run_type . ' ' . $command_param . ' >/dev/null 2>&1 & printf "%u" $!';
+		$RUN = 'nohup ionice -c3 nice -n19 php -q ' . $playsmsd . ' _fork_ ' . $command . ' ' . $run_type . ' ' . $command_param . ' >>nohup.out 2>&1 & printf "%u" $!';
+		$pid = shell_exec($RUN);
 		
 		// log it
-		_log("command:" . $command . " param:" . $command_param . " pid:" . $pid, 3, "playsmsd_run_once");
+		if ($pid) {
+			_log('run type:' . $run_type . ' command:' . $command . ' param:' . $command_param . ' pid:' . $pid, 3, 'playsmsd_run');
+		} else {
+			_log('fail to run type:' . $run_type . ' command:' . $command . ' param:' . $command_param . ' pid:' . $pid, 2, 'playsmsd_run');
+		}
 		
 		return $pid;
 	} else {
 		
-		return 0;
+		return false;
 	}
+}
+
+function playsmsd_run_once($command, $command_param = '')
+{
+	return playsmsd_run('once', $command, $command_param);
 }
 
 function playsmsd_run_loop($command, $command_param = '')
 {
-    if (isset($command)) {
+	return playsmsd_run('loop', $command, $command_param);
+}
 
-        // check if command is running
-        $is_running = (playsmsd_pid_get($command, $command_param) ? true : false);
 
-        // prevent command runs more than once
-        if ($is_running) {
+// playsmsd register services
+// -----------------------------------------------------------------------------
 
-            return false;
-        }
+function playsmsd_registered() {
+	$returns = array();
+	
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblPlaysmsd WHERE flag_run=0 AND flag_deleted=0";
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		$returns[] = $db_row;
+	}
+	
+	return $returns;
+}
 
-        // fork it
-        $pid = shell_exec('nohup ionice -c3 nice -n19 ' . _PLAYSMSD_ . ' _fork_ ' . $command . ' loop ' . $command_param . ' >/dev/null 2>&1 & printf "%u" $!');
+function playsmsd_register($run_type, $command, $command_param = '')
+{
+	$run_type = strtolower(trim($run_type));
+	if (!($run_type == 'once' || $run_type == 'loop')) {
+		_log('unknown run type:' . $run_type . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_register');
+	
+		return false;
+	}
+	
+	$c_command = core_sanitize_username(trim($command));
+	$command = trim(preg_replace('/[^a-z\d._-]/i', '', $c_command));
+	if (!($command && $command == $c_command)) {
+		_log('unclean command found type:' . $run_type . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_register');
+	
+		return false;	
+	}
+	
+	$c_command_param = core_sanitize_username(trim($command_param));
+	$command_param = trim(preg_replace('/[^a-z\d._-]/i', '', $c_command_param));
+	if (!($command_param && $command_param == $c_command_param)) {
+		_log('unclean param found type:' . $run_type . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_register');
+	
+		return false;	
+	}
+	
+	if (!$_SESSION['uid']) {
+		_log('no valid auth found type:' . $run_type . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_register');
+	
+		return false;			
+	}
+	
+	$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblPlaysmsd WHERE run_type='" . $run_type . "' AND command='" . $command . "' AND param='" . $command_param . "' AND flag_run=0 AND flag_deleted=0";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		_log('fail to register service already registered id:' . $db_row['id'] . ' uid:' . $_SESSION['uid'] . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_register');		
+		
+		return false;
+	} else {
+		$db_query = "
+			INSERT INTO " . _DB_PREF_ . "_tblPlaysmsd 
+			(uid, run_type, command, param, created, flag_run, flag_deleted)
+			VALUES
+			('" . $_SESSION['uid'] . "', '" . $run_type . "', '" . $command . "', '" . $command_param . "', '" . core_get_datetime() . "', 0, 0)
+		";
+		//_log('debug db_query:' . trim($db_query), 2, 'playsmsd_register');
+		if ($db_result = dba_insert_id($db_query)) {
+			_log('service registered id:' . $db_row['id'] . ' uid:' . $_SESSION['uid'] . ' type:' . $run_type . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_register');
+			
+			return true;
+		} else {
+			_log('fail to add service id:' . $db_row['id'] . ' uid:' . $_SESSION['uid'] . ' type:' . $run_type . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_register');
+		
+			return false;
+		}
+	}
+}
 
-        // log it
-        _log("command:" . $command . " param:" . $command_param . " pid:" . $pid, 3, "playsmsd_run_loop");
+function playsmsd_register_once($command, $command_param = '')
+{
+	return playsmsd_register('once', $command, $command_param);
+}
 
-        return $pid;
-    } else {
-
-        return 0;
-    }
+function playsmsd_register_loop($command, $command_param = '')
+{
+	return playsmsd_register('loop', $command, $command_param);
 }

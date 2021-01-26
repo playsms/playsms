@@ -816,6 +816,22 @@ CREATE TABLE `playsms_tblNotif` (
   `data` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `playsms_tblPlaysmsd`;
+CREATE TABLE `playsms_tblPlaysmsd` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT 0,
+  `run_type` varchar(255) NOT NULL,
+  `command` varchar(255) NOT NULL,
+  `param` varchar(255) NOT NULL,
+  `created` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `start` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `finish` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `pid` int(11) NOT NULL DEFAULT 0,
+  `flag_run` int(11) NOT NULL DEFAULT 0,
+  `flag_deleted` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `playsms_tblRecvSMS`;
 CREATE TABLE `playsms_tblRecvSMS` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
@@ -1139,6 +1155,9 @@ ALTER TABLE `playsms_tblGateway`
 ALTER TABLE `playsms_tblNotif`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `playsms_tblPlaysmsd`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `playsms_tblRecvSMS`
   ADD PRIMARY KEY (`id`);
 
@@ -1305,6 +1324,9 @@ ALTER TABLE `playsms_tblGateway`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `playsms_tblNotif`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `playsms_tblPlaysmsd`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `playsms_tblRecvSMS`

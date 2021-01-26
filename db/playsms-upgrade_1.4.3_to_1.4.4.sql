@@ -21,3 +21,27 @@ ALTER TABLE `playsms_featureSendfromfile`
 	ADD `queue_code` VARCHAR(40) NOT NULL DEFAULT '' AFTER `smslog_id`, 
 	ADD `status` INT(11) NOT NULL DEFAULT '0' AFTER `queue_code`, 
 	ADD `flag_processed` INT(11) NOT NULL DEFAULT '0' AFTER `status`; 
+
+-- tblPlaysmsd
+DROP TABLE IF EXISTS `playsms_tblPlaysmsd`;
+CREATE TABLE `playsms_tblPlaysmsd` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL DEFAULT 0,
+  `run_type` varchar(255) NOT NULL,
+  `command` varchar(255) NOT NULL,
+  `param` varchar(255) NOT NULL,
+  `created` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `start` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `finish` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `pid` int(11) NOT NULL DEFAULT 0,
+  `flag_run` int(11) NOT NULL DEFAULT 0,
+  `flag_deleted` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ALTER TABLE `playsms_tblPlaysmsd`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `playsms_tblPlaysmsd`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
