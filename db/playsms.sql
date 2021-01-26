@@ -16,7 +16,7 @@ CREATE TABLE `playsms_featureAutoreply` (
   `uid` int(11) NOT NULL DEFAULT 0,
   `autoreply_keyword` varchar(10) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureAutoreply_scenario`;
 CREATE TABLE `playsms_featureAutoreply_scenario` (
@@ -31,7 +31,7 @@ CREATE TABLE `playsms_featureAutoreply_scenario` (
   `autoreply_scenario_param6` varchar(20) NOT NULL DEFAULT '',
   `autoreply_scenario_param7` varchar(20) NOT NULL DEFAULT '',
   `autoreply_scenario_result` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureBoard`;
 CREATE TABLE `playsms_featureBoard` (
@@ -46,7 +46,7 @@ CREATE TABLE `playsms_featureBoard` (
   `board_access_code` varchar(40) NOT NULL DEFAULT '',
   `board_reply_msg` varchar(140) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureBoard_log`;
 CREATE TABLE `playsms_featureBoard_log` (
@@ -60,7 +60,7 @@ CREATE TABLE `playsms_featureBoard_log` (
   `in_msg` text NOT NULL,
   `in_reply` varchar(100) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureCommand`;
 CREATE TABLE `playsms_featureCommand` (
@@ -71,7 +71,7 @@ CREATE TABLE `playsms_featureCommand` (
   `command_exec` text NOT NULL,
   `command_return_as_reply` int(11) NOT NULL DEFAULT 0,
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureCredit`;
 CREATE TABLE `playsms_featureCredit` (
@@ -86,7 +86,7 @@ CREATE TABLE `playsms_featureCredit` (
   `create_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `delete_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `flag_deleted` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureCustom`;
 CREATE TABLE `playsms_featureCustom` (
@@ -99,7 +99,7 @@ CREATE TABLE `playsms_featureCustom` (
   `custom_url` text NOT NULL,
   `custom_return_as_reply` int(11) NOT NULL DEFAULT 0,
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureFirewall`;
 CREATE TABLE `playsms_featureFirewall` (
@@ -107,7 +107,7 @@ CREATE TABLE `playsms_featureFirewall` (
   `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL DEFAULT 0,
   `ip_address` varchar(20) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureInboxgroup`;
 CREATE TABLE `playsms_featureInboxgroup` (
@@ -121,14 +121,14 @@ CREATE TABLE `playsms_featureInboxgroup` (
   `exclusive` int(11) NOT NULL DEFAULT 0,
   `deleted` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_catchall`;
 CREATE TABLE `playsms_featureInboxgroup_catchall` (
   `id` int(11) NOT NULL,
   `rid` int(11) NOT NULL DEFAULT 0,
   `uid` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_log_in`;
 CREATE TABLE `playsms_featureInboxgroup_log_in` (
@@ -139,7 +139,7 @@ CREATE TABLE `playsms_featureInboxgroup_log_in` (
   `keyword` varchar(100) NOT NULL DEFAULT '',
   `message` text NOT NULL,
   `sms_receiver` varchar(20) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_log_out`;
 CREATE TABLE `playsms_featureInboxgroup_log_out` (
@@ -148,14 +148,14 @@ CREATE TABLE `playsms_featureInboxgroup_log_out` (
   `smslog_id` int(11) NOT NULL DEFAULT 0,
   `catchall` int(11) NOT NULL DEFAULT 0,
   `uid` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureInboxgroup_members`;
 CREATE TABLE `playsms_featureInboxgroup_members` (
   `id` int(11) NOT NULL,
   `rid` int(11) NOT NULL DEFAULT 0,
   `uid` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureMsgtemplate`;
 CREATE TABLE `playsms_featureMsgtemplate` (
@@ -164,7 +164,7 @@ CREATE TABLE `playsms_featureMsgtemplate` (
   `uid` int(11) NOT NULL DEFAULT 0,
   `t_title` varchar(100) NOT NULL DEFAULT '',
   `t_text` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_featureMsgtemplate` (`c_timestamp`, `tid`, `uid`, `t_title`, `t_text`) VALUES
 (0, 1, 1, 'Good morning', 'Hi u there, good morning!!'),
@@ -179,7 +179,7 @@ CREATE TABLE `playsms_featureOutgoing` (
   `dst` varchar(100) NOT NULL DEFAULT '',
   `prefix` text NOT NULL,
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featurePhonebook`;
 CREATE TABLE `playsms_featurePhonebook` (
@@ -190,7 +190,7 @@ CREATE TABLE `playsms_featurePhonebook` (
   `name` varchar(250) NOT NULL DEFAULT '',
   `email` varchar(250) NOT NULL DEFAULT '',
   `tags` varchar(250) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featurePhonebook_group`;
 CREATE TABLE `playsms_featurePhonebook_group` (
@@ -200,14 +200,14 @@ CREATE TABLE `playsms_featurePhonebook_group` (
   `name` varchar(100) NOT NULL DEFAULT '',
   `code` varchar(20) NOT NULL DEFAULT '',
   `flag_sender` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featurePhonebook_group_contacts`;
 CREATE TABLE `playsms_featurePhonebook_group_contacts` (
   `id` int(11) NOT NULL,
   `gpid` int(11) NOT NULL,
   `pid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featurePoll`;
 CREATE TABLE `playsms_featurePoll` (
@@ -223,7 +223,7 @@ CREATE TABLE `playsms_featurePoll` (
   `poll_message_option` text NOT NULL,
   `poll_access_code` varchar(40) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featurePoll_choice`;
 CREATE TABLE `playsms_featurePoll_choice` (
@@ -232,7 +232,7 @@ CREATE TABLE `playsms_featurePoll_choice` (
   `poll_id` int(11) NOT NULL DEFAULT 0,
   `choice_title` varchar(250) NOT NULL DEFAULT '',
   `choice_keyword` varchar(10) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featurePoll_log`;
 CREATE TABLE `playsms_featurePoll_log` (
@@ -243,7 +243,7 @@ CREATE TABLE `playsms_featurePoll_log` (
   `poll_sender` varchar(20) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureQuiz`;
 CREATE TABLE `playsms_featureQuiz` (
@@ -257,7 +257,7 @@ CREATE TABLE `playsms_featureQuiz` (
   `quiz_msg_incorrect` varchar(100) NOT NULL DEFAULT '',
   `quiz_enable` int(11) NOT NULL DEFAULT 0,
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureQuiz_log`;
 CREATE TABLE `playsms_featureQuiz_log` (
@@ -267,7 +267,7 @@ CREATE TABLE `playsms_featureQuiz_log` (
   `quiz_answer` varchar(100) NOT NULL DEFAULT '',
   `quiz_sender` varchar(20) NOT NULL DEFAULT '',
   `in_datetime` varchar(20) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSchedule`;
 CREATE TABLE `playsms_featureSchedule` (
@@ -279,7 +279,7 @@ CREATE TABLE `playsms_featureSchedule` (
   `schedule_rule` int(11) NOT NULL DEFAULT 0,
   `flag_active` int(11) NOT NULL DEFAULT 0,
   `flag_deleted` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSchedule_dst`;
 CREATE TABLE `playsms_featureSchedule_dst` (
@@ -290,7 +290,7 @@ CREATE TABLE `playsms_featureSchedule_dst` (
   `scheduled` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` varchar(100) NOT NULL DEFAULT '',
   `destination` varchar(250) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSendfromfile`;
 CREATE TABLE `playsms_featureSendfromfile` (
@@ -309,7 +309,7 @@ CREATE TABLE `playsms_featureSendfromfile` (
   `queue_code` varchar(40) NOT NULL DEFAULT '',
   `status` int(11) NOT NULL DEFAULT 0,
   `flag_processed` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSimplerate`;
 CREATE TABLE `playsms_featureSimplerate` (
@@ -318,7 +318,7 @@ CREATE TABLE `playsms_featureSimplerate` (
   `dst` varchar(100) NOT NULL DEFAULT '',
   `prefix` varchar(10) NOT NULL DEFAULT '',
   `rate` decimal(13,3) NOT NULL DEFAULT 0.000
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSmssysnc`;
 CREATE TABLE `playsms_featureSmssysnc` (
@@ -326,7 +326,7 @@ CREATE TABLE `playsms_featureSmssysnc` (
   `uid` int(11) NOT NULL DEFAULT 0,
   `message_id` varchar(250) DEFAULT '',
   `recvsms_id` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureStoplist`;
 CREATE TABLE `playsms_featureStoplist` (
@@ -334,7 +334,7 @@ CREATE TABLE `playsms_featureStoplist` (
   `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL DEFAULT 0,
   `mobile` varchar(20) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSubscribe`;
 CREATE TABLE `playsms_featureSubscribe` (
@@ -353,7 +353,7 @@ CREATE TABLE `playsms_featureSubscribe` (
   `smsc` varchar(100) NOT NULL DEFAULT '',
   `duration` int(11) NOT NULL DEFAULT 0,
   `expire_msg` varchar(140) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSubscribe_member`;
 CREATE TABLE `playsms_featureSubscribe_member` (
@@ -362,7 +362,7 @@ CREATE TABLE `playsms_featureSubscribe_member` (
   `subscribe_id` int(11) NOT NULL DEFAULT 0,
   `member_number` varchar(20) NOT NULL DEFAULT '',
   `member_since` varchar(20) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_featureSubscribe_msg`;
 CREATE TABLE `playsms_featureSubscribe_msg` (
@@ -373,7 +373,7 @@ CREATE TABLE `playsms_featureSubscribe_msg` (
   `create_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `update_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `counter` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayGeneric_log`;
 CREATE TABLE `playsms_gatewayGeneric_log` (
@@ -381,7 +381,7 @@ CREATE TABLE `playsms_gatewayGeneric_log` (
   `id` int(11) NOT NULL,
   `local_smslog_id` int(11) NOT NULL DEFAULT 0,
   `remote_smslog_id` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_apidata`;
 CREATE TABLE `playsms_gatewayInfobip_apidata` (
@@ -390,7 +390,7 @@ CREATE TABLE `playsms_gatewayInfobip_apidata` (
   `smslog_id` int(11) NOT NULL DEFAULT 0,
   `apimsgid` varchar(100) NOT NULL DEFAULT '',
   `status` varchar(15) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayInfobip_config`;
 CREATE TABLE `playsms_gatewayInfobip_config` (
@@ -404,7 +404,7 @@ CREATE TABLE `playsms_gatewayInfobip_config` (
   `cfg_additional_param` varchar(250) NOT NULL DEFAULT '',
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',
   `cfg_dlr_nopush` varchar(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_gatewayInfobip_config` (`c_timestamp`, `cfg_name`, `cfg_username`, `cfg_password`, `cfg_module_sender`, `cfg_send_url`, `cfg_credit`, `cfg_additional_param`, `cfg_datetime_timezone`, `cfg_dlr_nopush`) VALUES
 (0, 'infobip', '', '', '', 'http://api.infobip.com/api/v3', 0, '', '', '1');
@@ -415,7 +415,7 @@ CREATE TABLE `playsms_gatewayJasmin_log` (
   `id` int(11) NOT NULL,
   `local_smslog_id` int(11) NOT NULL DEFAULT 0,
   `remote_smslog_id` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayNexmo`;
 CREATE TABLE `playsms_gatewayNexmo` (
@@ -426,7 +426,7 @@ CREATE TABLE `playsms_gatewayNexmo` (
   `status` int(11) NOT NULL DEFAULT 0,
   `network` varchar(20) NOT NULL DEFAULT '',
   `error_text` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayNexmo_config`;
 CREATE TABLE `playsms_gatewayNexmo_config` (
@@ -437,7 +437,7 @@ CREATE TABLE `playsms_gatewayNexmo_config` (
   `cfg_api_secret` varchar(100) DEFAULT NULL,
   `cfg_module_sender` varchar(20) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_gatewayNexmo_config` (`c_timestamp`, `cfg_name`, `cfg_url`, `cfg_api_key`, `cfg_api_secret`, `cfg_module_sender`, `cfg_datetime_timezone`) VALUES
 (0, 'nexmo', 'https://rest.nexmo.com/sms/json', '12345678', '87654321', 'playSMS', '');
@@ -457,7 +457,7 @@ CREATE TABLE `playsms_gatewayPlaynet_outgoing` (
   `message` text NOT NULL,
   `sms_type` int(11) NOT NULL DEFAULT 0,
   `unicode` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewaySmstools_dlr`;
 CREATE TABLE `playsms_gatewaySmstools_dlr` (
@@ -467,14 +467,14 @@ CREATE TABLE `playsms_gatewaySmstools_dlr` (
   `smslog_id` int(11) NOT NULL DEFAULT 0,
   `message_id` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayTemplate_config`;
 CREATE TABLE `playsms_gatewayTemplate_config` (
   `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
   `cfg_name` varchar(20) NOT NULL DEFAULT 'template',
   `cfg_path` varchar(250) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_gatewayTemplate_config` (`c_timestamp`, `cfg_name`, `cfg_path`) VALUES
 (0, 'template', '/usr/local');
@@ -487,7 +487,7 @@ CREATE TABLE `playsms_gatewayTwilio` (
   `remote_smslog_id` varchar(40) NOT NULL DEFAULT '0',
   `status` varchar(20) NOT NULL DEFAULT '',
   `error_text` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayTwilio_config`;
 CREATE TABLE `playsms_gatewayTwilio_config` (
@@ -499,7 +499,7 @@ CREATE TABLE `playsms_gatewayTwilio_config` (
   `cfg_auth_token` varchar(100) DEFAULT NULL,
   `cfg_module_sender` varchar(20) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_gatewayTwilio_config` (`c_timestamp`, `cfg_name`, `cfg_url`, `cfg_callback_url`, `cfg_account_sid`, `cfg_auth_token`, `cfg_module_sender`, `cfg_datetime_timezone`) VALUES
 (0, 'twilio', 'https://api.twilio.com', 'http://localhost/playsms/plugin/gateway/twilio/callback.php', '12345678', '87654321', '+10000000000', '');
@@ -513,7 +513,7 @@ CREATE TABLE `playsms_gatewayUplink` (
   `up_status` int(11) NOT NULL DEFAULT 0,
   `up_remote_queue_code` varchar(32) NOT NULL DEFAULT '',
   `up_dst` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_gatewayUplink_config`;
 CREATE TABLE `playsms_gatewayUplink_config` (
@@ -528,7 +528,7 @@ CREATE TABLE `playsms_gatewayUplink_config` (
   `cfg_additional_param` varchar(250) DEFAULT NULL,
   `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',
   `cfg_try_disable_footer` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_gatewayUplink_config` (`c_timestamp`, `cfg_name`, `cfg_master`, `cfg_username`, `cfg_password`, `cfg_token`, `cfg_module_sender`, `cfg_incoming_path`, `cfg_additional_param`, `cfg_datetime_timezone`, `cfg_try_disable_footer`) VALUES
 (0, 'uplink', 'http://playsms.master.url', '', '', '', '', '/var/spool/playsms', '', '', 0);
@@ -542,7 +542,7 @@ CREATE TABLE `playsms_tblACL` (
   `url` text NOT NULL,
   `flag_disallowed` int(11) NOT NULL DEFAULT 0,
   `flag_deleted` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_tblACL` (`c_timestamp`, `id`, `name`, `acl_subuser`, `url`, `flag_disallowed`, `flag_deleted`) VALUES
 (0, 1, 'NEW', '', 'inc=core_sendsms,\r\ninc=core_user,\r\n!inc=core_user&route=subuser_mgmnt,\r\ninc=feature_report,', 0, 0),
@@ -562,7 +562,7 @@ CREATE TABLE `playsms_tblBilling` (
   `count` int(11) NOT NULL DEFAULT 0,
   `charge` decimal(13,3) NOT NULL DEFAULT 0.000,
   `status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblCountry`;
 CREATE TABLE `playsms_tblCountry` (
@@ -571,7 +571,7 @@ CREATE TABLE `playsms_tblCountry` (
   `country_name` varchar(200) NOT NULL DEFAULT '',
   `country_code` varchar(10) NOT NULL DEFAULT '',
   `country_prefix` varchar(10) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_tblCountry` (`c_timestamp`, `country_id`, `country_name`, `country_code`, `country_prefix`) VALUES
 (0, 1, 'Afghanistan', 'af', '93'),
@@ -788,7 +788,7 @@ CREATE TABLE `playsms_tblDLR` (
   `smslog_id` int(11) NOT NULL DEFAULT 0,
   `p_status` int(11) NOT NULL DEFAULT 0,
   `uid` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblGateway`;
 CREATE TABLE `playsms_tblGateway` (
@@ -798,7 +798,7 @@ CREATE TABLE `playsms_tblGateway` (
   `name` varchar(100) NOT NULL DEFAULT '',
   `gateway` varchar(100) NOT NULL DEFAULT '',
   `data` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_tblGateway` (`id`, `created`, `last_update`, `name`, `gateway`, `data`) VALUES
 (1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'blocked', 'blocked', '[]'),
@@ -814,7 +814,7 @@ CREATE TABLE `playsms_tblNotif` (
   `body` varchar(255) DEFAULT NULL,
   `flag_unread` int(11) NOT NULL DEFAULT 0,
   `data` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblPlaysmsd`;
 CREATE TABLE `playsms_tblPlaysmsd` (
@@ -830,7 +830,7 @@ CREATE TABLE `playsms_tblPlaysmsd` (
   `pid` int(11) NOT NULL DEFAULT 0,
   `flag_run` int(11) NOT NULL DEFAULT 0,
   `flag_deleted` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblRecvSMS`;
 CREATE TABLE `playsms_tblRecvSMS` (
@@ -842,7 +842,7 @@ CREATE TABLE `playsms_tblRecvSMS` (
   `message` text NOT NULL,
   `sms_receiver` varchar(20) NOT NULL DEFAULT '',
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblRegistry`;
 CREATE TABLE `playsms_tblRegistry` (
@@ -853,7 +853,7 @@ CREATE TABLE `playsms_tblRegistry` (
   `registry_family` varchar(250) NOT NULL DEFAULT '',
   `registry_key` varchar(250) NOT NULL DEFAULT '',
   `registry_value` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES
 (0, 1, 1, 'core', 'config', 'playsms_version', '1.4.4-beta3'),
@@ -896,7 +896,7 @@ CREATE TABLE `playsms_tblSMSInbox` (
   `in_msg` text NOT NULL,
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `reference_id` varchar(40) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblSMSIncoming`;
 CREATE TABLE `playsms_tblSMSIncoming` (
@@ -912,7 +912,7 @@ CREATE TABLE `playsms_tblSMSIncoming` (
   `in_message` text NOT NULL,
   `in_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `in_status` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblSMSOutgoing`;
 CREATE TABLE `playsms_tblSMSOutgoing` (
@@ -936,7 +936,7 @@ CREATE TABLE `playsms_tblSMSOutgoing` (
   `p_sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` int(11) NOT NULL DEFAULT 0,
   `queue_code` varchar(40) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue`;
 CREATE TABLE `playsms_tblSMSOutgoing_queue` (
@@ -956,7 +956,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue` (
   `sms_type` varchar(100) NOT NULL DEFAULT '',
   `unicode` int(11) NOT NULL DEFAULT 0,
   `smsc` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblSMSOutgoing_queue_dst`;
 CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
@@ -966,7 +966,7 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `smslog_id` int(11) NOT NULL DEFAULT 0,
   `flag` int(11) NOT NULL DEFAULT 0,
   `dst` varchar(50) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS `playsms_tblUser`;
 CREATE TABLE `playsms_tblUser` (
@@ -1006,7 +1006,7 @@ CREATE TABLE `playsms_tblUser` (
   `register_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `lastupdate_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `flag_deleted` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_tblUser` (`c_timestamp`, `parent_uid`, `uid`, `status`, `acl_id`, `username`, `password`, `salt`, `token`, `enable_webservices`, `webservices_ip`, `name`, `mobile`, `email`, `sender`, `footer`, `address`, `city`, `state`, `country`, `zipcode`, `credit`, `adhoc_credit`, `datetime_timezone`, `language_module`, `fwd_to_mobile`, `fwd_to_email`, `fwd_to_inbox`, `replace_zero`, `plus_sign_remove`, `plus_sign_add`, `send_as_unicode`, `local_length`, `register_datetime`, `lastupdate_datetime`, `flag_deleted`) VALUES
 (1611603929, 0, 1, 2, 0, 'admin', 'd97a6933803258561344122cc031ac37', 'ANzpSkIpknEUoG4h', '', 0, '127.0.0.1', 'Administrator', '+62000000000', 'admin@example.com', '', '@admin', '', '', '', 82, '', '0.000', '0.000', '', 'en_US', 0, 1, 1, '', 1, 0, 0, 0, '', '', 0);

@@ -37,7 +37,7 @@ CREATE TABLE `playsms_tblPlaysmsd` (
   `pid` int(11) NOT NULL DEFAULT 0,
   `flag_run` int(11) NOT NULL DEFAULT 0,
   `flag_deleted` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 ALTER TABLE `playsms_tblPlaysmsd`
   ADD PRIMARY KEY (`id`);
