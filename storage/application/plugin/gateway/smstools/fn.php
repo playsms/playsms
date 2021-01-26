@@ -217,6 +217,9 @@ function smstools_hook_recvsms_fetch() {
 					// collected: $sms_datetime, $sms_sender, $message, $sms_receiver
 					// if not a DLR then route it to incoming handler
 					if (!$is_dlr) {
+						if (core_detect_unicode($message)) {
+							$message = mb_convert_encoding($message, 'auto', 'UCS-2BE');
+						}
 						_log('sender:' . $sms_sender . ' receiver:' . $sms_receiver . ' dt:' . $sms_datetime . ' msg:[' . $message . '] smsc:[' . $smsc . ']', 3, 'smstools_hook_recvsms_fetch');
 						$sms_sender = addslashes($sms_sender);
 						$message = addslashes($message);
