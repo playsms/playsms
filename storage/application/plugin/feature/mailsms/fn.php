@@ -48,21 +48,22 @@ function mailsms_hook_playsmsd() {
 	}
 	
 	// _log('fetch uid:' . $uid, 3, 'mailsms_hook_playsmsd');
-	
+
 	playsmsd_run_once('mailsms', 'mailsms_fetch');
 }
 
 function mailsms_hook_playsmsd_once($command, $command_param) {
 	if (!($command == 'mailsms' || $command_param == 'fetch')) {
 
-		return;
+		return false;
 	}
+	
+	_log('running once command:' . $command . ' param:' . $command_param, 2, 'mailsms_hook_playsmsd_once');
 	
 	// get username
 	$username = user_uid2username($uid);
 	
-	// _log('fetch uid:' . $uid . ' username:' . $username, 3, 'mailsms_hook_playsmsd_once');
-	
+	// _log('fetch uid:' . $uid . ' username:' . $username, 3, 'mailsms_hook_playsmsd_once');	
 
 	$items_global = registry_search(0, 'features', 'mailsms');
 	
@@ -156,4 +157,6 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 	
 	// close mailbox
 	imap_close($inbox);
+	
+	return true;
 }
