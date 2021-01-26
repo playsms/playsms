@@ -1270,7 +1270,7 @@ function sendsms_hook_playsmsd_loop($command, $command_param) {
 			while ($db_row2 = dba_fetch_array($db_result2)) {
 				$num++;
 				$chunk = (int) floor($num / $core_config['sendsmsd_chunk_size']);
-				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET datetime_update='" . core_get_datetime() . "',chunk='" . $chunk . "' WHERE id='" . $db_row2['id'] . "'";
+				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET chunk='" . $chunk . "' WHERE id='" . $db_row2['id'] . "'";
 				$db_result3 = dba_query($db_query3);
 
 				_log('prepare chunks queue:' . $queue_code . ' id:' . $db_row2['id'] . ' num:' . $num . ' chunk:' . $chunk, 2, 'sendsms_hook_playsmsd_loop');
