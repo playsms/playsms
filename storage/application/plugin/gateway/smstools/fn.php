@@ -254,7 +254,7 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	}
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {
-			$the_msg .= "Alphabet: UCS\n";
+			$the_msg .= "Alphabet: UCS2\n";
 			$sms_msg = mb_convert_encoding($sms_msg, 'UCS-2BE', 'auto');
 		}
 		// $sms_msg = str2hex($sms_msg);
