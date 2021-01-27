@@ -647,17 +647,19 @@ function user_session_set($uid = '') {
 	global $core_config, $user_config;
 	
 	if (!$core_config['daemon_process']) {
-		$uid = ($uid ? $uid : $user_config['uid']);
+		$uid = ($uid ? $uid : $_SESSION['uid']);
 
 		if ($uid && ($login_sid = $_SESSION['login_sid'])) {
 			$json = array(
 				'ip' => _REMOTE_ADDR_,
-				'last_update' => core_get_datetime(),
+				'last_update' => $_SESSION['last_update'],
+				'login_time' => $_SESSION['login_time'],
 			
 				// fixme anton - https://www.exploit-database.net/?id=92909
 				'http_user_agent' => core_sanitize_string($_SERVER['HTTP_USER_AGENT']),
 			
-				'uid' => $uid 
+				'uid' => $uid,
+				'username' => $_SESSION['username'],
 			);		
 			registry_update(1, 'auth', 'login_session', [
 				$login_sid => json_encode($json),

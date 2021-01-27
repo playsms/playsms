@@ -36,36 +36,54 @@ function auth_validate_login($username, $password) {
 		return FALSE;
 	}
 
+	// get uid
 	$uid = user_username2uid($username);
+
+	// log attempts	
 	_log('login attempt u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_login');
 	
-	// check blacklist
+	// check if user's IP blacklist
 	if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
 		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
 		return FALSE;
 	}
 	
+	// check if user banned
 	if (user_banned_get($uid)) {
 		_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
 		return FALSE;
 	}
+	
+	// get user's password and salt, but after using password_hash() salt is not inuse actually
 	$db_query = "SELECT password,salt FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
 	$res_salt = trim($db_row['salt']);
+	
+	// verify user's password againts visitor input
 	if ($password && $res_password && password_verify($password, $res_password)) {
 		_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+		
+		// login successful, visitor is user
 		
 		// remove IP on successful login
 		blacklist_clearip($username, _REMOTE_ADDR_);
 		
 		return true;
 	} else {
+	
+		// hmm not verified, check temporary password, user's might issue forgot password
 		$ret = registry_search(1, 'auth', 'tmp_password', $username);
 		$tmp_password = $ret['auth']['tmp_password'][$username];
+		
+		// check temporary password issued by forgot password with visitor input
 		if ($password && $tmp_password && password_verify($password, $tmp_password)) {
+		
+			// login successful, visitor is user and using forgot password to reset their access
 			_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' using temporary password', 2, 'auth_validate_login');
+			
+			// remove temporary password from registry upon successful login
 			if (!registry_remove(1, 'auth', 'tmp_password', $username)) {
 				_log('WARNING: unable to remove temporary password after successful login', 2, 'auth_validate_login');
 			}
@@ -80,23 +98,28 @@ function auth_validate_login($username, $password) {
 			// this part is temporary until all users use the new password hash
 			// in this part playSMS will convert md5 password to bcrypt hash if password matched
 
+			// not verified, visitor's is not user forgotten password, maybe an old account using old formattted password
 			if ($password && $res_password && (($res_password == md5($password)) || ($res_password == md5($password.$res_salt)))) {
 
 				// password matched with old md5 password, convert it to bcrypt hash
-				$new_password = password_hash($password, PASSWORD_BCRYPT);
-				$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET password='$new_password',salt='' WHERE flag_deleted='0' AND username='$username'";
-				if (dba_affected_rows($db_query)) {
-					_log('WARNING: md5 password converted u:' . $username, 2, 'auth_validate_login');
+				if ($new_password = password_hash($password, PASSWORD_BCRYPT)) {
+				
+					// save password in new format
+					$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET password='" . $new_password . "',salt='' WHERE flag_deleted='0' AND username='" . $username . "'";
+					if (dba_affected_rows($db_query)) {
+						_log('WARNING: md5 password converted u:' . $username, 2, 'auth_validate_login');
 					
-					// remove IP on successful login
-					blacklist_clearip($username, _REMOTE_ADDR_);
+						// remove IP on successful login
+						blacklist_clearip($username, _REMOTE_ADDR_);
 			
-					return true;
+						return true;
+					} else {
+						_log('WARNING: fail to convert md5 password u:' . $username, 2, 'auth_validate_login');
+
+						return false;
+					}
 				} else {
-					// check blacklist
-					blacklist_checkip($username, _REMOTE_ADDR_);
-					
-					_log('WARNING: fail to convert md5 password u:' . $username, 2, 'auth_validate_login');
+					_log('WARNING: unable to convert password format u:' . $username, 2, 'auth_validate_login');
 
 					return false;
 				}
@@ -107,7 +130,9 @@ function auth_validate_login($username, $password) {
 	// check blacklist
 	blacklist_checkip($username, _REMOTE_ADDR_);
 	
+	// we are here, visitor is unverified, visitor is not user, login failed, return false
 	_log('invalid login u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+	
 	return false;
 }
 
@@ -121,8 +146,14 @@ function auth_validate_login($username, $password) {
  * @return boolean TRUE when validated or boolean FALSE when validation failed
  */
 function auth_validate_email($email, $password) {
-	$username = user_email2username($email);
+	if (!($username = user_email2username($email))) {
+		_log('user not found email:' . $email . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_email');
+		
+		return false;
+	}
+	
 	_log('login attempt email:' . $email . ' u:' . $username . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_email');
+	
 	return auth_validate_login($username, $password);
 }
 
@@ -134,47 +165,59 @@ function auth_validate_email($email, $password) {
  * @return string User ID when validated or boolean FALSE when validation failed
  */
 function auth_validate_token($token) {
-	$token = trim($token);
-	if (_APP_ == 'main' || _APP_ == 'menu') {
-		_log('login attempt token:' . $token . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_token');
+
+	// check token format, it must be alphanumeric
+	if (!($token && $token == core_sanitize_alphanumeric($token))) {
+		_log('invalid format token:' . $token . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_token');
+	
+		return false;
 	}
 	
-	if ($token) {
-		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND token='$token'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
-		$uid = (int) $db_row['uid'];
-		$username = trim($db_row['username']);
-		$enable_webservices = (bool) $db_row['enable_webservices'];
-		$webservices_ip = trim($db_row['webservices_ip']);
+	if (_APP_ == 'main' || _APP_ == 'menu') {
+	
+		// log attempts if using token from web, not webservices
+		_log('login attempt token:' . $token . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_token');
+
+	}
+	
+	$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND token='" . $token . "'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$uid = (int) $db_row['uid'];
+	$username = trim($db_row['username']);
+	$enable_webservices = (bool) $db_row['enable_webservices'];
+	$webservices_ip = trim($db_row['webservices_ip']);
 		
-		// check blacklist
-		if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
-			_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_token');
+	// check blacklist
+	if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
+		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_token');
 			
-			return FALSE;
-		}
+		return FALSE;
+	}
 		
-		if ($uid && $username && $enable_webservices && $webservices_ip) {
-			$nets = explode(',', $webservices_ip);
-			if (is_array($nets)) {
-				foreach ($nets as $net) {
-					if (core_net_match($net, _REMOTE_ADDR_)) {
-						if (user_banned_get($uid)) {
-							_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
+	if ($uid && $username && $enable_webservices && $webservices_ip) {
+	
+		// check if auth token coming from allowed IP or network
+		$nets = explode(',', $webservices_ip);
+		if (is_array($nets)) {
+			foreach ($nets as $net) {
+				if (core_net_match($net, _REMOTE_ADDR_)) {
+				
+					// IP allowed, but user banned
+					if (user_banned_get($uid)) {
+						_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
 							
-							return FALSE;
-						}
-						
-						if (_APP_ == 'main' || _APP_ == 'menu') {
-							_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
-						}
-						
-						// remove IP on successful login
-						blacklist_clearip($username, _REMOTE_ADDR_);
-						
-						return $uid;
+						return FALSE;
 					}
+						
+					if (_APP_ == 'main' || _APP_ == 'menu') {
+						_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
+					}
+						
+					// remove IP on successful login
+					blacklist_clearip($username, _REMOTE_ADDR_);
+						
+					return $uid;
 				}
 			}
 		}
@@ -200,7 +243,7 @@ function auth_isvalid() {
 		
 		// check if user still using the same browser
 		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == core_sanitize_string($_SERVER['HTTP_USER_AGENT'])))) {
-			_log("invalid due to HTTP_USER_AGENT changed sess:[" . $_SESSION['http_user_agent'] . "] reg:[" . core_sanitize_string($_SERVER['HTTP_USER_AGENT']) . "]", 2, "auth_isvalid");
+			_log("invalid auth HTTP_USER_AGENT changed session:[" . $_SESSION['http_user_agent'] . "] server:[" . core_sanitize_string($_SERVER['HTTP_USER_AGENT']) . "]", 3, "auth_isvalid");
 			
 			//auth_session_destroy();
 			
@@ -209,7 +252,7 @@ function auth_isvalid() {
 		
 		// check if user still browsing from the same IP address
 		if (!($_SESSION['ip'] && ($_SESSION['ip'] == _REMOTE_ADDR_))) {
-			_log("invalid due to REMOTE_ADDR changed ip:" . $_SESSION['ip'], 2, "auth_isvalid");
+			_log("invalid auth REMOTE_ADDR changed session:" . $_SESSION['ip'] . " server:" . _REMOTE_ADDR_, 3, "auth_isvalid");
 			
 			//auth_session_destroy();
 			
@@ -221,7 +264,7 @@ function auth_isvalid() {
 		
 		// check if user session's HTTP_USER_AGENT the same as recorded HTTP_USER_AGENT in registry
 		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == stripslashes($d[$login_sid]['http_user_agent'])))) {
-			_log("invalid due to recorded HTTP_USER_AGENT not match sess:[" . $_SESSION['http_user_agent'] . "] reg:[" . $d[$login_sid]['http_user_agent'] . "]", 2, "auth_isvalid");
+			_log("invalid auth HTTP_USER_AGENT different session:[" . $_SESSION['http_user_agent'] . "] registry:[" . $d[$login_sid]['http_user_agent'] . "]", 3, "auth_isvalid");
 			
 			//auth_session_destroy();
 			
@@ -230,7 +273,7 @@ function auth_isvalid() {
 		
 		// check if user session's IP the same as recorded IP in registry
 		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $d[$login_sid]['ip']))) {
-			_log("invalid due to recorded IP address not match ip:" . $_SESSION['ip'] . " reg:" . $d[$login_sid]['ip'], 2, "auth_isvalid");
+			_log("invalid auth  REMOTE_ADDR different session:" . $_SESSION['ip'] . " registry:" . $d[$login_sid]['ip'], 3, "auth_isvalid");
 			
 			//auth_session_destroy();
 			
@@ -339,11 +382,15 @@ function auth_block() {
 function auth_session_setup($uid) {
 	global $core_config;
 	
-	@session_regenerate_id(TRUE);
+	// regenerate new session ID
+	session_regenerate_id(TRUE);
 	
 	$c_user = user_getdatabyuid($uid);
 	if ($c_user['uid'] && $c_user['username'] && $c_user['status']) {
+	
 		// set session
+		// these variables and values sets only in here, no where else
+		// except probably later 'status' can be changed somewhere else, eg. after admin changed user's status
 		$_SESSION['login_sid'] = session_id();
 		$_SESSION['uid'] = $c_user['uid'];
 		$_SESSION['username'] = $c_user['username'];
@@ -352,6 +399,8 @@ function auth_session_setup($uid) {
 		$_SESSION['http_user_agent'] = core_sanitize_string($_SERVER['HTTP_USER_AGENT']);
 		$_SESSION['last_update'] = time();
 		$_SESSION['login_time'] = time();
+
+		// make sure this is empty if currently not inuse
 		if (!is_array($_SESSION['tmp']['login_as'])) {
 			$_SESSION['tmp']['login_as'] = array();
 		}
