@@ -1,0 +1,25 @@
+{{ DIALOG_DISPLAY }}
+<h2 class="page-header-title">{{ Manage SMS rate }}</h2>
+<h3 class="page-header-subtitle">{{ Edit rate }}</h3>
+<p class="lead">{{ $icon_config['card'] }} {{ CARD_NAME }}</p>
+<form action="{{ FORM_URL }}" method="post" enctype="multipart/form-data">
+    {{ CSRF_FORM }}
+    <table class=playsms-table>
+        <tbody>
+            <tr>
+                <td class="playsms-label-sizer">{{ Destination }}</td>
+                <td><input type="text" name="dst" value="{{ $list['dst'] }}"></td>
+            </tr>
+            <tr>
+                <td>{{ Prefix }}</td>
+                <td><input type="text" name="prefix" value="{{ $list['prefix'] }}"></td>
+            </tr>
+            <tr>
+                <td>{{ Rate }}</td>
+                <td><input type="text" name="rate" value="{{ $list['rate'] }}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><input type="submit" name="action" class="button btn btn-primary" value="{{ Save }}"></p>
+</form>
+<p>{{ BUTTON_BACK }}</p>

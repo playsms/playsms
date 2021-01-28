@@ -1,0 +1,28 @@
+{{ DIALOG_DISPLAY }}
+<h2 class="page-header-title">{{ Manage SMS rate }}</h2>
+<h3 class="page-header-subtitle">{{ Manage rate }}</h3>
+<p class="lead">{{ $icon_config['card'] }} {{ CARD_NAME }}</p>
+<div class=table-responsive>
+    <table class=playsms-table-list>
+        <thead>
+            <tr>
+                <th width='64%'>{{ Destination }}</th>
+                <th width='15%'>{{ Prefix }}</th>
+                <th width='15%'>{{ $icon_config['rate'] }}</th>
+                <th width='6%'>{{ Action }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <loop.data>
+                <tr class={{data.tr_class }}>
+                    <td>{{ data.dst }}</td>
+                    <td>{{ data.prefix }}</td>
+                    <td>{{ data.rate }}</td>
+                    <td>{{ data.action }}</td>
+                </tr>
+            </loop.data>
+        </tbody>
+    </table>
+</div>
+<p>{{ Add rate }}</p>
+<p>{{ BUTTON_BACK }}</p>

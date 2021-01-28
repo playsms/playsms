@@ -18,7 +18,7 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function rate_getbyprefix($sms_to) {
+function rate_getbyprefix($sms_to, $uid = '') {
 	return core_call_hook();
 }
 

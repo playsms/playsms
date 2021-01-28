@@ -1,0 +1,28 @@
+{{ DIALOG_DISPLAY }}
+<h2 class="page-header-title">{{ Manage SMS rate }}</h2>
+<h3 class="page-header-subtitle">{{ Edit card }}</h3>
+<form action="{{ FORM_URL }}" method="post" enctype="multipart/form-data">
+    {{ CSRF_FORM }}
+    <table class=playsms-table>
+        <tbody>
+            <tr>
+                <td>{{ ID }}</td>
+                <td><strong>{{ $list['id'] }}</strong></td>
+            </tr>
+            <tr>
+                <td class="playsms-label-sizer">{{ Name }}</td>
+                <td><input type="text" name="name" value="{{ $list['name'] }}"></td>
+            </tr>
+            <tr>
+                <td>{{ Notes }}</td>
+                <td><textarea rows=4 name="notes">{{ $list['notes'] }}</textarea></td>
+            </tr>
+            <tr>
+                <td>{{ Last update }}</td>
+                <td><strong>{{ $list['last_update'] }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><input type="submit" name="action" class="button btn btn-primary" value="{{ Save }}"></p>
+</form>
+<p>{{ BUTTON_BACK }}</p>

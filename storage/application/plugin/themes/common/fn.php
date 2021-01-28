@@ -265,7 +265,7 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 			<div class='modal-dialog modal-lg' role='document'>
 				<div class='modal-content'>
 					<div class='playsms-modal-header modal-header text-light bg-primary'>
-						<h5 class='playsms-modal-title modal-title' id='dialog_box_title'>" . _('Information') . "</h5>
+						<h5 class='playsms-modal-title modal-title' id='dialog_box_title'>" . _('Confirmation') . "</h5>
 					</div>
 					<div class='modal-body'>
 						<div id='dialog_confirmation_box_content_" . $modal_id . "'>
