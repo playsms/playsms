@@ -90,7 +90,7 @@ function simplerate_getcardsbyuid($uid)
 	return $cards;
 }
 
-function simplerate_getratesbyuid($uid)
+function simplerate_getbyuid($uid, $msisdn = '')
 {
 	$rates = [];
 
@@ -106,15 +106,40 @@ function simplerate_getratesbyuid($uid)
 			 */
 			if ($list = dba_search(_DB_PREF_ . "_featureSimplerate R", 'prefix, rate, dst, card_id', [
 				'CR.card_id' => $card['id'],
-			], '', [
-				'ORDER BY' => 'prefix DESC'
-			], "LEFT JOIN " . _DB_PREF_ . "_featureSimplerate_card_rate CR ON R.id=CR.rate_id")) {
+			], '', '', "LEFT JOIN " . _DB_PREF_ . "_featureSimplerate_card_rate CR ON R.id=CR.rate_id")) {
 				$rates = array_merge($rates, $list);
 			}
 		}
 	}
 
-	rsort($rates);
+	// sort by prefix
+	$col = array_column($rates, 'prefix');
+	array_multisort($col, SORT_DESC, $rates);
+
+	// eliminate double prefix, choose the 1st match
+	$r = [];
+	foreach ($rates as $rate) {
+		if (!isset($r[$rate['prefix']])) {
+			$r[$rate['prefix']] = [
+				'rate' => $rate['rate'],
+				'dst' => $rate['dst'],
+				'card_id' => $rate['card_id'],
+			];
+		}
+	}
+
+	// final format
+	$rates = [];
+	foreach ($r as $key => $val) {
+		if (isset($key) && isset($val['card_id'])) {
+			$rates[] = [
+				'prefix' => $key,
+				'rate' => $val['rate'],
+				'dst' => $val['dst'],
+				'card_id' => $val['card_id'],
+			];
+		}
+	}
 
 	return $rates;
 }
@@ -154,7 +179,8 @@ function simplerate_hook_rate_getbyprefix($sms_to, $uid = '')
 	$rate = $default_rate;
 	$to = core_sanitize_numeric($sms_to);
 
-	$list = simplerate_getratesbyuid($uid);
+	$effective_row = [];
+	$list = simplerate_getbyuid($uid);
 	foreach ($list as $row) {
 		if ($found) {
 			break;
@@ -164,11 +190,13 @@ function simplerate_hook_rate_getbyprefix($sms_to, $uid = '')
 			$prefix = substr($to, 0, $i);
 			if ($prefix == $row['prefix']) {
 				$rate = $row['rate'];
+				$effective_row = $row;
 				$found = TRUE;
 				break;
 			}
 		}
 	}
+	$row = $effective_row;
 
 	if ($found) {
 		_log("found rate card_id:" . $row['card_id'] . " prefix:" . $row['prefix'] . " rate:" . $rate . " dst:" . $row['dst'] . " to:" . $sms_to . " uid:" . $uid, 3, "simplerate_hook_rate_getbyprefix");
