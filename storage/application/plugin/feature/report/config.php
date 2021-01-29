@@ -90,3 +90,9 @@ $menu_config[$menutab][] = array(
 	_('My credit transactions'),
 	2
 );
+
+$menu_config[$menutab][] = array(
+	"index.php?app=main&inc=feature_report&route=rate&op=rate_list",
+	_('My SMS rate'),
+	3
+);

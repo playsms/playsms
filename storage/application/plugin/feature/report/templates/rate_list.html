@@ -1,0 +1,22 @@
+<h2 class="page-header-title">{{ Report }}</h2>
+<h3 class="page-header-subtitle">{{ My SMS rate }}</h3>
+<div class=table-responsive>
+    <table class=playsms-table-list>
+        <thead>
+            <tr>
+                <th width='60%'>{{ Destination }}</th>
+                <th width='20%'>{{ Prefix }}</th>
+                <th width='20%'>{{ $icon_config['rate'] }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <loop.data>
+                <tr class={{data.tr_class }}>
+                    <td>{{ data.dst }}</td>
+                    <td>{{ data.prefix }}</td>
+                    <td>{{ data.rate }}</td>
+                </tr>
+            </loop.data>
+        </tbody>
+    </table>
+</div>
