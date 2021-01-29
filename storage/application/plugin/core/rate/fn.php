@@ -18,6 +18,18 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
+/**
+ * Get user's effective rates
+ * 
+ * @param int $uid User ID
+ * @param string $sms_to Mobile number or prefix
+ * 
+ * @return array User's rates
+ */
+function rate_getbyuid($uid, $sms_to = '') {
+	return core_call_hook();
+}
+
 function rate_getbyprefix($sms_to, $uid = '') {
 	return core_call_hook();
 }
