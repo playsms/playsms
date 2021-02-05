@@ -94,5 +94,5 @@ $menu_config[$menutab][] = array(
 $menu_config[$menutab][] = array(
 	"index.php?app=main&inc=feature_report&route=rate&op=rate_list",
 	_('My SMS rate'),
-	3
+	2
 );
