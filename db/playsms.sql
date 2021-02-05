@@ -320,6 +320,30 @@ CREATE TABLE `playsms_featureSimplerate` (
   `rate` decimal(13,3) NOT NULL DEFAULT 0.000
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `playsms_featureSimplerate_card`;
+CREATE TABLE `playsms_featureSimplerate_card` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `notes` text NOT NULL,
+  `created` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `last_update` varchar(19) NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `playsms_featureSimplerate_card_rate`;
+CREATE TABLE `playsms_featureSimplerate_card_rate` (
+  `id` int(11) NOT NULL,
+  `card_id` int(11) NOT NULL,
+  `rate_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `playsms_featureSimplerate_card_user`;
+CREATE TABLE `playsms_featureSimplerate_card_user` (
+  `id` int(11) NOT NULL,
+  `card_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 DROP TABLE IF EXISTS `playsms_featureSmssysnc`;
 CREATE TABLE `playsms_featureSmssysnc` (
   `id` int(11) NOT NULL,
@@ -1093,8 +1117,16 @@ ALTER TABLE `playsms_featureSendfromfile`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `playsms_featureSimplerate`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `prefix` (`prefix`);
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `playsms_featureSimplerate_card`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `playsms_featureSimplerate_card_rate`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `playsms_featureSimplerate_card_user`
+  ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `playsms_featureSmssysnc`
   ADD PRIMARY KEY (`id`);
@@ -1267,6 +1299,15 @@ ALTER TABLE `playsms_featureSendfromfile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `playsms_featureSimplerate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `playsms_featureSimplerate_card`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `playsms_featureSimplerate_card_rate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `playsms_featureSimplerate_card_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `playsms_featureSmssysnc`
