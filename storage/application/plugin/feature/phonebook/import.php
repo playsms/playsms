@@ -36,7 +36,7 @@ switch (_OP_) {
 							<form action=\"index.php?app=main&inc=feature_phonebook&route=import&op=import\" enctype=\"multipart/form-data\" method=POST>
 							" . _CSRF_FORM_ . "
 							<p>" . _('Please select CSV file for phonebook entries') . "</p>
-							<p><input type=\"file\" name=\"fnpb\"></p>
+							<p><input type=\"file\" name=\"fncsv\"></p>
 							<p class=help-block>" . _('CSV file format') . " : " . _('Name') . ", " . _('Mobile') . ", " . _('Email') . ", " . _('Group code') . ", " . _('Tags') . "</p>
 							<p><input type=\"submit\" value=\"" . _('Import') . "\" class=\"button\"></p>
 							</form>
@@ -50,36 +50,40 @@ switch (_OP_) {
 	case "import":
 
 		// fixme anton - https://www.exploit-database.net/?id=92843
-		$fnpb_name = core_sanitize_filename($_FILES['fnpb']['name']);
-		if ($fnpb_name == $_FILES['fnpb']['name']) {
+		$fncsv_name = core_sanitize_filename($_FILES['fncsv']['name']);
+		if ($fncsv_name == $_FILES['fncsv']['name']) {
 			$continue = TRUE;
 		} else {
 			$continue = FALSE;
 		}
 		
-		$fnpb = $_FILES['fnpb'];
-		$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
+		$fncsv = $_FILES['fncsv'];
+		$fncsv_tmpname = $_FILES['fncsv']['tmp_name'];
 		$content = "
 			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
 			<h3 class=page-header-subtitle>" . _('Import confirmation') . "</h3>
 			<div class=table-responsive>
-			<table class=playsms-table-list>
-			<thead><tr>
-				<th width=\"5%\">*</th>
-				<th width=\"20%\">" . _('Name') . "</th>
-				<th width=\"20%\">" . _('Mobile') . "</th>
-				<th width=\"25%\">" . _('Email') . "</th>
-				<th width=\"15%\">" . _('Group code') . "</th>
-				<th width=\"15%\">" . _('Tags') . "</th>
-			</tr></thead><tbody>";
+			<table id=playsms-table-list class=playsms-table-list>
+			<thead>
+				<tr>
+					<th width='5%'>*</th>
+					<th width='20%'>" . _('Name') . "</th>
+					<th width='20%'>" . _('Mobile') . "</th>
+					<th width='25%'>" . _('Email') . "</th>
+					<th width='15%'>" . _('Group code') . "</th>
+					<th width='15%'>" . _('Tags') . "</th>
+				</tr>
+			</thead>
+			<tbody>";
 
-		if ($continue && file_exists($fnpb_tmpname)) {
+		if ($continue && file_exists($fncsv_tmpname)) {
+			$file_size = filesize($fncsv_tmpname);
 			$session_import = 'phonebook_' . md5(core_get_random_string());
 			unset($_SESSION['tmp'][$session_import]);
 			ini_set('auto_detect_line_endings', TRUE);
-			if (($fp = fopen($fnpb_tmpname, "r")) !== FALSE) {
+			if (($fd = fopen($fncsv_tmpname, "r")) !== FALSE) {
 				$i = 0;
-				while ($c_contact = fgetcsv($fp, 1000, ',', '"', '\\')) {
+				while (($c_contact = fgetcsv($fd, $file_size, ',')) !== false) {
 					if ($i > $phonebook_row_limit) {
 						break;
 					}
@@ -106,12 +110,12 @@ switch (_OP_) {
 						$i++;
 						$content .= "
 							<tr>
-							<td>$i.</td>
-							<td>$contact[0]</td>
-							<td>$contact[1]</td>
-							<td>$contact[2]</td>
-							<td>$contact[3]</td>
-							<td>$contact[4]</td>
+								<td>" . $i . "</td>
+								<td>" . $contact[0] . "</td>
+								<td>" . $contact[1] . "</td>
+								<td>" . $contact[2] . "</td>
+								<td>" . $contact[3] . "</td>
+								<td>" . $contact[4] . "</td>
 							</tr>";
 						$k = $i - 1;
 						$_SESSION['tmp'][$session_import][$k] = $contact;
@@ -120,14 +124,43 @@ switch (_OP_) {
 			}
 			ini_set('auto_detect_line_endings', FALSE);
 			$content .= "
-				</tbody></table>
+					<tfoot>
+						<tr>
+							<td id='playsms-table-pager' class='playsms-table-pager' colspan=6>
+							<div class='form-inline pull-right'>
+								<div class='btn-group btn-group-sm mx-1' role='group'>
+									<button type='button' class='btn btn-secondary first'>&#8676;</button>
+									<button type='button' class='btn btn-secondary prev'>&larr;</button>
+									<span class='pagedisplay'></span>
+								</div>
+								<div class='btn-group btn-group-sm mx-1' role='group'>
+									<button type='button' class='btn btn-secondary next' title='next'>&rarr;</button>
+									<button type='button' class='btn btn-secondary last' title='last'>&#8677;</button>
+								</div>
+								<select class='form-control-sm custom-select px-1 pagesize' title='" . _('Select page size') . "'>
+									<option selected='selected' value='10'>10</option>
+									<option value='20'>20</option>
+									<option value='50'>50</option>
+									<option value='100'>100</option>
+								</select>
+							</div>
+							</td>
+						</tr>
+					</tfoot>
+					</tbody>
+					</table>
 				</div>
+				<script type='text/javascript'>
+					$(document).ready(function() { 
+						$('#playsms-table-list').tablesorterPager({container: $('#playsms-table-pager')}); 
+					});
+				</script>
 				<p>" . _('Import above phonebook entries ?') . "</p>
-				<form action=\"index.php?app=main&inc=feature_phonebook&route=import&op=import_yes\" method=POST>
+				<form action='index.php?app=main&inc=feature_phonebook&route=import&op=import_yes' method=POST>
 				" . _CSRF_FORM_ . "
-				<input type=\"hidden\" name=\"number_of_row\" value=\"$j\">
-				<input type=\"hidden\" name=\"session_import\" value=\"" . $session_import . "\">
-				<p><input type=\"submit\" class=\"button\" value=\"" . _('Import') . "\"></p>
+				<input type='hidden' name='number_of_row' value='$j'>
+				<input type='hidden' name='session_import' value='" . $session_import . "'>
+				<p><input type='submit' class='button' value='" . _('Import') . "'></p>
 				</form>
 				" . _back('index.php?app=main&inc=feature_phonebook&route=import&op=list');
 			_p($content);
