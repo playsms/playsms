@@ -14,11 +14,11 @@ function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge) {
 	$parent_uid = (int) $db_row['parent_uid'];
 	$uid = (int) $db_row['uid'];
 
-	_log("saving smslog_id:" . $smslog_id . " parent_uid:" . $parent_uid . " uid:" . $uid . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 2, "simplebilling_hook_billing_post");
+	_log("saving smslog_id:" . $smslog_id . " parent_uid:" . $parent_uid . " uid:" . $uid . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 3, "simplebilling_hook_billing_post");
 	if ($uid) {
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (parent_uid,uid,post_datetime,smslog_id,rate,count,charge,status) VALUES ('$parent_uid','$uid','" . core_get_datetime() . "','$smslog_id','$rate','$count','$charge','0')";
 		if ($smslog_id && ($id = dba_insert_id($db_query))) {
-			_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling_hook_billing_post");
+			_log("saved smslog_id:" . $smslog_id . " id:" . $id, 3, "simplebilling_hook_billing_post");
 			$ok = true;
 		} else {
 			_log("fail to save unable to insert to db smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_post");
@@ -37,10 +37,10 @@ function simplebilling_hook_billing_rollback($smslog_id) {
 	$db_result = dba_query($db_query);
 	if ($smslog_id && ($db_row = dba_fetch_array($db_result))) {
 		$id = $db_row['id'];
-		_log("saving smslog_id:" . $smslog_id . " id:" . $id, 2, "simplebilling rollback");
+		_log("saving smslog_id:" . $smslog_id . " id:" . $id, 3, "simplebilling rollback");
 		$db_query = "UPDATE " . _DB_PREF_ . "_tblBilling SET status='2' WHERE id='$id'";
 		if ($db_result = dba_affected_rows($db_query)) {
-			_log("saved smslog_id:" . $smslog_id, 2, "simplebilling rollback");
+			_log("saved smslog_id:" . $smslog_id, 3, "simplebilling rollback");
 			$ok = true;
 		} else {
 			_log("fail to save smslog_id:" . $smslog_id, 2, "simplebilling rollback");
@@ -56,10 +56,10 @@ function simplebilling_hook_billing_finalize($smslog_id) {
 	_log("saving smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_finalize");
 	$db_query = "UPDATE " . _DB_PREF_ . "_tblBilling SET c_timestamp='" . time() . "', status='1' WHERE smslog_id='$smslog_id'";
 	if ($db_result = dba_affected_rows($db_query)) {
-		_log("saved smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_finalize");
+		_log("saved smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_finalize");
 		$ok = true;
 	} else {
-		_log("fail to save smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_finalize");
+		_log("fail to save smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_finalize");
 	}
 	return $ok;
 }
@@ -71,7 +71,8 @@ function simplebilling_hook_dlr_update($smslog_id, $uid, $p_status) {
 		$db_result = dba_query($db_query);
 		if ($db_row = dba_fetch_array($db_result)) {
 			if ((int) $db_row['status'] > 0) {
-				_log("billing finalized smslog_id:" . $smslog_id . " status:" . $db_row['status'], 2, "simplebilling_hook_dlr_update");
+				// fixme anton - debug only
+				//_log("billing finalized smslog_id:" . $smslog_id . " status:" . $db_row['status'], 3, "simplebilling_hook_dlr_update");
 			} else {
 				billing_finalize($smslog_id);
 			} 
