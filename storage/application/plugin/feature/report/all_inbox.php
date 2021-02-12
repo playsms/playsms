@@ -33,10 +33,10 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'A.flag_deleted' => 0 
+			'A.flag_deleted' => 0,
 		);
 		$keywords = $search['dba_keywords'];
-		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.in_uid=B.uid AND A.flag_deleted=B.flag_deleted";
 		$count = dba_count(_DB_PREF_ . '_tblSMSInbox AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
@@ -121,9 +121,9 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
-					'A.flag_deleted' => 0 
+					'A.flag_deleted' => 0,
 				);
-				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
+				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.in_uid=B.uid AND A.flag_deleted=B.flag_deleted";
 				$list = dba_search(_DB_PREF_ . '_tblSMSInbox as A', 'B.username, A.in_datetime, A.in_sender, A.in_msg', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('User'),

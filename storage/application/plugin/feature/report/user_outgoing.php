@@ -44,12 +44,12 @@ switch (_OP_) {
 			$search = themes_search($search_category, $base_url);
 			$conditions = array(
 				'A.queue_code' => $queue_code,
-				'A.uid' => $user_config['uid'],
-				'A.flag_deleted' => 0 
+				'B.uid' => $user_config['uid'],
+				'A.flag_deleted' => 0,
 			);
 			$keywords = $search['dba_keywords'];
 			$table = _DB_PREF_ . '_tblSMSOutgoing';
-			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
+			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
 			$count = dba_count($table . ' AS A', $conditions, $keywords, '', $join);
 			$nav = themes_nav($count, $search['url']);
 			$extras = array(
@@ -61,12 +61,12 @@ switch (_OP_) {
 		} else {
 			$search = themes_search($search_category, $base_url);
 			$conditions = array(
-				'A.uid' => $user_config['uid'],
-				'A.flag_deleted' => 0 
+				'B.uid' => $user_config['uid'],
+				'A.flag_deleted' => 0,
 			);
 			$keywords = $search['dba_keywords'];
 			$table = _DB_PREF_ . '_tblSMSOutgoing';
-			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
+			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
 			$list = dba_search($table . ' AS A', 'A.id', $conditions, $keywords, array(
 				'GROUP BY' => 'A.queue_code, A.id'
 			), $join);
@@ -212,14 +212,14 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
-					'A.uid' => $user_config['uid'],
-					'A.flag_deleted' => 0 
+					'B.uid' => $user_config['uid'],
+					'A.flag_deleted' => 0,
 				);
 				if ($queue_code = trim($_REQUEST['queue_code'])) {
 					$conditions['A.queue_code'] = $queue_code;
 				}
 				$table = _DB_PREF_ . '_tblSMSOutgoing';
-				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
+				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
 				$list = dba_search($table . ' AS A', 'A.p_datetime, A.p_dst, A.p_msg, A.p_footer, A.p_status', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('Time'),

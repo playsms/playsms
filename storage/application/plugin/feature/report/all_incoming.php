@@ -35,11 +35,11 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
+			'A.in_status' => 1,
 			'A.flag_deleted' => 0,
-			'A.in_status' => 1 
 		);
 		$keywords = $search['dba_keywords'];
-		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.in_uid=B.uid AND A.flag_deleted=B.flag_deleted";
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming as A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
@@ -133,10 +133,10 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
+					'A.in_status' => 1,
 					'A.flag_deleted' => 0,
-					'A.in_status' => 1 
 				);
-				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
+				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.in_uid=B.uid AND A.flag_deleted=B.flag_deleted";
 				$extras = array(
 					'AND A.in_keyword' => '!= ""' 
 				);
