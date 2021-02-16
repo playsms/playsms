@@ -63,7 +63,8 @@ function dlr_daemon() {
 			), array(
 				'id' => $id 
 			))) {
-				_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr_daemon");
+				// debug only, too noisy
+				//_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr_daemon");
 				dlr_update($smslog_id, $uid, $p_status);
 			}
 		}
@@ -91,19 +92,25 @@ function dlr_update($smslog_id, $uid, $p_status) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
 				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
-				WHERE smslog_id='" . $smslog_id . "' AND uid='" . $uid . "' AND p_status=0";
+				WHERE smslog_id='" . $smslog_id . "' AND p_status=0";
 			break;
 		case 2:
+			$db_query = "
+				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
+				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
+				WHERE smslog_id='" . $smslog_id . "' AND p_status<>2";
+			break;
 		case 3:
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
 				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
-				WHERE smslog_id='" . $smslog_id . "' AND uid='" . $uid . "' AND p_status<>2";
+				WHERE smslog_id='" . $smslog_id . "' AND (p_status=0 OR p_status=1)";
 			break;
 	}
 
 	if (dba_affected_rows($db_query)) {	
 		if ($p_status > 0) {
+			_log("smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr_update");
 			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
 				core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
 					$smslog_id,
