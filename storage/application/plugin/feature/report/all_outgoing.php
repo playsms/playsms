@@ -45,41 +45,46 @@ switch (_OP_) {
 			$queue_home_link = _back($base_url);
 			$base_url .= '&queue_code=' . $queue_code;
 			$search = themes_search($search_category, $base_url);
+
+			$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
 			$conditions = array(
 				'A.queue_code' => $queue_code,
 				'A.flag_deleted' => 0,
 			);
 			$keywords = $search['dba_keywords'];
-			$table = _DB_PREF_ . '_tblSMSOutgoing';
+			$extras = array();
 			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
-			$count = dba_count($table . ' AS A', $conditions, $keywords, '', $join);
+			$count = dba_count($table, $conditions, $keywords, $extras, $join);
+
 			$nav = themes_nav($count, $search['url']);
 			$extras = array(
-				'ORDER BY' => 'A.smslog_id DESC',
+				'ORDER BY' => "A.smslog_id DESC",
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 
 			);
-			$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, A.uid, A.queue_code', $conditions, $keywords, $extras, $join);
+			$list = dba_search($table, "B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, B.uid, A.queue_code", $conditions, $keywords, $extras, $join);
 		} else {
 			$search = themes_search($search_category, $base_url);
+			
+			$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
 			$conditions = array(
 				'A.flag_deleted' => 0,
 			);
 			$keywords = $search['dba_keywords'];
-			$table = _DB_PREF_ . '_tblSMSOutgoing';
+			$extras = array(
+				'GROUP BY' => "A.queue_code, A.id",
+			);
 			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
-			$list = dba_search($table . ' AS A', 'A.id', $conditions, $keywords, array(
-				'GROUP BY' => 'A.queue_code, A.id'
-			), $join);
-			$count = count($list);
+			$count = dba_count($table, $conditions, $keywords, $extras, $join);
+
 			$nav = themes_nav($count, $search['url']);
 			$extras = array(
-				'GROUP BY' => 'A.queue_code, A.id',
-				'ORDER BY' => 'A.smslog_id DESC',
+				'GROUP BY' => "A.queue_code, A.id",
+				'ORDER BY' => "A.smslog_id DESC",
 				'LIMIT' => $nav['limit'],
 				'OFFSET' => $nav['offset'] 
 			);
-			$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, A.uid, A.queue_code, COUNT(*) AS queue_count', $conditions, $keywords, $extras, $join);
+			$list = dba_search($table, "B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, B.uid, A.queue_code, COUNT(*) AS queue_count", $conditions, $keywords, $extras, $join);
 		}
 		
 		$content = _dialog() . "
@@ -217,15 +222,31 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
+				$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
 				$conditions = array(
 					'A.flag_deleted' => 0,
 				);
 				if ($queue_code = trim($_REQUEST['queue_code'])) {
 					$conditions['A.queue_code'] = $queue_code;
 				}
-				$table = _DB_PREF_ . '_tblSMSOutgoing';
+				$keywords = $search['dba_keywords'];
+				
+				// fixme anton - will solve this later, for now maxed to 50k
+				$extras = array(
+					'ORDER BY' => "A.smslog_id DESC",
+					'LIMIT' => 50000,
+				);
+
 				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
-				$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.p_datetime, A.p_dst, A.p_msg, A.p_footer, A.p_status', $conditions, $search['dba_keywords'], '', $join);
+				$list = dba_search($table, "B.username, A.p_gateway, A.p_smsc, A.p_datetime, A.p_dst, A.p_msg, A.p_footer, A.p_status", $conditions, $keywords, $extras, $join);
+
+				if (!(count($list) > 0)) {
+					$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
+					$_SESSION['dialog']['info'][] = _('Nothing to export');
+					header("Location: " . _u($ref));
+					exit();
+				}
+
 				$data[0] = array(
 					_('User'),
 					_('Gateway'),
