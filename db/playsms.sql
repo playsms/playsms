@@ -987,7 +987,6 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `id` int(11) NOT NULL,
   `queue_id` int(11) NOT NULL DEFAULT 0,
   `chunk` int(11) NOT NULL DEFAULT 0,
-  `smslog_id` int(11) NOT NULL DEFAULT 0,
   `flag` int(11) NOT NULL DEFAULT 0,
   `dst` varchar(50) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -1172,7 +1171,8 @@ ALTER TABLE `playsms_tblACL`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `playsms_tblBilling`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `smslog_id` (`smslog_id`);
 
 ALTER TABLE `playsms_tblCountry`
   ADD PRIMARY KEY (`country_id`);

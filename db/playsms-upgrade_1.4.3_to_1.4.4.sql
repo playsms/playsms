@@ -9,6 +9,10 @@ ALTER TABLE `playsms_tblUser` ADD `salt` VARCHAR(255) NOT NULL DEFAULT '' AFTER 
 
 -- tblBilling
 ALTER TABLE `playsms_tblBilling`  ADD `parent_uid` INT(11) NOT NULL DEFAULT '0'  AFTER `c_timestamp`,  ADD `uid` INT(11) NOT NULL DEFAULT '0'  AFTER `parent_uid` ;
+ALTER TABLE `playsms_tblBilling` ADD KEY `smslog_id` (`smslog_id`);
+
+-- tblSMSOutgoing_queue_dst
+ALTER TABLE `playsms_tblSMSOutgoing_queue_dst` DROP `smslog_id`;
 
 -- featureSendfromfile
 ALTER TABLE `playsms_featureSendfromfile` 
