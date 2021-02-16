@@ -457,13 +457,13 @@ $core_config['dlrd_limit'] = ($core_config['dlrd_limit'] ? $core_config['dlrd_li
 $core_config['recvsmsd_limit'] = ($core_config['recvsmsd_limit'] ? $core_config['recvsmsd_limit'] : 10000);
 
 // limit the number of queue processed by sendsmsd in one time
-$core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config['sendsmsd_queue'] : 100);
+$core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config['sendsmsd_queue'] : 20);
 
 // limit the number of chunk per queue
-$core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 10);
+$core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 20);
 
 // chunk size
-$core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ? $core_config['sendsmsd_chunk_size'] : 1000);
+$core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ? $core_config['sendsmsd_chunk_size'] : 100);
 
 // fixme anton - debug
 //print_r($icon_config); die();

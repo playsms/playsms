@@ -50,19 +50,19 @@ $core_config['logauditfile']	= 'audit.log';
 $core_config['isdlrd']		= true;
 
 // limit the number of DLR processed by dlrd in one time
-$core_config['dlrd_limit']	= 1000;
+$core_config['dlrd_limit']	= 10000;
 
 // are we using recvsmsd or not. the default is using recvsmsd
 $core_config['isrecvsmsd']	= true;
 
 // limit the number of incoming SMS processed by recvsmsd in one time
-$core_config['recvsmsd_limit']	= 1000;
+$core_config['recvsmsd_limit']	= 10000;
 
 // are we using sendsmsd or not. the default is using sendsmsd
 $core_config['issendsmsd']	= true;
 
 // limit the number of queue processed by sendsmsd in one time
-$core_config['sendsmsd_queue']	= 10;
+$core_config['sendsmsd_queue']	= 20;
 
 // limit the number of chunk per queue
 $core_config['sendsmsd_chunk']	= 20;
