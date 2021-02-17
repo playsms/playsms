@@ -33,59 +33,41 @@ switch (_OP_) {
 			_('Time') => 'p_datetime',
 			_('To') => 'p_dst',
 			_('Message') => 'p_msg',
-			_('Footer') => 'p_footer' 
+			_('Footer') => 'p_footer',
+			_('Queue') => 'queue_code',
 		);
 		
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing';
 		$queue_label = "";
 		$queue_home_link = "";
 		
+		$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
+		$fields = "B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, B.uid, A.queue_code";
+		$conditions = [
+			'A.flag_deleted' => 0,
+		];
+		$extras = [];
+		
 		if ($queue_code = trim($_REQUEST['queue_code'])) {
+			$conditions['A.queue_code'] = $queue_code;
 			$queue_label = "<p class=lead>" . sprintf(_('List of queue %s'), $queue_code) . "</p>";
 			$queue_home_link = _back($base_url);
 			$base_url .= '&queue_code=' . $queue_code;
-			$search = themes_search($search_category, $base_url);
-
-			$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
-			$conditions = array(
-				'A.queue_code' => $queue_code,
-				'A.flag_deleted' => 0,
-			);
-			$keywords = $search['dba_keywords'];
-			$extras = array();
-			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
-			$count = dba_count($table, $conditions, $keywords, $extras, $join);
-
-			$nav = themes_nav($count, $search['url']);
-			$extras = array(
-				'ORDER BY' => "A.smslog_id DESC",
-				'LIMIT' => $nav['limit'],
-				'OFFSET' => $nav['offset'] 
-			);
-			$list = dba_search($table, "B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, B.uid, A.queue_code", $conditions, $keywords, $extras, $join);
 		} else {
-			$search = themes_search($search_category, $base_url);
-			
-			$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
-			$conditions = array(
-				'A.flag_deleted' => 0,
-			);
-			$keywords = $search['dba_keywords'];
-			$extras = array(
-				'GROUP BY' => "A.queue_code, A.id",
-			);
-			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
-			$count = dba_count($table, $conditions, $keywords, $extras, $join);
-
-			$nav = themes_nav($count, $search['url']);
-			$extras = array(
-				'GROUP BY' => "A.queue_code, A.id",
-				'ORDER BY' => "A.smslog_id DESC",
-				'LIMIT' => $nav['limit'],
-				'OFFSET' => $nav['offset'] 
-			);
-			$list = dba_search($table, "B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, B.uid, A.queue_code, COUNT(*) AS queue_count", $conditions, $keywords, $extras, $join);
+			$fields .= ", COUNT(A.queue_code) AS queue_count";
+			$extras['GROUP BY'] = "A.queue_code";
 		}
+		
+		$search = themes_search($search_category, $base_url);
+		$keywords = $search['dba_keywords'];
+		$extras['ORDER BY'] = "A.smslog_id DESC";
+		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
+		$list = dba_search($table, $fields, $conditions, $keywords, $extras, $join);
+
+		$nav = themes_nav(count($list), $search['url']);
+		$extras['LIMIT'] = $nav['limit'];
+		$extras['OFFSET'] = $nav['offset'];
+		$list = dba_search($table, $fields, $conditions, $keywords, $extras, $join);
 		
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('All sent messages') . "</h2>
@@ -223,6 +205,7 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
+				$fields = "B.username, A.p_gateway, A.p_smsc, A.p_datetime, A.p_dst, A.p_msg, A.p_footer, A.p_status, A.queue_code";
 				$conditions = array(
 					'A.flag_deleted' => 0,
 				);
@@ -238,7 +221,7 @@ switch (_OP_) {
 				);
 
 				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
-				$list = dba_search($table, "B.username, A.p_gateway, A.p_smsc, A.p_datetime, A.p_dst, A.p_msg, A.p_footer, A.p_status", $conditions, $keywords, $extras, $join);
+				$list = dba_search($table, $fields, $conditions, $keywords, $extras, $join);
 
 				if (!(count($list) > 0)) {
 					$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
@@ -254,7 +237,8 @@ switch (_OP_) {
 					_('Time'),
 					_('To'),
 					_('Message'),
-					_('Status') 
+					_('Status'),
+					_('Queue'),
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
@@ -265,7 +249,8 @@ switch (_OP_) {
 						core_display_datetime($list[$i]['p_datetime']),
 						$list[$i]['p_dst'],
 						$list[$i]['p_msg'] . $list[$i]['p_footer'],
-						$list[$i]['p_status'] 
+						$list[$i]['p_status'],
+						$list[$i]['queue_code'],
 					);
 				}
 				$content = core_csv_format($data);
