@@ -53,18 +53,13 @@ function mailsms_hook_playsmsd() {
 }
 
 function mailsms_hook_playsmsd_once($command, $command_param) {
-	if (!($command == 'mailsms' || $command_param == 'fetch')) {
+	if (!($command == 'mailsms' && $command_param == 'mailsms_fetch')) {
 
 		return false;
 	}
 	
 	_log('running once command:' . $command . ' param:' . $command_param, 2, 'mailsms_hook_playsmsd_once');
 	
-	// get username
-	$username = user_uid2username($uid);
-	
-	// _log('fetch uid:' . $uid . ' username:' . $username, 3, 'mailsms_hook_playsmsd_once');	
-
 	$items_global = registry_search(0, 'features', 'mailsms');
 	
 	$enable_fetch = $items_global['features']['mailsms']['enable_fetch'];
@@ -88,7 +83,7 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 		$errors = imap_errors();
 		foreach ($errors as $error) {
 			
-			// _log('error:' . $error, 3, 'mailsms_hook_playsmsd_once');
+			_log('error:' . $error, 3, 'mailsms_hook_playsmsd_once');
 		}
 		return;
 	}
@@ -100,7 +95,8 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 			$overview = imap_fetch_overview($inbox, $email_number, 0);
 			$email_subject = trim($overview[0]->subject);
 			$email_sender = trim($overview[0]->from);
-			$email_body = trim(imap_fetchbody($inbox, $email_number, 1));
+			$email_body = trim(imap_fetchbody($inbox, $email_number, '1.1'));
+			$email_body = quoted_printable_decode($email_body);
 			
 			_log('email from:[' . $email_sender . '] subject:[' . $email_subject . '] body:[' . $email_body . ']', 3, 'mailsms_hook_playsmsd');
 
