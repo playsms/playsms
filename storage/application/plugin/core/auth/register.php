@@ -157,6 +157,7 @@ if (_OP_ == 'register') {
 	);
 	
 	// prepare captcha phrase and set the time
+	$captcha_image = '';
 	if ($auth_captcha_form_register) {
 		$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
 		$captcha = new CaptchaBuilder(null, $phraseBuilder);
@@ -165,6 +166,7 @@ if (_OP_ == 'register') {
 			'phrase' => $captcha->getPhrase(),
 			'time' => time(),
 		];
+		$captcha_image = $captcha->inline();
 	}
 	
 	$tpl = array(
@@ -176,7 +178,7 @@ if (_OP_ == 'register') {
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register'),
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'),
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),
-			'CAPTCHA_IMAGE' => $captcha->inline(),
+			'CAPTCHA_IMAGE' => $captcha_image,
 			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')),
 			'Name' => _('Name'),
 			'Username' => _('Username'),

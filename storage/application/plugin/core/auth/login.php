@@ -106,6 +106,7 @@ if (_OP_ == 'login') {
 	);
 	
 	// prepare captcha phrase and set the time
+	$captcha_image = '';
 	if ($auth_captcha_form_login) {
 		$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
 		$captcha = new CaptchaBuilder(null, $phraseBuilder);
@@ -114,6 +115,7 @@ if (_OP_ == 'login') {
 			'phrase' => $captcha->getPhrase(),
 			'time' => time(),
 		];
+		$captcha_image = $captcha->inline();
 	}
 
 	unset($tpl);
@@ -125,7 +127,7 @@ if (_OP_ == 'login') {
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
 			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
-			'CAPTCHA_IMAGE' => $captcha->inline(),
+			'CAPTCHA_IMAGE' => $captcha_image,
 			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')),
 			'DIALOG_DISPLAY' => _dialog(),
 			'Username or email' => _('Username or email') ,

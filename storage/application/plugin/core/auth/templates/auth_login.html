@@ -22,7 +22,8 @@
 			<div class="form-group">
 				<input type=password id="input_password" class="playsms-input-sizer" placeholder="{{ Password }}" name="password" maxlength="100" required>
 			</div>
-	
+			
+			<if.enable_captcha>
 			<div class="form-group">
 				<img id="input_captcha_image" class="playsms-input-sizer" src="{{ CAPTCHA_IMAGE }}">
 			</div>
@@ -30,6 +31,7 @@
 			<div class="form-group">
 				<input type=text id="input_captcha" class="playsms-input-sizer" placeholder="{{ Verify captcha }}" name="captcha" maxlength="6">
 			</div>
+			</if.enable_captcha>
 		
 			<div class="form-group">
 				<button class="button" type="submit">{{ Login }}</button>
