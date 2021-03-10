@@ -124,7 +124,7 @@ function jasmin_hook_call($requests) {
 	$access = $requests['access'];
 	
 	if ($access == 'callback') {
-		$fn = $core_config['apps_path']['plug'] . '/gateway/jasmin/callback.php';
+		$fn = _HTTP_PATH_BASE_ . '/plugin/gateway/jasmin/callback.php';
 		_log("start load:" . $fn, 2, "jasmin call");
 		include $fn;
 		_log("end load callback", 2, "jasmin call");
