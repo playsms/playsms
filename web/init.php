@@ -282,8 +282,8 @@ if (_INC_) {
 define('_INC_CAT_', $c_plugin_category);
 define('_INC_PLUGIN_', $c_plugin_name);
 
-// enable anti-CSRF for anything but webservices
-if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
+// check and prepare anti-CSRF
+if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || (_APP_ == 'call') || ($core_config['init']['ignore_csrf']))) {
 	
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
@@ -299,7 +299,7 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 }
 
 // save last $_POST in $_SESSION
-if ($_POST['X-CSRF-Token']) {
+if (!empty($_POST)) {
 
 	// fixme anton - clean last posts
 	$c_last_post = array();
