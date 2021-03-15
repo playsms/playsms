@@ -48,15 +48,14 @@ msgstr "قائمة المستخدمين المحظورين"
 msgid "Billing"
 msgstr "الفوترة"
 
+msgid "Card"
+msgstr ""
+
 msgid "Charge"
 msgstr ""
 
 msgid "Content"
 msgstr "المحتوى"
-
-#, fuzzy
-msgid "Count"
-msgstr "العدد"
 
 msgid "Credit"
 msgstr "الرصيد"
@@ -73,6 +72,9 @@ msgstr "تم الحذف"
 
 msgid "Delivered"
 msgstr "تم التسليم"
+
+msgid "Destination"
+msgstr ""
 
 msgid "Email"
 msgstr "البريد الالكتروني"
@@ -115,6 +117,9 @@ msgstr ""
 msgid "Message"
 msgstr "الرسالة"
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My credit transactions"
 msgstr "قائمة الحوالات"
 
@@ -127,8 +132,17 @@ msgstr "تقاريري"
 msgid "My sent messages"
 msgstr "رسائلي المرسلة"
 
+msgid "Nothing to export"
+msgstr ""
+
 msgid "Pending"
 msgstr "قيد الإرسال"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Queue"
+msgstr ""
 
 msgid "Rate"
 msgstr ""
@@ -150,6 +164,9 @@ msgstr "مركز الرسائل"
 
 msgid "Sandbox"
 msgstr "الصندوق الرملي"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Selected incoming message has been deleted"
 msgstr "تم حذف الرسال الواردة المحددة "

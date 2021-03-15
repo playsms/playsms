@@ -26,9 +26,6 @@ msgstr "Gateway-navn"
 msgid "Infobip API URL"
 msgstr "Infobip API URl"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip er en masse-SMS leverandør"
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip vil sende DLR og innkommende SMS til URL-en over"
 
@@ -70,6 +67,3 @@ msgstr "Din callback URL er"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Din callback URL skal være tilgjengelig fra Infobip"
-
-msgid "create an account to send SMS"
-msgstr "Lag en konto for å sende SMS"

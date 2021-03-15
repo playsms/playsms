@@ -17,20 +17,27 @@ msgstr "Bannlys"
 msgid "Buy"
 msgstr "Kjp"
 
+msgid "Card"
+msgstr ""
+
+msgid "Charge"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
 msgid "Compose message"
 msgstr "Lag melding"
 
+#, fuzzy
+msgid "Confirmation"
+msgstr "Hovedkonfigurasjon"
+
 msgid "Credit"
 msgstr ""
 
 msgid "Delete"
 msgstr "Slett"
-
-msgid "Delete user"
-msgstr "Slett bruker"
 
 msgid "Download"
 msgstr ""
@@ -108,11 +115,12 @@ msgstr "Hndter"
 msgid "Manage ACL"
 msgstr "Hndter ACL"
 
+#, fuzzy
+msgid "Manage SMSC"
+msgstr "Hndter ACL"
+
 msgid "Manage account"
 msgstr "Hndter konto"
-
-msgid "Manage gateway and SMSC"
-msgstr "Hndter gateway og SMSC"
 
 msgid "Manage sender ID"
 msgstr "Hndter senderID"
@@ -144,6 +152,12 @@ msgstr "Plogget"
 msgid "Preferences"
 msgstr "Preferanse"
 
+msgid "Rate"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
+
 msgid "Recover password"
 msgstr ""
 
@@ -156,6 +170,9 @@ msgstr ""
 #, fuzzy
 msgid "Register an account"
 msgstr "Hndter konto"
+
+msgid "Remove"
+msgstr ""
 
 msgid "Reply"
 msgstr "Svar"

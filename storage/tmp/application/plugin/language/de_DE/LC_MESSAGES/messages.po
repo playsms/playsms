@@ -6,6 +6,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
 msgid "Action"
 msgstr "Aktion"
 
@@ -91,6 +95,9 @@ msgstr ""
 msgid "Cancel send from file"
 msgstr "Aus Datei senden abbrechen"
 
+msgid "Card"
+msgstr ""
+
 msgid "Catch-all"
 msgstr "Catch-All"
 
@@ -104,6 +111,9 @@ msgid "Catch-all list"
 msgstr "Catch-All Liste"
 
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Click the status button to enable or disable status"
@@ -163,14 +173,15 @@ msgstr "Lösche Gruppen-Inbox"
 msgid "Delete member"
 msgstr "Lösche Mitglied"
 
-msgid "Delete user"
-msgstr ""
-
 msgid "Description"
 msgstr "Beschreibung"
 
 msgid "Destination number"
 msgstr "Zielrufnummer"
+
+#, fuzzy
+msgid "Discharged entries"
+msgstr "Ungültige Einträge"
 
 msgid "Download"
 msgstr ""
@@ -198,6 +209,15 @@ msgstr ""
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
 
 msgid "Exclusive"
 msgstr "Exklusiv"
@@ -231,6 +251,9 @@ msgstr "Fehler beim Löschen der Gruppen-Inbox"
 
 msgid "Fail to delete member"
 msgstr "Fehler beim Löschen des Mitglieds"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr "Fehler beim deaktivieren der Gruppen-Inbox"
@@ -268,7 +291,16 @@ msgstr "Als Beispiel ein kurzer Code"
 msgid "Forward"
 msgstr ""
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "Sende SMS an gültige Einträge"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "Ungültige Einträge in hochgeladener Datei gefunden"
 
 msgid "Found valid entries in uploaded file"
@@ -356,12 +388,6 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-msgid "Invalid CSV file"
-msgstr "Ungültige CSV-Datei"
-
-msgid "Invalid entries"
-msgstr "Ungültige Einträge"
-
 msgid "Invalid session ID"
 msgstr "Ungültige Session-ID"
 
@@ -407,10 +433,10 @@ msgstr ""
 msgid "Manage ACL"
 msgstr ""
 
-msgid "Manage account"
+msgid "Manage SMSC"
 msgstr ""
 
-msgid "Manage gateway and SMSC"
+msgid "Manage account"
 msgstr ""
 
 msgid "Manage plugin"
@@ -492,6 +518,10 @@ msgstr "Es wurden KEINE Änderungen vorgenommen"
 msgid "No group"
 msgstr "Gruppe"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "Gültige Einträge in hochgeladener Datei gefunden"
+
 msgid "Notes"
 msgstr "Anmerkungen"
 
@@ -552,6 +582,12 @@ msgstr ""
 msgid "Queue has been removed"
 msgstr "Queue wurde gelscht"
 
+msgid "Rate"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
+
 msgid "Receiver number"
 msgstr "Empfängernummer"
 
@@ -568,6 +604,9 @@ msgid "Register"
 msgstr ""
 
 msgid "Register an account"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Reply"
@@ -588,7 +627,8 @@ msgstr ""
 msgid "SMS"
 msgstr ""
 
-msgid "SMS has been sent to valid numbers in uploaded file"
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
 msgstr "SMS wurde an die gültigen Nummern aus der CSV-Datei verschickt"
 
 msgid "SMSC already exists"
@@ -614,6 +654,9 @@ msgstr "Geplant"
 
 msgid "Select"
 msgstr "Auswählen"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Selected catchall"
 msgstr "Ausgewählter Catch-All"
@@ -643,6 +686,10 @@ msgid "Send from file"
 msgstr "Sende SMS aus Datei"
 
 msgid "Send from file has been cancelled"
+msgstr "Sende aus Datei wurde abgebrochen"
+
+#, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr "Sende aus Datei wurde abgebrochen"
 
 msgid "Sender ID"
@@ -739,6 +786,13 @@ msgstr "Benutzername"
 msgid "Username %s with account ID %d has requested approval for sender ID %s"
 msgstr ""
 
+#, fuzzy
+msgid "Valid entries"
+msgstr "Gültige Einträge"
+
+msgid "Verification results"
+msgstr ""
+
 msgid "Version"
 msgstr ""
 
@@ -780,11 +834,12 @@ msgstr "Format: Zielrufnummer, Nachricht"
 msgid "destination number, message, username"
 msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
 
+#, fuzzy
+msgid "discharged entries"
+msgstr "Ungültige Einträge"
+
 msgid "group"
 msgstr "Gruppe"
-
-msgid "invalid entries"
-msgstr "Ungültige Einträge"
 
 msgid "no"
 msgstr "nein"

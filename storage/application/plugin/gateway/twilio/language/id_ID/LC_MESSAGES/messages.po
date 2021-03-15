@@ -57,11 +57,5 @@ msgstr "twilio URL"
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Callback URL seharusnya dapat diakses oleh Twilio"
 
-msgid "free credits are available for testing purposes"
-msgstr "Kredit gratis tersedia untuk tujuan percobaan"
-
-msgid "twilio is a bulk SMS provider"
-msgstr "Twilio adalah penyedia SMS bulk"
-
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr "Twilio akan mengirim DLR dan SMS yang masuk ke URL callback anda"

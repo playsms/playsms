@@ -136,6 +136,9 @@ msgstr "حفظ"
 msgid "Select"
 msgstr "اختيار"
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Selected contact has been deleted"
 msgstr "تم حذف المحدد"
 

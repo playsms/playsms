@@ -16,19 +16,25 @@ msgstr ""
 msgid "Buy"
 msgstr ""
 
+msgid "Card"
+msgstr ""
+
+msgid "Charge"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
 msgid "Compose message"
 msgstr ""
 
+msgid "Confirmation"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
-
-msgid "Delete user"
 msgstr ""
 
 msgid "Download"
@@ -106,10 +112,10 @@ msgstr ""
 msgid "Manage ACL"
 msgstr ""
 
-msgid "Manage account"
+msgid "Manage SMSC"
 msgstr ""
 
-msgid "Manage gateway and SMSC"
+msgid "Manage account"
 msgstr ""
 
 msgid "Manage sender ID"
@@ -142,6 +148,12 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
+msgid "Rate"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
+
 msgid "Recover password"
 msgstr ""
 
@@ -152,6 +164,9 @@ msgid "Register"
 msgstr ""
 
 msgid "Register an account"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Reply"

@@ -10,9 +10,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr ""
-
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -45,6 +42,10 @@ msgstr "Нижний колонтитул. Измените на страниц�
 
 msgid "Buy credit page"
 msgstr "Страница покупки"
+
+#, fuzzy
+msgid "Default ACL during account registration"
+msgstr "Тип пользователя при регистрации"
 
 #, fuzzy
 msgid "Default ACL upon registration"

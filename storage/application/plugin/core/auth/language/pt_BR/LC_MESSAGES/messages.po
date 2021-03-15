@@ -11,6 +11,9 @@ msgstr "A conta foi adicionada e a senha foi enviada para o e-mail"
 msgid "Account has been added but failed to send email"
 msgstr "A conta foi criada, mas houve falha ao enviar email"
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr "Crédito"
 

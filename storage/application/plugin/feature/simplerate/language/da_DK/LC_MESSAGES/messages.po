@@ -15,29 +15,117 @@ msgstr ""
 msgid "Action"
 msgstr "Handling"
 
+#, fuzzy
+msgid "Add card"
+msgstr "Tilføj takst"
+
 msgid "Add rate"
 msgstr "Tilføj takst"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "Tilføj takst"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "Er du sikker på at du ønsker at slette takst?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "Er du sikker på at du ønsker at slette takst?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Er du sikker på at du ønsker at slette takst?"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "Taksten er allerede tilføjet"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "Taksten er blevet slettet"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "Taksten er blevet slettet"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "Destination"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "Rediger takst"
+
 msgid "Edit rate"
 msgstr "Rediger takst"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Kunne ikke gemme rate"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Kunne ikke gemme rate"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "Kunne ikke slette rate"
 
-msgid "Fail to save rate"
-msgstr "Kunne ikke gemme rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "Kunne ikke slette rate"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Kunne ikke slette rate"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Håndter SMS rate"
 
-msgid "No changes made!"
-msgstr "Ingen ændringer foretaget!"
+#, fuzzy
+msgid "Manage card"
+msgstr "Håndter SMS rate"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Håndter SMS rate"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Håndter SMS rate"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Præfiks"
@@ -45,26 +133,60 @@ msgstr "Præfiks"
 msgid "Rate"
 msgstr "Takst"
 
-msgid "Rate already exists"
-msgstr "Taksten eksisterer allerede"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "Taksten er allerede tilføjet"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "Taksten er blevet slettet"
 
-msgid "Rate has been saved"
-msgstr "Taksten er blevet gemt"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "Taksten er blevet slettet"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "Taksten er blevet slettet"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "Gem"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "Taksten er allerede tilføjet"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "Taksten er blevet gemt"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
 
-msgid "destination"
-msgstr "destination"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "præfiks"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

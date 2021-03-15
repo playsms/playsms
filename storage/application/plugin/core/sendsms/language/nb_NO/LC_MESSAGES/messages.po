@@ -94,6 +94,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr "Unicode-melding"
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "You must select receiver and your message should not be empty"
 msgstr "Du må velge en mottager og meldingen din kan ikke være tom"
 

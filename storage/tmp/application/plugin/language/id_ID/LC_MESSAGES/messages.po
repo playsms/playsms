@@ -1,10 +1,15 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: id_ID\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
+msgid "-"
+msgstr ""
 
 msgid "1 Day"
 msgstr ""
@@ -25,9 +30,6 @@ msgid "6 Months"
 msgstr ""
 
 msgid "ACL"
-msgstr ""
-
-msgid "ACL DEFAULT will not restrict access to menus"
 msgstr ""
 
 msgid "ACL ID"
@@ -55,6 +57,9 @@ msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
+msgstr ""
+
+msgid "Access Control List membership"
 msgstr ""
 
 msgid ""
@@ -163,6 +168,10 @@ msgstr ""
 msgid "Add blocked mobile numbers"
 msgstr ""
 
+#, fuzzy
+msgid "Add card"
+msgstr "Tambah tarif"
+
 msgid "Add catch-all"
 msgstr "Tambah kotak tangkap semua"
 
@@ -211,6 +220,10 @@ msgstr ""
 
 msgid "Add subuser"
 msgstr ""
+
+#, fuzzy
+msgid "Add user"
+msgstr "Tambah tarif"
 
 msgid "Additional URL parameter"
 msgstr "Parameter URL tambahan"
@@ -336,13 +349,18 @@ msgstr ""
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "Anda yakin ingin menghapus layanan SMS berlangganan?"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "Anda yakin ingin menghapus tarif?"
+
 msgid "Are you sure you want to delete choice ?"
 msgstr "Anda yakin ingin menghapus pilihan?"
 
 msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr "Anda yakin ingin menghapus tarif?"
 
 msgid "Are you sure you want to delete sender ID"
@@ -386,6 +404,10 @@ msgstr ""
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Anda yakin ingin menghapus tarif?"
 
 msgid "Are you sure you want to unban account"
 msgstr ""
@@ -451,6 +473,32 @@ msgid "Cannot change status when user have subusers"
 msgstr ""
 
 msgid "Cannot find PHP PEAR-DB"
+msgstr ""
+
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "Tarif telah ditambahkan"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "Tarif telah dihapus"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "Tarif telah dihapus"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
 msgstr ""
 
 msgid "Catch-all"
@@ -535,9 +583,6 @@ msgstr ""
 msgid "Core"
 msgstr ""
 
-msgid "Count"
-msgstr ""
-
 msgid "Country"
 msgstr ""
 
@@ -569,9 +614,6 @@ msgstr ""
 msgid "Custom URL"
 msgstr "URL SMS kustom"
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "DLR mask"
 msgstr ""
 
@@ -595,6 +637,9 @@ msgid ""
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Default ACL during account registration"
 msgstr ""
 
 msgid "Default ACL upon registration"
@@ -668,9 +713,6 @@ msgstr "Hapus grup kotak masuk"
 msgid "Delete member"
 msgstr "Hapus anggota"
 
-msgid "Delete user"
-msgstr ""
-
 msgid "Deleted"
 msgstr ""
 
@@ -701,6 +743,10 @@ msgstr ""
 
 msgid "Disallowed URLs"
 msgstr ""
+
+#, fuzzy
+msgid "Discharged entries"
+msgstr "entri tidak valid"
 
 msgid "Domain"
 msgstr ""
@@ -744,6 +790,10 @@ msgstr "Ubah langganan SMS"
 
 msgid "Edit SMSC"
 msgstr ""
+
+#, fuzzy
+msgid "Edit card"
+msgstr "Ubah tarif"
 
 msgid "Edit contact"
 msgstr "Ubah kontak"
@@ -845,6 +895,15 @@ msgstr ""
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
 msgid "Example"
 msgstr ""
 
@@ -888,6 +947,10 @@ msgstr "Gagal menambah kuis SMS"
 msgid "Fail to add SMS subscribe"
 msgstr "Gagal tambah layanan SMS berlangganan"
 
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Gagal menyimpan tarif"
+
 msgid "Fail to add catch-all"
 msgstr "Gagal untuk menambahkan kotak tangkap semua"
 
@@ -918,9 +981,21 @@ msgstr ""
 msgid "Fail to add new destination"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Gagal menyimpan tarif"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Gagal menyimpan tarif"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -943,6 +1018,10 @@ msgstr "Gagal menghapus pilihan poling SMS"
 msgid "Fail to delete SMS schedule"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
+msgstr "Gagal menghapus tarif"
+
 msgid "Fail to delete catch-all"
 msgstr "Gagal menghapus kotak tangkap semua"
 
@@ -958,12 +1037,16 @@ msgstr "Gagal menghapus grup kotak masuk"
 msgid "Fail to delete member"
 msgstr "Gagal untuk menghapus anggota"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
 msgstr "Gagal menghapus tarif"
 
 #, fuzzy
 msgid "Fail to delete route"
 msgstr "Gagal menghapus tarif"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr "Gagal menonaktifkan grup kotak masuk"
@@ -1019,6 +1102,10 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr "Gagal menyimpan perintah SMS"
 
@@ -1037,9 +1124,6 @@ msgstr ""
 msgid "Fail to save preferences"
 msgstr ""
 
-msgid "Fail to save rate"
-msgstr "Gagal menyimpan tarif"
-
 #, fuzzy
 msgid "Fail to save route"
 msgstr "Gagal menyimpan tarif"
@@ -1056,6 +1140,10 @@ msgstr "Gagal simulasikan SMS masuk"
 #, fuzzy
 msgid "Fail to update SMS autoreply"
 msgstr "Gagal menghapus layanan balas SMS otomatis"
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Gagal menghapus tarif"
 
 msgid "Fail to update due to invalid sender ID"
 msgstr ""
@@ -1129,7 +1217,16 @@ msgstr "Teruskan ke email"
 msgid "Forwarded email footer"
 msgstr ""
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "Kirim SMS ke entri yang valid"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "Ditemukan entri yang tidak valid dalam file yang diunggah"
 
 msgid "Found valid entries in uploaded file"
@@ -1290,9 +1387,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr "URL Infobip API"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip adalah penyedia SMS bulk"
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -1310,12 +1404,6 @@ msgstr ""
 
 msgid "Invalid"
 msgstr ""
-
-msgid "Invalid CSV file"
-msgstr "File CSV tidak valid"
-
-msgid "Invalid entries"
-msgstr "Entri tidak valid"
 
 msgid "Invalid sender ID"
 msgstr ""
@@ -1498,6 +1586,9 @@ msgstr "Pengaturan nexmo"
 msgid "Manage SMS rate"
 msgstr "Pengaturan tarif SMS"
 
+msgid "Manage SMSC"
+msgstr ""
+
 msgid "Manage account"
 msgstr ""
 
@@ -1510,6 +1601,10 @@ msgstr "Pengaturan dev"
 
 msgid "Manage board"
 msgstr "Pengaturan papan SMS"
+
+#, fuzzy
+msgid "Manage card"
+msgstr "Pengaturan tarif SMS"
 
 msgid "Manage command"
 msgstr "Pengaturan perintah SMS"
@@ -1531,9 +1626,6 @@ msgstr ""
 
 msgid "Manage gammu"
 msgstr "Pengaturan gammu"
-
-msgid "Manage gateway and SMSC"
-msgstr ""
 
 msgid "Manage generic"
 msgstr ""
@@ -1561,6 +1653,10 @@ msgstr "Pengaturan layanan poling SMS"
 
 msgid "Manage quiz"
 msgstr "Pengaturan kuis SMS"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Pengaturan tarif SMS"
 
 msgid "Manage schedule"
 msgstr ""
@@ -1591,6 +1687,10 @@ msgstr "Pengaturan twilio"
 
 msgid "Manage uplink"
 msgstr "Pengaturan uplink"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Pengaturan tarif SMS"
 
 msgid "Mandatory fields must not be empty"
 msgstr ""
@@ -1729,6 +1829,9 @@ msgstr ""
 msgid "Multiple entries separated by comma"
 msgstr ""
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My account"
 msgstr ""
 
@@ -1789,9 +1892,6 @@ msgstr "Tidak ada perubahan"
 msgid "No changes made"
 msgstr ""
 
-msgid "No changes made!"
-msgstr "Tidak ada perubahan yang dilakukan!"
-
 #, fuzzy
 msgid "No group"
 msgstr "grup"
@@ -1802,6 +1902,10 @@ msgstr ""
 msgid "No trailing slash"
 msgstr "Tanpa garis miring"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "Ditemukan entri yang valid dalam file yang diunggah"
+
 msgid "No validate cert option"
 msgstr ""
 
@@ -1810,6 +1914,9 @@ msgstr ""
 
 msgid "Notes"
 msgstr "Catatan"
+
+msgid "Nothing to export"
+msgstr ""
 
 msgid "Number"
 msgstr "Nomor"
@@ -1839,7 +1946,7 @@ msgid "Options"
 msgstr ""
 
 msgid "PHP serialize output"
-msgstr "Keluaran PHO serialize"
+msgstr "Keluaran PHP serialize"
 
 msgid "PIN for email to SMS"
 msgstr ""
@@ -1968,6 +2075,9 @@ msgstr ""
 msgid "Question"
 msgstr "Pertanyaan"
 
+msgid "Queue"
+msgstr ""
+
 msgid "Queue Code"
 msgstr "Kode antrian"
 
@@ -1992,17 +2102,31 @@ msgstr "Keluaran ATOM"
 msgid "Rate"
 msgstr "Tarif"
 
-msgid "Rate already exists"
-msgstr "Tarif telah ada sebelumnya"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "Tarif telah ditambahkan"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "Tarif telah dihapus"
 
-msgid "Rate has been saved"
-msgstr "Tarif telah disimpan"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "Tarif telah dihapus"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "Tarif telah dihapus"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
 
 msgid "Re-type password"
 msgstr ""
@@ -2075,6 +2199,9 @@ msgid "Remote playnet password"
 msgstr ""
 
 msgid "Remote playnet username"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Renew webservices token"
@@ -2284,14 +2411,11 @@ msgstr ""
 msgid "SMS forward parameter"
 msgstr "Parameter teruskan SMS"
 
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"
-
 msgid "SMS is case-insensitive"
 msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "Kata kunci SMS sudah digunakan atau dipesan oleh fitur lain"
+msgstr "Kata kunci SMS sudah dipesan atau digunakan oleh fitur lain"
 
 msgid "SMS messages list for keyword"
 msgstr "Kata kunci untuk daftar pesan SMS"
@@ -2391,6 +2515,10 @@ msgstr "Status SMS berlangganan telah diganti"
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "SMS berlangganan beserta semua pesan dan anggotanya telah dihapus"
 
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"
+
 msgid "SMS unsubscribe parameter"
 msgstr "Balasan SMS tidak berlangganan"
 
@@ -2455,6 +2583,9 @@ msgid "Select"
 msgstr ""
 
 msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
+msgid "Select page size"
 msgstr ""
 
 msgid "Select receiver"
@@ -2522,6 +2653,10 @@ msgid "Send from file"
 msgstr "Kirim dari file"
 
 msgid "Send from file has been cancelled"
+msgstr "Kirim dari file telah dibatalkan"
+
+#, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr "Kirim dari file telah dibatalkan"
 
 #, php-format
@@ -2787,6 +2922,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr ""
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
@@ -2824,6 +2962,14 @@ msgstr ""
 msgid "User"
 msgstr "Pengguna"
 
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "Tarif telah ditambahkan"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "Tarif telah disimpan"
+
 msgid "User ID"
 msgstr ""
 
@@ -2860,6 +3006,10 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "User preference"
 msgstr ""
 
@@ -2888,6 +3038,13 @@ msgid "Valid"
 msgstr ""
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
+#, fuzzy
+msgid "Valid entries"
+msgstr "entri valid"
+
+msgid "Verification results"
 msgstr ""
 
 msgid "Verify captcha"
@@ -2976,7 +3133,7 @@ msgid "You have reached lowest credit limit of %s"
 msgstr ""
 
 msgid "You must fill all field"
-msgstr "Anda harus mengisi semua isian"
+msgstr "Anda harus mengisi semua kolom"
 
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
@@ -2998,6 +3155,9 @@ msgstr "Anda harus mengisi semua isian"
 msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
+msgid "You must select user"
+msgstr ""
+
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
@@ -3009,7 +3169,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"
 
 msgid "Your callback URL is"
-msgstr "URL callback anda adalah"
+msgstr "URL balasan anda adalah"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr ""
@@ -3081,9 +3241,6 @@ msgstr "kode"
 msgid "correct"
 msgstr "benar"
 
-msgid "create an account to send SMS"
-msgstr ""
-
 msgid "destination"
 msgstr "tujuan"
 
@@ -3094,6 +3251,10 @@ msgstr "Format: nomor tujuan, pesan"
 #, fuzzy
 msgid "destination number, message, username"
 msgstr "Format: nomor tujuan, pesan, nama pengguna"
+
+#, fuzzy
+msgid "discharged entries"
+msgstr "entri tidak valid"
 
 msgid "domain"
 msgstr ""
@@ -3116,8 +3277,16 @@ msgstr "grup"
 msgid "incorrect"
 msgstr "salah"
 
-msgid "invalid entries"
-msgstr "entri tidak valid"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""
 
 msgid "keyword"
 msgstr "kata kunci"
@@ -3164,9 +3333,6 @@ msgstr ""
 
 msgid "return"
 msgstr ""
-
-msgid "twilio is a bulk SMS provider"
-msgstr "Twilio adalah penyedia SMS bulk"
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr "Twilio akan mengirim DLR dan SMS yang masuk ke URL callback anda"

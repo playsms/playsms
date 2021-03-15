@@ -97,7 +97,7 @@ switch (_OP_) {
 				'THEMES_MODULE' => core_themes_get(),
 				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users'),
 				'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm'),
-				'HINT_UNICODE_MESSAGE' => _hint('Unicode message detected automatically'),
+				'HINT_UNICODE_MESSAGE' => _hint(_('Unicode message detected automatically')),
 				'sms_from' => $sms_from,
 				'sms_footer' => $sms_footer,
 				'to' => $to,

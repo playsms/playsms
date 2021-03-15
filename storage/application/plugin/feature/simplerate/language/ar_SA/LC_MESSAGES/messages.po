@@ -17,29 +17,117 @@ msgstr ""
 msgid "Action"
 msgstr "إجراءات"
 
+#, fuzzy
+msgid "Add card"
+msgstr "إضافة تعرفة"
+
 msgid "Add rate"
 msgstr "إضافة تعرفة"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "إضافة تعرفة"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "هل تود بالتأكيد حذف هذه التعرفة؟"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "هل تود بالتأكيد حذف هذه التعرفة؟"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "هل تود بالتأكيد حذف هذه التعرفة؟"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "تم إضافة التعرفة"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "تم الحذف"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "تم الحذف"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "الوجهة"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "تعديل التعرفة"
+
 msgid "Edit rate"
 msgstr "تعديل التعرفة"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "فشل حفظ التعرفة"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "فشل حفظ التعرفة"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "فشل حذف التعرفة"
 
-msgid "Fail to save rate"
-msgstr "فشل حفظ التعرفة"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "فشل حذف التعرفة"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "فشل حذف التعرفة"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "إدارة التعرفة"
 
-msgid "No changes made!"
-msgstr "لم يتم إجراء تغييرات!"
+#, fuzzy
+msgid "Manage card"
+msgstr "إدارة التعرفة"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "إدارة التعرفة"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "إدارة التعرفة"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "المقدمة"
@@ -47,26 +135,60 @@ msgstr "المقدمة"
 msgid "Rate"
 msgstr "التعرفة"
 
-msgid "Rate already exists"
-msgstr "التعرفة موجودة مسبقًا"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "تم إضافة التعرفة"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "تم الحذف"
 
-msgid "Rate has been saved"
-msgstr "تم الحفظ"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "تم الحذف"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "تم الحذف"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "حفظ"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "تم إضافة التعرفة"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "تم الحفظ"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "يجب ملء كافة الحقول"
 
-msgid "destination"
-msgstr "الوجهة"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "المقدمة"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

@@ -15,29 +15,117 @@ msgstr ""
 msgid "Action"
 msgstr "Действие"
 
+#, fuzzy
+msgid "Add card"
+msgstr "Добавить тариф"
+
 msgid "Add rate"
 msgstr "Добавить тариф"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "Добавить тариф"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "Вы уверены, что хотите удалить тариф?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "Вы уверены, что хотите удалить тариф?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Вы уверены, что хотите удалить тариф?"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "Тариф добавлен"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "Тариф удалён"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "Тариф удалён"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "Назначение"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "Редактировать тариф"
+
 msgid "Edit rate"
 msgstr "Редактировать тариф"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Не удалось сохранить тариф"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Не удалось сохранить тариф"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "Не удалось удалить тариф"
 
-msgid "Fail to save rate"
-msgstr "Не удалось сохранить тариф"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "Не удалось удалить тариф"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Не удалось удалить тариф"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Тарификация"
 
-msgid "No changes made!"
-msgstr "Нет изменений"
+#, fuzzy
+msgid "Manage card"
+msgstr "Тарификация"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Тарификация"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Тарификация"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Префикс"
@@ -45,26 +133,60 @@ msgstr "Префикс"
 msgid "Rate"
 msgstr "Тариф"
 
-msgid "Rate already exists"
-msgstr "Тариф уже существует"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "Тариф добавлен"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "Тариф удалён"
 
-msgid "Rate has been saved"
-msgstr "Тариф сохранён"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "Тариф удалён"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "Тариф удалён"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "Сохранить"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "Тариф добавлен"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "Тариф сохранён"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
-msgid "destination"
-msgstr "назначение"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "префикс"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

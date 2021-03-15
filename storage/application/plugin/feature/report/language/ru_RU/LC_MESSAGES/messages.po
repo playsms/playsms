@@ -47,15 +47,14 @@ msgstr "Список заблокированных пользователей"
 msgid "Billing"
 msgstr "Потрачено"
 
+msgid "Card"
+msgstr ""
+
 msgid "Charge"
 msgstr ""
 
 msgid "Content"
 msgstr "Текст"
-
-#, fuzzy
-msgid "Count"
-msgstr "количество"
 
 msgid "Credit"
 msgstr "Баланс"
@@ -72,6 +71,9 @@ msgstr "Удалено"
 
 msgid "Delivered"
 msgstr "Доставлено"
+
+msgid "Destination"
+msgstr ""
 
 msgid "Email"
 msgstr "Email"
@@ -114,6 +116,9 @@ msgstr ""
 msgid "Message"
 msgstr "Сообщение"
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My credit transactions"
 msgstr "Мои переводы"
 
@@ -127,8 +132,17 @@ msgstr "Мой отчёт"
 msgid "My sent messages"
 msgstr "Сообщение"
 
+msgid "Nothing to export"
+msgstr ""
+
 msgid "Pending"
 msgstr "Ожидает"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Queue"
+msgstr ""
 
 msgid "Rate"
 msgstr ""
@@ -150,6 +164,9 @@ msgstr "SMSC"
 
 msgid "Sandbox"
 msgstr "Необработанные"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Selected incoming message has been deleted"
 msgstr "Выбранное входящее сообщение было удалено"

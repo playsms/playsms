@@ -131,6 +131,9 @@ msgstr "Lagre"
 msgid "Select"
 msgstr "Velg"
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Selected contact has been deleted"
 msgstr "Valgt gruppe har blitt slettet"
 

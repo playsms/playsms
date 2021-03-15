@@ -23,9 +23,6 @@ msgstr "Nama gateway"
 msgid "Infobip API URL"
 msgstr "URL Infobip API"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip adalah penyedia SMS bulk"
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -70,7 +67,4 @@ msgid "Your callback URL is"
 msgstr "URL balasan anda adalah"
 
 msgid "Your callback URL should be accessible from Infobip"
-msgstr ""
-
-msgid "create an account to send SMS"
 msgstr ""

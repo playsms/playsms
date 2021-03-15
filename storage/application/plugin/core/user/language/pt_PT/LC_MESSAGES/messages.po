@@ -15,10 +15,11 @@ msgstr ""
 msgid "ACL"
 msgstr "ACL"
 
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "ACL PADRÃO não vai restringir o acesso aos menus"
-
 msgid "Access Control List"
+msgstr "Lista de controlo de acesso"
+
+#, fuzzy
+msgid "Access Control List membership"
 msgstr "Lista de controlo de acesso"
 
 msgid "Account admin or currently logged in administrator cannot be banned"

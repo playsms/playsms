@@ -1,3 +1,10 @@
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
+msgid "-"
+msgstr ""
+
 msgid "1 Day"
 msgstr ""
 
@@ -17,9 +24,6 @@ msgid "6 Months"
 msgstr ""
 
 msgid "ACL"
-msgstr ""
-
-msgid "ACL DEFAULT will not restrict access to menus"
 msgstr ""
 
 msgid "ACL ID"
@@ -47,6 +51,9 @@ msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
+msgstr ""
+
+msgid "Access Control List membership"
 msgstr ""
 
 msgid ""
@@ -155,6 +162,9 @@ msgstr ""
 msgid "Add blocked mobile numbers"
 msgstr ""
 
+msgid "Add card"
+msgstr ""
+
 msgid "Add catch-all"
 msgstr ""
 
@@ -201,6 +211,9 @@ msgid "Add sender ID"
 msgstr ""
 
 msgid "Add subuser"
+msgstr ""
+
+msgid "Add user"
 msgstr ""
 
 msgid "Additional URL parameter"
@@ -324,13 +337,18 @@ msgstr ""
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr ""
 
+#, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr ""
+
 msgid "Are you sure you want to delete choice ?"
 msgstr ""
 
 msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
-msgid "Are you sure you want to delete rate ?"
+#, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr ""
 
 msgid "Are you sure you want to delete sender ID"
@@ -373,6 +391,10 @@ msgid "Are you sure you want to delete user ?"
 msgstr ""
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove user %s ?"
 msgstr ""
 
 msgid "Are you sure you want to unban account"
@@ -433,6 +455,32 @@ msgid "Cannot change status when user have subusers"
 msgstr ""
 
 msgid "Cannot find PHP PEAR-DB"
+msgstr ""
+
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, php-format
+msgid "Card %s has been added"
+msgstr ""
+
+#, php-format
+msgid "Card %s has been updated"
+msgstr ""
+
+#, php-format
+msgid "Card id:%d has been deleted"
+msgstr ""
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
 msgstr ""
 
 msgid "Catch-all"
@@ -513,9 +561,6 @@ msgstr ""
 msgid "Core"
 msgstr ""
 
-msgid "Count"
-msgstr ""
-
 msgid "Country"
 msgstr ""
 
@@ -546,9 +591,6 @@ msgstr ""
 msgid "Custom URL"
 msgstr ""
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "DLR mask"
 msgstr ""
 
@@ -572,6 +614,9 @@ msgid ""
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Default ACL during account registration"
 msgstr ""
 
 msgid "Default ACL upon registration"
@@ -675,6 +720,9 @@ msgstr ""
 msgid "Disallowed URLs"
 msgstr ""
 
+msgid "Discharged entries"
+msgstr ""
+
 msgid "Domain"
 msgstr ""
 
@@ -709,6 +757,9 @@ msgid "Edit SMS subscribe"
 msgstr ""
 
 msgid "Edit SMSC"
+msgstr ""
+
+msgid "Edit card"
 msgstr ""
 
 msgid "Edit contact"
@@ -810,6 +861,15 @@ msgstr ""
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
 msgid "Example"
 msgstr ""
 
@@ -849,6 +909,10 @@ msgstr ""
 msgid "Fail to add SMS subscribe"
 msgstr ""
 
+#, php-format
+msgid "Fail to add card %s"
+msgstr ""
+
 msgid "Fail to add catch-all"
 msgstr ""
 
@@ -879,7 +943,19 @@ msgstr ""
 msgid "Fail to add new destination"
 msgstr ""
 
+#, php-format
+msgid "Fail to add rate %s"
+msgstr ""
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 msgid "Fail to add route"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -903,6 +979,10 @@ msgstr ""
 msgid "Fail to delete SMS schedule"
 msgstr ""
 
+#, php-format
+msgid "Fail to delete card id:%d"
+msgstr ""
+
 msgid "Fail to delete catch-all"
 msgstr ""
 
@@ -918,10 +998,14 @@ msgstr ""
 msgid "Fail to delete member"
 msgstr ""
 
-msgid "Fail to delete rate"
+#, php-format
+msgid "Fail to delete rate id:%d"
 msgstr ""
 
 msgid "Fail to delete route"
+msgstr ""
+
+msgid "Fail to deliver uploaded SMS to queue"
 msgstr ""
 
 msgid "Fail to disable group inbox"
@@ -978,6 +1062,10 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr ""
 
@@ -996,9 +1084,6 @@ msgstr ""
 msgid "Fail to save preferences"
 msgstr ""
 
-msgid "Fail to save rate"
-msgstr ""
-
 msgid "Fail to save route"
 msgstr ""
 
@@ -1012,6 +1097,10 @@ msgid "Fail to simulate incoming SMS"
 msgstr ""
 
 msgid "Fail to update SMS autoreply"
+msgstr ""
+
+#, php-format
+msgid "Fail to update card %s"
 msgstr ""
 
 msgid "Fail to update due to invalid sender ID"
@@ -1086,7 +1175,15 @@ msgstr ""
 msgid "Forwarded email footer"
 msgstr ""
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, php-format
+msgid "Found %d of %d valid entries"
+msgstr ""
+
+msgid "Found discharged entries in uploaded file"
 msgstr ""
 
 msgid "Found valid entries in uploaded file"
@@ -1231,9 +1328,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr ""
 
-msgid "Infobip is a bulk SMS provider"
-msgstr ""
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -1250,12 +1344,6 @@ msgid "Internal error please contact service provider"
 msgstr ""
 
 msgid "Invalid"
-msgstr ""
-
-msgid "Invalid CSV file"
-msgstr ""
-
-msgid "Invalid entries"
 msgstr ""
 
 msgid "Invalid sender ID"
@@ -1418,6 +1506,9 @@ msgstr ""
 msgid "Manage SMS rate"
 msgstr ""
 
+msgid "Manage SMSC"
+msgstr ""
+
 msgid "Manage account"
 msgstr ""
 
@@ -1428,6 +1519,9 @@ msgid "Manage blocked"
 msgstr ""
 
 msgid "Manage board"
+msgstr ""
+
+msgid "Manage card"
 msgstr ""
 
 msgid "Manage command"
@@ -1449,9 +1543,6 @@ msgid "Manage firewall"
 msgstr ""
 
 msgid "Manage gammu"
-msgstr ""
-
-msgid "Manage gateway and SMSC"
 msgstr ""
 
 msgid "Manage generic"
@@ -1479,6 +1570,9 @@ msgid "Manage poll"
 msgstr ""
 
 msgid "Manage quiz"
+msgstr ""
+
+msgid "Manage rate"
 msgstr ""
 
 msgid "Manage schedule"
@@ -1509,6 +1603,9 @@ msgid "Manage twilio"
 msgstr ""
 
 msgid "Manage uplink"
+msgstr ""
+
+msgid "Manage user"
 msgstr ""
 
 msgid "Mandatory fields must not be empty"
@@ -1644,6 +1741,9 @@ msgstr ""
 msgid "Multiple entries separated by comma"
 msgstr ""
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My credit transactions"
 msgstr ""
 
@@ -1701,9 +1801,6 @@ msgstr ""
 msgid "No changes made"
 msgstr ""
 
-msgid "No changes made!"
-msgstr ""
-
 msgid "No group"
 msgstr ""
 
@@ -1713,6 +1810,10 @@ msgstr ""
 msgid "No trailing slash"
 msgstr ""
 
+#, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr ""
+
 msgid "No validate cert option"
 msgstr ""
 
@@ -1720,6 +1821,9 @@ msgid "None"
 msgstr ""
 
 msgid "Notes"
+msgstr ""
+
+msgid "Nothing to export"
 msgstr ""
 
 msgid "Number"
@@ -1865,6 +1969,9 @@ msgstr ""
 msgid "Question"
 msgstr ""
 
+msgid "Queue"
+msgstr ""
+
 msgid "Queue Code"
 msgstr ""
 
@@ -1889,16 +1996,27 @@ msgstr ""
 msgid "Rate"
 msgstr ""
 
-msgid "Rate already exists"
+#, php-format
+msgid "Rate %s has been added"
 msgstr ""
 
-msgid "Rate has been added"
+#, php-format
+msgid "Rate %s has been updated"
 msgstr ""
 
-msgid "Rate has been deleted"
+#, php-format
+msgid "Rate %s is not updated"
 msgstr ""
 
-msgid "Rate has been saved"
+#, php-format
+msgid "Rate id:%d has been deleted"
+msgstr ""
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
 msgstr ""
 
 msgid "Re-type password"
@@ -2158,9 +2276,6 @@ msgstr ""
 msgid "SMS forward parameter"
 msgstr ""
 
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr ""
-
 msgid "SMS is case-insensitive"
 msgstr ""
 
@@ -2263,6 +2378,9 @@ msgstr ""
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr ""
 
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr ""
+
 msgid "SMS unsubscribe parameter"
 msgstr ""
 
@@ -2329,6 +2447,9 @@ msgstr ""
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Select receiver"
 msgstr ""
 
@@ -2393,6 +2514,10 @@ msgid "Send from file"
 msgstr ""
 
 msgid "Send from file has been cancelled"
+msgstr ""
+
+#, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr ""
 
 #, php-format
@@ -2651,6 +2776,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr ""
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
@@ -2679,6 +2807,14 @@ msgid "Use SSL"
 msgstr ""
 
 msgid "User"
+msgstr ""
+
+#, php-format
+msgid "User %s has been added"
+msgstr ""
+
+#, php-format
+msgid "User %s has been removed"
 msgstr ""
 
 msgid "User ID"
@@ -2717,6 +2853,10 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "Username"
 msgstr ""
 
@@ -2742,6 +2882,12 @@ msgid "Valid"
 msgstr ""
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
+msgid "Valid entries"
+msgstr ""
+
+msgid "Verification results"
 msgstr ""
 
 msgid "Verify captcha"
@@ -2847,6 +2993,9 @@ msgstr ""
 msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
+msgid "You must select user"
+msgstr ""
+
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
@@ -2925,9 +3074,6 @@ msgstr ""
 msgid "correct"
 msgstr ""
 
-msgid "create an account to send SMS"
-msgstr ""
-
 msgid "destination"
 msgstr ""
 
@@ -2935,6 +3081,9 @@ msgid "destination number, message"
 msgstr ""
 
 msgid "destination number, message, username"
+msgstr ""
+
+msgid "discharged entries"
 msgstr ""
 
 msgid "domain"
@@ -2958,7 +3107,15 @@ msgstr ""
 msgid "incorrect"
 msgstr ""
 
-msgid "invalid entries"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
 msgstr ""
 
 msgid "keyword"
@@ -3001,9 +3158,6 @@ msgid "queue"
 msgstr ""
 
 msgid "queued"
-msgstr ""
-
-msgid "twilio is a bulk SMS provider"
 msgstr ""
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"

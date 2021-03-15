@@ -135,6 +135,9 @@ msgstr "Gem"
 msgid "Select"
 msgstr "Vælg"
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Selected contact has been deleted"
 msgstr "Valgt kontakt er blevet slettet"
 

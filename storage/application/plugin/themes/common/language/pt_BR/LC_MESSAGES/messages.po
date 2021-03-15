@@ -24,20 +24,27 @@ msgstr "Banir"
 msgid "Buy"
 msgstr "Comprar"
 
+msgid "Card"
+msgstr ""
+
+msgid "Charge"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 
 msgid "Compose message"
 msgstr "Compor mensagem"
 
+#, fuzzy
+msgid "Confirmation"
+msgstr "Configuração principal"
+
 msgid "Credit"
 msgstr ""
 
 msgid "Delete"
 msgstr "Excluir"
-
-msgid "Delete user"
-msgstr "Excluir usurio"
 
 msgid "Download"
 msgstr ""
@@ -116,11 +123,12 @@ msgstr "Gerenciar"
 msgid "Manage ACL"
 msgstr "Gerenciar Regras"
 
+#, fuzzy
+msgid "Manage SMSC"
+msgstr "Gerenciar Regras"
+
 msgid "Manage account"
 msgstr "Gerenciar Contas"
-
-msgid "Manage gateway and SMSC"
-msgstr "Gerenciar Gateway e SMSC"
 
 msgid "Manage sender ID"
 msgstr "Gerenciar ID de destinatário"
@@ -152,6 +160,12 @@ msgstr "Online"
 msgid "Preferences"
 msgstr "Preferências"
 
+msgid "Rate"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
+
 msgid "Recover password"
 msgstr ""
 
@@ -164,6 +178,9 @@ msgstr ""
 #, fuzzy
 msgid "Register an account"
 msgstr "Gerenciar Contas"
+
+msgid "Remove"
+msgstr ""
 
 msgid "Reply"
 msgstr "Responder"

@@ -135,6 +135,9 @@ msgstr "Сохранить"
 msgid "Select"
 msgstr "Выберите"
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Selected contact has been deleted"
 msgstr "Выбранные контакты удалены"
 

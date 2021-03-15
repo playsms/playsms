@@ -8,29 +8,117 @@ msgstr ""
 msgid "Action"
 msgstr "Acción"
 
+#, fuzzy
+msgid "Add card"
+msgstr "Añadir tarifa"
+
 msgid "Add rate"
 msgstr "Añadir tarifa"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "Añadir tarifa"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "La tarifa ha sido añadida"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "La tarifa ha sido eliminada"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "Destino"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "Editar tarifa"
+
 msgid "Edit rate"
 msgstr "Editar tarifa"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Fallo al eliminar la tarifa"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Fallo al eliminar la tarifa"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "Fallo al borrar la tarifa"
 
-msgid "Fail to save rate"
-msgstr "Fallo al eliminar la tarifa"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "Fallo al borrar la tarifa"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Fallo al borrar la tarifa"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Administración de tarifas deSMS"
 
-msgid "No changes made!"
-msgstr "No se efectuaron cambios!"
+#, fuzzy
+msgid "Manage card"
+msgstr "Administración de tarifas deSMS"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Administración de tarifas deSMS"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Administración de tarifas deSMS"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Prefijo"
@@ -38,26 +126,60 @@ msgstr "Prefijo"
 msgid "Rate"
 msgstr "Tarifa"
 
-msgid "Rate already exists"
-msgstr "Tarifa ya existe "
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "La tarifa ha sido añadida"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "La tarifa ha sido eliminada"
 
-msgid "Rate has been saved"
-msgstr "La tarifa se ha guardado"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "La tarifa ha sido eliminada"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "La tarifa ha sido añadida"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "La tarifa se ha guardado"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
 
-msgid "destination"
-msgstr "destino"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "prefijo"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

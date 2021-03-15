@@ -31,13 +31,13 @@ msgstr ""
 msgid "Billing"
 msgstr ""
 
+msgid "Card"
+msgstr ""
+
 msgid "Charge"
 msgstr ""
 
 msgid "Content"
-msgstr ""
-
-msgid "Count"
 msgstr ""
 
 msgid "Credit"
@@ -53,6 +53,9 @@ msgid "Deleted"
 msgstr ""
 
 msgid "Delivered"
+msgstr ""
+
+msgid "Destination"
 msgstr ""
 
 msgid "Email"
@@ -96,6 +99,9 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My credit transactions"
 msgstr ""
 
@@ -108,7 +114,16 @@ msgstr ""
 msgid "My sent messages"
 msgstr ""
 
+msgid "Nothing to export"
+msgstr ""
+
 msgid "Pending"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Queue"
 msgstr ""
 
 msgid "Rate"
@@ -130,6 +145,9 @@ msgid "SMSC"
 msgstr ""
 
 msgid "Sandbox"
+msgstr ""
+
+msgid "Select page size"
 msgstr ""
 
 msgid "Selected incoming message has been deleted"

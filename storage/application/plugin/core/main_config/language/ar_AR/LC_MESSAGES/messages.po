@@ -1,6 +1,3 @@
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr ""
-
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -28,6 +25,9 @@ msgid ""
 msgstr ""
 
 msgid "Buy credit page"
+msgstr ""
+
+msgid "Default ACL during account registration"
 msgstr ""
 
 msgid "Default ACL upon registration"

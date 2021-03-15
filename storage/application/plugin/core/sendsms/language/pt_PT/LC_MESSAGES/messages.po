@@ -98,6 +98,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr "Mensagem Unicode"
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "You must select receiver and your message should not be empty"
 msgstr "Tem que selecionar um destinatário e a mensagem não pode estar vazia"
 

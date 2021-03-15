@@ -12,6 +12,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
+msgid "-"
+msgstr ""
+
 msgid "ACL ID"
 msgstr "ACL ID"
 
@@ -38,9 +41,6 @@ msgstr "Separados por vírgula para múltiplas entradas"
 
 msgid "Credit"
 msgstr "Créditos"
-
-msgid "DEFAULT"
-msgstr "Padrão"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"

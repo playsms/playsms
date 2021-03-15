@@ -41,7 +41,8 @@ msgstr "Gateways"
 msgid "List of gateways and SMSCs"
 msgstr "Liste over gateway og SMSCer"
 
-msgid "Manage gateway and SMSC"
+#, fuzzy
+msgid "Manage SMSC"
 msgstr "Håndter gateway og SMSC"
 
 msgid "Name"

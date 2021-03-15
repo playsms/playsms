@@ -23,9 +23,6 @@ msgstr "Nome do gateway"
 msgid "Infobip API URL"
 msgstr "URL da API do infobip"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip é um provedor de SMS em massa"
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip irá enviar DLR e SMS recebidos para a URL acima"
 
@@ -68,6 +65,3 @@ msgstr "Sua URL de callback é"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Sua URL de callback deve ser acessível pelo Infobip"
-
-msgid "create an account to send SMS"
-msgstr "criar uma conta para enviar SMS"

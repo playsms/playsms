@@ -47,13 +47,13 @@ msgstr ""
 msgid "Billing"
 msgstr "Facturació"
 
+msgid "Card"
+msgstr ""
+
 msgid "Charge"
 msgstr ""
 
 msgid "Content"
-msgstr ""
-
-msgid "Count"
 msgstr ""
 
 msgid "Credit"
@@ -70,6 +70,9 @@ msgstr "Esborrats"
 
 msgid "Delivered"
 msgstr "Entregats"
+
+msgid "Destination"
+msgstr ""
 
 msgid "Email"
 msgstr ""
@@ -112,6 +115,9 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My credit transactions"
 msgstr ""
 
@@ -124,8 +130,17 @@ msgstr "El meu informe"
 msgid "My sent messages"
 msgstr ""
 
+msgid "Nothing to export"
+msgstr ""
+
 msgid "Pending"
 msgstr "Pendents"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Queue"
+msgstr ""
 
 msgid "Rate"
 msgstr ""
@@ -146,6 +161,9 @@ msgid "SMSC"
 msgstr ""
 
 msgid "Sandbox"
+msgstr ""
+
+msgid "Select page size"
 msgstr ""
 
 msgid "Selected incoming message has been deleted"

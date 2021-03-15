@@ -119,6 +119,9 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Selected contact has been deleted"
 msgstr ""
 

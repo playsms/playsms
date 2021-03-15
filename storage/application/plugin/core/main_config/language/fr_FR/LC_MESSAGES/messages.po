@@ -3,9 +3,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "L'ACL DÉFAUT ne restreindra pas l'accès aux menus"
-
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -43,6 +40,10 @@ msgstr ""
 
 msgid "Buy credit page"
 msgstr "Page Ajouter du crédit"
+
+#, fuzzy
+msgid "Default ACL during account registration"
+msgstr "ACL par défaut lors de l'inscription"
 
 msgid "Default ACL upon registration"
 msgstr "ACL par défaut lors de l'inscription"

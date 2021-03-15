@@ -8,10 +8,11 @@ msgstr ""
 msgid "ACL"
 msgstr "Regra"
 
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "A Regra Padrão não permite acesso aos menus"
-
 msgid "Access Control List"
+msgstr "Regras de Acesso"
+
+#, fuzzy
+msgid "Access Control List membership"
 msgstr "Regras de Acesso"
 
 msgid "Account admin or currently logged in administrator cannot be banned"

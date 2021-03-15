@@ -61,12 +61,6 @@ msgstr "URL de twilio"
 msgid "Your callback URL should be accessible from twilio"
 msgstr "Votre URL de callback doit être accessible par twilio"
 
-msgid "free credits are available for testing purposes"
-msgstr "des crédits gratuits sont disponibles à des fins de test"
-
-msgid "twilio is a bulk SMS provider"
-msgstr "twilio est un fournisseur de SMS en gros"
-
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""
 "twilio va faire un push du DLR et du SMS entrant vers votre URL de callback"

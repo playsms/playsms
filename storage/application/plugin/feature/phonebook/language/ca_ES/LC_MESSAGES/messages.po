@@ -138,6 +138,9 @@ msgstr "Guardar"
 msgid "Select"
 msgstr "Seleccionar"
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Selected contact has been deleted"
 msgstr "El contacte marcat s'ha esborrat"
 

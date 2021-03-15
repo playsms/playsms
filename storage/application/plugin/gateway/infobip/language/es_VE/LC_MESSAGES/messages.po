@@ -23,9 +23,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr ""
 
-msgid "Infobip is a bulk SMS provider"
-msgstr ""
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -66,7 +63,4 @@ msgid "Your callback URL is"
 msgstr ""
 
 msgid "Your callback URL should be accessible from Infobip"
-msgstr ""
-
-msgid "create an account to send SMS"
 msgstr ""

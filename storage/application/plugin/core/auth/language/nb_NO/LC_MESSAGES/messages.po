@@ -15,6 +15,9 @@ msgstr "Passord har blitt tilsendt på mail"
 msgid "Account has been added but failed to send email"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 

@@ -5,6 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "-"
+msgstr ""
+
 msgid "ACL ID"
 msgstr "ID de l'ACL"
 
@@ -31,9 +34,6 @@ msgstr "Séparées par une virgule en cas d'entrées multiples"
 
 msgid "Credit"
 msgstr "Crédit"
-
-msgid "DEFAULT"
-msgstr "DÉFAUT"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"

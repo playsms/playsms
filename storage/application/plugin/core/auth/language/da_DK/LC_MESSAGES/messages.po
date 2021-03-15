@@ -18,6 +18,9 @@ msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
 msgid "Account has been added but failed to send email"
 msgstr "Konto er blevet tilføjet men kunne ikke sende e-mail"
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr "Kredit"
 

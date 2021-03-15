@@ -38,7 +38,8 @@ msgstr "Gateways"
 msgid "List of gateways and SMSCs"
 msgstr "Lista de gateways e SMSCs"
 
-msgid "Manage gateway and SMSC"
+#, fuzzy
+msgid "Manage SMSC"
 msgstr "Gerenciar gateway e SMSC"
 
 msgid "Name"

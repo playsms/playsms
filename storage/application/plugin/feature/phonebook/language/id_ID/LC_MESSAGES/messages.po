@@ -129,6 +129,9 @@ msgstr "Simpan"
 msgid "Select"
 msgstr ""
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Selected contact has been deleted"
 msgstr "Kontak terpilih telah dihapus"
 

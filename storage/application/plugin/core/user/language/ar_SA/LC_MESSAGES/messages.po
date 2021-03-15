@@ -17,10 +17,11 @@ msgstr ""
 msgid "ACL"
 msgstr "ACL"
 
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "ACL الافتراضي لن يحظر الوصول للقوائم"
-
 msgid "Access Control List"
+msgstr "قائمة تحكم الوصول"
+
+#, fuzzy
+msgid "Access Control List membership"
 msgstr "قائمة تحكم الوصول"
 
 msgid "Account admin or currently logged in administrator cannot be banned"

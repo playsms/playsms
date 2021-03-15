@@ -8,29 +8,117 @@ msgstr ""
 msgid "Action"
 msgstr "Tindakan"
 
+#, fuzzy
+msgid "Add card"
+msgstr "Tambah tarif"
+
 msgid "Add rate"
 msgstr "Tambah tarif"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "Tambah tarif"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "Anda yakin ingin menghapus tarif?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "Anda yakin ingin menghapus tarif?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Anda yakin ingin menghapus tarif?"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "Tarif telah ditambahkan"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "Tarif telah dihapus"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "Tarif telah dihapus"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "Tujuan"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "Ubah tarif"
+
 msgid "Edit rate"
 msgstr "Ubah tarif"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Gagal menyimpan tarif"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Gagal menyimpan tarif"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "Gagal menghapus tarif"
 
-msgid "Fail to save rate"
-msgstr "Gagal menyimpan tarif"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "Gagal menghapus tarif"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Gagal menghapus tarif"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Pengaturan tarif SMS"
 
-msgid "No changes made!"
-msgstr "Tidak ada perubahan yang dilakukan!"
+#, fuzzy
+msgid "Manage card"
+msgstr "Pengaturan tarif SMS"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Pengaturan tarif SMS"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Pengaturan tarif SMS"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Awalan"
@@ -38,26 +126,60 @@ msgstr "Awalan"
 msgid "Rate"
 msgstr "Tarif"
 
-msgid "Rate already exists"
-msgstr "Tarif telah ada sebelumnya"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "Tarif telah ditambahkan"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "Tarif telah dihapus"
 
-msgid "Rate has been saved"
-msgstr "Tarif telah disimpan"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "Tarif telah dihapus"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "Tarif telah dihapus"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "Simpan"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "Tarif telah ditambahkan"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "Tarif telah disimpan"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
-msgid "destination"
-msgstr "tujuan"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "awalan"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

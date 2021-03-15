@@ -1,3 +1,7 @@
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
 msgid "CSV file format"
 msgstr ""
 
@@ -10,16 +14,33 @@ msgstr ""
 msgid "Destination number"
 msgstr ""
 
-msgid "Found invalid entries in uploaded file"
+msgid "Discharged entries"
+msgstr ""
+
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
+
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, php-format
+msgid "Found %d of %d valid entries"
+msgstr ""
+
+msgid "Found discharged entries in uploaded file"
 msgstr ""
 
 msgid "Found valid entries in uploaded file"
-msgstr ""
-
-msgid "Invalid CSV file"
-msgstr ""
-
-msgid "Invalid entries"
 msgstr ""
 
 msgid "Invalid session ID"
@@ -28,10 +49,17 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
+#, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr ""
+
 msgid "Please select CSV file"
 msgstr ""
 
-msgid "SMS has been sent to valid numbers in uploaded file"
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr ""
+
+msgid "Select page size"
 msgstr ""
 
 msgid "Send SMS to valid entries"
@@ -43,6 +71,10 @@ msgstr ""
 msgid "Send from file has been cancelled"
 msgstr ""
 
+#, php-format
+msgid "Send from file limit of %d SMS have been reached"
+msgstr ""
+
 msgid "Upload file"
 msgstr ""
 
@@ -50,6 +82,12 @@ msgid "Uploaded file"
 msgstr ""
 
 msgid "Username"
+msgstr ""
+
+msgid "Valid entries"
+msgstr ""
+
+msgid "Verification results"
 msgstr ""
 
 msgid "Your choice"
@@ -61,7 +99,7 @@ msgstr ""
 msgid "destination number, message, username"
 msgstr ""
 
-msgid "invalid entries"
+msgid "discharged entries"
 msgstr ""
 
 msgid "of"

@@ -1,17 +1,15 @@
-# Header entry was created by Lokalize.
-#
-# Joan <aseques@gmail.com>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"PO-Revision-Date: 2013-12-10 15:48+0100\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca_ES\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.4\n"
+
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
+msgid "-"
+msgstr ""
 
 msgid "1 Day"
 msgstr ""
@@ -32,9 +30,6 @@ msgid "6 Months"
 msgstr ""
 
 msgid "ACL"
-msgstr ""
-
-msgid "ACL DEFAULT will not restrict access to menus"
 msgstr ""
 
 msgid "ACL ID"
@@ -62,6 +57,9 @@ msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
+msgstr ""
+
+msgid "Access Control List membership"
 msgstr ""
 
 msgid ""
@@ -170,6 +168,10 @@ msgstr ""
 msgid "Add blocked mobile numbers"
 msgstr ""
 
+#, fuzzy
+msgid "Add card"
+msgstr "Afegir tarifa"
+
 msgid "Add catch-all"
 msgstr ""
 
@@ -218,6 +220,10 @@ msgstr ""
 
 msgid "Add subuser"
 msgstr ""
+
+#, fuzzy
+msgid "Add user"
+msgstr "Afegir tarifa"
 
 msgid "Additional URL parameter"
 msgstr ""
@@ -342,6 +348,10 @@ msgstr ""
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "Esteu segur que voleu esborrar la tarifa?"
+
 msgid "Are you sure you want to delete choice ?"
 msgstr ""
 
@@ -349,7 +359,8 @@ msgstr ""
 msgid "Are you sure you want to delete queue ?"
 msgstr "Esteu segur que voleu esborrar la cua"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr "Esteu segur que voleu esborrar la tarifa?"
 
 msgid "Are you sure you want to delete sender ID"
@@ -393,6 +404,10 @@ msgstr ""
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Esteu segur que voleu esborrar la tarifa?"
 
 msgid "Are you sure you want to unban account"
 msgstr ""
@@ -458,6 +473,32 @@ msgid "Cannot change status when user have subusers"
 msgstr ""
 
 msgid "Cannot find PHP PEAR-DB"
+msgstr ""
+
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "La tarifa s'ha afegit"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "La tarifa s'ha el·liminat"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "La tarifa s'ha el·liminat"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
 msgstr ""
 
 msgid "Catch-all"
@@ -541,9 +582,6 @@ msgstr ""
 msgid "Core"
 msgstr ""
 
-msgid "Count"
-msgstr ""
-
 msgid "Country"
 msgstr ""
 
@@ -574,9 +612,6 @@ msgstr ""
 msgid "Custom URL"
 msgstr ""
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "DLR mask"
 msgstr ""
 
@@ -600,6 +635,9 @@ msgid ""
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Default ACL during account registration"
 msgstr ""
 
 msgid "Default ACL upon registration"
@@ -673,9 +711,6 @@ msgstr ""
 msgid "Delete member"
 msgstr ""
 
-msgid "Delete user"
-msgstr ""
-
 msgid "Deleted"
 msgstr "Esborrats"
 
@@ -706,6 +741,10 @@ msgstr ""
 
 msgid "Disallowed URLs"
 msgstr ""
+
+#, fuzzy
+msgid "Discharged entries"
+msgstr "entrades no vàlides"
 
 msgid "Domain"
 msgstr ""
@@ -749,6 +788,10 @@ msgstr ""
 
 msgid "Edit SMSC"
 msgstr ""
+
+#, fuzzy
+msgid "Edit card"
+msgstr "Editar tarifa"
 
 msgid "Edit contact"
 msgstr "Editar contacte"
@@ -850,6 +893,15 @@ msgstr ""
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
 msgid "Example"
 msgstr ""
 
@@ -892,6 +944,10 @@ msgstr ""
 msgid "Fail to add SMS subscribe"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Error guardant tarifa"
+
 msgid "Fail to add catch-all"
 msgstr ""
 
@@ -922,9 +978,21 @@ msgstr ""
 msgid "Fail to add new destination"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Error guardant tarifa"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Error guardant tarifa"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -947,6 +1015,10 @@ msgstr ""
 msgid "Fail to delete SMS schedule"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
+msgstr "Error esborrant tarifa"
+
 msgid "Fail to delete catch-all"
 msgstr ""
 
@@ -962,12 +1034,16 @@ msgstr ""
 msgid "Fail to delete member"
 msgstr ""
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
 msgstr "Error esborrant tarifa"
 
 #, fuzzy
 msgid "Fail to delete route"
 msgstr "Error esborrant tarifa"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr ""
@@ -1023,6 +1099,10 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr ""
 
@@ -1041,9 +1121,6 @@ msgstr ""
 msgid "Fail to save preferences"
 msgstr ""
 
-msgid "Fail to save rate"
-msgstr "Error guardant tarifa"
-
 #, fuzzy
 msgid "Fail to save route"
 msgstr "Error guardant tarifa"
@@ -1059,6 +1136,10 @@ msgstr ""
 
 msgid "Fail to update SMS autoreply"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Error esborrant tarifa"
 
 msgid "Fail to update due to invalid sender ID"
 msgstr ""
@@ -1132,7 +1213,16 @@ msgstr ""
 msgid "Forwarded email footer"
 msgstr ""
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "Enviar l'SMS a les entrades vàlides"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "S'han trobat entrades no vàlides en el fitxer"
 
 msgid "Found valid entries in uploaded file"
@@ -1151,7 +1241,7 @@ msgid "Gateway host"
 msgstr ""
 
 msgid "Gateway module configurations has been saved"
-msgstr "S'han guardat les configuracions del modul de sortida"
+msgstr "Les configuracions del modul de sortida s'han guardat"
 
 msgid "Gateway name"
 msgstr "Nom de la sortida"
@@ -1290,9 +1380,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr ""
 
-msgid "Infobip is a bulk SMS provider"
-msgstr ""
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -1310,12 +1397,6 @@ msgstr ""
 
 msgid "Invalid"
 msgstr ""
-
-msgid "Invalid CSV file"
-msgstr "Fitxer CSV no vàlid"
-
-msgid "Invalid entries"
-msgstr "entrades no vàlides"
 
 msgid "Invalid sender ID"
 msgstr ""
@@ -1496,6 +1577,10 @@ msgstr ""
 msgid "Manage SMS rate"
 msgstr "Gestionar tarifes SMS"
 
+#, fuzzy
+msgid "Manage SMSC"
+msgstr "Gestionar sortida"
+
 msgid "Manage account"
 msgstr ""
 
@@ -1507,6 +1592,10 @@ msgstr ""
 
 msgid "Manage board"
 msgstr "Manage board"
+
+#, fuzzy
+msgid "Manage card"
+msgstr "Gestionar tarifes SMS"
 
 msgid "Manage command"
 msgstr "Manage command"
@@ -1528,10 +1617,6 @@ msgstr ""
 
 msgid "Manage gammu"
 msgstr "Manage gammu"
-
-#, fuzzy
-msgid "Manage gateway and SMSC"
-msgstr "Gestionar sortida"
 
 msgid "Manage generic"
 msgstr ""
@@ -1559,6 +1644,10 @@ msgstr "Manage poll"
 
 msgid "Manage quiz"
 msgstr "Manage quiz"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Gestionar tarifes SMS"
 
 msgid "Manage schedule"
 msgstr ""
@@ -1589,6 +1678,10 @@ msgstr "Gestionar twilio"
 
 msgid "Manage uplink"
 msgstr "Manage uplink"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Gestionar tarifes SMS"
 
 msgid "Mandatory fields must not be empty"
 msgstr ""
@@ -1726,6 +1819,9 @@ msgstr ""
 msgid "Multiple entries separated by comma"
 msgstr ""
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My account"
 msgstr ""
 
@@ -1786,9 +1882,6 @@ msgstr "No s'han fet canvis"
 msgid "No changes made"
 msgstr ""
 
-msgid "No changes made!"
-msgstr "No s'han fet canvis!"
-
 #, fuzzy
 msgid "No group"
 msgstr "grup"
@@ -1799,6 +1892,10 @@ msgstr ""
 msgid "No trailing slash"
 msgstr "Sense barra al final"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "S'han trobat entrades correctes en el fitxer"
+
 msgid "No validate cert option"
 msgstr ""
 
@@ -1807,6 +1904,9 @@ msgstr ""
 
 msgid "Notes"
 msgstr "Notes"
+
+msgid "Nothing to export"
+msgstr ""
 
 msgid "Number"
 msgstr ""
@@ -1959,6 +2059,9 @@ msgstr ""
 msgid "Question"
 msgstr ""
 
+msgid "Queue"
+msgstr ""
+
 msgid "Queue Code"
 msgstr "Codi cua"
 
@@ -1983,17 +2086,31 @@ msgstr ""
 msgid "Rate"
 msgstr "Tarifa"
 
-msgid "Rate already exists"
-msgstr "La tarifa ja existeix"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "La tarifa s'ha afegit"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "La tarifa s'ha el·liminat"
 
-msgid "Rate has been saved"
-msgstr "La tarifa s'ha guardat"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "La tarifa s'ha el·liminat"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "La tarifa s'ha el·liminat"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
 
 msgid "Re-type password"
 msgstr ""
@@ -2066,6 +2183,9 @@ msgid "Remote playnet password"
 msgstr ""
 
 msgid "Remote playnet username"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Renew webservices token"
@@ -2267,9 +2387,6 @@ msgstr ""
 msgid "SMS forward parameter"
 msgstr ""
 
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "S'ha enviat l'SMS als números vàlids del fitxer pujat"
-
 msgid "SMS is case-insensitive"
 msgstr ""
 
@@ -2372,6 +2489,10 @@ msgstr ""
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr ""
 
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr "S'ha enviat l'SMS als números vàlids del fitxer pujat"
+
 msgid "SMS unsubscribe parameter"
 msgstr ""
 
@@ -2438,6 +2559,9 @@ msgstr "Seleccionar"
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Select receiver"
 msgstr ""
 
@@ -2502,6 +2626,10 @@ msgid "Send from file"
 msgstr "Enviar des de fitxer"
 
 msgid "Send from file has been cancelled"
+msgstr "L'enviament del fitxer s'ha cancel·lat"
+
+#, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr "L'enviament del fitxer s'ha cancel·lat"
 
 #, php-format
@@ -2764,6 +2892,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr ""
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
@@ -2799,6 +2930,14 @@ msgstr ""
 
 msgid "User"
 msgstr "Usuari"
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "La tarifa s'ha afegit"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "La tarifa s'ha guardat"
 
 msgid "User ID"
 msgstr ""
@@ -2836,6 +2975,10 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "User preference"
 msgstr ""
 
@@ -2864,6 +3007,13 @@ msgid "Valid"
 msgstr ""
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
+#, fuzzy
+msgid "Valid entries"
+msgstr "entrades vàlides"
+
+msgid "Verification results"
 msgstr ""
 
 msgid "Verify captcha"
@@ -2972,6 +3122,9 @@ msgstr "Heu d'omplir tots els camps requerits"
 msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
+msgid "You must select user"
+msgstr ""
+
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
@@ -3053,9 +3206,6 @@ msgstr "codi"
 msgid "correct"
 msgstr ""
 
-msgid "create an account to send SMS"
-msgstr ""
-
 msgid "destination"
 msgstr "destí"
 
@@ -3066,6 +3216,10 @@ msgstr "format: núm. destí, missatge"
 #, fuzzy
 msgid "destination number, message, username"
 msgstr "format: núm. destí, missatge, usuari"
+
+#, fuzzy
+msgid "discharged entries"
+msgstr "entrades no vàlides"
 
 msgid "domain"
 msgstr ""
@@ -3080,7 +3234,7 @@ msgid "for subuser only"
 msgstr ""
 
 msgid "free credits are available for testing purposes"
-msgstr "es pot disposar de crèdit gratuït per fer proves"
+msgstr ""
 
 msgid "group"
 msgstr "grup"
@@ -3088,8 +3242,16 @@ msgstr "grup"
 msgid "incorrect"
 msgstr ""
 
-msgid "invalid entries"
-msgstr "entrades no vàlides"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""
 
 msgid "keyword"
 msgstr ""
@@ -3135,9 +3297,6 @@ msgstr ""
 
 msgid "return"
 msgstr ""
-
-msgid "twilio is a bulk SMS provider"
-msgstr "twilio és un proveïdor majorista de SMS"
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr "twilio afegirà DLR I SMS entrants a la vostra url de retorn"

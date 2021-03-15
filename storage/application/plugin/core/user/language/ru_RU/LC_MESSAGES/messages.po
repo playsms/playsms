@@ -15,10 +15,10 @@ msgstr ""
 msgid "ACL"
 msgstr ""
 
-msgid "ACL DEFAULT will not restrict access to menus"
+msgid "Access Control List"
 msgstr ""
 
-msgid "Access Control List"
+msgid "Access Control List membership"
 msgstr ""
 
 msgid "Account admin or currently logged in administrator cannot be banned"

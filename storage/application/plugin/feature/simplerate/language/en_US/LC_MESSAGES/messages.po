@@ -8,28 +8,110 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
+msgid "Add card"
+msgstr ""
+
 msgid "Add rate"
 msgstr ""
 
-msgid "Are you sure you want to delete rate ?"
+msgid "Add user"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr ""
+
+#, php-format
+msgid "Card %s has been added"
+msgstr ""
+
+#, php-format
+msgid "Card %s has been updated"
+msgstr ""
+
+#, php-format
+msgid "Card id:%d has been deleted"
+msgstr ""
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
 msgstr ""
 
 msgid "Destination"
 msgstr ""
 
+msgid "Edit card"
+msgstr ""
+
 msgid "Edit rate"
 msgstr ""
 
-msgid "Fail to delete rate"
+#, php-format
+msgid "Fail to add card %s"
 msgstr ""
 
-msgid "Fail to save rate"
+#, php-format
+msgid "Fail to add rate %s"
+msgstr ""
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, php-format
+msgid "Fail to delete card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to delete rate id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to update card %s"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
 msgstr ""
 
 msgid "Manage SMS rate"
 msgstr ""
 
-msgid "No changes made!"
+msgid "Manage card"
+msgstr ""
+
+msgid "Manage rate"
+msgstr ""
+
+msgid "Manage user"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
 msgstr ""
 
 msgid "Prefix"
@@ -38,26 +120,60 @@ msgstr ""
 msgid "Rate"
 msgstr ""
 
-msgid "Rate already exists"
+#, php-format
+msgid "Rate %s has been added"
 msgstr ""
 
-msgid "Rate has been added"
+#, php-format
+msgid "Rate %s has been updated"
 msgstr ""
 
-msgid "Rate has been deleted"
+#, php-format
+msgid "Rate %s is not updated"
 msgstr ""
 
-msgid "Rate has been saved"
+#, php-format
+msgid "Rate id:%d has been deleted"
+msgstr ""
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
 msgstr ""
 
 msgid "Save"
 msgstr ""
 
+msgid "User"
+msgstr ""
+
+#, php-format
+msgid "User %s has been added"
+msgstr ""
+
+#, php-format
+msgid "User %s has been removed"
+msgstr ""
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr ""
 
-msgid "destination"
+msgid "You must select user"
 msgstr ""
 
-msgid "prefix"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
 msgstr ""

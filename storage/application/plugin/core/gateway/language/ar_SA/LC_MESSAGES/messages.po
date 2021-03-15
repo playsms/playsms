@@ -47,7 +47,8 @@ msgstr "البوابات"
 msgid "List of gateways and SMSCs"
 msgstr "قائمة البوابات ومراكز الرسائل"
 
-msgid "Manage gateway and SMSC"
+#, fuzzy
+msgid "Manage SMSC"
 msgstr "إدارة البوابات ومراكز الرسائل"
 
 msgid "Name"

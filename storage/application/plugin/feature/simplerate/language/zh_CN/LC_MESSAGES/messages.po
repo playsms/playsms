@@ -8,29 +8,117 @@ msgstr ""
 msgid "Action"
 msgstr "行为"
 
+#, fuzzy
+msgid "Add card"
+msgstr "增加等级"
+
 msgid "Add rate"
 msgstr "增加等级"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "增加等级"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "确定删除等级 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "确定删除等级 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "确定删除等级 ?"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "等级已添加"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "等级已删除"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "等级已删除"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "目标"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "编辑等级"
+
 msgid "Edit rate"
 msgstr "编辑等级"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "保存等级失败"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "保存等级失败"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "删除等级失败"
 
-msgid "Fail to save rate"
-msgstr "保存等级失败"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "删除等级失败"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "删除等级失败"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "管理短信等级"
 
-msgid "No changes made!"
-msgstr "没有做出改变"
+#, fuzzy
+msgid "Manage card"
+msgstr "管理短信等级"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "管理短信等级"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "管理短信等级"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "前缀"
@@ -38,26 +126,60 @@ msgstr "前缀"
 msgid "Rate"
 msgstr "等级"
 
-msgid "Rate already exists"
-msgstr "等级已存在"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "等级已添加"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "等级已删除"
 
-msgid "Rate has been saved"
-msgstr "等级已保存"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "等级已删除"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "等级已删除"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "保存"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "等级已添加"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "等级已保存"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
-msgid "destination"
-msgstr "目标"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "前缀"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

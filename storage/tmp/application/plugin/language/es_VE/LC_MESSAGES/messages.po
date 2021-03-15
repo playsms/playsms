@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: es_VE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid "-"
+msgstr ""
 
 msgid "1 Day"
 msgstr ""
@@ -25,9 +26,6 @@ msgid "6 Months"
 msgstr ""
 
 msgid "ACL"
-msgstr ""
-
-msgid "ACL DEFAULT will not restrict access to menus"
 msgstr ""
 
 msgid "ACL ID"
@@ -55,6 +53,9 @@ msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
+msgstr ""
+
+msgid "Access Control List membership"
 msgstr ""
 
 msgid ""
@@ -163,6 +164,10 @@ msgstr ""
 msgid "Add blocked mobile numbers"
 msgstr ""
 
+#, fuzzy
+msgid "Add card"
+msgstr "Añadir tarifa"
+
 msgid "Add choice to this poll"
 msgstr "Añadir opción a esta encuesta"
 
@@ -199,6 +204,10 @@ msgstr ""
 
 msgid "Add subuser"
 msgstr ""
+
+#, fuzzy
+msgid "Add user"
+msgstr "Añadir tarifa"
 
 msgid "Additional URL parameter"
 msgstr ""
@@ -314,13 +323,18 @@ msgstr ""
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "Está Ud. seguro de querer borrar la subscripción SMS ?"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
+
 msgid "Are you sure you want to delete choice ?"
 msgstr "Está Ud. seguro de quere borrar la opción ?"
 
 msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
 
 msgid "Are you sure you want to delete sender ID"
@@ -358,6 +372,10 @@ msgstr ""
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Esta Ud. seguro de querer borrar esta tarifa ?"
 
 msgid "Are you sure you want to unban account"
 msgstr ""
@@ -413,7 +431,36 @@ msgstr ""
 msgid "Cannot find PHP PEAR-DB"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "La tarifa ha sido añadida"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "La tarifa ha sido eliminada"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
+
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
@@ -460,6 +507,9 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
+msgid "Confirmation"
+msgstr ""
+
 msgid "Contact has been added"
 msgstr ""
 
@@ -497,9 +547,6 @@ msgstr ""
 msgid "Custom URL"
 msgstr "URL personalizado de SMS"
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "DLR mask"
 msgstr ""
 
@@ -523,6 +570,9 @@ msgid ""
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Default ACL during account registration"
 msgstr ""
 
 msgid "Default ACL upon registration"
@@ -585,9 +635,6 @@ msgid "Delete"
 msgstr ""
 
 msgid "Delete ALL queues"
-msgstr ""
-
-msgid "Delete user"
 msgstr ""
 
 msgid "Description"
@@ -654,6 +701,10 @@ msgstr "Editar subscripción de SMS"
 
 msgid "Edit SMSC"
 msgstr ""
+
+#, fuzzy
+msgid "Edit card"
+msgstr "Editar tarifa"
 
 msgid "Edit contact"
 msgstr ""
@@ -792,6 +843,10 @@ msgstr "Añadir Exámen corto (quiz) SMS"
 msgid "Fail to add SMS subscribe"
 msgstr "Añadir suscripción SMS"
 
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Fallo al eliminar la tarifa"
+
 msgid "Fail to add credit"
 msgstr ""
 
@@ -811,9 +866,21 @@ msgstr ""
 msgid "Fail to add new destination"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Fallo al eliminar la tarifa"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Fallo al eliminar la tarifa"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -836,13 +903,18 @@ msgstr "Fallo al eliminar la encuesta SMS"
 msgid "Fail to delete SMS schedule"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
+msgstr "Fallo al borrar la tarifa"
+
 msgid "Fail to delete destination"
 msgstr ""
 
 msgid "Fail to delete group"
 msgstr ""
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
 msgstr "Fallo al borrar la tarifa"
 
 #, fuzzy
@@ -895,6 +967,10 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr "Falló al guardar el comando SMS"
 
@@ -913,9 +989,6 @@ msgstr ""
 msgid "Fail to save preferences"
 msgstr ""
 
-msgid "Fail to save rate"
-msgstr "Fallo al eliminar la tarifa"
-
 #, fuzzy
 msgid "Fail to save route"
 msgstr "Fallo al eliminar la tarifa"
@@ -932,6 +1005,10 @@ msgstr ""
 #, fuzzy
 msgid "Fail to update SMS autoreply"
 msgstr "Imposible eliminar el servicio de auto-respuesta"
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Fallo al borrar la tarifa"
 
 msgid "Fail to update due to invalid sender ID"
 msgstr ""
@@ -1130,9 +1207,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr ""
 
-msgid "Infobip is a bulk SMS provider"
-msgstr ""
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -1316,6 +1390,9 @@ msgstr ""
 msgid "Manage SMS rate"
 msgstr "Administración de tarifas deSMS"
 
+msgid "Manage SMSC"
+msgstr ""
+
 msgid "Manage account"
 msgstr ""
 
@@ -1327,6 +1404,10 @@ msgstr ""
 
 msgid "Manage board"
 msgstr "Administrar pizarra"
+
+#, fuzzy
+msgid "Manage card"
+msgstr "Administración de tarifas deSMS"
 
 msgid "Manage command"
 msgstr "Administrar comando"
@@ -1348,9 +1429,6 @@ msgstr ""
 
 msgid "Manage gammu"
 msgstr "Manage gammu"
-
-msgid "Manage gateway and SMSC"
-msgstr ""
 
 msgid "Manage generic"
 msgstr ""
@@ -1378,6 +1456,10 @@ msgstr "Administrar Encuesta"
 
 msgid "Manage quiz"
 msgstr "Administrar Exámen corto (quiz)"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Administración de tarifas deSMS"
 
 msgid "Manage schedule"
 msgstr ""
@@ -1408,6 +1490,10 @@ msgstr ""
 
 msgid "Manage uplink"
 msgstr "Manage uplink"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Administración de tarifas deSMS"
 
 msgid "Mandatory fields must not be empty"
 msgstr ""
@@ -1575,9 +1661,6 @@ msgstr ""
 
 msgid "No changes made"
 msgstr ""
-
-msgid "No changes made!"
-msgstr "No se efectuaron cambios!"
 
 msgid "No group"
 msgstr ""
@@ -1752,17 +1835,31 @@ msgstr ""
 msgid "Rate"
 msgstr "Tarifa"
 
-msgid "Rate already exists"
-msgstr "Tarifa ya existe "
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "La tarifa ha sido añadida"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "La tarifa ha sido eliminada"
 
-msgid "Rate has been saved"
-msgstr "La tarifa se ha guardado"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "La tarifa ha sido eliminada"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "La tarifa ha sido eliminada"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
 
 msgid "Re-type password"
 msgstr ""
@@ -1832,6 +1929,9 @@ msgid "Remote playnet password"
 msgstr ""
 
 msgid "Remote playnet username"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Renew webservices token"
@@ -2032,7 +2132,9 @@ msgid "SMS is case-insensitive"
 msgstr ""
 
 msgid "SMS keyword already exists, reserved or use by other feature"
-msgstr "La clave SMS ya existe, está reservada o en uso por otro proceso"
+msgstr ""
+"La Clave de SMS de auto-respuesta ya existe, está reservada o está utilizada "
+"por otro servicio"
 
 msgid "SMS messages list for keyword"
 msgstr "Lista de mensajes SMS para clave"
@@ -2196,6 +2298,9 @@ msgstr ""
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Select receiver"
 msgstr ""
 
@@ -2346,7 +2451,7 @@ msgid "Statistics"
 msgstr "Estatus"
 
 msgid "Status"
-msgstr "Estado"
+msgstr "Estatus"
 
 msgid "Submit"
 msgstr ""
@@ -2485,6 +2590,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr ""
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
@@ -2515,6 +2623,14 @@ msgstr ""
 
 msgid "User"
 msgstr "Usuario"
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "La tarifa ha sido añadida"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "La tarifa se ha guardado"
 
 msgid "User ID"
 msgstr ""
@@ -2547,6 +2663,10 @@ msgid "User is not on banned subusers list"
 msgstr ""
 
 msgid "User is not on banned users list"
+msgstr ""
+
+#, php-format
+msgid "User not found"
 msgstr ""
 
 msgid "User preference"
@@ -2684,6 +2804,9 @@ msgstr ""
 msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
+msgid "You must select user"
+msgstr ""
+
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
@@ -2763,9 +2886,6 @@ msgstr ""
 msgid "correct"
 msgstr "Incorrecto"
 
-msgid "create an account to send SMS"
-msgstr ""
-
 msgid "destination"
 msgstr "destino"
 
@@ -2790,6 +2910,17 @@ msgstr ""
 #, fuzzy
 msgid "incorrect"
 msgstr "Incorrecto"
+
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""
 
 msgid "keyword"
 msgstr "clave"
@@ -2834,9 +2965,6 @@ msgstr ""
 msgid "return"
 msgstr ""
 
-msgid "twilio is a bulk SMS provider"
-msgstr ""
-
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
@@ -2847,10 +2975,10 @@ msgid "username"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "sera reemplazado por SMS entrante hora/fecha"
+msgstr "será reemplazado por fecha/hora de SMS entrante"
 
 msgid "will be replaced by SMS raw message"
-msgstr "sera reemplazado por número de emisor"
+msgstr "sera reemplazado por el celular emisor"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -2874,7 +3002,7 @@ msgid "will be replaced by receiver number"
 msgstr "sera reemplazado por el celular emisor"
 
 msgid "will be replaced by sender number"
-msgstr "sera reemplazado por número de emisor"
+msgstr "sera reemplazado por el celular emisor"
 
 #, fuzzy
 msgid "will be replaced by service name"

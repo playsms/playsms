@@ -1,8 +1,17 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
+msgid "-"
+msgstr ""
 
 msgid "1 Day"
 msgstr "1 Dia"
@@ -24,9 +33,6 @@ msgstr "6 Meses"
 
 msgid "ACL"
 msgstr "Regra"
-
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "REGRA PADRÃO não restrine acesso aos menus"
 
 msgid "ACL ID"
 msgstr "ID da regra"
@@ -53,6 +59,10 @@ msgid "API username"
 msgstr "Usuário do API"
 
 msgid "Access Control List"
+msgstr "Regras de Acesso"
+
+#, fuzzy
+msgid "Access Control List membership"
 msgstr "Regras de Acesso"
 
 msgid ""
@@ -166,6 +176,10 @@ msgstr "Adicionar endereço de IP bloqueado"
 msgid "Add blocked mobile numbers"
 msgstr "Adicionar celulares bloqueados"
 
+#, fuzzy
+msgid "Add card"
+msgstr "Adicionar taxa"
+
 msgid "Add catch-all"
 msgstr "Adicionar coringa"
 
@@ -213,6 +227,10 @@ msgstr "Adicionar ID do remetente"
 
 msgid "Add subuser"
 msgstr "Adicionar sub-usuário"
+
+#, fuzzy
+msgid "Add user"
+msgstr "Adicionar taxa"
 
 msgid "Additional URL parameter"
 msgstr "Parâmetro de URL adicional"
@@ -303,9 +321,8 @@ msgstr "Tem certeza que deseja banir essa conta"
 msgid "Are you sure you want to ban subuser"
 msgstr "Tem certeza que deseja banir esse sub-usuário"
 
-#, fuzzy
 msgid "Are you sure you want to delete ?"
-msgstr "Tem certeza que deseja excluír esses ítens?"
+msgstr ""
 
 msgid "Are you sure you want to delete ACL ?"
 msgstr "Tem certeza que deseja excluír a regra"
@@ -342,6 +359,10 @@ msgstr "Tem certeza que deseja excluir o agendamento de SMS?"
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "Tem certeza que quer remover essa assinatura?"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "Tem certeza que quer remover a taxa?"
+
 msgid "Are you sure you want to delete choice ?"
 msgstr "Tem certeza que quer remover essa opção?"
 
@@ -349,7 +370,8 @@ msgstr "Tem certeza que quer remover essa opção?"
 msgid "Are you sure you want to delete queue ?"
 msgstr "Tem certeza que deseja excluir a fila"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr "Tem certeza que quer remover a taxa?"
 
 msgid "Are you sure you want to delete sender ID"
@@ -394,6 +416,10 @@ msgstr "Tem certeza que deseja excluír esse usuário?"
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr "Tem certeza que deseja excluir esse número do agendamento de SMS?"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Tem certeza que quer remover a taxa?"
+
 msgid "Are you sure you want to unban account"
 msgstr "Tem certeza que deseja desbanir a conta"
 
@@ -434,7 +460,7 @@ msgid "Buy"
 msgstr "Comprar"
 
 msgid "Buy credit page"
-msgstr "Página Comprar Créditos"
+msgstr "Página para compra de créditos"
 
 msgid "CSS URL"
 msgstr "URL do CSS"
@@ -443,7 +469,7 @@ msgid "CSV file format"
 msgstr "Formato do arquivo CSV"
 
 msgid "Callback URL"
-msgstr "URL de callback"
+msgstr "URL de Callback"
 
 msgid "Callback URL authcode"
 msgstr ""
@@ -456,6 +482,32 @@ msgstr "Cancelar envio de arquivo"
 
 msgid "Cannot change status when user have subusers"
 msgstr "Não e possível alterar o status quando o usuário possui sub-usuários"
+
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "A taxa foi adicionada"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "A taxa foi removida"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "A taxa foi removida"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Catch-all"
 msgstr "Coringa"
@@ -470,7 +522,7 @@ msgid "Catch-all list"
 msgstr "Lista de coringas"
 
 msgid "Changes have been made"
-msgstr "Alterações foram realizadas"
+msgstr "As alterações foram salvas"
 
 msgid "Charge"
 msgstr ""
@@ -540,10 +592,6 @@ msgstr ""
 msgid "Core"
 msgstr "Núcleo"
 
-#, fuzzy
-msgid "Count"
-msgstr "contagem"
-
 msgid "Country"
 msgstr "País"
 
@@ -575,9 +623,6 @@ msgstr "O usuário atualmente logado é imune à exclusão"
 msgid "Custom URL"
 msgstr "URL do SMS personalizado"
 
-msgid "DEFAULT"
-msgstr "PADRÃO"
-
 msgid "DLR mask"
 msgstr "Máscara DLR"
 
@@ -602,6 +647,10 @@ msgstr "Decidir se essa ACL contém URL bloqueadas ao invés de URLs permitidas"
 
 msgid "Default"
 msgstr "Padrão"
+
+#, fuzzy
+msgid "Default ACL during account registration"
+msgstr "Regra padrão após registro"
 
 msgid "Default ACL upon registration"
 msgstr "Regra padrão após registro"
@@ -680,9 +729,6 @@ msgstr "Remover grupo de caixa de entrada"
 msgid "Delete member"
 msgstr "Remover membro"
 
-msgid "Delete user"
-msgstr "Excluir usurio"
-
 msgid "Deleted"
 msgstr "Excluído"
 
@@ -712,6 +758,10 @@ msgstr "Desabilitar login como sub-usuário"
 
 msgid "Disallowed URLs"
 msgstr "URL bloqueadas"
+
+#, fuzzy
+msgid "Discharged entries"
+msgstr "entradas inválidas"
 
 msgid "Domain"
 msgstr "Domínio"
@@ -754,6 +804,10 @@ msgstr "Editar assinatura SMS"
 
 msgid "Edit SMSC"
 msgstr "Editar SMSC"
+
+#, fuzzy
+msgid "Edit card"
+msgstr "Editar taxa"
 
 msgid "Edit contact"
 msgstr "Editar contato"
@@ -838,7 +892,7 @@ msgid "Enable fetch new emails"
 msgstr "Habilitar recebimento de novos emails"
 
 msgid "Enable forgot password"
-msgstr "Habilitar Recuperação de senha"
+msgstr "Habilitar recuperação de senha"
 
 msgid "Enable login brute force detection"
 msgstr "Habilitar detecção de login por força bruta"
@@ -857,6 +911,15 @@ msgstr "Elevar a privacidade para sub-usuários"
 
 msgid "Entries in CSV file have been imported"
 msgstr "As entradas do arquivo CSV foram importadas"
+
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
 
 msgid "Example"
 msgstr "Exemplo"
@@ -897,6 +960,10 @@ msgstr "Falha ao adicionar quiz SMS"
 msgid "Fail to add SMS subscribe"
 msgstr "Falha ao adicionar assinatura SMS"
 
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Falha ao salvar a taxa"
+
 msgid "Fail to add catch-all"
 msgstr "Falha ao adicionar coringa"
 
@@ -927,8 +994,20 @@ msgstr "Falha ao adicionar novo SMSC"
 msgid "Fail to add new destination"
 msgstr "Falha ao adicionar novo destino"
 
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Falha ao salvar a taxa"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 msgid "Fail to add route"
 msgstr "Falha ao salvar a rota"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr "Falha ao excluír regra"
@@ -951,6 +1030,10 @@ msgstr "Falha ao remover a opçao da votação SMS"
 msgid "Fail to delete SMS schedule"
 msgstr "Falha ao excluír o agendamento de SMS"
 
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
+msgstr "Falha ao remover a taxa"
+
 msgid "Fail to delete catch-all"
 msgstr "Falha ao remover coringa"
 
@@ -966,11 +1049,15 @@ msgstr "Falha ao remover grupo de caixa de entrada"
 msgid "Fail to delete member"
 msgstr "Falha ao remover membro"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
 msgstr "Falha ao remover a taxa"
 
 msgid "Fail to delete route"
 msgstr "Falha ao excluir a rota"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr "Falha ao desabilitar grupo de caixa de entrada"
@@ -1026,6 +1113,10 @@ msgstr "Falha ao registrar uma conta"
 msgid "Fail to remove SMSC"
 msgstr "Falha ao excluír SMSC"
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr "Falha ao salvar comando SMS"
 
@@ -1039,13 +1130,10 @@ msgid "Fail to save email to SMS PIN"
 msgstr "Falha ao salvar o PIN de Email para SMS"
 
 msgid "Fail to save gateway module configurations"
-msgstr "Não foi possível salvar as configurações do módulo de gateway"
+msgstr "Falha ao salvar as configurações do módulo"
 
 msgid "Fail to save preferences"
 msgstr "Falha ao salvar as preferências"
-
-msgid "Fail to save rate"
-msgstr "Falha ao salvar a taxa"
 
 msgid "Fail to save route"
 msgstr "Falha ao salvar a rota"
@@ -1061,6 +1149,10 @@ msgstr "Falha ao simular chegada de SMS"
 
 msgid "Fail to update SMS autoreply"
 msgstr "Falha ao atualizar a auto-resposta SMS"
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Falha ao remover a taxa"
 
 msgid "Fail to update due to invalid sender ID"
 msgstr "Falha ao atualizar devido ao ID do remetente ser inválido"
@@ -1134,7 +1226,16 @@ msgstr "Encaminhar pro e-mail"
 msgid "Forwarded email footer"
 msgstr "Rodapé de email encaminhado"
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "Enviar SMS para entradas válidas"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "Encontradas entradas inválidas no arquivo enviado"
 
 msgid "Found valid entries in uploaded file"
@@ -1294,9 +1395,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr "URL da API do infobip"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip é um provedor de SMS em massa"
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip irá enviar DLR e SMS recebidos para a URL acima"
 
@@ -1304,7 +1402,7 @@ msgid "Information"
 msgstr "Informações"
 
 msgid "Information page"
-msgstr "Página de Informação"
+msgstr "Página de informações"
 
 msgid "Insert keyword"
 msgstr "Insira palavra-chave"
@@ -1314,12 +1412,6 @@ msgstr "Erro interno, contacte o provedor do serviço"
 
 msgid "Invalid"
 msgstr "Inválido"
-
-msgid "Invalid CSV file"
-msgstr "Arquivo CSV inválido"
-
-msgid "Invalid entries"
-msgstr "Entradas inválidas"
 
 msgid "Invalid sender ID"
 msgstr "ID de remetente inválido"
@@ -1453,7 +1545,7 @@ msgstr "URL da logo"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Por padrão, a logo será exibida nas páginas de login, registro e recuperação "
+"Por padrão a logo será exibida nas páginas de login, registro e recuperação "
 "de senha"
 
 msgid "Logout"
@@ -1484,13 +1576,13 @@ msgid "Main configuration changes has been saved"
 msgstr "As configurações principais foram salvas"
 
 msgid "Main website URL"
-msgstr "URL principal do site"
+msgstr "URL Principal"
 
 msgid "Main website name"
 msgstr "Nome principal do site"
 
 msgid "Make return as reply"
-msgstr "Enviar saída do comando como resposta"
+msgstr "Enviar return como resposta"
 
 msgid "Manage"
 msgstr "Gerenciar"
@@ -1504,6 +1596,10 @@ msgstr "Gerenciar OpenVox"
 msgid "Manage SMS rate"
 msgstr "Gerenciar taxa de SMS"
 
+#, fuzzy
+msgid "Manage SMSC"
+msgstr "Gerenciar gateway e SMSC"
+
 msgid "Manage account"
 msgstr "Gerenciar conta"
 
@@ -1515,6 +1611,10 @@ msgstr "Gerenciar bloqueado"
 
 msgid "Manage board"
 msgstr "Gerenciar quadro"
+
+#, fuzzy
+msgid "Manage card"
+msgstr "Gerenciar taxa de SMS"
 
 msgid "Manage command"
 msgstr "Gerenciar comando"
@@ -1536,9 +1636,6 @@ msgstr "Gerenciar firewall"
 
 msgid "Manage gammu"
 msgstr "Gerenciar gammu"
-
-msgid "Manage gateway and SMSC"
-msgstr "Gerenciar gateway e SMSC"
 
 msgid "Manage generic"
 msgstr ""
@@ -1566,6 +1663,10 @@ msgstr "Gerenciar votação"
 
 msgid "Manage quiz"
 msgstr "Gerenciar quiz"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Gerenciar taxa de SMS"
 
 msgid "Manage schedule"
 msgstr "Gerenciar agendamento"
@@ -1597,6 +1698,10 @@ msgstr "Gerenciar twilio"
 msgid "Manage uplink"
 msgstr "Gerenciar uplink"
 
+#, fuzzy
+msgid "Manage user"
+msgstr "Gerenciar taxa de SMS"
+
 msgid "Mandatory fields must not be empty"
 msgstr "Campos obrigatórios não podem estar em branco"
 
@@ -1607,7 +1712,9 @@ msgid "Match with all approved sender ID"
 msgstr "Combinar com todos os ID de remetente aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
+msgstr ""
+"Máximo 16 caracteres numéricos ou 11 alfanuméricos. Deixe em branco para "
+"desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Máx. 16 caracteres numéricos ou 11 alfanuméricos"
@@ -1713,10 +1820,10 @@ msgid "Mobile numbers have been deleted"
 msgstr "Os números de celular foram excluídos"
 
 msgid "Module sender ID"
-msgstr "Módulo ID Remetente"
+msgstr "ID do remetente"
 
 msgid "Module timezone"
-msgstr "Módulo Fuso Horário"
+msgstr "Fusorário do módulo"
 
 msgid "Monthly"
 msgstr "Mensalmente"
@@ -1731,7 +1838,10 @@ msgid "Multi"
 msgstr "Multi"
 
 msgid "Multiple entries separated by comma"
-msgstr "Multiplas entradas separadas por vírgula (,)"
+msgstr "Multiplas entradas devem ser separadas por vírgula"
+
+msgid "My SMS rate"
+msgstr ""
 
 msgid "My account"
 msgstr "Minha conta"
@@ -1793,9 +1903,6 @@ msgstr "Nenhuma alteração realizada"
 msgid "No changes made"
 msgstr "Nenhuma alteração realizada"
 
-msgid "No changes made!"
-msgstr "Nenhuma mudança feita!"
-
 msgid "No group"
 msgstr "Sem grupo"
 
@@ -1805,6 +1912,10 @@ msgstr "Nenhuma rota foi salva"
 msgid "No trailing slash"
 msgstr "Sem barra no final"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "Encontradas entradas válidas no arquivo enviado"
+
 msgid "No validate cert option"
 msgstr "Sem opções de certificado validadas"
 
@@ -1813,6 +1924,9 @@ msgstr "Nenhum"
 
 msgid "Notes"
 msgstr "Notas"
+
+msgid "Nothing to export"
+msgstr ""
 
 msgid "Number"
 msgstr "Número"
@@ -1854,7 +1968,7 @@ msgid "Page content"
 msgstr "Conteúdo da página"
 
 msgid "Page title"
-msgstr "Título da Página"
+msgstr "Título da página"
 
 msgid "Parent"
 msgstr "Container"
@@ -1909,7 +2023,7 @@ msgid "Please select"
 msgstr "Por favor selecione"
 
 msgid "Please select CSV file"
-msgstr "Por favor selecione arquivo CSV"
+msgstr "Por favor selecione o arquivo CSV"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Por favor selecione o arquivo CSV para entradas dos contatos"
@@ -1971,6 +2085,9 @@ msgstr ""
 msgid "Question"
 msgstr "Pergunta"
 
+msgid "Queue"
+msgstr ""
+
 msgid "Queue Code"
 msgstr "Código na fila"
 
@@ -1995,17 +2112,31 @@ msgstr "Saída RSS ATOM"
 msgid "Rate"
 msgstr "Taxa"
 
-msgid "Rate already exists"
-msgstr "A taxa já existe"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "A taxa foi adicionada"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "A taxa foi removida"
 
-msgid "Rate has been saved"
-msgstr "A taxa foi salva"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "A taxa foi removida"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "A taxa foi removida"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
 
 msgid "Re-type password"
 msgstr "Digite a senha novamente"
@@ -2085,6 +2216,9 @@ msgstr "Senha remota do playnet"
 msgid "Remote playnet username"
 msgstr "Usuário remoto do playnet"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Renovar o token de webservice"
 
@@ -2092,7 +2226,7 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr "Substituir o prefixo 0 ou o DDD"
 
 msgid "Replace website title with logo"
-msgstr "Substituir o título do site pela logo"
+msgstr "Substituir título da página pela logo"
 
 msgid "Reply"
 msgstr "Responder"
@@ -2286,9 +2420,6 @@ msgstr "Rodapé do SMS"
 msgid "SMS forward parameter"
 msgstr "Parâmetro de encaminhamento de SMS"
 
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "O SMS foi enviado para os números válidos no arquivo enviado"
-
 msgid "SMS is case-insensitive"
 msgstr ""
 
@@ -2391,6 +2522,10 @@ msgstr "O status da assinatura SMS foi alterado"
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "A assinatura SMS foi removida, junto com suas mensagens e membros"
 
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr "O SMS foi enviado para os números válidos no arquivo enviado"
+
 msgid "SMS unsubscribe parameter"
 msgstr "Resposta pra desinscrição"
 
@@ -2456,6 +2591,9 @@ msgstr "Selecionar"
 
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr "Selecione 'não' se o horário do recebimento do SMS estiver em UTC"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Select receiver"
 msgstr ""
@@ -2527,6 +2665,10 @@ msgid "Send from file has been cancelled"
 msgstr "Enviar de arquivo foi cancelado"
 
 #, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
+msgstr "Enviar de arquivo foi cancelado"
+
+#, fuzzy, php-format
 msgid "Send message cancelled due to empty queue %s"
 msgstr "Envio de mensagem falhou devido à indisponibilidade da fila %s"
 
@@ -2554,7 +2696,7 @@ msgid "Sender"
 msgstr "Remetente"
 
 msgid "Sender ID"
-msgstr "ID do remetente"
+msgstr "ID do Remetente"
 
 msgid "Sender ID description has been added"
 msgstr "A descrição para o ID do remetente foi adicionada"
@@ -2643,7 +2785,7 @@ msgid "Statistics"
 msgstr "Estatística"
 
 msgid "Status"
-msgstr "Estado"
+msgstr "Status"
 
 msgid "Submit"
 msgstr "Enviar"
@@ -2791,6 +2933,9 @@ msgstr "Desbanir"
 msgid "Unicode message"
 msgstr "Mensagem unicode"
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
@@ -2826,6 +2971,14 @@ msgstr "Usar SSL"
 
 msgid "User"
 msgstr "Usuário"
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "A taxa foi adicionada"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "A taxa foi salva"
 
 msgid "User ID"
 msgstr "ID de usuário"
@@ -2864,6 +3017,10 @@ msgstr "O usuário não está na lista de sub-usuários banidos"
 msgid "User is not on banned users list"
 msgstr "O usuário não está na lista de usuários banidos"
 
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "User preference"
 msgstr "Preferências de usuário"
 
@@ -2895,6 +3052,13 @@ msgstr "Válido"
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr ""
 "Caracteres válidos para nome de usuário são letras, números, ponto ou traço"
+
+#, fuzzy
+msgid "Valid entries"
+msgstr "entradas válidas"
+
+msgid "Verification results"
+msgstr ""
 
 msgid "Verify captcha"
 msgstr "Verificar captcha"
@@ -2982,7 +3146,7 @@ msgid "You have reached lowest credit limit of %s"
 msgstr ""
 
 msgid "You must fill all field"
-msgstr "Você deve preencher todos os campos"
+msgstr "Preencha todos os campos"
 
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
@@ -3002,6 +3166,9 @@ msgstr "Você deve preencher todos os campos requeridos"
 msgid "You must select receiver and your message should not be empty"
 msgstr "Você deve selecionar um destinatário e sua mensagem não deve ser vazia"
 
+msgid "You must select user"
+msgstr ""
+
 msgid "You or someone else have requested a password recovery"
 msgstr "Você ou alguém solicitou a recuperação de senha"
 
@@ -3012,7 +3179,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your callback URL is"
-msgstr "Sua URL callback é"
+msgstr "Sua URL de callback é"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Sua URL de callback deve ser acessível pelo Infobip"
@@ -3083,9 +3250,6 @@ msgstr "código"
 msgid "correct"
 msgstr "incorreto"
 
-msgid "create an account to send SMS"
-msgstr "criar uma conta para enviar SMS"
-
 msgid "destination"
 msgstr "destino"
 
@@ -3094,6 +3258,10 @@ msgstr "número do destinatário, mensagem"
 
 msgid "destination number, message, username"
 msgstr "número do destinatário, mensagem, usuário"
+
+#, fuzzy
+msgid "discharged entries"
+msgstr "entradas inválidas"
 
 msgid "domain"
 msgstr "domínio"
@@ -3116,8 +3284,16 @@ msgstr "grupo"
 msgid "incorrect"
 msgstr "incorreto"
 
-msgid "invalid entries"
-msgstr "entradas inválidas"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""
 
 msgid "keyword"
 msgstr "palavra-chave"
@@ -3129,7 +3305,7 @@ msgid "multiple times"
 msgstr "múltiplas vezes"
 
 msgid "no"
-msgstr "não"
+msgstr "no"
 
 msgid "of"
 msgstr "de"
@@ -3164,9 +3340,6 @@ msgstr "na fila"
 msgid "return"
 msgstr "voltar"
 
-msgid "twilio is a bulk SMS provider"
-msgstr "Twilio é um provedor de SMS em massa"
-
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr "Twilio irá entregar DLR e SMS para sua URL callback"
 
@@ -3187,7 +3360,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pelo SMS puro"
+msgstr "será substituído pela mensagem SMS pura"
 
 msgid "will be replaced by actual receiver number"
 msgstr "será substituído pelo número do destinatário"

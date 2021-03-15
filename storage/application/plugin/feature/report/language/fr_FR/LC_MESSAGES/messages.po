@@ -39,15 +39,14 @@ msgstr "Liste des utilisateurs bannis"
 msgid "Billing"
 msgstr "Facturation"
 
+msgid "Card"
+msgstr ""
+
 msgid "Charge"
 msgstr ""
 
 msgid "Content"
 msgstr "Contenu"
-
-#, fuzzy
-msgid "Count"
-msgstr "quantité"
 
 msgid "Credit"
 msgstr "Crédit"
@@ -64,6 +63,9 @@ msgstr "Supprimé"
 
 msgid "Delivered"
 msgstr "Livré"
+
+msgid "Destination"
+msgstr ""
 
 msgid "Email"
 msgstr "Email"
@@ -106,6 +108,9 @@ msgstr ""
 msgid "Message"
 msgstr "Message"
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My credit transactions"
 msgstr "Mes transactions de crédit"
 
@@ -118,8 +123,17 @@ msgstr "Mon rapport"
 msgid "My sent messages"
 msgstr "Mes messages envoyés"
 
+msgid "Nothing to export"
+msgstr ""
+
 msgid "Pending"
 msgstr "En attente"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Queue"
+msgstr ""
 
 msgid "Rate"
 msgstr ""
@@ -141,6 +155,9 @@ msgstr "SMSC"
 
 msgid "Sandbox"
 msgstr "Bac à sable"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Selected incoming message has been deleted"
 msgstr "Le message entrant sélectionné a été supprimé"

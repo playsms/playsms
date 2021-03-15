@@ -12,6 +12,9 @@ msgstr "Le mot de passe a été envoyé par e-mail"
 msgid "Account has been added but failed to send email"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 

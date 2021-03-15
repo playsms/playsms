@@ -14,6 +14,10 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
 msgid "CSV file format"
 msgstr "صيغة ملف CSV"
 
@@ -26,17 +30,36 @@ msgstr "تأكيد الاستيراد"
 msgid "Destination number"
 msgstr "الوجهة"
 
-msgid "Found invalid entries in uploaded file"
+#, fuzzy
+msgid "Discharged entries"
+msgstr "الإدخالات غير الصالحة"
+
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
+
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "إرسال رسالة للأرقام الصالحة"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "إدخالات غير صالحة في الملف المحمَّل"
 
 msgid "Found valid entries in uploaded file"
 msgstr "الإدخالات الصالحة في الملف المحمَّل"
-
-msgid "Invalid CSV file"
-msgstr "ملف تالف"
-
-msgid "Invalid entries"
-msgstr "الإدخالات غير الصالحة"
 
 msgid "Invalid session ID"
 msgstr "رقم جلسة غير صالح"
@@ -44,11 +67,19 @@ msgstr "رقم جلسة غير صالح"
 msgid "Message"
 msgstr "الرسالة"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "الإدخالات الصالحة في الملف المحمَّل"
+
 msgid "Please select CSV file"
 msgstr "الرجاء اختيار ملف CSV  "
 
-msgid "SMS has been sent to valid numbers in uploaded file"
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
 msgstr "تم إرسال الرسالة للأرقام الصالحة في الملف المحمَّل"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Send SMS to valid entries"
 msgstr "إرسال رسالة للأرقام الصالحة"
@@ -57,6 +88,10 @@ msgid "Send from file"
 msgstr "إرسال من ملف"
 
 msgid "Send from file has been cancelled"
+msgstr "تم إلغاء الإرسال من ملف"
+
+#, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr "تم إلغاء الإرسال من ملف"
 
 msgid "Upload file"
@@ -68,6 +103,13 @@ msgstr "الملف المحمَّل"
 msgid "Username"
 msgstr "اسم المستخدم"
 
+#, fuzzy
+msgid "Valid entries"
+msgstr "الإدخالات الصالحة"
+
+msgid "Verification results"
+msgstr ""
+
 msgid "Your choice"
 msgstr "خيارك"
 
@@ -77,7 +119,8 @@ msgstr "رقم الجوال, الرسالة"
 msgid "destination number, message, username"
 msgstr "رقم الجوال, الرسالة, اسم المستخدم"
 
-msgid "invalid entries"
+#, fuzzy
+msgid "discharged entries"
 msgstr "الإدخالات غير الصالحة"
 
 msgid "of"

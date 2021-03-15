@@ -13,6 +13,13 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
+msgid "-"
+msgstr ""
+
 msgid "1 Day"
 msgstr "يوم واحد"
 
@@ -33,9 +40,6 @@ msgstr "6 أشهر"
 
 msgid "ACL"
 msgstr "ACL"
-
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "ACL الافتراضي لن يحظر الوصول للقوائم"
 
 msgid "ACL ID"
 msgstr "معرف ACL"
@@ -62,6 +66,10 @@ msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
+msgstr "قائمة تحكم الوصول"
+
+#, fuzzy
+msgid "Access Control List membership"
 msgstr "قائمة تحكم الوصول"
 
 msgid ""
@@ -120,7 +128,7 @@ msgid "Account with this mobile already exists"
 msgstr "يوجد حساب بنفس رقم الجوال"
 
 msgid "Action"
-msgstr "الإجراء"
+msgstr "إجراءات"
 
 msgid "Active language"
 msgstr "اللغة الافتراضية"
@@ -173,6 +181,10 @@ msgstr "إضافة عنوان آي بي محظور"
 msgid "Add blocked mobile numbers"
 msgstr "إضافة عنوان آي بي محظور"
 
+#, fuzzy
+msgid "Add card"
+msgstr "إضافة تعرفة"
+
 msgid "Add catch-all"
 msgstr "إضافة التقاط الكل"
 
@@ -220,6 +232,10 @@ msgstr "أضف اسم مرسل"
 
 msgid "Add subuser"
 msgstr "إضافة مستخدم الفرعي"
+
+#, fuzzy
+msgid "Add user"
+msgstr "إضافة تعرفة"
 
 msgid "Additional URL parameter"
 msgstr ""
@@ -308,9 +324,8 @@ msgstr "هل تود بالتأكيد حظر الحساب؟"
 msgid "Are you sure you want to ban subuser"
 msgstr "هل تود بالتأكيد حظر المستخدم الفرعي؟"
 
-#, fuzzy
 msgid "Are you sure you want to delete ?"
-msgstr "هل ترغب في حذف هذه العناصر بالتأكيد؟"
+msgstr ""
 
 msgid "Are you sure you want to delete ACL ?"
 msgstr "هل تود بالتأكيد حذف ACL؟"
@@ -345,6 +360,10 @@ msgstr "هل تود بالتأكيد حذف جدول الإرسال؟"
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "هل تود بالتأكيد حذف رسالة الاشتراك؟"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "هل تود بالتأكيد حذف هذه التعرفة؟"
+
 msgid "Are you sure you want to delete choice ?"
 msgstr "هل تود بالتأكيد حذف هذا الخيار؟"
 
@@ -352,7 +371,8 @@ msgstr "هل تود بالتأكيد حذف هذا الخيار؟"
 msgid "Are you sure you want to delete queue ?"
 msgstr "هل تود بالتأكيد حذف الطابور؟"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr "هل تود بالتأكيد حذف هذه التعرفة؟"
 
 msgid "Are you sure you want to delete sender ID"
@@ -396,6 +416,10 @@ msgstr "هل تود بالتأكيد حذف المستخدم؟"
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr "هل ترغب بالتأكيد في إزالة هذا الرقم من الرسائل المجدولة؟"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "هل تود بالتأكيد حذف هذه التعرفة؟"
 
 msgid "Are you sure you want to unban account"
 msgstr "هل تود بالتأكيد إلغاء حظر الحساب؟"
@@ -459,6 +483,32 @@ msgstr "إلغاء الإرسال من ملف"
 
 msgid "Cannot change status when user have subusers"
 msgstr "لايمكن تعديل الحالة عند وجود مستخمين فرعيين للحساب"
+
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "تم إضافة التعرفة"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "تم الحذف"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "تم الحذف"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Catch-all"
 msgstr "التقاط الكل"
@@ -541,10 +591,6 @@ msgstr "نسخ الرسالة للوارد عند وجود @اسم_المستخ�
 msgid "Core"
 msgstr "النواة"
 
-#, fuzzy
-msgid "Count"
-msgstr "العدد"
-
 msgid "Country"
 msgstr "الدولة"
 
@@ -576,9 +622,6 @@ msgstr "لايمكن حذف مستخدم متصل"
 msgid "Custom URL"
 msgstr "رابط الرسالة المخصصة"
 
-msgid "DEFAULT"
-msgstr "الافتراضي"
-
 msgid "DLR mask"
 msgstr ""
 
@@ -604,6 +647,10 @@ msgstr ""
 
 msgid "Default"
 msgstr "الافتراضي"
+
+#, fuzzy
+msgid "Default ACL during account registration"
+msgstr "ACL الافتراضي عند إنشاء حساب جديد"
 
 msgid "Default ACL upon registration"
 msgstr "ACL الافتراضي عند إنشاء حساب جديد"
@@ -681,9 +728,6 @@ msgstr "حذف مجموعة الوارد"
 msgid "Delete member"
 msgstr "حذف عضو"
 
-msgid "Delete user"
-msgstr ""
-
 msgid "Deleted"
 msgstr "تم الحذف"
 
@@ -713,6 +757,10 @@ msgstr "تعطيل الدخول كمستخدم فرعي"
 
 msgid "Disallowed URLs"
 msgstr ""
+
+#, fuzzy
+msgid "Discharged entries"
+msgstr "الإدخالات غير الصالحة"
 
 msgid "Domain"
 msgstr "عنوان الموقع"
@@ -755,6 +803,10 @@ msgstr "تحرير رسالة الاشتراك"
 
 msgid "Edit SMSC"
 msgstr "تحرير مركز الرسائل"
+
+#, fuzzy
+msgid "Edit card"
+msgstr "تعديل التعرفة"
 
 msgid "Edit contact"
 msgstr "تحرير جهة اتصال"
@@ -856,6 +908,15 @@ msgstr "تحسين الخصوصية للمستخدمين الفرعيين"
 msgid "Entries in CSV file have been imported"
 msgstr "تم استيراد الإدخالات من الملف"
 
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
 msgid "Example"
 msgstr ""
 
@@ -896,6 +957,10 @@ msgstr "فشل إضافة الاختبار"
 msgid "Fail to add SMS subscribe"
 msgstr "فشل إضافة رسالة اشتراك"
 
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "فشل حفظ التعرفة"
+
 msgid "Fail to add catch-all"
 msgstr "فشل إضافة التقاط الكل"
 
@@ -926,8 +991,20 @@ msgstr "فشل إضافة مركز رسائل جديد"
 msgid "Fail to add new destination"
 msgstr "فشل إضافة وجهة جديدة"
 
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "فشل حفظ التعرفة"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 msgid "Fail to add route"
 msgstr "اضف مسار"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr "فشل الحذف"
@@ -950,6 +1027,10 @@ msgstr "فشل الحذف"
 msgid "Fail to delete SMS schedule"
 msgstr "فشل الحذف"
 
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
+msgstr "فشل حذف التعرفة"
+
 msgid "Fail to delete catch-all"
 msgstr "فشل الحذف"
 
@@ -965,11 +1046,15 @@ msgstr "فشل الحذف"
 msgid "Fail to delete member"
 msgstr "فشل الحذف"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
 msgstr "فشل حذف التعرفة"
 
 msgid "Fail to delete route"
 msgstr "فشل حذف المسار"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr "فشل التعطيل"
@@ -1025,6 +1110,10 @@ msgstr "فشل إنشاء حساب"
 msgid "Fail to remove SMSC"
 msgstr "فشل حذف مركز الرسائل"
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr "فشل الحفظ "
 
@@ -1043,9 +1132,6 @@ msgstr ""
 msgid "Fail to save preferences"
 msgstr "فشل حفظ الخصائص"
 
-msgid "Fail to save rate"
-msgstr "فشل حفظ التعرفة"
-
 msgid "Fail to save route"
 msgstr "فشل حفظ المسار"
 
@@ -1060,6 +1146,10 @@ msgstr ""
 
 msgid "Fail to update SMS autoreply"
 msgstr "فشل التحديث"
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "فشل حذف التعرفة"
 
 msgid "Fail to update due to invalid sender ID"
 msgstr "فشل التحديث بسبب عدم صلاحية اسم المرسل"
@@ -1134,7 +1224,16 @@ msgstr "التوجيه للبريد الالكتروني"
 msgid "Forwarded email footer"
 msgstr "تذييل رسائل البريد"
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "إرسال رسالة للأرقام الصالحة"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "إدخالات غير صالحة في الملف المحمَّل"
 
 msgid "Found valid entries in uploaded file"
@@ -1292,9 +1391,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr ""
 
-msgid "Infobip is a bulk SMS provider"
-msgstr ""
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -1312,12 +1408,6 @@ msgstr "خطأ داخلي يرجى الاتصال بمزود الخدمة"
 
 msgid "Invalid"
 msgstr "إدخالات غير صحيحة"
-
-msgid "Invalid CSV file"
-msgstr "ملف تالف"
-
-msgid "Invalid entries"
-msgstr "الإدخالات غير الصالحة"
 
 msgid "Invalid sender ID"
 msgstr "اسم مرسل غير صالح"
@@ -1499,6 +1589,10 @@ msgstr ""
 msgid "Manage SMS rate"
 msgstr "إدارة التعرفة"
 
+#, fuzzy
+msgid "Manage SMSC"
+msgstr "إدارة البوابات ومراكز الرسائل"
+
 msgid "Manage account"
 msgstr "إدارة حساب"
 
@@ -1510,6 +1604,10 @@ msgstr "تم الحظر"
 
 msgid "Manage board"
 msgstr "إدارة اللوح"
+
+#, fuzzy
+msgid "Manage card"
+msgstr "إدارة التعرفة"
 
 msgid "Manage command"
 msgstr "إدارة الأوامر"
@@ -1531,9 +1629,6 @@ msgstr "إدارة الجدار الناري"
 
 msgid "Manage gammu"
 msgstr ""
-
-msgid "Manage gateway and SMSC"
-msgstr "إدارة البوابات ومراكز الرسائل"
 
 msgid "Manage generic"
 msgstr ""
@@ -1561,6 +1656,10 @@ msgstr "إدارة الاستفتاء"
 
 msgid "Manage quiz"
 msgstr "إدارة الاختبارات القصيرة"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "إدارة التعرفة"
 
 msgid "Manage schedule"
 msgstr "إدارة الجدولة"
@@ -1591,6 +1690,10 @@ msgstr ""
 
 msgid "Manage uplink"
 msgstr ""
+
+#, fuzzy
+msgid "Manage user"
+msgstr "إدارة التعرفة"
 
 msgid "Mandatory fields must not be empty"
 msgstr "يجب ملء الحقول الأساسية"
@@ -1728,6 +1831,9 @@ msgstr "متعدد"
 msgid "Multiple entries separated by comma"
 msgstr ""
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My account"
 msgstr ""
 
@@ -1788,9 +1894,6 @@ msgstr "لم يتم إجراء تغييرات!"
 msgid "No changes made"
 msgstr "لم يتم إجراء تغييرات!"
 
-msgid "No changes made!"
-msgstr "لم يتم إجراء تغييرات!"
-
 msgid "No group"
 msgstr "لا مجموعة"
 
@@ -1800,6 +1903,10 @@ msgstr "لم يتم حفظ المسار"
 msgid "No trailing slash"
 msgstr "بدون شرطة مائلة"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "الإدخالات الصالحة في الملف المحمَّل"
+
 msgid "No validate cert option"
 msgstr "لا يوجد شهادة صالحة"
 
@@ -1808,6 +1915,9 @@ msgstr "لاشيء"
 
 msgid "Notes"
 msgstr "الملاحظات"
+
+msgid "Nothing to export"
+msgstr ""
 
 msgid "Number"
 msgstr "الرقم"
@@ -1960,6 +2070,9 @@ msgstr "اضغط زر الإرسال لحذف المحددين من القائم
 msgid "Question"
 msgstr "السؤال"
 
+msgid "Queue"
+msgstr ""
+
 msgid "Queue Code"
 msgstr "رمز الطابور"
 
@@ -1984,17 +2097,31 @@ msgstr "مخرجات RSS ATOM"
 msgid "Rate"
 msgstr "التعرفة"
 
-msgid "Rate already exists"
-msgstr "التعرفة موجودة مسبقًا"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "تم إضافة التعرفة"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "تم الحذف"
 
-msgid "Rate has been saved"
-msgstr "تم الحفظ"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "تم الحذف"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "تم الحذف"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
 
 msgid "Re-type password"
 msgstr "أعد كتابة كلمة المرور"
@@ -2070,6 +2197,9 @@ msgid "Remote playnet password"
 msgstr ""
 
 msgid "Remote playnet username"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Renew webservices token"
@@ -2272,9 +2402,6 @@ msgstr "تذييل الرسائل"
 msgid "SMS forward parameter"
 msgstr "معامل إعادة توجيه الرسالة"
 
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "تم إرسال الرسالة للأرقام الصالحة في الملف المحمَّل"
-
 msgid "SMS is case-insensitive"
 msgstr ""
 
@@ -2377,6 +2504,10 @@ msgstr "تم تغيير حالة الاشتراك"
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "تم حذف كافة الرسائل"
 
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr "تم إرسال الرسالة للأرقام الصالحة في الملف المحمَّل"
+
 msgid "SMS unsubscribe parameter"
 msgstr "معامل إلغاء الاشتراك"
 
@@ -2441,6 +2572,9 @@ msgid "Select"
 msgstr "اختيار"
 
 msgid "Select no if the incoming SMS time is in UTC"
+msgstr ""
+
+msgid "Select page size"
 msgstr ""
 
 msgid "Select receiver"
@@ -2508,6 +2642,10 @@ msgid "Send from file"
 msgstr "إرسال من ملف"
 
 msgid "Send from file has been cancelled"
+msgstr "تم إلغاء الإرسال من ملف"
+
+#, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr "تم إلغاء الإرسال من ملف"
 
 #, fuzzy, php-format
@@ -2772,6 +2910,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr "رسالة يونيكود"
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr "خطأ غير معروف"
 
@@ -2807,6 +2948,14 @@ msgstr "استخدم SSL"
 
 msgid "User"
 msgstr "المستخدم"
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "تم إضافة التعرفة"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "تم الحفظ"
 
 msgid "User ID"
 msgstr "معرف المستخدم"
@@ -2844,6 +2993,10 @@ msgstr "المستخدم ليس في قائمة المستخدمين الفرع�
 msgid "User is not on banned users list"
 msgstr "المستخدم ليس في قائمة المستخدمين المحظورين"
 
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "User preference"
 msgstr ""
 
@@ -2873,6 +3026,13 @@ msgstr "الإدخالات الصحيحة"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr "اسم المستخدم يمكن أن يحتوي أحرف أو أرقام والنقطة والشرطة (-)"
+
+#, fuzzy
+msgid "Valid entries"
+msgstr "الإدخالات الصالحة"
+
+msgid "Verification results"
+msgstr ""
 
 msgid "Verify captcha"
 msgstr "تحقق من الرمز"
@@ -2980,6 +3140,9 @@ msgstr "يجب ملء الحقول المطلوبة"
 msgid "You must select receiver and your message should not be empty"
 msgstr "يجب اختيار مستلمين ولا يمكن أن تكون الرسالة فارغة"
 
+msgid "You must select user"
+msgstr ""
+
 msgid "You or someone else have requested a password recovery"
 msgstr "لقد طلبت أنت أو شخص ما استعادة كلمة المرور."
 
@@ -3061,9 +3224,6 @@ msgstr "الرمز"
 msgid "correct"
 msgstr "صحيحة"
 
-msgid "create an account to send SMS"
-msgstr ""
-
 msgid "destination"
 msgstr "الوجهة"
 
@@ -3072,6 +3232,10 @@ msgstr "رقم الجوال, الرسالة"
 
 msgid "destination number, message, username"
 msgstr "رقم الجوال, الرسالة, اسم المستخدم"
+
+#, fuzzy
+msgid "discharged entries"
+msgstr "الإدخالات غير الصالحة"
 
 msgid "domain"
 msgstr "عنوان الموقع"
@@ -3094,8 +3258,16 @@ msgstr "لا مجموعة"
 msgid "incorrect"
 msgstr "غير صحيحة"
 
-msgid "invalid entries"
-msgstr "الإدخالات غير الصالحة"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""
 
 msgid "keyword"
 msgstr "الكلمات المفتاحية"
@@ -3140,9 +3312,6 @@ msgid "queued"
 msgstr "تم الوضع في الطابور"
 
 msgid "return"
-msgstr ""
-
-msgid "twilio is a bulk SMS provider"
 msgstr ""
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"

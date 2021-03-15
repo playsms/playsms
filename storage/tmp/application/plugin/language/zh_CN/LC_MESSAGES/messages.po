@@ -1,10 +1,15 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
+msgid "-"
+msgstr ""
 
 msgid "1 Day"
 msgstr ""
@@ -25,9 +30,6 @@ msgid "6 Months"
 msgstr ""
 
 msgid "ACL"
-msgstr ""
-
-msgid "ACL DEFAULT will not restrict access to menus"
 msgstr ""
 
 msgid "ACL ID"
@@ -55,6 +57,9 @@ msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
+msgstr ""
+
+msgid "Access Control List membership"
 msgstr ""
 
 msgid ""
@@ -163,6 +168,10 @@ msgstr ""
 msgid "Add blocked mobile numbers"
 msgstr ""
 
+#, fuzzy
+msgid "Add card"
+msgstr "增加等级"
+
 msgid "Add catch-all"
 msgstr ""
 
@@ -211,6 +220,10 @@ msgstr ""
 
 msgid "Add subuser"
 msgstr ""
+
+#, fuzzy
+msgid "Add user"
+msgstr "增加等级"
 
 msgid "Additional URL parameter"
 msgstr "附加链接参数"
@@ -323,13 +336,18 @@ msgstr ""
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "确定删除短信订阅 ?"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "确定删除等级 ?"
+
 msgid "Are you sure you want to delete choice ?"
 msgstr "确定删除选项 ?"
 
 msgid "Are you sure you want to delete queue ?"
 msgstr ""
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr "确定删除等级 ?"
 
 msgid "Are you sure you want to delete sender ID"
@@ -370,6 +388,10 @@ msgstr ""
 
 msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "确定删除等级 ?"
 
 msgid "Are you sure you want to unban account"
 msgstr ""
@@ -428,6 +450,32 @@ msgstr ""
 msgid "Cannot find PHP PEAR-DB"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "等级已添加"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "等级已删除"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "等级已删除"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
+
 msgid "Catch-all"
 msgstr ""
 
@@ -441,6 +489,9 @@ msgid "Catch-all list"
 msgstr ""
 
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
@@ -536,9 +587,6 @@ msgstr ""
 msgid "Custom URL"
 msgstr "短信字定义链接"
 
-msgid "DEFAULT"
-msgstr ""
-
 msgid "DLR mask"
 msgstr ""
 
@@ -562,6 +610,9 @@ msgid ""
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Default ACL during account registration"
 msgstr ""
 
 msgid "Default ACL upon registration"
@@ -635,9 +686,6 @@ msgstr ""
 msgid "Delete member"
 msgstr ""
 
-msgid "Delete user"
-msgstr ""
-
 msgid "Description"
 msgstr ""
 
@@ -661,6 +709,9 @@ msgid "Disable login as subuser"
 msgstr ""
 
 msgid "Disallowed URLs"
+msgstr ""
+
+msgid "Discharged entries"
 msgstr ""
 
 msgid "Domain"
@@ -705,6 +756,10 @@ msgstr "编辑短信订阅"
 
 msgid "Edit SMSC"
 msgstr ""
+
+#, fuzzy
+msgid "Edit card"
+msgstr "编辑等级"
 
 msgid "Edit contact"
 msgstr ""
@@ -807,6 +862,15 @@ msgstr ""
 msgid "Entries in CSV file have been imported"
 msgstr ""
 
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
 msgid "Example"
 msgstr ""
 
@@ -852,6 +916,10 @@ msgstr "增加短信测试"
 msgid "Fail to add SMS subscribe"
 msgstr "增加短信订阅"
 
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "保存等级失败"
+
 msgid "Fail to add catch-all"
 msgstr ""
 
@@ -883,9 +951,21 @@ msgstr ""
 msgid "Fail to add new destination"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "保存等级失败"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 #, fuzzy
 msgid "Fail to add route"
 msgstr "保存等级失败"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -908,6 +988,10 @@ msgstr "删除短信投票选项失败"
 msgid "Fail to delete SMS schedule"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
+msgstr "删除等级失败"
+
 msgid "Fail to delete catch-all"
 msgstr ""
 
@@ -923,12 +1007,16 @@ msgstr ""
 msgid "Fail to delete member"
 msgstr ""
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
 msgstr "删除等级失败"
 
 #, fuzzy
 msgid "Fail to delete route"
 msgstr "删除等级失败"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr ""
@@ -988,6 +1076,10 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr "保存短信指令失败"
 
@@ -1006,9 +1098,6 @@ msgstr ""
 msgid "Fail to save preferences"
 msgstr ""
 
-msgid "Fail to save rate"
-msgstr "保存等级失败"
-
 #, fuzzy
 msgid "Fail to save route"
 msgstr "保存等级失败"
@@ -1025,6 +1114,10 @@ msgstr ""
 #, fuzzy
 msgid "Fail to update SMS autoreply"
 msgstr "删除短信自动回复失败"
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "删除等级失败"
 
 msgid "Fail to update due to invalid sender ID"
 msgstr ""
@@ -1092,7 +1185,15 @@ msgstr "发送到电子邮件"
 msgid "Forwarded email footer"
 msgstr ""
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, php-format
+msgid "Found %d of %d valid entries"
+msgstr ""
+
+msgid "Found discharged entries in uploaded file"
 msgstr ""
 
 msgid "Found valid entries in uploaded file"
@@ -1252,9 +1353,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr "Infobip应用程序界面链接"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr ""
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr ""
 
@@ -1271,12 +1369,6 @@ msgid "Internal error please contact service provider"
 msgstr ""
 
 msgid "Invalid"
-msgstr ""
-
-msgid "Invalid CSV file"
-msgstr ""
-
-msgid "Invalid entries"
 msgstr ""
 
 msgid "Invalid sender ID"
@@ -1447,6 +1539,9 @@ msgstr ""
 msgid "Manage SMS rate"
 msgstr "管理短信等级"
 
+msgid "Manage SMSC"
+msgstr ""
+
 msgid "Manage account"
 msgstr ""
 
@@ -1459,6 +1554,10 @@ msgstr "管理dev"
 
 msgid "Manage board"
 msgstr "管理面板"
+
+#, fuzzy
+msgid "Manage card"
+msgstr "管理短信等级"
 
 msgid "Manage command"
 msgstr "管理指令"
@@ -1480,9 +1579,6 @@ msgstr ""
 
 msgid "Manage gammu"
 msgstr "管理监务"
-
-msgid "Manage gateway and SMSC"
-msgstr ""
 
 msgid "Manage generic"
 msgstr ""
@@ -1510,6 +1606,10 @@ msgstr "管理投票"
 
 msgid "Manage quiz"
 msgstr "管理测试"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "管理短信等级"
 
 msgid "Manage schedule"
 msgstr ""
@@ -1540,6 +1640,10 @@ msgstr ""
 
 msgid "Manage uplink"
 msgstr "管理uplink"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "管理短信等级"
 
 msgid "Mandatory fields must not be empty"
 msgstr ""
@@ -1724,13 +1828,10 @@ msgid "No"
 msgstr ""
 
 msgid "No changes have been made"
-msgstr "未做改变"
+msgstr "没有改变"
 
 msgid "No changes made"
 msgstr ""
-
-msgid "No changes made!"
-msgstr "没有做出改变"
 
 msgid "No group"
 msgstr ""
@@ -1740,6 +1841,10 @@ msgstr ""
 
 msgid "No trailing slash"
 msgstr "没有结尾的斜线"
+
+#, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr ""
 
 msgid "No validate cert option"
 msgstr ""
@@ -1920,17 +2025,31 @@ msgstr ""
 msgid "Rate"
 msgstr "等级"
 
-msgid "Rate already exists"
-msgstr "等级已存在"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "等级已添加"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "等级已删除"
 
-msgid "Rate has been saved"
-msgstr "等级已保存"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "等级已删除"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "等级已删除"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
 
 msgid "Re-type password"
 msgstr ""
@@ -2003,6 +2122,9 @@ msgid "Remote playnet password"
 msgstr ""
 
 msgid "Remote playnet username"
+msgstr ""
+
+msgid "Remove"
 msgstr ""
 
 msgid "Renew webservices token"
@@ -2201,9 +2323,6 @@ msgstr ""
 msgid "SMS forward parameter"
 msgstr ""
 
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr ""
-
 msgid "SMS is case-insensitive"
 msgstr ""
 
@@ -2307,6 +2426,9 @@ msgstr "短信订阅状态已改变"
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "短信订阅和它的全部信息和会员已删除"
 
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr ""
+
 msgid "SMS unsubscribe parameter"
 msgstr "短信未订阅回复"
 
@@ -2370,6 +2492,9 @@ msgstr ""
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr ""
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Select receiver"
 msgstr ""
 
@@ -2428,6 +2553,10 @@ msgid "Send from file"
 msgstr ""
 
 msgid "Send from file has been cancelled"
+msgstr ""
+
+#, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr ""
 
 #, php-format
@@ -2684,6 +2813,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr ""
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
@@ -2721,6 +2853,14 @@ msgstr ""
 msgid "User"
 msgstr "用户"
 
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "等级已添加"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "等级已保存"
+
 msgid "User ID"
 msgstr ""
 
@@ -2754,6 +2894,10 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "User preference"
 msgstr ""
 
@@ -2782,6 +2926,12 @@ msgid "Valid"
 msgstr ""
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr ""
+
+msgid "Valid entries"
+msgstr ""
+
+msgid "Verification results"
 msgstr ""
 
 msgid "Verify captcha"
@@ -2889,6 +3039,9 @@ msgstr ""
 msgid "You must select receiver and your message should not be empty"
 msgstr ""
 
+msgid "You must select user"
+msgstr ""
+
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
@@ -2972,9 +3125,6 @@ msgstr ""
 msgid "correct"
 msgstr "错误"
 
-msgid "create an account to send SMS"
-msgstr ""
-
 msgid "destination"
 msgstr "目标"
 
@@ -2982,6 +3132,9 @@ msgid "destination number, message"
 msgstr ""
 
 msgid "destination number, message, username"
+msgstr ""
+
+msgid "discharged entries"
 msgstr ""
 
 msgid "domain"
@@ -3006,7 +3159,15 @@ msgstr ""
 msgid "incorrect"
 msgstr "错误"
 
-msgid "invalid entries"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
 msgstr ""
 
 msgid "keyword"
@@ -3055,9 +3216,6 @@ msgstr ""
 msgid "return"
 msgstr ""
 
-msgid "twilio is a bulk SMS provider"
-msgstr ""
-
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
@@ -3071,10 +3229,10 @@ msgid "valid entries"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "用短信收到日期/时间替换"
+msgstr "将被短信传入日期/时间替换"
 
 msgid "will be replaced by SMS raw message"
-msgstr "被发件人数替换"
+msgstr "将被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3097,7 +3255,7 @@ msgid "will be replaced by receiver number"
 msgstr "将被发件人数替换"
 
 msgid "will be replaced by sender number"
-msgstr "被发件人数替换"
+msgstr "将被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by service name"

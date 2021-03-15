@@ -5,6 +5,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
 msgid "CSV file format"
 msgstr ""
 
@@ -17,17 +21,36 @@ msgstr "Konfirmasi"
 msgid "Destination number"
 msgstr "Nomor tujuan"
 
-msgid "Found invalid entries in uploaded file"
+#, fuzzy
+msgid "Discharged entries"
+msgstr "entri tidak valid"
+
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
+
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "Kirim SMS ke entri yang valid"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "Ditemukan entri yang tidak valid dalam file yang diunggah"
 
 msgid "Found valid entries in uploaded file"
 msgstr "Ditemukan entri yang valid dalam file yang diunggah"
-
-msgid "Invalid CSV file"
-msgstr "File CSV tidak valid"
-
-msgid "Invalid entries"
-msgstr "Entri tidak valid"
 
 msgid "Invalid session ID"
 msgstr "Sesi ID tidak valid"
@@ -35,11 +58,19 @@ msgstr "Sesi ID tidak valid"
 msgid "Message"
 msgstr "Pesan"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "Ditemukan entri yang valid dalam file yang diunggah"
+
 msgid "Please select CSV file"
 msgstr "Silahkan pilih file CSV"
 
-msgid "SMS has been sent to valid numbers in uploaded file"
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
 msgstr "SMS telah dikirim ke nomor yang valid dalam file diunggah"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Send SMS to valid entries"
 msgstr "Kirim SMS ke entri yang valid"
@@ -50,6 +81,10 @@ msgstr "Kirim dari file"
 msgid "Send from file has been cancelled"
 msgstr "Kirim dari file telah dibatalkan"
 
+#, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
+msgstr "Kirim dari file telah dibatalkan"
+
 msgid "Upload file"
 msgstr "Unggah file"
 
@@ -58,6 +93,13 @@ msgstr "File dirunggah"
 
 msgid "Username"
 msgstr "Nama pengguna"
+
+#, fuzzy
+msgid "Valid entries"
+msgstr "entri valid"
+
+msgid "Verification results"
+msgstr ""
 
 msgid "Your choice"
 msgstr "Pilihan Anda"
@@ -70,7 +112,8 @@ msgstr "Format: nomor tujuan, pesan"
 msgid "destination number, message, username"
 msgstr "Format: nomor tujuan, pesan, nama pengguna"
 
-msgid "invalid entries"
+#, fuzzy
+msgid "discharged entries"
 msgstr "entri tidak valid"
 
 msgid "of"

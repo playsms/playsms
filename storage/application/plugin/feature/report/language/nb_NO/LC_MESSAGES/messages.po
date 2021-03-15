@@ -42,15 +42,14 @@ msgstr "Listen over bannlyste brukere"
 msgid "Billing"
 msgstr "Fakturering"
 
+msgid "Card"
+msgstr ""
+
 msgid "Charge"
 msgstr ""
 
 msgid "Content"
 msgstr "Innhold"
-
-#, fuzzy
-msgid "Count"
-msgstr "antall"
 
 msgid "Credit"
 msgstr "Kreditt"
@@ -67,6 +66,9 @@ msgstr "Slettet"
 
 msgid "Delivered"
 msgstr "Levert"
+
+msgid "Destination"
+msgstr ""
 
 msgid "Email"
 msgstr "Email"
@@ -109,6 +111,9 @@ msgstr "Liste over køen %s"
 msgid "Message"
 msgstr "Melding"
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My credit transactions"
 msgstr "Mine kreditt-transaksjoner"
 
@@ -121,8 +126,17 @@ msgstr "Min rapport"
 msgid "My sent messages"
 msgstr "Mine sendte meldinger"
 
+msgid "Nothing to export"
+msgstr ""
+
 msgid "Pending"
 msgstr "Avventer"
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Queue"
+msgstr ""
 
 msgid "Rate"
 msgstr ""
@@ -144,6 +158,9 @@ msgstr "SMSC"
 
 msgid "Sandbox"
 msgstr "Sandbox"
+
+msgid "Select page size"
+msgstr ""
 
 msgid "Selected incoming message has been deleted"
 msgstr "Valgt innkommende melding har blitt slettet"

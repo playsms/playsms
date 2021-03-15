@@ -15,29 +15,117 @@ msgstr ""
 msgid "Action"
 msgstr "Ação"
 
+#, fuzzy
+msgid "Add card"
+msgstr "Adicionar taxa"
+
 msgid "Add rate"
 msgstr "Adicionar taxa"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "Adicionar taxa"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "Tem certeza que quer remover a taxa?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "Tem certeza que quer remover a taxa?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Tem certeza que quer remover a taxa?"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "A taxa foi adicionada"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "A taxa foi eliminada"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "A taxa foi eliminada"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "Destino"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "Editar taxa"
+
 msgid "Edit rate"
 msgstr "Editar taxa"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Erro ao guardar a taxa"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Erro ao guardar a taxa"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "Erro ao remover a taxa"
 
-msgid "Fail to save rate"
-msgstr "Erro ao guardar a taxa"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "Erro ao remover a taxa"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Erro ao remover a taxa"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Gerir taxa de SMS"
 
-msgid "No changes made!"
-msgstr "Nenhuma alteração efectuada!"
+#, fuzzy
+msgid "Manage card"
+msgstr "Gerir taxa de SMS"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Gerir taxa de SMS"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Gerir taxa de SMS"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Prefixo"
@@ -45,26 +133,60 @@ msgstr "Prefixo"
 msgid "Rate"
 msgstr "Taxa"
 
-msgid "Rate already exists"
-msgstr "A taxa já existe"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "A taxa foi adicionada"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "A taxa foi eliminada"
 
-msgid "Rate has been saved"
-msgstr "A taxa foi guardada"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "A taxa foi eliminada"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "A taxa foi eliminada"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "Guardar"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "A taxa foi adicionada"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "A taxa foi guardada"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"
 
-msgid "destination"
-msgstr "destino"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "prefixo"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

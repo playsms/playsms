@@ -11,9 +11,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "ACL PADRÃO não vai restringir o acesso aos menus"
-
 msgid ""
 "Access to unknown domain mapped to this server IP address will be redirected "
 "to this website URL. This website URL should be the primary address for the "
@@ -48,6 +45,10 @@ msgstr ""
 
 msgid "Buy credit page"
 msgstr "Página para Compra de Créditos"
+
+#, fuzzy
+msgid "Default ACL during account registration"
+msgstr "Padrão ACL no ato do registo"
 
 msgid "Default ACL upon registration"
 msgstr "Padrão ACL no ato do registo"

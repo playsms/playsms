@@ -99,6 +99,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr "содержит русские символы"
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "You must select receiver and your message should not be empty"
 msgstr "Необходимо выбрать получателей и сообщение не должно быть пустым"
 

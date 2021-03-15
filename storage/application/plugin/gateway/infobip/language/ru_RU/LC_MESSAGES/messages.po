@@ -30,9 +30,6 @@ msgstr "Название шлюза"
 msgid "Infobip API URL"
 msgstr "Infobip API URL"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip это массовый СМС провайдер"
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip отправит DLR и входящие СМС на указанный URL"
 
@@ -75,6 +72,3 @@ msgstr "Ваш callback URL"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "Ваш callback URL джен быть доступен со стороны Infobip"
-
-msgid "create an account to send SMS"
-msgstr "Создать учётную запись для отправки СМС"

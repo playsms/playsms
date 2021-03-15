@@ -9,29 +9,117 @@ msgstr ""
 msgid "Action"
 msgstr "Action"
 
+#, fuzzy
+msgid "Add card"
+msgstr "Ajouter un tarif"
+
 msgid "Add rate"
 msgstr "Ajouter un tarif"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy
+msgid "Add user"
+msgstr "Ajouter un tarif"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce tarif ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce tarif ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce tarif ?"
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "Le tarif a été ajouté"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "Le tarif a été supprimé"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "Le tarif a été supprimé"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
 
 msgid "Destination"
 msgstr "Destination"
 
+#, fuzzy
+msgid "Edit card"
+msgstr "Éditer tarif"
+
 msgid "Edit rate"
 msgstr "Éditer tarif"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Échec de l'enregistrement du tarif"
+
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Échec de l'enregistrement du tarif"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
 msgstr "Échec de la suppression du tarif"
 
-msgid "Fail to save rate"
-msgstr "Échec de l'enregistrement du tarif"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "Échec de la suppression du tarif"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Échec de la suppression du tarif"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Gérer tarif SMS"
 
-msgid "No changes made!"
-msgstr "Aucune modification apportée!"
+#, fuzzy
+msgid "Manage card"
+msgstr "Gérer tarif SMS"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Gérer tarif SMS"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Gérer tarif SMS"
+
+msgid "Name"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Préfixe"
@@ -39,26 +127,60 @@ msgstr "Préfixe"
 msgid "Rate"
 msgstr "Tarif"
 
-msgid "Rate already exists"
-msgstr "Ce tarif existe déjà"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "Le tarif a été ajouté"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "Le tarif a été supprimé"
 
-msgid "Rate has been saved"
-msgstr "Le tarif a été enregistré"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "Le tarif a été supprimé"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "Le tarif a été supprimé"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"
 
+msgid "User"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "Le tarif a été ajouté"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "Le tarif a été enregistré"
+
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "You must fill all fields"
 msgstr "Vous devez saisir tous les champs"
 
-msgid "destination"
-msgstr "destination"
+msgid "You must select user"
+msgstr ""
 
-msgid "prefix"
-msgstr "préfixe"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""

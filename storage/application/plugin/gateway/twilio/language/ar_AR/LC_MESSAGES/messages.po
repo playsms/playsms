@@ -49,11 +49,5 @@ msgstr ""
 msgid "Your callback URL should be accessible from twilio"
 msgstr ""
 
-msgid "free credits are available for testing purposes"
-msgstr ""
-
-msgid "twilio is a bulk SMS provider"
-msgstr ""
-
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr ""

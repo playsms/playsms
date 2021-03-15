@@ -11,6 +11,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7\n"
 
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr ""
+
+msgid "-"
+msgstr ""
+
 msgid "1 Day"
 msgstr "1 dag"
 
@@ -31,9 +38,6 @@ msgstr "6 måneder"
 
 msgid "ACL"
 msgstr "ACL"
-
-msgid "ACL DEFAULT will not restrict access to menus"
-msgstr "ACL DEFAULT vil ikke begrænse adgang til menuer"
 
 msgid "ACL ID"
 msgstr "ACL ID"
@@ -60,6 +64,10 @@ msgid "API username"
 msgstr ""
 
 msgid "Access Control List"
+msgstr "Adgangskontrol liste"
+
+#, fuzzy
+msgid "Access Control List membership"
 msgstr "Adgangskontrol liste"
 
 msgid ""
@@ -173,6 +181,10 @@ msgstr "Tilføj blokeret IP adresse"
 msgid "Add blocked mobile numbers"
 msgstr ""
 
+#, fuzzy
+msgid "Add card"
+msgstr "Tilføj takst"
+
 msgid "Add catch-all"
 msgstr "Tilføj catch-all"
 
@@ -220,6 +232,10 @@ msgstr "Tilføj afsender ID"
 
 msgid "Add subuser"
 msgstr "Tilføj underbruger"
+
+#, fuzzy
+msgid "Add user"
+msgstr "Tilføj takst"
 
 msgid "Additional URL parameter"
 msgstr "Yderligere URL parametre"
@@ -309,9 +325,8 @@ msgstr "Er du sikker på at du ønsker at bandlyse kontoen"
 msgid "Are you sure you want to ban subuser"
 msgstr "Er du sikker på at du ønsker at bandlyse underbrugeren"
 
-#, fuzzy
 msgid "Are you sure you want to delete ?"
-msgstr "Er du sikker på at du vil slette disse emner?"
+msgstr ""
 
 msgid "Are you sure you want to delete ACL ?"
 msgstr "Er du sikker på at du ønsker at slette ACL?"
@@ -351,6 +366,10 @@ msgstr "Er du sikker pÃÂ¥ at du ÃÂ¸nsker at slette SMS tidsplanen?"
 msgid "Are you sure you want to delete SMS subscribe ?"
 msgstr "Er du sikker på at du ønsker at slette SMS abonnement?"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "Er du sikker på at du ønsker at slette takst?"
+
 msgid "Are you sure you want to delete choice ?"
 msgstr "Er du sikker på at du ønsker at slette valget?"
 
@@ -358,7 +377,8 @@ msgstr "Er du sikker på at du ønsker at slette valget?"
 msgid "Are you sure you want to delete queue ?"
 msgstr "Er du sikker på at du ønsker at slette køen"
 
-msgid "Are you sure you want to delete rate ?"
+#, fuzzy, php-format
+msgid "Are you sure you want to delete rate %s ?"
 msgstr "Er du sikker på at du ønsker at slette takst?"
 
 msgid "Are you sure you want to delete sender ID"
@@ -404,6 +424,10 @@ msgid "Are you sure you want to remove this number from SMS schedule ?"
 msgstr ""
 "Er du sikker pÃÂ¥ at du ÃÂ¸nsker at fjerne dette nummer fra SMS tidsplanen?"
 
+#, fuzzy, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Er du sikker på at du ønsker at slette takst?"
+
 msgid "Are you sure you want to unban account"
 msgstr "Er du sikker på at du ønsker at fjerne bandlysningen af kontoen"
 
@@ -444,7 +468,7 @@ msgid "Buy"
 msgstr ""
 
 msgid "Buy credit page"
-msgstr "Køb kredit side"
+msgstr "KÃÂ¸b kredit siden"
 
 msgid "CSS URL"
 msgstr "CSS URL"
@@ -467,6 +491,32 @@ msgstr "Anuller send fra fil"
 msgid "Cannot change status when user have subusers"
 msgstr "Kan ikke ændre status når bruger har underbrugere"
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Card %s has been added"
+msgstr "Taksten er allerede tilføjet"
+
+#, fuzzy, php-format
+msgid "Card %s has been updated"
+msgstr "Taksten er blevet slettet"
+
+#, fuzzy, php-format
+msgid "Card id:%d has been deleted"
+msgstr "Taksten er blevet slettet"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr ""
+
+#, php-format
+msgid "Card not found"
+msgstr ""
+
 msgid "Catch-all"
 msgstr "Catch-all"
 
@@ -480,7 +530,7 @@ msgid "Catch-all list"
 msgstr "Catch-all liste"
 
 msgid "Changes have been made"
-msgstr "Der er foretaget ændringer"
+msgstr "Ændringer er blevet foretaget"
 
 msgid "Charge"
 msgstr ""
@@ -549,10 +599,6 @@ msgstr ""
 msgid "Core"
 msgstr "Kerne"
 
-#, fuzzy
-msgid "Count"
-msgstr "antal"
-
 msgid "Country"
 msgstr "Land"
 
@@ -584,9 +630,6 @@ msgstr "Aktuelt indloggede brugere kan ikke slettes"
 msgid "Custom URL"
 msgstr "Tilpasset SMS URL"
 
-msgid "DEFAULT"
-msgstr "STANDARD"
-
 msgid "DLR mask"
 msgstr "DLR maske"
 
@@ -613,6 +656,10 @@ msgstr ""
 
 msgid "Default"
 msgstr "Standard"
+
+#, fuzzy
+msgid "Default ACL during account registration"
+msgstr "Standard ACL ved registrering"
 
 msgid "Default ACL upon registration"
 msgstr "Standard ACL ved registrering"
@@ -691,9 +738,6 @@ msgstr "Slet gruppe-indbakke"
 msgid "Delete member"
 msgstr "Slet medlem"
 
-msgid "Delete user"
-msgstr ""
-
 msgid "Deleted"
 msgstr "Slettet"
 
@@ -723,6 +767,10 @@ msgstr "Deaktiver login som underbruger"
 
 msgid "Disallowed URLs"
 msgstr "Ikke tilladte URL'er"
+
+#, fuzzy
+msgid "Discharged entries"
+msgstr "ugyldige emner"
 
 msgid "Domain"
 msgstr "DomÃÂ¦ne"
@@ -765,6 +813,10 @@ msgstr "Rediger SMS abonnement"
 
 msgid "Edit SMSC"
 msgstr "Rediger SMSC"
+
+#, fuzzy
+msgid "Edit card"
+msgstr "Rediger takst"
 
 msgid "Edit contact"
 msgstr "Rediger kontakt"
@@ -866,6 +918,15 @@ msgstr "Forbedr privatliv for underbrugere"
 msgid "Entries in CSV file have been imported"
 msgstr "Emnerne i CSV filen er blevet importeret"
 
+msgid "Error occurred after uploading CSV file"
+msgstr ""
+
+msgid "Error occurred while opening CSV file"
+msgstr ""
+
+msgid "Error occurred while verifying CSV file"
+msgstr ""
+
 msgid "Example"
 msgstr "Eksempel"
 
@@ -905,6 +966,10 @@ msgstr "Kunne ikke tilføje SMS quiz"
 msgid "Fail to add SMS subscribe"
 msgstr "Kunne ikke tilføje SMS abonnement"
 
+#, fuzzy, php-format
+msgid "Fail to add card %s"
+msgstr "Kunne ikke gemme rate"
+
 msgid "Fail to add catch-all"
 msgstr "Kunne ikke tilføje catch-all"
 
@@ -935,8 +1000,20 @@ msgstr "Kunne ikke tilføje ny SMSC"
 msgid "Fail to add new destination"
 msgstr "Kunne ikke tilfÃÂ¸je ny destination"
 
+#, fuzzy, php-format
+msgid "Fail to add rate %s"
+msgstr "Kunne ikke gemme rate"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr ""
+
 msgid "Fail to add route"
 msgstr "Kunne ikke tilføje rute"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr "Kunne ikke slette ACL"
@@ -959,6 +1036,10 @@ msgstr "Kunne ikke slette SMS afstemnings-valg"
 msgid "Fail to delete SMS schedule"
 msgstr "Kunne ikke slette SMS tidsplan"
 
+#, fuzzy, php-format
+msgid "Fail to delete card id:%d"
+msgstr "Kunne ikke slette rate"
+
 msgid "Fail to delete catch-all"
 msgstr "Kunne ikke slette catch-all"
 
@@ -974,11 +1055,15 @@ msgstr "Kunne ikke slette gruppe-indbakke"
 msgid "Fail to delete member"
 msgstr "Kunne ikke slette medlem"
 
-msgid "Fail to delete rate"
+#, fuzzy, php-format
+msgid "Fail to delete rate id:%d"
 msgstr "Kunne ikke slette rate"
 
 msgid "Fail to delete route"
 msgstr "Kunne ikke slette rute"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr ""
 
 msgid "Fail to disable group inbox"
 msgstr "Kunne ikke deaktivere gruppe-indbakke"
@@ -1034,6 +1119,10 @@ msgstr "Kunne ikke registrere en konto"
 msgid "Fail to remove SMSC"
 msgstr "Kunne ikke fjerne SMSC"
 
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr ""
+
 msgid "Fail to save SMS command"
 msgstr "Kunne ikke gemme SMS kommando"
 
@@ -1052,9 +1141,6 @@ msgstr "Kunne ikke gemme gateway-modul konfigurationer"
 msgid "Fail to save preferences"
 msgstr "Kunne ikke gemme indstillingerne"
 
-msgid "Fail to save rate"
-msgstr "Kunne ikke gemme rate"
-
 msgid "Fail to save route"
 msgstr "Kunne ikke slette rute"
 
@@ -1069,6 +1155,10 @@ msgstr "Kunne ikke simulere inkommende SMS"
 
 msgid "Fail to update SMS autoreply"
 msgstr "Kunne ikke opdatere SMS autosvar"
+
+#, fuzzy, php-format
+msgid "Fail to update card %s"
+msgstr "Kunne ikke slette rate"
 
 msgid "Fail to update due to invalid sender ID"
 msgstr "Kunne ikke opdatere grundet ugyldigt afsender ID"
@@ -1142,7 +1232,16 @@ msgstr "Videresend til e-mail"
 msgid "Forwarded email footer"
 msgstr "Videresendt e-mail bundtekst"
 
-msgid "Found invalid entries in uploaded file"
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Found %d of %d valid entries"
+msgstr "Send SMS til gyldige emner"
+
+#, fuzzy
+msgid "Found discharged entries in uploaded file"
 msgstr "Fandt ugyldige emner i den uploadede fil"
 
 msgid "Found valid entries in uploaded file"
@@ -1282,7 +1381,7 @@ msgid "Import above phonebook entries ?"
 msgstr "Importer ovenstående telefonbogsemner?"
 
 msgid "Import confirmation"
-msgstr "Bekræft import"
+msgstr "BekrÃÂ¦ft import"
 
 msgid "Inbox"
 msgstr "Indbakke"
@@ -1303,9 +1402,6 @@ msgstr ""
 msgid "Infobip API URL"
 msgstr "Infobip API URL"
 
-msgid "Infobip is a bulk SMS provider"
-msgstr "Infobip er en masse-SMS leverandør"
-
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip vil sende DLR og indkommende SMS til ovenstående URL"
 
@@ -1323,12 +1419,6 @@ msgstr "Intern fejl, kontakt venligst serviceleverandør"
 
 msgid "Invalid"
 msgstr "Ugyldig"
-
-msgid "Invalid CSV file"
-msgstr "Ugyldig CSV fil"
-
-msgid "Invalid entries"
-msgstr "Ugyldige emner"
 
 msgid "Invalid sender ID"
 msgstr "Ugyldig afsender ID"
@@ -1389,7 +1479,7 @@ msgid "Last update"
 msgstr "Sidst opdateret"
 
 msgid "Layout footer"
-msgstr "Layout bundtekst"
+msgstr "Layout footer"
 
 msgid "Leave a copy in sandbox SMS page"
 msgstr "Læg en kopi i sandbox SMS siden"
@@ -1461,8 +1551,8 @@ msgstr "Logo URL"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Logo vil vises som standard ved login-, registrerings- og glemt adgangskode-"
-"sider"
+"Logo vil som standard blive vist pÃ¥ login, registrering og glemt "
+"adgangskode siderne"
 
 msgid "Logout"
 msgstr ""
@@ -1492,10 +1582,10 @@ msgid "Main configuration changes has been saved"
 msgstr "Ændringer i primær konfiguration er blevet gemt"
 
 msgid "Main website URL"
-msgstr "Primær websted URL"
+msgstr "PrimÃÂ¦r webside URL"
 
 msgid "Main website name"
-msgstr "Primær webstedsnavn"
+msgstr "PrimÃÂ¦r webside navn"
 
 msgid "Make return as reply"
 msgstr "Gør returværdi til svar"
@@ -1512,6 +1602,10 @@ msgstr "Håndter OpenVox"
 msgid "Manage SMS rate"
 msgstr "Håndter SMS rate"
 
+#, fuzzy
+msgid "Manage SMSC"
+msgstr "Håndter gateway og SMSC"
+
 msgid "Manage account"
 msgstr "Håndter konto"
 
@@ -1523,6 +1617,10 @@ msgstr "Håndter blocked"
 
 msgid "Manage board"
 msgstr "Håndter forum"
+
+#, fuzzy
+msgid "Manage card"
+msgstr "Håndter SMS rate"
 
 msgid "Manage command"
 msgstr "Håndter kommando"
@@ -1544,9 +1642,6 @@ msgstr "Håndter firewall"
 
 msgid "Manage gammu"
 msgstr "Håndter gammu"
-
-msgid "Manage gateway and SMSC"
-msgstr "Håndter gateway og SMSC"
 
 msgid "Manage generic"
 msgstr ""
@@ -1574,6 +1669,10 @@ msgstr "Håndter afstemning"
 
 msgid "Manage quiz"
 msgstr "Håndter quiz"
+
+#, fuzzy
+msgid "Manage rate"
+msgstr "Håndter SMS rate"
 
 msgid "Manage schedule"
 msgstr "HÃÂ¥ndter tidsplan"
@@ -1604,6 +1703,10 @@ msgstr "Håndter twilio"
 
 msgid "Manage uplink"
 msgstr "Håndter uplink"
+
+#, fuzzy
+msgid "Manage user"
+msgstr "Håndter SMS rate"
 
 msgid "Mandatory fields must not be empty"
 msgstr "Krævede felter må ikke være tomme"
@@ -1741,6 +1844,9 @@ msgstr "Flere"
 msgid "Multiple entries separated by comma"
 msgstr "Flere emner adskilt med komma"
 
+msgid "My SMS rate"
+msgstr ""
+
 msgid "My account"
 msgstr ""
 
@@ -1801,9 +1907,6 @@ msgstr "Ingen ændringer foretaget"
 msgid "No changes made"
 msgstr "Ingen ændringer foretaget"
 
-msgid "No changes made!"
-msgstr "Ingen ændringer foretaget!"
-
 msgid "No group"
 msgstr "Ingen gruppe"
 
@@ -1813,6 +1916,10 @@ msgstr "Ingen rute er blevet gemt"
 msgid "No trailing slash"
 msgstr "Ingen efterfølgende skråstreg"
 
+#, fuzzy, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "Fandt gyldige emner i den uploadede fil"
+
 msgid "No validate cert option"
 msgstr "Ingen gyldige cert indstillinger"
 
@@ -1821,6 +1928,9 @@ msgstr "Ingen"
 
 msgid "Notes"
 msgstr "Noter"
+
+msgid "Nothing to export"
+msgstr ""
 
 msgid "Number"
 msgstr "Nummer"
@@ -1835,7 +1945,7 @@ msgid "Offline"
 msgstr ""
 
 msgid "Once"
-msgstr "Én gang"
+msgstr "ÃÂn gang"
 
 msgid "Online"
 msgstr ""
@@ -1917,7 +2027,7 @@ msgid "Please select"
 msgstr "Vælg venligsr"
 
 msgid "Please select CSV file"
-msgstr "Vælg venligst en CSV fil"
+msgstr "VÃÂ¦lg venligst en CSV fil"
 
 msgid "Please select CSV file for phonebook entries"
 msgstr "Vælg CSV fil med telefonbogsemner"
@@ -1976,6 +2086,9 @@ msgstr "Tryk på knappen indsend for at fjerne valgte brugere fra medlemslisten"
 msgid "Question"
 msgstr "Spørgsmål"
 
+msgid "Queue"
+msgstr ""
+
 msgid "Queue Code"
 msgstr "Kø-kode"
 
@@ -2000,17 +2113,31 @@ msgstr "RSS ATOM output"
 msgid "Rate"
 msgstr "Takst"
 
-msgid "Rate already exists"
-msgstr "Taksten eksisterer allerede"
-
-msgid "Rate has been added"
+#, fuzzy, php-format
+msgid "Rate %s has been added"
 msgstr "Taksten er allerede tilføjet"
 
-msgid "Rate has been deleted"
+#, fuzzy, php-format
+msgid "Rate %s has been updated"
 msgstr "Taksten er blevet slettet"
 
-msgid "Rate has been saved"
-msgstr "Taksten er blevet gemt"
+#, fuzzy, php-format
+msgid "Rate %s is not updated"
+msgstr "Taksten er blevet slettet"
+
+#, fuzzy, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "Taksten er blevet slettet"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr ""
+
+msgid "Rate not found"
+msgstr ""
+
+msgid "Ratecard"
+msgstr ""
 
 msgid "Re-type password"
 msgstr "Gen-indtast adgangskode"
@@ -2090,6 +2217,9 @@ msgstr ""
 msgid "Remote playnet username"
 msgstr ""
 
+msgid "Remove"
+msgstr ""
+
 msgid "Renew webservices token"
 msgstr "Forny webservices token"
 
@@ -2097,7 +2227,7 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr "Erstat præfiks 0 eller udvid lokale numre"
 
 msgid "Replace website title with logo"
-msgstr "Erstat websidetitel med logo"
+msgstr "Erstat webstedstitel med logo"
 
 msgid "Reply"
 msgstr "Svar"
@@ -2291,16 +2421,13 @@ msgstr "SMS bundtekst"
 msgid "SMS forward parameter"
 msgstr "SMS videresend paramter"
 
-msgid "SMS has been sent to valid numbers in uploaded file"
-msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
-
 msgid "SMS is case-insensitive"
 msgstr "SMS er ikke versalfølsom"
 
 msgid "SMS keyword already exists, reserved or use by other feature"
 msgstr ""
-"SMS nøgleord eksisterer allerede, er reserveret eller bruges af en anden "
-"funktion"
+"SMS nøgleord eksisterer allerede, er reserveret eller bruges af andre "
+"funktioner"
 
 msgid "SMS messages list for keyword"
 msgstr "SMS beskedliste for nøgleord"
@@ -2403,6 +2530,10 @@ msgstr "SMS abonnement status er blevet ændret"
 msgid "SMS subscribe with all its messages and members has been deleted"
 msgstr "SMS abonnement med alle dens beskeder og medlemmer er blevet slettet"
 
+#, fuzzy
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr "SMS er blevet sendt til gyldigt antal i den uploadede fil"
+
 msgid "SMS unsubscribe parameter"
 msgstr "SMS afmeld parameter"
 
@@ -2469,6 +2600,9 @@ msgstr "Vælg"
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr "Vælg nej, hvis de indkommende SMS tider er i UTC"
 
+msgid "Select page size"
+msgstr ""
+
 msgid "Select receiver"
 msgstr ""
 
@@ -2534,6 +2668,10 @@ msgid "Send from file"
 msgstr "Send fra fil"
 
 msgid "Send from file has been cancelled"
+msgstr "Send fra fil er blevet anulleret"
+
+#, fuzzy, php-format
+msgid "Send from file limit of %d SMS have been reached"
 msgstr "Send fra fil er blevet anulleret"
 
 #, fuzzy, php-format
@@ -2802,6 +2940,9 @@ msgstr ""
 msgid "Unicode message"
 msgstr "Unicode besked"
 
+msgid "Unicode message detected automatically"
+msgstr ""
+
 msgid "Unknown error"
 msgstr "Ukendt fejl"
 
@@ -2837,6 +2978,14 @@ msgstr "Brug SSL"
 
 msgid "User"
 msgstr "Bruger"
+
+#, fuzzy, php-format
+msgid "User %s has been added"
+msgstr "Taksten er allerede tilføjet"
+
+#, fuzzy, php-format
+msgid "User %s has been removed"
+msgstr "Taksten er blevet gemt"
 
 msgid "User ID"
 msgstr "Bruger ID"
@@ -2874,6 +3023,10 @@ msgstr "Brugeren er ikke på listen over bandlyste underbrugere"
 msgid "User is not on banned users list"
 msgstr "Brugeren er ikke på listen over bandlyste brugere"
 
+#, php-format
+msgid "User not found"
+msgstr ""
+
 msgid "User preference"
 msgstr ""
 
@@ -2903,6 +3056,13 @@ msgstr "Gyldig"
 
 msgid "Valid characters for username are alphabets, numbers, dot or dash"
 msgstr "Gyldige tegn brugernavn er bogstaver, tal, punktum og bindestreg"
+
+#, fuzzy
+msgid "Valid entries"
+msgstr "gyldige emner"
+
+msgid "Verification results"
+msgstr ""
 
 msgid "Verify captcha"
 msgstr "Verificer captcha"
@@ -2959,7 +3119,7 @@ msgid "Website email"
 msgstr "Webside e-mail"
 
 msgid "Website title"
-msgstr "Websidetitel"
+msgstr "Websted titel"
 
 msgid "Weekly"
 msgstr "Ugentligt"
@@ -3009,6 +3169,9 @@ msgstr "Du skal udfylde alle påkrævede felter"
 
 msgid "You must select receiver and your message should not be empty"
 msgstr "Du skal vælge en modtager og din besked bør ikke være tom"
+
+msgid "You must select user"
+msgstr ""
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Du, eller en anden, har bedt om at gendanne adgangskoden"
@@ -3091,9 +3254,6 @@ msgstr "kode"
 msgid "correct"
 msgstr "rigtigt"
 
-msgid "create an account to send SMS"
-msgstr "opret en konto for at sende SMS"
-
 msgid "destination"
 msgstr "destination"
 
@@ -3102,6 +3262,10 @@ msgstr "destinationsnummer, besked"
 
 msgid "destination number, message, username"
 msgstr "destinationsnummer, besked, brugernavn"
+
+#, fuzzy
+msgid "discharged entries"
+msgstr "ugyldige emner"
 
 msgid "domain"
 msgstr "domÃÂ¦ne"
@@ -3124,8 +3288,16 @@ msgstr "gruppe"
 msgid "incorrect"
 msgstr "forkert"
 
-msgid "invalid entries"
-msgstr "ugyldige emner"
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr ""
+
+msgid ""
+"index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr ""
 
 msgid "keyword"
 msgstr "nøgleord"
@@ -3171,9 +3343,6 @@ msgstr "i kø"
 
 msgid "return"
 msgstr ""
-
-msgid "twilio is a bulk SMS provider"
-msgstr "twilio er en masse-SMS leverandør"
 
 msgid "twilio will push DLR and incoming SMS to your callback URL"
 msgstr "twilio vil sende DLR og indkommende SMS til din callback URL"
