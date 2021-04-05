@@ -241,7 +241,7 @@ switch (_OP_) {
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
-				$_SESSION['dialog']['info'][] = _('Selected transactions has been deleted');
+				$_SESSION['dialog']['info'][] = _('Selected transactions have been deleted');
 				header("Location: " . _u($ref));
 				exit();
 				break;
