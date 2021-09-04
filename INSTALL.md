@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.4.4-beta4**
+This document explains about how to install and setup playSMS version **1.5.0-beta4**
 
 
 ## Requirements
