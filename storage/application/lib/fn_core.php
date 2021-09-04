@@ -281,12 +281,30 @@ function core_display_html($data) {
 			if (is_array($value)) {
 				$ret[$key] = core_display_html($value);
 			} else {
+				// decode before str replace to remove php tags
+				$value = htmlspecialchars_decode($value);
+
+				// remove php tags
+				$value = str_ireplace('<?php', '', $value);
+				$value = str_ireplace('<?', '', $value);
+				$value = str_ireplace('?>', '', $value);
+				$value = str_ireplace('`', '', $value);
+
+				// purify html and convert to html special chars
 				$value = $hp->purify($value);
+
 				$ret[$key] = $value;
 			}
 		}
 	} else {
-		$value = $hp->purify($data);
+		// same filtering like above
+		$value = htmlspecialchars_decode($data); // here its started with $data, not $value
+		$value = str_ireplace('<?php', '', $value);
+		$value = str_ireplace('<?', '', $value);
+		$value = str_ireplace('?>', '', $value);
+		$value = str_ireplace('`', '', $value);
+		$value = $hp->purify($value);
+				
 		$ret = $value;
 	}
 	
@@ -326,6 +344,7 @@ function core_display_text($text, $len = 0) {
 	
 	return $text;
 }
+
 
 /*
  * Format $data for safe display on the web @param $data original $data @return formatted $data

@@ -39,8 +39,8 @@ if (file_exists($fn)) {
 	$tpl = array(
 		'name' => 'welcome',
 		'vars' => array(
-			'INFORMATION_TITLE' => htmlspecialchars_decode($information_title),
-			'INFORMATION_CONTENT' => htmlspecialchars_decode($information_content) 
+			'INFORMATION_TITLE' => $information_title,
+			'INFORMATION_CONTENT' => $information_content 
 		),
 		'injects' => array(
 			'user_config' 
