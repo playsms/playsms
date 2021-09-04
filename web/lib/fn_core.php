@@ -113,7 +113,7 @@ function core_sanitize_inputs($data) {
 	if (is_array($data)) {
 		foreach ($data as $key => $value) {
 			if (is_array($value)) {
-				$ret[$key] = core_display_html($value);
+				$ret[$key] = core_sanitize_inputs($value);
 			} else {
 				$value = stripslashes($value);
 				$value = $hp->purify($value);
@@ -315,12 +315,30 @@ function core_display_html($data) {
 			if (is_array($value)) {
 				$ret[$key] = core_display_html($value);
 			} else {
+				// decode before str replace to remove php tags
+				$value = htmlspecialchars_decode($value);
+
+				// remove php tags
+				$value = str_ireplace('<?php', '', $value);
+				$value = str_ireplace('<?', '', $value);
+				$value = str_ireplace('?>', '', $value);
+				$value = str_ireplace('`', '', $value);
+
+				// purify html and convert to html special chars
 				$value = $hp->purify($value);
+
 				$ret[$key] = $value;
 			}
 		}
 	} else {
-		$value = $hp->purify($data);
+		// same filtering like above
+		$value = htmlspecialchars_decode($data); // here its started with $data, not $value
+		$value = str_ireplace('<?php', '', $value);
+		$value = str_ireplace('<?', '', $value);
+		$value = str_ireplace('?>', '', $value);
+		$value = str_ireplace('`', '', $value);
+		$value = $hp->purify($value);
+				
 		$ret = $value;
 	}
 	
