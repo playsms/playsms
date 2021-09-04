@@ -17,6 +17,35 @@
  * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
 
+ // define global variables
+$icon_config = [];
+$menu_config = [];
+$plugin_config = [];
+$user_config = [];
+$core_config = [];
+
+// set global date/time variables
+$date_format = 'Y-m-d';
+$time_format = 'H:i:s';
+$datetime_format = $date_format . ' ' . $time_format;
+$date_now = date($date_format, time());
+$time_now = date($time_format, time());
+$datetime_now = date($datetime_format, time());
+$datetime_format_stamp = 'YmdHis';
+$datetime_now_stamp = date($datetime_format_stamp, time());
+
+$core_config['datetime']['format'] = $datetime_format;
+$core_config['datetime']['now'] = $datetime_now;
+$core_config['datetime']['now_date'] = $date_now;
+$core_config['datetime']['now_time'] = $time_now;
+$core_config['datetime']['now_stamp'] = $datetime_now_stamp;
+
+// security, checked by essential files under subdir
+define('_SECURE_', 1);
+
+// generate a unique Process ID
+define('_PID_', uniqid('PID'));
+
 include 'appsetup.php';
 
 // defines storage
@@ -83,12 +112,6 @@ if (file_exists($fn)) {
 	}
 }
 
-// security, checked by essential files under subdir
-define('_SECURE_', 1);
-
-// generate a unique Process ID
-define('_PID_', uniqid('PID'));
-
 // get PHP version
 if (!defined('_PHP_VER_')) {
 	$version = explode('.', PHP_VERSION);
@@ -102,22 +125,6 @@ if ($c_remote_addr = trim($core_config['remote_addr'])) {
 	define('_REMOTE_ADDR_', $_SERVER['REMOTE_ADDR']);
 }
 unset($c_remote_addr);
-
-// set global date/time variables
-$date_format = 'Y-m-d';
-$time_format = 'H:i:s';
-$datetime_format = $date_format . ' ' . $time_format;
-$date_now = date($date_format, time());
-$time_now = date($time_format, time());
-$datetime_now = date($datetime_format, time());
-$datetime_format_stamp = 'YmdHis';
-$datetime_now_stamp = date($datetime_format_stamp, time());
-
-$core_config['datetime']['format'] = $datetime_format;
-$core_config['datetime']['now'] = $datetime_now;
-$core_config['datetime']['now_date'] = $date_now;
-$core_config['datetime']['now_time'] = $time_now;
-$core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
 // (bool) $DAEMON_PROCESS is special variable passed by daemon script
 if (isset($DAEMON_PROCESS) && $DAEMON_PROCESS) {
