@@ -123,9 +123,7 @@ function gateway_apply_smsc_config($smsc, $plugin_config) {
 		if ($smsc_data['name'] && $smsc_data['gateway'] && $smsc_data['data']) {
 			$smsc_config = json_decode($smsc_data['data'], TRUE);
 			foreach ($smsc_config as $key => $val) {
-				if ($val) {
-					$plugin_config[$smsc_data['gateway']][$key] = $val;
-				}
+				$plugin_config[$smsc_data['gateway']][$key] = $val;
 			}
 		}
 	}
