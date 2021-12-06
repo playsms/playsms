@@ -244,25 +244,18 @@ define('_SYSTEM_SENDER_ID_', '@admin');
 // load init functions
 include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 
+// sanitize user inputs
 foreach ($_GET as $key => $val) {
+	$_GET[$key] = core_sanitize_inputs($val);
 	$_GET[$key] = core_addslashes($val);
 }
-
 foreach ($_POST as $key => $val) {
+	$_POST[$key] = core_sanitize_inputs($val);
 	$_POST[$key] = core_addslashes($val);
 }
 
-// sanitize user inputs
-foreach ($_POST as $key => $val) {
-	$_POST[$key] = core_sanitize_inputs($val);
-}
-
-foreach ($_GET as $key => $val) {
-	$_GET[$key] = core_sanitize_inputs($val);
-}
-
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
-empty($_REQUEST);
+$_REQUEST = [];
 $_REQUEST = array_merge($_GET, $_POST);
 
 // global defines
