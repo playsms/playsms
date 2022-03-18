@@ -246,12 +246,10 @@ include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 
 // sanitize user inputs
 foreach ($_GET as $key => $val) {
-	$_GET[$key] = core_sanitize_inputs($val);
-	$_GET[$key] = core_addslashes($val);
+	$_GET[$key] = core_addslashes(core_sanitize_inputs($val));
 }
 foreach ($_POST as $key => $val) {
-	$_POST[$key] = core_sanitize_inputs($val);
-	$_POST[$key] = core_addslashes($val);
+	$_POST[$key] = core_addslashes(core_sanitize_inputs($val));
 }
 
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
