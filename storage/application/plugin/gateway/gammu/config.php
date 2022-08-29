@@ -10,7 +10,7 @@ $plugin_config['gammu']['path'] = trim(core_sanitize_path($data['gateway']['gamm
 if (!$plugin_config['gammu']['path']) {
 	$plugin_config['gammu']['path'] = '/var/spool/gammu';
 }
-$plugin_config['gammu']['dlr'] = TRUE;
+$plugin_config['gammu']['dlr'] = FALSE;
 
 // smsc configuration
 $plugin_config['gammu']['_smsc_config_'] = array(
