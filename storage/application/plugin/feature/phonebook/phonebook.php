@@ -189,9 +189,15 @@ switch (_OP_) {
 		$uid = $user_config['uid'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
-		$list_of_group = "<option value=0 selected>-- " . _('No group') . " --</option>";
+		$list_of_group = array();
 		while ($db_row = dba_fetch_array($db_result)) {
-			$list_of_group .= "<option value=" . $db_row['id'] . ">" . $db_row['name'] . " - " . _('code') . ": " . $db_row['code'] . "</option>";
+			$list_of_group[] = '<input type=hidden name=gpids[' . $db_row['id'] . '] value=0>
+				<label><input type=checkbox name=gpids[' . $db_row['id'] . '] value=1> ' . $db_row['name'] . ' - ' . _('code') . ': ' . $db_row['code'] . '</label>';
+		}
+		if ($list_of_group) {
+			$list_of_group = "<input type=hidden name=gpids[0] value=0>\n" . implode("<br>\n", $list_of_group);
+		} else {
+			$list_of_group = _('No group');
 		}
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
@@ -200,7 +206,7 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tbody>
-			<tr><td class=playsms-label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
+			<tr><td class=playsms-label-sizer>" . _('Group') . "</td><td>$list_of_group</td></tr>
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name></td></tr>
 			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $phone . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email></td></tr>
@@ -221,17 +227,23 @@ switch (_OP_) {
 		));
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
 		$db_result = dba_query($db_query);
-		$list_of_group = "<option value=0>-- " . _('No group') . " --</option>";
+		$list_of_group = array();
 		while ($db_row = dba_fetch_array($db_result)) {
-			$selected = '';
+			$checked = '';
 			$conditions = array(
 				'gpid' => $db_row['id'],
 				'pid' => $pid 
 			);
 			if (dba_isexists(_DB_PREF_ . '_featurePhonebook_group_contacts', $conditions, 'AND')) {
-				$selected = 'selected';
+				$checked = ' checked';
 			}
-			$list_of_group .= "<option value=" . $db_row['id'] . " $selected>" . $db_row['name'] . " - " . _('code') . ": " . $db_row['code'] . "</option>";
+			$list_of_group[] = "\n<input type=hidden name=gpids[" . $db_row['id'] . '] value=0>
+				<label><input type=checkbox name=gpids[' . $db_row['id'] . "] value=1$checked> " . $db_row['name'] . ' - ' . _('code') . ': ' . $db_row['code'] . '</label>';
+		}
+		if ($list_of_group) {
+			$list_of_group = "<input type=hidden name=gpids[0] value=0>\n" . implode("<br>\n", $list_of_group);
+		} else {
+			$list_of_group = _('No group');
 		}
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
@@ -241,7 +253,7 @@ switch (_OP_) {
 			<input type=hidden name=pid value=\"" . $pid . "\">
 			<table class=playsms-table>
 			<tbody>
-			<tr><td class=playsms-label-sizer>" . _('Group') . "</td><td><select name=gpids[] multiple>$list_of_group</select></td></tr>
+			<tr><td class=playsms-label-sizer>" . _('Group') . "</td><td>$list_of_group</td></tr>
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name value=\"" . $list[0]['name'] . "\"></td></tr>
 			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $list[0]['mobile'] . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email value=\"" . $list[0]['email'] . "\"></td></tr>
@@ -300,6 +312,7 @@ switch (_OP_) {
 			case 'add':
 				$uid = $user_config['uid'];
 				$gpids = $_POST['gpids'];
+				unset($gpids[0]);
 				$save_to_group = FALSE;
 				$name = str_replace("\'", "", $_POST['name']);
 				$name = str_replace("\"", "", $name);
@@ -331,8 +344,8 @@ switch (_OP_) {
 							_log('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
 						}
 					}
-					foreach ($gpids as $gpid) {
-						if ($save_to_group) {
+					foreach ($gpids as $gpid => $add) {
+						if ($save_to_group && $add) {
 							$items = array(
 								'gpid' => $gpid,
 								'pid' => $c_pid 
@@ -357,7 +370,7 @@ switch (_OP_) {
 				$uid = $user_config['uid'];
 				$c_pid = $_POST['pid'];
 				$gpids = $_POST['gpids'];
-				$maps = [];
+				unset($gpids[0]);
 				$save_to_group = FALSE;
 				$mobile = str_replace("\'", "", $_POST['mobile']);
 				$mobile = sendsms_getvalidnumber(str_replace("\"", "", $mobile));
@@ -385,16 +398,8 @@ switch (_OP_) {
 					exit();
 					break;
 				}
-				foreach ($gpids as $gpid) {
-					$maps[][$c_pid] = $gpid;
-				}
-				dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-					'pid' => $c_pid 
-				));
-				foreach ($maps as $map) {
-					foreach ($map as $key => $val) {
-						$gpid = $val;
-						$c_pid = $key;
+				foreach ($gpids as $gpid => $add) {
+					if ($add) {
 						$items = array(
 							'gpid' => $gpid,
 							'pid' => $c_pid 
@@ -406,6 +411,11 @@ switch (_OP_) {
 								_log('contact edited but fail to save in group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
 							}
 						}
+					} else {
+						dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
+							'gpid' => $gpid,
+							'pid' => $c_pid
+						));
 					}
 				}
 				$_SESSION['dialog']['info'][] = _('Contact has been edited');
