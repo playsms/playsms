@@ -38,8 +38,7 @@
 				<div id="msg_option">{{ data.reply }} {{ data.forward }}</div>
 			</td>
 			<td>
-				<input type=hidden name=itemid{{ data.j }} value={{ data.in_id }}>
-				<input type=checkbox name=checkid{{ data.j }}>
+				<input type=checkbox name=itemid[] value={{ data.in_id }}>
 			</td>
 		</tr>
 		</loop.data>

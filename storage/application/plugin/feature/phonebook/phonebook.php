@@ -169,8 +169,7 @@ switch (_OP_) {
 					<td>$group_code</td>
 					<td>$tags</td>
 					<td nowrap>
-						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
-						<input type=checkbox name=checkid[" . $j . "]>
+						<input type=checkbox name=itemid[] value=\"$pid\">
 					</td>
 				</tr>";
 		}
