@@ -54,7 +54,7 @@ function auth_validate_login($username, $password) {
 	$db_row = dba_fetch_array($db_result);
 	$res_password = trim($db_row['password']);
 	$password = md5($password);
-	if ($password && $res_password && ($password == $res_password)) {
+	if ($password && $res_password && ($password === $res_password)) {
 		_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
 		
 		// remove IP on successful login
@@ -64,7 +64,7 @@ function auth_validate_login($username, $password) {
 	} else {
 		$ret = registry_search(1, 'auth', 'tmp_password', $username);
 		$tmp_password = $ret['auth']['tmp_password'][$username];
-		if ($password && $tmp_password && ($password == $tmp_password)) {
+		if ($password && $tmp_password && ($password === $tmp_password)) {
 			_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'] . ' using temporary password', 2, 'auth_validate_login');
 			if (!registry_remove(1, 'auth', 'tmp_password', $username)) {
 				_log('WARNING: unable to remove temporary password after successful login', 3, 'login');
