@@ -99,7 +99,7 @@ function auth_validate_login($username, $password) {
 			// in this part playSMS will convert md5 password to bcrypt hash if password matched
 
 			// not verified, visitor's is not user forgotten password, maybe an old account using old formattted password
-			if ($password && $res_password && (($res_password == md5($password)) || ($res_password == md5($password.$res_salt)))) {
+			if ($password && $res_password && (($res_password === md5($password)) || ($res_password === md5($password.$res_salt)))) {
 
 				// password matched with old md5 password, convert it to bcrypt hash
 				if ($new_password = password_hash($password, PASSWORD_BCRYPT)) {
