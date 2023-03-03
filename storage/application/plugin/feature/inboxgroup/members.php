@@ -10,9 +10,9 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		$keywords = $data['keywords'];
 		$description = $data['description'];
-		$c_members = count(inboxgroup_getmembers($rid));
+		$c_members = inboxgroup_getmembers($rid) ? count(inboxgroup_getmembers($rid)) : 0;
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
-		$c_catchall = count(inboxgroup_getcatchall($rid));
+		$c_catchall = inboxgroup_getcatchall($rid) ? count(inboxgroup_getcatchall($rid)) : 0;
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		$content = _dialog() . "

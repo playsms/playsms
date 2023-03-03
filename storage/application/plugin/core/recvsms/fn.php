@@ -60,7 +60,8 @@ function recvsms_daemon() {
 		'LIMIT' => $core_config['recvsmsd_limit'] 
 	));
 	$j = 0;
-	for ($j = 0; $j < count($list); $j++) {
+	$tmpCount = $list ? count($list) : 0;
+	for ($j = 0; $j < $tmpCount; $j++) {
 		if ($id = $list[$j]['id']) {
 			$sms_datetime = $list[$j]['sms_datetime'];
 			$sms_sender = $list[$j]['sms_sender'];

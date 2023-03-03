@@ -26,6 +26,10 @@ if (!class_exists('DB')) {
 
 function dba_connect($username, $password, $dbname, $hostname, $port = "", $persistant = "true") {
 	global $core_config;
+	
+	if ($core_config['db']['type'] == 'mysqli') {
+		mysqli_report(MYSQLI_REPORT_OFF);
+	}
 	$access = $username;
 	if ($password) {
 		$access = "$username:$password";

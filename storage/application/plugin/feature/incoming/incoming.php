@@ -195,7 +195,8 @@ switch (_OP_) {
 		$items['sandbox_prefix'] = $post_rules['insert_prefix'];
 		
 		// sandbox forward to users
-		$post_rules['forward_to'] = serialize(array_unique($_REQUEST['uids']));
+		$tmpArray = $_REQUEST['uids'] ? array_unique($_REQUEST['uids']) : array();
+		$post_rules['forward_to'] = serialize($tmpArray);
 		$items['sandbox_forward_to'] = $post_rules['forward_to'];
 		
 		// sandbox forward to url
@@ -212,7 +213,8 @@ switch (_OP_) {
 		$items['settings_match_all_sender_id'] = (int) $_REQUEST['settings_match_all_sender_id'];
 		
 		// save to registry
-		if (count($items)) {
+		$tmpCount = $items ? count($items) : false;
+		if ($tmpCount) {
 			registry_update(1, 'feature', 'incoming', $items);
 			$_SESSION['dialog']['info'][] = _('Incoming SMS route changes has been saved');
 		} else {

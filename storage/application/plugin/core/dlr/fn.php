@@ -53,7 +53,8 @@ function dlr_daemon() {
 		'LIMIT' => $core_config['dlrd_limit'] 
 	));
 	$j = 0;
-	for ($j = 0; $j < count($list); $j++) {
+	$tmpCount = $list ? count($list) : 0;
+	for ($j = 0; $j < $tmpCount; $j++) {
 		if ($id = $list[$j]['id']) {
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_status = $list[$j]['p_status'];
@@ -111,7 +112,8 @@ function dlr_update($smslog_id, $uid, $p_status) {
 	if (dba_affected_rows($db_query)) {	
 		if ($p_status > 0) {
 			_log("smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr_update");
-			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+			$tmpCount = $core_config['plugins']['list']['feature'] ? count($core_config['plugins']['list']['feature']) : 0;
+			for ($c = 0; $c < $tmpCount; $c++) {
 				core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
 					$smslog_id,
 					$uid,

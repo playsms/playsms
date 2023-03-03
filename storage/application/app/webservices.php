@@ -256,7 +256,8 @@ if (_OP_) {
 						$data[$field] = $c_data;
 					}
 				}
-				if ($data_uid && count($data)) {
+				$tmpCount = $data ? count($data) : false;
+				if ($data_uid && $tmpCount) {
 					$json = webservices_account_pref($data_uid, $data);
 				} else {
 					$json['status'] = 'ERR';
@@ -289,7 +290,8 @@ if (_OP_) {
 						$data[$field] = trim($_REQUEST['data_' . $field]);
 					}
 				}
-				if ($data_uid && count($data)) {
+				$tmpCount = $data ? count($data) : false;
+				if ($data_uid && $tmpCount) {
 					$json = webservices_account_conf($data_uid, $data);
 				} else {
 					$json['status'] = 'ERR';

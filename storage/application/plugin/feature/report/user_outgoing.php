@@ -63,8 +63,8 @@ switch (_OP_) {
 		$extras['ORDER BY'] = "A.smslog_id DESC";
 		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.uid=B.uid AND A.flag_deleted=B.flag_deleted";
 		$list = dba_search($table, $fields, $conditions, $keywords, $extras, $join);
-
-		$nav = themes_nav(count($list), $search['url']);
+		$tmpCount = $list ? count($list) : 0;
+		$nav = themes_nav($tmpCount, $search['url']);
 		$extras['LIMIT'] = $nav['limit'];
 		$extras['OFFSET'] = $nav['offset'];
 		$list = dba_search($table, $fields, $conditions, $keywords, $extras, $join);

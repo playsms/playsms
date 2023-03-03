@@ -144,7 +144,8 @@ function stoplist_hook_blacklist_mobile_isexists($uid = 0, $mobile) {
 	}
 	
 	$row = dba_search(_DB_PREF_ . '_featureStoplist', 'mobile', $conditions);
-	if (count($row) > 0) {
+	$tmpCount = $row ? count($row) : 0;
+	if ($tmpCount > 0) {
 		$ret = TRUE;
 	}
 	

@@ -79,7 +79,8 @@ function inboxgroup_forwardmembers($data, $log_in_id, $sms_sender, $message) {
 		$users = inboxgroup_getmembers($data['id']);
 		$continue = false;
 		if ($data['exclusive']) {
-			for ($i=0;$i<count($users);$i++) {
+			$tmpCount = $users ? count($users) : 0;
+			for ($i=0;$i<$tmpCount;$i++) {
 			if ($sms_sender == $users[$i]['mobile']) {
 				$continue = true;
 			}
@@ -88,7 +89,8 @@ function inboxgroup_forwardmembers($data, $log_in_id, $sms_sender, $message) {
 			$continue = true;
 		}
 		if ($continue) {
-			for ($i=0;$i<count($users);$i++) {
+			$tmpCount = $users ? count($users) : 0;
+			for ($i=0;$i<$tmpCount;$i++) {
 				if (($sms_to = $users[$i]['mobile']) && ($sms_to != $sms_sender)) {
 					//list($ok, $to, $smslog_id,$queue) = sendsms_helper($username, $sms_to, $message, 'text', 0);
 					//_log("forwardmembers sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 2, "inboxgroup");

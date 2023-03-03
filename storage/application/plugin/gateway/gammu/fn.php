@@ -41,7 +41,8 @@ function gammu_hook_dlr_fetch($gpid = 0, $uid = "", $smslog_id = "", $p_datetime
 		
 		// list all files in sent and error dir
 		$fn = array();
-		for ($i = 0; $i < count($dir); $i++) {
+		$tmpCount = $dir ? count($dir) : 0;
+		for ($i = 0; $i < $tmpCount; $i++) {
 			$j = 0;
 			if ($handle = @opendir($dir[$i])) {
 				while ($file = @readdir($handle)) {

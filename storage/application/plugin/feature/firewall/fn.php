@@ -166,7 +166,8 @@ function firewall_hook_blacklist_ifipexists($label, $ip) {
 		'ip_address' => $ip 
 	);
 	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
-	if (count($row) > 0) {
+	$tmpCount = $row ? count($row) : 0;
+	if ($tmpCount > 0) {
 		$ret = TRUE;
 	}
 	

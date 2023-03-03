@@ -459,7 +459,8 @@ function auth_login_return() {
 }
 
 function auth_login_as_check() {
-	if (count($_SESSION['tmp']['login_as']) > 0) {
+	$tmpCount = $_SESSION['tmp']['login_as'] ? count($_SESSION['tmp']['login_as']) : 0;
+	if ($tmpCount > 0) {
 		return TRUE;
 	} else {
 		return FALSE;

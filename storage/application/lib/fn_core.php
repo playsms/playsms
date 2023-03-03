@@ -230,15 +230,16 @@ function core_call_hook($function_name = '', $arguments = array()) {
 		$function_name = $f[1]['function'];
 		$arguments = $f[1]['args'];
 	}
-
-	for ($c = 0; $c < count($core_config['plugins']['list']['core']); $c++) {
+	$tmpCount = $core_config['plugins']['list']['core'] ? count($core_config['plugins']['list']['core']) : 0;
+	for ($c = 0; $c < $tmpCount; $c++) {
 		if ($ret = core_hook($core_config['plugins']['list']['core'][$c], $function_name, $arguments)) {
 			break;
 		}
 	}
 
 	if (!$ret) {
-		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+		$tmpCount = $core_config['plugins']['list']['feature'] ? count($core_config['plugins']['list']['feature']) : 0;
+		for ($c = 0; $c < $tmpCount; $c++) {
 			if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
 				break;
 			}
@@ -1299,7 +1300,8 @@ while (false !== ($pl_name = readdir($fd))) {
 closedir();
 
 sort($pc_names);
-for ($j = 0; $j < count($pc_names); $j++) {
+$tmpCount = $pc_names ? count($pc_names) : 0;
+for ($j = 0; $j < $tmpCount; $j++) {
 	if (is_dir($dir . $pc_names[$j])) {
 		$core_config['plugins']['list'][$pc][] = $pc_names[$j];
 	}

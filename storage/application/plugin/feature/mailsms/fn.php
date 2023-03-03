@@ -89,7 +89,8 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 	}
 	
 	$emails = imap_search($inbox, 'UNSEEN');
-	if (count($emails)) {
+	$tmpCount = $emails ? count($emails) : false;
+	if ($tmpCount) {
 		rsort($emails);
 		foreach ($emails as $email_number) {
 			$overview = imap_fetch_overview($inbox, $email_number, 0);

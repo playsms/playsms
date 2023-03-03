@@ -54,8 +54,8 @@ function acl_getallbyuid($uid) {
 			$ret[$c_acl_id] = $acl_subuser;
 		}
 	}
-	
-	if (!count($ret)) {
+	$tmpCount = $ret ? count($ret) : false;
+	if (!$tmpCount) {
 		$default_acl_id = ($core_config['main']['default_acl'] ? $core_config['main']['default_acl'] : 0);
 		$default_acl_name = acl_getname($default_acl_id);
 		$ret = array(

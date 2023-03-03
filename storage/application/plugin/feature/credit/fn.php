@@ -78,8 +78,8 @@ function credit_html_select_user() {
 		$users = user_getallwithstatus(3);
 	}
 	$subusers = user_getsubuserbyuid($user_config['uid']);
-	
-	if (count($admins) > 0) {
+	$tmpCount = $admins ? count($admins) : 0;
+	if ($tmpCount > 0) {
 		$option_user .= '<optgroup label="' . _('Administrators') . '">';
 		
 		foreach ($admins as $admin) {
@@ -87,8 +87,8 @@ function credit_html_select_user() {
 		}
 		$option_user .= '</optgroup>';
 	}
-	
-	if (count($users) > 0) {
+	$tmpCount = $users ? count($users) : 0;
+	if ($tmpCount > 0) {
 		$option_user .= '<optgroup label="' . _('Users') . '">';
 		
 		foreach ($users as $user) {

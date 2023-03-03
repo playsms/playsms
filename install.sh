@@ -5,9 +5,9 @@ if [ "$USERID" = "0" ]; then
 	echo
 	echo "You are running this installation script as root"
 	echo
-	echo "Aborting installation, please run as normal Linux user"
-	echo
-	exit 1
+	#echo "Aborting installation, please run as normal Linux user"
+	#echo
+	#exit 1
 fi
 
 INSTALLCONF="./install.conf"

@@ -163,8 +163,8 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				$p_status = 1;
 				dlr($data['smslog_id'], $data['uid'], $p_status);
 			}
-			
-			if (count($rows)) {
+			$tmpCount = $rows ? count($rows) : false;
+			if ($tmpCount) {
 				$content['status'] = 'OK';
 				$content['data'] = $rows;
 			} else {

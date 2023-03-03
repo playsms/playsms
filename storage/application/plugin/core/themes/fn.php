@@ -386,8 +386,8 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 	}
 	
 	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
-	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
-	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+	$placeholder = (isset($tag_params['placeholder']) ? $tag_params['placeholder'] : _('Please select'));
+	$width = (isset($tag_params['width']) ? $tag_params['width'] : 'resolve');
 	
 	$js = '
 		<script language="javascript" type="text/javascript">
@@ -446,10 +446,10 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
  */
 function themes_dialog($contents = array()) {
 	$ret = '';
-	
-	if (!(is_array($contents) && (count($contents) > 0))) {
+	$tmpCount = $contents ? count($contents) : 0;
+	if (!(is_array($contents) && ($tmpCount > 0))) {
 		if ($_SESSION['dialog']) {
-			if (is_array($_SESSION['dialog']) && (count($_SESSION['dialog']) > 0)) {
+			if (is_array($_SESSION['dialog']) && count($_SESSION['dialog']) > 0) {
 				$contents = $_SESSION['dialog'];
 			}
 		} else {
@@ -466,8 +466,11 @@ function themes_dialog($contents = array()) {
 		$continue = FALSE;
 		
 		foreach ($data as $text) {
-			if (trim($text)) {
+			if (is_string($text) && trim($text)) {
 				$dialog_message = core_display_html(trim($text));
+				$continue = TRUE;
+			} elseif (is_array($text)) {
+				$dialog_message = core_display_html(implode('<br />', $text));
 				$continue = TRUE;
 			}
 		}
@@ -608,7 +611,8 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 		$subusers = user_getsubuserbyuid($user_config['uid']);
 		
 		$option_user .= '<option value="0">' . _('Select users') . '</option>';
-		if (count($admins) > 0) {
+		$tmpCount = $admins ? count($admins) : 0;
+		if ($tmpCount > 0) {
 			$option_user .= '<optgroup label="' . _('Administrators') . '">';
 			
 			foreach ($admins as $admin) {
@@ -623,8 +627,8 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			}
 			$option_user .= '</optgroup>';
 		}
-		
-		if (count($users) > 0) {
+		$tmpCount = $users ? count($users) : 0;
+		if ($tmpCount > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Users') . '">';
 			
@@ -640,8 +644,8 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			}
 			$option_user .= '</optgroup>';
 		}
-		
-		if (count($subusers) > 0) {
+		$tmpCount = $subusers ? count($subusers) : 0;
+		if ($tmpCount > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Subusers') . '">';
 			
@@ -740,7 +744,8 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 		}
 		
 		$option_user .= '<option value="0">' . _('Select users') . '</option>';
-		if (count($admins) > 0) {
+		$tmpCount = $admins ? count($admins) : 0;
+		if ($tmpCount > 0) {
 			$option_user .= '<optgroup label="' . _('Administrators') . '">';
 			
 			foreach ($admins as $admin) {
@@ -755,8 +760,8 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			}
 			$option_user .= '</optgroup>';
 		}
-		
-		if (count($users) > 0) {
+		$tmpCount = $users ? count($users) : 0;
+		if ($tmpCount > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Users') . '">';
 			
@@ -772,8 +777,8 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			}
 			$option_user .= '</optgroup>';
 		}
-		
-		if (count($subusers) > 0) {
+		$tmpCount = $subusers ? count($subusers) : 0;
+		if ($tmpCount > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Subusers') . '">';
 			

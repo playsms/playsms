@@ -516,7 +516,8 @@ function user_remove($uid, $forced = FALSE) {
 				} else {
 					
 					$subusers = user_getsubuserbyuid($uid);
-					if (count($subusers) > 0) {
+					$tmpCount = $subusers ? count($subusers) : 0;
+					if ($tmpCount > 0) {
 						$ret['error_string'] = _('Unable to delete this user until all subusers under this user have been removed');
 						return $ret;
 					}

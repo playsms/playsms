@@ -105,8 +105,8 @@ function common_hook_themes_menu_tree($menu_config) {
 		if (!$found_sub_menu) {
 			continue;
 		}
-		
-		if (count($m)) {
+		$tmpCount = $m ? count($m) : false;
+		if ($tmpCount) {
 			$main_menu_tree = "
 				<div class='nav-item dropdown'>
 					<a href='#' data-toggle='dropdown' id='" . core_sanitize_alphanumeric($menu_title) . "' class='nav-item nav-link dropdown-toggle'>" . $menu_title . "</a>

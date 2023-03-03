@@ -161,9 +161,9 @@ function sendfromfile_verify($csv_file) {
 		if ($charges > $sender_balance) {
 			// move it to discharged
 			$item_discharged = array_merge($item_discharged, $item_valid);
-
+			
 			// recount
-			$item_count = count($item_valid[$sender_uid]);
+			$item_count = $item_valid[$sender_uid] ? count($item_valid[$sender_uid]) : 0;
 			$valid -= $item_count;
 			$discharged += $item_count;
 

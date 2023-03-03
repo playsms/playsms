@@ -45,7 +45,8 @@ function smstools_hook_dlr_fetch($gpid = 0, $uid = '', $smslog_id = '', $p_datet
 		$message_id = 0;
 		
 		$lines = @file($fn);
-		for ($c = 0; $c < count($lines); $c++) {
+		$tmpCount = $lines ? count($lines) : 0;
+		for ($c = 0; $c < $tmpCount; $c++) {
 			$c_line = $lines[$c];
 			if (preg_match('/^Message_id: /', $c_line)) {
 				$message_id = trim(str_replace('Message_id: ', '', trim($c_line)));
@@ -138,7 +139,8 @@ function smstools_hook_recvsms_fetch() {
 		
 		$lines = @file($fn);
 		$start = 0;
-		for ($c = 0; $c < count($lines); $c++) {
+		$tmpCount = $lines ? count($lines) : 0;
+		for ($c = 0; $c < $tmpCount; $c++) {
 			$c_line = $lines[$c];
 			if (preg_match('/^From: /', $c_line)) {
 				$sms_sender = '+' . trim(str_replace('From: ', '', trim($c_line)));

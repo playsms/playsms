@@ -45,7 +45,8 @@ switch (_OP_) {
 			_('Destination'),
 			_('Schedule') 
 		);
-		for ($i = 0; $i < count($list); $i++) {
+		$tmpCount = $list ? count($list) : 0;
+		for ($i = 0; $i < $tmpCount; $i++) {
 			$j = $i + 1;
 			if ($j > $plugin_config['schedule']['export_row_limit']) {
 				break;

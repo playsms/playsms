@@ -185,8 +185,9 @@ switch (_OP_) {
 		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
 		
 		// get language options
-		$lang_list = '';
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
+		$lang_list = [];
+		$tmpCount = $core_config['plugins']['list']['language'] ? count($core_config['plugins']['list']['language']) : 0;
+		for ($i = 0; $i < $tmpCount; $i++) {
 			$language = $core_config['plugins']['list']['language'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {

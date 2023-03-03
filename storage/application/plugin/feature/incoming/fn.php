@@ -60,7 +60,8 @@ function incoming_post_rules_get() {
 
 	// sandbox forward to users
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
-	$post_rules['forward_to'] = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
+	$tmpUnserialize = unserialize($data['feature']['incoming']['sandbox_forward_to']) ? unserialize($data['feature']['incoming']['sandbox_forward_to']) : array();
+	$post_rules['forward_to'] = array_unique($tmpUnserialize);
 	
 	// sandbox forward to url
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to_url');
@@ -294,10 +295,12 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 	
 	// scan for #<sender's phonebook group code> and @<username> according to pre rules
 	$msg = explode(' ', $message);
-	if (count($msg) > 0) {
+	$tmpCount = $msg ? count($msg) : 0;
+	if ($tmpCount > 0) {
 		$bc = array();
 		$pv = array();
-		for ($i = 0; $i < count($msg); $i++) {
+		$tmpCount = $msg ? count($msg) : 0;
+		for ($i = 0; $i < $tmpCount; $i++) {
 			$c_text = trim($msg[$i]);
 			
 			// scan message for @username

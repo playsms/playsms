@@ -82,8 +82,8 @@ switch (_OP_) {
 		$content = '<h2 class=page-header-title>' . _('Send from file') . '</h2>';
 		$content .= '<p class=lead>' . _('Confirmation') . '</p>';	
 		$content .= '<p>' . _('Uploaded file') . ': ' . $filename . '</p>';
-
-		if (count($error_strings)) {
+		$tmpCount = $error_strings ? count($error_strings) : false;
+		if ($tmpCount) {
 			$content .= "<p class=lead>" . _('Verification results') . "</p>";
 			$content .= "<ul>";
 			foreach ($error_strings as $err) {

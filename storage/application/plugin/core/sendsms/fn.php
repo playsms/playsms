@@ -67,7 +67,8 @@ function sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $g
 	$ret_final = array();
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+	$tmpCount = $core_config['plugins']['list']['feature'] ? count($core_config['plugins']['list']['feature']) : 0;
+	for ($c = 0; $c < $tmpCount; $c++) {
 		$c_feature = $core_config['plugins']['list']['feature'][$c];
 		$ret = core_hook($c_feature, 'sendsms_intercept', array(
 			$sms_sender,

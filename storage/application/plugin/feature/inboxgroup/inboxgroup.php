@@ -20,11 +20,12 @@ switch (_OP_) {
 			)
 		);
 		$data = inboxgroup_getdataall();
-		for ($i=0;$i<count($data);$i++) {
+		$tmpCount = $data ? count($data) : 0;
+		for ($i=0;$i<$tmpCount;$i++) {
 			$c_rid = $data[$i]['id'];
-			$c_members = count(inboxgroup_getmembers($c_rid));
+			$c_members = inboxgroup_getmembers($c_rid) ? count(inboxgroup_getmembers($c_rid)) : 0;
 			$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$c_rid)."'>".$c_members."</a>";
-			$c_catchall = count(inboxgroup_getcatchall($c_rid));
+			$c_catchall = inboxgroup_getcatchall($c_rid) ? count(inboxgroup_getcatchall($c_rid)) : 0;
 			$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$c_rid)."'>".$c_catchall."</a>";
 			$c_status = $data[$i]['status'] ? "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=disable&rid='.$c_rid)."'><span class=status_enabled /></a>" : "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=enable&rid='.$c_rid)."'><span class=status_disabled /></a>";
 			$c_action = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=edit&rid='.$c_rid)."'>".$icon_config['edit']."</a> ";

@@ -67,7 +67,8 @@ switch (_OP_) {
 		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		$tmpCount = $list ? count($list) : 0;
+		for ($j = 0; $j < $tmpCount; $j++) {
 			$pid = $list[$j]['id'];
 			$username = user_uid2username($list[$j]['uid']);
 			$mobile = $list[$j]['mobile'];

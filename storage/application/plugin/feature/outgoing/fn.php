@@ -97,7 +97,8 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 	}
 	
 	// backward compatibility with playSMS 1.1 and below
-	if (!count($smsc)) {
+	$tmpCount = $smsc ? count($smsc) : false;
+	if (!$tmpCount) {
 		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='" . $prefix . "' AND uid='" . $uid . "'";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
@@ -159,7 +160,8 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 			$smsc_all .= '[' . $item_smsc . '] ';
 			$smsc_found[] = $item_smsc;
 		}
-		if (count($smsc_found) > 0) {
+		$tmpCount = $smsc_found ? count($smsc_found) : 0;
+		if ($tmpCount > 0) {
 			$smsc_all = trim($smsc_all);
 			shuffle($smsc_found);
 			if ($smsc = $smsc_found[0]) {

@@ -55,7 +55,8 @@ if (auth_isadmin()) {
 	}
 	
 	$list = user_getsubuserbyuid($user_edited['uid']);
-	if (count($list) > 0) {
+	$tmpCount = $list ? count($list) : 0;
+	if ($tmpCount > 0) {
 		$show_status_hint = TRUE;
 		$allow_edit_status = FALSE;
 	}
@@ -122,7 +123,8 @@ switch (_OP_) {
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
 		$result = country_search();
-		for ($i = 0; $i < count($result); $i++) {
+		$tmpCount = $result ? count($result) : 0;
+		for ($i = 0; $i < $tmpCount; $i++) {
 			$country_id = $result[$i]['country_id'];
 			$country_name = $result[$i]['country_name'];
 			$selected = "";

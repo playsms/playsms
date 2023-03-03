@@ -105,7 +105,8 @@ switch (_OP_) {
 					_('Transaction datetime'),
 					_('Amount') 
 				);
-				for ($i = 0; $i < count($list); $i++) {
+				$tmpCount = $list ? count($list) : 0;
+				for ($i = 0; $i < $tmpCount; $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						core_display_datetime($list[$i]['create_datetime']),
