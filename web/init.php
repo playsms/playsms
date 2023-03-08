@@ -287,7 +287,8 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || (_APP_ == 'call') || ($core
 	if ($_POST) {
 		if (!core_csrf_validate()) {
 			_log('WARNING: possible CSRF attack. sid:' . session_id() . ' ip:' . _REMOTE_ADDR_, 2, 'init');
-			auth_block();
+			header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden, CSRF validation failed');
+			die('CSRF validation failed');
 		}
 	}
 	$csrf = core_csrf_set();
