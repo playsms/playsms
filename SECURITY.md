@@ -11,6 +11,7 @@
 
 ## Contributors and Reporters
 
+- Matteo Sebasta for [CVE-2022-47034 Authentication Bypass due to a PHP Type Juggling vulnerability](https://www.cvedetails.com/cve-details.php?t=1&cve_id=CVE-2022-47034)
 - Maik Ro for [CVE-2021-40373 Arbitrary Code Execution](https://github.com/maikroservice/CVE-2021-40373)
 - Preetham Bomma (cyber01) and Farid Luhar (ghost_fh) for [#605 Session Fixation](https://github.com/playsms/playsms/issues/605)
 - Lucas Rosevear of NCC Group for [CVE-2020-8644 Pre-authentication Remote Code Execution](https://research.nccgroup.com/2020/02/11/technical-advisory-playsms-pre-authentication-remote-code-execution-cve-2020-8644/)
