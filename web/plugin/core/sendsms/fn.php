@@ -758,7 +758,7 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 	_log("maxlen:" . $max_length . " footerlen:" . core_smslen($c_sms_footer) . " footer:[" . $c_sms_footer . "] msglen:" . core_smslen($sms_msg) . " message:[" . $sms_msg . "]", 3, "sendsms");
 	
 	// create a queue
-	$queue_code = sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, 0, $sms_type, $unicode, $sms_schedule, $smsc);
+	$queue_code = sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, 0, $sms_type, (int) $unicode, $sms_schedule, $smsc);
 	if (!$queue_code) {
 		
 		// when unable to create a queue then immediately returns FALSE, no point to continue
