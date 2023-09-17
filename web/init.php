@@ -133,11 +133,11 @@ include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 
 // sanitize user inputs
 foreach ($_GET as $key => $val) {
-	$_GET[$key] = core_sanitize_inputs($val);
+	$val = core_sanitize_inputs($val);
 	$_GET[$key] = core_addslashes($val);
 }
 foreach ($_POST as $key => $val) {
-	$_POST[$key] = core_sanitize_inputs($val);
+	$val = core_sanitize_inputs($val);
 	$_POST[$key] = core_addslashes($val);
 }
 
