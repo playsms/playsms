@@ -19,12 +19,12 @@
 defined('_SECURE_') or die('Forbidden');
 
 function outgoing_display_prefix($prefix) {
-	$prefix = preg_replace('/[\[\]]/', '', $prefix);
+	$prefix = preg_replace('/[\[\]]/', '', (string) $prefix);
 	
 	return $prefix;
 }
 
-function outgoing_getdata($extras = array()) {
+function outgoing_getdata($extras = []) {
 	foreach ($extras as $key => $val) {
 		$extra_sql .= $key . " " . $val . " ";
 	}
@@ -82,13 +82,13 @@ function outgoing_getsmsc($id) {
 }
 
 function outgoing_prefix2smsc($prefix, $uid = 0) {
-	$smsc = array();
+	$smsc = [];
 	
 	$prefix = (string) core_sanitize_numeric($prefix);
 	if (strlen($prefix) > 8) {
 		$prefix = substr($prefix, 0, 8);
 	}
-	$uid = ((int) $uid ? (int) $uid : 0);
+	$uid = ((int) $uid ?: 0);
 	
 	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix LIKE '%[" . $prefix . "]%' AND uid='" . $uid . "'";
 	$db_result = dba_query($db_query);
@@ -110,14 +110,14 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 
 function outgoing_mobile2smsc($mobile, $uid = 0) {
 	$mobile = core_sanitize_numeric($mobile);
-	if (strlen($mobile) > 8) {
-		$prefix = substr($mobile, 0, 8);
+	if (strlen((string) $mobile) > 8) {
+		$prefix = substr((string) $mobile, 0, 8);
 	} else {
 		$prefix = $mobile;
 	}
 	
 	for ($i = 8; $i > 0; $i--) {
-		$c_prefix = substr($mobile, 0, $i);
+		$c_prefix = substr((string) $mobile, 0, $i);
 		if ($smsc = outgoing_prefix2smsc($c_prefix, $uid)) {
 			$ret = $smsc;
 			break;
@@ -131,7 +131,7 @@ function outgoing_mobile2smsc($mobile, $uid = 0) {
 }
 
 function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc) {
-	$ret = array();
+	$ret = [];
 	$next = TRUE;
 	
 	// supplied smsc will be priority
@@ -154,7 +154,7 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 		$smsc_list = outgoing_mobile2smsc($sms_to, $the_uid);
 		$found = FALSE;
 		$smsc_all = '';
-		$smsc_found = array();
+		$smsc_found = [];
 		foreach ($smsc_list as $item_smsc) {
 			$smsc_all .= '[' . $item_smsc . '] ';
 			$smsc_found[] = $item_smsc;

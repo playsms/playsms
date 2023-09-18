@@ -28,89 +28,30 @@ switch (_OP_) {
 		$items_global = registry_search(0, 'features', 'mailsms');
 		
 		// option enable fetch
-		$option_enable_fetch = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $items_global['features']['mailsms']['enable_fetch']);
+		$option_enable_fetch = _options([_('yes') => 1, _('no') => 0], $items_global['features']['mailsms']['enable_fetch']);
 		
 		// fetch interval must be higher than 10 seconds
 		$c_fetch_interval = (int) $items_global['features']['mailsms']['fetch_interval'];
 		$items_global['features']['mailsms']['fetch_interval'] = ($c_fetch_interval > 10 ? $c_fetch_interval : 60);
 		
 		// option check email sender
-		$option_check_sender = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $items_global['features']['mailsms']['check_sender']);
+		$option_check_sender = _options([_('yes') => 1, _('no') => 0], $items_global['features']['mailsms']['check_sender']);
 		
 		// option protocol
-		$option_protocol = _options(array(
-			'IMAP' => 'imap',
-			'POP3' => 'pop3' 
-		), $items_global['features']['mailsms']['protocol']);
+		$option_protocol = _options(['IMAP' => 'imap', 'POP3' => 'pop3'], $items_global['features']['mailsms']['protocol']);
 		
 		// option ssl
-		$option_ssl = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $items_global['features']['mailsms']['ssl']);
+		$option_ssl = _options([_('yes') => 1, _('no') => 0], $items_global['features']['mailsms']['ssl']);
 		
 		// option cert
-		$option_novalidate_cert = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $items_global['features']['mailsms']['novalidate_cert']);
+		$option_novalidate_cert = _options([_('yes') => 1, _('no') => 0], $items_global['features']['mailsms']['novalidate_cert']);
 		
-		$tpl = array(
-			'name' => 'mailsms',
-			'vars' => array(
-				'DIALOG_DISPLAY' => _dialog(),
-				'FORM_TITLE' => _('Manage email to SMS'),
-				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&op=mailsms_save'),
-				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_FETCH_INTERVAL' => _hint(_('New emails fetch interval must be higher than 10 seconds')),
-				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
-				'SAVE' => _('Save'),
-				'Email to SMS address' => _('Email to SMS address'),
-				'Enable fetch new emails' => _('Enable fetch new emails'),
-				'New emails fetch interval' => _('New emails fetch interval'),
-				'Check email sender' => _('Check email sender'),
-				'Email protocol' => _('Email protocol'),
-				'Use SSL' => _('Use SSL'),
-				'No validate cert option' => _('No validate cert option'),
-				'Mail server address' => _('Mail server address'),
-				'Mail server port' => _('Mail server port'),
-				'Mailbox username' => _('Mailbox username'),
-				'Mailbox password' => _('Mailbox password'),
-				'PORT_DEFAULT' => '443',
-				'PORT_DEFAULT_SSL' => '993' 
-			),
-			'injects' => array(
-				'option_enable_fetch',
-				'option_check_sender',
-				'option_protocol',
-				'option_ssl',
-				'option_novalidate_cert',
-				'items_global' 
-			) 
-		);
+		$tpl = ['name' => 'mailsms', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'FORM_TITLE' => _('Manage email to SMS'), 'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&op=mailsms_save'), 'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_, 'HINT_FETCH_INTERVAL' => _hint(_('New emails fetch interval must be higher than 10 seconds')), 'HINT_PASSWORD' => _hint(_('Fill the password field to change password')), 'SAVE' => _('Save'), 'Email to SMS address' => _('Email to SMS address'), 'Enable fetch new emails' => _('Enable fetch new emails'), 'New emails fetch interval' => _('New emails fetch interval'), 'Check email sender' => _('Check email sender'), 'Email protocol' => _('Email protocol'), 'Use SSL' => _('Use SSL'), 'No validate cert option' => _('No validate cert option'), 'Mail server address' => _('Mail server address'), 'Mail server port' => _('Mail server port'), 'Mailbox username' => _('Mailbox username'), 'Mailbox password' => _('Mailbox password'), 'PORT_DEFAULT' => '443', 'PORT_DEFAULT_SSL' => '993'], 'injects' => ['option_enable_fetch', 'option_check_sender', 'option_protocol', 'option_ssl', 'option_novalidate_cert', 'items_global']];
 		_p(tpl_apply($tpl));
 		break;
 	
 	case "mailsms_save":
-		$items_global = array(
-			'email' => $_REQUEST['email'],
-			'enable_fetch' => $_REQUEST['enable_fetch'],
-			'fetch_interval' => $_REQUEST['fetch_interval'],
-			'check_sender' => $_REQUEST['check_sender'],
-			'protocol' => $_REQUEST['protocol'],
-			'ssl' => $_REQUEST['ssl'],
-			'novalidate_cert' => $_REQUEST['novalidate_cert'],
-			'port' => $_REQUEST['port'],
-			'server' => $_REQUEST['server'],
-			'username' => $_REQUEST['username'],
-			'hash' => md5($_REQUEST['username'] . $_REQUEST['server'] . $_REQUEST['port']) 
-		);
+		$items_global = ['email' => $_REQUEST['email'], 'enable_fetch' => $_REQUEST['enable_fetch'], 'fetch_interval' => $_REQUEST['fetch_interval'], 'check_sender' => $_REQUEST['check_sender'], 'protocol' => $_REQUEST['protocol'], 'ssl' => $_REQUEST['ssl'], 'novalidate_cert' => $_REQUEST['novalidate_cert'], 'port' => $_REQUEST['port'], 'server' => $_REQUEST['server'], 'username' => $_REQUEST['username'], 'hash' => md5($_REQUEST['username'] . $_REQUEST['server'] . $_REQUEST['port'])];
 		if ($_REQUEST['password']) {
 			$items_global['password'] = $_REQUEST['password'];
 		}

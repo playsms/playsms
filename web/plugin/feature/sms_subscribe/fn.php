@@ -60,8 +60,8 @@ function sms_subscribe_hook_recvsms_process($sms_datetime, $sms_sender, $subscri
 function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyword, $subscribe_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
 	global $core_config;
 	$c_uid = $list['uid'];
-	$subscribe_keyword = strtoupper(trim($subscribe_keyword));
-	$subscribe_param = trim($subscribe_param);
+	$subscribe_keyword = strtoupper(trim((string) $subscribe_keyword));
+	$subscribe_param = trim((string) $subscribe_param);
 	$username = user_uid2username($c_uid);
 	_log("username:" . $username . " sender:" . $sms_sender . " keyword:" . $subscribe_keyword . " param:" . $subscribe_param, 3, "sms_subscribe");
 	$subscribe_accept_param = $list['subscribe_param'];
@@ -88,7 +88,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 			$msg0 .= $c_arr[$i] . ' ';
 		}
 		$message = trim($msg0);
-		$bc_to = '';
+		$bc_to = [];
 		$db_query1 = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id'";
 		$db_result1 = dba_query($db_query1);
 		while ($db_row1 = dba_fetch_array($db_result1)) {
@@ -98,7 +98,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 			$unicode = core_detect_unicode($message);
 			_log('BC sender:' . $sms_sender . ' keyword:' . $subscribe_keyword . ' count:' . count($bc_to) . ' m:' . $message, 3, "sms_subscribe");
 			$message = addslashes($message);
-			list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $bc_to, $message, 'text', $unicode, $smsc, TRUE);
+			[$ok, $to, $smslog_id, $queue] = sendsms_helper($username, $bc_to, $message, 'text', $unicode, $smsc, TRUE);
 			return true;
 		} else {
 			return false;
@@ -109,10 +109,10 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 	$ok = false;
 	$subscribe_param = trim(strtoupper($subscribe_param));
 	if ($sms_to = $sms_sender) {
-		$msg1 = addslashes($list['subscribe_msg']);
-		$msg2 = addslashes($list['unsubscribe_msg']);
-		$unknown_format_msg = addslashes($list['unknown_format_msg']);
-		$already_member_msg = addslashes($list['already_member_msg']);
+		$msg1 = addslashes((string) $list['subscribe_msg']);
+		$msg2 = addslashes((string) $list['unsubscribe_msg']);
+		$unknown_format_msg = addslashes((string) $list['unknown_format_msg']);
+		$already_member_msg = addslashes((string) $list['already_member_msg']);
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE member_number='$sms_to' AND subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -186,7 +186,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
  * intercept incoming sms and look for keyword BC followed by subscribe keyword this feature will do BC but for subscribe keyword sms format: BC <sms_subscribe_keyword> <message> #<sms_subscribe_keyword> <message> @param $sms_datetime incoming SMS date/time @param $sms_sender incoming SMS sender @message incoming SMS message before intercepted @param $sms_receiver receiver number that is receiving incoming SMS @return array $ret
  */
 function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
-	$msg = explode(" ", $message);
+	$msg = explode(" ", (string) $message);
 	$bc = strtoupper($msg[0]);
 	$keyword = '';
 	$message = '';
@@ -195,7 +195,7 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 		for ($i = 2; $i < count($msg); $i++) {
 			$message .= $msg[$i] . ' ';
 		}
-	} else if (substr($bc, 0, 1) == '#') {
+	} else if (str_starts_with($bc, '#')) {
 		$keyword = str_replace('#', '', $bc);
 		for ($i = 1; $i < count($msg); $i++) {
 			$message .= $msg[$i] . ' ';
@@ -212,12 +212,9 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 			$c_uid = user_mobile2uid($sms_sender);
 			$c_username = user_uid2username($c_uid);
 			if ($c_uid && $c_username) {
-				$list = dba_search(_DB_PREF_ . '_featureSubscribe', 'subscribe_id, forward_param', array(
-					'uid' => $c_uid,
-					'subscribe_keyword' => $keyword 
-				));
+				$list = dba_search(_DB_PREF_ . '_featureSubscribe', 'subscribe_id, forward_param', ['uid' => $c_uid, 'subscribe_keyword' => $keyword]);
 				if ($list[0]['subscribe_id']) {
-					$forward_param = ($list[0]['forward_param'] ? $list[0]['forward_param'] : 'BC');
+					$forward_param = ($list[0]['forward_param'] ?: 'BC');
 					$sms_datetime = core_display_datetime($sms_datetime);
 					_log("recvsms_intercept dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " uid:" . $c_uid . " username:" . $c_username . " bc:" . $bc . " keyword:" . $keyword . " message:" . $message . " fwd:" . $forward_param, 3, "sms_subscribe");
 					$hooked = true;
@@ -225,7 +222,7 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 			}
 		}
 	}
-	$ret = array();
+	$ret = [];
 	if ($hooked) {
 		$ret['modified'] = true;
 		$ret['hooked'] = true;
@@ -243,20 +240,14 @@ function sms_subscribe_hook_playsmsd() {
 	}
 	
 	$db_table = _DB_PREF_ . "_featureSubscribe";
-	$conditions = array(
-		'subscribe_enable' => 1 
-	);
-	$extras = array(
-		'AND duration' => '>0' 
-	);
+	$conditions = ['subscribe_enable' => 1];
+	$extras = ['AND duration' => '>0'];
 	$list_subscribe = dba_search($db_table, '*', $conditions, '', $extras);
 	foreach ($list_subscribe as $subscribe) {
 		$c_id = $subscribe['subscribe_id'];
 		$c_duration = $subscribe['duration'];
 		$date_now = new DateTime(core_get_datetime());
-		$list_member = dba_search(_DB_PREF_ . '_featureSubscribe_member', '*', array(
-			'subscribe_id' => $c_id 
-		));
+		$list_member = dba_search(_DB_PREF_ . '_featureSubscribe_member', '*', ['subscribe_id' => $c_id]);
 		foreach ($list_member as $member) {
 			$is_expired = FALSE;
 			$date_since = new DateTime($member['member_since']);
@@ -312,8 +303,6 @@ function _sms_subscribe_member_expired($subscribe, $member) {
 
 function sms_subscribe_member_remove($member_id) {
 	$db_table = _DB_PREF_ . "_featureSubscribe_member";
-	$conditions = array(
-		'member_id' => $member_id 
-	);
+	$conditions = ['member_id' => $member_id];
 	return dba_remove($db_table, $conditions);
 }

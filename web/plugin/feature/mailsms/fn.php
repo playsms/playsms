@@ -91,19 +91,19 @@ function mailsms_hook_playsmsd_once($param) {
 	if (!$inbox) {
 		$errors = imap_errors();
 		foreach ($errors as $error) {
-			
+
 			// _log('error:' . $error, 3, 'mailsms_hook_playsmsd_once');
 		}
 		return;
 	}
 	
 	$emails = imap_search($inbox, 'UNSEEN');
-	if (count($emails)) {
+	if (is_countable($emails) ? count($emails) : 0) {
 		rsort($emails);
 		foreach ($emails as $email_number) {
 			$overview = imap_fetch_overview($inbox, $email_number, 0);
-			$email_subject = trim($overview[0]->subject);
-			$email_sender = trim($overview[0]->from);
+			$email_subject = trim((string) $overview[0]->subject);
+			$email_sender = trim((string) $overview[0]->from);
 			$email_body = trim(imap_fetchbody($inbox, $email_number, 1));
 			
 			_log('email from:[' . $email_sender . '] subject:[' . $email_subject . '] body:[' . $email_body . ']', 3, 'mailsms_hook_playsmsd');
@@ -154,7 +154,7 @@ function mailsms_hook_playsmsd_once($param) {
 			if ($sender_username && count($sms_to) && $message) {
 				_log('mailsms uid:' . $sender['uid'] . ' from:[' . $sender_email . '] username:[' . $sender_username . ']', 3, 'mailsms_hook_playsmsd_once');
 				$unicode = core_detect_unicode($message);
-				list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed) = sendsms_helper($sender_username, $sms_to, $message, '', $unicode, '', '', '', '', $reference_id);
+				[$ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed] = sendsms_helper($sender_username, $sms_to, $message, '', $unicode, '', '', '', '', $reference_id);
 			}
 		}
 	}

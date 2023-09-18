@@ -118,13 +118,13 @@ function phonebook_hook_phonebook_getmembercountbyid($gpid) {
 	$db_query = "SELECT COUNT(*) as count FROM " . _DB_PREF_ . "_featurePhonebook_group_contacts WHERE gpid='$gpid'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$count = ($db_row['count'] ? $db_row['count'] : 0);
+		$count = ($db_row['count'] ?: 0);
 	}
 	return $count;
 }
 
 function phonebook_hook_phonebook_getdatabyid($gpid, $orderby = "") {
-	$ret = array();
+	$ret = [];
 	$db_query = "
 		SELECT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.tags AS tags
 		FROM " . _DB_PREF_ . "_featurePhonebook AS A
@@ -142,7 +142,7 @@ function phonebook_hook_phonebook_getdatabyid($gpid, $orderby = "") {
 }
 
 function phonebook_hook_phonebook_getdatabyuid($uid, $orderby = "") {
-	$ret = array();
+	$ret = [];
 	$db_query = "
 		SELECT DISTINCT A.id AS pid, A.name AS p_desc, A.mobile AS p_num, A.email AS email, A.tags AS tags
 		FROM " . _DB_PREF_ . "_featurePhonebook AS A
@@ -160,7 +160,7 @@ function phonebook_hook_phonebook_getdatabyuid($uid, $orderby = "") {
 }
 
 function phonebook_hook_phonebook_getgroupbyid($gpid, $orderby = "") {
-	$ret = array();
+	$ret = [];
 	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE id='$gpid'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -170,7 +170,7 @@ function phonebook_hook_phonebook_getgroupbyid($gpid, $orderby = "") {
 }
 
 function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby = "") {
-	$ret = array();
+	$ret = [];
 	$db_query = "SELECT id AS gpid, name AS gp_name, code AS gp_code, flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
 	if ($orderby) {
 		$db_query .= " ORDER BY " . $orderby;
@@ -183,7 +183,7 @@ function phonebook_hook_phonebook_getgroupbyuid($uid, $orderby = "") {
 }
 
 function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0, $exact = FALSE) {
-	$ret = array();
+	$ret = [];
 	
 	if ($keyword) {
 		$user_mobile = user_getfieldbyuid($uid, 'mobile');
@@ -236,7 +236,7 @@ function phonebook_hook_phonebook_search($uid, $keyword = "", $count = 0, $exact
 }
 
 function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0, $exact = FALSE) {
-	$ret = array();
+	$ret = [];
 	
 	$keyword = phonebook_code_clean($keyword);
 	if ($keyword) {
@@ -279,7 +279,7 @@ function phonebook_hook_phonebook_search_group($uid, $keyword = "", $count = 0, 
 }
 
 function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0, $exact = FALSE) {
-	$ret = array();
+	$ret = [];
 	
 	$keywords = $keyword;
 	$fields = 'username, name, mobile, email';
@@ -304,7 +304,7 @@ function phonebook_hook_phonebook_search_user($uid, $keyword = "", $count = 0, $
 function phonebook_hook_webservices_output($operation, $requests, $returns) {
 	global $user_config;
 	
-	$keyword = stripslashes($requests['keyword']);
+	$keyword = stripslashes((string) $requests['keyword']);
 	if (!$keyword) {
 		$keyword = $requests['tag'];
 	}
@@ -318,51 +318,39 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 	}
 	
 	if ($returns['modified'] && $returns['param']['operation'] == 'phonebook') {
-		$item = json_decode($returns['param']['content'], TRUE);
+		$item = json_decode((string) $returns['param']['content'], TRUE);
 	} else {
-		$item = array();
+		$item = [];
 	}
 	
 	if ($keyword && $user_config['uid']) {
-		if (substr($keyword, 0, 1) == '@') {
-			$keyword = substr($keyword, 1);
+		if (str_starts_with((string) $keyword, '@')) {
+			$keyword = substr((string) $keyword, 1);
 			$list = phonebook_search_user($user_config['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array(
-					'id' => '@' . $data['username'],
-					'text' => '@' . $data['name'] 
-				);
+				$item[] = ['id' => '@' . $data['username'], 'text' => '@' . $data['name']];
 			}
-		} else if (substr($keyword, 0, 1) == '#') {
-			$keyword = substr($keyword, 1);
+		} else if (str_starts_with((string) $keyword, '#')) {
+			$keyword = substr((string) $keyword, 1);
 			$list = phonebook_search_group($user_config['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array(
-					'id' => '#' . $data['code'],
-					'text' => _('Group') . ': ' . $data['group_name'] . ' (' . $data['code'] . ')' 
-				);
+				$item[] = ['id' => '#' . $data['code'], 'text' => _('Group') . ': ' . $data['group_name'] . ' (' . $data['code'] . ')'];
 			}
 		} else {
 			$list = phonebook_search($user_config['uid'], $keyword);
 			foreach ($list as $data) {
-				$item[] = array(
-					'id' => $data['p_num'],
-					'text' => $data['p_desc'] . ' (' . $data['p_num'] . ')' 
-				);
+				$item[] = ['id' => $data['p_num'], 'text' => $data['p_desc'] . ' (' . $data['p_num'] . ')'];
 			}
 		}
 	}
 	
 	// safety net
-	if (count($item) == 0) {
-		$item[] = array(
-			'id' => $keyword,
-			'text' => $keyword 
-		);
+	if ((is_countable($item) ? count($item) : 0) == 0) {
+		$item[] = ['id' => $keyword, 'text' => $keyword];
 	}
 	
 	$returns['modified'] = TRUE;
-	$returns['param']['content'] = json_encode($item);
+	$returns['param']['content'] = json_encode($item, JSON_THROW_ON_ERROR);
 	
 	if ($requests['debug'] == '1') {
 		$returns['param']['content-type'] = "text/plain";
@@ -392,7 +380,7 @@ function phonebook_code_clean($code) {
 function phonebook_tags_clean($tags) {
 	$tags = trim(preg_replace('/\s+/', ' ', $tags));
 	$arr_tags = explode(',', $tags);
-	$arr_tags = array_unique($arr_tags);
+	$arr_tags = array_unique($arr_tags,SORT_REGULAR);
 	$tags = '';
 	foreach ($arr_tags as $tag) {
 		if ($tag) {

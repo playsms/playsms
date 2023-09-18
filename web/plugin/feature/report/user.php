@@ -36,40 +36,15 @@ foreach ($data as $a) {
 $credit = rate_getusercredit($user_config['username']);
 
 // p_status values mapped to tpl array elements
-$map_values = array(
-	'0' => 'num_rows_pending',
-	'1' => 'num_rows_sent',
-	'2' => 'num_rows_failed',
-	'3' => 'num_rows_delivered' 
-);
+$map_values = ['0' => 'num_rows_pending', '1' => 'num_rows_sent', '2' => 'num_rows_failed', '3' => 'num_rows_delivered'];
 
 // populate array with the values from the mysql query
 $db_query = "SELECT flag_deleted, p_status, COUNT(*) AS count from " . _DB_PREF_ . "_tblSMSOutgoing where uid ='$c_uid' group by flag_deleted, p_status";
 $db_result = dba_query($db_query);
-for ($set = array(); $row = dba_fetch_array($db_result); $set[] = $row) {}
+for ($set = []; $row = dba_fetch_array($db_result); $set[] = $row) {}
 
 // define tpl before updating it with array set values
-$tpl = array(
-	'name' => 'report_user',
-	'vars' => array(
-		'Report' => _('Report'),
-		'My report' => _('My report'),
-		'Pending' => _('Pending'),
-		'Sent' => _('Sent'),
-		'Delivered' => _('Delivered'),
-		'Failed' => _('Failed'),
-		'Deleted' => _('Deleted'),
-		'Billing' => _('Billing'),
-		'Credit' => _('Credit'),
-		'num_rows_pending' => 0,
-		'num_rows_sent' => 0,
-		'num_rows_delivered' => 0,
-		'num_rows_failed' => 0,
-		'num_rows_deleted' => 0,
-		'billing' => $billing,
-		'credit' => $credit 
-	) 
-);
+$tpl = ['name' => 'report_user', 'vars' => ['Report' => _('Report'), 'My report' => _('My report'), 'Pending' => _('Pending'), 'Sent' => _('Sent'), 'Delivered' => _('Delivered'), 'Failed' => _('Failed'), 'Deleted' => _('Deleted'), 'Billing' => _('Billing'), 'Credit' => _('Credit'), 'num_rows_pending' => 0, 'num_rows_sent' => 0, 'num_rows_delivered' => 0, 'num_rows_failed' => 0, 'num_rows_deleted' => 0, 'billing' => $billing, 'credit' => $credit]];
 
 // update tpl array with values from the set array
 

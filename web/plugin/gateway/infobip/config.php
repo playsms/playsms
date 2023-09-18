@@ -8,7 +8,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['infobip']['username'] = $db_row['cfg_username'];
 	$plugin_config['infobip']['password'] = $db_row['cfg_password'];
 	$plugin_config['infobip']['module_sender'] = $db_row['cfg_module_sender'];
-	$plugin_config['infobip']['send_url'] = ($db_row['cfg_send_url'] ? $db_row['cfg_send_url'] : 'http://api.infobip.com/api/v3');
+	$plugin_config['infobip']['send_url'] = ($db_row['cfg_send_url'] ?: 'http://api.infobip.com/api/v3');
 	$plugin_config['infobip']['additional_param'] = $db_row['cfg_additional_param'];
 	$plugin_config['infobip']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
 	// $plugin_config['infobip']['dlr_nopush'] = $db_row['cfg_dlr_nopush'];
@@ -16,7 +16,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['infobip']['_smsc_config_'] = array();
+$plugin_config['infobip']['_smsc_config_'] = [];
 
 // $gateway_number = $plugin_config['infobip']['sender'];
 

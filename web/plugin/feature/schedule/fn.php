@@ -20,41 +20,36 @@ defined('_SECURE_') or die('Forbidden');
 
 function schedule_hook_playsmsd() {
 	global $core_config;
-	
+
 	// fetch every minutes
 	if (!core_playsmsd_timer(60)) {
 		return;
 	}
-	
+
 	// mark a start
 	//_log('start scheduler', 2, 'schedule_hook_playsmsd');
-	
+
 
 	// get current server time
 	$current_datetime = core_display_datetime(core_get_datetime());
 	$current_timestamp = strtotime($current_datetime);
-	
+
 	// collect active schedules
-	$conditions = array(
-		'flag_active' => 1,
-		'flag_deleted' => 0 
-	);
+	$conditions = ['flag_active' => 1, 'flag_deleted' => 0];
 	$schedules = dba_search(_DB_PREF_ . '_featureSchedule', '*', $conditions);
 	foreach ($schedules as $sch) {
 		$schedule_id = $sch['id'];
 		$uid = $sch['uid'];
 		$schedule_name = $sch['name'];
 		$schedule_rule = (int) $sch['schedule_rule'];
-		
+
 		// collect destinations
-		$conditions = array(
-			'schedule_id' => $schedule_id 
-		);
+		$conditions = ['schedule_id' => $schedule_id];
 		$destinations = dba_search(_DB_PREF_ . '_featureSchedule_dst', '*', $conditions, '', $extras);
 		foreach ($destinations as $dst) {
 			$id = $dst['id'];
 			$name = $dst['name'];
-			$schedule_message = str_ireplace('#NAME#', $name, $sch['message']);
+			$schedule_message = str_ireplace('#NAME#', (string) $name, (string) $sch['message']);
 			$destination = $dst['destination'];
 			$schedule = ($dst['schedule'] ? core_display_datetime($dst['schedule']) : '0000-00-00 00:00:00');
 			$scheduled = ($dst['scheduled'] ? core_display_datetime($dst['scheduled']) : '0000-00-00 00:00:00');
@@ -62,12 +57,12 @@ function schedule_hook_playsmsd() {
 				$scheduled = $schedule;
 			}
 			$scheduled_timestamp = strtotime($scheduled);
-			
+
 			//_log('uid:' . $uid . ' schedule_id:' . $schedule_id . ' id:' . $id . ' rule:' . $schedule_rule . ' current:[' . $current_datetime . '] schedule:[' . $schedule . '] scheduled:[' . $scheduled . ']', 2, 'schedule_hook_playsmsd');			
-			
+
 
 			$continue = FALSE;
-			
+
 			if ($current_timestamp >= $scheduled_timestamp) {
 				switch ($schedule_rule) {
 					// once
@@ -77,10 +72,10 @@ function schedule_hook_playsmsd() {
 						$scheduled = core_adjust_datetime($scheduled);
 						$scheduled_timestamp = strtotime($current_datetime);
 						$scheduled_display = $current_datetime;
-						
+
 						$continue = TRUE;
 						break;
-					
+
 					// Annually
 					case '1':
 						$current_schedule = date('Y', $current_timestamp) . '-' . date('m-d H:i:s', strtotime($schedule));
@@ -92,10 +87,10 @@ function schedule_hook_playsmsd() {
 						$scheduled = core_adjust_datetime($scheduled);
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
-						
+
 						$continue = TRUE;
 						break;
-					
+
 					// Monthly
 					case '2':
 						$current_schedule = date('Y-m', $current_timestamp) . '-' . date('d H:i:s', strtotime($schedule));
@@ -107,10 +102,10 @@ function schedule_hook_playsmsd() {
 						$scheduled = core_adjust_datetime($scheduled);
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
-						
+
 						$continue = TRUE;
 						break;
-					
+
 					// Weekly
 					case '3':
 						$current_schedule = date('Y-m-d', $current_timestamp) . ' ' . date('H:i:s', strtotime($schedule));
@@ -123,10 +118,10 @@ function schedule_hook_playsmsd() {
 						$scheduled = core_adjust_datetime($scheduled);
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
-						
+
 						$continue = TRUE;
 						break;
-					
+
 					// Daily
 					case '4':
 						$current_schedule = date('Y-m-d', $current_timestamp) . ' ' . date('H:i:s', strtotime($schedule));
@@ -138,22 +133,16 @@ function schedule_hook_playsmsd() {
 						$scheduled = core_adjust_datetime($scheduled);
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
-						
+
 						$continue = TRUE;
 						break;
 				}
 			}
-			
+
 			if ($continue) {
 				// set scheduled to next time
-				$items = array(
-					'c_timestamp' => time(),
-					'scheduled' => $scheduled 
-				);
-				$conditions = array(
-					'schedule_id' => $schedule_id,
-					'id' => $id 
-				);
+				$items = ['c_timestamp' => time(), 'scheduled' => $scheduled];
+				$conditions = ['schedule_id' => $schedule_id, 'id' => $id];
 				if (dba_update(_DB_PREF_ . '_featureSchedule_dst', $items, $conditions, 'AND')) {
 					// if the interval is under an hour then go ahead, otherwise expired
 					$interval = $current_timestamp - $scheduled_timestamp;
@@ -170,7 +159,7 @@ function schedule_hook_playsmsd() {
 			}
 		}
 	}
-	
+
 	// mark an end
 	//_log('end scheduler', 2, 'schedule_hook_playsmsd');
 }

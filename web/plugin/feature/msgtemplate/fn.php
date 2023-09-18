@@ -10,8 +10,8 @@ function msgtemplate_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $
 	
 	// the modification to $sms_msg, case insensitive
 	$text = $sms_msg;
-	$text = str_ireplace('#NAME#', phonebook_number2name($uid, $sms_to), $text);
-	$text = str_ireplace('#NUM#', $sms_to, $text);
+	$text = str_ireplace('#NAME#', (string) phonebook_number2name($uid, $sms_to), (string) $text);
+	$text = str_ireplace('#NUM#', (string) $sms_to, $text);
 	$ret['param']['sms_msg'] = $text;
 	
 	// log it
@@ -21,7 +21,7 @@ function msgtemplate_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $
 }
 
 function msgtemplate_hook_sendsms_get_template() {
-	$ret = array();
+	$ret = [];
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureMsgtemplate WHERE uid='" . $_SESSION['uid'] . "' ORDER BY t_title ASC";
 	$db_result = dba_query($db_query);
 	$i = 0;

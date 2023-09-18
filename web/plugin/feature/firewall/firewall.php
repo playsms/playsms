@@ -24,19 +24,13 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "firewall_list":
-		$search_category = array(
-			_('IP address') => 'ip_address' 
-		);
+		$search_category = [_('IP address') => 'ip_address'];
 		$base_url = 'index.php?app=main&inc=feature_firewall&op=firewall_list';
 		$search = themes_search($search_category, $base_url);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featureFirewall', '', $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'uid',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'uid', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', '', $keywords, $extras);
 		
 		$content = _dialog() . "
@@ -80,7 +74,7 @@ switch (_OP_) {
 		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 			$pid = $list[$j]['id'];
 			$username = user_uid2username($list[$j]['uid']);
 			$ip_address = $list[$j]['ip_address'];
@@ -114,9 +108,9 @@ switch (_OP_) {
 		$checkid = $_REQUEST['checkid'];
 		$itemid = $_REQUEST['itemid'];
 		
-		$items = array();
+		$items = [];
 		foreach ($checkid as $key => $val) {
-			if (strtoupper($val) == 'ON') {
+			if (strtoupper((string) $val) == 'ON') {
 				if ($itemid[$key]) {
 					$items[] = $itemid[$key];
 				}
@@ -127,9 +121,7 @@ switch (_OP_) {
 		switch ($go) {
 			case 'delete':
 				foreach ($items as $item) {
-					$conditions = array(
-						'id' => $item 
-					);
+					$conditions = ['id' => $item];
 					if (dba_remove(_DB_PREF_ . '_featureFirewall', $conditions)) {
 						$removed = TRUE;
 					}
@@ -175,7 +167,7 @@ switch (_OP_) {
 		$add_username = user_uid2username($_POST['add_username']);
 		$add_ip_address = $_POST['add_ip_address'];
 		if ($add_username && $add_ip_address) {
-			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
+			foreach (explode(',', str_replace(' ', '', (string) $add_ip_address)) as $ip) {
 				blacklist_addip($add_username, $ip);
 			}
 			$_SESSION['dialog']['info'][] = _('IP addresses have been blocked');

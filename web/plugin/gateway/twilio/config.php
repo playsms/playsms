@@ -5,8 +5,8 @@ $db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayTwilio_config";
 $db_result = dba_query($db_query);
 if ($db_row = dba_fetch_array($db_result)) {
 	$plugin_config['twilio']['name'] = 'twilio';
-	$plugin_config['twilio']['url'] = ($db_row['cfg_url'] ? $db_row['cfg_url'] : 'https://api.twilio.com');
-	$plugin_config['twilio']['callback_url'] = ($db_row['cfg_callback_url'] ? $db_row['cfg_callback_url'] : $core_config['http_path']['base'] . 'plugin/gateway/twilio/callback.php');
+	$plugin_config['twilio']['url'] = ($db_row['cfg_url'] ?: 'https://api.twilio.com');
+	$plugin_config['twilio']['callback_url'] = ($db_row['cfg_callback_url'] ?: $core_config['http_path']['base'] . 'plugin/gateway/twilio/callback.php');
 	$plugin_config['twilio']['account_sid'] = $db_row['cfg_account_sid'];
 	$plugin_config['twilio']['auth_token'] = $db_row['cfg_auth_token'];
 	$plugin_config['twilio']['module_sender'] = $db_row['cfg_module_sender'];
@@ -14,12 +14,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['twilio']['_smsc_config_'] = array(
-	'account_sid' => _('Account SID'),
-	'auth_token' => _('Auth Token'),
-	'module_sender' => _('Module sender ID'),
-	'datetime_timezone' => _('Module timezone') 
-);
+$plugin_config['twilio']['_smsc_config_'] = ['account_sid' => _('Account SID'), 'auth_token' => _('Auth Token'), 'module_sender' => _('Module sender ID'), 'datetime_timezone' => _('Module timezone')];
 
 //$gateway_number = $plugin_config['twilio']['module_sender'];
 

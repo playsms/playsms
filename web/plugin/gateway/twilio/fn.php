@@ -20,13 +20,13 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
+	$sms_sender = stripslashes((string) $sms_sender);
 	if ($plugin_config['twilio']['module_sender']) {
 		$sms_sender = $plugin_config['twilio']['module_sender'];
 	}
 	
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_footer = stripslashes((string) $sms_footer);
+	$sms_msg = stripslashes((string) $sms_msg);
 	$ok = false;
 	
 	_log("sendsms start", 3, "twilio_hook_sendsms");
@@ -37,13 +37,9 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	
 	if ($sms_sender && $sms_to && $sms_msg) {
 		$url = $plugin_config['twilio']['url'] . '/2010-04-01/Accounts/' . $plugin_config['twilio']['account_sid'] . '/SMS/Messages.json';
-		$data = array(
-			'To' => $sms_to,
-			'From' => $sms_sender,
-			'Body' => $sms_msg 
-		);
-		if (trim($plugin_config['twilio']['callback_url'])) {
-			$data['StatusCallback'] = trim($plugin_config['twilio']['callback_url']);
+		$data = ['To' => $sms_to, 'From' => $sms_sender, 'Body' => $sms_msg];
+		if (trim((string) $plugin_config['twilio']['callback_url'])) {
+			$data['StatusCallback'] = trim((string) $plugin_config['twilio']['callback_url']);
 		}
 		if (function_exists('curl_init')) {
 			$ch = curl_init($url);
@@ -54,8 +50,8 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			$returns = curl_exec($ch);
 			curl_close($ch);
-			_log("sendsms url:[" . $url . "] callback:[" . $plugin_config['twilio']['callback_url'], "] smsc:[" . $smsc . "]", 3, "twilio_hook_sendsms");
-			$resp = json_decode($returns);
+			_log("sendsms url:[" . $url . "] callback:[" . $plugin_config['twilio']['callback_url'], "] smsc:[" . $smsc . "]", 3);
+			$resp = json_decode($returns, null, 512, JSON_THROW_ON_ERROR);
 			if ($resp->status) {
 				$c_status = $resp->status;
 				$c_message_id = $resp->sid;
@@ -74,7 +70,7 @@ function twilio_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 				dlr($smslog_id, $uid, $p_status);
 			} else {
 				// even when the response is not what we expected we still print it out for debug purposes
-				$resp = str_replace("\n", " ", $resp);
+				$resp = str_replace("\n", " ", (string) $resp);
 				$resp = str_replace("\r", " ", $resp);
 				_log("failed smslog_id:" . $smslog_id . " resp:" . $resp . " smsc:[" . $smsc . "]", 2, "twilio_hook_sendsms");
 			}

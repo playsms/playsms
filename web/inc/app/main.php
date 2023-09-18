@@ -23,7 +23,7 @@ $continue = TRUE;
 
 // load plugin
 if ($continue && _INC_) {
-	$p = explode('_', _INC_, 2);
+	$p = explode('_', (string) _INC_, 2);
 	$plugin_category = $p[0];
 	$plugin_name = $p[1];
 	$plugin_dir = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name;

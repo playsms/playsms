@@ -72,19 +72,7 @@ function playnet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	if ($sms_to && $sms_msg) {
 		$now = core_get_datetime();
 		
-		$items = array(
-			'created' => $now,
-			'last_update' => $now,
-			'flag' => 1,
-			'uid' => $uid,
-			'smsc' => $smsc,
-			'smslog_id' => $smslog_id,
-			'sender_id' => $sms_sender,
-			'sms_to' => $sms_to,
-			'message' => $sms_msg,
-			'sms_type' => $sms_type,
-			'unicode' => $unicode 
-		);
+		$items = ['created' => $now, 'last_update' => $now, 'flag' => 1, 'uid' => $uid, 'smsc' => $smsc, 'smslog_id' => $smslog_id, 'sender_id' => $sms_sender, 'sms_to' => $sms_to, 'message' => $sms_msg, 'sms_type' => $sms_type, 'unicode' => $unicode];
 		if ($id = dba_add(_DB_PREF_ . '_gatewayPlaynet_outgoing', $items)) {
 			$ok = TRUE;
 		}
@@ -128,35 +116,15 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 	
 	switch ($go) {
 		case 'get_outgoing':
-			$conditions = array(
-				'flag' => 1,
-				'smsc' => $smsc 
-			);
-			$extras = array(
-				'ORDER BY' => 'id',
-				'LIMIT' => $c_plugin_config['playnet']['poll_limit'] 
-			);
+			$conditions = ['flag' => 1, 'smsc' => $smsc];
+			$extras = ['ORDER BY' => 'id', 'LIMIT' => $c_plugin_config['playnet']['poll_limit']];
 			$list = dba_search(_DB_PREF_ . '_gatewayPlaynet_outgoing', '*', $conditions, '', $extras);
 			foreach ($list as $data) {
-				$rows[] = array(
-					'smsc' => $data['smsc'],
-					'smslog_id' => $data['smslog_id'],
-					'uid' => $data['uid'],
-					'sender_id' => $data['sender_id'],
-					'sms_to' => $data['sms_to'],
-					'message' => $data['message'],
-					'sms_type' => $data['sms_type'],
-					'unicode' => $data['unicode'] 
-				);
+				$rows[] = ['smsc' => $data['smsc'], 'smslog_id' => $data['smslog_id'], 'uid' => $data['uid'], 'sender_id' => $data['sender_id'], 'sms_to' => $data['sms_to'], 'message' => $data['message'], 'sms_type' => $data['sms_type'], 'unicode' => $data['unicode']];
 				
 				// update flag
-				$items = array(
-					'flag' => 2 
-				);
-				$condition = array(
-					'flag' => 1,
-					'id' => $data['id'] 
-				);
+				$items = ['flag' => 2];
+				$condition = ['flag' => 1, 'id' => $data['id']];
 				dba_update(_DB_PREF_ . '_gatewayPlaynet_outgoing', $items, $condition, 'AND');
 				
 				// update dlr
@@ -174,7 +142,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 			break;
 		
 		case 'set_incoming':
-			$payload = json_decode(stripslashes($requests['payload']), 1);
+			$payload = json_decode(stripslashes((string) $requests['payload']), 1, 512, JSON_THROW_ON_ERROR);
 			
 			if ($payload['message']) {
 				$sms_sender = $payload['sms_sender'];
@@ -182,9 +150,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				$sms_receiver = $payload['sms_receiver'];
 				if ($id = recvsms(core_get_datetime(), $sms_sender, $message, $sms_receiver, $smsc)) {
 					$content['status'] = 'OK';
-					$content['data'] = array(
-						'recvsms_id' => $id 
-					);
+					$content['data'] = ['recvsms_id' => $id];
 				} else {
 					$content['status'] = 'ERROR';
 					$content['error_string'] = 'Unable to save incoming data';
@@ -196,7 +162,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 	}
 	
 	$returns['modified'] = TRUE;
-	$returns['param']['content'] = json_encode($content);
+	$returns['param']['content'] = json_encode($content, JSON_THROW_ON_ERROR);
 	$returns['param']['content-type'] = 'text/json';
 	
 	if ($content['status'] == 'OK') {
@@ -228,10 +194,10 @@ function playnet_hook_playsmsd() {
 			$ws .= '&u=' . $c_plugin_config['playnet']['remote_playnet_username'];
 			$ws .= '&p=' . $c_plugin_config['playnet']['remote_playnet_password'];
 			$response_raw = @file_get_contents($ws);
-			$response = json_decode($response_raw, 1);
+			$response = json_decode($response_raw, 1, 512, JSON_THROW_ON_ERROR);
 			
 			// validate response
-			if (strtoupper($response['status']) == 'OK') {
+			if (strtoupper((string) $response['status']) == 'OK') {
 				if (is_array($response['data'])) {
 					foreach ($response['data'] as $data) {
 						$remote_smsc = $data['smsc'];

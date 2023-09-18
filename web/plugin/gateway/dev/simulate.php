@@ -45,13 +45,13 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "simulate_yes" :
-		$sms_sender = ($_REQUEST['sender'] ? $_REQUEST['sender'] : '629876543210');
-		$sms_receiver = ($_REQUEST['receiver'] ? $_REQUEST['receiver'] : '1234');
-		$sms_datetime = ($_REQUEST['datetime'] ? $_REQUEST['datetime'] : core_get_datetime());
-		$message = ($_REQUEST['message'] ? $_REQUEST['message'] : _('This is a test incoming SMS message'));
-		$message = htmlspecialchars_decode($message);
+		$sms_sender = ($_REQUEST['sender'] ?: '629876543210');
+		$sms_receiver = ($_REQUEST['receiver'] ?: '1234');
+		$sms_datetime = ($_REQUEST['datetime'] ?: core_get_datetime());
+		$message = ($_REQUEST['message'] ?: _('This is a test incoming SMS message'));
+		$message = htmlspecialchars_decode((string) $message);
 		
-		if (trim($sms_sender) && trim($sms_receiver) && trim($sms_datetime) && trim($message)) {
+		if (trim((string) $sms_sender) && trim((string) $sms_receiver) && trim((string) $sms_datetime) && trim($message)) {
 			recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, 'dev');
 			$err[] = "Sender ID: " . $sms_sender;
 			$err[] = "Receiver number: " . $sms_receiver;

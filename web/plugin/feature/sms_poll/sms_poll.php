@@ -24,9 +24,7 @@ if (!auth_isvalid()) {
 
 if ($poll_id = (int) $_REQUEST['poll_id']) {
 	$db_table = _DB_PREF_ . '_featurePoll';
-	$conditions = array(
-		'poll_id' => $poll_id 
-	);
+	$conditions = ['poll_id' => $poll_id];
 	if (!auth_isadmin()) {
 		$conditions['uid'] = $user_config['uid'];
 	}
@@ -148,7 +146,7 @@ switch (_OP_) {
 		break;
 	case "sms_poll_choice_add" :
 		$add_choice_title = $_POST['add_choice_title'];
-		$add_choice_keyword = strtoupper($_POST['add_choice_keyword']);
+		$add_choice_keyword = strtoupper((string) $_POST['add_choice_keyword']);
 		if ($poll_id && $add_choice_title && $add_choice_keyword) {
 			$db_query = "SELECT choice_id FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' AND choice_keyword='$add_choice_keyword'";
 			$db_result = @dba_num_rows($db_query);
@@ -189,14 +187,8 @@ switch (_OP_) {
 		break;
 	
 	case "sms_poll_add" :
-		$option_vote = array(
-			_('one time') => 0,
-			_('one time every 24 hours') => 1,
-			_('one time every week') => 2,
-			_('one time every month') => 3,
-			_('multiple times') => 4 
-		);
-		$add_poll_access_code = md5(_PID_);
+		$option_vote = [_('one time') => 0, _('one time every 24 hours') => 1, _('one time every week') => 2, _('one time every month') => 3, _('multiple times') => 4];
+		$add_poll_access_code = md5((string) _PID_);
 		
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc') . "</td></tr>";
@@ -238,7 +230,7 @@ switch (_OP_) {
 		break;
 	
 	case "sms_poll_add_yes" :
-		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
+		$add_poll_keyword = strtoupper((string) $_POST['add_poll_keyword']);
 		$add_poll_title = $_POST['add_poll_title'];
 		$add_poll_access_code = $_POST['add_poll_access_code'];
 		$add_poll_option_vote = (int) $_POST['add_poll_option_vote'];
@@ -275,13 +267,7 @@ switch (_OP_) {
 		break;
 	
 	case "sms_poll_edit" :
-		$option_vote = array(
-			_('one time') => 0,
-			_('one time every 24 hours') => 1,
-			_('one time every week') => 2,
-			_('one time every month') => 3,
-			_('multiple times') => 4 
-		);
+		$option_vote = [_('one time') => 0, _('one time every 24 hours') => 1, _('one time every week') => 2, _('one time every month') => 3, _('multiple times') => 4];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
@@ -353,7 +339,7 @@ switch (_OP_) {
 				<tr>
 					<td>$choice_keyword</td>
 					<td>$choice_title</td>
-					<td><a href=\"javascript:ConfirmURL('" . _('Are you sure you want to delete choice ?') . " (" . _('title') . ": " . addslashes($choice_title) . ", " . _('keyword') . ": " . $choice_keyword . ")','" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=' . $poll_id . '&choice_id=' . $choice_id) . "');\">" . $icon_config['delete'] . "</a></td>
+					<td><a href=\"javascript:ConfirmURL('" . _('Are you sure you want to delete choice ?') . " (" . _('title') . ": " . addslashes((string) $choice_title) . ", " . _('keyword') . ": " . $choice_keyword . ")','" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_choice_del&poll_id=' . $poll_id . '&choice_id=' . $choice_id) . "');\">" . $icon_config['delete'] . "</a></td>
 				</tr>";
 		}
 		$content .= "
@@ -380,7 +366,7 @@ switch (_OP_) {
 		break;
 	
 	case "sms_poll_edit_yes" :
-		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
+		$edit_poll_keyword = strtoupper((string) $_POST['edit_poll_keyword']);
 		$edit_poll_title = $_POST['edit_poll_title'];
 		$edit_poll_access_code = $_POST['edit_poll_access_code'];
 		$edit_poll_option_vote = (int) $_POST['edit_poll_option_vote'];

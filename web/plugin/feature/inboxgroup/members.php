@@ -10,9 +10,9 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		$keywords = $data['keywords'];
 		$description = $data['description'];
-		$c_members = count(inboxgroup_getmembers($rid));
+		$c_members = is_countable(inboxgroup_getmembers($rid)) ? count(inboxgroup_getmembers($rid)) : 0;
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
-		$c_catchall = count(inboxgroup_getcatchall($rid));
+		$c_catchall = is_countable(inboxgroup_getcatchall($rid)) ? count(inboxgroup_getcatchall($rid)) : 0;
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		$content = _dialog() . "
@@ -49,7 +49,7 @@ switch (_OP_) {
 			<tbody>";
 		$members = inboxgroup_getmembers($rid);
 		$j=0;
-		for ($i=0;$i<count($members);$i++) {
+		for ($i=0;$i<(is_countable($members) ? count($members) : 0);$i++) {
 			$c_uid = $members[$i]['uid'];
 			$c_user = user_getdatabyuid($c_uid);
 			if ($c_username = $c_user['username']) {
@@ -89,9 +89,9 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		$keywords = $data['keywords'];
 		$description = $data['description'];
-		$c_members = count(inboxgroup_getmembers($rid));
+		$c_members = is_countable(inboxgroup_getmembers($rid)) ? count(inboxgroup_getmembers($rid)) : 0;
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
-		$c_catchall = count(inboxgroup_getcatchall($rid));
+		$c_catchall = is_countable(inboxgroup_getcatchall($rid)) ? count(inboxgroup_getcatchall($rid)) : 0;
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		$content = _dialog() . "
@@ -108,12 +108,12 @@ switch (_OP_) {
 		$list_of_users = '';
 		// get admins
 		$users = user_getallwithstatus(2);
-		for ($i=0;$i<count($users);$i++) {
+		for ($i=0;$i<(is_countable($users) ? count($users) : 0);$i++) {
 			$list_of_users .= "<option value='".$users[$i]['uid']."'>".$users[$i]['name']." ".$users[$i]['mobile']."</option>";
 		}
 		// get users
 		$users = user_getallwithstatus(3);
-		for ($i=0;$i<count($users);$i++) {
+		for ($i=0;$i<(is_countable($users) ? count($users) : 0);$i++) {
 			$list_of_users .= "<option value='".$users[$i]['uid']."'>".$users[$i]['name']." ".$users[$i]['mobile']."</option>";
 		}
 		$content .= "
@@ -152,7 +152,7 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			$uids = $_REQUEST['uids'];
-			for ($i=0;$i<count($uids);$i++) {
+			for ($i=0;$i<(is_countable($uids) ? count($uids) : 0);$i++) {
 				$c_uid = $uids[$i];
 				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_membersadd($rid, $c_uid)) {
@@ -173,9 +173,9 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		$keywords = $data['keywords'];
 		$description = $data['description'];
-		$c_members = count(inboxgroup_getmembers($rid));
+		$c_members = is_countable(inboxgroup_getmembers($rid)) ? count(inboxgroup_getmembers($rid)) : 0;
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
-		$c_catchall = count(inboxgroup_getcatchall($rid));
+		$c_catchall = is_countable(inboxgroup_getcatchall($rid)) ? count(inboxgroup_getcatchall($rid)) : 0;
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		$content = _dialog() . "
@@ -192,7 +192,7 @@ switch (_OP_) {
 		$list_of_members = '';
 		// get members
 		$users = inboxgroup_getmembers($rid);
-		for ($i=0;$i<count($users);$i++) {
+		for ($i=0;$i<(is_countable($users) ? count($users) : 0);$i++) {
 			$c_uid = $users[$i]['uid'];
 			$c_user = user_getdatabyuid($c_uid);
 			if ($c_username = $c_user['username']) {
@@ -237,7 +237,7 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			$uids = $_REQUEST['uids'];
-			for ($i=0;$i<count($uids);$i++) {
+			for ($i=0;$i<(is_countable($uids) ? count($uids) : 0);$i++) {
 				$c_uid = $uids[$i];
 				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_membersdel($rid, $c_uid)) {

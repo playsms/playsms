@@ -28,26 +28,14 @@ switch (_OP_) {
 		
 		// get playsmsd status
 		$json = shell_exec($plugin_config['playsmslog']['playsmsd']['bin'] . ' ' . $plugin_config['playsmslog']['playsmsd']['conf'] . ' check_json');
-		$playsmsd = json_decode($json);
+		$playsmsd = json_decode($json, null, 512, JSON_THROW_ON_ERROR);
 		if ($playsmsd->IS_RUNNING) {
 			$playsmsd_is_running = '<span class=status_enabled title="' . _('playSMS daemon is running') . '"></span>';
 		} else {
 			$playsmsd_is_running = '<span class=status_disabled title="' . _('playSMS daemon is NOT running') . '"></span>';
 		}
 		
-		$tpl = array(
-			'name' => 'playsmslog',
-			'vars' => array(
-				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'LOG_FILE' => $core_config['apps_path']['logs'] . '/playsms.log',
-				'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'),
-				'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'),
-				'PLAYSMSD_IS_RUNNING' => $playsmsd_is_running,
-				'LOG' => playsmslog_view(),
-				'Daemon status' => _('playSMS daemon status'),
-				'View log' => _('View log') 
-			) 
-		);
+		$tpl = ['name' => 'playsmslog', 'vars' => ['HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_, 'LOG_FILE' => $core_config['apps_path']['logs'] . '/playsms.log', 'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'), 'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'), 'PLAYSMSD_IS_RUNNING' => $playsmsd_is_running, 'LOG' => playsmslog_view(), 'Daemon status' => _('playSMS daemon status'), 'View log' => _('View log')]];
 		
 		$content = tpl_apply($tpl);
 		if (_OP_ == 'playsmslog_log') {

@@ -21,11 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 function sender_id_description($uid, $sender_id) {
 	global $user_config;
 	
-	$search = array(
-		'uid' => $uid,
-		'registry_family' => 'sender_id_desc',
-		'registry_key' => core_sanitize_sender($sender_id) 
-	);
+	$search = ['uid' => $uid, 'registry_family' => 'sender_id_desc', 'registry_key' => core_sanitize_sender($sender_id)];
 	foreach (registry_search_record($search) as $desc) {
 		$ret = $desc['registry_value'];
 	}
@@ -36,11 +32,7 @@ function sender_id_check($uid, $sender_id) {
 	global $user_config;
 	
 	$ret = FALSE;
-	$condition = array(
-		'uid' => $uid,
-		'registry_family' => 'sender_id',
-		'registry_key' => core_sanitize_sender($sender_id) 
-	);
+	$condition = ['uid' => $uid, 'registry_family' => 'sender_id', 'registry_key' => core_sanitize_sender($sender_id)];
 	if (registry_search_record($condition)) {
 		$ret = TRUE;
 	}
@@ -56,12 +48,9 @@ function sender_id_check($uid, $sender_id) {
  * @return array User IDs
  */
 function sender_id_owner($sender_id) {
-	$ret = array();
+	$ret = [];
 	
-	$condition = array(
-		'registry_family' => 'sender_id',
-		'registry_key' => core_sanitize_sender($sender_id) 
-	);
+	$condition = ['registry_family' => 'sender_id', 'registry_key' => core_sanitize_sender($sender_id)];
 	$list = registry_search_record($condition);
 	foreach ($list as $data) {
 		if ($data['uid']) {
@@ -79,9 +68,7 @@ function sender_id_search($uid = 0) {
 		$search_items['uid'] = (int) $uid;
 	}
 	
-	foreach (registry_search_record($search_items, '', array(
-		'ORDER BY' => 'c_timestamp DESC, uid' 
-	)) as $sender_id) {
+	foreach (registry_search_record($search_items, '', ['ORDER BY' => 'c_timestamp DESC, uid']) as $sender_id) {
 		
 		// show only approved sender_id
 		if ($sender_id['registry_value'] == 1) {
@@ -93,7 +80,7 @@ function sender_id_search($uid = 0) {
 }
 
 function sender_id_getall($username = '') {
-	$ret = array();
+	$ret = [];
 	
 	if ($username) {
 		$uid = user_username2uid($username);
@@ -122,13 +109,8 @@ function sender_id_isvalid($username, $sender_id) {
 
 function sender_id_default_set($uid, $sender_id) {
 	$db_table = _DB_PREF_ . '_tblUser';
-	$items = array(
-		'sender' => $sender_id 
-	);
-	$conditions = array(
-		'flag_deleted' => 0,
-		'uid' => $uid 
-	);
+	$items = ['sender' => $sender_id];
+	$conditions = ['flag_deleted' => 0, 'uid' => $uid];
 	$ret = dba_update($db_table, $items, $conditions);
 	
 	return $ret;
@@ -136,10 +118,7 @@ function sender_id_default_set($uid, $sender_id) {
 
 function sender_id_default_get($uid) {
 	$db_table = _DB_PREF_ . '_tblUser';
-	$conditions = array(
-		'flag_deleted' => 0,
-		'uid' => $uid 
-	);
+	$conditions = ['flag_deleted' => 0, 'uid' => $uid];
 	$data = dba_search($db_table, 'sender', $conditions);
 	$sender_id = $data[0]['sender'];
 	
@@ -172,14 +151,10 @@ function sender_id_add($uid, $sender_id, $sender_id_description = '', $isdefault
 		$default = (auth_isadmin() ? (int) $isdefault : 0);
 		$approved = (auth_isadmin() ? (int) $isapproved : 0);
 		
-		$data_sender_id = array(
-			$sender_id => $approved 
-		);
+		$data_sender_id = [$sender_id => $approved];
 		
-		$sender_id_description = (trim($sender_id_description) ? trim($sender_id_description) : $sender_id);
-		$data_description = array(
-			$sender_id => $sender_id_description 
-		);
+		$sender_id_description = (trim($sender_id_description) ?: $sender_id);
+		$data_description = [$sender_id => $sender_id_description];
 		
 		$uid = ((auth_isadmin() && $uid) ? $uid : $user_config['uid']);
 		
@@ -246,16 +221,12 @@ function sender_id_update($uid, $sender_id, $sender_id_description = '', $isdefa
 		if ($isapproved !== '_') {
 			if (auth_isadmin()) {
 				$approved = ((int) $isapproved ? 1 : 0);
-				$data_sender_id = array(
-					$sender_id => $approved 
-				);
+				$data_sender_id = [$sender_id => $approved];
 			}
 		}
 		
-		$sender_id_description = (trim($sender_id_description) ? trim($sender_id_description) : $sender_id);
-		$data_description = array(
-			$sender_id => $sender_id_description 
-		);
+		$sender_id_description = (trim($sender_id_description) ?: $sender_id);
+		$data_description = [$sender_id => $sender_id_description];
 		
 		$uid = ((auth_isadmin() && $uid) ? $uid : $user_config['uid']);
 		
@@ -271,7 +242,7 @@ function sender_id_update($uid, $sender_id, $sender_id_description = '', $isdefa
 		}
 		
 		// set default
-		if ($default !== '_') {
+		if ($default !== 0) {
 			if (auth_isadmin() && $default && $approved) {
 				
 				// set default if isadmin, default and approved

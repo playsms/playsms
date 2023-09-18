@@ -3,9 +3,9 @@ defined('_SECURE_') or die('Forbidden');
 
 function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge) {
 	$ok = false;
-	$rate = ( isset($rate) ? $rate : 0 );
-	$count = ( isset($count) ? $count : 0 );
-	$charge = ( isset($charge) ? $charge : 0 );
+	$rate ??= 0;
+	$count ??= 0;
+	$charge ??= 0;
 	_log("saving smslog_id:" . $smslog_id . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 2, "simplebilling_hook_billing_post");
 	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (post_datetime,smslog_id,rate,count,charge,status) VALUES ('" . core_get_datetime() . "','$smslog_id','$rate','$count','$charge','0')";
 	if ($smslog_id && ($id = dba_insert_id($db_query))) {
@@ -61,7 +61,7 @@ function simplebilling_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 }
 
 function simplebilling_hook_billing_getdata($smslog_id) {
-	$ret = array();
+	$ret = [];
 	//_log("smslog_id:".$smslog_id, 2, "simplebilling getdata");
 	$db_query = "SELECT id,post_datetime,rate,credit,count,charge,status FROM " . _DB_PREF_ . "_tblBilling WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
@@ -73,22 +73,13 @@ function simplebilling_hook_billing_getdata($smslog_id) {
 		$count = (int) $db_row['count'];
 		$charge = (float) $db_row['charge'];
 		$status = $db_row['status'];
-		$ret = array(
-			'id' => $id,
-			'smslog_id' => $smslog_id,
-			'post_datetime' => $post_datetime,
-			'status' => $status,
-			'rate' => $rate,
-			'credit' => $credit,
-			'count' => $count,
-			'charge' => $charge 
-		);
+		$ret = ['id' => $id, 'smslog_id' => $smslog_id, 'post_datetime' => $post_datetime, 'status' => $status, 'rate' => $rate, 'credit' => $credit, 'count' => $count, 'charge' => $charge];
 	}
 	return $ret;
 }
 
 function simplebilling_hook_billing_getdata_by_uid($uid) {
-	$ret = array();
+	$ret = [];
 	// _log("uid:".$uid, 2, "simplebilling summary");
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblBilling AS A, " . _DB_PREF_ . "_tblUser AS B, " . _DB_PREF_ . "_tblSMSOutgoing AS C " . "WHERE B.flag_deleted='0' AND A.smslog_id=C.smslog_id AND B.uid=C.uid AND A.status='1' AND B.uid='$uid'";
 	$db_result = dba_query($db_query);
@@ -100,15 +91,7 @@ function simplebilling_hook_billing_getdata_by_uid($uid) {
 		$credit = $db_row['credit'];
 		$count = $db_row['count'];
 		$charge = $db_row['charge'];
-		$ret[] = array(
-			'id' => $id,
-			'smslog_id' => $smslog_id,
-			'post_datetime' => $post_datetime,
-			'rate' => $rate,
-			'credit' => $credit,
-			'count' => $count,
-			'charge' => $charge 
-		);
+		$ret[] = ['id' => $id, 'smslog_id' => $smslog_id, 'post_datetime' => $post_datetime, 'rate' => $rate, 'credit' => $credit, 'count' => $count, 'charge' => $charge];
 	}
 	return $ret;
 }

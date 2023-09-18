@@ -26,29 +26,12 @@ switch (_OP_) {
 	case 'add_smsc' :
 		$c_gateway = $_REQUEST['gateway'];
 		
-		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
+		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ?: []);
 		foreach ($dv as $key => $val ) {
-			$dynamic_variables[] = array(
-				'key' => $key,
-				'title' => $val 
-			);
+			$dynamic_variables[] = ['key' => $key, 'title' => $val];
 		}
 		
-		$tpl = array(
-			'name' => 'gateway_add_smsc',
-			'vars' => array(
-				'FORM_TITLE' => _('Add SMSC'),
-				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=add_smsc_save',
-				'GATEWAY' => $c_gateway,
-				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
-				'Gateway' => _('Gateway'),
-				'SMSC name' => _mandatory(_('SMSC name')),
-				'Save' => _('Save') 
-			),
-			'loops' => array(
-				'dynamic_variables' => $dynamic_variables 
-			) 
-		);
+		$tpl = ['name' => 'gateway_add_smsc', 'vars' => ['FORM_TITLE' => _('Add SMSC'), 'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=add_smsc_save', 'GATEWAY' => $c_gateway, 'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'), 'Gateway' => _('Gateway'), 'SMSC name' => _mandatory(_('SMSC name')), 'Save' => _('Save')], 'loops' => ['dynamic_variables' => $dynamic_variables]];
 		$content = tpl_apply($tpl);
 		break;
 	
@@ -61,7 +44,7 @@ switch (_OP_) {
 			$continue = TRUE;
 		}
 		
-		$c_name = core_sanitize_alphanumeric(strtolower($_REQUEST['name']));
+		$c_name = core_sanitize_alphanumeric(strtolower((string) $_REQUEST['name']));
 		if (!$c_name) {
 			$c_name = time();
 		}
@@ -73,17 +56,12 @@ switch (_OP_) {
 		} else {
 			
 			if ($c_name && $c_gateway) {
-				$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
-				$dynamic_variables = array();
+				$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ?: []);
+				$dynamic_variables = [];
 				foreach ($dv as $key => $val ) {
 					$dynamic_variables[$key] = $_REQUEST[$key];
 				}
-				$items = array(
-					'created' => core_get_datetime(),
-					'name' => $c_name,
-					'gateway' => $c_gateway,
-					'data' => json_encode($dynamic_variables) 
-				);
+				$items = ['created' => core_get_datetime(), 'name' => $c_name, 'gateway' => $c_gateway, 'data' => json_encode($dynamic_variables, JSON_THROW_ON_ERROR)];
 				$db_table = _DB_PREF_ . '_tblGateway';
 				if ($new_id = dba_add($db_table, $items)) {
 					$_SESSION['dialog']['info'][] = _('New SMSC has been added');
@@ -108,34 +86,14 @@ switch (_OP_) {
 		
 		$c_name = $smsc['name'];
 		$c_gateway = gateway_valid_name($smsc['gateway']);
-		$c_data = json_decode($smsc['data']);
+		$c_data = json_decode((string) $smsc['data'], null, 512, JSON_THROW_ON_ERROR);
 		
-		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
+		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ?: []);
 		foreach ($dv as $key => $val ) {
-			$dynamic_variables[] = array(
-				'key' => $key,
-				'title' => $val,
-				'value' => $c_data->$key 
-			);
+			$dynamic_variables[] = ['key' => $key, 'title' => $val, 'value' => $c_data->$key];
 		}
 		
-		$tpl = array(
-			'name' => 'gateway_edit_smsc',
-			'vars' => array(
-				'FORM_TITLE' => _('Edit SMSC'),
-				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=edit_smsc_save',
-				'ID' => $c_id,
-				'NAME' => $c_name,
-				'GATEWAY' => $c_gateway,
-				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
-				'Gateway' => _('Gateway'),
-				'SMSC name' => _('SMSC name'),
-				'Save' => _('Save') 
-			),
-			'loops' => array(
-				'dynamic_variables' => $dynamic_variables 
-			) 
-		);
+		$tpl = ['name' => 'gateway_edit_smsc', 'vars' => ['FORM_TITLE' => _('Edit SMSC'), 'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=edit_smsc_save', 'ID' => $c_id, 'NAME' => $c_name, 'GATEWAY' => $c_gateway, 'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'), 'Gateway' => _('Gateway'), 'SMSC name' => _('SMSC name'), 'Save' => _('Save')], 'loops' => ['dynamic_variables' => $dynamic_variables]];
 		$content = tpl_apply($tpl);
 		break;
 	
@@ -152,18 +110,13 @@ switch (_OP_) {
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
 		
 		if ($continue && $c_id && $c_gateway && ($c_gateway == $smsc['gateway'])) {
-			$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
-			$dynamic_variables = array();
+			$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ?: []);
+			$dynamic_variables = [];
 			foreach ($dv as $key => $val ) {
 				$dynamic_variables[$key] = $_REQUEST[$key];
 			}
-			$items = array(
-				'last_update' => core_get_datetime(),
-				'data' => json_encode($dynamic_variables) 
-			);
-			$condition = array(
-				'id' => $c_id 
-			);
+			$items = ['last_update' => core_get_datetime(), 'data' => json_encode($dynamic_variables, JSON_THROW_ON_ERROR)];
+			$condition = ['id' => $c_id];
 			$db_table = _DB_PREF_ . '_tblGateway';
 			if ($new_id = dba_update($db_table, $items, $condition)) {
 				$_SESSION['dialog']['info'][] = _('SMSC has been edited');
@@ -183,9 +136,7 @@ switch (_OP_) {
 	case 'del_smsc' :
 		if ($c_id = $_REQUEST['id']) {
 			$db_table = _DB_PREF_ . '_tblGateway';
-			$condition = array(
-				'id' => $c_id 
-			);
+			$condition = ['id' => $c_id];
 			if (dba_remove($db_table, $condition)) {
 				$_SESSION['dialog']['info'][] = _('SMSC has been removed');
 			} else {

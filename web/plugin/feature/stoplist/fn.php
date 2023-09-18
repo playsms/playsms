@@ -33,10 +33,7 @@ function stoplist_hook_blacklist_mobile_add($uid, $mobile) {
 	// if account exists
 	$uid = (user_uid2username((int) $uid) ? (int) $uid : 1);
 	
-	$items = array(
-		'uid' => $uid,
-		'mobile' => $mobile 
-	);
+	$items = ['uid' => $uid, 'mobile' => $mobile];
 	
 	if (!blacklist_mobile_isexists(0, $mobile)) {
 		if ($new_id = dba_add(_DB_PREF_ . '_featureStoplist', $items)) {
@@ -65,9 +62,7 @@ function stoplist_hook_blacklist_mobile_add($uid, $mobile) {
 function stoplist_hook_blacklist_mobile_remove($uid, $mobile) {
 	$ret = FALSE;
 	
-	$conditions = array(
-		'mobile' => $mobile 
-	);
+	$conditions = ['mobile' => $mobile];
 	
 	if ($uid = (int) $uid) {
 		$conditions['uid'] = $uid;
@@ -110,12 +105,10 @@ function stoplist_hook_blacklist_mobile_getall() {
  * @return boolean TRUE on removed
  */
 function stoplist_hook_blacklist_mobile_get($uid) {
-	$ret = array();
+	$ret = [];
 	
 	if ($uid = (int) $uid) {
-		$conditions = array(
-			'uid' => $uid 
-		);
+		$conditions = ['uid' => $uid];
 		
 		$ret = dba_search(_DB_PREF_ . '_featureStoplist', '*', $conditions);
 	}
@@ -135,16 +128,14 @@ function stoplist_hook_blacklist_mobile_get($uid) {
 function stoplist_hook_blacklist_mobile_isexists($uid = 0, $mobile) {
 	$ret = FALSE;
 	
-	$conditions = array(
-		'mobile' => $mobile 
-	);
+	$conditions = ['mobile' => $mobile];
 	
 	if ($uid = (int) $uid) {
 		$conditions['uid'] = $uid;
 	}
 	
 	$row = dba_search(_DB_PREF_ . '_featureStoplist', 'mobile', $conditions);
-	if (count($row) > 0) {
+	if ((is_countable($row) ? count($row) : 0) > 0) {
 		$ret = TRUE;
 	}
 	

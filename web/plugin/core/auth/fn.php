@@ -52,7 +52,7 @@ function auth_validate_login($username, $password) {
 	$db_query = "SELECT password FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$res_password = trim($db_row['password']);
+	$res_password = trim((string) $db_row['password']);
 	$password = md5($password);
 	if ($password && $res_password && ($password === $res_password)) {
 		_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'auth_validate_login');
@@ -116,7 +116,7 @@ function auth_validate_token($token) {
 		$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND token='$token'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$username = trim($db_row['username']);
+		$username = trim((string) $db_row['username']);
 		
 		// check blacklist
 		if (blacklist_ifipexists($username, $_SERVER['REMOTE_ADDR'])) {
@@ -125,8 +125,8 @@ function auth_validate_token($token) {
 			return FALSE;
 		}
 		
-		if (($uid = trim($db_row['uid'])) && $username && ($db_row['enable_webservices'])) {
-			$ip = explode(',', $db_row['webservices_ip']);
+		if (($uid = trim((string) $db_row['uid'])) && $username && ($db_row['enable_webservices'])) {
+			$ip = explode(',', (string) $db_row['webservices_ip']);
 			if (is_array($ip)) {
 				foreach ($ip as $key => $net) {
 					if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
@@ -246,7 +246,7 @@ function auth_isacl($acl) {
 		} else {
 			$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
 			$user_acl_name = acl_getname($user_acl_id);
-			if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
+			if ($acl && $user_acl_name && strtoupper($acl) == strtoupper((string) $user_acl_name)) {
 				return TRUE;
 			}
 		}
@@ -257,7 +257,7 @@ function auth_isacl($acl) {
 /**
  * Display page for blocked access
  */
-function auth_block() {
+function auth_block(): never {
 	header("Location: " . _u('index.php?app=main&inc=core_auth&route=block&op=block'));
 	exit();
 }
@@ -280,7 +280,7 @@ function auth_session_setup($uid) {
 		$_SESSION['status'] = $c_user['status'];
 		$_SESSION['valid'] = TRUE;
 		if (!is_array($_SESSION['tmp']['login_as'])) {
-			$_SESSION['tmp']['login_as'] = array();
+			$_SESSION['tmp']['login_as'] = [];
 		}
 		
 		// save session in registry
@@ -310,7 +310,7 @@ function auth_login_return() {
 }
 
 function auth_login_as_check() {
-	if (count($_SESSION['tmp']['login_as']) > 0) {
+	if ((is_countable($_SESSION['tmp']['login_as']) ? count($_SESSION['tmp']['login_as']) : 0) > 0) {
 		return TRUE;
 	} else {
 		return FALSE;

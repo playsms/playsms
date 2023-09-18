@@ -26,8 +26,8 @@ define("PIE_VALUE_OUTSIDE", 140031);
 /* pPie class definition */
 class pPie
 {
-	var $LabelPos = [];
-	var $myPicture;
+	public $LabelPos = [];
+	public $myPicture;
 	
 	/* Class creator */
 	function __construct($pChartObject)
@@ -76,7 +76,7 @@ class pPie
 		}
 		
 		/* Pop off the Abscissa and whatever is left must be the dataSerie */
-		if (count($Data["Series"]) != 1){
+		if ((is_countable($Data["Series"]) ? count($Data["Series"]) : 0) != 1){
 			throw pException::PieNoDataSerieException();
 		}
 
@@ -87,7 +87,7 @@ class pPie
 		$Palette = $this->get_palette($Values);
 
 		/* Compute the wasted angular space between series */
-		$WastedAngular = (count($Values) == 1) ? 0 : count($Values) * $DataGapAngle;
+		$WastedAngular = ((is_countable($Values) ? count($Values) : 0) == 1) ? 0 : (is_countable($Values) ? count($Values) : 0) * $DataGapAngle;
 
 		/* Compute the scale */
 		$SerieSum = array_sum($Values);
@@ -327,7 +327,7 @@ class pPie
 			unset($Data["Series"][$Data["Abscissa"]]);
 		}
 		
-		if (count($Data["Series"]) != 1){
+		if ((is_countable($Data["Series"]) ? count($Data["Series"]) : 0) != 1){
 			throw pException::PieNoDataSerieException();
 		}
 
@@ -338,7 +338,7 @@ class pPie
 		$Palette = array_reverse($this->get_palette($Values));
 
 		/* Compute the wasted angular space between series */
-		$WastedAngular = (count($Values) == 1) ? 0 : count($Values) * $DataGapAngle;
+		$WastedAngular = ((is_countable($Values) ? count($Values) : 0) == 1) ? 0 : (is_countable($Values) ? count($Values) : 0) * $DataGapAngle;
 
 		/* Compute the scale */
 		$SerieSum = array_sum($Values);
@@ -864,7 +864,7 @@ class pPie
 			unset($Data["Series"][$Data["Abscissa"]]);
 		}
 		
-		if (count($Data["Series"]) != 1){
+		if ((is_countable($Data["Series"]) ? count($Data["Series"]) : 0) != 1){
 			throw pException::PieNoDataSerieException();
 		}
 
@@ -1053,7 +1053,7 @@ class pPie
 		$OuterRadius = 100;
 		$InnerRadius = 30;
 		$SkewFactor = .6;
-		$SliceHeight = isset($Format["SliceHeight"]) ? $Format["SliceHeight"] : 10;
+		$SliceHeight = $Format["SliceHeight"] ?? 10;
 		$DataGapAngle = 10;
 		$DataGapRadius = 10;
 		$Cf = 20;
@@ -1076,7 +1076,7 @@ class pPie
 			unset($Data["Series"][$Data["Abscissa"]]);
 		}
 		
-		if (count($Data["Series"]) != 1){
+		if ((is_countable($Data["Series"]) ? count($Data["Series"]) : 0) != 1){
 			throw pException::PieNoDataSerieException();
 		}
 
@@ -1089,7 +1089,7 @@ class pPie
 		$Palette = array_reverse($this->get_palette($Values));
 
 		/* Compute the wasted angular space between series */
-		$WastedAngular = (count($Values) == 1) ? 0 : count($Values) * $DataGapAngle;
+		$WastedAngular = ((is_countable($Values) ? count($Values) : 0) == 1) ? 0 : (is_countable($Values) ? count($Values) : 0) * $DataGapAngle;
 
 		/* Compute the scale */
 		$Values = array_reverse($Values);
@@ -1367,7 +1367,7 @@ class pPie
 		$NewPalette = [];
 		
 		foreach($Points as $Key => $Value) {
-			$NewPalette[$Key] = (isset($Palette[$Key])) ? $Palette[$Key] :  new pColor();
+			$NewPalette[$Key] = $Palette[$Key] ?? new pColor();
 		}
 		
 		$this->myPicture->myData->savePalette($NewPalette);

@@ -29,36 +29,16 @@ switch (_OP_) {
 		$items = registry_search($user_config['uid'], 'features', 'mailsms_user');
 		
 		// option enable
-		$option_enable = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $items['features']['mailsms_user']['enable']);
+		$option_enable = _options([_('yes') => 1, _('no') => 0], $items['features']['mailsms_user']['enable']);
 		
-		$tpl = array(
-			'name' => 'mailsms_user',
-			'vars' => array(
-				'DIALOG_DISPLAY' => _dialog(),
-				'FORM_TITLE' => _('My email to SMS'),
-				'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&route=mailsms_user&op=mailsms_user_save'),
-				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
-				'SAVE' => _('Save'),
-				'Email to SMS address' => _('Email to SMS address'),
-				'PIN for email to SMS' => _mandatory(_('PIN for email to SMS')) 
-			),
-			'injects' => array(
-				'option_enable',
-				'items_global',
-				'items' 
-			) 
-		);
+		$tpl = ['name' => 'mailsms_user', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'FORM_TITLE' => _('My email to SMS'), 'ACTION_URL' => _u('index.php?app=main&inc=feature_mailsms&route=mailsms_user&op=mailsms_user_save'), 'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_, 'HINT_PASSWORD' => _hint(_('Fill the password field to change password')), 'SAVE' => _('Save'), 'Email to SMS address' => _('Email to SMS address'), 'PIN for email to SMS' => _mandatory(_('PIN for email to SMS'))], 'injects' => ['option_enable', 'items_global', 'items']];
 		_p(tpl_apply($tpl));
 		break;
 	
 	case "mailsms_user_save" :
 		$continue = FALSE;
 		
-		$pin = core_sanitize_alphanumeric(substr(trim($_REQUEST['pin']), 0, 40));
+		$pin = core_sanitize_alphanumeric(substr(trim((string) $_REQUEST['pin']), 0, 40));
 		if ($pin) {
 			$continue = TRUE;
 		} else {
@@ -67,9 +47,7 @@ switch (_OP_) {
 		}
 		
 		if ($continue) {
-			$items = array(
-				'pin' => $pin 
-			);
+			$items = ['pin' => $pin];
 			registry_update($user_config['uid'], 'features', 'mailsms_user', $items);
 			
 			$items_global = registry_search(0, 'features', 'mailsms');

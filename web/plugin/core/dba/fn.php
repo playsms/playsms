@@ -26,6 +26,9 @@ if (!class_exists('DB')) {
 
 function dba_connect($username, $password, $dbname, $hostname, $port = "", $persistant = "true") {
 	global $core_config;
+	if ($core_config['db']['type'] == 'mysqli') {
+		mysqli_report(MYSQLI_REPORT_OFF);
+	}
 	$access = $username;
 	if ($password) {
 		$access = "$username:$password";
@@ -94,7 +97,7 @@ function dba_query($mystring, $from = "0", $count = "0") {
 			$limit = $from + $count;
 			if ($limit == $count) {
 				$str_limit = "SELECT TOP $limit";
-				$mystring = str_replace("SELECT", $str_limit, $mystring);
+				$mystring = str_replace("SELECT", $str_limit, (string) $mystring);
 				$is_special = true;
 			}
 			break;
@@ -198,7 +201,7 @@ function dba_insert_id($mystring) {
 			case "mysqli":
 				$myquery = "SELECT @@IDENTITY";
 				$result_tmp = dba_query($myquery);
-				list($result) = dba_fetch_row($result_tmp);
+				[$result] = dba_fetch_row($result_tmp);
 				break;
 			case "sqlite3":
 				$myquery = "SELECT last_insert_rowid()";
@@ -209,7 +212,7 @@ function dba_insert_id($mystring) {
 			case "pgsql":
 				$myquery = "SELECT lastval()";
 				$result_tmp = dba_query($myquery);
-				list($result) = dba_fetch_row($result_tmp);
+				[$result] = dba_fetch_row($result_tmp);
 				break;
 		}
 	}
@@ -226,9 +229,11 @@ function dba_disconnect() {
 }
 
 function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', $extras = '', $join = '') {
-	$ret = array();
+	$ret = [];
+	$q_conditions='';
+	$q_keywords='';
 	if ($fields) {
-		$q_fields = trim($fields);
+		$q_fields = trim((string) $fields);
 	}
 	if (is_array($conditions)) {
 		foreach ($conditions as $key => $val) {
@@ -293,7 +298,7 @@ function dba_count($db_table, $conditions = '', $keywords = '', $extras = '', $j
 		$ret = $db_row['count'];
 	}
 	// fixme anton - just to make sure, if its empty then should be 0
-	$ret = (trim($ret) ? trim($ret) : 0);
+	$ret = (trim((string) $ret) ?: 0);
 	return $ret;
 }
 

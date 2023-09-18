@@ -24,43 +24,13 @@ if (!auth_isadmin()) {
 
 include $core_config['apps_path']['plug'] . "/gateway/nexmo/config.php";
 
-$callback_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin/gateway/nexmo/callback.php";
+$callback_url = $_SERVER['HTTP_HOST'] . dirname((string) $_SERVER['PHP_SELF']) . "/plugin/gateway/nexmo/callback.php";
 $callback_url = str_replace("//", "/", $callback_url);
 $callback_url = "http://" . $callback_url;
 
 switch (_OP_) {
 	case "manage" :
-		$tpl = array(
-			'name' => 'nexmo',
-			'vars' => array(
-				'DIALOG_DISPLAY' => _dialog(),
-				'Manage nexmo' => _('Manage nexmo'),
-				'Gateway name' => _('Gateway name'),
-				'Nexmo URL' => _('Nexmo URL'),
-				'API key' => _('API key'),
-				'API secret' => _('API secret'),
-				'Module sender ID' => _('Module sender ID'),
-				'Module timezone' => _('Module timezone'),
-				'Save' => _('Save'),
-				'Notes' => _('Notes'),
-				'HINT_JSON_FORMAT' => _hint(_('Use JSON format URL')),
-				'HINT_FILL_SECRET' => _hint(_('Fill to change the API secret')),
-				'HINT_GLOBAL_SENDER' => _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')),
-				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
-				'CALLBACK_URL_IS' => _('Your callback URL is'),
-				'CALLBACK_URL_ACCESSIBLE' => _('Your callback URL should be accessible from Nexmo'),
-				'NEXMO_PUSH_DLR' => _('Nexmo will push DLR and incoming SMS to your callback URL'),
-				'NEXMO_IS_BULK' => _('Nexmo is a bulk SMS provider'),
-				'NEXMO_FREE_CREDIT' => _('free credits are available for testing purposes'),
-				'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
-				'status_active' => $status_active,
-				'nexmo_param_url' => $plugin_config['nexmo']['url'],
-				'nexmo_param_api_key' => $plugin_config['nexmo']['api_key'],
-				'nexmo_param_module_sender' => $plugin_config['nexmo']['module_sender'],
-				'nexmo_param_datetime_timezone' => $plugin_config['nexmo']['datetime_timezone'],
-				'callback_url' => $callback_url 
-			) 
-		);
+		$tpl = ['name' => 'nexmo', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'Manage nexmo' => _('Manage nexmo'), 'Gateway name' => _('Gateway name'), 'Nexmo URL' => _('Nexmo URL'), 'API key' => _('API key'), 'API secret' => _('API secret'), 'Module sender ID' => _('Module sender ID'), 'Module timezone' => _('Module timezone'), 'Save' => _('Save'), 'Notes' => _('Notes'), 'HINT_JSON_FORMAT' => _hint(_('Use JSON format URL')), 'HINT_FILL_SECRET' => _hint(_('Fill to change the API secret')), 'HINT_GLOBAL_SENDER' => _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')), 'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')), 'CALLBACK_URL_IS' => _('Your callback URL is'), 'CALLBACK_URL_ACCESSIBLE' => _('Your callback URL should be accessible from Nexmo'), 'NEXMO_PUSH_DLR' => _('Nexmo will push DLR and incoming SMS to your callback URL'), 'NEXMO_IS_BULK' => _('Nexmo is a bulk SMS provider'), 'NEXMO_FREE_CREDIT' => _('free credits are available for testing purposes'), 'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'), 'status_active' => $status_active, 'nexmo_param_url' => $plugin_config['nexmo']['url'], 'nexmo_param_api_key' => $plugin_config['nexmo']['api_key'], 'nexmo_param_module_sender' => $plugin_config['nexmo']['module_sender'], 'nexmo_param_datetime_timezone' => $plugin_config['nexmo']['datetime_timezone'], 'callback_url' => $callback_url]];
 		_p(tpl_apply($tpl));
 		break;
 	case "manage_save" :

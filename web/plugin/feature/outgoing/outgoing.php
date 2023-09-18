@@ -25,37 +25,15 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "outgoing_list":
 		unset($tpl);
-		$tpl = array(
-			'name' => 'outgoing_list',
-			'vars' => array(
-				'DIALOG_DISPLAY' => _dialog(),
-				'Route outgoing SMS' => _('Route outgoing SMS'),
-				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
-				'User' => _('User'),
-				'Prefix' => _('Prefix'),
-				'SMSC' => _('SMSC'),
-				'Destination name' => _('Destination name'),
-				'Action' => _('Action'),
-				'option' 
-			) 
-		);
+		$tpl = ['name' => 'outgoing_list', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'Route outgoing SMS' => _('Route outgoing SMS'), 'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')), 'User' => _('User'), 'Prefix' => _('Prefix'), 'SMSC' => _('SMSC'), 'Destination name' => _('Destination name'), 'Action' => _('Action'), 'option']];
 		
-		$extras = array(
-			'ORDER BY' => 'username, smsc, prefix' 
-		);
+		$extras = ['ORDER BY' => 'username, smsc, prefix'];
 		$data = outgoing_getdata($extras);
 		foreach ($data as $row) {
 			$c_rid = $row['id'];
 			$c_action = "<a href='" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $c_rid) . "'>" . $icon_config['edit'] . "</a> ";
 			$c_action .= "<a href='javascript: ConfirmURL(\"" . _('Are you sure ?') . "\", \"" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_del&rid=' . $c_rid) . "\")'>" . $icon_config['delete'] . "</a> ";
-			$tpl['loops']['data'][] = array(
-				'tr_class' => $tr_class,
-				'username' => ($row['username'] ? $row['username'] : '*'),
-				'prefix' => outgoing_display_prefix($row['prefix']),
-				'smsc' => ($row['smsc'] ? $row['smsc'] : _('blocked')),
-				'dst' => $row['dst'],
-				'action' => $c_action 
-			);
+			$tpl['loops']['data'][] = ['tr_class' => $tr_class, 'username' => ($row['username'] ?: '*'), 'prefix' => outgoing_display_prefix($row['prefix']), 'smsc' => ($row['smsc'] ?: _('blocked')), 'dst' => $row['dst'], 'action' => $c_action];
 		}
 		
 		$content = tpl_apply($tpl);
@@ -131,17 +109,17 @@ switch (_OP_) {
 		
 		// sanitize prefixes
 		$up_prefix = $_POST['up_prefix'];
-		$prefixes = explode(',', $up_prefix);
+		$prefixes = explode(',', (string) $up_prefix);
 		$up_prefix = '';
 		foreach ($prefixes as $c_prefix) {
 			$c_prefix = core_sanitize_numeric($c_prefix);
-			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
+			if ($c_prefix = (string) substr((string) $c_prefix, 0, 8)) {
 				$up_prefix .= '[' . $c_prefix . '],';
 			}
 		}
 		$up_prefix = rtrim(trim($up_prefix), ',');
 		
-		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
+		$up_smsc = ($_POST['up_smsc'] ?: 'blocked');
 		if ($rid && $up_dst) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . time() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
@@ -204,17 +182,17 @@ switch (_OP_) {
 		
 		// sanitize prefixes
 		$add_prefix = $_POST['add_prefix'];
-		$prefixes = explode(',', $add_prefix);
+		$prefixes = explode(',', (string) $add_prefix);
 		$add_prefix = '';
 		foreach ($prefixes as $c_prefix) {
 			$c_prefix = core_sanitize_numeric($c_prefix);
-			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
+			if ($c_prefix = (string) substr((string) $c_prefix, 0, 8)) {
 				$add_prefix .= '[' . $c_prefix . '],';
 			}
 		}
 		$add_prefix = rtrim(trim($add_prefix), ',');
 		
-		$add_smsc = ($_POST['add_smsc'] ? $_POST['add_smsc'] : 'blocked');
+		$add_smsc = ($_POST['add_smsc'] ?: 'blocked');
 		if ($add_dst) {
 			$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (uid,dst,prefix,smsc)

@@ -60,7 +60,7 @@ switch (_OP_) {
 			<tbody>
 		";
 		$data = queuelog_get($nav['limit'], $nav['offset']);
-		for ($c = count($data) - 1; $c >= 0; $c--) {
+		for ($c = (is_countable($data) ? count($data) : 0) - 1; $c >= 0; $c--) {
 			$c_queue_code = $data[$c]['queue_code'];
 			$c_datetime_scheduled = core_display_datetime($data[$c]['datetime_scheduled']);
 			$c_username = user_uid2username($data[$c]['uid']);

@@ -18,7 +18,7 @@ function template_hook_sendsms($smsc, $sms_sender,$sms_footer,$sms_to,$sms_msg,$
 	// global $tmpl_param;   // global all variables needed, eg: varibles from config.php
 
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "template_hook_sendsms");
-	
+
 	//$sms_sender = stripslashes($sms_sender);
 	//$sms_footer = stripslashes($sms_footer);
 	//$sms_msg = stripslashes($sms_msg);

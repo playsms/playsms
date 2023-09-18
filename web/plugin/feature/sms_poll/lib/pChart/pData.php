@@ -41,8 +41,8 @@ define("SERIE_SHAPE_DIAMOND", 681018);
 define("AXIS_X", 682001);
 define("AXIS_Y", 682002);
 /* Define value limits */
-define("ABSOLUTE_MIN", -10000000000000);
-define("ABSOLUTE_MAX", 10000000000000);
+define("ABSOLUTE_MIN", -10_000_000_000_000);
+define("ABSOLUTE_MAX", 10_000_000_000_000);
 /* Replacement to the PHP NULL keyword */
 define("VOID", 0.123456789);
 /* Euro symbol for GD fonts */
@@ -51,7 +51,20 @@ define("EURO_SYMBOL", utf8_encode("&#8364;"));
 /* pData class definition */
 class pData
 {
-	private $Data;
+	private array $Data = [
+			"XAxisDisplay" => AXIS_FORMAT_DEFAULT,
+			"XAxisFormat" => NULL,
+			"XAxisName" => NULL,
+			"XAxisUnit" => NULL,
+			"Abscissa" => NULL,
+			"AbsicssaPosition" => AXIS_POSITION_BOTTOM,
+			"Axis" => [0 => [
+					"Display" => AXIS_FORMAT_DEFAULT,
+					"Position" => AXIS_POSITION_LEFT,
+					"Identity" => AXIS_Y
+				]
+			]
+		];
 	private $Palette;
 
 	/* Class creator */
@@ -67,21 +80,6 @@ class pData
 			new pColor(224,46,117,100),
 			new pColor(92,224,46,100),
 			new pColor(224,176,46,100)
-		];
-
-		$this->Data = [
-			"XAxisDisplay" => AXIS_FORMAT_DEFAULT,
-			"XAxisFormat" => NULL,
-			"XAxisName" => NULL,
-			"XAxisUnit" => NULL,
-			"Abscissa" => NULL,
-			"AbsicssaPosition" => AXIS_POSITION_BOTTOM,
-			"Axis" => [0 => [
-					"Display" => AXIS_FORMAT_DEFAULT,
-					"Position" => AXIS_POSITION_LEFT,
-					"Identity" => AXIS_Y
-				]
-			]
 		];
 	}
 
@@ -102,7 +100,7 @@ class pData
 			"Weight" => NULL,
 			"XOffset" => 0,
 			"Shape" => SERIE_SHAPE_FILLEDCIRCLE,
-			"Color" => (isset($this->Palette[$ID])) ? $this->Palette[$ID] : new pColor()
+			"Color" => $this->Palette[$ID] ?? new pColor()
 		];
 	}
 
@@ -166,13 +164,13 @@ class pData
 	/* Return a value from given serie & index */ # UNUSED
 	function getValueAt(string $Serie, int $Index = 0)
 	{
-		return (isset($this->Data["Series"][$Serie]["Data"][$Index])) ? $this->Data["Series"][$Serie]["Data"][$Index] : FALSE;
+		return $this->Data["Series"][$Serie]["Data"][$Index] ?? FALSE;
 	}
 
 	/* Return the values array */ # UNUSED
 	function getValues(string $Serie)
 	{
-		return (isset($this->Data["Series"][$Serie]["Data"])) ? $this->Data["Series"][$Serie]["Data"] : [];
+		return $this->Data["Series"][$Serie]["Data"] ?? [];
 	}
 
 	/* Reverse the values in the given serie */
@@ -430,7 +428,7 @@ class pData
 				$Seriesum = $Seriesum * $Value;
 			}
 
-			return pow($Seriesum, 1 / count($SerieData));
+			return $Seriesum ** (1 / count($SerieData));
 		} else {
 			throw pException::InvalidInput("Invalid serie name");
 		}
@@ -460,7 +458,7 @@ class pData
 			$SerieData = array_diff($this->Data["Series"][$Serie]["Data"], [VOID]);
 			$DeviationSum = 0;
 			foreach($SerieData as $Value) {
-				$DeviationSum += pow($Value - $Average, 2);
+				$DeviationSum += ($Value - $Average) ** 2;
 			}
 
 			return sqrt($DeviationSum / count($SerieData)); # $SerieData could be zero
@@ -488,7 +486,7 @@ class pData
 			$SerieData = array_diff($this->Data["Series"][$Serie]["Data"], [VOID]);
 			sort($SerieData);
 			$SerieCenter = floor(count($SerieData) / 2);
-			return (isset($SerieData[$SerieCenter])) ? $SerieData[$SerieCenter] : 0;
+			return $SerieData[$SerieCenter] ?? 0;
 		} else {
 			throw pException::InvalidInput("Invalid serie name");
 		}
@@ -501,7 +499,7 @@ class pData
 			throw pException::InvalidInput("Invalid serie name");
 		}
 
-		$Values = count($this->Data["Series"][$Serie]["Data"]) - 1;
+		$Values = (is_countable($this->Data["Series"][$Serie]["Data"]) ? count($this->Data["Series"][$Serie]["Data"]) : 0) - 1;
 		($Values < 0) AND $Values = 0;
 		$PercentilID = floor(($Values / 100) * $Percentil + .5);
 		$SortedValues = $this->Data["Series"][$Serie]["Data"];
@@ -512,14 +510,14 @@ class pData
 	/* Add random values to a given serie */
 	function addRandomValues(string $SerieName = "Serie1", array $Options = [])
 	{
-		$Values = isset($Options["Values"]) ? $Options["Values"] : 20;
-		$Min = isset($Options["Min"]) ? $Options["Min"] : 0;
-		$Max = isset($Options["Max"]) ? $Options["Max"] : 100;
-		$withFloat = isset($Options["withFloat"]) ? $Options["withFloat"] : FALSE;
+		$Values = $Options["Values"] ?? 20;
+		$Min = $Options["Min"] ?? 0;
+		$Max = $Options["Max"] ?? 100;
+		$withFloat = $Options["withFloat"] ?? FALSE;
 
 		$Points = [];
 		for ($i = 0; $i <= $Values; $i++) {
-			$Points[] = ($withFloat) ? (rand($Min * 100, $Max * 100) / 100) : rand($Min, $Max);
+			$Points[] = ($withFloat) ? (random_int($Min * 100, $Max * 100) / 100) : random_int($Min, $Max);
 		}
 
 		$this->addPoints($Points, $SerieName);
@@ -725,7 +723,7 @@ class pData
 			"Picture" => NULL,
 			"Ticks" => NULL,
 			"Weight" => NULL,
-			"Color" => (isset($this->Palette[$ID])) ? $this->Palette[$ID] : new pColor()
+			"Color" => $this->Palette[$ID] ?? new pColor()
 		];
 	}
 
@@ -741,8 +739,8 @@ class pData
 			foreach($this->Data["Series"] as $SerieName => $Serie) {
 				if ($Serie["Axis"] == $AxisID && $Serie["isDrawable"] == TRUE && $SerieName != $Abscissa) {
 					$SelectedSeries[$SerieName] = $SerieName;
-					if (count($Serie["Data"]) > $MaxVal) {
-						$MaxVal = count($Serie["Data"]);
+					if ((is_countable($Serie["Data"]) ? count($Serie["Data"]) : 0) > $MaxVal) {
+						$MaxVal = is_countable($Serie["Data"]) ? count($Serie["Data"]) : 0;
 					}
 				}
 			}
@@ -780,12 +778,12 @@ class pData
 	/* Load data from a CSV (or similar) data source */
 	function importFromCSV($FileName, array $Options = []) # Momchil: TODO: I need a sample here UNUSED
 	{
-		$Delimiter = isset($Options["Delimiter"]) ? $Options["Delimiter"] : ",";
-		$GotHeader = isset($Options["GotHeader"]) ? $Options["GotHeader"] : FALSE;
-		$SkipColumns = isset($Options["SkipColumns"]) ? $Options["SkipColumns"] : [-1];
-		$DefaultSerieName = isset($Options["DefaultSerieName"]) ? $Options["DefaultSerieName"] : "Serie";
+		$Delimiter = $Options["Delimiter"] ?? ",";
+		$GotHeader = $Options["GotHeader"] ?? FALSE;
+		$SkipColumns = $Options["SkipColumns"] ?? [-1];
+		$DefaultSerieName = $Options["DefaultSerieName"] ?? "Serie";
 
-		if (strlen($Delimiter) > 1){
+		if (strlen((string) $Delimiter) > 1){
 			die("pChart: delimiter has to be a single char"); # No need to throw exception here
 		}
 
@@ -797,17 +795,17 @@ class pData
 		$SerieNames = [];
 
 		if ($GotHeader) {
-			$line1 = explode($Delimiter, array_shift($CSVContent));
+			$line1 = explode($Delimiter, (string) array_shift($CSVContent));
 			foreach($line1 as $Key => $Name) {
 				(!in_array($Key, $SkipColumns)) AND $SerieNames[$Key] = $DefaultSerieName . $Name;
 			}
 		}
 
 		foreach ($CSVContent as $line){
-			$Values = explode($Delimiter, $line);
+			$Values = explode($Delimiter, (string) $line);
 			foreach($Values as $Key => $Value) {
 				if (!in_array($Key, $SkipColumns)){
-					$this->addPoints([$Value], (isset($SerieNames[$Key])) ? $SerieNames[$Key] : $DefaultSerieName . $Key);
+					$this->addPoints([$Value], $SerieNames[$Key] ?? $DefaultSerieName . $Key);
 				}
 			}
 		}
@@ -829,12 +827,12 @@ class pData
 	/* Create a dataset based on a formula */
 	function createFunctionSerie(string $SerieName, \Closure $Function, string $Formula, array $Options = [])
 	{
-		$MinX = isset($Options["MinX"]) ? $Options["MinX"] : -10;
-		$MaxX = isset($Options["MaxX"]) ? $Options["MaxX"] : 10;
-		$XStep = isset($Options["XStep"]) ? $Options["XStep"] : 1;
-		$AutoDescription = isset($Options["AutoDescription"]) ? $Options["AutoDescription"] : FALSE;
-		$RecordAbscissa = isset($Options["RecordAbscissa"]) ? $Options["RecordAbscissa"] : FALSE;
-		$AbscissaSerie = isset($Options["AbscissaSerie"]) ? $Options["AbscissaSerie"] : "Abscissa";
+		$MinX = $Options["MinX"] ?? -10;
+		$MaxX = $Options["MaxX"] ?? 10;
+		$XStep = $Options["XStep"] ?? 1;
+		$AutoDescription = $Options["AutoDescription"] ?? FALSE;
+		$RecordAbscissa = $Options["RecordAbscissa"] ?? FALSE;
+		$AbscissaSerie = $Options["AbscissaSerie"] ?? "Abscissa";
 
 		$Result = [];
 		$Abscissa = [];

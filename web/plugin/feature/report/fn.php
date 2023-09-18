@@ -33,21 +33,14 @@ function report_count($uid = 0, $dlr_status = 0, $flag_deleted = 0) {
 	$sms_count = 0;
 	
 	$db_table = _DB_PREF_ . '_tblSMSOutgoing';
-	$conditions = array(
-		'p_status' => (int) $dlr_status,
-		'flag_deleted' => (int) $flag_deleted 
-	);
+	$conditions = ['p_status' => (int) $dlr_status, 'flag_deleted' => (int) $flag_deleted];
 	if ($uid) {
 		$conditions['uid'] = $uid;
 	}
-	$list = dba_search($db_table, 'queue_code', $conditions, '', array(
-		'GROUP BY' => 'queue_code' 
-	));
+	$list = dba_search($db_table, 'queue_code', $conditions, '', ['GROUP BY' => 'queue_code']);
 	foreach ($list as $row) {
 		$db_table = _DB_PREF_ . '_tblSMSOutgoing_queue';
-		$data = dba_search($db_table, 'sms_count', array(
-			'queue_code' => $row['queue_code'] 
-		));
+		$data = dba_search($db_table, 'sms_count', ['queue_code' => $row['queue_code']]);
 		$sms_count += $data[0]['sms_count'];
 	}
 	
@@ -129,7 +122,7 @@ function report_count_deleted($uid = 0) {
 function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALSE) {
 	global $icon_config;
 	
-	$ret = array();
+	$ret = [];
 	
 	$hashes = user_session_get();
 	foreach ($hashes as $key => $val) {
@@ -148,7 +141,7 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 		
 		$is_idle = FALSE;
 		$is_online = FALSE;
-		$c_idle = (int) (strtotime(core_get_datetime()) - strtotime($val['last_update']));
+		$c_idle = (int) (strtotime(core_get_datetime()) - strtotime((string) $val['last_update']));
 		
 		// last update more than 15 minutes will be considered as idle
 		if ($c_idle > 15 * 60) {
@@ -167,19 +160,7 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 			continue;
 		}
 		
-		$ret[$c_username][] = array(
-			'uid' => $c_user['uid'],
-			'username' => $c_username,
-			'status' => $c_status,
-			'icon_isadmin' => $c_isadmin,
-			'ip' => $val['ip'],
-			'http_user_agent' => $val['http_user_agent'],
-			'sid' => $val['sid'],
-			'hash' => $key,
-			'login_status' => $c_login_status,
-			'last_update' => core_display_datetime($val['last_update']),
-			'action_link' => _a('index.php?app=main&inc=feature_report&route=online&op=kick&hash=' . $key, $icon_config['delete']) 
-		);
+		$ret[$c_username][] = ['uid' => $c_user['uid'], 'username' => $c_username, 'status' => $c_status, 'icon_isadmin' => $c_isadmin, 'ip' => $val['ip'], 'http_user_agent' => $val['http_user_agent'], 'sid' => $val['sid'], 'hash' => $key, 'login_status' => $c_login_status, 'last_update' => core_display_datetime($val['last_update']), 'action_link' => _a('index.php?app=main&inc=feature_report&route=online&op=kick&hash=' . $key, $icon_config['delete'])];
 	}
 	
 	ksort($ret);
@@ -235,7 +216,7 @@ function report_whoseonline_subuser($online_only = FALSE, $idle_only = FALSE) {
  */
 function report_banned_list($status = 0) {
 	global $icon_config;
-	$ret = array();
+	$ret = [];
 	
 	$users = user_banned_list();
 	foreach ($users as $user) {
@@ -253,13 +234,7 @@ function report_banned_list($status = 0) {
 			$c_isadmin = $icon_config['admin'];
 		}
 		
-		$ret[] = array(
-			'username' => $c_username,
-			'icon_isadmin' => $c_isadmin,
-			'email' => $c_email,
-			'bantime' => core_display_datetime($user['bantime']),
-			'action_link' => _a('index.php?app=main&inc=feature_report&route=banned&op=unban&uid=' . $user['uid'], $icon_config['unban']) 
-		);
+		$ret[] = ['username' => $c_username, 'icon_isadmin' => $c_isadmin, 'email' => $c_email, 'bantime' => core_display_datetime($user['bantime']), 'action_link' => _a('index.php?app=main&inc=feature_report&route=banned&op=unban&uid=' . $user['uid'], $icon_config['unban'])];
 	}
 	
 	return $ret;
@@ -324,7 +299,7 @@ function report_hook_playsmsd() {
 function report_resolve_sender($uid, $sender) {
 	$final_sender = "<div class='report_sender'>" . $sender . "</div>";
 	
-	if (substr($sender, 0, 1) == '@') {
+	if (str_starts_with($sender, '@')) {
 		$sender = core_sanitize_username($sender);
 		$desc = user_getfieldbyusername($sender, 'name');
 	} else {

@@ -37,15 +37,15 @@ function openvox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_footer = stripslashes((string) $sms_footer);
+	$sms_msg = stripslashes((string) $sms_msg);
 	
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
 	
 	if ($plugin_config['openvox']['gateway_host'] && $plugin_config['openvox']['gateway_port'] && $sms_to && $sms_msg) {
-		$query_string = "username=" . $plugin_config['openvox']['username'] . "&password=" . $plugin_config['openvox']['password'] . "&phonenumber=" . urlencode($sms_to) . "&message=" . urlencode($sms_msg) . "&report=JSON&smslog_id=" . $smslog_id;
+		$query_string = "username=" . $plugin_config['openvox']['username'] . "&password=" . $plugin_config['openvox']['password'] . "&phonenumber=" . urlencode((string) $sms_to) . "&message=" . urlencode($sms_msg) . "&report=JSON&smslog_id=" . $smslog_id;
 		$url = 'http://' . $plugin_config['openvox']['gateway_host'] . ":" . $plugin_config['openvox']['gateway_port'] . '/sendsms?' . $query_string;
 		
 		_log("url:[" . $url . "]", 3, "openvox outgoing");
@@ -65,7 +65,7 @@ function openvox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
                         }
                 }
                 
-                $resp = json_decode($result, true);
+                $resp = json_decode($result, true, 512, JSON_THROW_ON_ERROR);
 		$data = $resp['report'][0][0][0];
 		// $data = $resp['report'][0][1][0];
 		$data['message'] = $resp['message'];

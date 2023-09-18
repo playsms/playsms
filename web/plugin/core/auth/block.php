@@ -33,14 +33,7 @@ if (_OP_ == 'block') {
 } else {
 	
 	unset($tpl);
-	$tpl = array(
-		'name' => 'auth_block',
-		'vars' => array(
-			'DIALOG_DISPLAY' => _dialog(),
-			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
-			'Home' => _('Home')
-		)
-	);
+	$tpl = ['name' => 'auth_block', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'HTTP_PATH_BASE' => $core_config['http_path']['base'], 'Home' => _('Home')]];
 	
 	_p(tpl_apply($tpl));
 }

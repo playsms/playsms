@@ -4,11 +4,11 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-$callback_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin/gateway/infobip/callback.php";
+$callback_url = $_SERVER['HTTP_HOST'] . dirname((string) $_SERVER['PHP_SELF']) . "/plugin/gateway/infobip/callback.php";
 $callback_url = str_replace("//", "/", $callback_url);
 $callback_url = "http://" . $callback_url;
 
-$dlr_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin/gateway/infobip/dlr.php";
+$dlr_url = $_SERVER['HTTP_HOST'] . dirname((string) $_SERVER['PHP_SELF']) . "/plugin/gateway/infobip/dlr.php";
 $dlr_url = str_replace("//", "/", $dlr_url);
 $dlr_url = "http://" . $dlr_url;
 

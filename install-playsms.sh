@@ -29,6 +29,7 @@ fi
 
 
 
+
 # ========================================
 # DO NOT CHANGE ANYTHING BELOW THIS LINE #
 # UNLESS YOU KNOW WHAT YOU'RE DOING      #
@@ -143,6 +144,27 @@ echo
 echo "=================================================================="
 echo
 
+chmod -R 777 $PATHSRC
+
+mkdir -p $PATHWEB $PATHLIB $PATHLOG $PATHBIN $PATHCONF
+
+cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
+
+if [ "$USERID" = "0" ]; then
+	chown -R $WEBSERVERUSER.$WEBSERVERGROUP  $PATHLIB $PATHLOG
+	echo -n .
+fi
+
+touch $PATHCONF/playsmsd.conf
+echo -n .
+echo "PLAYSMS_PATH=\"$PATHWEB\"" > $PATHCONF/playsmsd.conf
+echo "PLAYSMS_LIB=\"$PATHLIB\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
+echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
+echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
+echo "ERROR_REPORTING=\"30709\"" >> $PATHCONF/playsmsd.conf
+chmod 644 $PATHCONF/playsmsd.conf
+
 sleep 1
 
 echo "Are you sure ?"
@@ -212,19 +234,27 @@ fi
 
 sleep 3
 
+
 echo -n "Start"
 set -e
 echo -n .
-mkdir -p $PATHWEB $PATHLIB $PATHLOG
+
+mkdir -p $PATHWEB $PATHLIB $PATHLOG $PATHBIN $PATHCONF
+
+
 echo -n .
 cp -rf web/* $PATHWEB
 set +e
 echo -n .
+
+
+
 mysqladmin -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT create $DBNAME >/dev/null 2>&1
 set -e
 echo -n .
 mysql -u $DBUSER -p$DBPASS -h $DBHOST -P $DBPORT $DBNAME < db/playsms.sql >/dev/null 2>&1
 echo -n .
+
 cp $PATHWEB/config-dist.php $PATHWEB/config.php
 echo -n .
 sed -i "s/#DBHOST#/$DBHOST/g" $PATHWEB/config.php
@@ -245,7 +275,7 @@ if [ "$USERID" = "0" ]; then
 	echo -n .
 fi
 
-mkdir -p $PATHCONF $PATHBIN
+###mkdir -p $PATHCONF $PATHBIN
 echo -n .
 touch $PATHCONF/playsmsd.conf
 echo -n .
@@ -254,11 +284,13 @@ echo "PLAYSMS_LIB=\"$PATHLIB\"" >> $PATHCONF/playsmsd.conf
 echo "PLAYSMS_BIN=\"$PATHBIN\"" >> $PATHCONF/playsmsd.conf
 echo "PLAYSMS_LOG=\"$PATHLOG\"" >> $PATHCONF/playsmsd.conf
 echo "DAEMON_SLEEP=\"1\"" >> $PATHCONF/playsmsd.conf
-echo "ERROR_REPORTING=\"E_ALL ^ (E_NOTICE | E_WARNING)\"" >> $PATHCONF/playsmsd.conf
+echo "ERROR_REPORTING=\"30709\"" >> $PATHCONF/playsmsd.conf
 chmod 644 $PATHCONF/playsmsd.conf
 echo -n .
-cp -rR daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
+cp -rR $PATHSRC/daemon/linux/bin/playsmsd.php $PATHBIN/playsmsd
 chmod 755 $PATHBIN/playsmsd
+
+
 echo -n .
 echo "end"
 echo
@@ -283,7 +315,7 @@ echo "- To stop it  : playsmsd $PATHCONF/playsmsd.conf stop"
 echo "- To check it : playsmsd $PATHCONF/playsmsd.conf check"
 echo
 
-cp install.conf install.conf.backup >/dev/null 2>&1
+cp $PATHSRC/install.conf install.conf.backup >/dev/null 2>&1
 
 echo
 echo

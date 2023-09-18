@@ -35,7 +35,7 @@ $core_config['daemon_process'] = $DAEMON_PROCESS;
 
 // do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
-	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
+	if (trim((string) $_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
 		header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 	} else {
 		header('Pragma: no-cache');
@@ -77,7 +77,7 @@ $c_http_host = $_SERVER['HTTP_HOST'];
 $core_config['apps_path']['base'] = dirname($c_script_filename);
 
 // base application http path
-$core_config['http_path']['base'] = ($core_config['ishttps'] ? 'https://' : 'http://') . $c_http_host . (dirname($c_php_self) == '/' ? '/' : dirname($c_php_self));
+$core_config['http_path']['base'] = ($core_config['ishttps'] ? 'https://' : 'http://') . $c_http_host . (dirname((string) $c_php_self) == '/' ? '/' : dirname((string) $c_php_self));
 
 // libraries directory
 $core_config['apps_path']['libs'] = $core_config['apps_path']['base'] . '/lib';
@@ -157,11 +157,13 @@ define('_PLUGIN_', core_sanitize_query($_REQUEST['plugin']));
 
 // enable anti-CSRF for anything but webservices
 if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
-	
+
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
 			_log('WARNING: possible CSRF attack. sid:' . $_SESSION['sid'] . ' ip:' . $_SERVER['REMOTE_ADDR'], 2, 'init');
+			header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden, CSRF validation failed');
+			die('CSRF validation failed');
 			auth_block();
 		}
 	}
@@ -175,22 +177,22 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 if ($_POST['X-CSRF-Token']) {
 
 	// fixme anton - clean last posts
-	$c_last_post = array();
+	$c_last_post = [];
 	foreach ($_POST as $key => $val) {
-		$val = str_replace('{{', '', $val);
+		$val = str_replace('{{', '', (string) $val);
 		$val = str_replace('}}', '', $val);
 		$val = str_replace('|', '', $val);
 		$val = str_replace('`', '', $val);
 		$val = str_replace('..', '', $val);
 		$c_last_post[$key] = $val;
 	}
-	
+
 	$_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $c_last_post;
 }
 
 // connect to database
 if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_))) {
-	
+
 	// _log('Fail to connect to database', 4, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to connect to database'));
@@ -231,12 +233,7 @@ $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
 
 // plugins category
-$core_config['plugins']['category'] = array(
-	'feature',
-	'gateway',
-	'themes',
-	'language' 
-);
+$core_config['plugins']['category'] = ['feature', 'gateway', 'themes', 'language'];
 
 // max sms text length
 // single text sms can be 160 char instead of 1*153
@@ -248,26 +245,24 @@ $core_config['main']['max_sms_length'] = $core_config['main']['sms_max_count'] *
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // reserved important keywords
-$core_config['reserved_keywords'] = array(
-	'BC' 
-);
+$core_config['reserved_keywords'] = ['BC'];
 
 if (auth_isvalid()) {
-	
+
 	// load user's data from user's DB table
 	$user_config = user_getdatabyusername($_SESSION['username']);
-	$user_config['opt']['sms_footer_length'] = (strlen($footer) > 0 ? strlen($footer) + 1 : 0);
+	$user_config['opt']['sms_footer_length'] = (strlen((string) $footer) > 0 ? strlen((string) $footer) + 1 : 0);
 	$user_config['opt']['per_sms_length'] = $core_config['main']['per_sms_length'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['per_sms_length_unicode'] = $core_config['main']['per_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['max_sms_length'] = $core_config['main']['max_sms_length'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
-	$user_config['opt']['gravatar'] = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user_config['email'])));
+	$user_config['opt']['gravatar'] = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim((string) $user_config['email'])));
 	if (!$core_config['daemon_process']) {
-		
+
 		// save login session information
 		user_session_set();
 	}
-	
+
 	// special setting to credit unicode SMS the same as normal SMS length
 	// for example: 2 unicode SMS (140 chars length) will be deducted as 1 credit just like a normal SMS (160 chars length)
 	$result = registry_search($user_config['uid'], 'core', 'user_config', 'enable_credit_unicode');
@@ -279,18 +274,18 @@ if (auth_isvalid()) {
 }
 
 // override main config with site config for branding purposes distinguished by domain name
-$site_config = array();
+$site_config = [];
 if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST']) {
 	$s = site_config_getbydomain($_SERVER['HTTP_HOST']);
 	if ((int) $s[0]['uid']) {
 		$c_site_config = site_config_get((int) $s[0]['uid']);
-		if (strtolower($c_site_config['domain']) == strtoloweR($_SERVER['HTTP_HOST'])) {
+		if (strtolower((string) $c_site_config['domain']) == strtoloweR((string) $_SERVER['HTTP_HOST'])) {
 			$site_config = array_merge($c_site_config, $s[0]);
 		}
 	}
 }
 
-if ((!$core_config['daemon_process']) && trim($_SERVER['HTTP_HOST']) && trim($site_config['domain']) && (strtolower(trim($_SERVER['HTTP_HOST'])) == strtolower(trim($site_config['domain'])))) {
+if ((!$core_config['daemon_process']) && trim((string) $_SERVER['HTTP_HOST']) && trim((string) $site_config['domain']) && (strtolower(trim((string) $_SERVER['HTTP_HOST'])) == strtolower(trim((string) $site_config['domain'])))) {
 	$core_config['main'] = array_merge($core_config['main'], $site_config);
 }
 
@@ -319,7 +314,7 @@ if (function_exists('bindtextdomain')) {
 }
 
 if (auth_isvalid()) {
-	
+
 	// set user lang
 	core_setuserlang($_SESSION['username']);
 } else {
@@ -330,22 +325,22 @@ if (auth_isvalid()) {
 
 
 // limit the number of DLR processed by dlrd in one time
-$core_config['dlrd_limit'] = ($core_config['dlrd_limit'] ? $core_config['dlrd_limit'] : 1000);
+$core_config['dlrd_limit'] = ($core_config['dlrd_limit'] ?: 1000);
 
 // limit the number of incoming SMS processed by recvsmsd in one time
-$core_config['recvsmsd_limit'] = ($core_config['recvsmsd_limit'] ? $core_config['recvsmsd_limit'] : 1000);
+$core_config['recvsmsd_limit'] = ($core_config['recvsmsd_limit'] ?: 1000);
 
 // limit the length of each queue processed by sendsmsd in one time
-$core_config['sendsmsd_limit'] = ($core_config['sendsmsd_limit'] ? $core_config['sendsmsd_limit'] : 1000);
+$core_config['sendsmsd_limit'] = ($core_config['sendsmsd_limit'] ?: 1000);
 
 // limit the number of queue processed by sendsmsd in one time
-$core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ? $core_config['sendsmsd_queue'] : 10);
+$core_config['sendsmsd_queue'] = ($core_config['sendsmsd_queue'] ?: 10);
 
 // limit the number of chunk per queue
-$core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ? $core_config['sendsmsd_chunk'] : 20);
+$core_config['sendsmsd_chunk'] = ($core_config['sendsmsd_chunk'] ?: 20);
 
 // chunk size
-$core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ? $core_config['sendsmsd_chunk_size'] : 100);
+$core_config['sendsmsd_chunk_size'] = ($core_config['sendsmsd_chunk_size'] ?: 100);
 
 // fixme anton - debug
 //print_r($icon_config); die();

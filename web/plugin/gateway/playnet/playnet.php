@@ -48,10 +48,7 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "manage_save":
-		$items = array(
-			'module_sender' => $_POST['up_module_sender'],
-			'module_timezone' => $_POST['up_module_timezone'] 
-		);
+		$items = ['module_sender' => $_POST['up_module_sender'], 'module_timezone' => $_POST['up_module_timezone']];
 		if ($_POST['up_password']) {
 			$items['password'] = $_POST['up_password'];
 		}

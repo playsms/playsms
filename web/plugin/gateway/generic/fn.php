@@ -37,13 +37,13 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
+	$sms_sender = stripslashes((string) $sms_sender);
 	if ($plugin_config['generic']['module_sender']) {
 		$sms_sender = $plugin_config['generic']['module_sender'];
 	}
 	
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_footer = stripslashes((string) $sms_footer);
+	$sms_msg = stripslashes((string) $sms_msg);
 	$ok = false;
 	
 	if ($sms_footer) {
@@ -63,13 +63,13 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		}
 		
 		// $plugin_config['generic']['default_url'] = 'http://example.api.url/handler.php?user={GENERIC_API_USERNAME}&pwd={GENERIC_API_PASSWORD}&sender={GENERIC_SENDER}&msisdn={GENERIC_TO}&message={GENERIC_MESSAGE}&dlr-url={GENERIC_CALLBACK_URL}';
-		$url = htmlspecialchars_decode($plugin_config['generic']['url']);
-		$url = str_replace('{GENERIC_API_USERNAME}', urlencode($plugin_config['generic']['api_username']), $url);
-		$url = str_replace('{GENERIC_API_PASSWORD}', urlencode($plugin_config['generic']['api_password']), $url);
-		$url = str_replace('{GENERIC_SENDER}', urlencode($sms_sender), $url);
-		$url = str_replace('{GENERIC_TO}', urlencode($sms_to), $url);
+		$url = htmlspecialchars_decode((string) $plugin_config['generic']['url']);
+		$url = str_replace('{GENERIC_API_USERNAME}', urlencode((string) $plugin_config['generic']['api_username']), $url);
+		$url = str_replace('{GENERIC_API_PASSWORD}', urlencode((string) $plugin_config['generic']['api_password']), $url);
+		$url = str_replace('{GENERIC_SENDER}', urlencode((string) $sms_sender), $url);
+		$url = str_replace('{GENERIC_TO}', urlencode((string) $sms_to), $url);
 		$url = str_replace('{GENERIC_MESSAGE}', urlencode($sms_msg), $url);
-		$url = str_replace('{GENERIC_CALLBACK_URL}', urlencode($plugin_config['generic']['callback_url']), $url);
+		$url = str_replace('{GENERIC_CALLBACK_URL}', urlencode((string) $plugin_config['generic']['callback_url']), $url);
 		
 		_log("send url:[" . $url . "]", 3, "generic_hook_sendsms");
 		

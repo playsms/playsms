@@ -44,44 +44,16 @@ $myPicture->myData->setAbscissa("Labels");
 $PieChart = new pPie($myPicture);
 
 /* Enable shadow computing */
-$myPicture->setShadow(TRUE, array(
-	"X" => 3,
-	"Y" => 3,
-	"R" => 0,
-	"G" => 0,
-	"B" => 0,
-	"Alpha" => 10 
-));
+$myPicture->setShadow(TRUE, ["X" => 3, "Y" => 3, "R" => 0, "G" => 0, "B" => 0, "Alpha" => 10]);
 /* Draw a splitted pie chart */
-$PieChart->draw3DPie(150, 120, array(
-	"WriteValues" => TRUE,
-	"DataGapAngle" => 4,
-	"DataGapRadius" => 5,
-	"Border" => TRUE 
-));
+$PieChart->draw3DPie(150, 120, ["WriteValues" => TRUE, "DataGapAngle" => 4, "DataGapRadius" => 5, "Border" => TRUE]);
 
 /* Write the legend */
-$myPicture->setShadow(TRUE, array(
-	"X" => 1,
-	"Y" => 1,
-	"R" => 0,
-	"G" => 0,
-	"B" => 0,
-	"Alpha" => 20 
-));
+$myPicture->setShadow(TRUE, ["X" => 1, "Y" => 1, "R" => 0, "G" => 0, "B" => 0, "Alpha" => 20]);
 
 /* Write the legend box */
-$myPicture->setFontProperties(array(
-	"FontName" => $c_path . "/lib/pChart/fonts/MankSans.ttf",
-	"FontSize" => 8,
-	"R" => 100,
-	"G" => 100,
-	"B" => 100 
-));
-$PieChart->drawPieLegend(3, 8, array(
-	"Style" => LEGEND_NOBORDER,
-	"Mode" => LEGEND_HORIZONTAL 
-));
+$myPicture->setFontProperties(["FontName" => $c_path . "/lib/pChart/fonts/MankSans.ttf", "FontSize" => 8, "R" => 100, "G" => 100, "B" => 100]);
+$PieChart->drawPieLegend(3, 8, ["Style" => LEGEND_NOBORDER, "Mode" => LEGEND_HORIZONTAL]);
 
 /* Render the picture (choose the best way) */
 ob_end_clean();

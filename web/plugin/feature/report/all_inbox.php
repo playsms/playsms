@@ -24,26 +24,15 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "all_inbox":
-		$search_category = array(
-			_('User') => 'username',
-			_('Time') => 'in_datetime',
-			_('From') => 'in_sender',
-			_('Message') => 'in_msg' 
-		);
+		$search_category = [_('User') => 'username', _('Time') => 'in_datetime', _('From') => 'in_sender', _('Message') => 'in_msg'];
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array(
-			'A.flag_deleted' => 0 
-		);
+		$conditions = ['A.flag_deleted' => 0];
 		$keywords = $search['dba_keywords'];
 		$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
 		$count = dba_count(_DB_PREF_ . '_tblSMSInbox AS A', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'A.in_id DESC',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'A.in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_tblSMSInbox AS A', 'B.username, A.in_id, A.in_uid, A.in_datetime, A.in_sender, A.in_msg', $conditions, $keywords, $extras, $join);
 		
 		$content = _dialog() . "
@@ -74,7 +63,7 @@ switch (_OP_) {
 		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_username = $list[$j]['username'];
 			$in_id = $list[$j]['in_id'];
@@ -120,25 +109,13 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array(
-					'A.flag_deleted' => 0 
-				);
+				$conditions = ['A.flag_deleted' => 0];
 				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.in_uid=B.uid";
 				$list = dba_search(_DB_PREF_ . '_tblSMSInbox as A', 'B.username, A.in_datetime, A.in_sender, A.in_msg', $conditions, $search['dba_keywords'], '', $join);
-				$data[0] = array(
-					_('User'),
-					_('Time'),
-					_('From'),
-					_('Message') 
-				);
-				for ($i = 0; $i < count($list); $i++) {
+				$data[0] = [_('User'), _('Time'), _('From'), _('Message')];
+				for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 					$j = $i + 1;
-					$data[$j] = array(
-						$list[$i]['username'],
-						core_display_datetime($list[$i]['in_datetime']),
-						$list[$i]['in_sender'],
-						$list[$i]['in_msg'] 
-					);
+					$data[$j] = [$list[$i]['username'], core_display_datetime($list[$i]['in_datetime']), $list[$i]['in_sender'], $list[$i]['in_msg']];
 				}
 				$content = core_csv_format($data);
 				$fn = 'all_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
@@ -150,13 +127,8 @@ switch (_OP_) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
-						$up = array(
-							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
-						);
-						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
-							'in_id' => $itemid 
-						));
+						$up = ['c_timestamp' => time(), 'flag_deleted' => '1'];
+						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, ['in_id' => $itemid]);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

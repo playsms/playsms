@@ -65,7 +65,7 @@ function _mandatory($text) {
  *        Selected option
  * @return string Options for select HTML tag
  */
-function _options($options = array(), $selected = '') {
+function _options($options = [], $selected = '') {
 	return themes_select_options($options, $selected);
 }
 
@@ -87,7 +87,7 @@ function _options($options = array(), $selected = '') {
  *        CSS class name
  * @return string Select HTML tag
  */
-function _select($name, $options = array(), $selected = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function _select($name, $options = [], $selected = '', $tag_params = [], $css_id = '', $css_class = '') {
 	return themes_select($name, $options, $selected, $tag_params, $css_id, $css_class);
 }
 
@@ -111,7 +111,7 @@ function _select($name, $options = array(), $selected = '', $tag_params = array(
  *        CSS class name
  * @return string Select HTML tag
  */
-function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = [], $css_id = '', $css_class = '') {
 	return themes_select_yesno($name, $selected, $yes, $no, $tag_params, $css_id, $css_class);
 }
 
@@ -126,7 +126,7 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
  *        Dialog title
  * @return string HTML string of error strings
  */
-function _dialog($content = array(), $title = '') {
+function _dialog($content = [], $title = '') {
 	return themes_dialog($content, $title);
 }
 
@@ -142,7 +142,7 @@ function _dialog($content = array(), $title = '') {
  *        Dialog title
  * @return string HTML string of error strings
  */
-function _err_display($content = array(), $title = '') {
+function _err_display($content = [], $title = '') {
 	return _dialog($content, $title);
 }
 
@@ -164,7 +164,7 @@ function _err_display($content = array(), $title = '') {
  *        CSS class name
  * @return string HTML input tag
  */
-function _input($type = 'text', $name = '', $value = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function _input($type = 'text', $name = '', $value = '', $tag_params = [], $css_id = '', $css_class = '') {
 	return themes_input($type, $name, $value, $tag_params, $css_id, $css_class);
 }
 

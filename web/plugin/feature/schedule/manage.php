@@ -55,26 +55,16 @@ switch (_OP_) {
 			// list of destinations
 			
 
-			$search_category = array(
-				_('Schedule') => 'schedule',
-				_('Name') => 'name',
-				_('Destination') => 'destination' 
-			);
+			$search_category = [_('Schedule') => 'schedule', _('Name') => 'name', _('Destination') => 'destination'];
 			$base_url = 'index.php?app=main&inc=feature_schedule&route=manage&op=list&id=' . $id;
 			$search = themes_search($search_category, $base_url);
 			
 			$fields = '*';
-			$conditions = array(
-				'schedule_id' => $id 
-			);
+			$conditions = ['schedule_id' => $id];
 			$keywords = $search['dba_keywords'];
 			$count = dba_count(_DB_PREF_ . '_featureSchedule_dst', $conditions, $keywords);
 			$nav = themes_nav($count, $search['url']);
-			$extras = array(
-				'ORDER BY' => 'schedule, name, destination',
-				'LIMIT' => $nav['limit'],
-				'OFFSET' => $nav['offset'] 
-			);
+			$extras = ['ORDER BY' => 'schedule, name, destination', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 			$list = dba_search(_DB_PREF_ . '_featureSchedule_dst', $fields, $conditions, $keywords, $extras);
 			
 			$content .= "
@@ -171,7 +161,7 @@ switch (_OP_) {
 		if ($schedule_id && $schedule_name && $schedule_message) {
 			$name = $_POST['name'];
 			$destination = $_POST['destination'];
-			$schedule = trim($_POST['schedule']);
+			$schedule = trim((string) $_POST['schedule']);
 			if ($name && $destination && $schedule) {
 				$schedule = ($schedule ? core_adjust_datetime($schedule) : '0000-00-00 00:00:00');
 				$db_query = "
@@ -195,10 +185,7 @@ switch (_OP_) {
 	case "dst_del":
 		$id = $_REQUEST['id']; // destination ID
 		$schedule_id = $_REQUEST['schedule_id']; // schedule ID
-		if ($id && $schedule_id && dba_isexists(_DB_PREF_ . "_featureSchedule", array(
-			'uid' => $user_config['uid'],
-			'id' => $schedule_id 
-		), 'AND')) {
+		if ($id && $schedule_id && dba_isexists(_DB_PREF_ . "_featureSchedule", ['uid' => $user_config['uid'], 'id' => $schedule_id], 'AND')) {
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSchedule_dst WHERE schedule_id='$schedule_id' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('Destination has been deleted');
@@ -274,7 +261,7 @@ switch (_OP_) {
 		if ($id && $schedule_id && $schedule_name && $schedule_message) {
 			$name = $_POST['name'];
 			$destination = $_POST['destination'];
-			$schedule = trim($_POST['schedule']);
+			$schedule = trim((string) $_POST['schedule']);
 			if ($name && $destination && $schedule) {
 				$schedule = ($schedule ? core_adjust_datetime($schedule) : '0000-00-00 00:00:00');
 				$db_query = "

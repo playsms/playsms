@@ -22,22 +22,10 @@ function dlr($smslog_id, $uid, $p_status) {
 	global $core_config;
 	if ($core_config['isdlrd']) {
 		$c_isdlrd = 1;
-		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => time(),
-			'flag_processed' => 1,
-			'smslog_id' => $smslog_id,
-			'p_status' => $p_status,
-			'uid' => $uid 
-		));
+		$ret = dba_add(_DB_PREF_ . '_tblDLR', ['c_timestamp' => time(), 'flag_processed' => 1, 'smslog_id' => $smslog_id, 'p_status' => $p_status, 'uid' => $uid]);
 	} else {
 		$c_isdlrd = 0;
-		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => time(),
-			'flag_processed' => 2,
-			'smslog_id' => $smslog_id,
-			'p_status' => $p_status,
-			'uid' => $uid 
-		));
+		$ret = dba_add(_DB_PREF_ . '_tblDLR', ['c_timestamp' => time(), 'flag_processed' => 2, 'smslog_id' => $smslog_id, 'p_status' => $p_status, 'uid' => $uid]);
 		setsmsdeliverystatus($smslog_id, $uid, $p_status);
 	}
 	_log("isdlrd:" . $c_isdlrd . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr");
@@ -46,23 +34,15 @@ function dlr($smslog_id, $uid, $p_status) {
 
 function dlrd() {
 	global $core_config;
-	$core_config['dlrd_limit'] = ((int) $core_config['dlrd_limit'] ? (int) $core_config['dlrd_limit'] : 200);
-	$list = dba_search(_DB_PREF_ . '_tblDLR', '*', array(
-		'flag_processed' => 1 
-	), '', array(
-		'LIMIT' => $core_config['dlrd_limit'] 
-	));
+	$core_config['dlrd_limit'] = ((int) $core_config['dlrd_limit'] ?: 200);
+	$list = dba_search(_DB_PREF_ . '_tblDLR', '*', ['flag_processed' => 1], '', ['LIMIT' => $core_config['dlrd_limit']]);
 	$j = 0;
-	for ($j = 0; $j < count($list); $j++) {
+	for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 		if ($id = $list[$j]['id']) {
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_status = $list[$j]['p_status'];
 			$uid = $list[$j]['uid'];
-			if (dba_update(_DB_PREF_ . '_tblDLR', array(
-				'flag_processed' => 2 
-			), array(
-				'id' => $id 
-			))) {
+			if (dba_update(_DB_PREF_ . '_tblDLR', ['flag_processed' => 2], ['id' => $id])) {
 				_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlrd");
 				setsmsdeliverystatus($smslog_id, $uid, $p_status);
 			}
@@ -83,12 +63,8 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 		// _log("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
 		$ok = true;
 		if ($p_status > 0) {
-			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-				core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', array(
-					$smslog_id,
-					$uid,
-					$p_status 
-				));
+			for ($c = 0; $c < (is_countable($core_config['plugins']['list']['feature']) ? count($core_config['plugins']['list']['feature']) : 0); $c++) {
+				core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', [$smslog_id, $uid, $p_status]);
 			}
 		}
 	}
@@ -108,13 +84,7 @@ function getsmsstatus() {
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$gpid = $db_row['p_gpid'];
-			core_hook($gateway, 'getsmsstatus', array(
-				$gpid,
-				$uid,
-				$smslog_id,
-				$p_datetime,
-				$p_update 
-			));
+			core_hook($gateway, 'getsmsstatus', [$gpid, $uid, $smslog_id, $p_datetime, $p_update]);
 		}
 	}
 }

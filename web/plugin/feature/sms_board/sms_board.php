@@ -131,7 +131,7 @@ switch (_OP_) {
 	
 	case "sms_board_edit_yes":
 		$edit_board_keyword = $_POST['edit_board_keyword'];
-		$edit_board_reply = trim($_POST['edit_board_reply']);
+		$edit_board_reply = trim((string) $_POST['edit_board_reply']);
 		$edit_email = $_POST['edit_email'];
 		$edit_css = $_POST['edit_css'];
 		$edit_template = $_POST['edit_template'];
@@ -212,8 +212,8 @@ switch (_OP_) {
 		break;
 	
 	case "sms_board_add_yes":
-		$add_board_keyword = strtoupper($_POST['add_board_keyword']);
-		$add_board_reply = trim($_POST['add_board_reply']);
+		$add_board_keyword = strtoupper((string) $_POST['add_board_keyword']);
+		$add_board_reply = trim((string) $_POST['add_board_reply']);
 		$add_email = $_POST['add_email'];
 		$add_css = $_POST['add_css'];
 		$add_template = $_POST['add_template'];

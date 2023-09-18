@@ -38,17 +38,17 @@ if (file_exists($c_fn1)) {
 }
 
 // load list of plugins
-for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
+for ($i=0;$i<(is_countable($core_config['plugins']['category']) ? count($core_config['plugins']['category']) : 0);$i++) {
 	if ($pc = $core_config['plugins']['category'][$i]) {
 		// get plugins
 		$dir = $core_config['apps_path']['plug'].'/'.$pc.'/';
 		unset($core_config['plugins']['list'][$pc]);
 		unset($tmp_core_config['plugins']['list'][$pc]);
 		$fd = opendir($dir);
-		$pc_names = array();
+		$pc_names = [];
 		while(false !== ($pl_name = readdir($fd))) {
 			// plugin's dir prefixed with dot or underscore will not be loaded
-			if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_" ) {
+			if (!str_starts_with($pl_name, ".") && !str_starts_with($pl_name, "_") ) {
 				// exeptions for themes/common
 				if (! (($pc == 'themes') && ($pl_name == 'common'))) {
 					$pc_names[] = $pl_name;
@@ -67,9 +67,9 @@ for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
 
 // load each plugin's config
 $dir = $core_config['apps_path']['plug'].'/';
-$pcs = array('themes', 'language', 'gateway', 'feature');
+$pcs = ['themes', 'language', 'gateway', 'feature'];
 foreach ($pcs as $pc) {
-	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
+	for ($i=0;$i<(is_countable($core_config['plugins']['list'][$pc]) ? count($core_config['plugins']['list'][$pc]) : 0);$i++) {
 		$pl = $core_config['plugins']['list'][$pc][$i];
 		$pl_dir = $dir.$pc.'/'.$pl;
 		$c_fn1 = $pl_dir.'/config.php';
@@ -81,9 +81,9 @@ foreach ($pcs as $pc) {
 
 // load each plugin's libs
 $dir = $core_config['apps_path']['plug'].'/';
-$pcs = array('feature', 'gateway');
+$pcs = ['feature', 'gateway'];
 foreach ($pcs as $pc) {
-	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
+	for ($i=0;$i<(is_countable($core_config['plugins']['list'][$pc]) ? count($core_config['plugins']['list'][$pc]) : 0);$i++) {
 		$pl = $core_config['plugins']['list'][$pc][$i];
 		$pl_dir = $dir.$pc.'/'.$pl;
 		$c_fn1 = $pl_dir.'/fn.php';

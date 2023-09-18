@@ -12,10 +12,10 @@ namespace pChart;
 
 class pColor {
 
-	var $R;
-	var $G;
-	var $B;
-	var $Alpha;
+	public $R;
+	public $G;
+	public $B;
+	public $Alpha;
 
 	function __construct(int $R = 0, int $G = 0, int $B = 0, float $Alpha = 100)
 	{
@@ -39,9 +39,9 @@ class pColor {
 				($Alpha > 100)	AND $Alpha = 100;
 				break;
 			case 0: # random
-				$R = rand(0, 255);
-				$G = rand(0, 255);
-				$B = rand(0, 255);
+				$R = random_int(0, 255);
+				$G = random_int(0, 255);
+				$B = random_int(0, 255);
 		}
 
 		$this->R = $R;

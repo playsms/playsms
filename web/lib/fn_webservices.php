@@ -30,7 +30,7 @@ function webservices_validate($h, $u) {
 	global $core_config;
 	$ret = false;
 	
-	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
+	if (preg_match('/^(.+)@(.+)\.(.+)$/', (string) $u)) {
 		$u = user_email2username($u);
 	}
 
@@ -65,7 +65,7 @@ function webservices_validate($h, $u) {
 function webservices_validate_admin($h, $u) {
 	$ret = false;
 	
-	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
+	if (preg_match('/^(.+)@(.+)\.(.+)$/', (string) $u)) {
 		$u = user_email2username($u);
 	}
 
@@ -91,8 +91,8 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 	if ($c_username && $to && $msg) {
 		
 		// send SMS, note that we can't let user to define SMSC for now
-		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, '', $nofooter, $footer, $from, $schedule);
-		for ($i = 0; $i < count($to); $i++) {
+		[$ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed] = sendsms_helper($c_username, $to, $msg, $type, $unicode, '', $nofooter, $footer, $from, $schedule);
+		for ($i = 0; $i < (is_countable($to) ? count($to) : 0); $i++) {
 			if (($ok[$i] == 1 || $ok[$i] == true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';
@@ -146,9 +146,9 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 	}
 	if ($dst) {
 		if ($dst[0] == '0') {
-			$c_dst = substr($dst, 1);
+			$c_dst = substr((string) $dst, 1);
 		} else {
-			$c_dst = substr($dst, 3);
+			$c_dst = substr((string) $dst, 3);
 		}
 		$keywords['p_dst'] = '%' . $c_dst;
 	}
@@ -171,7 +171,7 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 			$smslog_id = $db_row['smslog_id'];
 			$p_src = $db_row['p_src'];
 			$p_dst = $db_row['p_dst'];
-			$p_msg = str_replace('"', "'", $db_row['p_msg']);
+			$p_msg = str_replace('"', "'", (string) $db_row['p_msg']);
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$p_status = $db_row['p_status'];
@@ -188,18 +188,12 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 			unset($json['status']);
 			unset($json['error']);
 		} else {
-			if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
-				'queue_code' => $queue_code,
-				'flag' => 0 
-			))) {
+			if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', ['queue_code' => $queue_code, 'flag' => 0])) {
 				
 				// exists in queue but not yet processed
 				$json['status'] = 'ERR';
 				$json['error'] = '401';
-			} else if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', array(
-				'queue_code' => $queue_code,
-				'flag' => 1 
-			))) {
+			} else if (dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id', ['queue_code' => $queue_code, 'flag' => 1])) {
 				
 				// exists in queue and have been processed
 				$json['status'] = 'ERR';
@@ -218,18 +212,15 @@ function webservices_ds($c_username, $queue_code = '', $src = '', $dst = '', $da
 function webservices_in($c_username, $src = '', $dst = '', $kwd = '', $datetime = '', $c = 100, $last = false) {
 	$json['status'] = 'ERR';
 	$json['error'] = '501';
-	$conditions = array(
-		'flag_deleted' => 0,
-		'in_status' => 1 
-	);
+	$conditions = ['flag_deleted' => 0, 'in_status' => 1];
 	if ($uid = user_username2uid($c_username)) {
 		$conditions['in_uid'] = $uid;
 	}
 	if ($src) {
 		if ($src[0] == '0') {
-			$c_src = substr($src, 1);
+			$c_src = substr((string) $src, 1);
 		} else {
-			$c_src = substr($src, 3);
+			$c_src = substr((string) $src, 3);
 		}
 		$keywords['in_sender'] = '%' . $c_src;
 	}
@@ -260,7 +251,7 @@ function webservices_in($c_username, $src = '', $dst = '', $kwd = '', $datetime 
 			$src = $db_row['in_sender'];
 			$dst = $db_row['in_receiver'];
 			$kwd = $db_row['in_keyword'];
-			$message = str_replace('"', "'", $db_row['in_message']);
+			$message = str_replace('"', "'", (string) $db_row['in_message']);
 			$datetime = $db_row['in_datetime'];
 			$status = $db_row['in_status'];
 			$json['data'][$j]['id'] = $id;
@@ -288,15 +279,12 @@ function webservices_sx($c_username, $src = '', $dst = '', $datetime = '', $c = 
 		return $json;
 	}
 	$uid = $u['uid'];
-	$conditions = array(
-		'flag_deleted' => 0,
-		'in_status' => 0 
-	);
+	$conditions = ['flag_deleted' => 0, 'in_status' => 0];
 	if ($src) {
 		if ($src[0] == '0') {
-			$c_src = substr($src, 1);
+			$c_src = substr((string) $src, 1);
 		} else {
-			$c_src = substr($src, 3);
+			$c_src = substr((string) $src, 3);
 		}
 		$keywords['in_sender'] = '%' . $c_src;
 	}
@@ -322,7 +310,7 @@ function webservices_sx($c_username, $src = '', $dst = '', $datetime = '', $c = 
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];
 			$dst = $db_row['in_receiver'];
-			$message = str_replace('"', "'", $db_row['in_message']);
+			$message = str_replace('"', "'", (string) $db_row['in_message']);
 			$datetime = $db_row['in_datetime'];
 			$status = $db_row['in_status'];
 			$json['data'][$j]['id'] = $id;
@@ -349,9 +337,9 @@ function webservices_ix($c_username, $src = '', $dst = '', $datetime = '', $c = 
 	}
 	if ($src) {
 		if ($src[0] == '0') {
-			$c_src = substr($src, 1);
+			$c_src = substr((string) $src, 1);
 		} else {
-			$c_src = substr($src, 3);
+			$c_src = substr((string) $src, 3);
 		}
 		$keywords['in_sender'] = '%' . $c_src;
 	}
@@ -377,7 +365,7 @@ function webservices_ix($c_username, $src = '', $dst = '', $datetime = '', $c = 
 			$id = $db_row['in_id'];
 			$src = $db_row['in_sender'];
 			$dst = $db_row['in_receiver'];
-			$message = str_replace('"', "'", $db_row['in_msg']);
+			$message = str_replace('"', "'", (string) $db_row['in_msg']);
 			$datetime = $db_row['in_datetime'];
 			$json['data'][$j]['id'] = $id;
 			$json['data'][$j]['src'] = $src;
@@ -396,7 +384,7 @@ function webservices_ix($c_username, $src = '', $dst = '', $datetime = '', $c = 
 
 function webservices_cr($c_username) {
 	$credit = rate_getusercredit($c_username);
-	$credit = ($credit ? $credit : '0');
+	$credit = ($credit ?: '0');
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['credit'] = $credit;
@@ -431,65 +419,31 @@ function webservices_query($username) {
 	
 	// get credit
 	$credit = rate_getusercredit($username);
-	$credit = ($credit ? $credit : '0');
+	$credit = ($credit ?: '0');
 	
 	// get last id on user's inbox table
 	$fields = 'in_id';
-	$conditions = array(
-		'in_uid' => $uid,
-		'flag_deleted' => 0 
-	);
-	$extras = array(
-		'ORDER BY' => 'in_id DESC',
-		'LIMIT' => 1 
-	);
+	$conditions = ['in_uid' => $uid, 'flag_deleted' => 0];
+	$extras = ['ORDER BY' => 'in_id DESC', 'LIMIT' => 1];
 	$list = dba_search(_DB_PREF_ . '_tblSMSInbox', $fields, $conditions, '', $extras);
 	$last_inbox_id = $list[0]['in_id'];
 	
 	// get last id on incoming table
 	$fields = 'in_id';
-	$conditions = array(
-		'in_uid' => $uid,
-		'flag_deleted' => 0,
-		'in_status' => 1 
-	);
-	$extras = array(
-		'ORDER BY' => 'in_id DESC',
-		'LIMIT' => 1 
-	);
+	$conditions = ['in_uid' => $uid, 'flag_deleted' => 0, 'in_status' => 1];
+	$extras = ['ORDER BY' => 'in_id DESC', 'LIMIT' => 1];
 	$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', $fields, $conditions, '', $extras);
 	$last_incoming_id = $list[0]['in_id'];
 	
 	// get last id on outgoing table
 	$fields = 'smslog_id';
-	$conditions = array(
-		'uid' => $uid,
-		'flag_deleted' => 0 
-	);
-	$extras = array(
-		'ORDER BY' => 'smslog_id DESC',
-		'LIMIT' => 1 
-	);
+	$conditions = ['uid' => $uid, 'flag_deleted' => 0];
+	$extras = ['ORDER BY' => 'smslog_id DESC', 'LIMIT' => 1];
 	$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing', $fields, $conditions, '', $extras);
 	$last_outgoing_id = $list[0]['smslog_id'];
 	
 	// compile data
-	$data = array(
-		'user' => array(
-			'username' => $username,
-			'uid' => (int) $uid,
-			'status' => (int) $status,
-			'name' => $name,
-			'email' => $email,
-			'mobile' => $mobile,
-			'credit' => $credit 
-		),
-		'last_id' => array(
-			'user_inbox' => (int) $last_inbox_id,
-			'user_incoming' => (int) $last_incoming_id,
-			'user_outgoing' => (int) $last_outgoing_id 
-		) 
-	);
+	$data = ['user' => ['username' => $username, 'uid' => (int) $uid, 'status' => (int) $status, 'name' => $name, 'email' => $email, 'mobile' => $mobile, 'credit' => $credit], 'last_id' => ['user_inbox' => (int) $last_inbox_id, 'user_incoming' => (int) $last_incoming_id, 'user_outgoing' => (int) $last_outgoing_id]];
 	$json['status'] = 'OK';
 	$json['error'] = '0';
 	$json['data'] = $data;
@@ -501,29 +455,17 @@ function webservices_output($operation, $requests, $returns) {
 	global $core_config;
 	
 	// default returns
-	$returns = array(
-		'modified' => TRUE,
-		'param' => array(
-			'operation' => $operation,
-			'content' => '',
-			'content-type' => 'text/json',
-			'charset' => 'utf-8' 
-		) 
-	);
+	$returns = ['modified' => TRUE, 'param' => ['operation' => $operation, 'content' => '', 'content-type' => 'text/json', 'charset' => 'utf-8']];
 	
 	// plugin feature
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-		if ($ret_intercept = core_hook($core_config['plugins']['list']['feature'][$c], 'webservices_output', array(
-			$operation,
-			$requests,
-			$returns 
-		))) {
+	for ($c = 0; $c < (is_countable($core_config['plugins']['list']['feature']) ? count($core_config['plugins']['list']['feature']) : 0); $c++) {
+		if ($ret_intercept = core_hook($core_config['plugins']['list']['feature'][$c], 'webservices_output', [$operation, $requests, $returns])) {
 			if ($ret_intercept['modified']) {
 				$returns['modified'] = TRUE;
-				$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
-				$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
-				$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
-				$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
+				$returns['param']['operation'] = ($ret_intercept['param']['operation'] ?: $returns['param']['operation']);
+				$returns['param']['content'] = ($ret_intercept['param']['content'] ?: $returns['param']['content']);
+				$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ?: $returns['param']['content-type']);
+				$returns['param']['charset'] = ($ret_intercept['param']['charset'] ?: $returns['param']['charset']);
 			}
 		}
 	}
@@ -537,34 +479,26 @@ function webservices_output($operation, $requests, $returns) {
 	if (is_array($gateways)) {
 		$gateways = array_unique($gateways);
 		foreach ($gateways as $gateway) {
-			if ($ret_intercept = core_hook($gateway, 'webservices_output', array(
-				$operation,
-				$requests,
-				$returns 
-			))) {
+			if ($ret_intercept = core_hook($gateway, 'webservices_output', [$operation, $requests, $returns])) {
 				if ($ret_intercept['modified']) {
 					$returns['modified'] = TRUE;
-					$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
-					$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
-					$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
-					$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
+					$returns['param']['operation'] = ($ret_intercept['param']['operation'] ?: $returns['param']['operation']);
+					$returns['param']['content'] = ($ret_intercept['param']['content'] ?: $returns['param']['content']);
+					$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ?: $returns['param']['content-type']);
+					$returns['param']['charset'] = ($ret_intercept['param']['charset'] ?: $returns['param']['charset']);
 				}
 			}
 		}
 	}
 	
 	// plugin themes
-	if ($ret_intercept = core_hook(core_themes_get(), 'webservices_output', array(
-		$operation,
-		$requests,
-		$returns 
-	))) {
+	if ($ret_intercept = core_hook(core_themes_get(), 'webservices_output', [$operation, $requests, $returns])) {
 		if ($ret_intercept['modified']) {
 			$returns['modified'] = TRUE;
-			$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
-			$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
-			$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
-			$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
+			$returns['param']['operation'] = ($ret_intercept['param']['operation'] ?: $returns['param']['operation']);
+			$returns['param']['content'] = ($ret_intercept['param']['content'] ?: $returns['param']['content']);
+			$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ?: $returns['param']['content-type']);
+			$returns['param']['charset'] = ($ret_intercept['param']['charset'] ?: $returns['param']['charset']);
 		}
 	}
 	
@@ -597,17 +531,12 @@ function webservices_inject($c_username, $from, $msg, $recvnum = '', $smsc = '')
 function webservices_stoplist($c_username,$from) {
 	if ($c_username && $from) {
 		//check for existing number in table
-		$conditions = array(
-			'mobile' => $from
-		);
+		$conditions = ['mobile' => $from];
 		$row = dba_search(_DB_PREF_ . '_featureStoplist', 'mobile', $conditions);
-		if (count($row) === 0) {
+		if ((is_countable($row) ? count($row) : 0) === 0) {
 			//remove leading plus sign
-			$from = ltrim($from, '+');
-			$items = array(
-				'uid' => 1,
-				'mobile' => $from
-			);
+			$from = ltrim((string) $from, '+');
+			$items = ['uid' => 1, 'mobile' => $from];
 			//add the number to stoplist using admin uid
 			dba_add(_DB_PREF_ . '_featureStoplist', $items);
 			$json['status'] = 'OK';
@@ -620,7 +549,7 @@ function webservices_stoplist($c_username,$from) {
 	}
 }
 
-function webservices_account_add($data = array()) {
+function webservices_account_add($data = []) {
 	$ret = user_add($data, TRUE);
 	if ($ret['status']) {
 		$json['status'] = 'OK';
@@ -700,7 +629,7 @@ function webservices_account_unban($uid) {
 	return $json;
 }
 
-function webservices_account_pref($uid, $data = array()) {
+function webservices_account_pref($uid, $data = []) {
 	if (!$data['name']) {
 		$data['name'] = user_getfieldbyuid($uid, 'name');
 	}
@@ -721,7 +650,7 @@ function webservices_account_pref($uid, $data = array()) {
 	return $json;
 }
 
-function webservices_account_conf($uid, $data = array()) {
+function webservices_account_conf($uid, $data = []) {
 	$ret = user_edit_conf($uid, $data);
 	if ($ret['status']) {
 		$json['status'] = 'OK';
@@ -783,10 +712,8 @@ function webservices_credit_deduct($username, $amount) {
 
 function webservices_login_key_set($username) {
 	$uid = user_username2uid($username);
-	$login_key = md5(core_get_random_string(32));
-	if (registry_update($uid, 'core', 'webservices', array(
-		'login_key' => $login_key 
-	))) {
+	$login_key = md5((string) core_get_random_string(32));
+	if (registry_update($uid, 'core', 'webservices', ['login_key' => $login_key])) {
 		$json['status'] = 'OK';
 		$json['error'] = '0';
 		$json['login_key'] = $login_key;

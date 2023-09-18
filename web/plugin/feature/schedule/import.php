@@ -26,11 +26,7 @@ if (!auth_isvalid()) {
 $schedule_id = $_REQUEST['schedule_id'];
 
 // validate, if not exists the block
-$conditions = array(
-	'uid' => $user_config['uid'],
-	'id' => $schedule_id,
-	'flag_deleted' => 0 
-);
+$conditions = ['uid' => $user_config['uid'], 'id' => $schedule_id, 'flag_deleted' => 0];
 if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 	auth_block();
 }
@@ -101,7 +97,7 @@ switch (_OP_) {
 				}
 				$entries = array_unique($entries);
 				$session_import = 'schedule_' . _PID_;
-				$_SESSION['tmp'][$session_import] = array();
+				$_SESSION['tmp'][$session_import] = [];
 				$i = 0;
 				foreach ($entries as $entry) {
 					
@@ -151,37 +147,20 @@ switch (_OP_) {
 		$session_import = $_POST['session_import'];
 		$data = $_SESSION['tmp'][$session_import];
 		foreach ($data as $d) {
-			$name = trim($d[0]);
-			$destination = trim($d[1]);
-			$schedule = trim($d[2]);
+			$name = trim((string) $d[0]);
+			$destination = trim((string) $d[1]);
+			$schedule = trim((string) $d[2]);
 			if ($name && $destination && $schedule) {
 				$schedule = core_adjust_datetime($schedule);
 				// add destiantions, replace existing entry with the same name
-				if (dba_isexists(_DB_PREF_ . '_featureSchedule_dst', array(
-					'schedule_id' => $schedule_id,
-					'name' => $name 
-				), 'AND')) {
+				if (dba_isexists(_DB_PREF_ . '_featureSchedule_dst', ['schedule_id' => $schedule_id, 'name' => $name], 'AND')) {
 					// update
-					$items = array(
-						'c_timestamp' => time(),
-						'schedule' => $schedule,
-						'scheduled' => '0000-00-00 00:00:00' 
-					);
-					$conditions = array(
-						'schedule_id' => $schedule_id,
-						'name' => $name,
-						'destination' => $destination 
-					);
+					$items = ['c_timestamp' => time(), 'schedule' => $schedule, 'scheduled' => '0000-00-00 00:00:00'];
+					$conditions = ['schedule_id' => $schedule_id, 'name' => $name, 'destination' => $destination];
 					dba_update(_DB_PREF_ . '_featureSchedule_dst', $items, $conditions);
 				} else {
 					// insert
-					$items = array(
-						'schedule_id' => $schedule_id,
-						'schedule' => $schedule,
-						'scheduled' => '0000-00-00 00:00:00',
-						'name' => $name,
-						'destination' => $destination 
-					);
+					$items = ['schedule_id' => $schedule_id, 'schedule' => $schedule, 'scheduled' => '0000-00-00 00:00:00', 'name' => $name, 'destination' => $destination];
 					dba_add(_DB_PREF_ . '_featureSchedule_dst', $items);
 				}
 			}

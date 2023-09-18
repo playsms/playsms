@@ -29,13 +29,10 @@ defined('_SECURE_') or die('Forbidden');
  *        Injected variable names
  * @return string Manipulated content
  */
-function _tpl_apply($fn, $tpl, $injected = array()) {
+function _tpl_apply($fn, $tpl, $injected = []) {
 	$t = new \Playsms\Tpl();
 	
-	$t->setConfig(array(
-		'echo' => '_p',
-		'dir_cache' => _APPS_PATH_STORAGE_ . '/plugin/core/tpl' 
-	));
+	$t->setConfig(['echo' => '_p', 'dir_cache' => _APPS_PATH_STORAGE_ . '/plugin/core/tpl']);
 	
 	$t->setTemplate($fn);
 
@@ -83,7 +80,7 @@ function _tpl_sanitize_name($name) {
  *        Injected variable names
  * @return string Manipulated content
  */
-function tpl_apply($tpl, $injected = array()) {
+function tpl_apply($tpl, $injected = []) {
 	$content = '';
 	$continue = FALSE;
 	
@@ -104,9 +101,9 @@ function tpl_apply($tpl, $injected = array()) {
 		}
 		
 		// 1. check from active plugin
-		$c_inc = explode('_', _INC_);
+		$c_inc = explode('_', (string) _INC_);
 		$plugin_category = $c_inc[0];
-		$plugin_name = str_replace($plugin_category . '_', '', _INC_);
+		$plugin_name = str_replace($plugin_category . '_', '', (string) _INC_);
 		$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
@@ -117,11 +114,7 @@ function tpl_apply($tpl, $injected = array()) {
 		// 2. search all possible location on active plugin
 		$c_plugin_name = explode('_', $tpl_name);
 		$plugin_name = $c_plugin_name[0];
-		$c_plugin_category = array(
-			'core',
-			'feature',
-			'gateway' 
-		);
+		$c_plugin_category = ['core', 'feature', 'gateway'];
 		foreach ($c_plugin_category as $plugin_category) {
 			$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
 			if (file_exists($fn)) {

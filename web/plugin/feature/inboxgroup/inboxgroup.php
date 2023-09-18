@@ -6,38 +6,18 @@ if(!auth_isadmin()){auth_block();};
 switch (_OP_) {
 	case 'list':
 		unset($tpl);
-		$tpl = array(
-			'vars' => array(
-				'DIALOG_DISPLAY' => _dialog(),
-				'Group inbox' => _('Group inbox'),
-				'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')),
-				'Receiver number' => _('Receiver number'),
-				'Keywords' => _('Keywords'),
-				'Members' => _('Members'),
-				'Catch-all' => _('Catch-all'),
-				'Status' => _('Status'),
-				'Action' => _('Action')
-			)
-		);
+		$tpl = ['vars' => ['DIALOG_DISPLAY' => _dialog(), 'Group inbox' => _('Group inbox'), 'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')), 'Receiver number' => _('Receiver number'), 'Keywords' => _('Keywords'), 'Members' => _('Members'), 'Catch-all' => _('Catch-all'), 'Status' => _('Status'), 'Action' => _('Action')]];
 		$data = inboxgroup_getdataall();
-		for ($i=0;$i<count($data);$i++) {
+		for ($i=0;$i<(is_countable($data) ? count($data) : 0);$i++) {
 			$c_rid = $data[$i]['id'];
-			$c_members = count(inboxgroup_getmembers($c_rid));
+			$c_members = is_countable(inboxgroup_getmembers($c_rid)) ? count(inboxgroup_getmembers($c_rid)) : 0;
 			$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$c_rid)."'>".$c_members."</a>";
-			$c_catchall = count(inboxgroup_getcatchall($c_rid));
+			$c_catchall = is_countable(inboxgroup_getcatchall($c_rid)) ? count(inboxgroup_getcatchall($c_rid)) : 0;
 			$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$c_rid)."'>".$c_catchall."</a>";
 			$c_status = $data[$i]['status'] ? "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=disable&rid='.$c_rid)."'><span class=status_enabled /></a>" : "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=enable&rid='.$c_rid)."'><span class=status_disabled /></a>";
 			$c_action = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=edit&rid='.$c_rid)."'>".$icon_config['edit']."</a> ";
 			$c_action .= "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&op=del&rid='.$c_rid)."'>".$icon_config['delete']."</a> ";
-			$tpl['loops']['data'][] = array(
-			    'tr_class' => $tr_class,
-			    'in_receiver' => $data[$i]['in_receiver'],
-			    'keywords' => str_replace(',',', ',$data[$i]['keywords']),
-			    'members' => $c_members,
-			    'catchall' => $c_catchall,
-			    'status' => $c_status,
-			    'action' => $c_action
-			    );
+			$tpl['loops']['data'][] = ['tr_class' => $tr_class, 'in_receiver' => $data[$i]['in_receiver'], 'keywords' => str_replace(',',', ',(string) $data[$i]['keywords']), 'members' => $c_members, 'catchall' => $c_catchall, 'status' => $c_status, 'action' => $c_action];
 		}
 		$tpl['name'] = 'inboxgroup_list';
 		$content = tpl_apply($tpl);
@@ -45,21 +25,7 @@ switch (_OP_) {
 		break;
 	case 'add':
 		unset($tpl);
-		$tpl = array(
-		    'name' => 'inboxgroup_add',
-		    'vars' => array(
-			'DIALOG_DISPLAY' => _dialog(),
-			'Group inbox' => _('Group inbox'),
-			'Add group inbox' => _('Add group inbox'),
-			'Receiver number' => _('Receiver number'),
-			'Keywords' => _('Keywords'),
-			'Description' => _('Description'),
-			'HINT_KEYWORDS' => _hint(_('Separate with comma for multiple items')),
-			'HINT_RECEIVER_NUMBER' => _hint(_('For example a short code')),
-			'Save' => _('Save'),
-			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
-		    )
-		);
+		$tpl = ['name' => 'inboxgroup_add', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'Group inbox' => _('Group inbox'), 'Add group inbox' => _('Add group inbox'), 'Receiver number' => _('Receiver number'), 'Keywords' => _('Keywords'), 'Description' => _('Description'), 'HINT_KEYWORDS' => _hint(_('Separate with comma for multiple items')), 'HINT_RECEIVER_NUMBER' => _hint(_('For example a short code')), 'Save' => _('Save'), 'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')]];
 		_p(tpl_apply($tpl));
 		break;
 	case 'add_submit':
@@ -88,27 +54,7 @@ switch (_OP_) {
 		if (! $selected_1) { $selected_0 = 'selected'; };
 		$option_exclusive = "<option value='1' ".$selected_1.">"._('yes')."</option><option value='0' ".$selected_0.">"._('no')."</option>";
 		unset($tpl);
-		$tpl = array(
-		    'name' => 'inboxgroup_edit',
-		    'vars' => array(
-			'DIALOG_DISPLAY' => _dialog(),
-			'Group inbox' => _('Group inbox'),
-			'Edit group inbox' => _('Edit group inbox'),
-			'RID' => $rid,
-			'Receiver number' => _('Receiver number'),
-			'IN_RECEIVER' => $in_receiver,
-			'Keywords' => _('Keywords'),
-			'Description' => _('Description'),
-			'Exclusive' => _('Exclusive'),
-			'KEYWORDS' => $keywords,
-			'DESCRIPTION' => $description,
-			'OPTION_EXCLUSIVE' => $option_exclusive,
-			'HINT_KEYWORDS' => _hint(_('Separate with comma for multiple items')),
-			'HINT_EXCLUSIVE' => _hint(_('Restrict sender to regular members or catch-all members only')),
-			'Save' => _('Save'),
-			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
-		    )
-		);
+		$tpl = ['name' => 'inboxgroup_edit', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'Group inbox' => _('Group inbox'), 'Edit group inbox' => _('Edit group inbox'), 'RID' => $rid, 'Receiver number' => _('Receiver number'), 'IN_RECEIVER' => $in_receiver, 'Keywords' => _('Keywords'), 'Description' => _('Description'), 'Exclusive' => _('Exclusive'), 'KEYWORDS' => $keywords, 'DESCRIPTION' => $description, 'OPTION_EXCLUSIVE' => $option_exclusive, 'HINT_KEYWORDS' => _hint(_('Separate with comma for multiple items')), 'HINT_EXCLUSIVE' => _hint(_('Restrict sender to regular members or catch-all members only')), 'Save' => _('Save'), 'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')]];
 		_p(tpl_apply($tpl));
 		break;
 	case 'edit_submit':
@@ -136,36 +82,13 @@ switch (_OP_) {
 		$in_receiver = $data['in_receiver'];
 		$keywords = $data['keywords'];
 		$description = $data['description'];
-		$c_members = count(inboxgroup_getmembers($rid));
+		$c_members = is_countable(inboxgroup_getmembers($rid)) ? count(inboxgroup_getmembers($rid)) : 0;
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
-		$c_catchall = count(inboxgroup_getcatchall($rid));
+		$c_catchall = is_countable(inboxgroup_getcatchall($rid)) ? count(inboxgroup_getcatchall($rid)) : 0;
 		$c_catchall = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid='.$rid)."'>".$c_catchall."</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
 		unset($tpl);
-		$tpl = array(
-		    'name' => 'inboxgroup_del',
-		    'vars' => array(
-			'DIALOG_DISPLAY' => _dialog(),
-			'Group inbox' => _('Group inbox'),
-			'Delete group inbox' => _('Delete group inbox'),
-			'RID' => $rid,
-			'Receiver number' => _('Receiver number'),
-			'Keywords' => _('Keywords'),
-			'Description' => _('Description'),
-			'Members' => _('Members'),
-			'Catch-all' => _('Catch-all'),
-			'Status' => _('Status'),
-			'IN_RECEIVER' => $in_receiver,
-			'KEYWORDS' => $keywords,
-			'DESCRIPTION' => $description,
-			'C_MEMBERS' => $c_members,
-			'C_CATCHALL' => $c_catchall,
-			'C_STATUS' => $c_status,
-			'ARE_YOU_SURE' => _('Are you sure you want to delete this group inbox ?'),
-			'Yes' => _('Yes'),
-			'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
-		    )
-		);
+		$tpl = ['name' => 'inboxgroup_del', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'Group inbox' => _('Group inbox'), 'Delete group inbox' => _('Delete group inbox'), 'RID' => $rid, 'Receiver number' => _('Receiver number'), 'Keywords' => _('Keywords'), 'Description' => _('Description'), 'Members' => _('Members'), 'Catch-all' => _('Catch-all'), 'Status' => _('Status'), 'IN_RECEIVER' => $in_receiver, 'KEYWORDS' => $keywords, 'DESCRIPTION' => $description, 'C_MEMBERS' => $c_members, 'C_CATCHALL' => $c_catchall, 'C_STATUS' => $c_status, 'ARE_YOU_SURE' => _('Are you sure you want to delete this group inbox ?'), 'Yes' => _('Yes'), 'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')]];
 		_p(tpl_apply($tpl));
 		break;
 	case 'del_submit':

@@ -22,23 +22,23 @@ defined('_SECURE_') or die('Forbidden');
 function logger_print($log, $level='', $label='') {
 	global $core_config, $user_config;
 
-	$remote = ( trim($_SERVER['REMOTE_ADDR']) ? trim($_SERVER['REMOTE_ADDR']) : '-' );
-	$host = ( trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-' );
-	$logfile = ( $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log' );
+	$remote = ( trim((string) $_SERVER['REMOTE_ADDR']) ?: '-' );
+	$host = ( trim((string) $_SERVER['HTTP_HOST']) ?: '-' );
+	$logfile = ( $core_config['logfile'] ?: 'playsms.log' );
 
 	// max log length is 1000
-	if (strlen($log) > 1000) {
-		$log = substr($log, 0, 1000);
+	if (strlen((string) $log) > 1000) {
+		$log = substr((string) $log, 0, 1000);
 	}
 
 	// default level is 2
 	$level = ( (int)$level > 0 ? (int)$level : 2 );
 
 	// label should not have spaces, replace single space with double _
-	$label = str_replace(' ', '__', $label);
-	$label = ( $label ? $label : '-' );
+	$label = str_replace(' ', '__', (string) $label);
+	$label = ( $label ?: '-' );
 
-	$username = ( $user_config['username'] ? $user_config['username'] : '-' );
+	$username = ( $user_config['username'] ?: '-' );
 	if (logger_get_level() >= $level) {
 		$type = 'L'.$level;
 		$fn = $core_config['apps_path']['logs'].'/'.$logfile;
@@ -70,7 +70,7 @@ function logger_set_level($level=0) {
 function logger_audit() {
 	global $core_config, $user_config;
 
-	$host = ( trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-' );
+	$host = ( trim((string) $_SERVER['HTTP_HOST']) ?: '-' );
 	if ($core_config['logaudit']) {
 		foreach ($_GET as $key => $val) {
 			if(stristr($key, 'password') === FALSE) {
@@ -87,8 +87,8 @@ function logger_audit() {
 			}
 		}
 		$log = trim($log);
-		$logauditfile = ( $core_config['logauditfile'] ? $core_config['logauditfile'] : 'audit.log' );
-		$username = ( $user_config['username'] ? $user_config['username'] : '-' );
+		$logauditfile = ( $core_config['logauditfile'] ?: 'audit.log' );
+		$username = ( $user_config['username'] ?: '-' );
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$fn = $core_config['apps_path']['logs'].'/'.$logauditfile;
 		if ($fd = fopen($fn, 'a+')) {

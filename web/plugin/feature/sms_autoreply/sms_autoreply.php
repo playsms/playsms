@@ -24,9 +24,7 @@ if (!auth_isvalid()) {
 
 if ($autoreply_id = (int) $_REQUEST['autoreply_id']) {
 	$db_table = _DB_PREF_ . '_featureAutoreply';
-	$conditions = array(
-		'autoreply_id' => $autoreply_id 
-	);
+	$conditions = ['autoreply_id' => $autoreply_id];
 	if (!auth_isadmin()) {
 		$conditions['uid'] = $user_config['uid'];
 	}
@@ -192,7 +190,7 @@ switch (_OP_) {
 	
 	case "sms_autoreply_add_yes":
 		// max keyword is 10 chars
-		$add_autoreply_keyword = substr(trim(strtoupper($_POST['add_autoreply_keyword'])), 0, 10);
+		$add_autoreply_keyword = substr(trim(strtoupper((string) $_POST['add_autoreply_keyword'])), 0, 10);
 		
 		if (auth_isadmin()) {
 			$smsc = $_POST['smsc'];
@@ -218,11 +216,9 @@ switch (_OP_) {
 	
 	case "sms_autoreply_edit":
 		$db_table = _DB_PREF_ . "_featureAutoreply";
-		$conditions = array(
-			'autoreply_id' => $autoreply_id 
-		);
+		$conditions = ['autoreply_id' => $autoreply_id];
 		$list = dba_search($db_table, '*', $conditions);
-		$edit_autoreply_keyword = strtoupper($list[0]['autoreply_keyword']);
+		$edit_autoreply_keyword = strtoupper((string) $list[0]['autoreply_keyword']);
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $list[0]['smsc']) . "</td></tr>";
 		}
@@ -253,12 +249,8 @@ switch (_OP_) {
 		}
 		if ((int) $autoreply_id && $smsc) {
 			$db_table = _DB_PREF_ . "_featureAutoreply";
-			$items = array(
-				'smsc' => $smsc 
-			);
-			$conditions = array(
-				'autoreply_id' => (int) $autoreply_id 
-			);
+			$items = ['smsc' => $smsc];
+			$conditions = ['autoreply_id' => (int) $autoreply_id];
 			dba_update($db_table, $items, $conditions);
 			$_SESSION['dialog']['info'][] = _('SMS autoreply has been updated');
 		} else {
@@ -317,7 +309,7 @@ switch (_OP_) {
 	case "sms_autoreply_scenario_add_yes":
 		$add_autoreply_scenario_result = $_POST['add_autoreply_scenario_result'];
 		for ($i = 1; $i <= 7; $i++) {
-			${"add_autoreply_scenario_param" . $i} = trim(strtoupper($_POST['add_autoreply_scenario_param' . $i]));
+			${"add_autoreply_scenario_param" . $i} = trim(strtoupper((string) $_POST['add_autoreply_scenario_param' . $i]));
 		}
 		if ($add_autoreply_scenario_result) {
 			for ($i = 1; $i <= 7; $i++) {
@@ -387,7 +379,7 @@ switch (_OP_) {
 		$autoreply_scenario_id = $_POST['autoreply_scenario_id'];
 		$edit_autoreply_scenario_result = $_POST['edit_autoreply_scenario_result'];
 		for ($i = 1; $i <= 7; $i++) {
-			${"edit_autoreply_scenario_param" . $i} = trim(strtoupper($_POST['edit_autoreply_scenario_param' . $i]));
+			${"edit_autoreply_scenario_param" . $i} = trim(strtoupper((string) $_POST['edit_autoreply_scenario_param' . $i]));
 		}
 		if ($edit_autoreply_scenario_result) {
 			for ($i = 1; $i <= 7; $i++) {

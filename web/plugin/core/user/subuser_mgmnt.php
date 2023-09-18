@@ -33,29 +33,13 @@ if ($_REQUEST['uname']) {
 
 switch (_OP_) {
 	case "subuser_list":
-		$search_var = array(
-			_('Registered') => 'register_datetime',
-			_('Username') => 'username',
-			_('Name') => 'name',
-			_('Mobile') => 'mobile',
-			_('ACL') => 'acl_id' 
-		);
-		$search = themes_search($search_var, '', array(
-			'acl_id' => 'acl_getid' 
-		));
-		$conditions = array(
-			'flag_deleted' => 0,
-			'status' => 4,
-			'parent_uid' => $user_config['uid'] 
-		);
+		$search_var = [_('Registered') => 'register_datetime', _('Username') => 'username', _('Name') => 'name', _('Mobile') => 'mobile', _('ACL') => 'acl_id'];
+		$search = themes_search($search_var, '', ['acl_id' => 'acl_getid']);
+		$conditions = ['flag_deleted' => 0, 'status' => 4, 'parent_uid' => $user_config['uid']];
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list");
-		$extras = array(
-			'ORDER BY' => 'register_datetime DESC, username',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 		if ($err = TRUE) {
 			$content = _dialog();
@@ -84,7 +68,7 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
-		for ($i = 0; $i < count($list); $i++) {
+		for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 			
 			$action = "";
 			
@@ -141,11 +125,11 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
-		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
+		$add_datetime_timezone = ($add_datetime_timezone ?: core_get_timezone());
 		
 		// get language options
-		$lang_list = '';
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
+		$lang_list = [];
+		for ($i = 0; $i < (is_countable($core_config['plugins']['list']['language']) ? count($core_config['plugins']['list']['language']) : 0); $i++) {
 			$language = $core_config['plugins']['list']['language'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {

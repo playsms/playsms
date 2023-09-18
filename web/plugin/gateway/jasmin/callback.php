@@ -51,15 +51,10 @@ if ($remote_smslog_id && $message_status) {
 		$data = sendsms_get_sms($smslog_id);
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
-		switch ($message_status) {
-			case "DELIVRD":
-			case "ESME_ROK":
-				$p_status = 3;
-				break; // delivered
-			default :
-				$p_status = 2;
-				break; // failed
-		}
+		$p_status = match ($message_status) {
+      "DELIVRD", "ESME_ROK" => 3,
+      default => 2,
+  };
 		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $p_status, 2, "jasmin callback");
 		dlr($smslog_id, $uid, $p_status);
 		
@@ -72,12 +67,12 @@ if ($remote_smslog_id && $message_status) {
 // incoming message
 $sms_datetime = core_get_datetime();
 $sms_sender = $requests['from'];
-$message = htmlspecialchars_decode(urldecode($requests['content']));
+$message = htmlspecialchars_decode(urldecode((string) $requests['content']));
 $sms_receiver = $requests['to'];
 $smsc = $requests['origin-connector'];
 if ($remote_smslog_id && $message) {
 	_log("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "jasmin callback");
-	$sms_sender = addslashes($sms_sender);
+	$sms_sender = addslashes((string) $sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 	

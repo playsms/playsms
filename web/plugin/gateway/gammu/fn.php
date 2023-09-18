@@ -40,7 +40,7 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 		$dir[1] = $plugin_config['gammu']['path'] . '/error/';
 		
 		// list all files in sent and error dir
-		$fn = array();
+		$fn = [];
 		for ($i = 0; $i < count($dir); $i++) {
 			$j = 0;
 			if ($handle = @opendir($dir[$i])) {
@@ -78,8 +78,8 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 		
 		// if file not found
 		if (!file_exists($the_fn)) {
-			$p_datetime_stamp = strtotime($p_datetime);
-			$p_update_stamp = strtotime($p_update);
+			$p_datetime_stamp = strtotime((string) $p_datetime);
+			$p_update_stamp = strtotime((string) $p_update);
 			$p_delay = floor(($p_update_stamp - $p_datetime_stamp) / 86400);
 			
 			// set failed if its at least 2 days old
@@ -110,8 +110,8 @@ function gammu_hook_getsmsinbox() {
 		$sms_receiver = $plugin_config['gammu']['sms_receiver'];
 		
 		$handle = @opendir($plugin_config['gammu']['path'] . "/inbox");
-		$messages = array();
-		$files = array();
+		$messages = [];
+		$files = [];
 		while ($sms_in_file = @readdir($handle)) {
 			if ($sms_in_file != "." && $sms_in_file != "..") {
 				$files[] = $sms_in_file;
@@ -121,9 +121,9 @@ function gammu_hook_getsmsinbox() {
 		foreach ($files as $sms_in_file) {
 			$fn = $plugin_config['gammu']['path'] . "/inbox/$sms_in_file";
 			
-			$matches = array();
+			$matches = [];
 			preg_match('/IN(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_(\d+)_([\w\-\+\s]+)_(\d+)/', basename($fn), $matches);
-			list($s, $year, $month, $date, $hour, $minute, $second, $serial, $sms_sender, $seq) = $matches;
+			[$s, $year, $month, $date, $hour, $minute, $second, $serial, $sms_sender, $seq] = $matches;
 			$sms_datetime = $year . "-" . $month . "-" . $date . " " . $hour . ":" . $minute . ":" . $second;
 			
 			// message is in UTF-16, need to convert it to UTF-8
@@ -141,11 +141,7 @@ function gammu_hook_getsmsinbox() {
 				if ($sms_sender && $sms_datetime) {
 					// adding message parts to existing array
 					if (array_key_exists($sms_sender, $messages) && (int) $seq > 0) {
-						$messages[$sms_sender][] = array(
-							"fn" => $fn,
-							"message" => $message,
-							"msg_datetime" => $sms_datetime 
-						);
+						$messages[$sms_sender][] = ["fn" => $fn, "message" => $message, "msg_datetime" => $sms_datetime];
 					} else if (!array_key_exists($sms_sender, $messages) || (array_key_exists($sms_sender, $messages) && (int) $seq == 0)) {
 						if (count($messages) > 0) {
 							// saving concatenated message parts
@@ -165,13 +161,7 @@ function gammu_hook_getsmsinbox() {
 							unset($messages);
 						}
 						// new message parts array
-						$messages[$sms_sender] = array(
-							array(
-								"fn" => $fn,
-								"message" => $message,
-								"msg_datetime" => $sms_datetime 
-							) 
-						);
+						$messages[$sms_sender] = [["fn" => $fn, "message" => $message, "msg_datetime" => $sms_datetime]];
 					}
 				}
 			}
@@ -204,9 +194,9 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_sender = stripslashes((string) $sms_sender);
+	$sms_footer = stripslashes((string) $sms_footer);
+	$sms_msg = stripslashes((string) $sms_msg);
 	$date = date('Ymd', time());
 	$time = date('Gis', time());
 	

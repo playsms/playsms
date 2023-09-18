@@ -4,7 +4,7 @@ defined('_SECURE_') or die('Forbidden');
 function infobip_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "") {
 	global $plugin_config;
 	
-	list($c_sms_credit, $c_sms_status) = infobip_getsmsstatus($smslog_id);
+	[$c_sms_credit, $c_sms_status] = infobip_getsmsstatus($smslog_id);
 	// pending
 	$p_status = 0;
 	if ($c_sms_status) {
@@ -32,13 +32,7 @@ function infobip_hook_playsmsd() {
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$gpid = $db_row['p_gpid'];
-			core_hook('infobip', 'getsmsstatus', array(
-				$gpid,
-				$uid,
-				$smslog_id,
-				$p_datetime,
-				$p_update 
-			));
+			core_hook('infobip', 'getsmsstatus', [$gpid, $uid, $smslog_id, $p_datetime, $p_update]);
 		}
 	}
 }
@@ -52,7 +46,7 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
+	$sms_sender = stripslashes((string) $sms_sender);
 	if ($plugin_config['infobip']['module_sender']) {
 		$sms_sender = $plugin_config['infobip']['module_sender'];
 	}
@@ -62,18 +56,14 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
-	switch ($sms_type) {
-		case "flash" :
-			$sms_type = 1;
-			break;
-		case "text" :
-		default :
-			$sms_type = 0;
-	}
+	$sms_type = match ($sms_type) {
+     "flash" => 1,
+     default => 0,
+ };
 	
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {
-			$sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
+			$sms_msg = mb_convert_encoding((string) $sms_msg, "UCS-2BE", "auto");
 		}
 		$sms_msg = core_str2hex($sms_msg);
 		$unicode = 8;
@@ -81,11 +71,11 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	}
 	
 	// fixme anton - if sms_from is not set in gateway_number and global number, we cannot pass it to infobip
-	$set_sms_from = ($sms_from == $sms_sender ? '' : urlencode($sms_from));
+	$set_sms_from = ($sms_from == $sms_sender ? '' : urlencode((string) $sms_from));
 	
 	// query_string = "sendmsg?api_id=".$plugin_config['infobip']['api_id']."&user=".$plugin_config['infobip']['username']."&password=".$plugin_config['infobip']['password']."&to=".urlencode($sms_to)."&msg_type=$sms_type&text=".urlencode($sms_msg)."&unicode=".$unicode.$set_sms_from;
 	$query_string = "sendsms/plain?user=" . $plugin_config['infobip']['username'] . "&password=" . $plugin_config['infobip']['password'];
-	$query_string .= "&GSM=" . urlencode($sms_to) . $smsType . "=" . urlencode($sms_msg) . "&sender=" . $sms_from;
+	$query_string .= "&GSM=" . urlencode((string) $sms_to) . $smsType . "=" . urlencode((string) $sms_msg) . "&sender=" . $sms_from;
 	$query_string .= "&IsFlash=" . $sms_type . "&DataCoding=" . $unicode;
 	
 	$url = $plugin_config['infobip']['send_url'] . "/" . $query_string;
@@ -102,7 +92,7 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	}
 	
 	$url .= $additional_param;
-	$url = str_replace("&&", "&", $url);
+	$url = str_replace("&&", "&", (string) $url);
 	
 	_log("url:" . $url, 3, "infobip outgoing");
 	$xml = file_get_contents($url);
@@ -111,9 +101,9 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	
 	if ($response) {
 		if ($response['result']['status'] == 0) {
-			if ($apimsgid = trim($response['result']['messageid'])) {
+			if ($apimsgid = trim((string) $response['result']['messageid'])) {
 				infobip_setsmsapimsgid($smslog_id, $apimsgid);
-				list($c_sms_credit, $c_sms_status) = infobip_getsmsstatus($smslog_id);
+				[$c_sms_credit, $c_sms_status] = infobip_getsmsstatus($smslog_id);
 				// pending
 				$p_status = 0;
 				if ($c_sms_status) {
@@ -128,7 +118,7 @@ function infobip_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			_log("smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " NOT_ENOUGH_CREDIT", 2, "infobip outgoing");
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
-			$fd = str_replace("\n", " ", $fd);
+			$fd = str_replace("\n", " ", (string) $fd);
 			$fd = str_replace("\r", " ", $fd);
 			_log("smslog_id:" . $smslog_id . " response:" . $response['result']['status'] . " UNKNOWN_CODE", 2, "infobip outgoing");
 		}
@@ -201,10 +191,7 @@ function infobip_getsmsstatus($smslog_id) {
 				_log("smslog_id:" . $smslog_id . " apimsgid:" . $apimsgid . " charge:" . $credit . " status:" . $status . " sms_status:" . $c_sms_status, 2, "infobip getsmsstatus");
 			}
 		}
-		return array(
-			$c_sms_credit,
-			$c_sms_status 
-		);
+		return [$c_sms_credit, $c_sms_status];
 	}
 }
 

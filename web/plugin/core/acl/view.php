@@ -27,25 +27,13 @@ $acl_name = acl_getname($id);
 
 switch (_OP_) {
 	case "user_list":
-		$search_var = array(
-			_('Registered') => 'register_datetime',
-			_('Username') => 'username',
-			_('Name') => 'name',
-			_('Mobile') => 'mobile' 
-		);
+		$search_var = [_('Registered') => 'register_datetime', _('Username') => 'username', _('Name') => 'name', _('Mobile') => 'mobile'];
 		$search = themes_search($search_var, '');
-		$conditions = array(
-			'flag_deleted' => 0,
-			'acl_id' => $id 
-		);
+		$conditions = ['flag_deleted' => 0, 'acl_id' => $id];
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=main&inc=core_acl&route=view&op=user_list&id=" . $id);
-		$extras = array(
-			'ORDER BY' => 'register_datetime DESC, username',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 
 		$content .= _dialog() . "
@@ -75,7 +63,7 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
-		for ($i = 0; $i < count($list); $i++) {
+		for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 			
 			$action = "";
 			

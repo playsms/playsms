@@ -26,7 +26,7 @@ if (_OP_ == 'register') {
 	
 	if (!auth_isvalid()) {
 		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha'])) {
-			$data = array();
+			$data = [];
 			$data['name'] = $_REQUEST['name'];
 			$data['username'] = $_REQUEST['username'];
 			$data['mobile'] = $_REQUEST['mobile'];
@@ -36,7 +36,7 @@ if (_OP_ == 'register') {
 			$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
 			
 			// set parent for subuser
-			$parent_uid = ((int) $site_config['uid'] ? (int) $site_config['uid'] : 0);
+			$parent_uid = ((int) $site_config['uid'] ?: 0);
 			if ($parent_uid) {
 				// regardless of default user status if register form site config then user status become subuser and parent is site config owner
 				$data['parent_uid'] = $parent_uid;
@@ -53,31 +53,11 @@ if (_OP_ == 'register') {
 				$reg_data = $ret['data'];
 				
 				// send email
-				$tpl = array(
-					'name' => 'auth_register_email',
-					'vars' => array(
-						'Name' => _('Name'),
-						'Username' => _('Username'),
-						'Password' => _('Password'),
-						'Mobile' => _('Mobile'),
-						'Credit' => _('Credit'),
-						'Email' => _('Email') 
-					),
-					'injects' => array(
-						'core_config',
-						'reg_data' 
-					) 
-				);
+				$tpl = ['name' => 'auth_register_email', 'vars' => ['Name' => _('Name'), 'Username' => _('Username'), 'Password' => _('Password'), 'Mobile' => _('Mobile'), 'Credit' => _('Credit'), 'Email' => _('Email')], 'injects' => ['core_config', 'reg_data']];
 				$email_body = tpl_apply($tpl);
 				$email_subject = _('New account registration');
 				
-				$mail_data = array(
-					'mail_from_name' => $core_config['main']['web_title'],
-					'mail_from' => $core_config['main']['email_service'],
-					'mail_to' => $ret['data']['email'],
-					'mail_subject' => $email_subject,
-					'mail_body' => $email_body 
-				);
+				$mail_data = ['mail_from_name' => $core_config['main']['web_title'], 'mail_from' => $core_config['main']['email_service'], 'mail_to' => $ret['data']['email'], 'mail_subject' => $email_subject, 'mail_body' => $email_body];
 				if (sendmail($mail_data)) {
 					$_SESSION['dialog']['info'][] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $ret['data']['username'] . ")";
 				} else {
@@ -109,49 +89,14 @@ if (_OP_ == 'register') {
 		}
 	}
 
-	$lastpost = array(
-		'name' => _lastpost('name'),
-		'username' => _lastpost('username'),
-		'mobile' => _lastpost('mobile'),
-		'email' => _lastpost('email')
-	);
+	$lastpost = ['name' => _lastpost('name'), 'username' => _lastpost('username'), 'mobile' => _lastpost('mobile'), 'email' => _lastpost('email')];
 	
 	// captcha
 	$captcha = new CaptchaBuilder();
 	$captcha->build();
 	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
 	
-	$tpl = array(
-		'name' => 'auth_register',
-		'vars' => array(
-			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
-			'WEB_TITLE' => $core_config['main']['web_title'],
-			'DIALOG_DISPLAY' => _dialog(),
-			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register'),
-			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'),
-			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),
-			'CAPTCHA_IMAGE' => $captcha->inline(),
-			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')),
-			'Name' => _('Name'),
-			'Username' => _('Username'),
-			'Mobile' => _('Mobile'),
-			'Email' => _('Email'),
-			'Register an account' => _('Register an account'),
-			'Login' => _('Login'),
-			'Submit' => _('Submit'),
-			'Recover password' => _('Recover password'),
-			'Verify captcha' => _('Verify captcha'),
-			'logo_url' => $core_config['main']['logo_url'] 
-		),
-		'ifs' => array(
-			'enable_forgot' => $core_config['main']['enable_forgot'],
-			'enable_logo' => $enable_logo,
-			'show_web_title' => $show_web_title 
-		),
-		'injects' => array(
-			'lastpost'
-		)
-	);
+	$tpl = ['name' => 'auth_register', 'vars' => ['HTTP_PATH_BASE' => $core_config['http_path']['base'], 'WEB_TITLE' => $core_config['main']['web_title'], 'DIALOG_DISPLAY' => _dialog(), 'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register'), 'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'), 'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'), 'CAPTCHA_IMAGE' => $captcha->inline(), 'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')), 'Name' => _('Name'), 'Username' => _('Username'), 'Mobile' => _('Mobile'), 'Email' => _('Email'), 'Register an account' => _('Register an account'), 'Login' => _('Login'), 'Submit' => _('Submit'), 'Recover password' => _('Recover password'), 'Verify captcha' => _('Verify captcha'), 'logo_url' => $core_config['main']['logo_url']], 'ifs' => ['enable_forgot' => $core_config['main']['enable_forgot'], 'enable_logo' => $enable_logo, 'show_web_title' => $show_web_title], 'injects' => ['lastpost']];
 	
 	_p(tpl_apply($tpl));
 }

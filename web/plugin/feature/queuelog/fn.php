@@ -20,7 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 function queuelog_get($line_per_page = '', $limit = '') {
 	global $user_config;
-	$ret = array();
+	$ret = [];
 	if ($user_config['status'] != 2) {
 		$user_query = "AND uid='" . $user_config['uid'] . "'";
 	}
@@ -34,10 +34,7 @@ function queuelog_get($line_per_page = '', $limit = '') {
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_id = $db_row['id'];
-		$db_row['count'] = dba_count(_DB_PREF_ . '_tblSMSOutgoing_queue_dst', array(
-			'flag' => 0,
-			'queue_id' => $c_id 
-		));
+		$db_row['count'] = dba_count(_DB_PREF_ . '_tblSMSOutgoing_queue_dst', ['flag' => 0, 'queue_id' => $c_id]);
 		$ret[] = $db_row;
 	}
 	return $ret;

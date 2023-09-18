@@ -41,15 +41,8 @@ function country_add($name, $code, $prefix = '') {
 	$prefix = (trim($prefix) ? core_sanitize_numeric($prefix) : '');
 	
 	$db_table = _DB_PREF_ . '_tblCountry';
-	if (dba_isavail($db_table, array(
-		'country_name' => $name,
-		'country_code' => $code
-	))) {
-		$items = array(
-			'name' => $name,
-			'code' => $code,
-			'prefix' => $prefix,
-		);
+	if (dba_isavail($db_table, ['country_name' => $name, 'country_code' => $code])) {
+		$items = ['name' => $name, 'code' => $code, 'prefix' => $prefix];
 		if ($result = dba_add($db_table, $items)) {
 			_log('id:' . $result . ' name:' . $name . ' code:' . $code . ' prefix:' . $prefix, 3, 'country_add');
 			$ret = TRUE;
@@ -72,9 +65,7 @@ function country_remove($id) {
 	}
 	
 	$db_table = _DB_PREF_ . '_tblCountry';
-	if ($result = dba_remove($db_table, array(
-		'id' => $id,
-	))) {
+	if ($result = dba_remove($db_table, ['id' => $id])) {
 		_log('id:' . $id, 3, 'country_remove');
 		$ret = TRUE;
 	}
@@ -88,7 +79,7 @@ function country_remove($id) {
  * @param array $data Updated data
  * @return boolean
  */
-function country_update($id, $data = array()) {
+function country_update($id, $data = []) {
 	$ret = FALSE;
 	$replaced = '';
 	
@@ -97,19 +88,15 @@ function country_update($id, $data = array()) {
 	}
 	
 	$db_table = _DB_PREF_ . '_tblCountry';
-	$result = dba_search($db_table, '*', array(
-		'id' => $id,
-	));
+	$result = dba_search($db_table, '*', ['id' => $id]);
 	foreach ($result[0] as $key => $val) {
-		$items[$key] = ($data[$key] ? $data[$key] : $val);
+		$items[$key] = ($data[$key] ?: $val);
 		if ($data[$key]) {
 			$replaced = $key . ':' . $val . ' ';
 		}
 	}
 	if ($items && trim($replaced)) {
-		if (dba_update($db_table, $items, array(
-			'id' => $id
-		))) {
+		if (dba_update($db_table, $items, ['id' => $id])) {
 			_log('id:' . $id . ' ' . trim($replaced) , 3, 'country_update');
 			$ret = TRUE;
 		}
@@ -125,9 +112,7 @@ function country_update($id, $data = array()) {
  */
 function country_search($conditions = '', $keywords = '') {
 	$db_table = _DB_PREF_ . '_tblCountry';
-	$results = dba_search($db_table, '*', $conditions, $keywords, array(
-		'ORDER BY' => 'country_name'
-	));
+	$results = dba_search($db_table, '*', $conditions, $keywords, ['ORDER BY' => 'country_name']);
 	
 	return $results;
 }

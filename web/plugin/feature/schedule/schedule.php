@@ -112,11 +112,7 @@ switch (_OP_) {
 	
 	case "status":
 		$id = $_REQUEST['id'];
-		if ($id && dba_isexists(_DB_PREF_ . "_featureSchedule", array(
-			'uid' => $user_config['uid'],
-			'id' => $id,
-			'flag_deleted' => '0' 
-		), 'AND')) {
+		if ($id && dba_isexists(_DB_PREF_ . "_featureSchedule", ['uid' => $user_config['uid'], 'id' => $id, 'flag_deleted' => '0'], 'AND')) {
 			$status = ($_REQUEST['status'] == 1 ? 1 : 2);
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . time() . "', flag_active='$status' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
@@ -133,10 +129,7 @@ switch (_OP_) {
 	
 	case "del":
 		$id = $_REQUEST['id'];
-		if ($id && dba_isexists(_DB_PREF_ . "_featureSchedule", array(
-			'uid' => $user_config['uid'],
-			'id' => $id 
-		), 'AND')) {
+		if ($id && dba_isexists(_DB_PREF_ . "_featureSchedule", ['uid' => $user_config['uid'], 'id' => $id], 'AND')) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . time() . "', flag_active='2', flag_deleted='1' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
 			if (@dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS schedule has been deleted');

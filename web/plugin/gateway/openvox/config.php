@@ -5,15 +5,10 @@ defined('_SECURE_') or die('Forbidden');
 $data = registry_search(1, 'gateway', 'openvox');
 $plugin_config['openvox'] = $data['gateway']['openvox'];
 $plugin_config['openvox']['name'] = 'openvox';
-$plugin_config['openvox']['gateway_port'] = ($plugin_config['openvox']['gateway_port'] ? $plugin_config['openvox']['gateway_port'] : '80');
+$plugin_config['openvox']['gateway_port'] = ($plugin_config['openvox']['gateway_port'] ?: '80');
 
 // smsc configuration
-$plugin_config['openvox']['_smsc_config_'] = array(
-	'gateway_host' => _('Gateway host'),
-	'gateway_port' => _('Gateway port'),
-	'username' => _('Username'),
-	'password' => _('Password') 
-);
+$plugin_config['openvox']['_smsc_config_'] = ['gateway_host' => _('Gateway host'), 'gateway_port' => _('Gateway port'), 'username' => _('Username'), 'password' => _('Password')];
 
 //$gateway_number = $plugin_config['openvox']['module_sender'];
 

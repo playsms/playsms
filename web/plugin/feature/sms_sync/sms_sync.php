@@ -32,30 +32,13 @@ switch (_OP_) {
 		}
 		$sync_url = $core_config['http_path']['base'] . '/plugin/feature/sms_sync/sync.php?uid=' . $user_config['uid'];
 		unset($tpl);
-		$tpl = array(
-			'name' => 'sms_sync',
-			'vars' => array(
-				'DIALOG_DISPLAY' => _dialog(),
-				'HINT_SECRET' => _hint(_('Secret key is used in SMSSync app')) ,
-				'HINT_ENABLE' => _hint(_('Check to enable receiving push messages from SMSSync app')) ,
-				'SECRET' => $sms_sync_secret,
-				'CHECKED' => $option_enable,
-				'SYNC_URL' => $sync_url,
-				'Manage sync' => _('Manage sync') ,
-				'Secret key' => _('Secret key') ,
-				'Enable SMS Sync' => _('Enable SMS Sync') ,
-				'Sync URL' => _('Sync URL') ,
-				'Notes' => _('Notes') ,
-				'Download SMSSync app for Android from' => _('Download SMSSync app for Android from') ,
-				'Save' => _('Save')
-			)
-		);
+		$tpl = ['name' => 'sms_sync', 'vars' => ['DIALOG_DISPLAY' => _dialog(), 'HINT_SECRET' => _hint(_('Secret key is used in SMSSync app')), 'HINT_ENABLE' => _hint(_('Check to enable receiving push messages from SMSSync app')), 'SECRET' => $sms_sync_secret, 'CHECKED' => $option_enable, 'SYNC_URL' => $sync_url, 'Manage sync' => _('Manage sync'), 'Secret key' => _('Secret key'), 'Enable SMS Sync' => _('Enable SMS Sync'), 'Sync URL' => _('Sync URL'), 'Notes' => _('Notes'), 'Download SMSSync app for Android from' => _('Download SMSSync app for Android from'), 'Save' => _('Save')]];
 		_p(tpl_apply($tpl));
 		break;
 
 	case "sms_sync_save":
 		$items['secret'] = $_POST['sms_sync_secret'];
-		$items['enable'] = (trim($_POST['sms_sync_enable']) ? 1 : 0);
+		$items['enable'] = (trim((string) $_POST['sms_sync_enable']) ? 1 : 0);
 		if (registry_update($user_config['uid'], 'feature', 'sms_sync', $items)) {
 			$_SESSION['dialog']['info'][] = _('SMS Sync configuration has been saved');
 		} else {

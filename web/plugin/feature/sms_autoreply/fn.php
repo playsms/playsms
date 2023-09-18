@@ -73,11 +73,11 @@ function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autorep
 function sms_autoreply_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_id, $autoreply_keyword, $autoreply_param = '', $smsc = '', $raw_message = '') {
 	$ok = false;
 	
-	$autoreply_keyword = strtoupper(trim($autoreply_keyword));
-	$autoreply_param = strtoupper(trim($autoreply_param));
+	$autoreply_keyword = strtoupper(trim((string) $autoreply_keyword));
+	$autoreply_param = strtoupper(trim((string) $autoreply_param));
 	$autoreply_request = $autoreply_keyword . " " . $autoreply_param;
 	$array_autoreply_request = preg_split('/[\s]+/', $autoreply_request);
-	for ($i = 0; $i < count($array_autoreply_request); $i++) {
+	for ($i = 0; $i < (is_countable($array_autoreply_request) ? count($array_autoreply_request) : 0); $i++) {
 		$autoreply_part[$i] = trim($array_autoreply_request[$i]);
 		$tmp_autoreply_request .= trim($array_autoreply_request[$i]) . " ";
 	}
@@ -94,8 +94,8 @@ function sms_autoreply_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 		$ok = false;
 		$c_username = user_uid2username($c_uid);
 		$unicode = core_detect_unicode($autoreply_scenario_result);
-		$autoreply_scenario_result = addslashes($autoreply_scenario_result);
-		list($ok, $to, $smslog_id, $queue) = sendsms_helper($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode, $smsc);
+		$autoreply_scenario_result = addslashes((string) $autoreply_scenario_result);
+		[$ok, $to, $smslog_id, $queue] = sendsms_helper($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode, $smsc);
 		$ok = $ok[0];
 	}
 	

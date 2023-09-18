@@ -39,7 +39,7 @@ if (is_array($requests)) {
 }
 
 // auth first
-$authcode = trim($requests['authcode']);
+$authcode = trim((string) $requests['authcode']);
 $data = registry_search(0, 'gateway', 'generic');
 if (!($authcode && $data['gateway']['generic']['callback_url_authcode'] && ($authcode == $data['gateway']['generic']['callback_url_authcode']))) {
 	_log("error auth authcode:" . $authcode . " smsc:" . $smsc . " message_id:" . $remote_smslog_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
@@ -62,17 +62,11 @@ if ($remote_smslog_id && $message_status) {
 		$data = sendsms_get_sms($smslog_id);
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
-		switch ($message_status) {
-			case "1":
-				$p_status = 1;
-				break; // sent
-			case "3":
-				$p_status = 3;
-				break; // delivered
-			default :
-				$p_status = 2;
-				break; // failed
-		}
+		$p_status = match ($message_status) {
+      "1" => 1,
+      "3" => 3,
+      default => 2,
+  };
 		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $status, 2, "generic callback");
 		dlr($smslog_id, $uid, $p_status);
 		
@@ -85,12 +79,12 @@ if ($remote_smslog_id && $message_status) {
 // incoming message
 $sms_datetime = core_get_datetime();
 $sms_sender = $requests['from'];
-$message = htmlspecialchars_decode(urldecode($requests['message']));
+$message = htmlspecialchars_decode(urldecode((string) $requests['message']));
 $sms_receiver = $requests['to'];
 $smsc = $requests['smsc'];
 if ($remote_smslog_id && $message) {
 	_log("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
-	$sms_sender = addslashes($sms_sender);
+	$sms_sender = addslashes((string) $sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 	

@@ -34,14 +34,10 @@ if ($remote_smslog_id && $status && ($status != 'received')) {
 		$data = sendsms_get_sms($smslog_id);
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
-		switch ($status) {
-			case "sent":
-				$p_status = 1;
-				break; // delivered
-			default :
-				$p_status = 2;
-				break; // failed
-		}
+		$p_status = match ($status) {
+      "sent" => 1,
+      default => 2,
+  };
 		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $status, 2, "twilio callback");
 		dlr($smslog_id, $uid, $p_status);
 		ob_end_clean();
@@ -52,14 +48,14 @@ if ($remote_smslog_id && $status && ($status != 'received')) {
 // incoming message
 $sms_datetime = $core_config['datetime']['now'];
 $sms_sender = $requests['From'];
-$message = htmlspecialchars_decode(urldecode($requests['Body']));
+$message = htmlspecialchars_decode(urldecode((string) $requests['Body']));
 $sms_receiver = $requests['To'];
 $smsc = $requests['smsc'];
 
 // ref: https://www.twilio.com/docs/api/rest/sms#list
 if ($remote_smslog_id && $message && ($status == 'received')) {
 	_log("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "twilio callback");
-	$sms_sender = addslashes($sms_sender);
+	$sms_sender = addslashes((string) $sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 }

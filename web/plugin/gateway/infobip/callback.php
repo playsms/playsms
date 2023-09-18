@@ -15,7 +15,7 @@ if (!$called_from_hook_call) {
 
 $cb_from = $_REQUEST['sender'];
 $cb_to = $_REQUEST['receiver'];
-$cb_timestamp = ($_REQUEST['datetime'] ? strtotime($_REQUEST['datetime']) : time());
+$cb_timestamp = ($_REQUEST['datetime'] ? strtotime((string) $_REQUEST['datetime']) : time());
 $cb_text = $_REQUEST['text'];
 $cb_status = $_REQUEST['status'];
 $cb_charge = $_REQUEST['charge'];
@@ -29,9 +29,9 @@ $cb_smsc = $_REQUEST['smsc'];
 if ($cb_timestamp && $cb_from && $cb_text) {
 	$cb_datetime = date($datetime_format, $cb_timestamp);
 	$sms_datetime = trim($cb_datetime);
-	$sms_sender = trim($cb_from);
-	$message = trim(htmlspecialchars_decode(urldecode($cb_text)));
-	$sms_receiver = trim($cb_to);
+	$sms_sender = trim((string) $cb_from);
+	$message = trim(htmlspecialchars_decode(urldecode((string) $cb_text)));
+	$sms_receiver = trim((string) $cb_to);
 	
 	_log("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:[" . $message . "]", 3, "infobip incoming");
 	

@@ -44,10 +44,10 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 	global $core_config;
 	$ok = false;
 	$sms_to = $sms_sender; // we are replying to this sender
-	$quiz_keyword = strtoupper(trim($quiz_keyword));
-	$quiz_param = strtoupper(trim($quiz_param));
+	$quiz_keyword = strtoupper(trim((string) $quiz_keyword));
+	$quiz_param = strtoupper(trim((string) $quiz_param));
 	if (($quiz_enable = $list['quiz_enable']) && $quiz_param) {
-		if (strtoupper($list['quiz_answer']) == $quiz_param) {
+		if (strtoupper((string) $list['quiz_answer']) == $quiz_param) {
 			$message = $list['quiz_msg_correct'];
 		} else {
 			$message = $list['quiz_msg_incorrect'];
@@ -58,8 +58,8 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 		if ($logged = @dba_insert_id($db_query)) {
 			if ($message && ($username = user_uid2username($list['uid']))) {
 				$unicode = core_detect_unicode($message);
-				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc);
+				$message = addslashes((string) $message);
+				[$ok, $to, $smslog_id, $queue] = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc);
 			}
 			$ok = true;
 		}

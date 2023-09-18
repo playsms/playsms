@@ -54,18 +54,11 @@ if ($remote_smslog_id && $client_ref && $status) {
 		$data = sendsms_get_sms($smslog_id);
 		$uid = $data['uid'];
 		$p_status = $data['p_status'];
-		switch ($status) {
-			case "delivered":
-				$p_status = 3;
-				break; // delivered
-			case "buffered":
-			case "accepted":
-				$p_status = 1;
-				break; // sent
-			default :
-				$p_status = 2;
-				break; // failed
-		}
+		$p_status = match ($status) {
+      "delivered" => 3,
+      "buffered", "accepted" => 1,
+      default => 2,
+  };
 		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $status, 2, "nexmo callback");
 		dlr($smslog_id, $uid, $p_status);
 		ob_end_clean();
@@ -74,14 +67,14 @@ if ($remote_smslog_id && $client_ref && $status) {
 }
 
 // incoming message
-$sms_datetime = urldecode($requests['message-timestamp']);
+$sms_datetime = urldecode((string) $requests['message-timestamp']);
 $sms_sender = $requests['msisdn'];
-$message = htmlspecialchars_decode(urldecode($requests['text']));
+$message = htmlspecialchars_decode(urldecode((string) $requests['text']));
 $sms_receiver = $requests['to'];
 $smsc = $requests['smsc'];
 if ($remote_smslog_id && $message) {
 	_log("incoming smsc:" . $smsc . " message_id:" . $remote_smslog_id . " s:" . $sms_sender . " d:" . $sms_receiver, 2, "nexmo callback");
-	$sms_sender = addslashes($sms_sender);
+	$sms_sender = addslashes((string) $sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 }

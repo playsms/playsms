@@ -24,22 +24,13 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "stoplist_list":
-		$search_category = array(
-			_('Mobile') => 'mobile',
-			_('Username') => 'uid' 
-		);
+		$search_category = [_('Mobile') => 'mobile', _('Username') => 'uid'];
 		$base_url = 'index.php?app=main&inc=feature_stoplist&op=stoplist_list';
-		$search = themes_search($search_category, $base_url, array(
-			'uid' => 'user_username2uid' 
-		));
+		$search = themes_search($search_category, $base_url, ['uid' => 'user_username2uid']);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featureStoplist', '', $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'uid',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'uid', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_featureStoplist', '*', '', $keywords, $extras);
 		
 		$content = _dialog() . "
@@ -83,7 +74,7 @@ switch (_OP_) {
 		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 			$pid = $list[$j]['id'];
 			$username = user_uid2username($list[$j]['uid']);
 			$mobile = $list[$j]['mobile'];
@@ -117,9 +108,9 @@ switch (_OP_) {
 		$checkid = $_REQUEST['checkid'];
 		$itemid = $_REQUEST['itemid'];
 		
-		$items = array();
+		$items = [];
 		foreach ($checkid as $key => $val) {
-			if (strtoupper($val) == 'ON') {
+			if (strtoupper((string) $val) == 'ON') {
 				if ($itemid[$key]) {
 					$items[] = $itemid[$key];
 				}
@@ -130,9 +121,7 @@ switch (_OP_) {
 		switch ($go) {
 			case 'delete':
 				foreach ($items as $item) {
-					$conditions = array(
-						'id' => $item 
-					);
+					$conditions = ['id' => $item];
 					if (dba_remove(_DB_PREF_ . '_featureStoplist', $conditions)) {
 						$removed = TRUE;
 					}
@@ -173,7 +162,7 @@ switch (_OP_) {
 	case "stoplist_add_yes":
 		$add_mobile = $_POST['add_mobile'];
 		if ($add_mobile) {
-			$mobiles = explode(',', str_replace(' ', '', $add_mobile));
+			$mobiles = explode(',', str_replace(' ', '', (string) $add_mobile));
 			foreach ($mobiles as $mobile) {
 				blacklist_mobile_add($user_config['uid'], $mobile);
 			}

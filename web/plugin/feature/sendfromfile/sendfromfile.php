@@ -60,11 +60,11 @@ switch (_OP_) {
 		
 		$fn = $_FILES['fncsv']['tmp_name'];
 		$fs = (int) $_FILES['fncsv']['size'];
-		$all_numbers = array();
+		$all_numbers = [];
 		$valid = 0;
 		$invalid = 0;
-		$item_valid = array();
-		$item_invalid = array();
+		$item_valid = [];
+		$item_invalid = [];
 		
 		if ($continue && ($fs == filesize($fn)) && file_exists($fn)) {
 			if (($fd = fopen($fn, 'r')) !== FALSE) {
@@ -72,10 +72,10 @@ switch (_OP_) {
 				$continue = true;
 				while ((($data = fgetcsv($fd, $fs, ',')) !== FALSE) && $continue) {
 					$dup = false;
-					$sms_to = trim($data[0]);
-					$sms_msg = trim($data[1]);
+					$sms_to = trim((string) $data[0]);
+					$sms_msg = trim((string) $data[1]);
 					if (auth_isadmin()) {
-						if ($sms_username = trim($data[2])) {
+						if ($sms_username = trim((string) $data[2])) {
 							if ($uid = user_username2uid($sms_username)) {
 								$data[2] = $sms_username;
 							} else {
@@ -190,7 +190,7 @@ switch (_OP_) {
 	case 'upload_process':
 		@set_time_limit(0);
 		if ($sid = $_REQUEST['sid']) {
-			$data = array();
+			$data = [];
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
 			$db_result = dba_query($db_query);
 			while ($db_row = dba_fetch_array($db_result)) {
@@ -212,8 +212,8 @@ switch (_OP_) {
 				if ($username && $message && count($sms_to)) {
 					$type = 'text';
 					$unicode = core_detect_unicode($message);
-					$message = addslashes($message);
-					list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, $type, $unicode);
+					$message = addslashes((string) $message);
+					[$ok, $to, $smslog_id, $queue] = sendsms_helper($username, $sms_to, $message, $type, $unicode);
 				}
 			}
 			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";

@@ -34,8 +34,8 @@ function keyword_isavail($keyword, $sms_receiver = '') {
 	$reserved = false;
 	
 	$keyword = trim(strtoupper($keyword));
-	for ($i = 0; $i < count($core_config['reserved_keywords']); $i++) {
-		if ($keyword == trim(strtoupper($core_config['reserved_keywords'][$i]))) {
+	for ($i = 0; $i < (is_countable($core_config['reserved_keywords']) ? count($core_config['reserved_keywords']) : 0); $i++) {
+		if ($keyword == trim(strtoupper((string) $core_config['reserved_keywords'][$i]))) {
 			$reserved = true;
 		}
 	}
@@ -48,10 +48,7 @@ function keyword_isavail($keyword, $sms_receiver = '') {
 			
 			// keyword_isavail() on hooks will return TRUE as well if keyword is available
 			// so we're looking for FALSE value
-			if (core_hook($plugin, 'keyword_isavail', array(
-				$keyword,
-				$sms_receiver 
-			)) === FALSE) {
+			if (core_hook($plugin, 'keyword_isavail', [$keyword, $sms_receiver]) === FALSE) {
 				$ok = false;
 				break;
 			}
@@ -82,13 +79,10 @@ function keyword_isexists($keyword, $sms_receiver = '') {
 function keyword_getall() {
 	global $core_config;
 	
-	$ret = array();
+	$ret = [];
 	foreach ($core_config['plugins']['list']['feature'] as $plugin) {
-		list($keyword, $sms_receiver) = core_hook($plugin, 'keyword_getall');
-		$ret[$plugin][] = array(
-			$keyword,
-			$sms_receiver 
-		);
+		[$keyword, $sms_receiver] = core_hook($plugin, 'keyword_getall');
+		$ret[$plugin][] = [$keyword, $sms_receiver];
 	}
 	
 	return $ret;

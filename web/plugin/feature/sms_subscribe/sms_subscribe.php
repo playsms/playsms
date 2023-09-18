@@ -24,9 +24,7 @@ if (!auth_isvalid()) {
 
 if ($subscribe_id = (int) $_REQUEST['subscribe_id']) {
 	$db_table = _DB_PREF_ . '_featureSubscribe';
-	$conditions = array(
-		'subscribe_id' => $subscribe_id 
-	);
+	$conditions = ['subscribe_id' => $subscribe_id];
 	if (!auth_isadmin()) {
 		$conditions['uid'] = $user_config['uid'];
 	}
@@ -246,12 +244,12 @@ switch (_OP_) {
 		break;
 	
 	case "sms_subscribe_add_yes":
-		$add_subscribe_keyword = strtoupper($_POST['add_subscribe_keyword']);
+		$add_subscribe_keyword = strtoupper((string) $_POST['add_subscribe_keyword']);
 		$add_subscribe_msg = $_POST['add_subscribe_msg'];
 		$add_unsubscribe_msg = $_POST['add_unsubscribe_msg'];
-		$add_subscribe_param = strtoupper($_POST['add_subscribe_param']);
-		$add_unsubscribe_param = strtoupper($_POST['add_unsubscribe_param']);
-		$add_forward_param = strtoupper(($_POST['add_forward_param'] ? $_POST['add_forward_param'] : 'BC'));
+		$add_subscribe_param = strtoupper((string) $_POST['add_subscribe_param']);
+		$add_unsubscribe_param = strtoupper((string) $_POST['add_unsubscribe_param']);
+		$add_forward_param = strtoupper(((string) ($_POST['add_forward_param'] ?: 'BC')));
 		$add_unknown_format_msg = $_POST['add_unknown_format_msg'];
 		$add_already_member_msg = $_POST['add_already_member_msg'];
 		$add_expire_msg = $_POST['add_expire_msg'];
@@ -422,13 +420,13 @@ switch (_OP_) {
 		break;
 	
 	case "sms_subscribe_edit_yes":
-		$edit_subscribe_keyword = strtoupper($_POST['edit_subscribe_keyword']);
+		$edit_subscribe_keyword = strtoupper((string) $_POST['edit_subscribe_keyword']);
 		$edit_subscribe_msg = $_POST['edit_subscribe_msg'];
 		$edit_unsubscribe_msg = $_POST['edit_unsubscribe_msg'];
-		$edit_subscribe_param = strtoupper($_POST['edit_subscribe_param']);
-		$edit_unsubscribe_param = strtoupper($_POST['edit_unsubscribe_param']);
-		$edit_forward_param = strtoupper(($_POST['edit_forward_param'] ? $_POST['edit_forward_param'] : 'BC'));
-		$edit_forward_param = strtoupper($_POST['edit_forward_param']);
+		$edit_subscribe_param = strtoupper((string) $_POST['edit_subscribe_param']);
+		$edit_unsubscribe_param = strtoupper((string) $_POST['edit_unsubscribe_param']);
+		$edit_forward_param = strtoupper(((string) ($_POST['edit_forward_param'] ?: 'BC')));
+		$edit_forward_param = strtoupper((string) $_POST['edit_forward_param']);
 		$edit_unknown_format_msg = $_POST['edit_unknown_format_msg'];
 		$edit_already_member_msg = $_POST['edit_already_member_msg'];
 		$edit_expire_msg = $_POST['edit_expire_msg'];
@@ -671,9 +669,7 @@ switch (_OP_) {
 		break;
 	
 	case "msg_view":
-		$list = dba_search(_DB_PREF_ . '_featureSubscribe', 'subscribe_keyword', array(
-			'subscribe_id' => $subscribe_id 
-		));
+		$list = dba_search(_DB_PREF_ . '_featureSubscribe', 'subscribe_keyword', ['subscribe_id' => $subscribe_id]);
 		$subscribe_name = $list[0]['subscribe_keyword'];
 		$msg_id = $_REQUEST['msg_id'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
@@ -715,12 +711,12 @@ switch (_OP_) {
 		$db_query = "SELECT msg, counter FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$message = addslashes($db_row['msg']);
+		$message = addslashes((string) $db_row['msg']);
 		$counter = $db_row['counter'];
 		
 		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
 		$db_result = dba_query($db_query);
-		$sms_to = '';
+		$sms_to = [];
 		if ($message && $subscribe_id) {
 			while ($db_row = dba_fetch_array($db_result)) {
 				if ($member_number = $db_row['member_number']) {
@@ -730,15 +726,10 @@ switch (_OP_) {
 			if ($sms_to[0]) {
 				$unicode = core_detect_unicode($message);
 				$message = addslashes($message);
-				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc, TRUE);
+				[$ok, $to, $smslog_id, $queue] = sendsms_helper($username, $sms_to, $message, 'text', $unicode, $smsc, TRUE);
 				if ($ok[0]) {
 					$counter++;
-					dba_update(_DB_PREF_ . '_featureSubscribe_msg', array(
-						'counter' => $counter 
-					), array(
-						'subscribe_id' => $subscribe_id,
-						'msg_id' => $msg_id 
-					));
+					dba_update(_DB_PREF_ . '_featureSubscribe_msg', ['counter' => $counter], ['subscribe_id' => $subscribe_id, 'msg_id' => $msg_id]);
 					$_SESSION['dialog']['info'][] .= _('Your SMS has been delivered to queue') . "<br>";
 				} else {
 					$_SESSION['dialog']['info'][] .= _('Fail to send SMS') . "<br>";

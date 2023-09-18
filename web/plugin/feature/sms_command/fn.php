@@ -55,8 +55,8 @@ function sms_command_handle($list, $c_uid,$sms_datetime,$sms_sender,$sms_receive
 
 	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
 	
-	$command_keyword = strtoupper(trim($command_keyword));
-	$command_param = trim($command_param);
+	$command_keyword = strtoupper(trim((string) $command_keyword));
+	$command_param = trim((string) $command_param);
 	$db_query = "SELECT command_exec,uid,command_return_as_reply FROM "._DB_PREF_."_featureCommand WHERE command_keyword='$command_keyword'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
@@ -65,11 +65,11 @@ function sms_command_handle($list, $c_uid,$sms_datetime,$sms_sender,$sms_receive
 	$username   = user_uid2username($db_row['uid']);
 	if ($command_keyword && $command_exec && $username) {
 		$sms_datetime = core_display_datetime($sms_datetime);
-		$command_exec = str_replace("{SMSDATETIME}","\"$sms_datetime\"",$command_exec);
-		$command_exec = str_replace("{SMSSENDER}",escapeshellarg($sms_sender),$command_exec);
+		$command_exec = str_replace("{SMSDATETIME}","\"$sms_datetime\"",(string) $command_exec);
+		$command_exec = str_replace("{SMSSENDER}",escapeshellarg((string) $sms_sender),$command_exec);
 		$command_exec = str_replace("{COMMANDKEYWORD}",escapeshellarg($command_keyword),$command_exec);
 		$command_exec = str_replace("{COMMANDPARAM}",escapeshellarg($command_param),$command_exec);
-		$command_exec = str_replace("{COMMANDRAW}",escapeshellarg($raw_message),$command_exec);
+		$command_exec = str_replace("{COMMANDRAW}",escapeshellarg((string) $raw_message),$command_exec);
 		$command_exec = str_replace("/","",$command_exec);
 		$command_exec = $plugin_config['sms_command']['bin']."/".$db_row['uid']."/".$command_exec;
 		$command_exec = escapeshellcmd($command_exec);

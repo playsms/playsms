@@ -30,9 +30,9 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 	}
 	
 	// outfile
-	$gpid = ((int) $gpid ? (int) $gpid : 0);
-	$uid = ((int) $uid ? (int) $uid : 0);
-	$smslog_id = ((int) $smslog_id ? (int) $smslog_id : 0);
+	$gpid = ((int) $gpid ?: 0);
+	$uid = ((int) $uid ?: 0);
+	$smslog_id = ((int) $smslog_id ?: 0);
 	$sms_datetime = core_sanitize_numeric($p_datetime);
 	$sms_id = $sms_datetime . '.' . $gpid . '.' . $uid . '.' . $smslog_id;
 	$outfile = 'out.' . $sms_id;
@@ -45,7 +45,7 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 		$message_id = 0;
 		
 		$lines = @file($fn);
-		for ($c = 0; $c < count($lines); $c++) {
+		for ($c = 0; $c < (is_countable($lines) ? count($lines) : 0); $c++) {
 			$c_line = $lines[$c];
 			if (preg_match('/^Message_id: /', $c_line)) {
 				$message_id = trim(str_replace('Message_id: ', '', trim($c_line)));
@@ -107,8 +107,8 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 	}
 	
 	// set failed if its at least 2 days old
-	$p_datetime_stamp = strtotime($p_datetime);
-	$p_update_stamp = strtotime($p_update);
+	$p_datetime_stamp = strtotime((string) $p_datetime);
+	$p_update_stamp = strtotime((string) $p_update);
 	$p_delay = floor(($p_update_stamp - $p_datetime_stamp) / 86400);
 	if ($smslog_id && ($p_delay >= 2)) {
 		$p_status = 2;
@@ -138,7 +138,7 @@ function smstools_hook_getsmsinbox() {
 		
 		$lines = @file($fn);
 		$start = 0;
-		for ($c = 0; $c < count($lines); $c++) {
+		for ($c = 0; $c < (is_countable($lines) ? count($lines) : 0); $c++) {
 			$c_line = $lines[$c];
 			if (preg_match('/^From: /', $c_line)) {
 				$sms_sender = '+' . trim(str_replace('From: ', '', trim($c_line)));
@@ -174,7 +174,7 @@ function smstools_hook_getsmsinbox() {
 			if (!file_exists($fn) && $start) {
 				if ($sms_sender && $sms_datetime) {
 					$message = '';
-					for ($lc = $start; $lc < count($lines); $lc++) {
+					for ($lc = $start; $lc < (is_countable($lines) ? count($lines) : 0); $lc++) {
 						$message .= trim($lines[$lc]) . "\n";
 					}
 					if (strlen($message) > 0) {
@@ -236,9 +236,9 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_sender = stripslashes((string) $sms_sender);
+	$sms_footer = stripslashes((string) $sms_footer);
+	$sms_msg = stripslashes((string) $sms_msg);
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
@@ -261,9 +261,9 @@ function smstools_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_ms
 	$the_msg .= "\n" . $sms_msg;
 	
 	// outfile
-	$gpid = ((int) $gpid ? (int) $gpid : 0);
-	$uid = ((int) $uid ? (int) $uid : 0);
-	$smslog_id = ((int) $smslog_id ? (int) $smslog_id : 0);
+	$gpid = ((int) $gpid ?: 0);
+	$uid = ((int) $uid ?: 0);
+	$smslog_id = ((int) $smslog_id ?: 0);
 	$d = sendsms_get_sms($smslog_id);
 	$sms_datetime = core_sanitize_numeric($d['p_datetime']);	
 	$sms_id = $sms_datetime. '.' . $gpid . '.' . $uid . '.' . $smslog_id;

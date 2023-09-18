@@ -31,26 +31,23 @@ if (!$called_from_hook_call) {
 }
 
 $r = $_REQUEST;
-$c_uid = (int) trim($r['uid']);
+$c_uid = (int) trim((string) $r['uid']);
 
 $list = registry_search($c_uid, 'feature', 'sms_sync');
 $sms_sync_secret = $list['feature']['sms_sync']['secret'];
 $sms_sync_enable = $list['feature']['sms_sync']['enable'];
 
-$message_id = trim($r['message_id']);
+$message_id = trim((string) $r['message_id']);
 $sms_datetime = core_display_datetime(core_get_datetime());
-$sms_sender = trim($r['from']);
-$message = trim($r['message']);
-$sms_receiver = trim($r['sent_to']);
+$sms_sender = trim((string) $r['from']);
+$message = trim((string) $r['message']);
+$sms_receiver = trim((string) $r['sent_to']);
 
 $ok = FALSE;
 
 if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message_id && $sms_sender && $message) {
 	$db_table = _DB_PREF_ . '_featureSmssysnc';
-	$conditions = array(
-		'uid' => $c_uid,
-		'message_id' => $message_id
-	);
+	$conditions = ['uid' => $c_uid, 'message_id' => $message_id];
 	if (dba_isavail($db_table, $conditions, 'AND')) {
 		_log("saving uid:" . $c_uid . " dt:" . $sms_datetime . " ts:" . $r['sent_timestamp'] . " message_id:" . $message_id . " s:" . $sms_sender . " m:" . $message . " r:" . $sms_receiver, 3, "sms_sync sync");
 		
@@ -64,19 +61,10 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 		
 		// route it
 		if ($recvsms_id = recvsms($sms_datetime, $sms_sender, $message, $sms_receiver)) {
-			$items = array(
-				'uid' => $c_uid,
-				'message_id' => $message_id,
-				'recvsms_id' => $recvsms_id
-			);
+			$items = ['uid' => $c_uid, 'message_id' => $message_id, 'recvsms_id' => $recvsms_id];
 			dba_add($db_table, $items);
 			_log("saved uid:" . $c_uid . " message_id:" . $message_id . " recvsms_id:" . $recvsms_id, 3, "sms_sync sync");
-			$ret = array(
-				'payload' => array(
-					'success' => "true",
-					'error' => NULL
-				)
-			);
+			$ret = ['payload' => ['success' => "true", 'error' => NULL]];
 			$ok = TRUE;
 		} else {
 			$error_string = "fail to save uid:" . $c_uid . " message_id:" . $message_id;
@@ -93,11 +81,6 @@ if ($sms_sync_enable && $c_uid && ($r['secret'] == $sms_sync_secret) && $message
 }
 
 if (!$ok) {
-	$ret = array(
-		'payload' => array(
-			'success' => "false",
-			'error' => $error_string
-		)
-	);
+	$ret = ['payload' => ['success' => "false", 'error' => $error_string]];
 }
-_p(json_encode($ret));
+_p(json_encode($ret, JSON_THROW_ON_ERROR));

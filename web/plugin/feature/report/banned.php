@@ -38,59 +38,27 @@ if (_OP_ == 'unban') {
 
 // display whose online
 
-$tpl = array(
-	'name' => 'report_banned',
-	'vars' => array(
-		'Report' => _('Report') ,
-		'Banned users list' => _('Banned users list') ,
-		'DIALOG_DISPLAY' => _dialog(),
-		'User' => _('User') ,
-		'Email' => _('Email') ,
-		'Ban date/time' => _('Ban date/time') ,
-		'Action' => 'Action',
-	)
-);
+$tpl = ['name' => 'report_banned', 'vars' => ['Report' => _('Report'), 'Banned users list' => _('Banned users list'), 'DIALOG_DISPLAY' => _dialog(), 'User' => _('User'), 'Email' => _('Email'), 'Ban date/time' => _('Ban date/time'), 'Action' => 'Action']];
 
 // display admin users
 
 $users = report_banned_admin();
 foreach ($users as $user) {
-	$tpl['loops']['data'][] = array(
-		'tr_class' => $tr_class,
-		'username' => $user['username'],
-		'isadmin' => $user['icon_isadmin'],
-		'email' => $user['email'],
-		'bantime' => $user['bantime'],
-		'action' => $user['action_link'],
-	);
+	$tpl['loops']['data'][] = ['tr_class' => $tr_class, 'username' => $user['username'], 'isadmin' => $user['icon_isadmin'], 'email' => $user['email'], 'bantime' => $user['bantime'], 'action' => $user['action_link']];
 }
 
 // display users
 
 $users = report_banned_user();
 foreach ($users as $user) {
-	$tpl['loops']['data'][] = array(
-		'tr_class' => $tr_class,
-		'username' => $user['username'],
-		'isadmin' => $user['icon_isadmin'],
-		'email' => $user['email'],
-		'bantime' => $user['bantime'],
-		'action' => $user['action_link'],
-	);
+	$tpl['loops']['data'][] = ['tr_class' => $tr_class, 'username' => $user['username'], 'isadmin' => $user['icon_isadmin'], 'email' => $user['email'], 'bantime' => $user['bantime'], 'action' => $user['action_link']];
 }
 
 // display users
 
 $users = report_banned_subuser();
 foreach ($users as $user) {
-	$tpl['loops']['data'][] = array(
-		'tr_class' => $tr_class,
-		'username' => $user['username'],
-		'isadmin' => $user['icon_isadmin'],
-		'email' => $user['email'],
-		'bantime' => $user['bantime'],
-		'action' => $user['action_link'],
-	);
+	$tpl['loops']['data'][] = ['tr_class' => $tr_class, 'username' => $user['username'], 'isadmin' => $user['icon_isadmin'], 'email' => $user['email'], 'bantime' => $user['bantime'], 'action' => $user['action_link']];
 }
 
 _p(tpl_apply($tpl));

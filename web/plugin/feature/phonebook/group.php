@@ -24,23 +24,14 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case "list":
-		$search_category = array(
-			_('Name') => 'name',
-			_('Group code') => 'code' 
-		);
+		$search_category = [_('Name') => 'name', _('Group code') => 'code'];
 		$base_url = 'index.php?app=main&inc=feature_phonebook&route=group&op=list';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array(
-			'uid' => $user_config['uid'] 
-		);
+		$conditions = ['uid' => $user_config['uid']];
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featurePhonebook_group', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'name',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'name', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$fields = 'id, name, code, flag_sender';
 		$list = dba_search(_DB_PREF_ . '_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
 		
@@ -69,7 +60,7 @@ switch (_OP_) {
 			<tbody>";
 		
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 			$gpid = $list[$j]['id'];
 			$name = $list[$j]['name'];
 			$code = $list[$j]['code'];
@@ -169,13 +160,8 @@ switch (_OP_) {
 		switch ($go) {
 			case 'delete':
 				if ($gpid = $_REQUEST['gpid']) {
-					if (!dba_count(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-						'gpid' => $gpid 
-					))) {
-						if (dba_remove(_DB_PREF_ . '_featurePhonebook_group', array(
-							'uid' => $user_config['uid'],
-							'id' => $gpid 
-						))) {
+					if (!dba_count(_DB_PREF_ . '_featurePhonebook_group_contacts', ['gpid' => $gpid])) {
+						if (dba_remove(_DB_PREF_ . '_featurePhonebook_group', ['uid' => $user_config['uid'], 'id' => $gpid])) {
 							$_SESSION['dialog']['info'][] = _('Selected group has been deleted');
 						} else {
 							$_SESSION['dialog']['danger'][] = _('Fail to delete group');
@@ -190,7 +176,7 @@ switch (_OP_) {
 				break;
 			case 'add':
 				$group_name = $_POST['group_name'];
-				$group_code = strtoupper(trim($_POST['group_code']));
+				$group_code = strtoupper(trim((string) $_POST['group_code']));
 				// fixme anton
 				$group_code = phonebook_code_clean($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];
@@ -214,7 +200,7 @@ switch (_OP_) {
 			case 'edit':
 				$gpid = $_POST['gpid'];
 				$group_name = $_POST['group_name'];
-				$group_code = strtoupper(trim($_POST['group_code']));
+				$group_code = strtoupper(trim((string) $_POST['group_code']));
 				// fixme anton
 				$group_code = phonebook_code_clean($group_code);
 				$flag_sender = (int) $_POST['flag_sender'];

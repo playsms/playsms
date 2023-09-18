@@ -14,15 +14,11 @@ fclose($fd);
 
 $countries = core_xml_to_array($xml);
 
-$country = array();
+$country = [];
 
 foreach ($countries['country'] as $item) {
 	$c = array_values($item);
-	$country[] = array(
-		'code' => $c[0]['code'],
-		'phoneCode' => $c[0]['phoneCode'],
-		'name' => addslashes($c[0]['name']),
-	);	
+	$country[] = ['code' => $c[0]['code'], 'phoneCode' => $c[0]['phoneCode'], 'name' => addslashes((string) $c[0]['name'])];	
 }
 
 $csv = '"code","phoneCode","name"'.PHP_EOL;

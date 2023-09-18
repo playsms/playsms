@@ -26,7 +26,7 @@ defined('_SECURE_') or die('Forbidden');
 function gateway_getall() {
 	global $core_config, $plugin_config;
 	
-	$ret = array();
+	$ret = [];
 	foreach ($core_config['plugins']['list']['gateway'] as $gw) {
 		$ret[] = $plugin_config[$gw];
 	}
@@ -42,12 +42,10 @@ function gateway_getall() {
  * @return array
  */
 function gateway_getall_smsc($gateway = "") {
-	$ret = array();
+	$ret = [];
 	
 	if (trim($gateway)) {
-		$conditions = array(
-			'gateway' => $gateway 
-		);
+		$conditions = ['gateway' => $gateway];
 	}
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
@@ -64,7 +62,7 @@ function gateway_getall_smsc($gateway = "") {
  * @return array
  */
 function gateway_getall_smsc_names($gateway = "") {
-	$ret = array();
+	$ret = [];
 	
 	$data = gateway_getall_smsc($gateway);
 	foreach ($data as $smsc) {
@@ -81,12 +79,10 @@ function gateway_getall_smsc_names($gateway = "") {
  * @return array
  */
 function gateway_get_smscbyid($id) {
-	$ret = array();
+	$ret = [];
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
-	$conditions = array(
-		'id' => $id 
-	);
+	$conditions = ['id' => $id];
 	$ret = dba_search($db_table, '*', $conditions);
 	
 	return $ret[0];
@@ -99,12 +95,10 @@ function gateway_get_smscbyid($id) {
  * @return array
  */
 function gateway_get_smscbyname($name) {
-	$ret = array();
+	$ret = [];
 	
 	$db_table = _DB_PREF_ . "_tblGateway";
-	$conditions = array(
-		'name' => $name 
-	);
+	$conditions = ['name' => $name];
 	$ret = dba_search($db_table, '*', $conditions);
 	
 	return $ret[0];
@@ -121,7 +115,7 @@ function gateway_apply_smsc_config($smsc, $plugin_config) {
 	if (is_array($plugin_config) && $plugin_config) {
 		$smsc_data = gateway_get_smscbyname($smsc);
 		if ($smsc_data['name'] && $smsc_data['gateway'] && $smsc_data['data']) {
-			$smsc_config = json_decode($smsc_data['data'], TRUE);
+			$smsc_config = json_decode((string) $smsc_data['data'], TRUE, 512, JSON_THROW_ON_ERROR);
 			foreach ($smsc_config as $key => $val) {
 				if ($val !== '') {
 					$plugin_config[$smsc_data['gateway']][$key] = $val;
@@ -191,7 +185,7 @@ function _gateway_display() {
 	$subdir_tab = gateway_list();
 	for ($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($gateway_info);
-		$c_gateway = strtolower($subdir_tab[$l]['name']);
+		$c_gateway = strtolower((string) $subdir_tab[$l]['name']);
 		$xml_file = $core_config['apps_path']['plug'] . '/gateway/' . $c_gateway . '/docs/info.xml';
 		if ($fc = file_get_contents($xml_file)) {
 			$gateway_info = core_xml_to_array($fc);
@@ -203,14 +197,7 @@ function _gateway_display() {
 			if (!(($c_gateway == 'dev') || ($c_gateway == 'blocked'))) {
 				$c_link_add = "index.php?app=main&inc=core_gateway&op=add_smsc&gateway=" . $c_gateway;
 			}
-			$gw_list[$gateway_info['name']] = array(
-				'link_manage' => $c_link_manage,
-				'link_add' => $c_link_add,
-				'name' => $gateway_info['name'],
-				'description' => $gateway_info['description'],
-				'release' => $gateway_info['release'],
-				'status' => $gateway_info['status'] 
-			);
+			$gw_list[$gateway_info['name']] = ['link_manage' => $c_link_manage, 'link_add' => $c_link_add, 'name' => $gateway_info['name'], 'description' => $gateway_info['description'], 'release' => $gateway_info['release'], 'status' => $gateway_info['status']];
 		}
 	}
 	ksort($gw_list);
@@ -257,9 +244,7 @@ function _gateway_display_smsc() {
 	global $core_config, $icon_config;
 	
 	$db_table = _DB_PREF_ . '_tblGateway';
-	$extras = array(
-		'ORDER BY' => 'gateway' 
-	);
+	$extras = ['ORDER BY' => 'gateway'];
 	$smsc_list = dba_search($db_table, '*', '', '', $extras);
 	
 	$content = "
@@ -299,10 +284,7 @@ function _gateway_display_smsc() {
 }
 
 function gateway_select_smsc($select_name, $default_smsc = '') {
-	$c_options = array(
-		_('Supplied SMSC') => '_smsc_supplied_',
-		_('Routed SMSC') => '_smsc_routed_' 
-	) + gateway_getall_smsc_names();
+	$c_options = [_('Supplied SMSC') => '_smsc_supplied_', _('Routed SMSC') => '_smsc_routed_'] + gateway_getall_smsc_names();
 	$ret = _select($select_name, $c_options, $default_smsc);
 	return $ret;
 }
@@ -325,7 +307,7 @@ function gateway_decide_smsc($smsc_supplied, $smsc_configured) {
 	// validate
 	if ($smsc) {
 		$smsc_data = gateway_get_smscbyname($smsc);
-		$smsc = ($smsc_data['name'] ? $smsc_data['name'] : 'blocked');
+		$smsc = ($smsc_data['name'] ?: 'blocked');
 	}
 	
 	// log it

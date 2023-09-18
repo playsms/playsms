@@ -77,7 +77,7 @@ function simplerate_hook_rate_getbyprefix($sms_to) {
 	$found = FALSE;
 	$default_rate = ($core_config['main']['default_rate'] > 0 ? $core_config['main']['default_rate'] : 0);
 	$rate = $default_rate;
-	$prefix = preg_replace('/[^0-9.]*/', '', $sms_to);
+	$prefix = preg_replace('/[^0-9.]*/', '', (string) $sms_to);
 	$m = (strlen($prefix) > 10 ? 10 : strlen($prefix));
 	for ($i = $m + 1; $i > 0; $i--) {
 		$prefix = substr($prefix, 0, $i);
@@ -126,18 +126,14 @@ function simplerate_hook_rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 
 	_log('uid:' . $uid . ' u:' . $user['username'] . ' len:' . $sms_len . ' unicode:' . $unicode . ' to:' . $sms_to . ' enable_credit_unicode:' . (int) $user['opt']['enable_credit_unicode'] . ' count:' . $count . ' rate:' . $rate . ' charge:' . $charge, 3, 'simplerate_hook_rate_getcharges');
 
-	return array(
-		$count,
-		$rate,
-		$charge
-	);
+	return [$count, $rate, $charge];
 }
 
 function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	global $core_config;
 
 	$uid = user_username2uid($username);
-	list($count, $rate, $charge) = rate_getcharges($uid, $sms_len, $unicode, $sms_to);
+	[$count, $rate, $charge] = rate_getcharges($uid, $sms_len, $unicode, $sms_to);
 
 	// sender's
 	$adhoc_credit = simplerate_getadhoccredit($uid);
@@ -197,7 +193,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 		if ($p_dst && $p_msg && $uid) {
 
 			// get charge
-			list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($p_msg.$p_footer), $unicode, $p_dst);
+			[$count, $rate, $charge] = rate_getcharges($uid, core_smslen($p_msg.$p_footer), $unicode, $p_dst);
 
 			if (billing_post($smslog_id, $rate, $count, $charge)) {
 				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");

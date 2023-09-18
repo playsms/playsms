@@ -144,10 +144,10 @@ switch (_OP_) {
 		$data = $_SESSION['tmp'][$session_import];
 		// $i = 0;
 		foreach ($data as $d) {
-			$name = trim($d[0]);
-			$mobile = trim($d[1]);
-			$email = trim($d[2]);
-			if ($group_code = trim($d[3])) {
+			$name = trim((string) $d[0]);
+			$mobile = trim((string) $d[1]);
+			$email = trim((string) $d[2]);
+			if ($group_code = trim((string) $d[3])) {
 				$gpid = phonebook_groupcode2id($uid, $group_code);
 			}
 			$tags = phonebook_tags_clean($d[4]);
@@ -159,13 +159,7 @@ switch (_OP_) {
 						$save_to_group = TRUE;
 					}
 				} else {
-					$items = array(
-						'uid' => $uid,
-						'name' => $name,
-						'mobile' => sendsms_getvalidnumber($mobile),
-						'email' => $email,
-						'tags' => $tags 
-					);
+					$items = ['uid' => $uid, 'name' => $name, 'mobile' => sendsms_getvalidnumber($mobile), 'email' => $email, 'tags' => $tags];
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						if ($gpid) {
 							$save_to_group = TRUE;
@@ -181,10 +175,7 @@ switch (_OP_) {
 					if (dba_num_rows($db_query) > 0) {
 						_log('contact already in the group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 					} else {
-						$items = array(
-							'gpid' => $gpid,
-							'pid' => $c_pid 
-						);
+						$items = ['gpid' => $gpid, 'pid' => $c_pid];
 						if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
 							_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 						} else {

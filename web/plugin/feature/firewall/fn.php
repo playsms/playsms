@@ -25,9 +25,7 @@ defined('_SECURE_') or die('Forbidden');
  * @return ip_address
  */
 function firewall_getip($id) {
-	$condition = array(
-		'id' => $id 
-	);
+	$condition = ['id' => $id];
 	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
 	$ret = $row[0]['ip_address'];
 	
@@ -125,10 +123,7 @@ function firewall_hook_blacklist_removeip($label, $ip) {
 	$ret = FALSE;
 	
 	$c_uid = user_username2uid($label);
-	$condition = array(
-		'uid' => $c_uid,
-		'ip_address' => $ip 
-	);
+	$condition = ['uid' => $c_uid, 'ip_address' => $ip];
 	$removed = dba_remove(_DB_PREF_ . '_featureFirewall', $condition);
 	if ($removed) {
 		_log('remove IP from blacklist ip:' . $ip . ' uid:' . $c_uid, 2, 'firewall_hook_blacklist_removeip');
@@ -161,12 +156,9 @@ function firewall_hook_blacklist_getips() {
 function firewall_hook_blacklist_ifipexists($label, $ip) {
 	$ret = FALSE;
 	
-	$condition = array(
-		'uid' => user_username2uid($label),
-		'ip_address' => $ip 
-	);
+	$condition = ['uid' => user_username2uid($label), 'ip_address' => $ip];
 	$row = dba_search(_DB_PREF_ . '_featureFirewall', 'ip_address', $condition);
-	if (count($row) > 0) {
+	if ((is_countable($row) ? count($row) : 0) > 0) {
 		$ret = TRUE;
 	}
 	

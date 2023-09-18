@@ -25,9 +25,9 @@ if (!auth_isvalid()) {
 $checkid = $_REQUEST['checkid'];
 $itemid = $_REQUEST['itemid'];
 
-$items = array();
+$items = [];
 foreach ($checkid as $key => $val) {
-	if (strtoupper($val) == 'ON') {
+	if (strtoupper((string) $val) == 'ON') {
 		if ($itemid[$key]) {
 			$items[] = $itemid[$key];
 		}
@@ -37,13 +37,8 @@ foreach ($checkid as $key => $val) {
 switch (_OP_) {
 	case 'delete':
 		foreach ($items as $item) {
-			if (dba_remove(_DB_PREF_ . '_featurePhonebook', array(
-				'uid' => $user_config['uid'],
-				'id' => $item 
-			))) {
-				dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-					'pid' => $item 
-				));
+			if (dba_remove(_DB_PREF_ . '_featurePhonebook', ['uid' => $user_config['uid'], 'id' => $item])) {
+				dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', ['pid' => $item]);
 				$_SESSION['dialog']['info'][] = _('Selected contact has been deleted');
 			}
 		}
@@ -51,7 +46,7 @@ switch (_OP_) {
 }
 
 $gpid = 0;
-$ops = explode('_', _OP_);
+$ops = explode('_', (string) _OP_);
 if (($ops[0] == 'move') && $ops[1]) {
 	$gpid = $ops[1];
 }
@@ -59,14 +54,8 @@ if (($ops[0] == 'move') && $ops[1]) {
 if ($gpid && (dba_valid(_DB_PREF_ . '_featurePhonebook_group', 'id', $gpid))) {
 	foreach ($items as $item) {
 		if (dba_valid(_DB_PREF_ . '_featurePhonebook', 'id', $item)) {
-			if (dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-				'pid' => $item 
-			)) or dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-				'pid' => $item ))) {
-				$data = array(
-					'pid' => $item,
-					'gpid' => $gpid 
-				);
+			if (dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', ['pid' => $item]) or dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', ['pid' => $item])) {
+				$data = ['pid' => $item, 'gpid' => $gpid];
 				if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $data)) {
 					$_SESSION['dialog']['info'][] = _('Selected contact moved to new group');
 				}

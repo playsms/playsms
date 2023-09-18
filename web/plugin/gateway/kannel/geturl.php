@@ -44,16 +44,16 @@ if ($remote_addr != $plugin_config['kannel']['bearerbox_host'] && $remote_host !
 
 // if the arrival time is in UTC then we need to adjust it with this:
 if ($plugin_config['kannel']['local_time']) {
-	$t = trim($_REQUEST['t']);
+	$t = trim((string) $_REQUEST['t']);
 } else {
 	// in UTC
 	$t = core_display_datetime($_REQUEST['t']);
 }
 
-$q = trim($_REQUEST['q']); // sms_sender
-$a = trim(htmlspecialchars_decode(urldecode($_REQUEST['a']))); // message
-$Q = trim($_REQUEST['Q']); // sms_receiver
-$smsc = trim($_REQUEST['smsc']); // SMSC
+$q = trim((string) $_REQUEST['q']); // sms_sender
+$a = trim(htmlspecialchars_decode(urldecode((string) $_REQUEST['a']))); // message
+$Q = trim((string) $_REQUEST['Q']); // sms_receiver
+$smsc = trim((string) $_REQUEST['smsc']); // SMSC
 
 
 _log("remote_addr:" . $remote_addr . " remote_host:" . $remote_host . " t:[" . $t . "] q:[" . $q . "] a:[" . $a . "] Q:[" . $Q . "] smsc:[" . $smsc . "] smsc:[" . $smsc . "]", 3, "kannel incoming");

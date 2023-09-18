@@ -19,93 +19,52 @@
 defined('_SECURE_') or die('Forbidden');
 
 // parameters
-$h = trim($_REQUEST['h']);
-$u = trim($_REQUEST['u']);
-$p = trim($_REQUEST['p']);
+$h = trim((string) $_REQUEST['h']);
+$u = trim((string) $_REQUEST['u']);
+$p = trim((string) $_REQUEST['p']);
 
 // output format
-$format = strtoupper(trim($_REQUEST['format']));
+$format = strtoupper(trim((string) $_REQUEST['format']));
 
 // PV
-$to = trim($_REQUEST['to']);
-$schedule = trim($_REQUEST['schedule']);
-$footer = trim($_REQUEST['footer']);
-$nofooter = (trim($_REQUEST['nofooter']) ? TRUE : FALSE);
-$type = (trim($_REQUEST['type']) ? trim($_REQUEST['type']) : 'text');
-$unicode = (trim($_REQUEST['unicode']) ? trim($_REQUEST['unicode']) : 0);
+$to = trim((string) $_REQUEST['to']);
+$schedule = trim((string) $_REQUEST['schedule']);
+$footer = trim((string) $_REQUEST['footer']);
+$nofooter = (trim((string) $_REQUEST['nofooter']) ? TRUE : FALSE);
+$type = (trim((string) $_REQUEST['type']) ?: 'text');
+$unicode = (trim((string) $_REQUEST['unicode']) ?: 0);
 
 // PV, INJECT
-$from = trim($_REQUEST['from']);
-$msg = trim($_REQUEST['msg']);
+$from = trim((string) $_REQUEST['from']);
+$msg = trim((string) $_REQUEST['msg']);
 
 // INJECT
-$recvnum = trim($_REQUEST['recvnum']);
-$smsc = trim($_REQUEST['smsc']);
+$recvnum = trim((string) $_REQUEST['recvnum']);
+$smsc = trim((string) $_REQUEST['smsc']);
 
 // DS, IN, SX, IX, GET_CONTACT, GET_CONTACT_GROUP
-$src = trim($_REQUEST['src']);
-$dst = trim($_REQUEST['dst']);
-$dt = trim($_REQUEST['dt']);
-$c = trim($_REQUEST['c']);
-$last = trim($_REQUEST['last']);
+$src = trim((string) $_REQUEST['src']);
+$dst = trim((string) $_REQUEST['dst']);
+$dt = trim((string) $_REQUEST['dt']);
+$c = trim((string) $_REQUEST['c']);
+$last = trim((string) $_REQUEST['last']);
 
 // DS
-$queue = trim($_REQUEST['queue']);
-$smslog_id = trim($_REQUEST['smslog_id']);
+$queue = trim((string) $_REQUEST['queue']);
+$smslog_id = trim((string) $_REQUEST['smslog_id']);
 
 // IN, GET_CONTACT, GET_CONTACT_GROUP
-$kwd = trim($_REQUEST['kwd']);
+$kwd = trim((string) $_REQUEST['kwd']);
 
 // QUERY
-$query = trim($_REQUEST['query']);
+$query = trim((string) $_REQUEST['query']);
 
 $log_this = FALSE;
 
-$ws_error_string = array(
-	'100' => 'authentication failed',
-	'101' => 'type of action is invalid or unknown',
-	'102' => 'one or more field empty',
-	'103' => 'not enough credit for this operation',
-	'104' => 'webservice token is not available',
-	'105' => 'webservice token not enable for this user',
-	'106' => 'webservice token not allowed from this IP address',
-	'200' => 'send message failed',
-	'201' => 'destination number or message is empty',
-	'400' => 'no delivery status available',
-	'401' => 'no delivery status retrieved and SMS still in queue',
-	'402' => 'no delivery status retrieved and SMS has been processed from queue',
-	'501' => 'no data returned or result is empty',
-	'600' => 'admin level authentication failed',
-	'601' => 'inject message failed',
-	'602' => 'sender id or message is empty',
-	'603' => 'account addition failed due to missing data',
-	'604' => 'fail to add account',
-	'605' => 'account removal failed due to unknown username',
-	'606' => 'fail to remove account',
-	'607' => 'set parent failed due to unknown username',
-	'608' => 'fail to set parent',
-	'609' => 'get parent failed due to unknown username',
-	'610' => 'fail to get parent',
-	'611' => 'account ban failed due to unknown username',
-	'612' => 'fail to ban account',
-	'613' => 'account unban failed due to unknown username',
-	'614' => 'fail to unban account',
-	'615' => 'editing account preferences failed due to missing data',
-	'616' => 'fail to edit account preferences',
-	'617' => 'editing account configuration failed due to missing data',
-	'618' => 'fail to edit account configuration',
-	'619' => 'viewing credit failed due to missing data',
-	'620' => 'fail to view credit',
-	'621' => 'adding credit failed due to missing data',
-	'622' => 'fail to add credit',
-	'623' => 'deducting credit failed due to missing data',
-	'624' => 'fail to deduct credit',
-	'625' => 'setting login key failed due to missing data',
-	'626' => 'fail to set login key' 
-);
+$ws_error_string = ['100' => 'authentication failed', '101' => 'type of action is invalid or unknown', '102' => 'one or more field empty', '103' => 'not enough credit for this operation', '104' => 'webservice token is not available', '105' => 'webservice token not enable for this user', '106' => 'webservice token not allowed from this IP address', '200' => 'send message failed', '201' => 'destination number or message is empty', '400' => 'no delivery status available', '401' => 'no delivery status retrieved and SMS still in queue', '402' => 'no delivery status retrieved and SMS has been processed from queue', '501' => 'no data returned or result is empty', '600' => 'admin level authentication failed', '601' => 'inject message failed', '602' => 'sender id or message is empty', '603' => 'account addition failed due to missing data', '604' => 'fail to add account', '605' => 'account removal failed due to unknown username', '606' => 'fail to remove account', '607' => 'set parent failed due to unknown username', '608' => 'fail to set parent', '609' => 'get parent failed due to unknown username', '610' => 'fail to get parent', '611' => 'account ban failed due to unknown username', '612' => 'fail to ban account', '613' => 'account unban failed due to unknown username', '614' => 'fail to unban account', '615' => 'editing account preferences failed due to missing data', '616' => 'fail to edit account preferences', '617' => 'editing account configuration failed due to missing data', '618' => 'fail to edit account configuration', '619' => 'viewing credit failed due to missing data', '620' => 'fail to view credit', '621' => 'adding credit failed due to missing data', '622' => 'fail to add credit', '623' => 'deducting credit failed due to missing data', '624' => 'fail to deduct credit', '625' => 'setting login key failed due to missing data', '626' => 'fail to set login key'];
 
 if (_OP_) {
-	switch (strtoupper(_OP_)) {
+	switch (strtoupper((string) _OP_)) {
 		
 		// ---------------------- ADMIN TASKS ---------------------- //
 		case "INJECT":
@@ -120,7 +79,7 @@ if (_OP_) {
 		
 		case "ACCOUNTADD":
 			if ($u = webservices_validate_admin($h, $u)) {
-				$data = array();
+				$data = [];
 				foreach ($_REQUEST as $key => $value) {
 					switch ($key) {
 						case 'data_status':
@@ -239,20 +198,10 @@ if (_OP_) {
 		case "ACCOUNTPREF":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
-				$fields = array(
-					'name',
-					'email',
-					'mobile',
-					'address',
-					'city',
-					'state',
-					'country',
-					'password',
-					'zipcode' 
-				);
-				$data = array();
+				$fields = ['name', 'email', 'mobile', 'address', 'city', 'state', 'country', 'password', 'zipcode'];
+				$data = [];
 				foreach ($fields as $field) {
-					if ($c_data = trim($_REQUEST['data_' . $field])) {
+					if ($c_data = trim((string) $_REQUEST['data_' . $field])) {
 						$data[$field] = $c_data;
 					}
 				}
@@ -272,21 +221,11 @@ if (_OP_) {
 		case "ACCOUNTCONF":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
-				$fields = array(
-					'footer',
-					'datetime_timezone',
-					'language_module',
-					'fwd_to_inbox',
-					'fwd_to_email',
-					'fwd_to_mobile',
-					'local_length',
-					'replace_zero',
-					'sender' 
-				);
-				$data = array();
+				$fields = ['footer', 'datetime_timezone', 'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile', 'local_length', 'replace_zero', 'sender'];
+				$data = [];
 				foreach ($fields as $field) {
-					if (strlen(trim($_REQUEST['data_' . $field]))) {
-						$data[$field] = trim($_REQUEST['data_' . $field]);
+					if (strlen(trim((string) $_REQUEST['data_' . $field]))) {
+						$data[$field] = trim((string) $_REQUEST['data_' . $field]);
 					}
 				}
 				if ($data_uid && count($data)) {
@@ -351,7 +290,7 @@ if (_OP_) {
 		
 		case "LOGINKEYSET":
 			if ($u = webservices_validate_admin($h, $u)) {
-				if ($data_username = trim($_REQUEST['data_username'])) {
+				if ($data_username = trim((string) $_REQUEST['data_username'])) {
 					$json = webservices_login_key_set($data_username);
 				} else {
 					$json['status'] = 'ERR';
@@ -458,7 +397,7 @@ if (_OP_) {
 			break;
 		
 		case "GET_TOKEN":
-			$user = array();
+			$user = [];
 			
 			if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
 				if (auth_validate_email($u, $p)) {
@@ -475,7 +414,7 @@ if (_OP_) {
 				$continue = false;
 				$json['status'] = 'ERR';
 				$json['error'] = '106';
-				$ip = explode(',', $user['webservices_ip']);
+				$ip = explode(',', (string) $user['webservices_ip']);
 				if (is_array($ip)) {
 					foreach ($ip as $key => $net) {
 						if (core_net_match($net, $_SERVER['REMOTE_ADDR'])) {
@@ -514,13 +453,8 @@ if (_OP_) {
 				$user = user_getdatabyusername($u);
 				if ($c_uid = $user['uid']) {
 					$token = md5($c_uid . _PID_);
-					$items = array(
-						'token' => $token 
-					);
-					$conditions = array(
-						'flag_deleted' => 0,
-						'uid' => $c_uid 
-					);
+					$items = ['token' => $token];
+					$conditions = ['flag_deleted' => 0, 'uid' => $c_uid];
 					if (dba_update(_DB_PREF_ . '_tblUser', $items, $conditions)) {
 						$json['status'] = 'OK';
 						$json['error'] = '0';
@@ -545,11 +479,11 @@ if (_OP_) {
 			if ($c_uid = $user['uid']) {
 				
 				// supplied login key
-				$login_key = trim($_REQUEST['login_key']);
+				$login_key = trim((string) $_REQUEST['login_key']);
 				
 				// saved login key
 				$reg = registry_search($c_uid, 'core', 'webservices', 'login_key');
-				$c_login_key = trim($reg['core']['webservices']['login_key']);
+				$c_login_key = trim((string) $reg['core']['webservices']['login_key']);
 				
 				// immediately remove saved login key, only proceed upon successful removal
 				if (registry_remove($c_uid, 'core', 'webservices', 'login_key')) {
@@ -642,5 +576,5 @@ if ($format == 'SERIALIZE') {
 } else {
 	ob_end_clean();
 	header('Content-Type: application/json');
-	_p(json_encode($json));
+	_p(json_encode($json, JSON_THROW_ON_ERROR));
 }

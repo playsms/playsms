@@ -22,48 +22,26 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-$tpl = array(
-	'name' => 'report_admin',
-	'vars' => array(
-		'Report' => _('Report'),
-		'All reports' => _('All reports'),
-		'User' => _('User'),
-		'Pending' => _('Pending'),
-		'Sent' => _('Sent'),
-		'Delivered' => _('Delivered'),
-		'Failed' => _('Failed'),
-		'Billing' => _('Billing'),
-		'Credit' => _('Credit') 
-	) 
-);
+$tpl = ['name' => 'report_admin', 'vars' => ['Report' => _('Report'), 'All reports' => _('All reports'), 'User' => _('User'), 'Pending' => _('Pending'), 'Sent' => _('Sent'), 'Delivered' => _('Delivered'), 'Failed' => _('Failed'), 'Billing' => _('Billing'), 'Credit' => _('Credit')]];
 // p_status values mapped to tpl array elements
-$map_values = array(
-	'0' => 'num_rows_pending',
-	'1' => 'num_rows_sent',
-	'2' => 'num_rows_failed',
-	'3' => 'num_rows_delivered' 
-);
+$map_values = ['0' => 'num_rows_pending', '1' => 'num_rows_sent', '2' => 'num_rows_failed', '3' => 'num_rows_delivered'];
 
 $l = 0;
 
 // USER LIST RESTRIVAL
-$rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed', array(
-	'flag_deleted' => 0 
-), '', array(
-	'ORDER BY' => 'status' 
-));
+$rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed', ['flag_deleted' => 0], '', ['ORDER BY' => 'status']);
 
 // populate array with the values from the mysql query
 $db_query = "SELECT uid, flag_deleted, p_status, COUNT(*) AS count from " . _DB_PREF_ . "_tblSMSOutgoing GROUP BY uid, flag_deleted, p_status";
 $db_result = dba_query($db_query);
-for ($iset = array(); $irow = dba_fetch_array($db_result); $iset[] = $irow) {}
+for ($iset = []; $irow = dba_fetch_array($db_result); $iset[] = $irow) {}
 
 // update the rows array with values from the iset array
 for ($i = 0; $i < count($iset); $i++) {
 	$c = 0;
 	
 	// find the array key to update based on uid
-	for ($ii = 0; $ii < count($rows); ++$ii) {
+	for ($ii = 0; $ii < (is_countable($rows) ? count($rows) : 0); ++$ii) {
 		if ($rows[$ii]['uid'] === $iset[$i]['uid']) {
 			$array_key = $ii;
 			break;
@@ -101,17 +79,7 @@ foreach ($rows as $row) {
 		$c_isadmin = $icon_config['admin'];
 	}
 	
-	$tpl['loops']['data'][] = array(
-		'tr_class' => $tr_class,
-		'c_username' => $c_username,
-		'c_isadmin' => $c_isadmin,
-		'num_rows_pending' => $row['num_rows_pending'],
-		'num_rows_sent' => $row['num_rows_sent'],
-		'num_rows_delivered' => $row['num_rows_delivered'],
-		'num_rows_failed' => $row['num_rows_failed'],
-		'c_billing' => $c_billing,
-		'c_credit' => $c_credit 
-	);
+	$tpl['loops']['data'][] = ['tr_class' => $tr_class, 'c_username' => $c_username, 'c_isadmin' => $c_isadmin, 'num_rows_pending' => $row['num_rows_pending'], 'num_rows_sent' => $row['num_rows_sent'], 'num_rows_delivered' => $row['num_rows_delivered'], 'num_rows_failed' => $row['num_rows_failed'], 'c_billing' => $c_billing, 'c_credit' => $c_credit];
 	
 	// Totals
 	$sum_num_rows_pending += $row['num_rows_pending'];

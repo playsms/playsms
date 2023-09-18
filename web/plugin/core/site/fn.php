@@ -28,7 +28,7 @@ defined('_SECURE_') or die('Forbidden');
 function site_config_get($uid = 0) {
 	global $user_config, $plugin_config;
 	
-	$c_uid = ((int) $uid ? (int) $uid : $user_config['uid']);
+	$c_uid = ((int) $uid ?: $user_config['uid']);
 	
 	$reg = registry_search($c_uid, 'core', 'site_config');
 	$plugin_config['site']['site_config'] = $reg['core']['site_config'];
@@ -68,15 +68,10 @@ function site_config_set($config) {
  * @return array Site configuration matched the domain
  */
 function site_config_getbydomain($domain) {
-	$list = array();
+	$list = [];
 	
 	if ($domain) {
-		$list = registry_search_record(array(
-			'registry_group' => 'core',
-			'registry_family' => 'site_config',
-			'registry_key' => 'domain',
-			'registry_value' => $domain 
-		));
+		$list = registry_search_record(['registry_group' => 'core', 'registry_family' => 'site_config', 'registry_key' => 'domain', 'registry_value' => $domain]);
 	}
 	
 	return $list;
@@ -95,7 +90,7 @@ function site_hook_core_themes_get() {
 	
 	$site_config = site_config_get();
 	
-	if (strtolower(trim($_SERVER['HTTP_HOST'])) == strtolower(trim($site_config['domain']))) {
+	if (strtolower(trim((string) $_SERVER['HTTP_HOST'])) == strtolower(trim((string) $site_config['domain']))) {
 		if ($site_config['themes_module']) {
 			$ret = $site_config['themes_module'];
 		}

@@ -5,8 +5,8 @@ use Gregwar\Captcha\CaptchaBuilder;
 
 if (_OP_ == 'forgot') {
 	
-	$username = trim($_REQUEST['username']);
-	$email = trim($_REQUEST['email']);
+	$username = trim((string) $_REQUEST['username']);
+	$email = trim((string) $_REQUEST['email']);
 	
 	$ok = FALSE;
 	
@@ -19,36 +19,15 @@ if (_OP_ == 'forgot') {
 					if ($db_row = dba_fetch_array($db_result)) {
 						if ($password = $db_row['password']) {
 							$tmp_password = core_get_random_string(16);
-							$tmp_password_coded = md5($tmp_password);
-							if (registry_update(1, 'auth', 'tmp_password', array(
-								$username => $tmp_password_coded 
-							))) {
+							$tmp_password_coded = md5((string) $tmp_password);
+							if (registry_update(1, 'auth', 'tmp_password', [$username => $tmp_password_coded])) {
 								
 								// send email
-								$tpl = array(
-									'name' => 'auth_forgot_email',
-									'vars' => array(
-										'INFO1' => _('You or someone else have requested a password recovery'),
-										'INFO2' => _('This temporary password will be removed once you have logged in successfully'),
-										'Username' => _('Username'),
-										'Password' => _('Password'),
-										'username' => $username,
-										'temporary_password' => $tmp_password 
-									),
-									'injects' => array(
-										'core_config' 
-									) 
-								);
+								$tpl = ['name' => 'auth_forgot_email', 'vars' => ['INFO1' => _('You or someone else have requested a password recovery'), 'INFO2' => _('This temporary password will be removed once you have logged in successfully'), 'Username' => _('Username'), 'Password' => _('Password'), 'username' => $username, 'temporary_password' => $tmp_password], 'injects' => ['core_config']];
 								$email_body = tpl_apply($tpl);
 								$email_subject = _('Password recovery');
 								
-								$mail_data = array(
-									'mail_from_name' => $core_config['main']['web_title'],
-									'mail_from' => $core_config['main']['email_service'],
-									'mail_to' => $email,
-									'mail_subject' => $email_subject,
-									'mail_body' => $email_body 
-								);
+								$mail_data = ['mail_from_name' => $core_config['main']['web_title'], 'mail_from' => $core_config['main']['email_service'], 'mail_to' => $email, 'mail_subject' => $email_subject, 'mail_body' => $email_body];
 								if (sendmail($mail_data)) {
 									$error_string = _('Password has been emailed') . " (" . _('Username') . ": " . $username . ")";
 									$_SESSION['dialog']['info'][] = $error_string;
@@ -99,45 +78,14 @@ if (_OP_ == 'forgot') {
 		}
 	}
 
-	$lastpost = array(
-		'username' => _lastpost('username'),
-		'email' => _lastpost('email')
-	);
+	$lastpost = ['username' => _lastpost('username'), 'email' => _lastpost('email')];
 	
 	// captcha
 	$captcha = new CaptchaBuilder();
 	$captcha->build();
 	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
 	
-	$tpl = array(
-		'name' => 'auth_forgot',
-		'vars' => array(
-			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
-			'WEB_TITLE' => $core_config['main']['web_title'],
-			'DIALOG_DISPLAY' => _dialog(),
-			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=forgot&op=forgot'),
-			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register'),
-			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),
-			'CAPTCHA_IMAGE' => $captcha->inline(),
-			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')),
-			'Username' => _('Username'),
-			'Email' => _('Email'),
-			'Recover password' => _('Recover password'),
-			'Login' => _('Login'),
-			'Submit' => _('Submit'),
-			'Register an account' => _('Register an account'),
-			'Verify captcha' => _('Verify captcha'),
-			'logo_url' => $core_config['main']['logo_url'] 
-		),
-		'ifs' => array(
-			'enable_register' => $core_config['main']['enable_register'],
-			'enable_logo' => $enable_logo,
-			'show_web_title' => $show_web_title 
-		),
-		'injects' => array(
-			'lastpost'
-		)
-	);
+	$tpl = ['name' => 'auth_forgot', 'vars' => ['HTTP_PATH_BASE' => $core_config['http_path']['base'], 'WEB_TITLE' => $core_config['main']['web_title'], 'DIALOG_DISPLAY' => _dialog(), 'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=forgot&op=forgot'), 'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register'), 'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'), 'CAPTCHA_IMAGE' => $captcha->inline(), 'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')), 'Username' => _('Username'), 'Email' => _('Email'), 'Recover password' => _('Recover password'), 'Login' => _('Login'), 'Submit' => _('Submit'), 'Register an account' => _('Register an account'), 'Verify captcha' => _('Verify captcha'), 'logo_url' => $core_config['main']['logo_url']], 'ifs' => ['enable_register' => $core_config['main']['enable_register'], 'enable_logo' => $enable_logo, 'show_web_title' => $show_web_title], 'injects' => ['lastpost']];
 	
 	_p(tpl_apply($tpl));
 }

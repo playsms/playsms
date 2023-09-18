@@ -26,15 +26,15 @@ switch (_OP_) {
 	case "sendsms":
 		
 		// get $to and $message from session or query string
-		$to = stripslashes($_REQUEST['to']);
-		$message = (stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim(stripslashes($_SESSION['tmp']['message'])));
+		$to = stripslashes((string) $_REQUEST['to']);
+		$message = (stripslashes((string) $_REQUEST['message']) ?: trim(stripslashes((string) $_SESSION['tmp']['message'])));
 		
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
 		$ismatched = FALSE;
 		foreach (sender_id_getall($user_config['username']) as $sender_id) {
 			$selected = '';
-			if (strtoupper($sms_from) == strtoupper($sender_id)) {
+			if (strtoupper((string) $sms_from) == strtoupper((string) $sender_id)) {
 				$selected = 'selected';
 				$ismatched = TRUE;
 			}
@@ -52,7 +52,7 @@ switch (_OP_) {
 		// message template
 		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
 		$c_templates = sendsms_get_template();
-		for ($i = 0; $i < count($c_templates); $i++) {
+		for ($i = 0; $i < (is_countable($c_templates) ? count($c_templates) : 0); $i++) {
 			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
 			$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
 		}
@@ -64,65 +64,58 @@ switch (_OP_) {
 		
 		// build form
 		unset($tpl);
-		$tpl = array(
-			'name' => $layout,
-			'vars' => array(
-				'Compose message' => _('Compose message'),
-				'Sender ID' => _('Sender ID'),
-				'Message footer' => _('Message footer'),
-				'Send to' => _('Send to'),
-				'Message' => _('Message'),
-				'Flash message' => _('Flash message'),
-				'Unicode message' => _('Unicode message'),
-				'Send' => _('Send'),
-				'Cancel' => _('Cancel'),
-				'Schedule' => _('Schedule'),
-				'Options' => _('Options'),
-				'DIALOG_DISPLAY' => _dialog(),
-				'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
-				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'HINT_SEND_TO' => _('Prefix with # for groups and @ for users'),
-				'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm'),
-				'sms_from' => $sms_from,
-				'sms_footer' => $sms_footer,
-				'to' => $to,
-				'sms_sender_id' => $sms_sender_id,
-				'sms_template' => $sms_template,
-				'return_url' => $_REQUEST['return_url'],
-				
-				// 'sms_schedule' => core_display_datetime(core_get_datetime()),
-				'sms_schedule' => '',
-				'message' => $message,
-				'sms_footer_length' => $user_config['opt']['sms_footer_length'],
-				'per_sms_length' => $user_config['opt']['per_sms_length'],
-				'per_sms_length_unicode' => $user_config['opt']['per_sms_length_unicode'],
-				'max_sms_length' => $user_config['opt']['max_sms_length'],
-				'max_sms_length_unicode' => $user_config['opt']['max_sms_length_unicode'],
-				'lang' => substr($user_config['language_module'], 0, 2),
-				'chars' => _('chars'),
-				'SMS' => _('SMS') 
-			),
-			'ifs' => array(
-				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js') 
-			) 
-		);
+		$tpl = ['name' => $layout, 'vars' => [
+      'Compose message' => _('Compose message'),
+      'Sender ID' => _('Sender ID'),
+      'Message footer' => _('Message footer'),
+      'Send to' => _('Send to'),
+      'Message' => _('Message'),
+      'Flash message' => _('Flash message'),
+      'Unicode message' => _('Unicode message'),
+      'Send' => _('Send'),
+      'Cancel' => _('Cancel'),
+      'Schedule' => _('Schedule'),
+      'Options' => _('Options'),
+      'DIALOG_DISPLAY' => _dialog(),
+      'HTTP_PATH_BASE' => _HTTP_PATH_BASE_,
+      'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
+      'HINT_SEND_TO' => _('Prefix with # for groups and @ for users'),
+      'HINT_SCHEDULE' => _('Format YYYY-MM-DD hh:mm'),
+      'sms_from' => $sms_from,
+      'sms_footer' => $sms_footer,
+      'to' => $to,
+      'sms_sender_id' => $sms_sender_id,
+      'sms_template' => $sms_template,
+      'return_url' => $_REQUEST['return_url'],
+      // 'sms_schedule' => core_display_datetime(core_get_datetime()),
+      'sms_schedule' => '',
+      'message' => $message,
+      'sms_footer_length' => $user_config['opt']['sms_footer_length'],
+      'per_sms_length' => $user_config['opt']['per_sms_length'],
+      'per_sms_length_unicode' => $user_config['opt']['per_sms_length_unicode'],
+      'max_sms_length' => $user_config['opt']['max_sms_length'],
+      'max_sms_length_unicode' => $user_config['opt']['max_sms_length_unicode'],
+      'lang' => substr((string) $user_config['language_module'], 0, 2),
+      'chars' => _('chars'),
+      'SMS' => _('SMS'),
+  ], 'ifs' => ['calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr((string) $user_config['language_module'], 0, 2) . '.js')]];
 		_p(tpl_apply($tpl));
 		break;
 	
 	case "sendsms_yes":
 		
 		// popup related
-		$return_url = trim(htmlspecialchars_decode($_REQUEST['return_url']));
+		$return_url = trim(htmlspecialchars_decode((string) $_REQUEST['return_url']));
 		if ($_REQUEST['submit'] == _('Cancel')) {
 			header("Location: " . $return_url);
 			exit();
 		}
 		
 		// sender ID
-		$sms_sender = trim($_REQUEST['sms_sender']);
+		$sms_sender = trim((string) $_REQUEST['sms_sender']);
 		
 		// SMS footer
-		$sms_footer = trim($_REQUEST['sms_footer']);
+		$sms_footer = trim((string) $_REQUEST['sms_footer']);
 		
 		// nofooter option
 		$nofooter = true;
@@ -131,7 +124,7 @@ switch (_OP_) {
 		}
 		
 		// schedule option
-		$sms_schedule = trim($_REQUEST['sms_schedule']);
+		$sms_schedule = trim((string) $_REQUEST['sms_schedule']);
 		
 		// type of SMS, text or flash
 		$msg_flash = $_REQUEST['msg_flash'];
@@ -154,13 +147,13 @@ switch (_OP_) {
 		$_SESSION['tmp']['message'] = $message;
 		
 		// destination numbers
-		if ($sms_to = trim($_REQUEST['p_num_text'])) {
+		if ($sms_to = trim((string) $_REQUEST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
 		}
 		
 		if ($sms_to[0] && $message) {
 			
-			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed, $error_strings) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, '', $nofooter, $sms_footer, $sms_sender, $sms_schedule, $reference_id);
+			[$ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed, $error_strings] = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, '', $nofooter, $sms_footer, $sms_sender, $sms_schedule, $reference_id);
 			
 			if (!$sms_count && $sms_failed) {
 				$_SESSION['dialog']['danger'][] = _('Fail to send message to all destinations') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";

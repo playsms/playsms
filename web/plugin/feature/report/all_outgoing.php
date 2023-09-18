@@ -26,59 +26,35 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "all_outgoing":
-		$search_category = array(
-			_('User') => 'username',
-			_('Gateway') => 'p_gateway',
-			_('SMSC') => 'p_smsc',
-			_('Time') => 'p_datetime',
-			_('To') => 'p_dst',
-			_('Message') => 'p_msg',
-			_('Footer') => 'p_footer' 
-		);
+		$search_category = [_('User') => 'username', _('Gateway') => 'p_gateway', _('SMSC') => 'p_smsc', _('Time') => 'p_datetime', _('To') => 'p_dst', _('Message') => 'p_msg', _('Footer') => 'p_footer'];
 		
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing';
 		$queue_label = "";
 		$queue_home_link = "";
 		
-		if ($queue_code = trim($_REQUEST['queue_code'])) {
+		if ($queue_code = trim((string) $_REQUEST['queue_code'])) {
 			$queue_label = "<h4>" . sprintf(_('List of queue %s'), $queue_code) . "</h4>";
 			$queue_home_link = _back($base_url);
 			$base_url .= '&queue_code=' . $queue_code;
 			$search = themes_search($search_category, $base_url);
-			$conditions = array(
-				'A.queue_code' => $queue_code,
-				'A.flag_deleted' => 0 
-			);
+			$conditions = ['A.queue_code' => $queue_code, 'A.flag_deleted' => 0];
 			$keywords = $search['dba_keywords'];
 			$table = _DB_PREF_ . '_tblSMSOutgoing';
 			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
 			$count = dba_count($table . ' AS A', $conditions, $keywords, '', $join);
 			$nav = themes_nav($count, $search['url']);
-			$extras = array(
-				'ORDER BY' => 'A.smslog_id DESC',
-				'LIMIT' => $nav['limit'],
-				'OFFSET' => $nav['offset'] 
-			);
+			$extras = ['ORDER BY' => 'A.smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 			$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, A.uid, A.queue_code', $conditions, $keywords, $extras, $join);
 		} else {
 			$search = themes_search($search_category, $base_url);
-			$conditions = array(
-				'A.flag_deleted' => 0 
-			);
+			$conditions = ['A.flag_deleted' => 0];
 			$keywords = $search['dba_keywords'];
 			$table = _DB_PREF_ . '_tblSMSOutgoing';
 			$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
-			$list = dba_search($table . ' AS A', 'A.id', $conditions, $keywords, array(
-				'GROUP BY' => 'A.queue_code, A.id'
-			), $join);
-			$count = count($list);
+			$list = dba_search($table . ' AS A', 'A.id', $conditions, $keywords, ['GROUP BY' => 'A.queue_code, A.id'], $join);
+			$count = is_countable($list) ? count($list) : 0;
 			$nav = themes_nav($count, $search['url']);
-			$extras = array(
-				'GROUP BY' => 'A.queue_code, A.id',
-				'ORDER BY' => 'A.smslog_id DESC',
-				'LIMIT' => $nav['limit'],
-				'OFFSET' => $nav['offset'] 
-			);
+			$extras = ['GROUP BY' => 'A.queue_code, A.id', 'ORDER BY' => 'A.smslog_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 			$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, A.uid, A.queue_code, COUNT(*) AS queue_count', $conditions, $keywords, $extras, $join);
 		}
 		
@@ -112,7 +88,7 @@ switch (_OP_) {
 		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 			$list[$j] = core_display_data($list[$j]);
 			$p_username = $list[$j]['username'];
 			$p_gateway = $list[$j]['p_gateway'];
@@ -152,11 +128,11 @@ switch (_OP_) {
 			
 			// get billing info
 			$billing = billing_getdata($smslog_id);
-			$p_count = ($billing['count'] ? $billing['count'] : '0');
+			$p_count = ($billing['count'] ?: '0');
 
-			$p_rate = core_display_credit($billing['rate'] ? $billing['rate'] : '0.0');
+			$p_rate = core_display_credit($billing['rate'] ?: '0.0');
 			
-			$p_charge = core_display_credit($billing['charge'] ? $billing['charge'] : '0.0');
+			$p_charge = core_display_credit($billing['charge'] ?: '0.0');
 			
 			// if send SMS failed then display charge as 0
 			if ($list[$j]['p_status'] == 2) {
@@ -203,35 +179,17 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array(
-					'A.flag_deleted' => 0 
-				);
-				if ($queue_code = trim($_REQUEST['queue_code'])) {
+				$conditions = ['A.flag_deleted' => 0];
+				if ($queue_code = trim((string) $_REQUEST['queue_code'])) {
 					$conditions['A.queue_code'] = $queue_code;
 				}
 				$table = _DB_PREF_ . '_tblSMSOutgoing';
 				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid";
 				$list = dba_search($table . ' AS A', 'B.username, A.p_gateway, A.p_smsc, A.p_datetime, A.p_dst, A.p_msg, A.p_footer, A.p_status', $conditions, $search['dba_keywords'], '', $join);
-				$data[0] = array(
-					_('User'),
-					_('Gateway'),
-					_('SMSC'),
-					_('Time'),
-					_('To'),
-					_('Message'),
-					_('Status') 
-				);
-				for ($i = 0; $i < count($list); $i++) {
+				$data[0] = [_('User'), _('Gateway'), _('SMSC'), _('Time'), _('To'), _('Message'), _('Status')];
+				for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 					$j = $i + 1;
-					$data[$j] = array(
-						$list[$i]['username'],
-						$list[$i]['p_gateway'],
-						$list[$i]['p_smsc'],
-						core_display_datetime($list[$i]['p_datetime']),
-						$list[$i]['p_dst'],
-						$list[$i]['p_msg'] . $list[$i]['p_footer'],
-						$list[$i]['p_status'] 
-					);
+					$data[$j] = [$list[$i]['username'], $list[$i]['p_gateway'], $list[$i]['p_smsc'], core_display_datetime($list[$i]['p_datetime']), $list[$i]['p_dst'], $list[$i]['p_msg'] . $list[$i]['p_footer'], $list[$i]['p_status']];
 				}
 				$content = core_csv_format($data);
 				if ($queue_code) {
@@ -247,14 +205,9 @@ switch (_OP_) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
-						$up = array(
-							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
-						);
-						$conditions = array(
-							'smslog_id' => $itemid 
-						);
-						if ($queue_code = trim($_REQUEST['queue_code'])) {
+						$up = ['c_timestamp' => time(), 'flag_deleted' => '1'];
+						$conditions = ['smslog_id' => $itemid];
+						if ($queue_code = trim((string) $_REQUEST['queue_code'])) {
 							$conditions['queue_code'] = $queue_code;
 						}
 						dba_update(_DB_PREF_ . '_tblSMSOutgoing', $up, $conditions);

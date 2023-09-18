@@ -28,24 +28,12 @@ if (file_exists($fn)) {
 	include $fn;
 } else {
 	
-	$information_title = ($core_config['main']['information_title'] ? $core_config['main']['information_title'] : _('Welcome information'));
-	$information_content = ($core_config['main']['information_content'] ? $core_config['main']['information_content'] : _('Go to manage site menu to edit this page'));
+	$information_title = ($core_config['main']['information_title'] ?: _('Welcome information'));
+	$information_content = ($core_config['main']['information_content'] ?: _('Go to manage site menu to edit this page'));
 	
-	list($information_title, $information_content) = core_display_html(array(
-		$information_title,
-		$information_content 
-	));
+	[$information_title, $information_content] = core_display_html([$information_title, $information_content]);
 	
-	$tpl = array(
-		'name' => 'welcome',
-		'vars' => array(
-			'INFORMATION_TITLE' => $information_title,
-			'INFORMATION_CONTENT' => $information_content 
-		),
-		'injects' => array(
-			'user_config' 
-		) 
-	);
+	$tpl = ['name' => 'welcome', 'vars' => ['INFORMATION_TITLE' => $information_title, 'INFORMATION_CONTENT' => $information_content], 'injects' => ['user_config']];
 	$tpl['vars'][$doc . '_ACTIVE'] = 'class=active';
 	_p(tpl_apply($tpl));
 }

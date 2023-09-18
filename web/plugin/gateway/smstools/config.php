@@ -5,16 +5,13 @@ defined('_SECURE_') or die('Forbidden');
 $data = registry_search(0, 'gateway', 'smstools');
 
 $plugin_config['smstools']['name'] = 'smstools';
-$plugin_config['smstools']['default_queue'] = trim(core_sanitize_path($data['gateway']['smstools']['default_queue']));
+$plugin_config['smstools']['default_queue'] = trim((string) core_sanitize_path($data['gateway']['smstools']['default_queue']));
 if (!$plugin_config['smstools']['default_queue']) {
 	$plugin_config['smstools']['default_queue'] = "/var/spool/sms";
 }
 
 // smsc configuration
-$plugin_config['smstools']['_smsc_config_'] = array(
-	'sms_receiver' => _('Receiver number'),
-	'queue' => _('Queue directory') 
-);
+$plugin_config['smstools']['_smsc_config_'] = ['sms_receiver' => _('Receiver number'), 'queue' => _('Queue directory')];
 
 // insert to left menu array
 //if (isadmin()) {

@@ -50,9 +50,7 @@ switch (_OP_) {
 		break;
 	case "manage_save":
 		$up_path = core_sanitize_path($_POST['up_path']);
-		$items = array(
-			'path' => $up_path 
-		);
+		$items = ['path' => $up_path];
 		registry_update(0, 'gateway', 'gammu', $items);
 		
 		$_SESSION['dialog']['info'][] = _('Changes have been made');

@@ -77,7 +77,7 @@ switch (_OP_) {
 		$db_row = dba_fetch_array($db_result);
 		$edit_command_uid = $db_row['uid'];
 		$edit_command_keyword = $db_row['command_keyword'];
-		$edit_command_exec = stripslashes($db_row['command_exec']);
+		$edit_command_exec = stripslashes((string) $db_row['command_exec']);
 		$edit_command_exec = str_replace($sms_command_bin . "/", '', $edit_command_exec);
 		$edit_command_return_as_reply = ( $db_row['command_return_as_reply'] == '1' ? 'checked' : '' );
 		$edit_smsc = $db_row['smsc'];
@@ -140,7 +140,7 @@ switch (_OP_) {
 		}
 		
 		if ($command_id && $edit_command_keyword && $edit_command_exec) {
-			$edit_command_exec = str_replace("../", "", $edit_command_exec);
+			$edit_command_exec = str_replace("../", "", (string) $edit_command_exec);
 			$edit_command_exec = str_replace("..\\", "", $edit_command_exec);
 			$edit_command_exec = str_replace("/", "", $edit_command_exec);
 			$edit_command_exec = str_replace("\\", "", $edit_command_exec);
@@ -223,7 +223,7 @@ switch (_OP_) {
 		break;
 	case "sms_command_add_yes":
 		$add_command_return_as_reply = ( $_POST['add_command_return_as_reply'] == 'on' ? '1' : '0' );
-		$add_command_keyword = strtoupper($_POST['add_command_keyword']);
+		$add_command_keyword = strtoupper((string) $_POST['add_command_keyword']);
 		$add_command_exec = $_POST['add_command_exec'];
 
 		if (auth_isadmin()) {
@@ -232,7 +232,7 @@ switch (_OP_) {
 		
 		if ($add_command_keyword && $add_command_exec) {
 			$add_command_exec = $add_command_exec;
-			$add_command_exec = str_replace("/", "", $add_command_exec);
+			$add_command_exec = str_replace("/", "", (string) $add_command_exec);
 			$add_command_exec = str_replace("|", "", $add_command_exec);
 			$add_command_exec = str_replace("\\", "", $add_command_exec);
 			if (keyword_isavail($add_command_keyword)) {

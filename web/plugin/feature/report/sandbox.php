@@ -25,25 +25,14 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "sandbox":
-		$search_category = array(
-			_('Time') => 'in_datetime',
-			_('From') => 'in_sender',
-			_('Content') => 'in_message' 
-		);
+		$search_category = [_('Time') => 'in_datetime', _('From') => 'in_sender', _('Content') => 'in_message'];
 		$base_url = 'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array(
-			'flag_deleted' => 0,
-			'in_status' => 0 
-		);
+		$conditions = ['flag_deleted' => 0, 'in_status' => 0];
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'in_id DESC',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_id, in_uid, in_sender, in_datetime, in_message', $conditions, $keywords, $extras, $join);
 		
 		$content = _dialog() . "
@@ -73,7 +62,7 @@ switch (_OP_) {
 		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_uid = $list[$j]['in_uid'];
@@ -121,23 +110,12 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array(
-					'flag_deleted' => 0,
-					'in_status' => 0 
-				);
+				$conditions = ['flag_deleted' => 0, 'in_status' => 0];
 				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_datetime, in_sender, in_message', $conditions, $search['dba_keywords'], '', $join);
-				$data[0] = array(
-					_('Time'),
-					_('From'),
-					_('Content') 
-				);
-				for ($i = 0; $i < count($list); $i++) {
+				$data[0] = [_('Time'), _('From'), _('Content')];
+				for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 					$j = $i + 1;
-					$data[$j] = array(
-						core_display_datetime($list[$i]['in_datetime']),
-						$list[$i]['in_sender'],
-						$list[$i]['in_message'] 
-					);
+					$data[$j] = [core_display_datetime($list[$i]['in_datetime']), $list[$i]['in_sender'], $list[$i]['in_message']];
 				}
 				$content = core_csv_format($data);
 				$fn = 'sandbox-' . $core_config['datetime']['now_stamp'] . '.csv';
@@ -149,13 +127,8 @@ switch (_OP_) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
-						$up = array(
-							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
-						);
-						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(
-							'in_id' => $itemid 
-						));
+						$up = ['c_timestamp' => time(), 'flag_deleted' => '1'];
+						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, ['in_id' => $itemid]);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

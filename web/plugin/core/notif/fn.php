@@ -33,25 +33,15 @@ defined('_SECURE_') or die('Forbidden');
  *        Additional data, json encoded
  * @return boolean
  */
-function notif_add($uid, $label, $subject, $body, $data = array()) {
+function notif_add($uid, $label, $subject, $body, $data = []) {
 	$ret = FALSE;
 	
 	if (!is_array($data)) {
-		$data = array(
-			$data 
-		);
+		$data = [$data];
 	}
 	
 	$db_table = _DB_PREF_ . '_tblNotif';
-	$items = array(
-		'uid' => $uid,
-		'last_update' => core_get_datetime(),
-		'label' => $label,
-		'subject' => $subject,
-		'body' => $body,
-		'flag_unread' => 1,
-		'data' => json_encode($data) 
-	);
+	$items = ['uid' => $uid, 'last_update' => core_get_datetime(), 'label' => $label, 'subject' => $subject, 'body' => $body, 'flag_unread' => 1, 'data' => json_encode($data, JSON_THROW_ON_ERROR)];
 	if ($result = dba_add($db_table, $items)) {
 		foreach ($data as $key => $val) {
 			$show_data .= $key . ':' . $val . ' ';
@@ -77,10 +67,7 @@ function notif_remove($uid, $id) {
 	$ret = FALSE;
 	
 	$db_table = _DB_PREF_ . '_tblNotif';
-	if ($result = dba_remove($db_table, array(
-		'uid' => $uid,
-		'id' => $id 
-	))) {
+	if ($result = dba_remove($db_table, ['uid' => $uid, 'id' => $id])) {
 		_log('uid:' . $uid . ' id:' . $id, 2, 'notif_remove');
 		$ret = TRUE;
 	}
@@ -108,20 +95,15 @@ function notif_update($uid, $id, $fields) {
 	}
 	
 	$db_table = _DB_PREF_ . '_tblNotif';
-	$result = dba_search($db_table, '*', array(
-		'uid' => $uid,
-		'id' => $id 
-	));
+	$result = dba_search($db_table, '*', ['uid' => $uid, 'id' => $id]);
 	foreach ($result[0] as $key => $val) {
-		$items[$key] = ($fields[$key] ? $fields[$key] : $val);
+		$items[$key] = ($fields[$key] ?: $val);
 		if ($fields[$key]) {
 			$fields_replaced .= $key . ':' . $val . ' ';
 		}
 	}
-	if ($items && trim($replaced)) {
-		if (dba_update($db_table, $items, array(
-			'id' => $id 
-		))) {
+	if ($items && trim((string) $replaced)) {
+		if (dba_update($db_table, $items, ['id' => $id])) {
 			_log('uid:' . $uid . ' id:' . $id . ' ' . trim($fields_replaced), 2, 'notif_update');
 			$ret = TRUE;
 		}
@@ -139,7 +121,7 @@ function notif_update($uid, $id, $fields) {
  *        Search keywords
  * @return array
  */
-function notif_search($conditions = array(), $keywords = array()) {
+function notif_search($conditions = [], $keywords = []) {
 	$db_table = _DB_PREF_ . '_tblNotif';
 	$results = dba_search($db_table, '*', $conditions, $keywords);
 	

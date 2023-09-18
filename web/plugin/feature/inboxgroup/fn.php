@@ -33,7 +33,7 @@ function inboxgroup_hook_keyword_isavail($keyword) {
  *   array $ret
  */
 function inboxgroup_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
-	$ret = array();
+	$ret = [];
 	// proceed only when $message and $sms_receiver aren't empty
 	if ($message && $sms_receiver) {
 		// extract message to keyword and content, use keyword part only
@@ -79,7 +79,7 @@ function inboxgroup_forwardmembers($data, $log_in_id, $sms_sender, $message) {
 		$users = inboxgroup_getmembers($data['id']);
 		$continue = false;
 		if ($data['exclusive']) {
-			for ($i=0;$i<count($users);$i++) {
+			for ($i=0;$i<(is_countable($users) ? count($users) : 0);$i++) {
 			if ($sms_sender == $users[$i]['mobile']) {
 				$continue = true;
 			}
@@ -88,7 +88,7 @@ function inboxgroup_forwardmembers($data, $log_in_id, $sms_sender, $message) {
 			$continue = true;
 		}
 		if ($continue) {
-			for ($i=0;$i<count($users);$i++) {
+			for ($i=0;$i<(is_countable($users) ? count($users) : 0);$i++) {
 				if (($sms_to = $users[$i]['mobile']) && ($sms_to != $sms_sender)) {
 					//list($ok, $to, $smslog_id,$queue) = sendsms_helper($username, $sms_to, $message, 'text', 0);
 					//_log("forwardmembers sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 2, "inboxgroup");
@@ -108,7 +108,7 @@ function inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $message) {
 		$users = inboxgroup_getcatchall($data['id']);
 		$continue = false;
 		if ($data['exclusive']) {
-			for ($i=0;$i<count($users);$i++) {
+			for ($i=0;$i<(is_countable($users) ? count($users) : 0);$i++) {
 				if ($sms_sender == $users[$i]['mobile']) {
 					$continue = true;
 				}
@@ -117,7 +117,7 @@ function inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $message) {
 			$continue = true;
 		}
 		if ($continue) {
-			for ($i=0;$i<count($users);$i++) {
+			for ($i=0;$i<(is_countable($users) ? count($users) : 0);$i++) {
 				if (($sms_to = $users[$i]['mobile']) && ($sms_to != $sms_sender)) {
 					//list($ok, $to, $smslog_id,$queue) = sendsms_helper($username, $sms_to, $message, 'text', 0);
 					//_log("forwardcatchall sendsms smslog_id:".$smslog_id[0]." to:".$sms_to, 2, "inboxgroup");
@@ -131,23 +131,23 @@ function inboxgroup_forwardcatchall($data, $log_in_id, $sms_sender, $message) {
 }
 
 function inboxgroup_extractmessage($message) {
-	$ret = array();
+	$ret = [];
 	
-	$arr = explode(' ', $message, 2);
+	$arr = explode(' ', (string) $message, 2);
 	$ret['keyword'] = trim(strtoupper($arr[0]));
 	$ret['content'] = trim($arr[1]);
-	$ret['full'] = trim($message);
+	$ret['full'] = trim((string) $message);
 	$ret['raw'] = $message;
 
 	return $ret;
 }
 
 function inboxgroup_getdata($sms_receiver, $keyword='') {
-	$ret = array();
+	$ret = [];
 	
 	// FIXME anton: this will match 'TEST' with 'SOMETEST' or 'TEST1', it shouldn't
 	
-	if ($keyword = trim(strtoupper($keyword))) {
+	if ($keyword = trim(strtoupper((string) $keyword))) {
 		$the_keyword = "AND keywords LIKE '%".trim($keyword)."%'";
 	}
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureInboxgroup WHERE deleted='0' AND in_receiver='$sms_receiver' ".$the_keyword;
@@ -160,7 +160,7 @@ function inboxgroup_getdata($sms_receiver, $keyword='') {
 }
 
 function inboxgroup_getdatabyid($rid) {
-	$ret = array();
+	$ret = [];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureInboxgroup WHERE deleted='0' AND id='$rid'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -170,7 +170,7 @@ function inboxgroup_getdatabyid($rid) {
 }
 
 function inboxgroup_getdataall() {
-	$ret = array();
+	$ret = [];
 	$db_query = "SELECT * FROM "._DB_PREF_."_featureInboxgroup WHERE deleted='0'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
@@ -180,7 +180,7 @@ function inboxgroup_getdataall() {
 }
 
 function inboxgroup_getmembers($id) {
-	$ret = array();
+	$ret = [];
 	$db_query = "SELECT uid FROM "._DB_PREF_."_featureInboxgroup_members WHERE rid='$id'";
 	$db_result = dba_query($db_query);
 	$i = 0;
@@ -196,7 +196,7 @@ function inboxgroup_getmembers($id) {
 }
 
 function inboxgroup_getcatchall($id) {
-	$ret = array();
+	$ret = [];
 	$db_query = "SELECT uid FROM "._DB_PREF_."_featureInboxgroup_catchall WHERE rid='$id'";
 	$db_result = dba_query($db_query);
 	$i = 0;
@@ -239,7 +239,7 @@ function inboxgroup_dataadd($in_receiver, $keywords, $description) {
 	global $user_config;
 	$dt = core_get_datetime();
 	$uid = $user_config['uid'];
-	$keywords = str_replace(' ', '', $keywords);
+	$keywords = str_replace(' ', '', (string) $keywords);
 	$keywords = trim(strtoupper($keywords));
 	$keywords = explode(',', $keywords);
 	$k = '';
@@ -260,9 +260,9 @@ function inboxgroup_dataedit($rid, $keywords, $description, $exclusive) {
 	$db_query = "SELECT keywords FROM "._DB_PREF_."_featureInboxgroup WHERE id='$rid'";
 	$db_result = dba_query($db_query);
 	$db_row = dba_fetch_array($db_result);
-	$orig_keywords = explode(',', $db_row['keywords']);
+	$orig_keywords = explode(',', (string) $db_row['keywords']);
 	$exclusive = $exclusive ? 1 : 0 ;
-	$keywords = str_replace(' ', '', $keywords);
+	$keywords = str_replace(' ', '', (string) $keywords);
 	$keywords = trim(strtoupper($keywords));
 	$keywords = explode(',', $keywords);
 	$k = '';

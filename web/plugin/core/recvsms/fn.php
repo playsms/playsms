@@ -24,26 +24,12 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc
 		$c_isrecvsmsd = 1;
 		
 		// save to db and mark as queued (flag_processed = 1)
-		$ret = dba_add(_DB_PREF_ . '_tblRecvSMS', array(
-			'flag_processed' => 1,
-			'sms_datetime' => core_adjust_datetime($sms_datetime),
-			'sms_sender' => $sms_sender,
-			'message' => $message,
-			'sms_receiver' => $sms_receiver,
-			'smsc' => $smsc 
-		));
+		$ret = dba_add(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 1, 'sms_datetime' => core_adjust_datetime($sms_datetime), 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver, 'smsc' => $smsc]);
 	} else {
 		$c_isrecvsmsd = 0;
 		
 		// save to db but mark as processed (flag_processed = 2) and then directly call recvsms_process()
-		$ret = dba_add(_DB_PREF_ . '_tblRecvSMS', array(
-			'flag_processed' => 2,
-			'sms_datetime' => core_adjust_datetime($sms_datetime),
-			'sms_sender' => $sms_sender,
-			'message' => $message,
-			'sms_receiver' => $sms_receiver,
-			'smsc' => $smsc 
-		));
+		$ret = dba_add(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 2, 'sms_datetime' => core_adjust_datetime($sms_datetime), 'sms_sender' => $sms_sender, 'message' => $message, 'sms_receiver' => $sms_receiver, 'smsc' => $smsc]);
 		recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
 	}
 	_log("isrecvsmsd:" . $c_isrecvsmsd . " dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsms");
@@ -52,25 +38,17 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc
 
 function recvsmsd() {
 	global $core_config;
-	$core_config['recvsmsd_limit'] = ((int) $core_config['recvsmsd_limit'] ? (int) $core_config['recvsmsd_limit'] : 200);
-	$list = dba_search(_DB_PREF_ . '_tblRecvSMS', '*', array(
-		'flag_processed' => 1 
-	), '', array(
-		'LIMIT' => $core_config['recvsmsd_limit'] 
-	));
+	$core_config['recvsmsd_limit'] = ((int) $core_config['recvsmsd_limit'] ?: 200);
+	$list = dba_search(_DB_PREF_ . '_tblRecvSMS', '*', ['flag_processed' => 1], '', ['LIMIT' => $core_config['recvsmsd_limit']]);
 	$j = 0;
-	for ($j = 0; $j < count($list); $j++) {
+	for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 		if ($id = $list[$j]['id']) {
 			$sms_datetime = $list[$j]['sms_datetime'];
 			$sms_sender = $list[$j]['sms_sender'];
 			$message = $list[$j]['message'];
 			$sms_receiver = $list[$j]['sms_receiver'];
 			$smsc = $list[$j]['smsc'];
-			if (dba_update(_DB_PREF_ . '_tblRecvSMS', array(
-				'flag_processed' => 2 
-			), array(
-				'id' => $id 
-			))) {
+			if (dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 2], ['id' => $id])) {
 				_log("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsmsd");
 				recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
 			}
@@ -80,24 +58,18 @@ function recvsmsd() {
 
 function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver = '', $smsc = '') {
 	global $core_config;
-	$ret = array();
-	$ret_final = array();
+	$ret = [];
+	$ret_final = [];
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_intercept', array(
-			$sms_datetime,
-			$sms_sender,
-			$message,
-			$sms_receiver,
-			$smsc 
-		));
+	for ($c = 0; $c < (is_countable($core_config['plugins']['list']['feature']) ? count($core_config['plugins']['list']['feature']) : 0); $c++) {
+		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_intercept', [$sms_datetime, $sms_sender, $message, $sms_receiver, $smsc]);
 		if ($ret['modified']) {
-			$sms_datetime = ($ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime);
-			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
-			$message = ($ret['param']['message'] ? $ret['param']['message'] : $message);
-			$sms_receiver = ($ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver);
-			$smsc = ($ret['param']['smsc'] ? $ret['param']['smsc'] : $smsc);
+			$sms_datetime = ($ret['param']['sms_datetime'] ?: $sms_datetime);
+			$sms_sender = ($ret['param']['sms_sender'] ?: $sms_sender);
+			$message = ($ret['param']['message'] ?: $message);
+			$sms_receiver = ($ret['param']['sms_receiver'] ?: $sms_receiver);
+			$smsc = ($ret['param']['smsc'] ?: $smsc);
 			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
 			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
 			$ret_final['param']['message'] = $ret['param']['message'];
@@ -121,29 +93,20 @@ function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver =
 
 function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver = "", $feature, $status, $uid, $smsc = '') {
 	global $core_config;
-	$ret = array();
-	$ret_final = array();
+	$ret = [];
+	$ret_final = [];
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_intercept_after', array(
-			$sms_datetime,
-			$sms_sender,
-			$message,
-			$sms_receiver,
-			$feature,
-			$status,
-			$uid,
-			$smsc 
-		));
+	for ($c = 0; $c < (is_countable($core_config['plugins']['list']['feature']) ? count($core_config['plugins']['list']['feature']) : 0); $c++) {
+		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_intercept_after', [$sms_datetime, $sms_sender, $message, $sms_receiver, $feature, $status, $uid, $smsc]);
 		if ($ret['modified']) {
-			$sms_datetime = ($ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime);
-			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
-			$message = ($ret['param']['message'] ? $ret['param']['message'] : $message);
-			$sms_receiver = ($ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver);
-			$smsc = ($ret['param']['smsc'] ? $ret['param']['smsc'] : $smsc);
-			$feature = ($ret['param']['feature'] ? $ret['param']['feature'] : $feature);
-			$status = ($ret['param']['status'] ? $ret['param']['status'] : $status);
+			$sms_datetime = ($ret['param']['sms_datetime'] ?: $sms_datetime);
+			$sms_sender = ($ret['param']['sms_sender'] ?: $sms_sender);
+			$message = ($ret['param']['message'] ?: $message);
+			$sms_receiver = ($ret['param']['sms_receiver'] ?: $sms_receiver);
+			$smsc = ($ret['param']['smsc'] ?: $smsc);
+			$feature = ($ret['param']['feature'] ?: $feature);
+			$status = ($ret['param']['status'] ?: $status);
 			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
 			$ret_final['param']['sms_sender'] = $ret['param']['sms_sender'];
 			$ret_final['param']['message'] = $ret['param']['message'];
@@ -179,11 +142,11 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	// incoming sms will be handled by plugins first
 	$ret_intercept = recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 	if ($ret_intercept['modified']) {
-		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime);
-		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
-		$message = ($ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message);
-		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver);
-		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
+		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ?: $sms_datetime);
+		$sms_sender = ($ret_intercept['param']['sms_sender'] ?: $sms_sender);
+		$message = ($ret_intercept['param']['message'] ?: $message);
+		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ?: $sms_receiver);
+		$smsc = ($ret_intercept['param']['smsc'] ?: $smsc);
 	}
 	
 	// set active gateway module as default gateway
@@ -212,8 +175,8 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	$c_uid = 0;
 	$c_feature = "";
 	$ok = false;
-	$keyword_separator = ($core_config['main']['keyword_separator'] ? $core_config['main']['keyword_separator'] : ' ');
-	$array_target_keyword = explode($keyword_separator, $message);
+	$keyword_separator = ($core_config['main']['keyword_separator'] ?: ' ');
+	$array_target_keyword = explode($keyword_separator, (string) $message);
 	$target_keyword = strtoupper(trim($array_target_keyword[0]));
 	$raw_message = $message;
 	$message = $array_target_keyword[1];
@@ -227,7 +190,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 			$c_feature = 'core';
 			$array_target_group = explode(" ", $message);
 			$target_group = strtoupper(trim($array_target_group[0]));
-			$list = phonebook_search_group($c_uid, $target_group, '', TRUE);
+			$list = phonebook_search_group($c_uid, $target_group, '');
 			$c_gpid = $list[0]['gpid'];
 			$message = $array_target_group[1];
 			for ($i = 2; $i < count($array_target_group); $i++) {
@@ -235,7 +198,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 			}
 			_log("bc username:" . $c_username . " gpid:" . $c_gpid . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:" . $message . " raw:" . $raw_message, 3, "recvsms_process");
 			if ($c_username && $c_gpid && $message) {
-				list($ok, $to, $smslog_id, $queue) = sendsms_bc($c_username, $c_gpid, $message);
+				[$ok, $to, $smslog_id, $queue] = sendsms_bc($c_username, $c_gpid, $message);
 				$ok = true;
 			} else {
 				_log('bc has failed due to missing option u:' . $c_username . ' gpid:' . $c_gpid . ' m:[' . $message . ']', 3, 'recvsms_process');
@@ -243,17 +206,9 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 			break;
 		
 		default :
-			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+			for ($c = 0; $c < (is_countable($core_config['plugins']['list']['feature']) ? count($core_config['plugins']['list']['feature']) : 0); $c++) {
 				$c_feature = $core_config['plugins']['list']['feature'][$c];
-				$ret = core_hook($c_feature, 'recvsms_process', array(
-					$sms_datetime,
-					$sms_sender,
-					$target_keyword,
-					$message,
-					$sms_receiver,
-					$smsc,
-					$raw_message 
-				));
+				$ret = core_hook($c_feature, 'recvsms_process', [$sms_datetime, $sms_sender, $target_keyword, $message, $sms_receiver, $smsc, $raw_message]);
 				if ($ok = $ret['status']) {
 					$c_uid = $ret['uid'];
 					_log("feature:" . $c_feature . " datetime:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " keyword:" . $target_keyword . " message:" . $message . " raw:" . $raw_message . " smsc:" . $smsc, 3, "recvsms_process");
@@ -283,18 +238,18 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	unset($ret_intercept);
 	$ret_intercept = recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $c_feature, $c_status, $c_uid, $smsc);
 	if ($ret_intercept['modified']) {
-		$c_uid = ($ret_intercept['uid'] ? $ret_intercept['uid'] : $c_uid);
-		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime);
-		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
-		$message = ($ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message);
-		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver);
-		$c_feature = ($ret_intercept['param']['feature'] ? $ret_intercept['param']['feature'] : $c_feature);
-		$c_status = ($ret_intercept['param']['status'] ? $ret_intercept['param']['status'] : $c_status);
-		$smsc = ($ret_intercept['param']['smsc'] ? $ret_intercept['param']['smsc'] : $smsc);
+		$c_uid = ($ret_intercept['uid'] ?: $c_uid);
+		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ?: $sms_datetime);
+		$sms_sender = ($ret_intercept['param']['sms_sender'] ?: $sms_sender);
+		$message = ($ret_intercept['param']['message'] ?: $message);
+		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ?: $sms_receiver);
+		$c_feature = ($ret_intercept['param']['feature'] ?: $c_feature);
+		$c_status = ($ret_intercept['param']['status'] ?: $c_status);
+		$smsc = ($ret_intercept['param']['smsc'] ?: $smsc);
 	}
 	
 	// fixme anton - all incoming messages set to user with uid=1 if no one owns it
-	$c_uid = ($c_uid ? $c_uid : 1);
+	$c_uid = ($c_uid ?: 1);
 	
 	$db_query = "
 		INSERT INTO " . _DB_PREF_ . "_tblSMSIncoming
@@ -308,19 +263,12 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 
 function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver = "", $reference_id = '') {
 	global $core_config;
-	$ret = array();
-	$ret_final = array();
+	$ret = [];
+	$ret_final = [];
 	
 	// feature list
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_inbox_add_intercept', array(
-			$sms_datetime,
-			$sms_sender,
-			$target_user,
-			$message,
-			$sms_receiver,
-			$reference_id 
-		));
+	for ($c = 0; $c < (is_countable($core_config['plugins']['list']['feature']) ? count($core_config['plugins']['list']['feature']) : 0); $c++) {
+		$ret = core_hook($core_config['plugins']['list']['feature'][$c], 'recvsms_inbox_add_intercept', [$sms_datetime, $sms_sender, $target_user, $message, $sms_receiver, $reference_id]);
 		if ($ret['modified']) {
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['param']['sms_datetime'] = $ret['param']['sms_datetime'];
@@ -329,12 +277,12 @@ function recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $
 			$ret_final['param']['message'] = $ret['param']['message'];
 			$ret_final['param']['sms_receiver'] = $ret['param']['sms_receiver'];
 			$ret_final['param']['reference_id'] = $ret['param']['reference_id'];
-			$sms_datetime = ($ret['param']['sms_datetime'] ? $ret['param']['sms_datetime'] : $sms_datetime);
-			$sms_sender = ($ret['param']['sms_sender'] ? $ret['param']['sms_sender'] : $sms_sender);
-			$target_user = ($ret['param']['target_user'] ? $ret['param']['target_user'] : $target_user);
-			$message = ($ret['param']['message'] ? $ret['param']['message'] : $message);
-			$sms_receiver = ($ret['param']['sms_receiver'] ? $ret['param']['sms_receiver'] : $sms_receiver);
-			$reference_id = ($ret['param']['reference_id'] ? $ret['param']['reference_id'] : $reference_id);
+			$sms_datetime = ($ret['param']['sms_datetime'] ?: $sms_datetime);
+			$sms_sender = ($ret['param']['sms_sender'] ?: $sms_sender);
+			$target_user = ($ret['param']['target_user'] ?: $target_user);
+			$message = ($ret['param']['message'] ?: $message);
+			$sms_receiver = ($ret['param']['sms_receiver'] ?: $sms_receiver);
+			$reference_id = ($ret['param']['reference_id'] ?: $reference_id);
 		}
 		if ($ret['uid']) {
 			$ret_final['uid'] = $ret['uid'];
@@ -352,12 +300,12 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 	// sms to inbox will be handled by plugins first
 	$ret_intercept = recvsms_inbox_add_intercept($sms_datetime, $sms_sender, $target_user, $message, $sms_receiver, $reference_id);
 	if ($ret_intercept['param_modified']) {
-		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ? $ret_intercept['param']['sms_datetime'] : $sms_datetime);
-		$sms_sender = ($ret_intercept['param']['sms_sender'] ? $ret_intercept['param']['sms_sender'] : $sms_sender);
-		$target_user = ($ret_intercept['param']['target_user'] ? $ret_intercept['param']['target_user'] : $target_user);
-		$message = ($ret_intercept['param']['message'] ? $ret_intercept['param']['message'] : $message);
-		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ? $ret_intercept['param']['sms_receiver'] : $sms_receiver);
-		$reference_id = ($ret_intercept['param']['reference_id'] ? $ret_intercept['param']['reference_id'] : $reference_id);
+		$sms_datetime = ($ret_intercept['param']['sms_datetime'] ?: $sms_datetime);
+		$sms_sender = ($ret_intercept['param']['sms_sender'] ?: $sms_sender);
+		$target_user = ($ret_intercept['param']['target_user'] ?: $target_user);
+		$message = ($ret_intercept['param']['message'] ?: $message);
+		$sms_receiver = ($ret_intercept['param']['sms_receiver'] ?: $sms_receiver);
+		$reference_id = ($ret_intercept['param']['reference_id'] ?: $reference_id);
 	}
 	
 	$ok = FALSE;
@@ -373,8 +321,8 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 			
 			// get name from target_user's phonebook
 			$c_name = '';
-			if (substr($sms_sender, 0, 1) == '@') {
-				$c_username = str_replace('@', '', $sms_sender);
+			if (str_starts_with((string) $sms_sender, '@')) {
+				$c_username = str_replace('@', '', (string) $sms_sender);
 				$c_name = user_getfieldbyusername($c_username, 'name');
 			} else {
 				$c_name = phonebook_number2name($uid, $sms_sender);
@@ -400,11 +348,11 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 				$site_config = site_config_get($parent_uid);
 			}
 			
-			$web_title = ($site_config['web_title'] ? $site_config['web_title'] : $core_config['main']['web_title']);
-			$email_service = ($site_config['email_service'] ? $site_config['email_service'] : $core_config['main']['email_service']);
-			$email_footer = ($site_config['email_footer'] ? $site_config['email_footer'] : $core_config['main']['email_footer']);
+			$web_title = ($site_config['web_title'] ?: $core_config['main']['web_title']);
+			$email_service = ($site_config['email_service'] ?: $core_config['main']['email_service']);
+			$email_footer = ($site_config['email_footer'] ?: $core_config['main']['email_footer']);
 			
-			$sms_receiver = ($sms_receiver ? $sms_receiver : '-');
+			$sms_receiver = ($sms_receiver ?: '-');
 			
 			if ($fwd_to_email = $user['fwd_to_email']) {
 				if ($email = $user['email']) {
@@ -416,13 +364,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 					$body .= $email_footer . "\n\n";
 					$body = stripslashes($body);
 					_log("send email from:" . $email_service . " to:" . $email . " message:[" . $message . "]", 3, "recvsms_inbox_add");
-					$data = array(
-						'mail_from_name' => $web_title,
-						'mail_from' => $email_service,
-						'mail_to' => $email,
-						'mail_subject' => $subject,
-						'mail_body' => $body 
-					);
+					$data = ['mail_from_name' => $web_title, 'mail_from' => $email_service, 'mail_to' => $email, 'mail_subject' => $subject, 'mail_body' => $body];
 					sendmail($data);
 					_log("sent email from:" . $email_service . " to:" . $email, 3, "recvsms_inbox_add");
 				}
@@ -444,7 +386,7 @@ function recvsms_inbox_add($sms_datetime, $sms_sender, $target_user, $message, $
 					$nofooter = TRUE;
 					
 					_log("send to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user . " message:" . $message, 3, "recvsms_inbox_add");
-					list($ok, $to, $smslog_id, $queue) = sendsms($target_user, $mobile, $message, 'text', $unicode, '', $nofooter);
+					[$ok, $to, $smslog_id, $queue] = sendsms($target_user, $mobile, $message, 'text', $unicode, '', $nofooter);
 					if ($ok[0] == 1) {
 						_log("sent to mobile:" . $mobile . " from:" . $sms_sender . " user:" . $target_user, 2, "recvsms_inbox_add");
 					}

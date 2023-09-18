@@ -48,10 +48,7 @@ $c_uid = user_username2uid($c_username);
 
 switch (_OP_) {
 	case "user_config":
-		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-			'flag_deleted' => 0,
-			'uid' => $c_uid 
-		))) {
+		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', ['flag_deleted' => 0, 'uid' => $c_uid])) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
 			$enable_webservices = $c_user[0]['enable_webservices'];
@@ -127,8 +124,8 @@ switch (_OP_) {
 		$option_fwd_to_mobile .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 		
 		// get language options
-		$lang_list = array();
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
+		$lang_list = [];
+		for ($i = 0; $i < (is_countable($core_config['plugins']['list']['language']) ? count($core_config['plugins']['list']['language']) : 0); $i++) {
 			$language = $core_config['plugins']['list']['language'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {
@@ -149,7 +146,7 @@ switch (_OP_) {
 		$option_sender_id = "<option value=\"\">" . _('None') . "</option>";
 		foreach (sender_id_getall($user_edited['username']) as $sender_id) {
 			$selected = '';
-			if (strtoupper($c_sms_from) == strtoupper($sender_id)) {
+			if (strtoupper((string) $c_sms_from) == strtoupper((string) $sender_id)) {
 				$selected = 'selected';
 			}
 			$option_sender_id .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
@@ -172,16 +169,14 @@ switch (_OP_) {
 			}
 		} else {
 			$form_title = _('User configuration');
-			
+
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
 		
 		// get access control list
 		$c_option_acl = array_flip(acl_getall());
-		$option_acl = _input('text', '', acl_getname($acl_id), array(
-			'readonly' 
-		));
+		$option_acl = _input('text', '', acl_getname($acl_id), ['readonly']);
 		if (auth_isadmin()) {
 			$option_acl = _select('up_acl_id', $c_option_acl, $acl_id);
 		}
@@ -197,100 +192,24 @@ switch (_OP_) {
 		$data = registry_search($c_uid, 'core', 'user_config');
 		
 		// credit unicodes messages as single message
-		$option_enable_credit_unicode = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $data['core']['user_config']['enable_credit_unicode']);
+		$option_enable_credit_unicode = _options([_('yes') => 1, _('no') => 0], $data['core']['user_config']['enable_credit_unicode']);
 		if (auth_isadmin()) {
 			$option_enable_credit_unicode = "<select name='edit_enable_credit_unicode'>" . $option_enable_credit_unicode . "</select>";
 		} else {
 			$option_enable_credit_unicode = $user_config['opt']['enable_credit_unicode'] ? _('yes') : _('no');
 		}
 		
-		$tpl = array(
-			'name' => 'user_config',
-			'vars' => array(
-				'Application options' => _('Application options'),
-				'Username' => _('Username'),
-				'Access Control List' => _('Access Control List'),
-				'Effective SMS sender ID' => _('Effective SMS sender ID'),
-				'Default sender ID' => _('Default sender ID'),
-				'Default message footer' => _('Default message footer'),
-				'Webservices username' => _('Webservices username'),
-				'Webservices token' => _('Webservices token'),
-				'Renew webservices token' => _('Renew webservices token'),
-				'Enable webservices' => _('Enable webservices'),
-				'Webservices IP range' => _('Webservices IP range'),
-				'Active language' => _('Active language'),
-				'Timezone' => _('Timezone'),
-				'Credit' => _('Credit'),
-				'Enable credit unicode SMS as normal SMS' => _('Enable credit unicode SMS as normal SMS'),
-				'Forward message to inbox' => _('Forward message to inbox'),
-				'Forward message to email' => _('Forward message to email'),
-				'Forward message to mobile' => _('Forward message to mobile'),
-				'Local number length' => _('Local number length'),
-				'Prefix or country code' => _('Prefix or country code'),
-				'Always choose to send as unicode' => _('Always choose to send as unicode'),
-				'Save' => _('Save'),
-				'DIALOG_DISPLAY' => _dialog(),
-				'FORM_TITLE' => $form_title,
-				'BUTTON_DELETE' => $button_delete,
-				'BUTTON_BACK' => $button_back,
-				'URL_UNAME' => $url_uname,
-				'VIEW' => $view,
-				'HINT_MAX_CHARS' => _hint(_('Max. 16 numeric or 11 alphanumeric characters')),
-				'HINT_MAX_ALPHANUMERIC' => _hint(_('Max. 30 alphanumeric characters')),
-				'HINT_COMMA_SEPARATED' => _hint(_('Comma separated')),
-				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
-				'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')),
-				'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')),
-				'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')),
-				'HINT_ACL' => _hint(_('ACL DEFAULT will not restrict access to menus')),
-				'option_new_token' => $option_new_token,
-				'option_enable_webservices' => $option_enable_webservices,
-				'option_language_module' => $option_language_module,
-				'option_fwd_to_inbox' => $option_fwd_to_inbox,
-				'option_fwd_to_email' => $option_fwd_to_email,
-				'option_fwd_to_mobile' => $option_fwd_to_mobile,
-				'option_acl' => $option_acl,
-				'option_sender_id' => $option_sender_id,
-				'c_username' => $c_username,
-				'effective_sender_id' => sendsms_get_sender($c_username),
-				'sender' => $sender,
-				'footer' => $footer,
-				'token' => $token,
-				'webservices_ip' => $webservices_ip,
-				'datetime_timezone' => $datetime_timezone,
-				'local_length' => $local_length,
-				'replace_zero' => $replace_zero,
-				'credit' => $credit,
-				'option_enable_credit_unicode' => $option_enable_credit_unicode 
-			) 
-		);
+		$tpl = ['name' => 'user_config', 'vars' => ['Application options' => _('Application options'), 'Username' => _('Username'), 'Access Control List' => _('Access Control List'), 'Effective SMS sender ID' => _('Effective SMS sender ID'), 'Default sender ID' => _('Default sender ID'), 'Default message footer' => _('Default message footer'), 'Webservices username' => _('Webservices username'), 'Webservices token' => _('Webservices token'), 'Renew webservices token' => _('Renew webservices token'), 'Enable webservices' => _('Enable webservices'), 'Webservices IP range' => _('Webservices IP range'), 'Active language' => _('Active language'), 'Timezone' => _('Timezone'), 'Credit' => _('Credit'), 'Enable credit unicode SMS as normal SMS' => _('Enable credit unicode SMS as normal SMS'), 'Forward message to inbox' => _('Forward message to inbox'), 'Forward message to email' => _('Forward message to email'), 'Forward message to mobile' => _('Forward message to mobile'), 'Local number length' => _('Local number length'), 'Prefix or country code' => _('Prefix or country code'), 'Always choose to send as unicode' => _('Always choose to send as unicode'), 'Save' => _('Save'), 'DIALOG_DISPLAY' => _dialog(), 'FORM_TITLE' => $form_title, 'BUTTON_DELETE' => $button_delete, 'BUTTON_BACK' => $button_back, 'URL_UNAME' => $url_uname, 'VIEW' => $view, 'HINT_MAX_CHARS' => _hint(_('Max. 16 numeric or 11 alphanumeric characters')), 'HINT_MAX_ALPHANUMERIC' => _hint(_('Max. 30 alphanumeric characters')), 'HINT_COMMA_SEPARATED' => _hint(_('Comma separated')), 'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')), 'HINT_LOCAL_LENGTH' => _hint(_('Min length to detect missing country code')), 'HINT_REPLACE_ZERO' => _hint(_('Replace prefix 0 or padding local numbers')), 'HINT_MANAGE_CREDIT' => _hint(_('Add or reduce credit from manage credit menu')), 'HINT_ACL' => _hint(_('ACL DEFAULT will not restrict access to menus')), 'option_new_token' => $option_new_token, 'option_enable_webservices' => $option_enable_webservices, 'option_language_module' => $option_language_module, 'option_fwd_to_inbox' => $option_fwd_to_inbox, 'option_fwd_to_email' => $option_fwd_to_email, 'option_fwd_to_mobile' => $option_fwd_to_mobile, 'option_acl' => $option_acl, 'option_sender_id' => $option_sender_id, 'c_username' => $c_username, 'effective_sender_id' => sendsms_get_sender($c_username), 'sender' => $sender, 'footer' => $footer, 'token' => $token, 'webservices_ip' => $webservices_ip, 'datetime_timezone' => $datetime_timezone, 'local_length' => $local_length, 'replace_zero' => $replace_zero, 'credit' => $credit, 'option_enable_credit_unicode' => $option_enable_credit_unicode]];
 		_p(tpl_apply($tpl));
 		break;
 	
 	case "user_config_save":
-		$fields = array(
-			'footer',
-			'datetime_timezone',
-			'language_module',
-			'fwd_to_inbox',
-			'fwd_to_email',
-			'fwd_to_mobile',
-			'local_length',
-			'replace_zero',
-			'new_token',
-			'enable_webservices',
-			'webservices_ip',
-			'sender',
-			'acl_id' 
-		);
+		$fields = ['footer', 'datetime_timezone', 'language_module', 'fwd_to_inbox', 'fwd_to_email', 'fwd_to_mobile', 'local_length', 'replace_zero', 'new_token', 'enable_webservices', 'webservices_ip', 'sender', 'acl_id'];
 		
-		$up = array();
+		$up = [];
 		foreach ($fields as $field) {
-			if (strlen($_POST['up_' . $field])) {
-				$up[$field] = trim($_POST['up_' . $field]);
+			if (strlen((string) $_POST['up_' . $field])) {
+				$up[$field] = trim((string) $_POST['up_' . $field]);
 			}
 		}
 		$ret = user_edit_conf($c_uid, $up);

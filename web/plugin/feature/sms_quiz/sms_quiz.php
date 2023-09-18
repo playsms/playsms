@@ -7,9 +7,7 @@ if (!auth_isvalid()) {
 
 if ($quiz_id = (int) $_REQUEST['quiz_id']) {
 	$db_table = _DB_PREF_ . '_featureQuiz';
-	$conditions = array(
-		'quiz_id' => $quiz_id 
-	);
+	$conditions = ['quiz_id' => $quiz_id];
 	if (!auth_isadmin()) {
 		$conditions['uid'] = $user_config['uid'];
 	}
@@ -113,9 +111,9 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "sms_quiz_add_yes" :
-		$add_quiz_keyword = strtoupper($_POST['add_quiz_keyword']);
+		$add_quiz_keyword = strtoupper((string) $_POST['add_quiz_keyword']);
 		$add_quiz_question = $_POST['add_quiz_question'];
-		$add_quiz_answer = strtoupper($_POST['add_quiz_answer']);
+		$add_quiz_answer = strtoupper((string) $_POST['add_quiz_answer']);
 		$add_quiz_msg_correct = $_POST['add_quiz_msg_correct'];
 		$add_quiz_msg_incorrect = $_POST['add_quiz_msg_incorrect'];
 		if (auth_isadmin()) {

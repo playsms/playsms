@@ -58,12 +58,12 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 	
 	$ok = false;
 	
-	$board_keyword = strtoupper(trim($board_keyword));
-	$board_param = trim($board_param);
+	$board_keyword = strtoupper(trim((string) $board_keyword));
+	$board_param = trim((string) $board_param);
 	if ($sms_sender && $board_keyword && $board_param) {
 		
 		// masked sender sets here
-		$masked_sender = substr_replace($sms_sender, 'xxxx', -4);
+		$masked_sender = substr_replace((string) $sms_sender, 'xxxx', -4);
 		$db_query = "
 			INSERT INTO " . _DB_PREF_ . "_featureBoard_log
 			(board_id,in_gateway,in_sender,in_masked,in_keyword,in_msg,in_reply,in_datetime)
@@ -89,13 +89,7 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 				$body .= $core_config['main']['email_footer'] . "\n\n";
 				$body = stripslashes($body);
 				
-				$email_data = array(
-					'mail_from_name' => $core_config['main']['web_title'],
-					'mail_from' => $core_config['main']['email_service'],
-					'mail_to' => $email,
-					'mail_subject' => $subject,
-					'mail_body' => $body 
-				);
+				$email_data = ['mail_from_name' => $core_config['main']['web_title'], 'mail_from' => $core_config['main']['email_service'], 'mail_to' => $email, 'mail_subject' => $subject, 'mail_body' => $body];
 				sendmail($email_data);
 			}
 			
@@ -115,8 +109,8 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 }
 
 function sms_board_output_serialize($keyword, $line = "10") {
-	$keyword = strtoupper($keyword);
-	$line = ($line ? $line : '10');
+	$keyword = strtoupper((string) $keyword);
+	$line = ($line ?: '10');
 	$ret['board']['keyword'] = $keyword;
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 	$db_result = dba_query($db_query);
@@ -134,12 +128,12 @@ function sms_board_output_serialize($keyword, $line = "10") {
 function sms_board_output_json($keyword, $line = "10") {
 	$ret = unserialize(sms_board_output_serialize($keyword, $line));
 	
-	return json_encode($ret);
+	return json_encode($ret, JSON_THROW_ON_ERROR);
 }
 
 function sms_board_output_xml($keyword, $line = "10") {
-	$keyword = strtoupper($keyword);
-	$line = ($line ? $line : '10');
+	$keyword = strtoupper((string) $keyword);
+	$line = ($line ?: '10');
 	$xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 	$xml .= '<board keyword="' . $keyword . '">' . "\n";
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
@@ -161,9 +155,9 @@ function sms_board_output_xml($keyword, $line = "10") {
 
 function sms_board_output_rss($keyword, $line = "10", $format = "RSS0.91") {
 	global $core_config;
-	$keyword = strtoupper($keyword);
-	$line = ($line ? $line : '10');
-	$format_output = ($format ? $format : "RSS0.91");
+	$keyword = strtoupper((string) $keyword);
+	$line = ($line ?: '10');
+	$format_output = ($format ?: "RSS0.91");
 	include_once $core_config['apps_path']['plug'] . "/feature/sms_board/lib/external/feedcreator/feedcreator.class.php";
 	$rss = new UniversalFeedCreator();
 	$rss->title = $core_config['main']['web_title'];
@@ -191,18 +185,18 @@ function sms_board_output_html($keyword, $line = "10") {
 	global $core_config;
 	
 	$web_title = $core_config['main']['web_title'];
-	$keyword = strtoupper($keyword);
+	$keyword = strtoupper((string) $keyword);
 	if (!$line) {
 		$line = "10";
 	}
 	$db_query = "SELECT board_css,board_pref_template FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$keyword'";
 	$db_result = dba_query($db_query);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$css_url = trim($db_row['board_css']);
+		$css_url = trim((string) $db_row['board_css']);
 		if (!$css_url) {
 			$css_url = $core_config['http_path']['themes'] . '/common/jscss/sms_board.css';
 		}
-		$template = trim($db_row['board_pref_template']);
+		$template = trim((string) $db_row['board_pref_template']);
 		$db_query1 = "SELECT * FROM " . _DB_PREF_ . "_featureBoard_log WHERE in_keyword='$keyword' ORDER BY in_datetime DESC LIMIT $line";
 		$db_result1 = dba_query($db_query1);
 		$css = "\n<!-- ADDITIONAL CSS BEGIN -->\n";
@@ -240,7 +234,7 @@ function sms_board_hook_webservices_output($operation, $requests, $returns) {
 		return FALSE;
 	}
 	
-	$keyword = strtoupper($keyword);
+	$keyword = strtoupper((string) $keyword);
 	$line = $requests['line'];
 	$type = $requests['type'];
 	$format = $requests['format'];
@@ -287,7 +281,7 @@ function sms_board_hook_webservices_output($operation, $requests, $returns) {
 			$bodybgcolor = $requests['bodybgcolor'];
 			$oddbgcolor = $requests['oddbgcolor'];
 			$evenbgcolor = $requests['evenbgcolor'];
-			if ($content = sms_board_output_html($keyword, $line, $bodybgcolor, $oddbgcolor, $evenbgcolor)) {
+			if ($content = sms_board_output_html($keyword, $line)) {
 				$returns['modified'] = TRUE;
 				$returns['param']['content'] = $content;
 				$returns['param']['content-type'] = 'text/html';

@@ -46,9 +46,7 @@ if (_APP_) {
 		case 'call':
 			// _APP_=call to access subroutine in a plugin
 			if (_CAT_ && _PLUGIN_) {
-				core_hook(_PLUGIN_, 'call', array(
-					$_REQUEST 
-				));
+				core_hook(_PLUGIN_, 'call', [$_REQUEST]);
 			}
 			break;
 		case 'page':

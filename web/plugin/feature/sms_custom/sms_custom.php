@@ -97,7 +97,7 @@ switch (_OP_) {
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$edit_custom_uid = $db_row['uid'];
-		$edit_service_name = (_lastpost('edit_service_name') ? _lastpost('edit_service_name') : $db_row['service_name']);
+		$edit_service_name = (_lastpost('edit_service_name') ?: $db_row['service_name']);
 		$edit_custom_keyword = $db_row['custom_keyword'];
 		$edit_sms_receiver = $db_row['sms_receiver'];
 		$edit_custom_url = $db_row['custom_url'];
@@ -254,12 +254,12 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case "sms_custom_add_yes":
-		$add_service_name = trim($_POST['add_service_name']);
-		$add_sms_receiver = trim($_POST['add_sms_receiver']);
+		$add_service_name = trim((string) $_POST['add_service_name']);
+		$add_sms_receiver = trim((string) $_POST['add_sms_receiver']);
 		$add_custom_return_as_reply = ($_POST['add_custom_return_as_reply'] == 'on' ? '1' : '0');
 		$add_custom_url = $_POST['add_custom_url'];
 		
-		$add_custom_keyword = strtoupper($_POST['add_custom_keyword']);
+		$add_custom_keyword = strtoupper((string) $_POST['add_custom_keyword']);
 		$c_keywords = explode(' ', $add_custom_keyword);
 		foreach ($c_keywords as $keyword) {
 			if ($keyword) {
@@ -270,7 +270,7 @@ switch (_OP_) {
 				}
 			}
 		}
-		$keywords = trim($keywords);
+		$keywords = trim((string) $keywords);
 		
 		if (auth_isadmin()) {
 			$add_smsc = $_POST['add_smsc'];

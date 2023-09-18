@@ -22,15 +22,11 @@ function themes_apply($content) {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_apply', array(
-			$content 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_apply', [$content]);
 	}
 	
 	if (!$ret) {
-		$ret = core_hook('common', 'themes_apply', array(
-			$content 
-		));
+		$ret = core_hook('common', 'themes_apply', [$content]);
 	}
 	
 	return $ret;
@@ -40,15 +36,11 @@ function themes_submenu($content = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_submenu', array(
-			$content 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_submenu', [$content]);
 	}
 	
 	if (!$ret) {
-		$ret = core_hook('common', 'themes_submenu', array(
-			$content 
-		));
+		$ret = core_hook('common', 'themes_submenu', [$content]);
 	}
 	
 	return $ret;
@@ -69,15 +61,11 @@ function themes_buildmenu($menu_config) {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_buildmenu', array(
-			$menu_config 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_buildmenu', [$menu_config]);
 	}
 	
 	if (!$ret) {
-		$ret = core_hook('common', 'themes_buildmenu', array(
-			$menu_config 
-		));
+		$ret = core_hook('common', 'themes_buildmenu', [$menu_config]);
 	}
 	
 	return $ret;
@@ -87,31 +75,19 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	$search = themes_search_session();
 	
 	if ($search['keyword']) {
-		$search_url = '&search_keyword=' . urlencode($search['keyword']);
+		$search_url = '&search_keyword=' . urlencode((string) $search['keyword']);
 	}
 	if ($search['category']) {
-		$search_url .= '&search_category=' . urlencode($search['category']);
+		$search_url .= '&search_category=' . urlencode((string) $search['category']);
 	}
 	$url = $url . $search_url;
 	$nav_pages = '';
 	if ($theme) {
-		$nav_pages = core_hook($theme, 'themes_navbar', array(
-			$num,
-			$nav,
-			$max_nav,
-			$url,
-			$page 
-		));
+		$nav_pages = core_hook($theme, 'themes_navbar', [$num, $nav, $max_nav, $url, $page]);
 	}
 	
 	if (!$nav_pages) {
-		$nav_pages = core_hook('common', 'themes_navbar', array(
-			$num,
-			$nav,
-			$max_nav,
-			$url,
-			$page 
-		));
+		$nav_pages = core_hook('common', 'themes_navbar', [$num, $nav, $max_nav, $url, $page]);
 	}
 	
 	return $nav_pages;
@@ -123,9 +99,9 @@ function themes_nav($count, $url = '') {
 	$lines_per_page = 20;
 	$max_nav = 5;
 	$num = ceil($count / $lines_per_page);
-	$nav = (_NAV_ ? _NAV_ : 1);
-	$page = (_PAGE_ ? _PAGE_ : 1);
-	$url = (trim($url) ? trim($url) : $_SERVER['REQUEST_URI']);
+	$nav = (_NAV_ ?: 1);
+	$page = (_PAGE_ ?: 1);
+	$url = (trim((string) $url) ?: $_SERVER['REQUEST_URI']);
 	if ($ret['form'] = themes_navbar($num, $nav, $max_nav, $url, $page)) {
 		$ret['limit'] = $lines_per_page;
 		$ret['offset'] = ($page - 1) * $lines_per_page;
@@ -143,11 +119,11 @@ function themes_nav_session() {
 	return $_SESSION['tmp']['themes_nav'];
 }
 
-function themes_search($search_category = array(), $url = '', $keyword_converter = array()) {
+function themes_search($search_category = [], $url = '', $keyword_converter = []) {
 	global $core_config;
 	
 	$ret['keyword'] = $_REQUEST['search_keyword'];
-	$ret['url'] = (trim($url) ? trim($url) : $_SERVER['REQUEST_URI']);
+	$ret['url'] = (trim((string) $url) ?: $_SERVER['REQUEST_URI']);
 	$ret['category'] = $_REQUEST['search_category'];
 	$option_search_category = "<option value=\"\">" . _('Search') . "</option>";
 	foreach ($search_category as $key => $val) {
@@ -161,12 +137,10 @@ function themes_search($search_category = array(), $url = '', $keyword_converter
 		}
 		
 		if ($selected = ($ret['category'] == $val ? 'selected' : '') && $c_keyword) {
-			$ret['dba_keywords'] = array(
-				$val => '%' . $c_keyword . '%' 
-			);
+			$ret['dba_keywords'] = [$val => '%' . $c_keyword . '%'];
 		}
 		
-		$option_search_category .= "<option value=\"" . $val . "\" $selected>" . ucfirst($key) . "</option>";
+		$option_search_category .= "<option value=\"" . $val . "\" $selected>" . ucfirst((string) $key) . "</option>";
 		
 		if ($c_keyword) {
 			$tmp_dba_keywords[$val] = '%' . $c_keyword . '%';
@@ -207,16 +181,11 @@ function themes_link($url, $title = '', $css_class = "", $css_id = "") {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_link', array(
-			$url,
-			$title,
-			$css_class,
-			$css_id 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_link', [$url, $title, $css_class, $css_id]);
 	}
 	if (!$ret) {
 		$url = _u($url);
-		$c_title = ($title ? $title : $url);
+		$c_title = ($title ?: $url);
 		$css_class = ($css_class ? " class=\"" . $css_class . "\"" : '');
 		$css_id = ($css_id ? " id=\"" . $css_id . "\"" : '');
 		$ret = "<a href=\"" . _u($url) . "\"" . $css_class . $css_id . ">" . $c_title . "</a>";
@@ -229,9 +198,7 @@ function themes_url($url) {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_url', array(
-			$url 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_url', [$url]);
 	}
 	if (!$ret) {
 		
@@ -246,12 +213,7 @@ function themes_button($url, $title, $css_class = '', $css_id = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_button', array(
-			$url,
-			$title,
-			$css_class,
-			$css_id 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_button', [$url, $title, $css_class, $css_id]);
 	}
 	
 	if (!$ret) {
@@ -267,9 +229,7 @@ function themes_hint($text) {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_hint', array(
-			$text 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_hint', [$text]);
 	}
 	
 	if (!$ret) {
@@ -283,9 +243,7 @@ function themes_mandatory($text) {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_mandatory', array(
-			$text 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_mandatory', [$text]);
 	}
 	
 	if (!$ret) {
@@ -304,14 +262,11 @@ function themes_mandatory($text) {
  *        Selected option
  * @return string Options for select HTML tag
  */
-function themes_select_options($options = array(), $selected = '') {
+function themes_select_options($options = [], $selected = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_select_options', array(
-			$options,
-			$selected 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_select_options', [$options, $selected]);
 	}
 	
 	if (!$ret) {
@@ -344,7 +299,7 @@ function themes_select_options($options = array(), $selected = '') {
  *        CSS class name
  * @return string Select HTML tag
  */
-function themes_select($name, $options = array(), $selected = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function themes_select($name, $options = [], $selected = '', $tag_params = [], $css_id = '', $css_class = '') {
 	$select_options = themes_select_options($options, $selected);
 	if (is_array($tag_params)) {
 		foreach ($tag_params as $key => $val) {
@@ -353,8 +308,8 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 	}
 	
 	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
-	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
-	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+	$placeholder = (isset($tag_params['placeholder']) ? $tag_params['placeholder'] : _('Please select'));
+	$width = (isset($tag_params['width']) ? $tag_params['width'] : 'resolve');
 	
 	$js = '
 			<script language="javascript" type="text/javascript">
@@ -393,13 +348,10 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
  *        CSS class name
  * @return string Select HTML tag
  */
-function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params = array(), $css_id = '', $css_class = '') {
-	$yes = ($yes ? $yes : _('yes'));
-	$no = ($no ? $no : _('no'));
-	$options = array(
-		$yes => 1,
-		$no => 0 
-	);
+function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params = [], $css_id = '', $css_class = '') {
+	$yes = ($yes ?: _('yes'));
+	$no = ($no ?: _('no'));
+	$options = [$yes => 1, $no => 0];
 	
 	return themes_select($name, $options, $selected, $tag_params, $css_id, $css_class);
 }
@@ -414,12 +366,9 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
  *        Dialog title
  * @return string HTML string of error strings
  */
-function themes_dialog($content = array(), $title = '') {
+function themes_dialog($content = [], $title = '') {
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_dialog', array(
-			$content,
-			$title 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_dialog', [$content, $title]);
 		
 		if ($ret) {
 			
@@ -449,27 +398,19 @@ function themes_dialog($content = array(), $title = '') {
 		$continue = FALSE;
 		
 		foreach ($data as $text) {
-			if (trim($text)) {
-				$message .= '<div class=playsms-dialog-text>' . trim($text) . '</div>';
+			if (trim((string) $text)) {
+				$message .= '<div class=playsms-dialog-text>' . trim((string) $text) . '</div>';
 				$continue = TRUE;
 			}
 		}
 		
 		if ($continue) {
-			switch (strtoupper(trim($type))) {
-				case 'DEFAULT':
-				case 'INFO':
-				case 'PRIMARY':
-				case 'SUCCESS':
-				case 'WARNING':
-				case 'DANGER':
-					$dialog_type = strtoupper(trim($type));
-					break;
-				default :
-					$dialog_type = 'PRIMARY';
-			}
+			$dialog_type = match (strtoupper(trim((string) $type))) {
+       'DEFAULT', 'INFO', 'PRIMARY', 'SUCCESS', 'WARNING', 'DANGER' => strtoupper(trim((string) $type)),
+       default => 'PRIMARY',
+   };
 			
-			$dialog_title = ($title ? $title : _('Information'));
+			$dialog_title = ($title ?: _('Information'));
 			
 			$ret .= "
 				<script type='text/javascript'>
@@ -488,25 +429,17 @@ function themes_dialog($content = array(), $title = '') {
 	return $ret;
 }
 
-function themes_select_users_single($select_field_name, $selected_value = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function themes_select_users_single($select_field_name, $selected_value = '', $tag_params = [], $css_id = '', $css_class = '') {
 	global $user_config;
 	
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_select_users_single', array(
-			$select_field_name,
-			$selected_value,
-			$tag_params,
-			$css_id,
-			$css_class 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_select_users_single', [$select_field_name, $selected_value, $tag_params, $css_id, $css_class]);
 	}
 	if (!$ret) {
 		
 		if (!is_array($selected_value)) {
-			$selected_value = array(
-				$selected_value 
-			);
+			$selected_value = [$selected_value];
 		}
 		
 		if (auth_isadmin()) {
@@ -516,7 +449,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 		$subusers = user_getsubuserbyuid($user_config['uid']);
 		
 		$option_user .= '<option value="0">' . _('Select users') . '</option>';
-		if (count($admins) > 0) {
+		if ((is_countable($admins) ? count($admins) : 0) > 0) {
 			$option_user .= '<optgroup label="' . _('Administrators') . '">';
 			
 			foreach ($admins as $admin) {
@@ -532,7 +465,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($users) > 0) {
+		if ((is_countable($users) ? count($users) : 0) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Users') . '">';
 			
@@ -549,7 +482,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($subusers) > 0) {
+		if ((is_countable($subusers) ? count($subusers) : 0) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Subusers') . '">';
 			
@@ -566,7 +499,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			$option_user .= '</optgroup>';
 		}
 		
-		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-users-single-' . core_sanitize_alphanumeric($select_field_name));
+		$css_id = (trim((string) $css_id) ?: 'playsms-select-users-single-' . core_sanitize_alphanumeric($select_field_name));
 		
 		if (is_array($tag_params)) {
 			foreach ($tag_params as $key => $val) {
@@ -574,8 +507,8 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			}
 		}
 		
-		$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Select users'));
-		$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+		$placeholder = ($tag_params['placeholder'] ?: _('Select users'));
+		$width = ($tag_params['width'] ?: 'resolve');
 		
 		$js = '
 			<script language="javascript" type="text/javascript">
@@ -596,17 +529,11 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 	}
 }
 
-function themes_select_users_multi($select_field_name, $selected_value = array(), $tag_params = array(), $css_id = '', $css_class = '') {
+function themes_select_users_multi($select_field_name, $selected_value = [], $tag_params = [], $css_id = '', $css_class = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_select_users_multi', array(
-			$select_field_name,
-			$selected_value,
-			$tag_params,
-			$css_id,
-			$css_class 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_select_users_multi', [$select_field_name, $selected_value, $tag_params, $css_id, $css_class]);
 	}
 	
 	if (!$ret) {
@@ -617,26 +544,17 @@ function themes_select_users_multi($select_field_name, $selected_value = array()
 	return $ret;
 }
 
-function themes_select_account_level_single($status = 2, $select_field_name, $selected_value = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function themes_select_account_level_single($status = 2, $select_field_name, $selected_value = '', $tag_params = [], $css_id = '', $css_class = '') {
 	global $user_config;
 	
 	$ret = '';
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_select_account_level_single', array(
-			$status,
-			$select_field_name,
-			$selected_value,
-			$tag_params,
-			$css_id,
-			$css_class 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_select_account_level_single', [$status, $select_field_name, $selected_value, $tag_params, $css_id, $css_class]);
 	}
 	if (!$ret) {
 		
 		if (!is_array($selected_value)) {
-			$selected_value = array(
-				$selected_value 
-			);
+			$selected_value = [$selected_value];
 		}
 		
 		if ($status == 2) {
@@ -648,7 +566,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 		}
 		
 		$option_user .= '<option value="0">' . _('Select users') . '</option>';
-		if (count($admins) > 0) {
+		if ((is_countable($admins) ? count($admins) : 0) > 0) {
 			$option_user .= '<optgroup label="' . _('Administrators') . '">';
 			
 			foreach ($admins as $admin) {
@@ -664,7 +582,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($users) > 0) {
+		if ((is_countable($users) ? count($users) : 0) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Users') . '">';
 			
@@ -681,7 +599,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($subusers) > 0) {
+		if ((is_countable($subusers) ? count($subusers) : 0) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Subusers') . '">';
 			
@@ -698,7 +616,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			$option_user .= '</optgroup>';
 		}
 		
-		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-account-level-' . core_sanitize_alphanumeric($select_field_name));
+		$css_id = (trim((string) $css_id) ?: 'playsms-select-account-level-' . core_sanitize_alphanumeric($select_field_name));
 		
 		if (is_array($tag_params)) {
 			foreach ($tag_params as $key => $val) {
@@ -706,8 +624,8 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			}
 		}
 		
-		$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Select users'));
-		$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+		$placeholder = ($tag_params['placeholder'] ?: _('Select users'));
+		$width = ($tag_params['width'] ?: 'resolve');
 		
 		$js = '
 			<script language="javascript" type="text/javascript">
@@ -728,18 +646,11 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 	}
 }
 
-function themes_select_account_level_multi($status = 2, $select_field_name, $selected_value = array(), $tag_params = array(), $css_id = '', $css_class = '') {
+function themes_select_account_level_multi($status = 2, $select_field_name, $selected_value = [], $tag_params = [], $css_id = '', $css_class = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_select_account_level_multi', array(
-			$status,
-			$select_field_name,
-			$selected_value,
-			$tag_params,
-			$css_id,
-			$css_class 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_select_account_level_multi', [$status, $select_field_name, $selected_value, $tag_params, $css_id, $css_class]);
 	}
 	
 	if (!$ret) {
@@ -767,18 +678,11 @@ function themes_select_account_level_multi($status = 2, $select_field_name, $sel
  *        CSS class name
  * @return string HTML input tag
  */
-function themes_input($type = 'text', $name = '', $value = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function themes_input($type = 'text', $name = '', $value = '', $tag_params = [], $css_id = '', $css_class = '') {
 	$ret = '';
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_input', array(
-			$type,
-			$name,
-			$value,
-			$tag_params,
-			$css_id,
-			$css_class 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_input', [$type, $name, $value, $tag_params, $css_id, $css_class]);
 	}
 	
 	if (!$ret) {
@@ -817,29 +721,19 @@ function themes_popup_sendsms($to = "", $message = "", $return_url = "", $button
 	
 	$ret = '';
 	
-	$return_url = ($return_url ? $return_url : $_SERVER['REQUEST_URI']);
-	$button_icon = ($button_icon ? $button_icon : $icon_config['reply']);
+	$return_url = ($return_url ?: $_SERVER['REQUEST_URI']);
+	$button_icon = ($button_icon ?: $icon_config['reply']);
 	
 	if (core_themes_get()) {
-		$ret = core_hook(core_themes_get(), 'themes_popup_sendsms', array(
-			$to,
-			$message,
-			$return_url,
-			$button_icon 
-		));
+		$ret = core_hook(core_themes_get(), 'themes_popup_sendsms', [$to, $message, $return_url, $button_icon]);
 	}
 	
 	if (!$ret) {
-		$ret = core_hook('common', 'themes_popup_sendsms', array(
-			$to,
-			$message,
-			$return_url,
-			$button_icon 
-		));
+		$ret = core_hook('common', 'themes_popup_sendsms', [$to, $message, $return_url, $button_icon]);
 	}
 	
 	if (!$ret) {
-		$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode($return_url) . "');\">" . $button_icon . "</a>";
+		$ret = "<a href=# onClick=\"javascript:PopupSendSms('" . urlencode($to) . "', '" . urlencode($message) . "', '" . _('Compose message') . "', '" . urlencode((string) $return_url) . "');\">" . $button_icon . "</a>";
 	}
 	
 	return $ret;

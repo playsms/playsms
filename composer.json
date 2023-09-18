@@ -6,11 +6,14 @@
 		"vendor-dir": "web/lib/composer/vendor"
 	},
 	"require": {
-		"playsms/tpl": "1.0.*",
-		"playsms/webservices": "1.0.*",
-		"gregwar/captcha": "1.0.*",
-		"ezyang/htmlpurifier": "4.6.*",
-		"pear/pear-core-minimal": "1.10.*",
-		"pear/db": "dev-trunk"
+		"playsms/tpl": "1.*",
+		"playsms/webservices": "1.*",
+		"gregwar/captcha": "1.*",
+		"ezyang/htmlpurifier": "4.*",
+		"pear/pear-core-minimal": "1.*",
+		"pear/db": "1.*",
+		"phpmailer/phpmailer": "~6.1",
+		"openpsa/universalfeedcreator": "1.*",
+		"szymach/c-pchart": "^3.0"
 	}
 }

@@ -27,15 +27,10 @@ if (!auth_isuser()) {
 switch (_OP_) {
 	case "credit_list":
 		$db_table = $plugin_config['credit']['db_table'];
-		$search_category = array(
-			_('Username') => 'username',
-			_('Transaction datetime') => 'create_datetime' 
-		);
+		$search_category = [_('Username') => 'username', _('Transaction datetime') => 'create_datetime'];
 		$base_url = 'index.php?app=main&inc=feature_credit&op=credit_list';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array(
-			'flag_deleted' => 0 
-		);
+		$conditions = ['flag_deleted' => 0];
 		
 		// only if users
 		if ($user_config['status'] == 3) {
@@ -46,11 +41,7 @@ switch (_OP_) {
 		$keywords = $search['dba_keywords'];
 		$count = dba_count($db_table, $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'id DESC',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
 		
 		$content = _dialog() . "
@@ -191,9 +182,7 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array(
-					'flag_deleted' => 0 
-				);
+				$conditions = ['flag_deleted' => 0];
 				
 				// only if users
 				if ($user_config['status'] == 3) {
@@ -202,18 +191,10 @@ switch (_OP_) {
 				}
 				
 				$list = dba_search($db_table, '*', $conditions, $search['dba_keywords']);
-				$data[0] = array(
-					_('User'),
-					_('Transaction datetime'),
-					_('Amount') 
-				);
-				for ($i = 0; $i < count($list); $i++) {
+				$data[0] = [_('User'), _('Transaction datetime'), _('Amount')];
+				for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 					$j = $i + 1;
-					$data[$j] = array(
-						$list[$i]['username'],
-						core_display_datetime($list[$i]['create_datetime']),
-						$list[$i]['amount'] 
-					);
+					$data[$j] = [$list[$i]['username'], core_display_datetime($list[$i]['create_datetime']), $list[$i]['amount']];
 				}
 				$content = core_csv_format($data);
 				$fn = 'credit-' . $core_config['datetime']['now_stamp'] . '.csv';
@@ -225,11 +206,7 @@ switch (_OP_) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
-						$up = array(
-							'c_timestamp' => time(),
-							'delete_datetime' => core_get_datetime(),
-							'flag_deleted' => '1' 
-						);
+						$up = ['c_timestamp' => time(), 'delete_datetime' => core_get_datetime(), 'flag_deleted' => '1'];
 						
 						// only if users
 						if ($user_config['status'] == 3) {
@@ -237,9 +214,7 @@ switch (_OP_) {
 							$up['status'] = 4;
 						}
 						
-						dba_update($db_table, $up, array(
-							'id' => $itemid 
-						));
+						dba_update($db_table, $up, ['id' => $itemid]);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

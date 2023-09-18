@@ -79,7 +79,7 @@ function credit_html_select_user() {
 	}
 	$subusers = user_getsubuserbyuid($user_config['uid']);
 	
-	if (count($admins) > 0) {
+	if ((is_countable($admins) ? count($admins) : 0) > 0) {
 		$option_user .= '<optgroup label="' . _('Administrators') . '">';
 		
 		foreach ($admins as $admin) {
@@ -88,7 +88,7 @@ function credit_html_select_user() {
 		$option_user .= '</optgroup>';
 	}
 	
-	if (count($users) > 0) {
+	if ((is_countable($users) ? count($users) : 0) > 0) {
 		$option_user .= '<optgroup label="' . _('Users') . '">';
 		
 		foreach ($users as $user) {
@@ -146,22 +146,12 @@ function credit_hook_rate_addusercredit($uid, $amount) {
 	}
 	
 	// record it
-	$id = dba_add($db_table, array(
-		'parent_uid' => $parent_uid,
-		'uid' => $uid,
-		'username' => $username,
-		'status' => $status,
-		'create_datetime' => core_get_datetime(),
-		'amount' => $amount,
-		'flag_deleted' => 0 
-	));
+	$id = dba_add($db_table, ['parent_uid' => $parent_uid, 'uid' => $uid, 'username' => $username, 'status' => $status, 'create_datetime' => core_get_datetime(), 'amount' => $amount, 'flag_deleted' => 0]);
 	
 	// update user's credit
 	if ($id) {
 		// set never been notified
-		registry_update($uid, 'feature', 'credit', array(
-			'lowest_limit_notif' => FALSE 
-		));
+		registry_update($uid, 'feature', 'credit', ['lowest_limit_notif' => FALSE]);
 		
 		_log('saved id:' . $id . ' parent_uid:' . $parent_uid . ' uid:' . $uid . ' username:' . $username . ' amount:' . $amount, 3, 'credit_add');
 		
@@ -236,7 +226,7 @@ function _credit_get_billing_parent($parent_uid) {
 
 function _credit_calculate_balance($credit, $billing) {
 	$balance = (float) $credit - (float) $billing;
-	$balance = (float) ($balance ? $balance : 0);
+	$balance = (float) ($balance ?: 0);
 	
 	return $balance;
 }
@@ -322,9 +312,7 @@ function _credit_low_notif() {
 		if ($balance && $credit_lowest_limit && ($balance <= $credit_lowest_limit) && !$notified) {
 		
 			// set notified
-			registry_update($uid, 'feature', 'credit', array(
-				'lowest_limit_notif' => TRUE
-			));
+			registry_update($uid, 'feature', 'credit', ['lowest_limit_notif' => TRUE]);
 		
 			// notif admins
 			$admins = user_getallwithstatus(2);
@@ -343,7 +331,7 @@ function _credit_low_notif() {
 			}
 		
 			// notif uid
-			$sender_username = ($username_parent ? $username_parent : _SYSTEM_SENDER_ID_);
+			$sender_username = ($username_parent ?: _SYSTEM_SENDER_ID_);
 			$credit_message_to_self = sprintf(_('You have reached lowest credit limit of %s'), $credit_lowest_limit);
 			recvsms_inbox_add(core_get_datetime(), $sender_username, $username, $credit_message_to_self);
 		

@@ -25,29 +25,14 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case "user_incoming":
-		$search_category = array(
-			_('Time') => 'in_datetime',
-			_('From') => 'in_sender',
-			_('Keyword') => 'in_keyword',
-			_('Content') => 'in_message',
-			_('Feature') => 'in_feature' 
-		);
+		$search_category = [_('Time') => 'in_datetime', _('From') => 'in_sender', _('Keyword') => 'in_keyword', _('Content') => 'in_message', _('Feature') => 'in_feature'];
 		$base_url = 'index.php?app=main&inc=feature_report&route=user_incoming&op=user_incoming';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array(
-			'in_uid' => $user_config['uid'],
-			'flag_deleted' => 0,
-			'in_status' => 1 
-		);
+		$conditions = ['in_uid' => $user_config['uid'], 'flag_deleted' => 0, 'in_status' => 1];
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'AND in_feature' => '!= ""',
-			'ORDER BY' => 'in_id DESC',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['AND in_feature' => '!= ""', 'ORDER BY' => 'in_id DESC', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_id, in_sender, in_keyword, in_datetime, in_feature, in_message', $conditions, $keywords, $extras);
 		
 		$content = _dialog() . "
@@ -78,7 +63,7 @@ switch (_OP_) {
 		
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		for ($j = 0; $j < (is_countable($list) ? count($list) : 0); $j++) {
 			$list[$j] = core_display_data($list[$j]);
 			$in_id = $list[$j]['in_id'];
 			$in_sender = $list[$j]['in_sender'];
@@ -92,7 +77,7 @@ switch (_OP_) {
 			if ($in_feature) {
 				$c_feature = "<br />" . $in_feature;
 			}
-			$msg = trim($list[$j]['in_message']);
+			$msg = trim((string) $list[$j]['in_message']);
 			$in_message = core_display_text($msg);
 			$reply = '';
 			$forward = '';
@@ -130,31 +115,13 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array(
-					'in_uid' => $user_config['uid'],
-					'flag_deleted' => 0,
-					'in_status' => 1 
-				);
-				$extras = array(
-					'AND in_keyword' => '!= ""' 
-				);
+				$conditions = ['in_uid' => $user_config['uid'], 'flag_deleted' => 0, 'in_status' => 1];
+				$extras = ['AND in_keyword' => '!= ""'];
 				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_sender, in_keyword, in_datetime, in_feature, in_message', $conditions, $search['dba_keywords'], $extras);
-				$data[0] = array(
-					_('Time'),
-					_('From'),
-					_('Keyword'),
-					_('Content'),
-					_('Feature') 
-				);
-				for ($i = 0; $i < count($list); $i++) {
+				$data[0] = [_('Time'), _('From'), _('Keyword'), _('Content'), _('Feature')];
+				for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 					$j = $i + 1;
-					$data[$j] = array(
-						core_display_datetime($list[$i]['in_datetime']),
-						$list[$i]['in_sender'],
-						$list[$i]['in_keyword'],
-						$list[$i]['in_message'],
-						$list[$i]['in_feature'] 
-					);
+					$data[$j] = [core_display_datetime($list[$i]['in_datetime']), $list[$i]['in_sender'], $list[$i]['in_keyword'], $list[$i]['in_message'], $list[$i]['in_feature']];
 				}
 				$content = core_csv_format($data);
 				$fn = 'user_incoming-' . $user_config['username'] . '-' . $core_config['datetime']['now_stamp'] . '.csv';
@@ -166,14 +133,8 @@ switch (_OP_) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
-						$up = array(
-							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
-						);
-						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(
-							'in_uid' => $user_config['uid'],
-							'in_id' => $itemid 
-						));
+						$up = ['c_timestamp' => time(), 'flag_deleted' => '1'];
+						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, ['in_uid' => $user_config['uid'], 'in_id' => $itemid]);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

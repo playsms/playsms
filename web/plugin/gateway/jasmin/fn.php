@@ -37,13 +37,13 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
+	$sms_sender = stripslashes((string) $sms_sender);
 	if ($plugin_config['jasmin']['module_sender']) {
 		$sms_sender = $plugin_config['jasmin']['module_sender'];
 	}
 	
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_footer = stripslashes((string) $sms_footer);
+	$sms_msg = stripslashes((string) $sms_msg);
 	$ok = false;
 	
 	if ($sms_footer) {
@@ -62,20 +62,14 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 			}
 		}
 		
-		$query_string = "username=" . urlencode($plugin_config['jasmin']['api_username']) . "&password=" . urlencode($plugin_config['jasmin']['api_password']) . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
-		$query_string .= "&dlr=yes&dlr-level=2&dlr-url=" . urlencode($plugin_config['jasmin']['callback_url']);
+		$query_string = "username=" . urlencode((string) $plugin_config['jasmin']['api_username']) . "&password=" . urlencode((string) $plugin_config['jasmin']['api_password']) . "&to=" . urlencode((string) $sms_to) . "&from=" . urlencode((string) $sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
+		$query_string .= "&dlr=yes&dlr-level=2&dlr-url=" . urlencode((string) $plugin_config['jasmin']['callback_url']);
 		$url = $plugin_config['jasmin']['url'] . "?" . $query_string;
 		
 		_log("send url:[" . $url . "]", 3, "jasmin_hook_sendsms");
 		
 		// new way
-		$opts = array(
-			'http' => array(
-				'method' => 'POST',
-				'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n",
-				'content' => $query_string 
-			) 
-		);
+		$opts = ['http' => ['method' => 'POST', 'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n", 'content' => $query_string]];
 		$context = stream_context_create($opts);
 		$response = file_get_contents($plugin_config['jasmin']['url'], FALSE, $context);
 		

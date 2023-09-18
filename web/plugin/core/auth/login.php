@@ -3,8 +3,8 @@ defined('_SECURE_') or die('Forbidden');
 
 if (_OP_ == 'login') {
 	
-	$username_or_email = trim($_REQUEST['username']);
-	$password = trim($_REQUEST['password']);
+	$username_or_email = trim((string) $_REQUEST['username']);
+	$password = trim((string) $_REQUEST['password']);
 	
 	if ($username_or_email && $password) {
 		$username = '';
@@ -50,37 +50,10 @@ if (_OP_ == 'login') {
 		}
 	}
 
-	$lastpost = array(
-		'username' => _lastpost('username')
-	);
+	$lastpost = ['username' => _lastpost('username')];
 	
 	unset($tpl);
-	$tpl = array(
-		'name' => 'auth_login',
-		'vars' => array(
-			'HTTP_PATH_BASE' => $core_config['http_path']['base'],
-			'WEB_TITLE' => $core_config['main']['web_title'],
-			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login') ,
-			'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register') ,
-			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot') ,
-			'DIALOG_DISPLAY' => _dialog(),
-			'Username or email' => _('Username or email') ,
-			'Password' => _('Password') ,
-			'Login' => _('Login') ,
-			'Register an account' => _('Register an account') ,
-			'Recover password' => _('Recover password') ,
-			'logo_url' => $core_config['main']['logo_url']
-		) ,
-		'ifs' => array(
-			'enable_register' => $core_config['main']['enable_register'],
-			'enable_forgot' => $core_config['main']['enable_forgot'],
-			'enable_logo' => $enable_logo,
-			'show_web_title' => $show_web_title,
-		),
-		'injects' => array(
-			'lastpost'
-		)
-	);
+	$tpl = ['name' => 'auth_login', 'vars' => ['HTTP_PATH_BASE' => $core_config['http_path']['base'], 'WEB_TITLE' => $core_config['main']['web_title'], 'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=login&op=login'), 'URL_REGISTER' => _u('index.php?app=main&inc=core_auth&route=register'), 'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'), 'DIALOG_DISPLAY' => _dialog(), 'Username or email' => _('Username or email'), 'Password' => _('Password'), 'Login' => _('Login'), 'Register an account' => _('Register an account'), 'Recover password' => _('Recover password'), 'logo_url' => $core_config['main']['logo_url']], 'ifs' => ['enable_register' => $core_config['main']['enable_register'], 'enable_forgot' => $core_config['main']['enable_forgot'], 'enable_logo' => $enable_logo, 'show_web_title' => $show_web_title], 'injects' => ['lastpost']];
 	
 	_p(tpl_apply($tpl));
 }

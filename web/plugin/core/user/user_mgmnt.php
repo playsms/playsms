@@ -22,57 +22,35 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-$view = ($_REQUEST['view'] ? $_REQUEST['view'] : 'admin');
+$view = ($_REQUEST['view'] ?: 'admin');
 
 switch (_OP_) {
 	case "user_list":
 		if ($view == 'admin') {
-			$conditions = array(
-				'flag_deleted' => 0,
-				'status' => 2 
-			);
+			$conditions = ['flag_deleted' => 0, 'status' => 2];
 			$form_sub_title = "<h3>" . _('List of administrators') . "</h3>";
 			$disabled_on_admin = 'disabled';
 		} else if ($view == 'users') {
-			$conditions = array(
-				'flag_deleted' => 0,
-				'status' => 3 
-			);
+			$conditions = ['flag_deleted' => 0, 'status' => 3];
 			$form_sub_title = "<h3>" . _('List of users') . "</h3>";
 			$disabled_on_users = 'disabled';
 		} else if ($view == 'subusers') {
-			$conditions = array(
-				'flag_deleted' => 0,
-				'status' => 4 
-			);
+			$conditions = ['flag_deleted' => 0, 'status' => 4];
 			$form_sub_title = "<h3>" . _('List of subusers') . "</h3>";
 			$disabled_on_subusers = 'disabled';
 			$parent_column_title = "<th width='12%'>" . _('Parent') . "</th>";
 		}
 		
-		$search_var = array(
-			_('Registered') => 'register_datetime',
-			_('Username') => 'username',
-			_('Name') => 'name',
-			_('Mobile') => 'mobile',
-			_('ACL') => 'acl_id' 
-		);
+		$search_var = [_('Registered') => 'register_datetime', _('Username') => 'username', _('Name') => 'name', _('Mobile') => 'mobile', _('ACL') => 'acl_id'];
 		if ($view == 'subusers') {
 			$search_var[_('Parent account')] = 'parent_uid';
 		}
 		
-		$search = themes_search($search_var, '', array(
-			'parent_uid' => 'user_username2uid',
-			'acl_id' => 'acl_getid' 
-		));
+		$search = themes_search($search_var, '', ['parent_uid' => 'user_username2uid', 'acl_id' => 'acl_getid']);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=" . $view);
-		$extras = array(
-			'ORDER BY' => 'register_datetime DESC, username',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+		$extras = ['ORDER BY' => 'register_datetime DESC, username', 'LIMIT' => $nav['limit'], 'OFFSET' => $nav['offset']];
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 		if ($err = TRUE) {
 			$content = _dialog();
@@ -105,7 +83,7 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
-		for ($i = 0; $i < count($list); $i++) {
+		for ($i = 0; $i < (is_countable($list) ? count($list) : 0); $i++) {
 			
 			$action = "";
 			
@@ -171,11 +149,11 @@ switch (_OP_) {
 			$content = _dialog();
 		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
-		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
+		$add_datetime_timezone = ($add_datetime_timezone ?: core_get_timezone());
 		
 		// get language options
-		$lang_list = '';
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
+		$lang_list = [];
+		for ($i = 0; $i < (is_countable($core_config['plugins']['list']['language']) ? count($core_config['plugins']['list']['language']) : 0); $i++) {
 			$language = $core_config['plugins']['list']['language'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {

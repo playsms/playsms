@@ -5,18 +5,15 @@ defined('_SECURE_') or die('Forbidden');
 $data = registry_search(0, 'gateway', 'gammu');
 
 $plugin_config['gammu']['name'] = 'gammu';
-$plugin_config['gammu']['sms_receiver'] = trim($data['gateway']['gammu']['sms_receiver']);
-$plugin_config['gammu']['path'] = trim(core_sanitize_path($data['gateway']['gammu']['path']));
+$plugin_config['gammu']['sms_receiver'] = trim((string) $data['gateway']['gammu']['sms_receiver']);
+$plugin_config['gammu']['path'] = trim((string) core_sanitize_path($data['gateway']['gammu']['path']));
 if (!$plugin_config['gammu']['path']) {
 	$plugin_config['gammu']['path'] = '/var/spool/gammu';
 }
 $plugin_config['gammu']['dlr'] = TRUE;
 
 // smsc configuration
-$plugin_config['gammu']['_smsc_config_'] = array(
-	'sms_receiver' => _('Receiver number'),
-	'path' => _('Spool folder') 
-);
+$plugin_config['gammu']['_smsc_config_'] = ['sms_receiver' => _('Receiver number'), 'path' => _('Spool folder')];
 
 // insert to left menu array
 //if (isadmin()) {

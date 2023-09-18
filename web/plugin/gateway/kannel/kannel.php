@@ -40,7 +40,7 @@ switch (_OP_) {
 		$admin_host = $plugin_config['kannel']['sendsms_host'];
 		$admin_host = ($admin_port ? $admin_host . ':' . $admin_port : $admin_host);
 		$admin_password = $plugin_config['kannel']['admin_password'];
-		$url = 'http://' . $admin_host . '/status?password=' . urlencode($admin_password);
+		$url = 'http://' . $admin_host . '/status?password=' . urlencode((string) $admin_password);
 		$kannel_status = @file_get_contents($url);
 		if (!$kannel_status) {
 			$kannel_status = 'Unable to access Kannel admin commands';
@@ -145,20 +145,7 @@ switch (_OP_) {
 		break;
 	
 	case "manage_save":
-		$items = array(
-			'username' => $_POST['up_username'],
-			'module_sender' => $_POST['up_module_sender'],
-			'module_timezone' => $_POST['up_module_timezone'],
-			'bearerbox_host' => $_POST['up_bearerbox_host'],
-			'sendsms_host' => $_POST['up_sendsms_host'],
-			'sendsms_port' => $_POST['up_sendsms_port'],
-			'playsms_web' => $_POST['up_playsms_web'],
-			'additional_param' => $_POST['up_additional_param'],
-			'dlr_mask' => $_POST['up_dlr_mask'],
-			'admin_host' => $_POST['up_admin_host'],
-			'admin_port' => $_POST['up_admin_port'],
-			'local_time' => $_POST['up_local_time'] 
-		);
+		$items = ['username' => $_POST['up_username'], 'module_sender' => $_POST['up_module_sender'], 'module_timezone' => $_POST['up_module_timezone'], 'bearerbox_host' => $_POST['up_bearerbox_host'], 'sendsms_host' => $_POST['up_sendsms_host'], 'sendsms_port' => $_POST['up_sendsms_port'], 'playsms_web' => $_POST['up_playsms_web'], 'additional_param' => $_POST['up_additional_param'], 'dlr_mask' => $_POST['up_dlr_mask'], 'admin_host' => $_POST['up_admin_host'], 'admin_port' => $_POST['up_admin_port'], 'local_time' => $_POST['up_local_time']];
 		if ($_POST['up_password']) {
 			$items['password'] = $_POST['up_password'];
 		}

@@ -37,13 +37,13 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 	
-	$sms_sender = stripslashes($sms_sender);
+	$sms_sender = stripslashes((string) $sms_sender);
 	if ($plugin_config['nexmo']['module_sender']) {
 		$sms_sender = $plugin_config['nexmo']['module_sender'];
 	}
 	
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
+	$sms_footer = stripslashes((string) $sms_footer);
+	$sms_msg = stripslashes((string) $sms_msg);
 	$ok = false;
 	
 	if ($sms_footer) {
@@ -62,7 +62,7 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 			}
 		}
 		
-		$query_string = "api_key=" . $plugin_config['nexmo']['api_key'] . "&api_secret=" . $plugin_config['nexmo']['api_secret'] . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&text=" . urlencode($sms_msg) . $unicode_query_string . "&status-report-req=1&client-ref=" . $smslog_id;
+		$query_string = "api_key=" . $plugin_config['nexmo']['api_key'] . "&api_secret=" . $plugin_config['nexmo']['api_secret'] . "&to=" . urlencode((string) $sms_to) . "&from=" . urlencode((string) $sms_sender) . "&text=" . urlencode($sms_msg) . $unicode_query_string . "&status-report-req=1&client-ref=" . $smslog_id;
 		$url = $plugin_config['nexmo']['url'] . "?" . $query_string;
 		
 		_log("url:[" . $url . "]", 3, "nexmo outgoing");
@@ -77,15 +77,9 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 		
 
 		// new way
-		$opts = array(
-			'http' => array(
-				'method' => 'POST',
-				'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n",
-				'content' => $query_string 
-			) 
-		);
+		$opts = ['http' => ['method' => 'POST', 'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n", 'content' => $query_string]];
 		$context = stream_context_create($opts);
-		$resp = json_decode(file_get_contents($plugin_config['nexmo']['url'], FALSE, $context), TRUE);
+		$resp = json_decode(file_get_contents($plugin_config['nexmo']['url'], FALSE, $context), TRUE, 512, JSON_THROW_ON_ERROR);
 		
 		if ($resp['message-count']) {
 			$c_status = $resp['messages'][0]['status'];
@@ -104,7 +98,7 @@ function nexmo_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 			}
 		} else {
 			// even when the response is not what we expected we still print it out for debug purposes
-			$resp = str_replace("\n", " ", $resp);
+			$resp = str_replace("\n", " ", (string) $resp);
 			$resp = str_replace("\r", " ", $resp);
 			_log("failed smslog_id:" . $smslog_id . " resp:" . $resp, 2, "nexmo outgoing");
 		}

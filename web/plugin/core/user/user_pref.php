@@ -67,10 +67,7 @@ if (auth_isadmin()) {
 
 switch (_OP_) {
 	case "user_pref":
-		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-			'flag_deleted' => 0,
-			'username' => $c_username 
-		))) {
+		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', ['flag_deleted' => 0, 'username' => $c_username])) {
 			if ($allow_edit_status) {
 				$status = (int) $c_user[0]['status'];
 			}
@@ -146,69 +143,13 @@ switch (_OP_) {
 			$form_title = _('Preferences');
 		}
 		
-		$tpl = array(
-			'name' => 'user_pref',
-			'vars' => array(
-				'Account status' => _('Account status'),
-				'Parent account' => _('Parent account') . " (" . _('for subuser only') . ")",
-				'Login information' => _('Login information'),
-				'Username' => _('Username'),
-				'Password' => _('Password'),
-				'Re-type password' => _('Re-type password'),
-				'Personal information' => _('Personal information'),
-				'Name' => _mandatory(_('Name')),
-				'Email' => _mandatory(_('Email')),
-				'Mobile' => _('Mobile'),
-				'Address' => _('Address'),
-				'City' => _('City'),
-				'State or Province' => _('State or Province'),
-				'Country' => _('Country'),
-				'Zipcode' => _('Zipcode'),
-				'Save' => _('Save'),
-				'HINT_STATUS' => _hint(_('Cannot change status when user have subusers')),
-				'HINT_PARENT' => _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')),
-				'STATUS' => _('User'),
-				'DIALOG_DISPLAY' => _dialog(),
-				'FORM_TITLE' => $form_title,
-				'BUTTON_DELETE' => $button_delete,
-				'BUTTON_BACK' => $button_back,
-				'URL_UNAME' => $url_uname,
-				'VIEW' => $view,
-				'select_status' => $select_status,
-				'select_parents' => $select_parents,
-				'c_username' => $c_username,
-				'name' => $name,
-				'email' => $email,
-				'mobile' => $mobile,
-				'address' => $address,
-				'city' => $city,
-				'state' => $state,
-				'option_country' => $option_country,
-				'zipcode' => $zipcode 
-			),
-			'ifs' => array(
-				'edit_status' => $allow_edit_status,
-				'edit_parent' => $allow_edit_parent,
-				'edit_status_hint' => $show_status_hint,
-				'show_personal_information' => $show_personal_information 
-			) 
-		);
+		$tpl = ['name' => 'user_pref', 'vars' => ['Account status' => _('Account status'), 'Parent account' => _('Parent account') . " (" . _('for subuser only') . ")", 'Login information' => _('Login information'), 'Username' => _('Username'), 'Password' => _('Password'), 'Re-type password' => _('Re-type password'), 'Personal information' => _('Personal information'), 'Name' => _mandatory(_('Name')), 'Email' => _mandatory(_('Email')), 'Mobile' => _('Mobile'), 'Address' => _('Address'), 'City' => _('City'), 'State or Province' => _('State or Province'), 'Country' => _('Country'), 'Zipcode' => _('Zipcode'), 'Save' => _('Save'), 'HINT_STATUS' => _hint(_('Cannot change status when user have subusers')), 'HINT_PARENT' => _hint(_('Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically assigned to user admin')), 'STATUS' => _('User'), 'DIALOG_DISPLAY' => _dialog(), 'FORM_TITLE' => $form_title, 'BUTTON_DELETE' => $button_delete, 'BUTTON_BACK' => $button_back, 'URL_UNAME' => $url_uname, 'VIEW' => $view, 'select_status' => $select_status, 'select_parents' => $select_parents, 'c_username' => $c_username, 'name' => $name, 'email' => $email, 'mobile' => $mobile, 'address' => $address, 'city' => $city, 'state' => $state, 'option_country' => $option_country, 'zipcode' => $zipcode], 'ifs' => ['edit_status' => $allow_edit_status, 'edit_parent' => $allow_edit_parent, 'edit_status_hint' => $show_status_hint, 'show_personal_information' => $show_personal_information]];
 		_p(tpl_apply($tpl));
 		break;
 	case "user_pref_save":
 		$continue = TRUE;
 
-		$fields = array(
-			'name',
-			'email',
-			'mobile',
-			'address',
-			'city',
-			'state',
-			'country',
-			'password',
-			'zipcode' 
-		);
+		$fields = ['name', 'email', 'mobile', 'address', 'city', 'state', 'country', 'password', 'zipcode'];
 		
 		if ($allow_edit_status) {
 			_log('saving username:' . $c_username . ' status:' . $_POST['up_status'], 3, 'user_pref');
@@ -221,7 +162,7 @@ switch (_OP_) {
 		}
 		
 		for ($i = 0; $i < count($fields); $i++) {
-			if ($c_data = trim($_POST['up_' . $fields[$i]])) {
+			if ($c_data = trim((string) $_POST['up_' . $fields[$i]])) {
 				$up[$fields[$i]] = $c_data;
 			}
 		}
