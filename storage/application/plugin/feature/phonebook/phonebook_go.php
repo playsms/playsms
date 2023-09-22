@@ -22,17 +22,7 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$checkid = $_REQUEST['checkid'];
-$itemid = $_REQUEST['itemid'];
-
-$items = array();
-foreach ($checkid as $key => $val) {
-	if (strtoupper($val) == 'ON') {
-		if ($itemid[$key]) {
-			$items[] = $itemid[$key];
-		}
-	}
-}
+$items = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : array();
 
 switch (_OP_) {
 	case 'delete':

@@ -78,8 +78,7 @@ switch (_OP_) {
 					<td>$username</td>
 					<td>$ip_address</td>
 					<td nowrap>
-						<input type=hidden name=itemid[" . $j . "] value=\"$pid\">
-						<input type=checkbox name=checkid[" . $j . "]>
+						<input type=checkbox name=itemid[] value=\"$pid\">
 					</td>
 				</tr>";
 		}
@@ -95,17 +94,7 @@ switch (_OP_) {
 		break;
 	
 	case "actions":
-		$checkid = $_REQUEST['checkid'];
-		$itemid = $_REQUEST['itemid'];
-		
-		$items = array();
-		foreach ($checkid as $key => $val) {
-			if (strtoupper($val) == 'ON') {
-				if ($itemid[$key]) {
-					$items[] = $itemid[$key];
-				}
-			}
-		}
+		$items = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : array();
 		$removed = FALSE;
 		$go = $_REQUEST['go'];
 		switch ($go) {

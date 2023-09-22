@@ -98,8 +98,7 @@ switch (_OP_) {
 					<td>$current_sender</td>
 					<td>$c_message</td>
 					<td nowrap>
-						<input type=hidden name=itemid" . $j . " value=\"$in_id\">
-						<input type=checkbox name=checkid" . $j . ">
+						<input type=checkbox name=itemid[] value=\"$in_id\">
 					</td>
 				</tr>";
 		}
@@ -146,10 +145,8 @@ switch (_OP_) {
 				break;
 			
 			case 'delete':
-				for ($i = 0; $i < $nav['limit']; $i++) {
-					$checkid = $_POST['checkid' . $i];
-					$itemid = $_POST['itemid' . $i];
-					if (($checkid == "on") && $itemid) {
+				if (isset($_POST['itemid'])) {
+					foreach ($_POST['itemid'] as $itemid) {
 						$up = array(
 							'c_timestamp' => time(),
 							'flag_deleted' => '1' 
