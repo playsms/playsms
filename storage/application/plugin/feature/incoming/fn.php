@@ -60,7 +60,8 @@ function incoming_post_rules_get() {
 
 	// sandbox forward to users
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
-	$post_rules['forward_to'] = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
+	$data = isset($data['feature']['incoming']['sandbox_forward_to']) ? unserialize($data['feature']['incoming']['sandbox_forward_to']) : [];
+	$post_rules['forward_to'] = array_unique($data);
 	
 	// sandbox forward to url
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to_url');
@@ -326,7 +327,7 @@ function incoming_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $
 		$groups = array_unique($bc);
 		foreach ($groups as $key => $c_group_code) {
 			$c_uid = user_mobile2uid($sms_sender);
-			$list = phonebook_search_group($c_uid, $c_group_code, '', TRUE);
+			$list = phonebook_search_group($c_uid, $c_group_code, 0);
 			$c_gpid = $list[0]['gpid'];
 			if ($c_uid && $c_gpid) {
 				$c_username = user_uid2username($c_uid);

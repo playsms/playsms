@@ -92,7 +92,7 @@ function tpl_apply($tpl, $injected = array()) {
 			$continue = TRUE;
 		}
 	}
-	
+
 	if ($continue) {
 		
 		// inject anti-CSRF hidden field

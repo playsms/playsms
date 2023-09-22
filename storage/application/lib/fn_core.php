@@ -137,7 +137,6 @@ function core_sanitize_inputs($data) {
  *
  * @param string $var_username
  *        Username
- * @return boolean TRUE if valid
  */
 function core_setuserlang($username = "") {
 	global $core_config;
@@ -231,16 +230,20 @@ function core_call_hook($function_name = '', $arguments = array()) {
 		$arguments = $f[1]['args'];
 	}
 
-	for ($c = 0; $c < count($core_config['plugins']['list']['core']); $c++) {
-		if ($ret = core_hook($core_config['plugins']['list']['core'][$c], $function_name, $arguments)) {
-			break;
+	if (isset($core_config['plugins']['list']['core']) && is_array($core_config['plugins']['list']['core'])) {
+		foreach ( $core_config['plugins']['list']['core'] as $core ) {
+			if ($ret = core_hook($core, $function_name, $arguments)) {
+				return $ret;
+			}
 		}
 	}
 
 	if (!$ret) {
-		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-			if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
-				break;
+		if (isset($core_config['plugins']['list']['feature']) && is_array($core_config['plugins']['list']['feature'])) {
+			foreach ( $core_config['plugins']['list']['feature'] as $feature ) {
+				if ($ret = core_hook($feature, $function_name, $arguments)) {
+					return $ret;
+				}
 			}
 		}
 	}
@@ -314,13 +317,15 @@ function core_display_html($data) {
 /**
  * Format text for safe display on the web
  *
- * @param $text original
+ * @param string $text original
  *        text
- * @param $len length
+ * @param int $len length
  *        of text
- * @return formatted text
+ * @return string formatted text
  */
 function core_display_text($text, $len = 0) {
+	$text = '';
+
 	$config = HTMLPurifier_Config::createDefault();
 	$config->set('Cache.DefinitionImpl', null);
 	$config->set('Attr.EnableID', TRUE);
@@ -363,12 +368,12 @@ function core_display_data($data) {
 /**
  * Convert timestamp to datetime in UTC
  *
- * @param $timestamp timestamp        
- * @return current date and time
+ * @param string $timestamp timestamp        
+ * @return string current date and time
  */
 function core_convert_datetime($timestamp) {
 	global $core_config;
-	$tz = core_get_timezone();
+	//$tz = core_get_timezone();
 	$ret = date($core_config['datetime']['format'], $timestamp);
 	return $ret;
 }
@@ -376,7 +381,7 @@ function core_convert_datetime($timestamp) {
 /**
  * Get current server date and time in GMT+0
  *
- * @return current date and time
+ * @return string current date and time
  */
 function core_get_datetime() {
 	global $core_config;
@@ -389,7 +394,7 @@ function core_get_datetime() {
 /**
  * Get current server date in GMT+0
  *
- * @return current date
+ * @return string current date
  */
 function core_get_date() {
 	$ret = core_get_datetime();
@@ -401,7 +406,7 @@ function core_get_date() {
 /**
  * Get current server time in GMT+0
  *
- * @return current time
+ * @return string current time
  */
 function core_get_time() {
 	$ret = core_get_datetime();
@@ -415,7 +420,7 @@ function core_get_time() {
  *
  * @param $username username
  *        or empty for default timezone
- * @return timezone
+ * @return string timezone
  */
 function core_get_timezone($username = '') {
 	global $core_config;
@@ -437,7 +442,7 @@ function core_get_timezone($username = '') {
  * Calculate timezone string into number of seconds offset
  *
  * @param $tz timezone        
- * @return offset in number of seconds
+ * @return int offset in number of seconds
  */
 function core_datetime_offset($tz = 0) {
 	$n = (int) $tz;
@@ -452,7 +457,7 @@ function core_datetime_offset($tz = 0) {
  *
  * @param $time date/time        
  * @param $tz timezone        
- * @return formatted date/time with adjusted timezone
+ * @return string formatted date/time with adjusted timezone
  */
 function core_display_datetime($time, $tz = 0) {
 	global $core_config, $user_config;
@@ -493,9 +498,9 @@ function core_format_datetime($text) {
 /**
  * Format and adjust date/time to GMT+0 for log or incoming SMS saving purposes
  *
- * @param $time date/time        
- * @param $tz timezone        
- * @return formatted date/time with adjusted timezone
+ * @param string $time date/time        
+ * @param string $tz timezone        
+ * @return string formatted date/time with adjusted timezone
  */
 function core_adjust_datetime($time, $tz = 0) {
 	global $core_config, $user_config;
@@ -809,7 +814,8 @@ function core_smslen($text, $encoding = "") {
 			$len = mb_strlen($text, "UTF-8");
 		}
 	} else if (core_detect_unicode($text)) {
-		$len = strlen(utf8_decode($text));
+		// $len = strlen(utf8_decode($text)); // deprecated in php 8.2
+		$len = strlen(mb_convert_encoding($text, 'ISO-8859-1', 'UTF-8'));
 	} else {
 		$len = strlen($text);
 	}
@@ -1150,8 +1156,6 @@ function core_get_version() {
 
 /**
  * Print output
- *
- * @return string
  */
 function core_print($content) {
 	global $core_config;
@@ -1275,7 +1279,6 @@ if (file_exists(_APPS_PATH_STORAGE_ . '/composer/vendor/autoload.php')) {
 	include_once _APPS_PATH_STORAGE_ . '/composer/vendor/autoload.php';
 } else {
 	die(_('FATAL ERROR') . ' : ' . _('Unable to find composer files') . ' ' . _('Please run composer.phar update'));
-	exit();
 }
 
 /**

@@ -149,6 +149,6 @@ if (_OP_ == 'login') {
 			'lastpost'
 		)
 	);
-	
+
 	_p(tpl_apply($tpl));
 }

@@ -31,10 +31,10 @@ switch (_OP_) {
 		$pre_rules = incoming_pre_rules_get();
 		
 		// scan message for @username
-		$select_match_username = _yesno('incoming_match_username', $pre_rules['match_username'], '', '', '', 'playsms-incoming-match-username');
+		$select_match_username = _yesno('incoming_match_username', $pre_rules['match_username'], '', '', [], 'playsms-incoming-match-username');
 		
 		// scan message for #groupcode
-		$select_match_groupcode = _yesno('incoming_match_groupcode', $pre_rules['match_groupcode'], '', '', '', 'playsms-incoming-match-groupcode');
+		$select_match_groupcode = _yesno('incoming_match_groupcode', $pre_rules['match_groupcode'], '', '', [], 'playsms-incoming-match-groupcode');
 		
 		$form_pre_rules = array(
 			array(
@@ -57,7 +57,7 @@ switch (_OP_) {
 		$post_rules = incoming_post_rules_get();
 		
 		// sandbox match receiver number and sender ID
-		$select_match_sender_id = _yesno('sandbox_match_sender_id', $post_rules['match_sender_id'], '', '', '', 'playsms-sandbox-match-sender-id');
+		$select_match_sender_id = _yesno('sandbox_match_sender_id', $post_rules['match_sender_id'], '', '', [], 'playsms-sandbox-match-sender-id');
 		
 		// sandbox prefix
 		unset($params);
@@ -120,10 +120,10 @@ switch (_OP_) {
 		$settings = incoming_settings_get();
 		
 		// settings to leave copy on sandbox
-		$settings_leave_copy_sandbox = _yesno('settings_leave_copy_sandbox', $settings['leave_copy_sandbox'], '', '', '', 'settings_leave_copy_sandbox');
+		$settings_leave_copy_sandbox = _yesno('settings_leave_copy_sandbox', $settings['leave_copy_sandbox'], '', '', [], 'settings_leave_copy_sandbox');
 		
 		// settings to match with all approved sender ID
-		$settings_match_all_sender_id = _yesno('settings_match_all_sender_id', $settings['match_all_sender_id'], '', '', '', 'settings_match_all_sender_id');
+		$settings_match_all_sender_id = _yesno('settings_match_all_sender_id', $settings['match_all_sender_id'], '', '', [], 'settings_match_all_sender_id');
 		
 		$form_settings = array(
 			array(
@@ -195,7 +195,11 @@ switch (_OP_) {
 		$items['sandbox_prefix'] = $post_rules['insert_prefix'];
 		
 		// sandbox forward to users
-		$post_rules['forward_to'] = serialize(array_unique($_REQUEST['uids']));
+		if (isset($_REQUEST['uids']) && is_array($_REQUEST['uids']) && $_REQUEST['uids']) {
+			$post_rules['forward_to'] = serialize(array_unique($_REQUEST['uids']));
+		} else {
+			$post_rules['forward_to'] = serialize([]);
+		}
 		$items['sandbox_forward_to'] = $post_rules['forward_to'];
 		
 		// sandbox forward to url
@@ -221,5 +225,4 @@ switch (_OP_) {
 		
 		header("Location: " . _u('index.php?app=main&inc=feature_incoming&op=incoming'));
 		exit();
-		break;
 }

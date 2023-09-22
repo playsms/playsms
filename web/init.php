@@ -280,22 +280,6 @@ if (_INC_) {
 define('_INC_CAT_', $c_plugin_category);
 define('_INC_PLUGIN_', $c_plugin_name);
 
-// check and prepare anti-CSRF
-if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || (_APP_ == 'call') || ($core_config['init']['ignore_csrf']))) {
-	
-	// print_r($_POST); print_r($_SESSION);
-	if ($_POST) {
-		if (!core_csrf_validate()) {
-			_log('WARNING: possible CSRF attack. sid:' . session_id() . ' ip:' . _REMOTE_ADDR_, 2, 'init');
-			auth_block();
-		}
-	}
-	$csrf = core_csrf_set();
-	define('_CSRF_TOKEN_', $csrf['value']);
-	define('_CSRF_FORM_', $csrf['form']);
-	unset($csrf);
-}
-
 // save last $_POST in $_SESSION
 if (!empty($_POST)) {
 
@@ -338,6 +322,23 @@ if (!$core_config['main']) {
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load main config from registry'));
 }
+
+// check and prepare anti-CSRF
+if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || (_APP_ == 'call') || ($core_config['init']['ignore_csrf']))) {
+	
+	// print_r($_POST); print_r($_SESSION);
+	if ($_POST) {
+		if (!core_csrf_validate()) {
+			_log('WARNING: possible CSRF attack. sid:' . session_id() . ' ip:' . _REMOTE_ADDR_, 2, 'init');
+			auth_block();
+		}
+	}
+	$csrf = core_csrf_set();
+	define('_CSRF_TOKEN_', $csrf['value']);
+	define('_CSRF_FORM_', $csrf['form']);
+	unset($csrf);
+}
+
 
 // --- playSMS Specifics --- //
 

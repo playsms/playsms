@@ -238,7 +238,6 @@ function auth_validate_token($token) {
  */
 function auth_isvalid() {
 	if (session_id() && $_SESSION['uid'] && ($login_sid = $_SESSION['login_sid'])) {
-		$username = $_SESSION['username'];
 		$uid = $_SESSION['uid'];
 		
 		// check if user still using the same browser
@@ -459,7 +458,7 @@ function auth_login_return() {
 }
 
 function auth_login_as_check() {
-	if (count($_SESSION['tmp']['login_as']) > 0) {
+	if (isset($_SESSION['tmp']['login_as']) && is_array($_SESSION['tmp']['login_as']) && count($_SESSION['tmp']['login_as']) > 0) {
 		return TRUE;
 	} else {
 		return FALSE;

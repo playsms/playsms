@@ -127,8 +127,8 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	}
 	$url = $url . $search_url;
 	$nav_pages = '';
-	if ($theme) {
-		$nav_pages = core_hook($theme, 'themes_navbar', array(
+	if (core_themes_get()) {
+		$nav_pages = core_hook(core_themes_get(), 'themes_navbar', array(
 			$num,
 			$nav,
 			$max_nav,
@@ -159,16 +159,16 @@ function themes_nav($count, $url = '') {
 	$nav = (_NAV_ ? _NAV_ : 1);
 	$page = (_PAGE_ ? _PAGE_ : 1);
 	$url = (trim($url) ? trim($url) : $_SERVER['REQUEST_URI']);
-	if ($ret['form'] = themes_navbar($num, $nav, $max_nav, $url, $page)) {
-		$ret['limit'] = $lines_per_page;
-		$ret['offset'] = ($page - 1) * $lines_per_page;
-		$ret['top'] = ($count - ($lines_per_page * ($page - 1))) + 1;
-		$ret['nav'] = $nav;
-		$ret['page'] = $page;
-		$ret['url'] = $url;
-	}
+	$ret = [];
+	$ret['form'] = themes_navbar($num, $nav, $max_nav, $url, $page);
+	$ret['limit'] = (int) $lines_per_page;
+	$ret['offset'] = (int) ($page - 1) * $lines_per_page;
+	$ret['top'] = ($count - ($lines_per_page * ($page - 1))) + 1;
+	$ret['nav'] = $nav;
+	$ret['page'] = $page;
+	$ret['url'] = $url;
 	$_SESSION['tmp']['themes_nav'] = $ret;
-	
+
 	return $ret;
 }
 
@@ -378,31 +378,31 @@ function themes_select_options($options = array(), $selected = '') {
  * @return string Select HTML tag
  */
 function themes_select($name, $options = array(), $selected = '', $tag_params = array(), $css_id = '', $css_class = '') {
+	$ret = '';
+
 	$select_options = themes_select_options($options, $selected);
 	if (is_array($tag_params)) {
-		foreach ($tag_params as $key => $val) {
+		foreach ( $tag_params as $key => $val ) {
 			$params .= ' ' . $key . '="' . $val . '"';
 		}
-	}
-	
-	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
-	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
-	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
-	
-	$js = '
-		<script language="javascript" type="text/javascript">
-			$(document).ready(function() {
-				$("#' . $css_id . '").select2({
-					placeholder: "' . $placeholder . '",
-					width: "' . $width . '",
-					separator: [\',\'],
-					tokenSeparators: [\',\'],
+		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
+		$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
+		$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+
+		$js = '<script language="javascript" type="text/javascript">
+				$(document).ready(function() {
+					$("#' . $css_id . '").select2({
+						placeholder: "' . $placeholder . '",
+						width: "' . $width . '",
+						separator: [\',\'],
+						tokenSeparators: [\',\'],
+					});
 				});
-			});
-		</script>';
-	
-	$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>' . $js;
-	
+				</script>';
+
+		$ret = '<select name="' . $name . '" id="' . $css_id . '" class="playsms-select ' . $css_class . '" ' . $params . '>' . $select_options . '</select>' . $js;
+	}
+
 	return $ret;
 }
 
@@ -740,7 +740,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 		}
 		
 		$option_user .= '<option value="0">' . _('Select users') . '</option>';
-		if (count($admins) > 0) {
+		if (isset($admins) && is_array($admins) && count($admins) > 0) {
 			$option_user .= '<optgroup label="' . _('Administrators') . '">';
 			
 			foreach ($admins as $admin) {
@@ -773,7 +773,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($subusers) > 0) {
+		if (isset($subusers) && is_array($subusers) && count($subusers) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Subusers') . '">';
 			
