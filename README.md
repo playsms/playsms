@@ -2,7 +2,7 @@
 
 Latest development release is playSMS version **1.5.0-beta5**
 
-Latest stable release is playSMS version **1.4.5**
+Latest stable release is playSMS version **1.4.6**
 
 Official project website:
 
