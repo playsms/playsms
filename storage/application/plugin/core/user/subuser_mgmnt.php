@@ -154,18 +154,18 @@ switch (_OP_) {
 		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
 		
 		// get language options
-		$lang_list = '';
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
-			$language = $core_config['plugins']['list']['language'][$i];
-			$c_language_title = $plugin_config[$language]['title'];
-			if ($c_language_title) {
-				$lang_list[$c_language_title] = $language;
-			}
+		$lang_list = [];
+		if (isset($core_config['plugins']['list']['language']) && is_array($core_config['plugins']['list']['language']) && $languages = $core_config['plugins']['list']['language']) {
+			foreach ($languages as $language) {
+				if (isset($plugin_config[$language]['title']) && $plugin_config[$language]['title'] && $c_language_title = $plugin_config[$language]['title']) {
+					$lang_list[$c_language_title] = $language;
+				}
+			}		
 		}
-		if (is_array($lang_list)) {
-			foreach ($lang_list as $key => $val) {
-				if ($val == core_lang_get()) $selected = "selected";
-				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
+		if (is_array($lang_list) && $lang_list) {
+			foreach ($lang_list as $c_language_title => $c_language) {
+				if ($c_language == core_lang_get()) $selected = "selected";
+				$option_language_module .= "<option value=\"" . $c_language . "\" $selected>" . $c_language_title . "</option>";
 				$selected = "";
 			}
 		}

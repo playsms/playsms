@@ -580,12 +580,14 @@ function user_edit_conf($uid, $data = array()) {
 	
 	$up = array();
 	foreach ($fields as $field) {
-		$up[$field] = trim($data[$field]);
+		if (isset($field) && isset($data[$field])) {
+			$up[$field] = trim($data[$field]);			
+		}
 	}
 	
 	$up['lastupdate_datetime'] = core_adjust_datetime(core_get_datetime());
 	if ($uid) {
-		if ($up['new_token']) {
+		if (isset($up['new_token']) && $up['new_token']) {
 			$up['token'] = md5(core_get_random_string());
 		}
 		unset($up['new_token']);

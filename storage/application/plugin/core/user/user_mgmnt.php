@@ -185,18 +185,18 @@ switch (_OP_) {
 		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
 		
 		// get language options
-		$lang_list = '';
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
-			$language = $core_config['plugins']['list']['language'][$i];
-			$c_language_title = $plugin_config[$language]['title'];
-			if ($c_language_title) {
-				$lang_list[$c_language_title] = $language;
-			}
+		$lang_list = [];
+		if (isset($core_config['plugins']['list']['language']) && is_array($core_config['plugins']['list']['language']) && $languages = $core_config['plugins']['list']['language']) {
+			foreach ($languages as $language) {
+				if (isset($plugin_config[$language]['title']) && $plugin_config[$language]['title'] && $c_language_title = $plugin_config[$language]['title']) {
+					$lang_list[$c_language_title] = $language;
+				}
+			}		
 		}
-		if (is_array($lang_list)) {
-			foreach ($lang_list as $key => $val) {
-				if ($val == core_lang_get()) $selected = "selected";
-				$option_language_module .= "<option value=\"" . $val . "\" $selected>" . $key . "</option>";
+		if (is_array($lang_list) && $lang_list) {
+			foreach ($lang_list as $c_language_title => $c_language) {
+				if ($c_language == core_lang_get()) $selected = "selected";
+				$option_language_module .= "<option value=\"" . $c_language . "\" $selected>" . $c_language_title . "</option>";
 				$selected = "";
 			}
 		}
@@ -274,8 +274,9 @@ switch (_OP_) {
 		break;
 	
 	case "user_add_yes":
+		$add = [];
 		$add['email'] = $_POST['add_email'];
-		$add['status'] = $_POST['add_status'];
+		$add['status'] = (int) $_POST['add_status'];
 		$add['acl_id'] = (int) $_POST['add_acl_id'];
 		$add['username'] = $_POST['add_username'];
 		$add['password'] = $_POST['add_password'];
@@ -286,10 +287,10 @@ switch (_OP_) {
 		$add['language_module'] = $_POST['add_language_module'];
 		
 		// subuser's parent uid, by default its uid=1
-		if ($_POST['add_parent_uid']) {
-			$add['parent_uid'] = ($add['status'] == 4 ? $_POST['add_parent_uid'] : $core_config['main']['default_parent']);
+		if (isset($_POST['add_parent_uid']) && (int) $_POST['add_parent_uid']) {
+			$add['parent_uid'] = ($add['status'] == 4 ? (int) $_POST['add_parent_uid'] : (int) $core_config['main']['default_parent']);
 		} else {
-			$add['parent_uid'] = $core_config['main']['default_parent'];
+			$add['parent_uid'] = (int) $core_config['main']['default_parent'];
 		}
 		
 		// set credit to 0 by default
@@ -306,7 +307,6 @@ switch (_OP_) {
 		
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_add&view=' . $view));
 		exit();
-		break;
 	
 	case "user_del":
 		$up['username'] = $_REQUEST['uname'];
@@ -314,7 +314,7 @@ switch (_OP_) {
 		
 		// users cannot be removed if they still have subusers
 		$subusers = user_getsubuserbyuid($del_uid);
-		if (count($subusers) > 0) {
+		if (isset($subusers) && is_array($subusers) && count($subusers) > 0) {
 			$ret['error_string'] = _('Unable to delete this user until all subusers under this user have been removed');
 		} else {
 			$ret = user_remove($del_uid);
@@ -323,7 +323,6 @@ switch (_OP_) {
 		$_SESSION['dialog']['info'][] = $ret['error_string'];
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 		exit();
-		break;
 	
 	case "user_unban":
 		$uid = user_username2uid($_REQUEST['uname']);
@@ -338,7 +337,6 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 		exit();
-		break;
 	
 	case "user_ban":
 		$uid = user_username2uid($_REQUEST['uname']);
@@ -355,7 +353,6 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 		exit();
-		break;
 	
 	case "login_as":
 		//user_session_remove($_SESSION['uid']);
@@ -368,5 +365,4 @@ switch (_OP_) {
 		}
 		header('Location: ' . _u(_HTTP_PATH_BASE_));
 		exit();
-		break;
 }
