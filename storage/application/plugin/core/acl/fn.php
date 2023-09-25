@@ -38,6 +38,8 @@ function acl_getall() {
 function acl_getallbyuid($uid) {
 	global $core_config;
 	
+	$ret = [];
+	
 	$acl_id = acl_getidbyuid($uid);
 	$acl_name = acl_getname($acl_id);
 	
@@ -55,7 +57,7 @@ function acl_getallbyuid($uid) {
 		}
 	}
 	
-	if (!count($ret)) {
+	if (!(isset($ret) && is_array($ret) && count($ret))) {
 		$default_acl_id = ($core_config['main']['default_acl'] ? $core_config['main']['default_acl'] : 0);
 		$default_acl_name = acl_getname($default_acl_id);
 		$ret = array(
