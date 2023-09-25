@@ -37,7 +37,11 @@ function auth_validate_login($username, $password) {
 	}
 
 	// get uid
-	$uid = user_username2uid($username);
+	if (!($uid = user_username2uid($username))) {
+		_log('cannot find uid from username u:' . $username . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+
+		return FALSE;
+	}
 
 	// log attempts	
 	_log('login attempt u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_login');
@@ -86,6 +90,9 @@ function auth_validate_login($username, $password) {
 			// remove temporary password from registry upon successful login
 			if (!registry_remove(1, 'auth', 'tmp_password', $username)) {
 				_log('WARNING: unable to remove temporary password after successful login', 2, 'auth_validate_login');
+
+				// it used to be ok, but now we mark this as login failure
+				return false;
 			}
 			
 			// remove IP on successful login
@@ -116,11 +123,13 @@ function auth_validate_login($username, $password) {
 					} else {
 						_log('WARNING: fail to convert md5 password u:' . $username, 2, 'auth_validate_login');
 
+						// conversion is a must, fix it, so we mark this as login failure
 						return false;
 					}
 				} else {
 					_log('WARNING: unable to convert password format u:' . $username, 2, 'auth_validate_login');
 
+					// conversion is a must, fix it, so we mark this as login failure
 					return false;
 				}
 			}
@@ -178,6 +187,8 @@ function auth_validate_token($token) {
 		// log attempts if using token from web, not webservices
 		_log('login attempt token:' . $token . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_token');
 
+		// it used to be ok, but now token can only be used in webservices
+		return false;
 	}
 	
 	$db_query = "SELECT uid,username,enable_webservices,webservices_ip FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND token='" . $token . "'";
@@ -192,16 +203,16 @@ function auth_validate_token($token) {
 	if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
 		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_token');
 			
-		return FALSE;
+		return false;
 	}
 		
 	if ($uid && $username && $enable_webservices && $webservices_ip) {
 	
 		// check if auth token coming from allowed IP or network
 		$nets = explode(',', $webservices_ip);
-		if (is_array($nets)) {
+		if (is_array($nets) && $nets) {
 			foreach ($nets as $net) {
-				if (core_net_match($net, _REMOTE_ADDR_)) {
+				if ($net = trim($net) && core_net_match($net, _REMOTE_ADDR_)) {
 				
 					// IP allowed, but user banned
 					if (user_banned_get($uid)) {
@@ -217,7 +228,7 @@ function auth_validate_token($token) {
 					// remove IP on successful login
 					blacklist_clearip($username, _REMOTE_ADDR_);
 						
-					return $uid;
+					return true;
 				}
 			}
 		}
@@ -228,7 +239,7 @@ function auth_validate_token($token) {
 	
 	_log('invalid login t:' . $token . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_token');
 	
-	return FALSE;
+	return false;
 }
 
 /**
