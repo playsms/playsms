@@ -460,13 +460,18 @@ function themes_dialog($contents = array()) {
 			}
 		}
 	}
-	
+
 	foreach ($contents as $type => $data) {
 		$dialog_message = '';
 		$continue = FALSE;
 		
-		foreach ($data as $text) {
-			if (trim($text)) {
+		foreach ($data as $texts) {
+			if (is_array($texts) && count($texts) > 0) {
+				foreach ($texts as $text) {
+					$dialog_message .= trim($text) ? core_display_html(trim($text)) . '<br />' : '';
+				}
+				$continue = TRUE;
+			} elseif (trim($text)) {
 				$dialog_message = core_display_html(trim($text));
 				$continue = TRUE;
 			}
