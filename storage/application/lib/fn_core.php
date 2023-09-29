@@ -175,6 +175,7 @@ function core_sanitize_query($var) {
 	$var = str_replace("\"", "", $var);
 	$var = str_replace('\'', "", $var);
 	$var = str_replace("..", "", $var);
+	$var = str_replace("--", "", $var);
 	$var = strip_tags($var);
 	return $var;
 }
@@ -317,32 +318,19 @@ function core_display_html($data) {
 /**
  * Format text for safe display on the web
  *
- * @param string $text original
- *        text
- * @param int $len length
- *        of text
+ * @param string $text original text
+ * @param int $len length of text
  * @return string formatted text
  */
 function core_display_text($text, $len = 0) {
-	$text = '';
-
-	$config = HTMLPurifier_Config::createDefault();
-	$config->set('Cache.DefinitionImpl', null);
-	$config->set('Attr.EnableID', TRUE);
-	$config->set('HTML.SafeObject', TRUE);
-	$config->set('HTML.SafeEmbed', TRUE);
-	$config->set('Output.FlashCompat', TRUE);
-	$config->set('HTML.SafeIframe', TRUE);
-	$config->set('URI.SafeIframeRegexp', '%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%');
-	$config->set('HTML.Allowed', '*[style|class],p,ol,li,ul,b,u,strike,strong,blockquote,em,br,span,div,a[href|title|target|rel],img[src|alt|title|width|height|hspace|vspace],hr,font,pre,table[cellpadding|cellspacing],tr,td,th,tbody,thead,h1,h2,h3,h4,h5,iframe[src|width|height]');
-	$hp = new HTMLPurifier($config);
-	
 	if (is_array($text)) {
-		foreach ($text as $item) {
-			$ret[] = core_display_text((string) $item, $len);
-		}
+		return '';
 	} else {
-		$text = $hp->purify($text);
+		$text = htmlspecialchars_decode($text);
+		$text = str_ireplace('<?php', '', $text);
+		$text = str_ireplace('<?', '', $text);
+		$text = str_ireplace('?>', '', $text);
+		$text = str_ireplace('`', '', $text);
 		$text = strip_tags($text);
 		$text = ($len > 0 ? substr($text, 0, $len) . '..' : $text);
 	}
@@ -351,8 +339,11 @@ function core_display_text($text, $len = 0) {
 }
 
 
-/*
+/**
  * Format $data for safe display on the web @param $data original $data @return formatted $data
+ * 
+ * @param array|string $data original data
+ * @return array|string formatted data
  */
 function core_display_data($data) {
 	if (is_array($data)) {
