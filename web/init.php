@@ -251,6 +251,9 @@ foreach ($_GET as $key => $val) {
 foreach ($_POST as $key => $val) {
 	$_POST[$key] = core_addslashes(core_sanitize_inputs($val));
 }
+foreach ($_COOKIE as $key => $val) {
+	$_COOKIE[$key] = core_addslashes(core_sanitize_inputs($val));
+}
 
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
 $_REQUEST = [];
