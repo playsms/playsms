@@ -71,39 +71,40 @@ switch (_OP_) {
 			<tbody>";
 		
 		$i = $nav['top'];
-		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
-			$list[$j] = core_display_data($list[$j]);
-			$in_id = $list[$j]['in_id'];
-			$in_uid = $list[$j]['in_uid'];
-			$in_sender = $list[$j]['in_sender'];
-			$p_desc = phonebook_number2name($in_uid, $in_sender);
-			$current_sender = $in_sender;
-			if ($p_desc) {
-				$current_sender = "$in_sender<br />$p_desc";
+		if (isset($list) && is_array($list) && count($list) > 0) {
+			foreach ( $list as $item ) {
+				$item = core_display_data($item);
+				$in_id = $item['in_id'];
+				$in_uid = $item['in_uid'];
+				$in_sender = $item['in_sender'];
+				$p_desc = phonebook_number2name($in_uid, $in_sender);
+				$current_sender = $in_sender;
+				if ($p_desc) {
+					$current_sender = "$in_sender<br />$p_desc";
+				}
+				$in_datetime = core_display_datetime($item['in_datetime']);
+				$msg = $item['in_message'];
+				$in_message = core_display_text($msg);
+				$reply = '';
+				$forward = '';
+				if ($msg && $in_sender) {
+					$reply = _sendsms($in_sender, $msg);
+					$forward = _sendsms('', $msg, $icon_config['forward']);
+				}
+				$c_message = "<div id=\"sandbox_msg\">" . $in_message . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
+				$i--;
+				$content .= "
+					<tr>
+						<td>$in_datetime</td>
+						<td>$current_sender</td>
+						<td>$c_message</td>
+						<td nowrap>
+							<input type=checkbox name=itemid[] value=\"$in_id\">
+						</td>
+					</tr>";
 			}
-			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
-			$msg = $list[$j]['in_message'];
-			$in_message = core_display_text($msg);
-			$reply = '';
-			$forward = '';
-			if ($msg && $in_sender) {
-				$reply = _sendsms($in_sender, $msg);
-				$forward = _sendsms('', $msg, $icon_config['forward']);
-			}
-			$c_message = "<div id=\"sandbox_msg\">" . $in_message . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
-			$i--;
-			$content .= "
-				<tr>
-					<td>$in_datetime</td>
-					<td>$current_sender</td>
-					<td>$c_message</td>
-					<td nowrap>
-						<input type=checkbox name=itemid[] value=\"$in_id\">
-					</td>
-				</tr>";
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
