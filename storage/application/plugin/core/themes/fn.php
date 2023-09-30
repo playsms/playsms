@@ -446,24 +446,30 @@ function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params 
  */
 function themes_dialog($contents = array()) {
 	$ret = '';
-	
+
 	if (!(is_array($contents) && (count($contents) > 0))) {
 		if ($_SESSION['dialog']) {
-			if (is_array($_SESSION['dialog']) && (count($_SESSION['dialog']) > 0)) {
+			if (isset($_SESSION['dialog']) && is_array($_SESSION['dialog']) && count($_SESSION['dialog']) > 0) {
 				$contents = $_SESSION['dialog'];
+			} else {
+
+				return $ret;
 			}
-		} else {
+		} elseif (isset($_SESSION['error_string']) && $_SESSION['error_string']) {
 			if (is_array($_SESSION['error_string'])) {
 				$contents['info'] = $_SESSION['error_string'];
 			} else {
 				$contents['info'][] = $_SESSION['error_string'];
 			}
+		} else {
+
+			return $ret;
 		}
 	}
 
 	foreach ($contents as $type => $data) {
 		$dialog_message = '';
-		$continue = FALSE;
+		$continue = false;
 		
 		foreach ($data as $texts) {
 			if (is_array($texts) && count($texts) > 0) {
@@ -471,26 +477,26 @@ function themes_dialog($contents = array()) {
 					$dialog_message .= trim($text) ? core_display_html(trim($text)) . '<br />' : '';
 				}
 				$continue = TRUE;
-			} elseif (trim($text)) {
-				$dialog_message = core_display_html(trim($text));
+			} elseif (trim($texts)) {
+				$dialog_message = core_display_html(trim($texts));
 				$continue = TRUE;
 			}
 		}
 		
 		if ($continue) {
-			switch (strtoupper(trim($type))) {
-				case 'INFO':
-				case 'SUCCESS':
-				case 'WARNING':
-				case 'DANGER':
+			switch (strtolower(trim($type))) {
+				case 'info':
+				case 'success':
+				case 'warning':
+				case 'danger':
 					$dialog_type = trim($type);
 					break;
-				case 'CONFIRMATION':
-					$dialog_type = 'PRIMARY';
+				case 'confirmation':
+					$dialog_type = 'primary';
+					break;
 				default :
-					$dialog_type = 'INFO';
+					$dialog_type = 'info';
 			}
-			$dialog_type = strtolower($dialog_type);
 			
 			if (core_themes_get()) {
 				$ret = core_hook(core_themes_get(), 'themes_dialog', array(
