@@ -94,95 +94,93 @@ switch (_OP_) {
 			</thead>
 			<tbody>";
 		
-		$i = $nav['top'];
-		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
-			$list[$j] = core_display_data($list[$j]);
-			$p_username = $list[$j]['username'];
-			$p_gateway = $list[$j]['p_gateway'];
-			$p_smsc = $list[$j]['p_smsc'];
-			$smslog_id = $list[$j]['smslog_id'];
-			$p_uid = $list[$j]['uid'];
-			$p_dst = $list[$j]['p_dst'];
-			$current_p_dst = report_resolve_sender($p_uid, $p_dst);
-			$p_sms_type = $list[$j]['p_sms_type'];
-			if (($p_footer = $list[$j]['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
-				$p_msg = $p_msg . ' ' . $p_footer;
-			}
-			$p_datetime = core_display_datetime($list[$j]['p_datetime']);
-			$p_update = $list[$j]['p_update'];
-			$p_status = $list[$j]['p_status'];
-			$c_queue_code = $list[$j]['queue_code'];
-			$c_queue_count = (int) $list[$j]['queue_count'];
-			
-			$queue_view_link = "";
-			if ($c_queue_count > 1) {
-				$queue_view_link = "<a href='" . $base_url . "&queue_code=" . $c_queue_code . "'>" . sprintf(_('view all %d'), $c_queue_count) . "</a>";
-			}
-			
-			// 0 = pending
-			// 1 = sent
-			// 2 = failed
-			// 3 = delivered
-			if ($p_status == "1") {
-				$p_status = "<span class=status_sent title='" . _('Sent') . "'></span>";
-			} else if ($p_status == "2") {
-				$p_status = "<span class=status_failed title='" . _('Failed') . "'></span>";
-			} else if ($p_status == "3") {
-				$p_status = "<span class=status_delivered title='" . _('Delivered') . "'></span>";
-			} else {
-				$p_status = "<span class=status_pending title='" . _('Pending') . "'></span>";
-			}
-			$p_status = "<span class='msg_status'>" . $p_status . "</span>";
+		if (isset($list) && is_array($list) && count($list) > 0) {
+			foreach ( $list as $item ) {
+				$item = core_display_data($item);
+				$p_username = $item['username'];
+				$p_gateway = $item['p_gateway'];
+				$p_smsc = $item['p_smsc'];
+				$smslog_id = $item['smslog_id'];
+				$p_uid = $item['uid'];
+				$p_dst = $item['p_dst'];
+				$current_p_dst = report_resolve_sender($p_uid, $p_dst);
+				$p_sms_type = $item['p_sms_type'];
+				if (($p_footer = $item['p_footer']) && (($p_sms_type == "text") || ($p_sms_type == "flash"))) {
+					$p_msg = $p_msg . ' ' . $p_footer;
+				}
+				$p_datetime = core_display_datetime($item['p_datetime']);
+				$p_update = $item['p_update'];
+				$p_status = $item['p_status'];
+				$c_queue_code = $item['queue_code'];
+				$c_queue_count = (int) $item['queue_count'];
 
-			// get billing info
-			$billing = billing_getdata($smslog_id);
-			$p_count = ($billing['count'] ? $billing['count'] : '0');
-			$p_count = "<span class='msg_price'>" . $p_count . " sms</span>";
+				$queue_view_link = "";
+				if ($c_queue_count > 1) {
+					$queue_view_link = "<a href='" . $base_url . "&queue_code=" . $c_queue_code . "'>" . sprintf(_('view all %d'), $c_queue_count) . "</a>";
+				}
 
-			$p_rate = core_display_credit($billing['rate'] ? $billing['rate'] : '0.0');
-			$p_rate = "<span class='msg_rate'><span class='playsms-icon fas fa-table' title='" . _('Rate') . "'></span>" . $p_rate . "</span>";
+				// 0 = pending
+				// 1 = sent
+				// 2 = failed
+				// 3 = delivered
+				if ($p_status == "1") {
+					$p_status = "<span class=status_sent title='" . _('Sent') . "'></span>";
+				} else if ($p_status == "2") {
+					$p_status = "<span class=status_failed title='" . _('Failed') . "'></span>";
+				} else if ($p_status == "3") {
+					$p_status = "<span class=status_delivered title='" . _('Delivered') . "'></span>";
+				} else {
+					$p_status = "<span class=status_pending title='" . _('Pending') . "'></span>";
+				}
+				$p_status = "<span class='msg_status'>" . $p_status . "</span>";
 
-			$p_charge = core_display_credit($billing['charge'] ? $billing['charge'] : '0.0');
-			$p_charge = "<span class='msg_charge'><span class='playsms-icon fas fa-file-invoice-dollar' title='" . _('Charge') . "'></span>" . $p_charge . "</span>";
+				// get billing info
+				$billing = billing_getdata($smslog_id);
+				$p_count = ($billing['count'] ? $billing['count'] : '0');
+				$p_count = "<span class='msg_price'>" . $p_count . " sms</span>";
 
-			// if send SMS failed then display charge as 0
-			if ($list[$j]['p_status'] == 2) {
-				$p_charge = '0.00';
-			}
+				$p_rate = core_display_credit($billing['rate'] ? $billing['rate'] : '0.0');
+				$p_rate = "<span class='msg_rate'><span class='playsms-icon fas fa-table' title='" . _('Rate') . "'></span>" . $p_rate . "</span>";
 
-			$msg = $list[$j]['p_msg'];
-			$p_msg = core_display_text($msg);
-			if ($msg && $p_dst) {
-				$resend = _sendsms($p_dst, $msg, $icon_config['resend']);
-				$forward = _sendsms('', $msg, $icon_config['forward']);
-			}
-			$c_message = "
-				<div class=\"row\">
-					<div class=\"col-sm\">
-						<div id=\"user_outgoing_msg\">
-							<div class='msg_text'>" . $p_msg . "</div>
-						</div>
-					</div>
-					<div class=\"col-sm\">
-						<div class=\"row pull-right\">
-							<div class=\"col d-none d-md-block\">
-								<div class=\"msg_option\">" . $resend . " " . $forward . "</div>
-								<div class=\"msg_info\">" . $p_status . " " . $p_count . " " . $p_rate . " " . $p_charge . "</div>
+				$p_charge = core_display_credit($billing['charge'] ? $billing['charge'] : '0.0');
+				$p_charge = "<span class='msg_charge'><span class='playsms-icon fas fa-file-invoice-dollar' title='" . _('Charge') . "'></span>" . $p_charge . "</span>";
+
+				// if send SMS failed then display charge as 0
+				if ($item['p_status'] == 2) {
+					$p_charge = '0.00';
+				}
+
+				$p_msg = $item['p_msg'];
+				if ($p_msg && $p_dst) {
+					$resend = _sendsms($p_dst, $p_msg, $icon_config['resend']);
+					$forward = _sendsms('', $p_msg, $icon_config['forward']);
+				}
+				$c_message = "
+					<div class=\"row\">
+						<div class=\"col-sm\">
+							<div id=\"user_outgoing_msg\">
+								<div class='msg_text'>" . $p_msg . "</div>
 							</div>
 						</div>
-					</div>
-				</div>
-			";
-			$content .= "
-				<tr>
-					<td>$p_datetime</td>
-					<td><div>" . $current_p_dst . "</div><div>" . $queue_view_link . "</div></td>
-					<td>$c_message</td>
-					<td nowrap>
-						<input type=checkbox name=itemid[] value=\"$smslog_id\">
-					</td>
-				</tr>";
+						<div class=\"col-sm\">
+							<div class=\"row pull-right\">
+								<div class=\"col d-none d-md-block\">
+									<div class=\"msg_option\">" . $resend . " " . $forward . "</div>
+									<div class=\"msg_info\">" . $p_status . " " . $p_count . " " . $p_rate . " " . $p_charge . "</div>
+								</div>
+							</div>
+						</div>
+					</div>";
+				$content .= "
+					<tr>
+						<td>$p_datetime</td>
+						<td><div>" . $current_p_dst . "</div><div>" . $queue_view_link . "</div></td>
+						<td>$c_message</td>
+						<td nowrap>
+							<input type=checkbox name=itemid[] value=\"$smslog_id\">
+						</td>
+					</tr>";
+			}
 		}
 		
 		$content .= "

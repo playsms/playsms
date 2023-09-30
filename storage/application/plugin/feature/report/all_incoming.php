@@ -75,46 +75,44 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
-		$i = $nav['top'];
-		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
-			$list[$j] = core_display_data($list[$j]);
-			$in_username = $list[$j]['username'];
-			$in_id = $list[$j]['in_id'];
-			$in_uid = $list[$j]['in_uid'];
-			$in_sender = $list[$j]['in_sender'];
-			$current_sender = report_resolve_sender($in_uid, $in_sender);
-			$in_keyword = ( $list[$j]['in_keyword'] ? $list[$j]['in_keyword'] : '-' );
-			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
-			$in_feature = ( $list[$j]['in_feature'] ? $list[$j]['in_feature'] : '-' );
-			// $in_status = ($list[$j]['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />');
-			// $in_status = strtolower($in_status);
-			$msg = $list[$j]['in_message'];
-			$in_message = core_display_text($msg);
-			$reply = '';
-			$forward = '';
-			if ($msg && $in_sender) {
-				$reply = _sendsms($in_sender, $msg);
-				$forward = _sendsms('', $msg, $icon_config['forward']);
+
+		if (isset($list) && is_array($list) && count($list) > 0) {
+			foreach ( $list as $item ) {
+				$item = core_display_data($item);
+				$in_username = $item['username'];
+				$in_id = $item['in_id'];
+				$in_uid = $item['in_uid'];
+				$in_sender = $item['in_sender'];
+				$current_sender = report_resolve_sender($in_uid, $in_sender);
+				$in_keyword = ($item['in_keyword'] ? $item['in_keyword'] : '-');
+				$in_datetime = core_display_datetime($item['in_datetime']);
+				$in_feature = ($item['in_feature'] ? $item['in_feature'] : '-');
+				// $in_status = ($item['in_status'] == 1 ? '<span class=status_handled />' : '<span class=status_unhandled />');
+				// $in_status = strtolower($in_status);
+				$in_message = $item['in_message'];
+				$reply = '';
+				$forward = '';
+				if ($in_message && $in_sender) {
+					$reply = _sendsms($in_sender, $in_keyword . ' ' . $in_message);
+					$forward = _sendsms('', $in_keyword . ' ' . $in_message, $icon_config['forward']);
+				}
+				$c_message = "
+					<div id=\"all_incoming_msg\">" . $in_message . "</div>
+					<div id=\"msg_option\">" . $reply . " " . $forward . "</div>";
+				$content .= "
+					<tr>
+						<td>$in_username</td>
+						<td>$in_datetime</td>
+						<td>$current_sender</td>
+						<td>" . $icon_config['keyword'] . " " . $in_keyword . "<br />" . $icon_config['feature'] . " " . $in_feature . "</td>
+						<td>$c_message</td>
+						<td nowrap>
+							<input type=checkbox name=itemid[] value=\"$in_id\">
+						</td>
+					</tr>";
 			}
-			$c_message = "
-				<div id=\"all_incoming_msg\">" . $in_message . "</div>
-				<div id=\"msg_option\">" . $reply . " " . $forward . "</div>";
-			$i--;
-			$content .= "
-				<tr>
-					<td>$in_username</td>
-					<td>$in_datetime</td>
-					<td>$current_sender</td>
-					<td>" . $icon_config['keyword'] . " " . $in_keyword . "<br />" . $icon_config['feature'] . " " . $in_feature . "</td>
-					<td>$c_message</td>
-					<td nowrap>
-						<input type=checkbox name=itemid[] value=\"$in_id\">
-					</td>
-				</tr>";
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>

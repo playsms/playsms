@@ -72,7 +72,6 @@ switch (_OP_) {
 			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id, in_uid, in_datetime, in_sender, in_msg, COUNT(*) AS message_count', $conditions, $keywords, $extras);
 		}
 		
-		unset($tpl);
 		$tpl = array(
 			'vars' => array(
 				'SEARCH_FORM' => $search['form'],
@@ -89,39 +88,36 @@ switch (_OP_) {
 				'in_sender' => urlencode($in_sender) 
 			) 
 		);
-		$i = $nav['top'];
-		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
-			$list[$j] = core_display_data($list[$j]);
-			$in_id = $list[$j]['in_id'];
-			$in_sender = $list[$j]['in_sender'];
-			$current_sender = report_resolve_sender($user_config['uid'], $in_sender);
-			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
-			$msg = $list[$j]['in_msg'];
-			$in_msg = core_display_text($msg);
-			$reply = '';
-			$forward = '';
-			if ($msg && $in_sender) {
-				$reply = _sendsms($in_sender, $msg);
-				$forward = _sendsms('', $msg, $icon_config['forward']);
+		if (isset($list) && is_array($list) && count($list) > 0) {
+			foreach ( $list as $item ) {
+				$item = core_display_data($item);
+				$in_id = $item['in_id'];
+				$in_sender = $item['in_sender'];
+				$current_sender = report_resolve_sender($user_config['uid'], $in_sender);
+				$in_datetime = core_display_datetime($item['in_datetime']);
+				$in_msg = $item['in_msg'];
+				$reply = '';
+				$forward = '';
+				if ($in_msg && $in_sender) {
+					$reply = _sendsms($in_sender, $in_msg);
+					$forward = _sendsms('', $in_msg, $icon_config['forward']);
+				}
+				$message_count = $item['message_count'];
+				$view_all_link = "";
+				if ($message_count > 1) {
+					$view_all_link = "<a href='" . $base_url . "&in_sender=" . urlencode($in_sender) . "'>" . sprintf(_('view all %d'), $message_count) . "</a>";
+				}
+				$tpl['loops']['data'][] = array(
+					'tr_class' => $tr_class,
+					'current_sender' => $current_sender,
+					'view_all_link' => $view_all_link,
+					'in_msg' => $in_msg,
+					'in_datetime' => $in_datetime,
+					'reply' => $reply,
+					'forward' => $forward,
+					'in_id' => $in_id,
+				);
 			}
-			$message_count = $list[$j]['message_count'];
-			$view_all_link = "";
-			if ($message_count > 1) {
-				$view_all_link = "<a href='" . $base_url . "&in_sender=" . urlencode($in_sender) . "'>" . sprintf(_('view all %d'), $message_count) . "</a>";
-			}
-			$i--;
-			$tpl['loops']['data'][] = array(
-				'tr_class' => $tr_class,
-				'current_sender' => $current_sender,
-				'view_all_link' => $view_all_link,
-				'in_msg' => $in_msg,
-				'in_datetime' => $in_datetime,
-				'reply' => $reply,
-				'forward' => $forward,
-				'in_id' => $in_id,
-				'j' => $j 
-			);
 		}
 		$tpl['vars']['DIALOG_DISPLAY'] = _dialog();
 		$tpl['name'] = 'user_inbox';

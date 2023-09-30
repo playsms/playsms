@@ -70,39 +70,39 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
-		$i = $nav['top'];
-		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
-			$list[$j] = core_display_data($list[$j]);
-			$in_username = $list[$j]['username'];
-			$in_id = $list[$j]['in_id'];
-			$in_uid = $list[$j]['in_uid'];
-			$in_sender = $list[$j]['in_sender'];
-			$current_sender = report_resolve_sender($in_uid, $in_sender);
-			$in_datetime = core_display_datetime($list[$j]['in_datetime']);
-			$msg = $list[$j]['in_msg'];
-			$in_msg = core_display_text($msg);
-			$reply = '';
-			$forward = '';
-			if ($msg && $in_sender) {
-				$reply = _sendsms($in_sender, $msg);
-				$forward = _sendsms('', $msg, $icon_config['forward']);
+
+		if (isset($list) && is_array($list) && count($list) > 0) {
+			foreach ( $list as $item ) {
+				$item = core_display_data($item);
+				$in_username = $item['username'];
+				$in_id = $item['in_id'];
+				$in_uid = $item['in_uid'];
+				$in_sender = $item['in_sender'];
+				$current_sender = report_resolve_sender($in_uid, $in_sender);
+				$in_datetime = core_display_datetime($item['in_datetime']);
+				$in_msg = $item['in_msg'];
+				$reply = '';
+				$forward = '';
+				if ($in_msg && $in_sender) {
+					$reply = _sendsms($in_sender, $in_msg);
+					$forward = _sendsms('', $in_msg, $icon_config['forward']);
+				}
+				$c_message = "
+					<div id=\"all_inbox_msg\">" . $in_msg . "</div>
+					<div id=\"msg_option\">" . $reply . $forward . "</div>";
+				$content .= "
+					<tr>
+						<td>$in_username</td>
+						<td>$in_datetime</td>
+						<td>$current_sender</td>
+						<td>$c_message</td>
+						<td nowrap>
+							<input type=checkbox name=itemid[] value=\"$in_id\">
+						</td>
+					</tr>";
 			}
-			$c_message = "<div id=\"all_inbox_msg\">" . $in_msg . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
-			$i--;
-			$content .= "
-				<tr>
-					<td>$in_username</td>
-					<td>$in_datetime</td>
-					<td>$current_sender</td>
-					<td>$c_message</td>
-					<td nowrap>
-						<input type=checkbox name=itemid[] value=\"$in_id\">
-					</td>
-				</tr>";
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
