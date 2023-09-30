@@ -69,30 +69,25 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
-		$i = $nav['top'];
+
 		if (isset($list) && is_array($list) && count($list) > 0) {
 			foreach ( $list as $item ) {
 				$item = core_display_data($item);
 				$in_id = $item['in_id'];
 				$in_uid = $item['in_uid'];
 				$in_sender = $item['in_sender'];
-				$p_desc = phonebook_number2name($in_uid, $in_sender);
-				$current_sender = $in_sender;
-				if ($p_desc) {
-					$current_sender = "$in_sender<br />$p_desc";
-				}
+				$current_sender = report_resolve_sender($in_uid, $in_sender);
 				$in_datetime = core_display_datetime($item['in_datetime']);
-				$msg = $item['in_message'];
-				$in_message = core_display_text($msg);
+				$in_message = $item['in_message'];
 				$reply = '';
 				$forward = '';
-				if ($msg && $in_sender) {
-					$reply = _sendsms($in_sender, $msg);
-					$forward = _sendsms('', $msg, $icon_config['forward']);
+				if ($in_message && $in_sender) {
+					$reply = _sendsms($in_sender, $in_message);
+					$forward = _sendsms('', $in_message, $icon_config['forward']);
 				}
-				$c_message = "<div id=\"sandbox_msg\">" . $in_message . "</div><div id=\"msg_option\">" . $reply . $forward . "</div>";
-				$i--;
+				$c_message = "
+					<div id=\"sandbox_msg\">" . $in_message . "</div>
+					<div id=\"msg_option\">" . $reply . $forward . "</div>";
 				$content .= "
 					<tr>
 						<td>$in_datetime</td>
