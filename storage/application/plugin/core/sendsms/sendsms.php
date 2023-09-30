@@ -18,38 +18,36 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isvalid()) {
-	auth_block();
-}
+auth_isvalid() or auth_block();
 
 switch (_OP_) {
 	case "sendsms":
-		
+
 		// get $to and $message from session or query string
 		$to = stripslashes($_REQUEST['to']);
 		$message = (stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim(stripslashes($_SESSION['tmp']['sendsms']['message'])));
 		unset($_SESSION['tmp']['sendsms']['message']);
-		
+
 		// set themes_layout for popup
 		if ($_REQUEST['popup'] == 1) {
 			$_SESSION['tmp']['themes']['layout'] = 'contentonly';
 		}
-		
+
 		// clear return_url as we are not in popup
 		if ($_REQUEST['popup'] != 1) {
 			$_SESSION['tmp']['sendsms']['return_url'] = '';
 		}
-		
+
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
 		$user_sender_id = sender_id_getall($user_config['username']);
 		$ismatched = FALSE;
-		foreach ($user_sender_id as $sender_id) {
+		foreach ( $user_sender_id as $sender_id ) {
 			$selected = '';
 			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
 				$ismatched = TRUE;
-				
+
 				break;
 			}
 		}
@@ -58,22 +56,21 @@ switch (_OP_) {
 		} else {
 			$sms_sender_id = "<input type='text' name='sms_sender' value='" . $sms_from . "' readonly>";
 		}
-		
+
 		// SMS footer
 		$sms_footer = $user_config['footer'];
-		
+
 		// Send SMS form ID
 		$sendsms_form_id = 'msg_form_id_' . uniqid();
-		
+
 		// message template
 		$c_template_option[_('Select template')] = '';
-		foreach (sendsms_get_template() as $c_template) {
+		foreach ( sendsms_get_template() as $c_template ) {
 			$c_template_option[$c_template['title']] = $c_template['text'];
 		}
 		$sms_template = _select('smstemplate', $c_template_option);
-		
+
 		// build form
-		unset($tpl);
 		$tpl = array(
 			'name' => 'sendsms',
 			'vars' => array(
@@ -103,7 +100,7 @@ switch (_OP_) {
 				'to' => $to,
 				'sms_sender_id' => $sms_sender_id,
 				'sms_template' => $sms_template,
-				
+
 				// 'sms_schedule' => core_display_datetime(core_get_datetime()),
 				'sms_schedule' => '',
 				'message' => $message,
@@ -114,62 +111,62 @@ switch (_OP_) {
 				'max_sms_length_unicode' => $user_config['opt']['max_sms_length_unicode'],
 				'lang' => substr($user_config['language_module'], 0, 2),
 				'chars' => _('chars'),
-				'SMS' => _('SMS') 
+				'SMS' => _('SMS')
 			),
 			'ifs' => array(
-				'normal' => ( $_REQUEST['popup'] == 1 ? false : true ),
-				'popup' => ( $_REQUEST['popup'] == 1 ? true : false )
+				'normal' => ($_REQUEST['popup'] == 1 ? false : true),
+				'popup' => ($_REQUEST['popup'] == 1 ? true : false)
 			)
 		);
 		_p(tpl_apply($tpl));
 		break;
-	
+
 	case "sendsms_yes":
-		
+
 		// sender ID
 		$sms_sender = trim($_REQUEST['sms_sender']);
-		
+
 		// SMS footer
 		$sms_footer = trim($_REQUEST['sms_footer']);
-		
+
 		// nofooter option
 		$nofooter = true;
 		if ($sms_footer) {
 			$nofooter = false;
 		}
-		
+
 		// schedule option
 		$sms_schedule = trim($_REQUEST['sms_schedule']);
-		
+
 		// type of SMS, text or flash
 		$msg_flash = $_REQUEST['msg_flash'];
 		$sms_type = "text";
 		if ($msg_flash == "on") {
 			$sms_type = "flash";
 		}
-		
+
 		// unicode or not
 		$msg_unicode = $_REQUEST['msg_unicode'];
 		$unicode = "0";
 		if ($msg_unicode == "on") {
 			$unicode = "1";
 		}
-		
+
 		// SMS message
 		$message = $_REQUEST['message'];
-		
+
 		// save it in session for next form
 		$_SESSION['tmp']['sendsms']['message'] = $message;
-		
+
 		// destination numbers
 		if ($sms_to = trim($_REQUEST['p_num_text'])) {
 			$sms_to = explode(',', $sms_to);
 		}
-		
+
 		if ($sms_to[0] && $message) {
-			
+
 			list($ok, $to, $smslog_id, $queue, $counts, $sms_count, $sms_failed, $error_strings) = sendsms_helper($user_config['username'], $sms_to, $message, $sms_type, $unicode, '', $nofooter, $sms_footer, $sms_sender, $sms_schedule, $reference_id);
-			
+
 			if (!$sms_count && $sms_failed) {
 				$_SESSION['dialog']['danger'][] = _('Fail to send message to all destinations') . " (" . _('queued') . ":" . (int) $sms_count . " " . _('failed') . ":" . (int) $sms_failed . ")";
 			} else if ($sms_count && $sms_failed) {
@@ -188,17 +185,16 @@ switch (_OP_) {
 		}
 
 		if ($return_url = $_SESSION['tmp']['sendsms']['return_url']) {
-		
+
 			// clear return_url as we are out of popup
 			$_SESSION['tmp']['sendsms']['return_url'] = '';
-			
+
 			// also clear themes_layout
 			$_SESSION['tmp']['themes']['layout'] = '';
-			
+
 			header("Location: " . $return_url);
 		} else {
 			header("Location: " . _u('index.php?app=main&inc=core_sendsms&op=sendsms'));
 		}
 		exit();
-		break;
 }
