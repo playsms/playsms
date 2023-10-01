@@ -880,7 +880,7 @@ CREATE TABLE `playsms_tblRegistry` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `playsms_tblRegistry` (`c_timestamp`, `id`, `uid`, `registry_group`, `registry_family`, `registry_key`, `registry_value`) VALUES
-(0, 1, 1, 'core', 'config', 'playsms_version', '1.5.0-beta6'),
+(0, 1, 1, 'core', 'config', 'playsms_version', '1.5.0-beta7'),
 (1404003471, 2, 1, 'core', 'main_config', 'web_title', 'playSMS'),
 (1404003471, 3, 1, 'core', 'main_config', 'email_service', 'noreply@example.com'),
 (1404003471, 4, 1, 'core', 'main_config', 'email_footer', 'Powered by playSMS'),
