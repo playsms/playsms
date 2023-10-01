@@ -1,0 +1,193 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add catch-all"
+msgstr "Aggiungi tutto sommato"
+
+msgid "Add group inbox"
+msgstr "Aggiungi SMS in arrivo del gruppo"
+
+msgid "Add member"
+msgstr "Aggiungi membro"
+
+msgid "All users"
+msgstr "Tutti gli utenti"
+
+msgid "Are you sure you want to delete this group inbox ?"
+msgstr "Sei sicuro di voler eliminare gli SMS in arrivo di questo gruppo?"
+
+msgid "Catch-all"
+msgstr "tutto sommato"
+
+msgid "Catch-all has been added"
+msgstr "È stato aggiunto il catch-all"
+
+msgid "Catch-all has been deleted"
+msgstr "Catch-all è stato eliminato"
+
+msgid "Catch-all list"
+msgstr "Elenco generico"
+
+msgid "Current catchall"
+msgstr "Catturatutto attuale"
+
+msgid "Current members"
+msgstr "Membri attuali"
+
+msgid "Delete catch-all"
+msgstr "Elimina catch-all"
+
+msgid "Delete group inbox"
+msgstr "Elimina SMS in arrivo del gruppo"
+
+msgid "Delete member"
+msgstr "Elimina membro"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Edit group inbox"
+msgstr "Modifica SMS in arrivo del gruppo"
+
+msgid "Exclusive"
+msgstr "Esclusivo"
+
+msgid "Fail to add catch-all"
+msgstr "Impossibile aggiungere catch-all"
+
+msgid "Fail to add group inbox"
+msgstr "Impossibile aggiungere SMS in arrivo del gruppo"
+
+msgid "Fail to add member"
+msgstr "Impossibile aggiungere un membro"
+
+msgid "Fail to delete catch-all"
+msgstr "Impossibile eliminare catch-all"
+
+msgid "Fail to delete group inbox"
+msgstr "Impossibile eliminare gli SMS in arrivo del gruppo"
+
+msgid "Fail to delete member"
+msgstr "Impossibile eliminare il membro"
+
+msgid "Fail to disable group inbox"
+msgstr "Impossibile disabilitare SMS in arrivo del gruppo"
+
+msgid "Fail to edit group inbox"
+msgstr "Impossibile modificare SMS  in arrivo del gruppo"
+
+msgid "Fail to enable group inbox"
+msgstr "Impossibile abilitare SMS in arrivo del gruppo"
+
+msgid "For example a short code"
+msgstr "ad esempio un codice breve"
+
+msgid "Group inbox"
+msgstr "SMS in arrivo del gruppo"
+
+msgid "Group inbox has been added"
+msgstr "è stato aggiunto SMS in arrivo del gruppo"
+
+msgid "Group inbox has been deleted"
+msgstr "SMS in arrivo del gruppo è stata eliminata"
+
+msgid "Group inbox has been disabled"
+msgstr "SMS in arrivo di gruppo è stata disabilitata"
+
+msgid "Group inbox has been edited"
+msgstr "SMS in arrivo del gruppo è stata modificata"
+
+msgid "Group inbox has been enabled"
+msgstr "SMS in arrivo di gruppo è stata abilitata"
+
+msgid "Keywords"
+msgstr "Parole chiave"
+
+msgid "Member has been added"
+msgstr "Il membro è stato aggiunto"
+
+msgid "Member has been deleted"
+msgstr "Il membro è stato eliminato"
+
+msgid "Member list"
+msgstr "Elenco membri"
+
+msgid "Members"
+msgstr "Membri"
+
+msgid "Mobile"
+msgstr "Cellulare"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Number"
+msgstr "Numero"
+
+msgid "Press submit button to add selected users to catch-all list"
+msgstr "premere il pulsante di invio per aggiungere gli utenti selezionati all'elenco catch-all"
+
+msgid "Press submit button to add selected users to member list"
+msgstr "Premere il pulsante di invio per aggiungere gli utenti selezionati all'elenco dei membri"
+
+msgid "Press submit button to remove selected catchall from catch-all list"
+msgstr "premere il pulsante di invio per rimuovere il catchall selezionato dall'elenco catch-all"
+
+msgid "Press submit button to remove selected members from member list"
+msgstr "premere il pulsante di invio per rimuovere i membri selezionati dall'elenco dei membri"
+
+msgid "Receiver number"
+msgstr "Numero del destinatario"
+
+msgid "Receiver number does not exist"
+msgstr "Il numero del destinatario non esiste"
+
+msgid "Restrict sender to regular members or catch-all members only"
+msgstr "Limita il mittente ai soli membri normali o catch-all"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Selected catchall"
+msgstr "Collegamento selezionato"
+
+msgid "Selected members"
+msgstr "Membri selezionati"
+
+msgid "Selected users"
+msgstr "Utenti selezionati"
+
+msgid "Separate with comma for multiple items"
+msgstr "Separare con la virgola per più elementi"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Yes"
+msgstr "Sì"
+
+msgid "You must fill all fields"
+msgstr "Devi compilare tutti i campi"
+
+msgid "no"
+msgstr "no"
+
+msgid "yes"
+msgstr "sì"

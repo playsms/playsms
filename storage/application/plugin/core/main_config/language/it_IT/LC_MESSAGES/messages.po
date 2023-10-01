@@ -1,0 +1,217 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid ""
+"Access to unknown domain mapped to this server IP address will be redirected to this website URL. This "
+"website URL should be the primary address for the service."
+msgstr ""
+"L'accesso a un dominio sconosciuto associato a questo indirizzo IP del server verrà reindirizzato "
+"all'URL di questo sito web. Questo URL del sito Web deve essere l'indirizzo principale del servizio."
+
+msgid "Active themes"
+msgstr "Temi attivi"
+
+msgid "Allow users to select SMS footer while on Send SMS page"
+msgstr "Consenti agli utenti di selezionare il piè di pagina SMS mentre si trovano nella pagina Invia SMS"
+
+msgid "Allow users to select sender ID while on Send SMS page"
+msgstr "Consenti agli utenti di selezionare l'ID del mittente nella pagina Invia SMS"
+
+msgid "Always add plus sign"
+msgstr "Aggiungi sempre il segno più"
+
+msgid "Always remove plus sign"
+msgstr "Rimuovi sempre il segno più"
+
+msgid "Application footer here. Go to main configuration or manage site to edit this footer."
+msgstr ""
+"Piè di pagina dell'applicazione qui. Vai alla configurazione principale o gestisci il sito per "
+"modificare questo piè di pagina."
+
+msgid "Buy credit page"
+msgstr "Pagina Acquista credito"
+
+msgid "Default ACL during account registration"
+msgstr "ACL predefinito durante la registrazione dell'account"
+
+msgid "Default ACL upon registration"
+msgstr "ACL predefinito al momento della registrazione"
+
+msgid "Default SMS rate"
+msgstr "Tariffa SMS predefinita"
+
+msgid "Default SMSC"
+msgstr "SMSC predefinito"
+
+msgid "Default account status upon registration"
+msgstr "Stato dell'account predefinito al momento della registrazione"
+
+msgid "Default credit upon registration"
+msgstr "Credito predefinito al momento della registrazione"
+
+msgid "Default language"
+msgstr "Lingua predefinita"
+
+msgid ""
+"Default parent selected upon registration when the default account status on registration setting set "
+"to Subuser"
+msgstr ""
+"Genitore predefinito selezionato al momento della registrazione quando lo stato dell'account "
+"predefinito al momento della registrazione è impostato su Utente secondario"
+
+msgid "Default parent upon registration"
+msgstr "Genitore predefinito al momento della registrazione"
+
+msgid "Default prefix or country code"
+msgstr "prefisso predefinito o codice paese"
+
+msgid "Default prefix or country code to replace prefix 0 on destination number"
+msgstr "Prefisso predefinito o codice paese per sostituire il prefisso 0 sul numero di destinazione"
+
+msgid "Default sender ID"
+msgstr "ID mittente predefinito"
+
+msgid "Default settings"
+msgstr "Impostazioni predefinite"
+
+msgid "Default site configuration"
+msgstr "Configurazione sito predefinita"
+
+msgid "Default timezone"
+msgstr "fuso orario predefinito"
+
+msgid "Define a single character as keyword separator replacing default keyword separator a space"
+msgstr ""
+"Definire un singolo carattere come separatore di parole chiave sostituendo il separatore di parole "
+"chiave predefinito con uno spazio"
+
+msgid "Disable login as subuser"
+msgstr "Disattiva accesso come subutente"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Es.: 0700 per il fuso orario di Jakarta/Bangkok"
+
+msgid "Empty default sender ID to allow users setting their own sender ID"
+msgstr "ID mittente predefinito vuoto per consentire agli utenti di impostare il proprio ID mittente"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Abilita credito unicode SMS come SMS normali"
+
+msgid "Enable forgot password"
+msgstr "Abilita password dimenticata"
+
+msgid "Enable login brute force detection"
+msgstr "Abilita il rilevamento della forza bruta di accesso"
+
+msgid "Enable logo"
+msgstr "Abilita logo"
+
+msgid "Enable public registration"
+msgstr "Abilita la registrazione pubblica"
+
+msgid "Enhance privacy for subusers"
+msgstr "Migliora la privacy per i sottoutenti"
+
+msgid "Fill with zero to disable limit"
+msgstr "Riempire con zero per disabilitare il limite"
+
+msgid "Forwarded email footer"
+msgstr "piè di pagina email inoltrata"
+
+msgid "Go to main configuration or manage site to edit this page"
+msgstr "Vai alla configurazione principale o gestisci il sito per modificare questa pagina"
+
+msgid "Information"
+msgstr "Informazioni"
+
+msgid "Information page"
+msgstr "Pagina informativa"
+
+msgid "Keyword separator"
+msgstr "Separatore parola chiave"
+
+msgid "Layout footer"
+msgstr "piè di pagina layout"
+
+msgid "Logo URL"
+msgstr "URL logo"
+
+msgid "Logo by default will be displayed at login, register and forgot password page"
+msgstr ""
+"Il logo per impostazione predefinita verrà visualizzato nella pagina di accesso, registrazione e "
+"password dimenticata"
+
+msgid "Lowest credit limit to trigger notification"
+msgstr "Limite di credito minimo per attivare la notifica"
+
+msgid "Main configuration"
+msgstr "Configurazione principale"
+
+msgid "Main configuration changes has been saved"
+msgstr "Le modifiche alla configurazione principale sono state salvate"
+
+msgid "Main website URL"
+msgstr "URL del sito web principale"
+
+msgid "Main website name"
+msgstr "Nome del sito web principale"
+
+msgid "Maximum SMS count"
+msgstr "Numero massimo di SMS"
+
+msgid "Maximum username length"
+msgstr "Lunghezza massima del nome utente"
+
+msgid "Maximum username length must be a number between 4 to 100"
+msgstr "La lunghezza massima del nome utente deve essere un numero compreso tra 4 e 100"
+
+msgid "Number of sent SMS per hour limit"
+msgstr "Limite numero di SMS inviati per ora"
+
+msgid "Page content"
+msgstr "contenuto della pagina"
+
+msgid "Page title"
+msgstr "Titolo pagina"
+
+msgid "Replace website title with logo"
+msgstr "Sostituisci il titolo del sito web con il logo"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Set credit value bigger than 0 to set credit lowest limit that will trigger notification"
+msgstr ""
+"Imposta un valore di credito maggiore di 0 per impostare il limite minimo di credito che attiverà la "
+"notifica"
+
+msgid "Subuser"
+msgstr "Subutente"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "Website URL"
+msgstr "URL del sito web"
+
+msgid "Website email"
+msgstr "E-mail del sito web"
+
+msgid "Website title"
+msgstr "Titolo del sito web"
+
+msgid "no"
+msgstr "no"
+
+msgid "yes"
+msgstr "sì"

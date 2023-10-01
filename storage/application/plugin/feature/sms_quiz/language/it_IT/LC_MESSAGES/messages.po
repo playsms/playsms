@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add SMS quiz"
+msgstr "Aggiungi quiz SMS"
+
+msgid "Answer"
+msgstr "Risposta"
+
+msgid "Are you sure you want to delete SMS quiz with all its choices and answers ?"
+msgstr "Sei sicuro di voler eliminare il quiz SMS con tutte le sue scelte e risposte?"
+
+msgid "Are you sure you want to delete this answer ?"
+msgstr "Sei sicuro di voler eliminare questa risposta?"
+
+msgid "Datetime"
+msgstr "Dataora"
+
+msgid "Edit SMS quiz"
+msgstr "Modifica quiz SMS"
+
+msgid "Fail to add SMS quiz"
+msgstr "Impossibile aggiungere quiz SMS"
+
+msgid "Fail to edit SMS quiz"
+msgstr "Impossibile modificare il quiz SMS"
+
+msgid "Keyword"
+msgstr "Parola chiave"
+
+msgid "Manage quiz"
+msgstr "Gestisci quiz"
+
+msgid "Question"
+msgstr "Domanda"
+
+msgid "Received answer list for keyword"
+msgstr "Ricevuto elenco di risposte per la parola chiave"
+
+msgid "Reply message on correct"
+msgstr "Messaggio di risposta corretto"
+
+msgid "Reply message on incorrect"
+msgstr "Messaggio di risposta non corretto"
+
+msgid "SMS quiz already exists, reserved or use by other feature"
+msgstr "Il quiz SMS esiste già, riservato o utilizzato da un'altra funzione"
+
+msgid "SMS quiz answer"
+msgstr "Risposta SMS quiz"
+
+msgid "SMS quiz answer messages have been deleted"
+msgstr "I messaggi di risposta ai quiz SMS sono stati eliminati"
+
+msgid "SMS quiz has been added"
+msgstr "È stato aggiunto il quiz SMS"
+
+msgid "SMS quiz has been saved"
+msgstr "Il quiz SMS è stato salvato"
+
+msgid "SMS quiz keyword"
+msgstr "parola chiave quiz SMS"
+
+msgid "SMS quiz question"
+msgstr "Domanda quiz via SMS"
+
+msgid "SMS quiz status has been changed"
+msgstr "Lo stato del quiz SMS è stato modificato"
+
+msgid "SMS quiz with all its messages has been deleted"
+msgstr "Il quiz SMS con tutti i suoi messaggi è stato cancellato"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Sender"
+msgstr "Mittente"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "You must fill all field"
+msgstr "Devi compilare tutti i campi"
+
+msgid "correct"
+msgstr "corretto"
+
+msgid "incorrect"
+msgstr "errato"
+
+msgid "keyword"
+msgstr "parola chiave"

@@ -1,0 +1,82 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add SMSC"
+msgstr "Aggiungi SMSC"
+
+msgid "Are you sure ?"
+msgstr "sei sicuro?"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Edit SMSC"
+msgstr "Modifica SMSC"
+
+msgid "Fail to add new SMSC"
+msgstr "Impossibile aggiungere un nuovo SMSC"
+
+msgid "Fail to edit SMSC"
+msgstr "Impossibile modificare SMSC"
+
+msgid "Fail to remove SMSC"
+msgstr "Impossibile rimuovere SMSC"
+
+msgid "Gateway"
+msgstr "Porta"
+
+msgid "Gateways"
+msgstr "Gateway"
+
+msgid "List of gateways and SMSCs"
+msgstr "Elenco di gateway e SMSC"
+
+msgid "Manage SMSC"
+msgstr "Gestisci SMSC"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "New SMSC has been added"
+msgstr "È stato aggiunto un nuovo SMSC"
+
+msgid "Routed SMSC"
+msgstr "SMSC instradato"
+
+msgid "SMSC already exists"
+msgstr "SMSC esiste già"
+
+msgid "SMSC has been edited"
+msgstr "SMSC è stato modificato"
+
+msgid "SMSC has been removed"
+msgstr "SMSC è stato rimosso"
+
+msgid "SMSC name"
+msgstr "Nome SMSC"
+
+msgid "SMSCs"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Supplied SMSC"
+msgstr "SMSC fornito"
+
+msgid "Unknown error"
+msgstr "Errore sconosciuto"

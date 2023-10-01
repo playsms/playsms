@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add card"
+msgstr "Aggiungi carta"
+
+msgid "Add rate"
+msgstr "Aggiungi tasso"
+
+msgid "Add user"
+msgstr "Aggiungi utente"
+
+#, php-format
+msgid "Are you sure you want to delete card %s ?"
+msgstr "Sei sicuro di voler eliminare la carta %s ?"
+
+#, php-format
+msgid "Are you sure you want to delete rate %s ?"
+msgstr "Sei sicuro di voler eliminare la tariffa %s ?"
+
+#, php-format
+msgid "Are you sure you want to remove user %s ?"
+msgstr "Sei sicuro di voler rimuovere l'utente %s ?"
+
+#, php-format
+msgid "Card %s has been added"
+msgstr "La scheda %s è stata aggiunta"
+
+#, php-format
+msgid "Card %s has been updated"
+msgstr "La scheda %s è stata aggiornata"
+
+#, php-format
+msgid "Card id:%d has been deleted"
+msgstr "ID carta:%d è stato cancellato"
+
+#, php-format
+msgid "Card id:%d not found"
+msgstr "ID carta:%d non trovato"
+
+#, php-format
+msgid "Card not found"
+msgstr "Carta non trovata"
+
+msgid "Destination"
+msgstr "Destinazione"
+
+msgid "Edit card"
+msgstr "Modifica carta"
+
+msgid "Edit rate"
+msgstr "Modifica tasso"
+
+#, php-format
+msgid "Fail to add card %s"
+msgstr "Impossibile aggiungere la carta %s"
+
+#, php-format
+msgid "Fail to add rate %s"
+msgstr "Impossibile aggiungere tasso %s"
+
+#, php-format
+msgid "Fail to add rate %s to card id:%d"
+msgstr "Impossibile aggiungere tasso %s a card id:%d"
+
+#, php-format
+msgid "Fail to add user %s to card %s"
+msgstr "Impossibile aggiungere l'utente %s alla scheda %s"
+
+#, php-format
+msgid "Fail to delete card id:%d"
+msgstr "Impossibile eliminare l'id della carta:%d"
+
+#, php-format
+msgid "Fail to delete rate id:%d"
+msgstr "Impossibile eliminare rate id:%d"
+
+#, php-format
+msgid "Fail to remove user id:%d"
+msgstr "Impossibile rimuovere l'ID utente:%d"
+
+#, php-format
+msgid "Fail to update card %s"
+msgstr "Impossibile aggiornare la scheda %s"
+
+msgid "ID"
+msgstr ""
+
+msgid "Last update"
+msgstr "Ultimo aggiornamento"
+
+msgid "Manage SMS rate"
+msgstr "Gestisci tariffa SMS"
+
+msgid "Manage card"
+msgstr "Gestisci carta"
+
+msgid "Manage rate"
+msgstr "Gestisci tasso"
+
+msgid "Manage user"
+msgstr "Gestisci utente"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Prefix"
+msgstr "prefisso"
+
+msgid "Rate"
+msgstr "Valuta"
+
+#, php-format
+msgid "Rate %s has been added"
+msgstr "Il tasso %s è stato aggiunto"
+
+#, php-format
+msgid "Rate %s has been updated"
+msgstr "Il tasso %s è stato aggiornato"
+
+#, php-format
+msgid "Rate %s is not updated"
+msgstr "Il tasso %s non è aggiornato"
+
+#, php-format
+msgid "Rate id:%d has been deleted"
+msgstr "Rate id:%d è stato cancellato"
+
+#, php-format
+msgid "Rate id:%d not found"
+msgstr "Rate id:%d non trovato"
+
+msgid "Rate not found"
+msgstr "Tariffa non trovata"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "User"
+msgstr "Utente"
+
+#, php-format
+msgid "User %s has been added"
+msgstr "L'utente %s è stato aggiunto"
+
+#, php-format
+msgid "User %s has been removed"
+msgstr "L'utente %s è stato rimosso"
+
+#, php-format
+msgid "User not found"
+msgstr "Utente non trovato"
+
+msgid "You must fill all fields"
+msgstr "Devi compilare tutti i campi"
+
+msgid "You must select user"
+msgstr "Devi selezionare l'utente"
+
+msgid "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+msgstr "index.php?app=main&inc=feature_simplerate&route=card&op=card_add"
+
+msgid "index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+msgstr "index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id="
+
+msgid "index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="
+msgstr "index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id="

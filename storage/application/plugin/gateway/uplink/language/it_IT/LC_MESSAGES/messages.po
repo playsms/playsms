@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Additional URL parameter"
+msgstr "parametro URL aggiuntivo"
+
+msgid "All mandatory fields must be filled"
+msgstr "Tutti i campi obbligatori devono essere compilati"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "caratteri numerici o 11 alfanumerici. "
+
+msgid "Gateway module configurations has been saved"
+msgstr "Le configurazioni del modulo gateway sono state salvate"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Manage uplink"
+msgstr "Gestisci uplink"
+
+msgid "Master URL"
+msgstr "URL principale"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Massimo. "
+
+msgid "Module sender ID"
+msgstr "ID mittente modulo"
+
+msgid "Module timezone"
+msgstr "Fuso orario del modulo"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Try to disable SMS footer on master"
+msgstr "Prova a disabilitare il footer SMS sul master"
+
+msgid "Unable to save gateway module configurations"
+msgstr "Impossibile salvare le configurazioni del modulo gateway"
+
+msgid "Webservice token"
+msgstr "Token servizio web"
+
+msgid "Webservice username"
+msgstr "nome utente del servizio web"
+
+msgid "no"
+msgstr "no"
+
+msgid "yes"
+msgstr "sì"

@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Add message template"
+msgstr "Aggiungi modello di messaggio"
+
+msgid "Are you sure you want to delete ?"
+msgstr "Sei sicuro di voler eliminare ?"
+
+msgid "Content"
+msgstr "Contenuto"
+
+msgid "Edit message template"
+msgstr "Modifica modello di messaggio"
+
+msgid "Fail to add message template"
+msgstr "Impossibile aggiungere il modello di messaggio"
+
+msgid "Fail to edit message template"
+msgstr "Impossibile modificare il modello di messaggio"
+
+msgid "Message template"
+msgstr "Modello di messaggio"
+
+msgid "Message template content"
+msgstr "Contenuto del modello di messaggio"
+
+msgid "Message template has been edited"
+msgstr "Il modello di messaggio è stato modificato"
+
+msgid "Message template has been saved"
+msgstr "Il modello di messaggio è stato salvato"
+
+msgid "Message template name"
+msgstr "Nome del modello di messaggio"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Selected message template has been deleted"
+msgstr "il modello di messaggio selezionato è stato eliminato"
+
+msgid "You must fill all fields"
+msgstr "Devi compilare tutti i campi"
+
+msgid "will be replaced with the name listed in phonebook"
+msgstr "verrà sostituito con il nominativo presente in rubrica"
+
+msgid "will be replaced with the phone number listed in phonebook"
+msgstr "verrà sostituito con il numero di telefono presente in rubrica"

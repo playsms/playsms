@@ -1,0 +1,121 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Additional URL parameter"
+msgstr "parametro URL aggiuntivo"
+
+msgid "Bearerbox hostname or IP"
+msgstr "Nome host o IP di Bearerbox"
+
+msgid "Changes have been made"
+msgstr "sono state apportate modifiche"
+
+msgid "Configuration"
+msgstr "Configurazione"
+
+msgid "DLR mask"
+msgstr "maschera DLR"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "caratteri numerici o 11 alfanumerici. "
+
+msgid "Fill to change the password"
+msgstr "Compila per cambiare la password"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "HTTP Kannel admin host"
+msgstr "Host amministratore del canale HTTP"
+
+msgid "HTTP Kannel admin password"
+msgstr "Password amministratore canale HTTP"
+
+msgid "HTTP Kannel admin port"
+msgstr "porta di amministrazione del canale HTTP"
+
+msgid "Incoming SMS time is in local time"
+msgstr "L'ora dell'SMS in arrivo è l'ora locale"
+
+msgid "Kannel admin host"
+msgstr "Host amministratore Kannel"
+
+msgid "Kannel admin password"
+msgstr "Password amministratore canale"
+
+msgid "Kannel admin port"
+msgstr "porta di amministrazione Kannel"
+
+msgid "Kannel dlr-mask option"
+msgstr "Opzione Kannel dlr-mask"
+
+msgid "Kannel specific"
+msgstr "Specifico del canale"
+
+msgid "Kannel status"
+msgstr "Stato canale"
+
+msgid "Manage kannel"
+msgstr "Gestisci canale"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Massimo. "
+
+msgid "Module sender ID"
+msgstr "ID mittente modulo"
+
+msgid "Module timezone"
+msgstr "Fuso orario del modulo"
+
+msgid "No"
+msgstr "No"
+
+msgid "Operational"
+msgstr "Operativo"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Restart Kannel"
+msgstr "Riavvia Kannel"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Select no if the incoming SMS time is in UTC"
+msgstr "Selezionare no se l'ora dell'SMS in arrivo è in UTC"
+
+msgid "Send SMS hostname or IP"
+msgstr "Invia SMS nome host o IP"
+
+msgid "Send SMS port"
+msgstr "Porta di invio SMS"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "URL to playSMS, empty it to set it to base URL"
+msgstr "URL to playSMS, svuotalo per impostarlo sull'URL di base"
+
+msgid "Update status"
+msgstr "Aggiorna stato"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Yes"
+msgstr "Sì"
+
+msgid "playSMS web URL"
+msgstr "playURL web SMS"

@@ -1,0 +1,55 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Changes have been made"
+msgstr "sono state apportate modifiche"
+
+msgid "Fill to change the password"
+msgstr "Compila per cambiare la password"
+
+msgid "Gateway host"
+msgstr "Host gateway"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Gateway port"
+msgstr "Porta gateway"
+
+msgid "Manage OpenVox"
+msgstr "Gestisci OpenVox"
+
+msgid "Module sender ID"
+msgstr "ID mittente modulo"
+
+msgid "Module timezone"
+msgstr "Fuso orario del modulo"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Your callback URL is"
+msgstr "Il tuo URL di richiamata è"
+
+msgid "Your callback URL should be accessible from OpenVox"
+msgstr "Il tuo URL di richiamata dovrebbe essere accessibile da OpenVox"

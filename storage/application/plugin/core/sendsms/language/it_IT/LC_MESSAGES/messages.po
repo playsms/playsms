@@ -1,0 +1,119 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+#, php-format
+msgid "Account %s is currently banned to use services"
+msgstr "L'account %s è attualmente vietato per l'utilizzo dei servizi"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Compose message"
+msgstr "Componi messaggio"
+
+msgid "Fail to send message to all destinations"
+msgstr "Impossibile inviare il messaggio a tutte le destinazioni"
+
+msgid "Flash message"
+msgstr "Messaggio flash"
+
+msgid "Format YYYY-MM-DD hh:mm"
+msgstr "Formato AAAA-MM-GG hh:mm"
+
+msgid "Internal error please contact service provider"
+msgstr "Errore interno, contattare il fornitore del servizio"
+
+msgid "Message"
+msgstr "Messaggio"
+
+#, php-format
+msgid "Message %s has been delivered to queue"
+msgstr "Il messaggio %s è stato consegnato alla coda"
+
+msgid "Message footer"
+msgstr "piè di pagina del messaggio"
+
+msgid "Options"
+msgstr "Opzioni"
+
+msgid "Prefix with # for groups and @ for users"
+msgstr "Prefisso con"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "Schedule"
+msgstr "Programma"
+
+msgid "Select receiver"
+msgstr "Seleziona ricevitore"
+
+msgid "Select template"
+msgstr "Seleziona modello"
+
+msgid "Send"
+msgstr "Invia"
+
+#, php-format
+msgid "Send message cancelled due to empty queue %s"
+msgstr "Invio messaggio annullato a causa della coda %s vuota"
+
+msgid "Send message failed due to insufficient funds"
+msgstr "Invio messaggio non riuscito a causa di fondi insufficienti"
+
+msgid "Send message failed due to unable to create queue"
+msgstr "Invio messaggio non riuscito a causa dell'impossibilità di creare la coda"
+
+#, php-format
+msgid "Send message failed due to unable to prepare queue %s"
+msgstr "Invio messaggio non riuscito a causa dell'impossibilità di preparare la coda %s"
+
+#, php-format
+msgid "Send message to %s in queue %s has failed"
+msgstr "L'invio del messaggio a %s nella coda %s non è riuscito"
+
+msgid "Send to"
+msgstr "Invia a"
+
+msgid "Sender ID"
+msgstr "ID mittente"
+
+msgid "System error has occured"
+msgstr "Si è verificato un errore di sistema"
+
+msgid "Templates"
+msgstr "Modelli"
+
+msgid "Unicode message"
+msgstr "SMS Unicode"
+
+msgid "Unicode message detected automatically"
+msgstr "SMS Unicode viene rilevato automaticamente"
+
+msgid "You must select receiver and your message should not be empty"
+msgstr "Devi selezionare il destinatario e il tuo messaggio non dovrebbe essere vuoto"
+
+msgid "Your message has been delivered to queue"
+msgstr "Il tuo messaggio è stato consegnato alla coda"
+
+msgid "Your message has been delivered to some of the destinations"
+msgstr "Il tuo messaggio è stato consegnato ad alcune delle destinazioni"
+
+msgid "chars"
+msgstr "caratteri"
+
+msgid "failed"
+msgstr "fallito"
+
+msgid "queued"
+msgstr "in coda"

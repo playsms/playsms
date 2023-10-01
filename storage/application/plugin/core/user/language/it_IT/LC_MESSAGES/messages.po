@@ -1,0 +1,428 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "ACL"
+msgstr "LCA"
+
+msgid "Access Control List"
+msgstr "Elenco controllo accessi"
+
+msgid "Access Control List membership"
+msgstr "Appartenenza all'elenco di controllo degli accessi"
+
+msgid "Account admin or currently logged in administrator cannot be banned"
+msgstr "L'amministratore dell'account o l'amministratore attualmente connesso non possono essere bannati"
+
+msgid "Account admin or currently logged in administrator cannot be unbanned"
+msgstr "L'amministratore dell'account o l'amministratore attualmente connesso non possono essere riabilitati"
+
+msgid "Account already exists"
+msgstr "L'account esiste già"
+
+msgid "Account has been added and password has been emailed"
+msgstr "L'account è stato aggiunto e la password è stata inviata via email"
+
+msgid "Account has been added but failed to send email"
+msgstr "L'account è stato aggiunto ma non è stato possibile inviare l'e-mail"
+
+msgid "Account has been banned"
+msgstr "L'account è stato bannato"
+
+msgid "Account has been removed"
+msgstr "L'account è stato rimosso"
+
+msgid "Account has been unbanned"
+msgstr "L'account è stato sbloccato"
+
+msgid "Account name is mandatory"
+msgstr "Il nome dell'account è obbligatorio"
+
+msgid "Account registration is not available"
+msgstr "La registrazione dell'account non è disponibile"
+
+msgid "Account status"
+msgstr "Stato dell'account"
+
+msgid "Account with this email already exists"
+msgstr "L'account con questa email esiste già"
+
+msgid "Account with this mobile already exists"
+msgstr "L'account con questo cellulare esiste già"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Active language"
+msgstr "Lingua attiva"
+
+msgid "Add account"
+msgstr "Aggiungi account"
+
+msgid "Add or reduce credit from manage credit menu"
+msgstr "Aggiungi o riduci il credito dal menu di gestione del credito"
+
+msgid "Add subuser"
+msgstr "Aggiungi subutente"
+
+msgid "Address"
+msgstr "Indirizzo"
+
+msgid "Administrator"
+msgstr "Amministratore"
+
+msgid "Administrators"
+msgstr "Amministratori"
+
+msgid "Always choose to send as unicode"
+msgstr "Scegli sempre di inviare come unicode"
+
+msgid "Application options"
+msgstr "Opzioni applicazione"
+
+msgid "Are you sure you want to ban account"
+msgstr "Sei sicuro di voler bloccare l'account"
+
+msgid "Are you sure you want to ban subuser"
+msgstr "Sei sicuro di voler bannare il subutente"
+
+msgid "Are you sure you want to delete subuser"
+msgstr "Sei sicuro di voler eliminare il subutente"
+
+msgid "Are you sure you want to delete subuser ?"
+msgstr "Sei sicuro di voler eliminare il subutente?"
+
+msgid "Are you sure you want to delete user"
+msgstr "Sei sicuro di voler eliminare l'utente"
+
+msgid "Are you sure you want to delete user ?"
+msgstr "Sei sicuro di voler eliminare l'utente?"
+
+msgid "Are you sure you want to unban account"
+msgstr "Sei sicuro di voler sbloccare l'account"
+
+msgid "Are you sure you want to unban subuser"
+msgstr "Sei sicuro di voler sbloccare il subutente"
+
+msgid "Cannot change status when user have subusers"
+msgstr "Impossibile modificare lo stato quando l'utente ha sottoutenti"
+
+msgid "City"
+msgstr "Città"
+
+msgid "Comma separated"
+msgstr "Separati da virgola"
+
+msgid "Country"
+msgstr "Paese"
+
+msgid "Credit"
+msgstr "Credito"
+
+msgid "Currently logged in user is immune to deletion"
+msgstr "L'utente attualmente connesso è immune all'eliminazione"
+
+msgid "Default"
+msgstr "Predefinito"
+
+msgid "Default message footer"
+msgstr "Piè di pagina messaggio predefinito"
+
+msgid "Default sender ID"
+msgstr "ID mittente predefinito"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Effective SMS sender ID"
+msgstr "ID mittente SMS effettivo"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "Es.: 0700 per il fuso orario di Jakarta/Bangkok"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Email address is mandatory"
+msgstr "L'indirizzo email è obbligatorio"
+
+msgid "Enable credit unicode SMS as normal SMS"
+msgstr "Abilita credito unicode SMS come SMS normali"
+
+msgid "Enable webservices"
+msgstr "Abilita servizi web"
+
+msgid "Fail to register an account"
+msgstr "Impossibile registrare un account"
+
+msgid "Fail to save configuration"
+msgstr "Impossibile salvare la configurazione"
+
+msgid "Fail to save preferences"
+msgstr "Impossibile salvare le preferenze"
+
+msgid "Forward message to email"
+msgstr "Inoltra il messaggio all'e-mail"
+
+msgid "Forward message to inbox"
+msgstr "Inoltra il messaggio a SMS in arrivo"
+
+msgid "Forward message to mobile"
+msgstr "Inoltra messaggio al cellulare"
+
+msgid "Full name"
+msgstr "Nome completo"
+
+msgid "Invalid sender ID"
+msgstr "ID mittente non valido"
+
+msgid "List of administrators"
+msgstr "Elenco amministratori"
+
+msgid "List of subusers"
+msgstr "Elenco dei sottoutenti"
+
+msgid "List of users"
+msgstr "Elenco degli utenti"
+
+msgid "Local number length"
+msgstr "Lunghezza del numero locale"
+
+msgid "Login information"
+msgstr "Informazioni di accesso"
+
+msgid "Manage account"
+msgstr "Gestisci account"
+
+msgid "Manage subuser"
+msgstr "Gestisci sottoutente"
+
+msgid "Max. 16 numeric or 11 alphanumeric characters"
+msgstr "Massimo. "
+
+msgid "Max. 30 alphanumeric characters"
+msgstr "Massimo. "
+
+msgid "Min length to detect missing country code"
+msgstr "Lunghezza minima per rilevare il prefisso internazionale mancante"
+
+msgid "Mobile"
+msgstr "Cellulare"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "New account registration"
+msgstr "Registrazione nuovo account"
+
+msgid "No changes made"
+msgstr "Nessuna modifica apportata"
+
+msgid "None"
+msgstr "Nessuno"
+
+msgid "Parent"
+msgstr "Genitore"
+
+msgid "Parent account"
+msgstr "Account genitore"
+
+msgid ""
+"Parent account is mandatory for subusers only. If no value is given then the subuser will be automatically "
+"assigned to user admin"
+msgstr ""
+"L'account genitore è obbligatorio solo per i sottoutenti. Se non viene fornito alcun valore, il subutente "
+"verrà assegnato automaticamente all'utente admin"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Password does not match"
+msgstr "La password non corrisponde"
+
+msgid "Password should be at least 4 characters"
+msgstr "La password deve contenere almeno 4 caratteri"
+
+msgid "Personal information"
+msgstr "Informazioni personali"
+
+msgid "Please remove all subusers from this user to delete"
+msgstr "Rimuovi tutti i sottoutenti da questo utente da eliminare"
+
+msgid "Please select"
+msgstr "Selezionare"
+
+msgid "Preferences"
+msgstr "Preferenze"
+
+msgid "Preferences have been saved"
+msgstr "Le preferenze sono state salvate"
+
+msgid "Preferences have been saved and password updated"
+msgstr "Le preferenze sono state salvate e la password aggiornata"
+
+msgid "Preferences have been saved and webservices token updated"
+msgstr "Le preferenze sono state salvate e il token dei servizi web è stato aggiornato"
+
+msgid "Prefix or country code"
+msgstr "prefisso o codice paese"
+
+msgid "Re-type password"
+msgstr "Digitare nuovamente la password"
+
+msgid "Registered"
+msgstr "Registrato"
+
+msgid "Renew webservices token"
+msgstr "Rinnova token servizi web"
+
+msgid "Replace prefix 0 or padding local numbers"
+msgstr "Sostituisci il prefisso 0 o completa i numeri locali"
+
+msgid "SMS footer"
+msgstr "piè di pagina SMS"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "State or Province"
+msgstr "Stato o Provincia"
+
+msgid "Subuser"
+msgstr "Subutente"
+
+msgid "Subusers"
+msgstr "Subutenti"
+
+msgid "Timezone"
+msgstr "Fuso orario"
+
+msgid "Unable to ban account"
+msgstr "Impossibile bloccare l'account"
+
+msgid "Unable to ban subuser"
+msgstr "Impossibile bannare il subutente"
+
+msgid "Unable to delete other users"
+msgstr "Impossibile eliminare altri utenti"
+
+msgid "Unable to delete this user until all subusers under this user have been removed"
+msgstr ""
+"Impossibile eliminare questo utente fino a quando tutti i sottoutenti sotto questo utente non saranno "
+"stati rimossi"
+
+msgid "Unable to process subuser addition"
+msgstr "Impossibile elaborare l'aggiunta del sottoutente"
+
+msgid "Unable to process user addition"
+msgstr "Impossibile elaborare l'aggiunta dell'utente"
+
+msgid "Unable to unban account"
+msgstr "Impossibile sbloccare l'account"
+
+msgid "Unable to unban subuser"
+msgstr "Impossibile sbloccare il subutente"
+
+msgid "Unknown error"
+msgstr "Errore sconosciuto"
+
+msgid "Unknown error has occurred"
+msgstr "Si è verificato un errore sconosciuto"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "User configuration"
+msgstr "Configurazione utente"
+
+msgid "User configuration has been saved"
+msgstr "La configurazione utente è stata salvata"
+
+msgid "User configuration has been saved and webservices token updated"
+msgstr "La configurazione dell'utente è stata salvata e il token dei servizi web è stato aggiornato"
+
+msgid "User deletion unavailable"
+msgstr "Cancellazione utente non disponibile"
+
+msgid "User does not exist"
+msgstr "L'utente non esiste"
+
+msgid "User is already on banned subusers list"
+msgstr "L'utente è già nell'elenco dei sottoutenti esclusi"
+
+msgid "User is already on banned users list"
+msgstr "L'utente è già nell'elenco degli utenti esclusi"
+
+msgid "User is immune to deletion"
+msgstr "L'utente è immune all'eliminazione"
+
+msgid "User is not on banned subusers list"
+msgstr "L'utente non è nell'elenco dei sottoutenti esclusi"
+
+msgid "User is not on banned users list"
+msgstr "L'utente non è nell'elenco degli utenti esclusi"
+
+msgid "Username"
+msgstr "Nome utente"
+
+#, php-format
+msgid "Username must be at least 3 characters and maximum %d characters"
+msgstr "Il nome utente deve contenere almeno 3 caratteri e un massimo di %d caratteri"
+
+msgid "Users"
+msgstr "Utenti"
+
+msgid "Valid characters for username are alphabets, numbers, dot or dash"
+msgstr "I caratteri validi per il nome utente sono alfabeti, numeri, punto o trattino"
+
+msgid "Webservices IP range"
+msgstr "Intervallo IP servizi web"
+
+msgid "Webservices token"
+msgstr "Token servizi web"
+
+msgid "Webservices username"
+msgstr "Nome utente servizi web"
+
+msgid "You must fill all mandatory fields"
+msgstr "Devi compilare tutti i campi obbligatori"
+
+msgid "You must fill all required fields"
+msgstr "Devi compilare tutti i campi obbligatori"
+
+msgid "Your email format is invalid"
+msgstr "Il tuo formato email non è valido"
+
+msgid "Your mobile format is invalid"
+msgstr "Il tuo formato mobile non è valido"
+
+msgid "Zipcode"
+msgstr "codice postale"
+
+msgid "email"
+msgstr "e-mail"
+
+msgid "for subuser only"
+msgstr "solo per sottoutente"
+
+msgid "mobile"
+msgstr "cellulare"
+
+msgid "no"
+msgstr "n"
+
+msgid "username"
+msgstr "nome utente"
+
+msgid "yes"
+msgstr "sì"

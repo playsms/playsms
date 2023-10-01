@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Check email sender"
+msgstr "Controlla il mittente dell'e-mail"
+
+msgid "Email protocol"
+msgstr "Protocollo di posta elettronica"
+
+msgid "Email to SMS PIN has been saved"
+msgstr "Il PIN e-mail a SMS è stato salvato"
+
+msgid "Email to SMS PIN has been saved but service is disabled"
+msgstr "Il PIN email a SMS è stato salvato ma il servizio è disabilitato"
+
+msgid "Email to SMS address"
+msgstr "E-mail all'indirizzo SMS"
+
+msgid "Email to SMS configuration has been saved and service disabled"
+msgstr "La configurazione da email a SMS è stata salvata e il servizio è disabilitato"
+
+msgid "Email to SMS configuration has been saved and service enabled"
+msgstr "La configurazione da e-mail a SMS è stata salvata e il servizio è stato abilitato"
+
+msgid "Enable fetch new emails"
+msgstr "Abilita il recupero di nuove email"
+
+msgid "Fail to save email to SMS PIN"
+msgstr "Impossibile salvare l'e-mail nel PIN SMS"
+
+msgid "Fill the password field to change password"
+msgstr "Compila il campo password per cambiare la password"
+
+msgid "Mail server address"
+msgstr "Indirizzo del server di posta"
+
+msgid "Mail server port"
+msgstr "Porta del server di posta"
+
+msgid "Mailbox password"
+msgstr "Password della casella di posta"
+
+msgid "Mailbox username"
+msgstr "nome utente della casella di posta"
+
+msgid "Manage email to SMS"
+msgstr "Gestisci e-mail in SMS"
+
+msgid "My email to SMS"
+msgstr "La mia e-mail in SMS"
+
+msgid "New emails fetch interval"
+msgstr "Intervallo di recupero delle nuove email"
+
+msgid "New emails fetch interval must be higher than 10 seconds"
+msgstr "L'intervallo di recupero delle nuove email deve essere superiore a 10 secondi"
+
+msgid "No validate cert option"
+msgstr "Nessuna opzione di convalida del certificato"
+
+msgid "PIN for email to SMS"
+msgstr "PIN per email a SMS"
+
+msgid "PIN is empty"
+msgstr "il PIN è vuoto"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Use SSL"
+msgstr "Usa SSL"
+
+msgid "no"
+msgstr "no"
+
+msgid "yes"
+msgstr "sì"

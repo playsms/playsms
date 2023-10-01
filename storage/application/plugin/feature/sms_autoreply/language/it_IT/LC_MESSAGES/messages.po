@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add SMS autoreply"
+msgstr "Aggiungi risposta automatica SMS"
+
+msgid "Add SMS autoreply scenario"
+msgstr "Aggiungi scenario di risposta automatica SMS"
+
+msgid "All mandatory fields must be filled"
+msgstr "Tutti i campi obbligatori devono essere compilati"
+
+msgid "Are you sure you want to delete SMS autoreply ?"
+msgstr "Sei sicuro di voler eliminare la risposta automatica SMS?"
+
+msgid "Are you sure you want to delete this SMS autoreply scenario ?"
+msgstr "Sei sicuro di voler eliminare questo scenario di risposta automatica SMS?"
+
+msgid "Edit SMS autoreply"
+msgstr "Modifica risposta automatica SMS"
+
+msgid "Edit SMS autoreply scenario"
+msgstr "Modifica scenario risposta automatica SMS"
+
+msgid "Fail to add SMS autoreply"
+msgstr "Impossibile aggiungere la risposta automatica SMS"
+
+msgid "Fail to add SMS autoreply scenario"
+msgstr "Impossibile aggiungere lo scenario di risposta automatica SMS"
+
+msgid "Fail to delete SMS autoreply"
+msgstr "Impossibile eliminare la risposta automatica SMS"
+
+msgid "Fail to delete SMS autoreply scenario"
+msgstr "Impossibile eliminare lo scenario di risposta automatica SMS"
+
+msgid "Fail to edit SMS autoreply scenario"
+msgstr "Impossibile modificare lo scenario di risposta automatica SMS"
+
+msgid "Fail to update SMS autoreply"
+msgstr "Impossibile aggiornare la risposta automatica SMS"
+
+msgid "Keyword"
+msgstr "Parola chiave"
+
+msgid "Manage autoreply"
+msgstr "Gestisci la risposta automatica"
+
+msgid "Reply"
+msgstr "Rispondi"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "SMS autoreply has been deleted"
+msgstr "La risposta automatica SMS è stata eliminata"
+
+msgid "SMS autoreply has been updated"
+msgstr "La risposta automatica SMS è stata aggiornata"
+
+msgid "SMS autoreply keyword"
+msgstr "parola chiave di risposta automatica SMS"
+
+msgid "SMS autoreply keyword has been added"
+msgstr "è stata aggiunta la parola chiave di risposta automatica SMS"
+
+msgid "SMS autoreply scenario has been added"
+msgstr "è stato aggiunto lo scenario di risposta automatica SMS"
+
+msgid "SMS autoreply scenario has been deleted"
+msgstr "Lo scenario di risposta automatica SMS è stato eliminato"
+
+msgid "SMS autoreply scenario has been edited"
+msgstr "Lo scenario di risposta automatica SMS è stato modificato"
+
+msgid "SMS autoreply scenario parameter"
+msgstr "Parametro scenario risposta automatica SMS"
+
+msgid "SMS autoreply scenario reply"
+msgstr "Risposta scenario risposta automatica SMS"
+
+msgid "SMS is case-insensitive"
+msgstr "SMS non fa distinzione tra maiuscole e minuscole"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr "La parola chiave SMS esiste già, è riservata o utilizzata da un'altra funzione"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "This field is not mandatory"
+msgstr "Questo campo non è obbligatorio"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "keyword"
+msgstr "parola chiave"

@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "API key"
+msgstr "chiave API"
+
+msgid "API secret"
+msgstr "Segreto API"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "caratteri numerici o 11 alfanumerici. "
+
+msgid "Fill to change the API secret"
+msgstr "Compila per modificare il segreto API"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Le configurazioni del modulo gateway sono state salvate"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Manage nexmo"
+msgstr "Gestisci nexmo"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Massimo. "
+
+msgid "Module sender ID"
+msgstr "ID mittente modulo"
+
+msgid "Module timezone"
+msgstr "Fuso orario del modulo"
+
+msgid "Nexmo URL"
+msgstr "URL Nexmo"
+
+msgid "Nexmo is a bulk SMS provider"
+msgstr "Nexmo è un fornitore di SMS all'ingrosso"
+
+msgid "Nexmo will push DLR and incoming SMS to your callback URL"
+msgstr "Nexmo invierà DLR e SMS in arrivo al tuo URL di richiamata"
+
+msgid "No changes have been made"
+msgstr "Non sono state apportate modifiche"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Use JSON format URL"
+msgstr "Utilizza l'URL in formato JSON"
+
+msgid "Your callback URL is"
+msgstr "Il tuo URL di richiamata è"
+
+msgid "Your callback URL should be accessible from Nexmo"
+msgstr "Il tuo URL di richiamata dovrebbe essere accessibile da Nexmo"
+
+msgid "free credits are available for testing purposes"
+msgstr "sono disponibili crediti gratuiti a scopo di test"
