@@ -1,0 +1,49 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Author"
+msgstr "Autore"
+
+msgid "Core"
+msgstr "Nucleo"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Features"
+msgstr "Caratteristiche"
+
+msgid "Gateways"
+msgstr "Gateway"
+
+msgid "Languages"
+msgstr "Lingue"
+
+msgid "Manage plugin"
+msgstr "Gestisci plug-in"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "Themes"
+msgstr "Temi"
+
+msgid "Version"
+msgstr "Versione"

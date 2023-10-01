@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add SMS command"
+msgstr "Aggiungi comando SMS"
+
+msgid "Are you sure you want to delete SMS command ?"
+msgstr "Sei sicuro di voler eliminare il comando SMS?"
+
+msgid "Edit SMS command"
+msgstr "Modifica comando SMS"
+
+msgid "Exec"
+msgstr "Esegui"
+
+msgid "Fail to add SMS command"
+msgstr "Impossibile aggiungere il comando SMS"
+
+msgid "Fail to delete SMS command"
+msgstr "Impossibile eliminare il comando SMS"
+
+msgid "Fail to save SMS command"
+msgstr "Impossibile salvare il comando SMS"
+
+msgid "Keyword"
+msgstr "Parola chiave"
+
+msgid "Make return as reply"
+msgstr "Restituisci come risposta"
+
+msgid "Manage command"
+msgstr "Gestisci comando"
+
+msgid "Pass these parameter to command exec field"
+msgstr "passa questi parametri al campo command exec"
+
+msgid "SMS command already exists, reserved or use by other feature"
+msgstr "Il comando SMS esiste già, riservato o utilizzato da un'altra funzione"
+
+msgid "SMS command exec"
+msgstr "comando SMS esec"
+
+msgid "SMS command exec path"
+msgstr "percorso eseguibile comando SMS"
+
+msgid "SMS command has been added"
+msgstr "è stato aggiunto il comando SMS"
+
+msgid "SMS command has been deleted"
+msgstr "Il comando SMS è stato eliminato"
+
+msgid "SMS command has been saved"
+msgstr "Il comando SMS è stato salvato"
+
+msgid "SMS command keyword"
+msgstr "parola chiave del comando SMS"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "You must fill all fields"
+msgstr "Devi compilare tutti i campi"
+
+msgid "keyword"
+msgstr "parola chiave"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "verrà sostituito dalla data/ora di arrivo dell'SMS"
+
+msgid "will be replaced by SMS raw message"
+msgstr "sarà sostituito dal messaggio SMS raw"
+
+msgid "will be replaced by command keyword"
+msgstr "verrà sostituito dalla parola chiave command"
+
+msgid "will be replaced by command parameter passed to server from SMS"
+msgstr "sarà sostituito dal parametro di comando passato al server da SMS"
+
+msgid "will be replaced by sender number"
+msgstr "sarà sostituito dal numero del mittente"

@@ -1,0 +1,113 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Account has been added and password has been emailed"
+msgstr "L'account è stato aggiunto e la password è stata inviata via email"
+
+msgid "Account has been added but failed to send email"
+msgstr "L'account è stato aggiunto ma non è stato possibile inviare l'e-mail"
+
+msgid "Captcha was expired, please try again"
+msgstr "Captcha scaduto, riprova"
+
+msgid "Credit"
+msgstr "Credito"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Fail to recover password"
+msgstr "Impossibile recuperare la password"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Incomplete registration data"
+msgstr "Dati di registrazione incompleti"
+
+msgid "Invalid username or password"
+msgstr "Nome utente o password non validi"
+
+msgid "Login"
+msgstr "Accesso"
+
+msgid "Mobile"
+msgstr "Cellulare"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "New account registration"
+msgstr "Registrazione nuovo account"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Password recovery"
+msgstr "Recupero password"
+
+msgid "Please type the displayed captcha phrase correctly"
+msgstr "Digitare correttamente la frase captcha visualizzata"
+
+msgid ""
+"Read and type the captcha phrase on verify captcha field. If you cannot read "
+"them please contact administrator."
+msgstr ""
+"Leggi e digita la frase captcha nel campo verifica captcha. Se non riesci a "
+"leggerli, contatta l'amministratore."
+
+msgid "Recover password"
+msgstr "Recupera password"
+
+msgid "Recover password disabled"
+msgstr "Recupero password disattivato"
+
+msgid "Register an account"
+msgstr "Registra un account"
+
+msgid "Register an account is disabled"
+msgstr "La registrazione di un account è disabilitata"
+
+msgid "Submit"
+msgstr "Invia"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr "La password temporanea è stata inviata tramite e-mail. "
+
+msgid ""
+"This temporary password will be removed once you have logged in successfully"
+msgstr ""
+"Questa password temporanea verrà rimossa una volta effettuato l'accesso con "
+"successo"
+
+msgid "Unable to login"
+msgstr "Impossibile accedere"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Username or email"
+msgstr "Nome utente o email"
+
+msgid "Verify captcha"
+msgstr "Verifica captcha"
+
+msgid "You have been logged out"
+msgstr "Sei stato disconnesso"
+
+msgid "You have no access to this page"
+msgstr "Non hai accesso a questa pagina"
+
+msgid "You or someone else have requested a password recovery"
+msgstr "Tu o qualcun altro avete richiesto il recupero della password"

@@ -1,0 +1,120 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add SMS custom"
+msgstr "Aggiungi SMS personalizzato"
+
+msgid "All mandatory fields must be filled"
+msgstr "Tutti i campi obbligatori devono essere compilati"
+
+msgid "Are you sure you want to delete SMS custom ?"
+msgstr "Sei sicuro di voler eliminare gli SMS personalizzati?"
+
+msgid "Custom URL"
+msgstr "URL personalizzato"
+
+msgid "Edit SMS custom"
+msgstr "Modifica SMS personalizzato"
+
+msgid "Example of SMS custom URL"
+msgstr "Esempio di URL personalizzato SMS"
+
+msgid "Fail to add SMS custom"
+msgstr "Impossibile aggiungere SMS personalizzato"
+
+msgid "Fail to delete SMS custom"
+msgstr "Impossibile eliminare l'SMS personalizzato"
+
+msgid "Fail to save SMS custom"
+msgstr "Impossibile salvare l'SMS personalizzato"
+
+#, php-format
+msgid "Keyword %s is not available"
+msgstr "La parola chiave %s non è disponibile"
+
+msgid "Keywords"
+msgstr "Parole chiave"
+
+msgid "Make return as reply"
+msgstr "Restituisci come risposta"
+
+msgid "Manage custom"
+msgstr "Gestisci SMS personalizzato"
+
+msgid "Pass these parameters to custom URL field"
+msgstr "Passa questi parametri al campo URL personalizzato"
+
+msgid "Receiver number"
+msgstr "Numero del destinatario"
+
+msgid "SMS custom URL"
+msgstr "URL personalizzato SMS"
+
+msgid "SMS custom has been deleted"
+msgstr "L'SMS personalizzato è stato eliminato"
+
+msgid "SMS custom has been saved"
+msgstr "L'SMS personalizzato è stato salvato"
+
+msgid "SMS custom keywords"
+msgstr "Parole chiave SMS personalizzate"
+
+#, php-format
+msgid "SMS custom with keyword %s has been added"
+msgstr "Aggiunto SMS personalizzato con parola chiave %s"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Service data"
+msgstr "Dati di servizio"
+
+msgid "Service name"
+msgstr "Nome del servizio"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "keyword"
+msgstr "parola chiave"
+
+msgid "will be replaced by SMS incoming date/time"
+msgstr "verrà sostituito dalla data/ora di arrivo dell'SMS"
+
+msgid "will be replaced by SMS raw message"
+msgstr "sarà sostituito dal messaggio SMS raw"
+
+msgid "will be replaced by actual receiver number"
+msgstr "verrà sostituito dal numero effettivo del ricevitore"
+
+msgid "will be replaced by custom keyword"
+msgstr "verrà sostituito dalla parola chiave personalizzata"
+
+msgid "will be replaced by custom parameter passed to server from SMS"
+msgstr "sarà sostituito dal parametro personalizzato passato al server da SMS"
+
+msgid "will be replaced by receiver number"
+msgstr "sarà sostituito dal numero del ricevitore"
+
+msgid "will be replaced by sender number"
+msgstr "sarà sostituito dal numero del mittente"
+
+msgid "will be replaced by service name"
+msgstr "sarà sostituito dal nome del servizio"

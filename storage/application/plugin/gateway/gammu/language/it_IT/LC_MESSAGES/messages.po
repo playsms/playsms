@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Changes have been made"
+msgstr "sono state apportate modifiche"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Manage gammu"
+msgstr "Gestisci gamma"
+
+msgid "Receiver number"
+msgstr "Numero del destinatario"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Spool folder"
+msgstr "Cartella di spool"

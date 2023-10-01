@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Le configurazioni del modulo gateway sono state salvate"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Manage template"
+msgstr "Gestisci modello"
+
+msgid "No changes have been made"
+msgstr "Non sono state apportate modifiche"
+
+msgid "No trailing slash"
+msgstr "Nessuna barra finale"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Template installation path"
+msgstr "percorso di installazione del modello"

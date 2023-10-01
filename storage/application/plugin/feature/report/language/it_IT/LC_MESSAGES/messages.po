@@ -1,0 +1,208 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Account has been unbanned"
+msgstr "L'account è stato sbloccato"
+
+msgid "All feature messages"
+msgstr "Tutti i messaggi delle funzionalità"
+
+msgid "All inbox"
+msgstr "Tutti i messaggi in arrivo"
+
+msgid "All reports"
+msgstr "Tutti i rapporti"
+
+msgid "All sent messages"
+msgstr "Tutti i messaggi inviati"
+
+msgid "Amount"
+msgstr "Importo"
+
+msgid "Are you sure you want to delete ?"
+msgstr "Sei sicuro di voler eliminare ?"
+
+msgid "Are you sure you want to delete these items ?"
+msgstr "Sei sicuro di voler eliminare questi elementi?"
+
+msgid "Ban date/time"
+msgstr "Data/ora di divieto"
+
+msgid "Banned users list"
+msgstr "Elenco degli utenti bannati"
+
+msgid "Billing"
+msgstr "Fatturazione"
+
+msgid "Card"
+msgstr "Carta"
+
+msgid "Charge"
+msgstr "Carica"
+
+msgid "Content"
+msgstr "Contenuto"
+
+msgid "Credit"
+msgstr "Credito"
+
+msgid "Current IP address"
+msgstr "Indirizzo IP attuale"
+
+msgid "Date/Time"
+msgstr "Data/Ora"
+
+msgid "Deleted"
+msgstr "Eliminato"
+
+msgid "Delivered"
+msgstr "Consegnato"
+
+msgid "Destination"
+msgstr "Destinazione"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Failed"
+msgstr "Fallito"
+
+msgid "Feature"
+msgstr "Caratteristica"
+
+msgid "Footer"
+msgstr "piè di pagina"
+
+msgid "From"
+msgstr "Da"
+
+msgid "Gateway"
+msgstr "Porta"
+
+msgid "Inbox"
+msgstr "SMS in arrivo"
+
+msgid "Keyword"
+msgstr "Parola chiave"
+
+msgid "Last update"
+msgstr "Ultimo aggiornamento"
+
+#, php-format
+msgid "List of messages from %s"
+msgstr "Lista dei messaggi da %s"
+
+msgid "List of my credit transactions"
+msgstr "Elenco delle mie transazioni di credito"
+
+#, php-format
+msgid "List of queue %s"
+msgstr "Lista della coda %s"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "My SMS rate"
+msgstr "La mia tariffa SMS"
+
+msgid "My credit transactions"
+msgstr "Le mie transazioni di credito"
+
+msgid "My feature messages"
+msgstr "I miei messaggi speciali"
+
+msgid "My report"
+msgstr "Il mio rapporto"
+
+msgid "My sent messages"
+msgstr "I miei messaggi inviati"
+
+msgid "Nothing to export"
+msgstr "Niente da esportare"
+
+msgid "Pending"
+msgstr "In attesa"
+
+msgid "Prefix"
+msgstr "prefisso"
+
+msgid "Queue"
+msgstr "Coda"
+
+msgid "Rate"
+msgstr "Valuta"
+
+msgid "Report"
+msgstr "Rapporto"
+
+msgid "Report all users"
+msgstr "Rapporto di tutti gli utenti"
+
+msgid "Report banned users"
+msgstr "Rapporto degli utenti bannati"
+
+msgid "Report whose online"
+msgstr "Rapporto utenti online"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Sandbox"
+msgstr "Sandbox"
+
+msgid "Select page size"
+msgstr "Seleziona la dimensione della pagina"
+
+msgid "Selected incoming message has been deleted"
+msgstr "il messaggio in arrivo selezionato è stato eliminato"
+
+msgid "Selected outgoing message has been deleted"
+msgstr "Il messaggio in uscita selezionato è stato eliminato"
+
+msgid "Sent"
+msgstr "Inviato"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "Time"
+msgstr "Tempo"
+
+msgid "To"
+msgstr "A"
+
+msgid "Total"
+msgstr "Totale"
+
+msgid "Transaction datetime"
+msgstr "Data e ora della transazione"
+
+msgid "Unable to unban account"
+msgstr "Impossibile sbloccare l'account"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "User agent"
+msgstr "Agente utente"
+
+msgid "Whose online"
+msgstr "Di chi online"
+
+msgid "username"
+msgstr "nome utente"
+
+#, php-format
+msgid "view all %d"
+msgstr "visualizza tutto %d"

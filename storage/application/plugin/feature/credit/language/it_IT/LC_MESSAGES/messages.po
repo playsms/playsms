@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Add credit"
+msgstr "Aggiungi credito"
+
+msgid "Add credit to users"
+msgstr "Aggiungi credito agli utenti"
+
+msgid "Administrator"
+msgstr "Amministratore"
+
+msgid "Administrators"
+msgstr "Amministratori"
+
+msgid "Amount"
+msgstr "Importo"
+
+msgid "Are you sure you want to delete these transactions ?"
+msgstr "Sei sicuro di voler eliminare queste transazioni?"
+
+msgid "Credit has been added"
+msgstr "Il credito è stato aggiunto"
+
+msgid "Credit has been reduced"
+msgstr "Il credito è stato ridotto"
+
+msgid "Fail to add credit"
+msgstr "Impossibile aggiungere credito"
+
+msgid "Fail to reduce credit"
+msgstr "Fallire la riduzione del credito"
+
+msgid "List of transactions"
+msgstr "Elenco delle transazioni"
+
+msgid "Manage credit"
+msgstr "Gestisci credito"
+
+msgid "Reduce credit"
+msgstr "Riduci il credito"
+
+msgid "Reduce credit from users"
+msgstr "Ridurre il credito degli utenti"
+
+msgid "Select users"
+msgstr "Seleziona utenti"
+
+msgid "Selected transactions has been deleted"
+msgstr "le transazioni selezionate sono state eliminate"
+
+msgid "Subuser"
+msgstr "Subutente"
+
+msgid "Subusers"
+msgstr "Subutenti"
+
+msgid "Transaction datetime"
+msgstr "Data e ora della transazione"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "User ID"
+msgstr "ID utente"
+
+msgid "Username"
+msgstr "Nome utente"
+
+#, php-format
+msgid "Username %s with account ID %d has reached lowest credit limit of %s"
+msgstr "Il nome utente %s con ID account %d ha raggiunto il limite di credito minimo di %s"
+
+msgid "Users"
+msgstr "Utenti"
+
+msgid "Wrong amount or user does not exist"
+msgstr "L'importo errato o l'utente non esiste"
+
+#, php-format
+msgid "You have reached lowest credit limit of %s"
+msgstr "Hai raggiunto il limite di credito minimo di %s"
+
+#, php-format
+msgid ""
+"Your subuser with username %s and account ID %d has reached lowest credit limit of %s"
+msgstr ""
+"Il tuo subutente con nome utente %s e ID account %d ha raggiunto il limite di credito "
+"minimo di %s"
+
+msgid "amount"
+msgstr "importo"
+
+msgid "user"
+msgstr "utente"

@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Copy the message to user inbox when incoming SMS contains @username"
+msgstr "Copia il messaggio negli SMS in arrivo dell'utente quando l'SMS in arrivo contiene @username"
+
+msgid "Example"
+msgstr "Esempio"
+
+msgid "Fail to insert keyword"
+msgstr "Impossibile inserire la parola chiave"
+
+msgid "Forward all sandbox SMS to a URL"
+msgstr "Inoltra tutti gli SMS sandbox a un URL"
+
+msgid "Incoming SMS route changes has been saved"
+msgstr "Le modifiche al percorso degli SMS in arrivo sono state salvate"
+
+msgid "Insert keyword"
+msgstr "Inserisci parola chiave"
+
+msgid "Leave a copy in sandbox SMS page"
+msgstr "Lascia una copia nella pagina SMS della sandbox"
+
+msgid "Leaving a copy in sandbox SMS page may be useful for audit or reviews"
+msgstr "Lasciare una copia nella pagina degli SMS sandbox può essere utile per audit o revisioni"
+
+msgid "Match with all approved sender ID"
+msgstr "corrisponde a tutti gli ID mittente approvati"
+
+msgid "No route has been saved"
+msgstr "Nessun percorso è stato salvato"
+
+msgid "Post rules"
+msgstr "Post-Regole"
+
+msgid "Pre rules"
+msgstr "Pre regole"
+
+msgid "Receiver number can be matched with default sender ID or with all approved sender ID"
+msgstr "Il numero del destinatario può essere abbinato all'ID mittente predefinito o a tutti gli ID mittente approvati"
+
+msgid "Route all sandbox SMS to one or more users"
+msgstr "Instrada tutti gli SMS sandbox a uno o più utenti"
+
+msgid "Route all sandbox SMS to users"
+msgstr "Instrada tutti gli SMS della sandbox agli utenti"
+
+msgid "Route all sandbox SMS with matched sender ID"
+msgstr "Instrada tutti gli SMS sandbox con ID mittente corrispondente"
+
+msgid "Route incoming SMS"
+msgstr "Instrada SMS in arrivo"
+
+msgid "Route to user inbox if receiver number matched with user sender ID"
+msgstr "Instrada a SMS in arrivo dell'utente se il numero del destinatario corrisponde all'ID del mittente dell'utente"
+
+msgid "Rules applied after incoming SMS processed"
+msgstr "Regole applicate dopo l'elaborazione degli SMS in arrivo"
+
+msgid "Rules applied before incoming SMS processed"
+msgstr "Regole applicate prima dell'elaborazione degli SMS in arrivo"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Scan incoming SMS for #groupcode"
+msgstr "Scansiona SMS in arrivo per"
+
+msgid "Scan incoming SMS for @username"
+msgstr "Scansiona gli SMS in arrivo per @username"
+
+msgid "Select users"
+msgstr "Seleziona utenti"
+
+msgid "Send SMS to groups with found group codes in the incoming SMS"
+msgstr "Invia SMS a gruppi con codici di gruppo trovati nell'SMS in arrivo"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "keyword"
+msgstr "parola chiave"
