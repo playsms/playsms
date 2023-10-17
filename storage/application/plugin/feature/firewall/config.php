@@ -8,6 +8,6 @@ if (auth_isadmin()) {
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_firewall&op=firewall_list',
 		_('Manage firewall'),
-		3 
+		3
 	);
 }

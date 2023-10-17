@@ -18,14 +18,16 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function outgoing_display_prefix($prefix) {
+function outgoing_display_prefix($prefix)
+{
 	$prefix = preg_replace('/[\[\]]/', '', $prefix);
-	
+
 	return $prefix;
 }
 
-function outgoing_getdata($extras = array()) {
-	foreach ($extras as $key => $val) {
+function outgoing_getdata($extras = array())
+{
+	foreach ( $extras as $key => $val ) {
 		$extra_sql .= $key . " " . $val . " ";
 	}
 	$db_query = "SELECT A.*, B.username FROM " . _DB_PREF_ . "_featureOutgoing AS A LEFT JOIN " . _DB_PREF_ . "_tblUser AS B ON B.flag_deleted='0' AND A.uid=B.uid " . $extra_sql;
@@ -33,69 +35,74 @@ function outgoing_getdata($extras = array()) {
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
 	}
-	
+
 	return $ret;
 }
 
-function outgoing_getuid($id) {
+function outgoing_getuid($id)
+{
 	if ($id) {
 		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$dst = $db_row['uid'];
 	}
-	
+
 	return $dst;
 }
 
-function outgoing_getdst($id) {
+function outgoing_getdst($id)
+{
 	if ($id) {
 		$db_query = "SELECT dst FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$dst = $db_row['dst'];
 	}
-	
+
 	return $dst;
 }
 
-function outgoing_getprefix($id) {
+function outgoing_getprefix($id)
+{
 	if ($id) {
 		$db_query = "SELECT prefix FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$prefix = outgoing_display_prefix($db_row['prefix']);
 	}
-	
+
 	return $prefix;
 }
 
-function outgoing_getsmsc($id) {
+function outgoing_getsmsc($id)
+{
 	if ($id) {
 		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$smsc = $db_row['smsc'];
 	}
-	
+
 	return $smsc;
 }
 
-function outgoing_prefix2smsc($prefix, $uid = 0) {
+function outgoing_prefix2smsc($prefix, $uid = 0)
+{
 	$smsc = array();
-	
+
 	$prefix = (string) core_sanitize_numeric($prefix);
 	if (strlen($prefix) > 8) {
 		$prefix = substr($prefix, 0, 8);
 	}
 	$uid = ((int) $uid ? (int) $uid : 0);
-	
+
 	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix LIKE '%[" . $prefix . "]%' AND uid='" . $uid . "'";
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
 	}
-	
+
 	// backward compatibility with playSMS 1.1 and below
 	if (!count($smsc)) {
 		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='" . $prefix . "' AND uid='" . $uid . "'";
@@ -104,18 +111,19 @@ function outgoing_prefix2smsc($prefix, $uid = 0) {
 			$smsc[] = $db_row['smsc'];
 		}
 	}
-	
+
 	return $smsc;
 }
 
-function outgoing_mobile2smsc($mobile, $uid = 0) {
+function outgoing_mobile2smsc($mobile, $uid = 0)
+{
 	$mobile = core_sanitize_numeric($mobile);
 	if (strlen($mobile) > 8) {
 		$prefix = substr($mobile, 0, 8);
 	} else {
 		$prefix = $mobile;
 	}
-	
+
 	for ($i = 8; $i > 0; $i--) {
 		$c_prefix = substr($mobile, 0, $i);
 		if ($smsc = outgoing_prefix2smsc($c_prefix, $uid)) {
@@ -126,22 +134,23 @@ function outgoing_mobile2smsc($mobile, $uid = 0) {
 			break;
 		}
 	}
-	
+
 	return $ret;
 }
 
-function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc) {
+function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc)
+{
 	$ret = array();
 	$next = TRUE;
-	
+
 	// supplied smsc will be priority
 	if ($smsc && (!($smsc == '_smsc_routed_' || $smsc == '_smsc_supplied_'))) {
 		_log('using supplied smsc smsc:[' . $smsc . '] uid:' . $uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 		$next = FALSE;
 	}
-	
+
 	if ($next) {
-		
+
 		// if subuser then use parent_uid
 		$the_uid = $uid;
 		$parent_uid = 0;
@@ -150,12 +159,12 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 			$parent_uid = $user['parent_uid'];
 			$the_uid = $parent_uid;
 		}
-		
+
 		$smsc_list = outgoing_mobile2smsc($sms_to, $the_uid);
 		$found = FALSE;
 		$smsc_all = '';
 		$smsc_found = array();
-		foreach ($smsc_list as $item_smsc) {
+		foreach ( $smsc_list as $item_smsc ) {
 			$smsc_all .= '[' . $item_smsc . '] ';
 			$smsc_found[] = $item_smsc;
 		}
@@ -169,15 +178,15 @@ function outgoing_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms
 			}
 		}
 	}
-	
+
 	if ($next) {
 		_log('no SMSC found uid:' . $uid . ' parent_uid:' . $parent_uid . ' from:' . $sms_sender . ' to:' . $sms_to, 3, 'outgoing_hook_sendsms_intercept');
 	}
-	
+
 	if ($smsc) {
 		$ret['modified'] = TRUE;
 		$ret['param']['smsc'] = $smsc;
 	}
-	
+
 	return $ret;
 }

@@ -29,30 +29,30 @@ switch (_OP_) {
 		$db_table = $plugin_config['credit']['db_table'];
 		$search_category = array(
 			_('Username') => 'username',
-			_('Transaction datetime') => 'create_datetime' 
+			_('Transaction datetime') => 'create_datetime'
 		);
 		$base_url = 'index.php?app=main&inc=feature_credit&op=credit_list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'flag_deleted' => 0 
+			'flag_deleted' => 0
 		);
-		
+
 		// only if users
 		if ($user_config['status'] == 3) {
 			$conditions['parent_uid'] = $user_config['uid'];
 			$conditions['status'] = 4;
 		}
-		
+
 		$keywords = $search['dba_keywords'];
 		$count = dba_count($db_table, $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage credit') . "</h2>
 			<h3 class=page-header-subtitle>" . _('List of transactions') . "</h3>
@@ -79,9 +79,9 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
+
 		$j = 0;
-		foreach ($list as $row) {
+		foreach ( $list as $row ) {
 			$row = core_display_data($row);
 			$content .= "
 				<tr>
@@ -94,21 +94,21 @@ switch (_OP_) {
 				</tr>";
 			$j++;
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "credit_add":
-		
+
 		$select_user = credit_html_select_user();
-		
+
 		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
@@ -139,14 +139,14 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Add credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-		
+
 		_p($content);
 		break;
-	
+
 	case "credit_reduce":
-		
+
 		$select_user = credit_html_select_user();
-		
+
 		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
@@ -177,10 +177,10 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Reduce credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$db_table = $plugin_config['credit']['db_table'];
 		$nav = themes_nav_session();
@@ -189,52 +189,53 @@ switch (_OP_) {
 		switch ($go) {
 			case 'export':
 				$conditions = array(
-					'flag_deleted' => 0 
+					'flag_deleted' => 0
 				);
-				
+
 				// only if users
 				if ($user_config['status'] == 3) {
 					$conditions['parent_uid'] = $user_config['uid'];
 					$conditions['status'] = 4;
 				}
-				
+
 				$list = dba_search($db_table, '*', $conditions, $search['dba_keywords']);
 				$data[0] = array(
 					_('User'),
 					_('Transaction datetime'),
-					_('Amount') 
+					_('Amount')
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						$list[$i]['username'],
 						core_display_datetime($list[$i]['create_datetime']),
-						$list[$i]['amount'] 
+						$list[$i]['amount']
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'credit-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			
+
 			case 'delete':
 				if (isset($_POST['itemid'])) {
-					foreach ($_POST['itemid'] as $itemid) {
+					foreach ( $_POST['itemid'] as $itemid ) {
 						$up = array(
 							'c_timestamp' => time(),
 							'delete_datetime' => core_get_datetime(),
-							'flag_deleted' => '1' 
+							'flag_deleted' => '1'
 						);
-						
+
 						// only if users
 						if ($user_config['status'] == 3) {
 							$up['parent_uid'] = $user_config['uid'];
 							$up['status'] = 4;
 						}
-						
+
 						dba_update($db_table, $up, array(
-							'id' => $itemid 
-						));
+							'id' => $itemid
+						)
+						);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
@@ -242,25 +243,25 @@ switch (_OP_) {
 				header("Location: " . _u($ref));
 				exit();
 				break;
-			
+
 			case "add":
 				$continue = FALSE;
-				
+
 				$uids = $_POST['uids'];
-				
+
 				if (is_array($uids)) {
-					foreach ($uids as $uid) {
+					foreach ( $uids as $uid ) {
 						if ($user_config['status'] == 3) {
 							$parent_uid = user_getparentbyuid($uid);
 							if ($parent_uid == $user_config['uid']) {
 								$continue = TRUE;
 							}
 						}
-						
+
 						if (auth_isadmin()) {
 							$continue = TRUE;
 						}
-						
+
 						$amount = abs($_POST['amount']);
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
@@ -274,29 +275,29 @@ switch (_OP_) {
 						}
 					}
 				}
-				
+
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_add'));
 				exit();
 				break;
-			
+
 			case "reduce":
 				$continue = FALSE;
-				
+
 				$uids = $_POST['uids'];
-				
+
 				if (is_array($uids)) {
-					foreach ($uids as $uid) {
+					foreach ( $uids as $uid ) {
 						if ($user_config['status'] == 3) {
 							$parent_uid = user_getparentbyuid($uid);
 							if ($parent_uid == $user_config['uid']) {
 								$continue = TRUE;
 							}
 						}
-						
+
 						if (auth_isadmin()) {
 							$continue = TRUE;
 						}
-						
+
 						$amount = -1 * abs($_POST['amount']);
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
@@ -310,7 +311,7 @@ switch (_OP_) {
 						}
 					}
 				}
-				
+
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_reduce'));
 				exit();
 				break;

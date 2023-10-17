@@ -18,12 +18,13 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function mailsms_hook_playsmsd() {
+function mailsms_hook_playsmsd()
+{
 	global $core_config;
-	
+
 	// get global mailsms registry data
 	$items_global = registry_search(0, 'features', 'mailsms');
-	
+
 	// fetch interval
 	$c_fetch_interval = (int) $items_global['features']['mailsms']['fetch_interval'];
 	$c_fetch_interval = ($c_fetch_interval > 10 ? $c_fetch_interval : 60);
@@ -31,9 +32,9 @@ function mailsms_hook_playsmsd() {
 
 		return;
 	}
-	
+
 	// _log('fetch now:'.$now, 2, 'mailsms_hook_playsmsd');
-	
+
 
 	$enable_fetch = $items_global['features']['mailsms']['enable_fetch'];
 	$protocol = $items_global['features']['mailsms']['protocol'];
@@ -41,63 +42,64 @@ function mailsms_hook_playsmsd() {
 	$server = $items_global['features']['mailsms']['server'];
 	$username = $items_global['features']['mailsms']['username'];
 	$password = $items_global['features']['mailsms']['password'];
-	
+
 	if (!($enable_fetch && $protocol && $port && $server && $username && $password)) {
 
 		return;
 	}
-	
+
 	// _log('fetch uid:' . $uid, 3, 'mailsms_hook_playsmsd');
 
 	playsmsd_run_once('mailsms', 'mailsms_fetch');
 }
 
-function mailsms_hook_playsmsd_once($command, $command_param) {
+function mailsms_hook_playsmsd_once($command, $command_param)
+{
 	if (!($command == 'mailsms' && $command_param == 'mailsms_fetch')) {
 
 		return false;
 	}
-	
+
 	_log('running once command:' . $command . ' param:' . $command_param, 2, 'mailsms_hook_playsmsd_once');
-	
+
 	$items_global = registry_search(0, 'features', 'mailsms');
-	
+
 	$enable_fetch = $items_global['features']['mailsms']['enable_fetch'];
 	if (!$enable_fetch) {
 		return;
 	}
-	
+
 	$ssl = ($items_global['features']['mailsms']['ssl'] == 1) ? "/ssl" : "";
 	$novalidate_cert = ($items_global['features']['mailsms']['novalidate_cert'] == 1) ? "/novalidate-cert" : "";
 	$email_hostname = '{' . $items_global['features']['mailsms']['server'] . ':' . $items_global['features']['mailsms']['port'] . '/' . $items_global['features']['mailsms']['protocol'] . $ssl . $novalidate_cert . '}INBOX';
 	$email_username = $items_global['features']['mailsms']['username'];
 	$email_password = $items_global['features']['mailsms']['password'];
-	
+
 	// _log('fetch ' . $email_username . ' at ' . $email_hostname, 3, 'mailsms_hook_playsmsd_once');
-	
+
 
 	// open mailbox
 	$inbox = imap_open($email_hostname, $email_username, $email_password);
-	
+
 	if (!$inbox) {
 		$errors = imap_errors();
-		foreach ($errors as $error) {
-			
+		foreach ( $errors as $error ) {
+
 			_log('error:' . $error, 3, 'mailsms_hook_playsmsd_once');
 		}
 		return;
 	}
-	
+
 	$emails = imap_search($inbox, 'UNSEEN');
 	if (count($emails)) {
 		rsort($emails);
-		foreach ($emails as $email_number) {
+		foreach ( $emails as $email_number ) {
 			$overview = imap_fetch_overview($inbox, $email_number, 0);
 			$email_subject = trim($overview[0]->subject);
 			$email_sender = trim($overview[0]->from);
 			$email_body = trim(imap_fetchbody($inbox, $email_number, '1.1'));
 			$email_body = quoted_printable_decode($email_body);
-			
+
 			_log('email from:[' . $email_sender . '] subject:[' . $email_subject . '] body:[' . $email_body . ']', 3, 'mailsms_hook_playsmsd');
 
 			// fixme me - https://forum.playsms.org/t/mail2sms-encoding-problem/836/6
@@ -105,7 +107,7 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 				$email_subject = iconv_mime_decode($email_subject);
 				_log('decoded subject:[' . $email_subject . ']', 3, 'mailsms_hook_playsmsd');
 			}
-			
+
 			$e = preg_replace('/\s+/', ' ', trim($email_subject));
 			$f = preg_split('/ +/', $e);
 			$sender_username = str_replace('@', '', $f[0]); // in case user use @username
@@ -113,9 +115,9 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 			//$message = str_replace($sender_username . ' ' . $sender_pin . ' ', '', $email_subject);
 			$c_message = preg_split("/[\s]+/", $email_subject, 3);
 			$message = $c_message[2];
-			
+
 			$sender = user_getdatabyusername($sender_username);
-			
+
 			if ($sender['uid']) {
 				$items = registry_search($sender['uid'], 'features', 'mailsms_user');
 				$pin = $items['features']['mailsms_user']['pin'];
@@ -136,12 +138,12 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 				_log('invalid username sender_username:[' . $sender_username . ']', 3, 'mailsms_hook_playsmsd_once');
 				continue;
 			}
-			
+
 			// destination numbers is in array and retrieved from email body
 			// remove email footer/signiture
 			$sms_to = preg_replace('/--[\r\n]+.*/s', '', $email_body);
 			$sms_to = explode(',', $sms_to);
-			
+
 			// sendsms
 			if ($sender_username && count($sms_to) && $message) {
 				_log('mailsms uid:' . $sender['uid'] . ' from:[' . $sender_email . '] username:[' . $sender_username . ']', 3, 'mailsms_hook_playsmsd_once');
@@ -150,9 +152,9 @@ function mailsms_hook_playsmsd_once($command, $command_param) {
 			}
 		}
 	}
-	
+
 	// close mailbox
 	imap_close($inbox);
-	
+
 	return true;
 }

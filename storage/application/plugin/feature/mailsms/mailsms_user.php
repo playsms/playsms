@@ -23,17 +23,20 @@ if (!auth_isvalid()) {
 }
 
 switch (_OP_) {
-	case "mailsms_user" :
-		
+	case "mailsms_user":
+
 		$items_global = registry_search(0, 'features', 'mailsms');
 		$items = registry_search($user_config['uid'], 'features', 'mailsms_user');
-		
+
 		// option enable
-		$option_enable = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $items['features']['mailsms_user']['enable']);
-		
+		$option_enable = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$items['features']['mailsms_user']['enable']
+		);
+
 		$tpl = array(
 			'name' => 'mailsms_user',
 			'vars' => array(
@@ -44,20 +47,20 @@ switch (_OP_) {
 				'HINT_PASSWORD' => _hint(_('Fill the password field to change password')),
 				'SAVE' => _('Save'),
 				'Email to SMS address' => _('Email to SMS address'),
-				'PIN for email to SMS' => _mandatory(_('PIN for email to SMS')) 
+				'PIN for email to SMS' => _mandatory(_('PIN for email to SMS'))
 			),
 			'injects' => array(
 				'option_enable',
 				'items_global',
-				'items' 
-			) 
+				'items'
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
-	
-	case "mailsms_user_save" :
+
+	case "mailsms_user_save":
 		$continue = FALSE;
-		
+
 		$pin = core_sanitize_alphanumeric(substr(trim($_REQUEST['pin']), 0, 40));
 		if ($pin) {
 			$continue = TRUE;
@@ -65,13 +68,13 @@ switch (_OP_) {
 			$_SESSION['dialog']['info'][] = _('PIN is empty');
 			$_SESSION['dialog']['info'][] = _('Fail to save email to SMS PIN');
 		}
-		
+
 		if ($continue) {
 			$items = array(
-				'pin' => $pin 
+				'pin' => $pin
 			);
 			registry_update($user_config['uid'], 'features', 'mailsms_user', $items);
-			
+
 			$items_global = registry_search(0, 'features', 'mailsms');
 			if ($items_global['features']['mailsms']['enable_fetch']) {
 				$enabled = 'enabled';
@@ -82,8 +85,7 @@ switch (_OP_) {
 			}
 			_log($enabled . ' uid:' . $user_config['uid'] . ' u:' . $user_config['username'], 2, 'mailsms_user');
 		}
-		
+
 		header("Location: " . _u('index.php?app=main&inc=feature_mailsms&route=mailsms_user&op=mailsms_user'));
 		exit();
-		break;
 }

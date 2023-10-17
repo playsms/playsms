@@ -25,7 +25,7 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "firewall_list":
 		$search_category = array(
-			_('IP address') => 'ip_address' 
+			_('IP address') => 'ip_address'
 		);
 		$base_url = 'index.php?app=main&inc=feature_firewall&op=firewall_list';
 		$search = themes_search($search_category, $base_url);
@@ -35,10 +35,10 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'uid',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', '', $keywords, $extras);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage firewall') . "</h2>
 			<p>" . $search['form'] . "</p>
@@ -61,7 +61,7 @@ switch (_OP_) {
 					</tr>
 				</thead>
 			<tbody>";
-		
+
 		$i = $nav['top'];
 		$j = 0;
 		for ($j = 0; $j < count($list); $j++) {
@@ -82,26 +82,26 @@ switch (_OP_) {
 					</td>
 				</tr>";
 		}
-		
+
 		$content .= "
 				</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$items = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : array();
 		$removed = FALSE;
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'delete':
-				foreach ($items as $item) {
+				foreach ( $items as $item ) {
 					$conditions = array(
-						'id' => $item 
+						'id' => $item
 					);
 					if (dba_remove(_DB_PREF_ . '_featureFirewall', $conditions)) {
 						$removed = TRUE;
@@ -109,10 +109,10 @@ switch (_OP_) {
 				}
 				break;
 		}
-		
+
 		$search = themes_search_session();
 		$nav = themes_nav_session();
-		
+
 		if ($removed) {
 			$_SESSION['dialog']['info'][] = _('IP addresses have been deleted');
 		}
@@ -120,7 +120,7 @@ switch (_OP_) {
 		header("Location: " . _u($ref));
 		exit();
 		break;
-	
+
 	case "firewall_add":
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage firewall') . "</h2>
@@ -143,12 +143,12 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_firewall&op=firewall_list');
 		_p($content);
 		break;
-	
+
 	case "firewall_add_yes":
 		$add_username = user_uid2username($_POST['add_username']);
 		$add_ip_address = $_POST['add_ip_address'];
 		if ($add_username && $add_ip_address) {
-			foreach (explode(',', str_replace(' ', '', $add_ip_address)) as $ip) {
+			foreach ( explode(',', str_replace(' ', '', $add_ip_address)) as $ip ) {
 				blacklist_addip($add_username, $ip);
 			}
 			$_SESSION['dialog']['info'][] = _('IP addresses have been blocked');
