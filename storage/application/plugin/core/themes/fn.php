@@ -619,7 +619,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 		$subusers = user_getsubuserbyuid($user_config['uid']);
 		
 		$option_user .= '<option value="0">' . _('Select users') . '</option>';
-		if (count($admins) > 0) {
+		if (isset($admins) && is_array($admins) && count($admins) > 0) {
 			$option_user .= '<optgroup label="' . _('Administrators') . '">';
 			
 			foreach ($admins as $admin) {
@@ -635,7 +635,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($users) > 0) {
+		if (isset($users) && is_array($users) && count($users) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Users') . '">';
 			
@@ -652,7 +652,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($subusers) > 0) {
+		if (isset($subusers) && is_array($subusers) && count($subusers) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Subusers') . '">';
 			
@@ -671,7 +671,7 @@ function themes_select_users_single($select_field_name, $selected_value = '', $t
 		
 		$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-users-single-' . core_sanitize_alphanumeric($select_field_name));
 		
-		if (is_array($tag_params)) {
+		if (isset($tag_params) && is_array($tag_params) && count($tag_params) > 0) {
 			foreach ($tag_params as $key => $val) {
 				$params .= ' ' . $key . '="' . $val . '"';
 			}
@@ -767,7 +767,7 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 			$option_user .= '</optgroup>';
 		}
 		
-		if (count($users) > 0) {
+		if (isset($users) && is_array($users) && count($users) > 0) {
 			
 			$option_user .= '<optgroup label="' . _('Users') . '">';
 			
