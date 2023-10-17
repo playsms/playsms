@@ -301,7 +301,7 @@ if (!empty($_POST)) {
 }
 
 // connect to database
-if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_))) {
+if (!($DBA_PDO = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_, true))) {
 	
 	// _log('Fail to connect to database', 4, 'init');
 	ob_end_clean();

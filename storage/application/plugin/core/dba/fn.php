@@ -18,226 +18,159 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-// load DB.php, DB.php is part of PHP PEAR-DB package
-@include_once 'DB.php';
-if (!class_exists('DB')) {
-	exit(_('FATAL ERROR') . ' : ' . _('Cannot find PHP PEAR-DB'));
-}
+function dba_connect($db_user, $db_pass, $db_name, $db_host = '127.0.0.1', $db_port = 3306, $persistant = true)
+{
+	global $DBA_PDO;
 
-function dba_connect($username, $password, $dbname, $hostname, $port = "", $persistant = "true") {
-	global $core_config;
-	$access = $username;
-	if ($password) {
-		$access = "$username:$password";
-	}
-	$host = $hostname;
-	if ($port) {
-		$host = "$hostname:$port";
-	}
-	if (_DB_DSN_) {
-		$dsn = _DB_DSN_;
+	$db_user = trim($db_user) ? $db_user : _DB_USER_;
+	$db_pass = trim($db_pass) ? $db_pass : _DB_PASS_;
+	$db_name = trim($db_name) ? $db_name : _DB_NAME_;
+	$db_host = trim($db_host) ? $db_host : _DB_HOST_;
+	$db_port = (int) $db_port ? $db_port : _DB_PORT_;
+
+	if (defined(_DB_TYPE_) && _DB_TYPE_) {
+		$db_type = _DB_TYPE_ == 'mysqli' ? 'mysql' : _DB_TYPE_;
 	} else {
-		$dsn = _DB_TYPE_ . "://$access@$host/$dbname";
+		$db_type = 'mysql';
 	}
-	if (_DB_OPT_) {
-		$options = _DB_OPT_;
+
+	if ((int) $db_port > 0) {
+		$db_dsn = $db_type . ':dbname=' . (string) $db_name . ';host=' . (string) $db_host . ';port=' . (int) $db_port;
 	} else {
-		$options = $persistant;
+		$db_dsn = $db_type . ':dbname=' . (string) $db_name . ';host=' . (string) $db_host;
 	}
-	$dba_object = DB::connect($dsn, $options);
-	
-	if (DB::isError($dba_object)) {
-		// $error_msg = "DB Name: $dbname<br>DB Host: $host";
-		ob_end_clean();
-		//die("<p align=left>" . $dba_object->getMessage() . "<br>" . $error_msg . "<br>");
+	if (defined(_DB_DSN_)) {
+		$db_dsn = _DB_DSN_ ? _DB_DSN_ : $db_dsn;
+	}
+
+	$db_opt = [];
+	if (defined(_DB_OPT_)) {
+		$db_opt = is_array(_DB_OPT_) && _DB_OPT_ ? _DB_OPT_ : [];
+	}
+
+	$persistant = (bool) $persistant ? (bool) $persistant : false;
+
+	try {
+		$db_opt['PDO::ATTR_PERSISTENT'] = $persistant;
+		$DBA_PDO = new PDO(
+			(string) $db_dsn,
+			(string) $db_user,
+			(string) $db_pass,
+			$db_opt
+		);
+	} catch (PDOException $e) {
+		//ob_end_clean();
+		//echo 'DB Error: ' . $e->getMessage() . PHP_EOL;
+		//exit();
+		_log(_('Exception') . ': ' . $e->getMessage() . ' ip:' . _REMOTE_ADDR_, 2, 'dba_connect');
 		die(_('FATAL ERROR') . ' : ' . _('Fail to connect to database'));
 	}
-	return $dba_object;
+
+	return $DBA_PDO;
 }
 
-function dba_query_simple($mystring) {
-	global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
-	$result = $dba_object->query($mystring);
-	if (DB::isError($dba_object)) {
-		// ob_end_clean();
-		// die ("<p align=left>".$dba_object->getMessage()."<br>".$dba_object->userinfo."<br>");
-		return "";
+function dba_prepare($db_query)
+{
+	global $DBA_PDO;
+
+	if ($q = $DBA_PDO->prepare($db_query)) {
+		return $q;
 	}
-	return $result;
+
+	return false;
 }
 
-function dba_query($mystring, $from = "0", $count = "0") {
-	global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
-	
-	// log all db query
-	if (function_exists('_log')) {
-		_log("q:" . $mystring, 4, "dba query");
-	}
-	
-	$DBA_ROW_COUNTER = 0;
-	
-	if ($DBA_LIMIT_COUNT > 0) {
-		$from = $DBA_LIMIT_FROM;
-		$count = $DBA_LIMIT_COUNT;
-	}
-	$DBA_LIMIT_FROM = 0;
-	$DBA_LIMIT_COUNT = 0;
-	
-	if (($from == 0) && ($count == 0)) {
-		$result = dba_query_simple($mystring);
-		return $result;
-	}
-	
-	$is_special = false;
-	switch ($dba_DB) {
-		case "mssql":
-			$limit = $from + $count;
-			if ($limit == $count) {
-				$str_limit = "SELECT TOP $limit";
-				$mystring = str_replace("SELECT", $str_limit, $mystring);
-				$is_special = true;
-			}
-			break;
-		case "mysql":
-		case "mysqli":
-			$str_limit = " LIMIT $from, $count";
-			$mystring .= $str_limit;
-			$is_special = true;
-			break;
-		default :
-			break;
-	}
-	
-	if ($is_special) {
-		$result = $dba_object->query($mystring);
+function dba_execute($pdo_statement, $db_argv = [])
+{
+	if (is_array($db_argv) && $db_argv) {
+		$db_result = $pdo_statement->execute($db_argv);
 	} else {
-		$result = $dba_object->limitQuery($mystring, $from, $count);
+		$db_result = $pdo_statement->execute();
 	}
-	
-	if (DB::isError($dba_object)) {
-		// ob_end_clean();
-		// die ("<p align=left>".$dba_object->getMessage()."<br>".$dba_object->userinfo."<br>");
-		return "";
-	}
-	
-	if (!$is_special) {
-		$result->limit_from = $from;
-		$result->limit_count = $count;
-	}
-	
-	return $result;
+
+	return $db_result;
 }
 
-function dba_fetch_array($myresult, $rownum = null) {
-	global $DBA_ROW_COUNTER;
-	if (!$myresult) {
-		return "";
-	}
-	
-	if (!$DBA_ROW_COUNTER) {
-		$DBA_ROW_COUNTER = $myresult->limit_from;
-	}
-	if (DB::isError($myresult)) {
-		// ob_end_clean();
-		// die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
-		return "";
-	}
-	$myresult->row_counter = $DBA_ROW_COUNTER++;
-	$result = $myresult->fetchRow(DB_FETCHMODE_ASSOC, $rownum);
-	return $result;
-}
-
-function dba_fetch_row($myresult, $rownum = null) {
-	global $DBA_ROW_COUNTER;
-	if (!$myresult) {
-		return "";
-	}
-	
-	if (!$DBA_ROW_COUNTER) {
-		$DBA_ROW_COUNTER = $myresult->limit_from;
-	}
-	if (DB::isError($myresult)) {
-		// ob_end_clean();
-		// die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
-		return "";
-	}
-	$myresult->row_counter = $DBA_ROW_COUNTER++;
-	$result = $myresult->fetchRow(DB_FETCHMODE_ORDERED, $rownum);
-	return $result;
-}
-
-function dba_num_rows($mystring) {
-	global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
-	$myresult = dba_query($mystring);
-	if (DB::isError($myresult)) {
-		// ob_end_clean();
-		// die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
-		return 0;
-	}
-	if ($result = $myresult->numRows()) return $result;
-	return 0;
-}
-
-function dba_affected_rows($mystring) {
-	global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
-	$myresult = dba_query($mystring);
-	if (DB::isError($myresult)) {
-		// ob_end_clean();
-		// die ("<p align=left>".$myresult->getMessage()."<br>".$myresult->userinfo."<br>");
-		return 0;
-	}
-	if ($result = $dba_object->affectedRows()) return $result;
-	return 0;
-}
-
-function dba_insert_id($mystring) {
-	global $dba_object, $dba_DB, $DBA_ROW_COUNTER, $DBA_LIMIT_FROM, $DBA_LIMIT_COUNT;
-	if (dba_query($mystring)) {
-		switch (_DB_TYPE_) {
-			case "mysql":
-			case "mysqli":
-				$myquery = "SELECT @@IDENTITY";
-				$result_tmp = dba_query($myquery);
-				list($result) = dba_fetch_row($result_tmp);
-				break;
-			case "sqlite3":
-				$myquery = "SELECT last_insert_rowid()";
-				$result_tmp = dba_query($myquery);
-				$result = dba_fetch_row($result_tmp);
-				$result = $result[0];
-				break;
-			case "pgsql":
-				$myquery = "SELECT lastval()";
-				$result_tmp = dba_query($myquery);
-				list($result) = dba_fetch_row($result_tmp);
-				break;
+function dba_query($db_query, $db_argv = [])
+{
+	if ($q = dba_prepare($db_query)) {
+		if (dba_execute($q, $db_argv)) {
+			return $q;
 		}
 	}
-	return $result;
+
+	return false;
 }
 
-function dba_disconnect() {
-	global $dba_object;
-	if ($dba_object->disconnect()) {
-		return 1;
+function dba_fetch_array($db_result)
+{
+	if ($db_result) {
+		return $db_result->fetch(PDO::FETCH_ASSOC);
+	} else {
+		return false;
+	}
+}
+
+function dba_fetch_row($db_result)
+{
+	if ($db_result) {
+		return $db_result->fetch(PDO::FETCH_NUM);
+	} else {
+		return false;
+	}
+}
+
+function dba_num_rows($db_query)
+{
+	if ($db_result = dba_query($db_query)) {
+		if ($db_result = dba_query('SELECT FOUND_ROWS()')) {
+			return $db_result->fetchColumn();
+		} else {
+			return 0;
+		}
 	} else {
 		return 0;
 	}
 }
 
-function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', $extras = '', $join = '') {
+function dba_affected_rows($db_query)
+{
+	global $DBA_PDO;
+
+	$q = $DBA_PDO->prepare($db_query);
+	if ($q->execute()) {
+		return $q->rowCount();
+	} else {
+		return 0;
+	}
+}
+
+function dba_insert_id($db_query)
+{
+	global $DBA_PDO;
+
+	$q = $DBA_PDO->prepare($db_query);
+	if ($q->execute()) {
+		return $DBA_PDO->lastInsertId();
+	} else {
+		return 0;
+	}
+}
+
+function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', $extras = '', $join = '')
+{
 	$ret = array();
 	if ($fields) {
 		$q_fields = trim($fields);
 	}
 	if (is_array($conditions)) {
-		foreach ($conditions as $key => $val) {
+		foreach ( $conditions as $key => $val ) {
 			$q_conditions .= "AND " . $key . "='" . $val . "' ";
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
-		foreach ($keywords as $key => $val) {
+		foreach ( $keywords as $key => $val ) {
 			$q_keywords .= "OR " . $key . " LIKE '" . $val . "' ";
 		}
 		$q_keywords .= ")";
@@ -249,7 +182,7 @@ function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', 
 		$q_sql_where = substr($q_sql_where, 3);
 	}
 	if (is_array($extras)) {
-		foreach ($extras as $key => $val) {
+		foreach ( $extras as $key => $val ) {
 			$q_extras .= $key . " " . $val . " ";
 		}
 	}
@@ -262,16 +195,17 @@ function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', 
 	return $ret;
 }
 
-function dba_count($db_table, $conditions = '', $keywords = '', $extras = '', $join = '') {
+function dba_count($db_table, $conditions = '', $keywords = '', $extras = '', $join = '')
+{
 	$ret = 0;
 	if (is_array($conditions)) {
-		foreach ($conditions as $key => $val) {
+		foreach ( $conditions as $key => $val ) {
 			$q_conditions .= "AND " . $key . "='" . $val . "' ";
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
-		foreach ($keywords as $key => $val) {
+		foreach ( $keywords as $key => $val ) {
 			$q_keywords .= "OR " . $key . " LIKE '" . $val . "' ";
 		}
 		$q_keywords .= ")";
@@ -283,7 +217,7 @@ function dba_count($db_table, $conditions = '', $keywords = '', $extras = '', $j
 		$q_sql_where = substr($q_sql_where, 3);
 	}
 	if (is_array($extras)) {
-		foreach ($extras as $key => $val) {
+		foreach ( $extras as $key => $val ) {
 			$q_extras .= $key . " " . $val . " ";
 		}
 	}
@@ -297,10 +231,11 @@ function dba_count($db_table, $conditions = '', $keywords = '', $extras = '', $j
 	return $ret;
 }
 
-function dba_add($db_table, $items) {
+function dba_add($db_table, $items)
+{
 	$ret = false;
 	if (is_array($items)) {
-		foreach ($items as $key => $val) {
+		foreach ( $items as $key => $val ) {
 			$sets .= $key . ",";
 			$vals .= "'" . $val . "',";
 		}
@@ -316,17 +251,18 @@ function dba_add($db_table, $items) {
 	return $ret;
 }
 
-function dba_update($db_table, $items, $condition = '', $operand = 'AND') {
+function dba_update($db_table, $items, $condition = '', $operand = 'AND')
+{
 	$ret = false;
 	global $core_config;
 	if (is_array($items)) {
-		foreach ($items as $key => $val) {
+		foreach ( $items as $key => $val ) {
 			$sets .= $key . "='" . $val . "',";
 		}
 		if ($sets) {
 			$sets = substr($sets, 0, -1);
 			if (is_array($condition)) {
-				foreach ($condition as $key => $val) {
+				foreach ( $condition as $key => $val ) {
 					$q_condition .= " " . $operand . " " . $key . "='" . $val . "'";
 				}
 				if ($q_condition) {
@@ -342,10 +278,11 @@ function dba_update($db_table, $items, $condition = '', $operand = 'AND') {
 	return $ret;
 }
 
-function dba_remove($db_table, $condition = '', $operand = 'AND') {
+function dba_remove($db_table, $condition = '', $operand = 'AND')
+{
 	$ret = false;
 	if (is_array($condition)) {
-		foreach ($condition as $key => $val) {
+		foreach ( $condition as $key => $val ) {
 			$q_condition .= $operand . " " . $key . "='" . $val . "' ";
 		}
 		if ($q_condition) {
@@ -359,10 +296,11 @@ function dba_remove($db_table, $condition = '', $operand = 'AND') {
 	return $ret;
 }
 
-function dba_isavail($db_table, $conditions = '', $operand = 'OR') {
+function dba_isavail($db_table, $conditions = '', $operand = 'OR')
+{
 	$ret = false;
 	if (is_array($conditions)) {
-		foreach ($conditions as $key => $val) {
+		foreach ( $conditions as $key => $val ) {
 			$q_condition .= $operand . " " . $key . "='" . $val . "' ";
 		}
 		if ($q_condition) {
@@ -379,12 +317,14 @@ function dba_isavail($db_table, $conditions = '', $operand = 'OR') {
 	return $ret;
 }
 
-function dba_isexists($db_table, $conditions = '', $operand = 'OR') {
+function dba_isexists($db_table, $conditions = '', $operand = 'OR')
+{
 	$ret = (dba_isavail($db_table, $conditions, $operand) ? false : true);
 	return $ret;
 }
 
-function dba_valid($db_table, $field, $value) {
+function dba_valid($db_table, $field, $value)
+{
 	global $user_config;
 	$ret = false;
 	if ($db_table && $field && $value) {
