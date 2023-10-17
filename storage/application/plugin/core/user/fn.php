@@ -21,7 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 function user_getallwithstatus($status)
 {
 	$ret = array();
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND status=?";
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND status=?";
 	$db_result = dba_query($db_query, [$status]);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
@@ -36,7 +36,7 @@ function user_getdatabyuid($uid)
 	$ret = array();
 
 	if ($uid) {
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid=?";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND uid=?";
 		$db_result = dba_query($db_query, [$uid]);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row;
@@ -69,7 +69,7 @@ function user_getfieldbyuid($uid, $field)
 {
 	$field = core_sanitize_query($field);
 	if ($uid && $field) {
-		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid=?";
+		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND uid=?";
 		$db_result = dba_query($db_query, [$uid]);
 		if ($db_row = dba_fetch_array($db_result)) {
 			$ret = $db_row[$field];
@@ -87,7 +87,7 @@ function user_getfieldbyusername($username, $field)
 function user_uid2username($uid)
 {
 	if ($uid) {
-		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid=?";
+		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND uid=?";
 		$db_result = dba_query($db_query, [$uid]);
 		$db_row = dba_fetch_array($db_result);
 		$username = $db_row['username'];
@@ -98,7 +98,7 @@ function user_uid2username($uid)
 function user_username2uid($username)
 {
 	if ($username) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username=?";
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND username=?";
 		$db_result = dba_query($db_query, [$username]);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
@@ -109,8 +109,8 @@ function user_username2uid($username)
 function user_mobile2uid($mobile)
 {
 	if ($mobile) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND mobile LIKE '%" . core_mobile_matcher_format($mobile) . "'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND mobile LIKE :search";
+		$db_result = dba_query($db_query, ['search' => '%' . core_mobile_matcher_format($mobile)]);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
 	}
@@ -135,10 +135,13 @@ function user_mobile2username($mobile)
  */
 function user_email2uid($email)
 {
-	$list = dba_search(_DB_PREF_ . '_tblUser', 'uid', array(
-		'flag_deleted' => 0,
-		'email' => $email
-	)
+	$list = dba_search(
+		_DB_PREF_ . '_tblUser',
+		'uid',
+		array(
+			'flag_deleted' => 0,
+			'email' => $email
+		)
 	);
 	return $list[0]['uid'];
 }
@@ -152,10 +155,13 @@ function user_email2uid($email)
  */
 function user_email2username($email)
 {
-	$list = dba_search(_DB_PREF_ . '_tblUser', 'username', array(
-		'flag_deleted' => 0,
-		'email' => $email
-	)
+	$list = dba_search(
+		_DB_PREF_ . '_tblUser',
+		'username',
+		array(
+			'flag_deleted' => 0,
+			'email' => $email
+		)
 	);
 	return $list[0]['username'];
 }
@@ -495,10 +501,13 @@ function user_edit($uid, $data = array())
 
 			if ($continue) {
 				if (
-					dba_update(_DB_PREF_ . '_tblUser', $up, array(
-						'flag_deleted' => 0,
-						'uid' => $uid
-					)
+					dba_update(
+						_DB_PREF_ . '_tblUser',
+						$up,
+						array(
+							'flag_deleted' => 0,
+							'uid' => $uid
+						)
 					)
 				) {
 					$ret['status'] = TRUE;
@@ -557,15 +566,18 @@ function user_remove($uid, $forced = FALSE)
 					}
 
 					if (
-						dba_update(_DB_PREF_ . '_tblUser', array(
-							'c_timestamp' => time(),
-							'password' => '',
-							'salt' => '',
-							'flag_deleted' => 1
-						), array(
-							'flag_deleted' => 0,
-							'uid' => $uid
-						)
+						dba_update(
+							_DB_PREF_ . '_tblUser',
+							array(
+								'c_timestamp' => time(),
+								'password' => '',
+								'salt' => '',
+								'flag_deleted' => 1
+							),
+							array(
+								'flag_deleted' => 0,
+								'uid' => $uid
+							)
 						)
 					) {
 						user_banned_remove($uid);
@@ -648,10 +660,13 @@ function user_edit_conf($uid, $data = array())
 			}
 
 			if (
-				dba_update(_DB_PREF_ . '_tblUser', $up, array(
-					'flag_deleted' => 0,
-					'uid' => $uid
-				)
+				dba_update(
+					_DB_PREF_ . '_tblUser',
+					$up,
+					array(
+						'flag_deleted' => 0,
+						'uid' => $uid
+					)
 				)
 			) {
 				if ($up['token']) {
@@ -960,10 +975,12 @@ function user_setparentbyuid($uid, $parent_uid)
 		$parent_status = user_getfieldbyuid($parent_uid, 'status');
 		if ($parent_status == 3) {
 			if (
-				user_setdatabyuid($uid, array(
-					'parent_uid' => $parent_uid,
-					'status' => 4
-				)
+				user_setdatabyuid(
+					$uid,
+					array(
+						'parent_uid' => $parent_uid,
+						'status' => 4
+					)
 				)
 			) {
 				return TRUE;
@@ -1074,9 +1091,9 @@ function user_search($keywords = '', $fields = '', $extras = '', $exact = FALSE)
 	}
 
 	if ($search || $extra_sql) {
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND (" . $search . " " . $extra_sql . ")";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND (" . $search . " " . $extra_sql . ")";
 	} else {
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0'";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0";
 	}
 	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {

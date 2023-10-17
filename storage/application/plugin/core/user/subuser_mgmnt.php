@@ -38,15 +38,16 @@ switch (_OP_) {
 			_('Username') => 'username',
 			_('Name') => 'name',
 			_('Mobile') => 'mobile',
-			_('ACL') => 'acl_id' 
+			_('ACL') => 'acl_id'
 		);
 		$search = themes_search($search_var, '', array(
-			'acl_id' => 'acl_getid' 
-		));
+			'acl_id' => 'acl_getid'
+		)
+		);
 		$conditions = array(
 			'flag_deleted' => 0,
 			'status' => 4,
-			'parent_uid' => $user_config['uid'] 
+			'parent_uid' => $user_config['uid']
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);
@@ -54,7 +55,7 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'register_datetime DESC, username',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 		if ($err = TRUE) {
@@ -85,9 +86,9 @@ switch (_OP_) {
 			<tbody>";
 		$j = $nav['top'];
 		for ($i = 0; $i < count($list); $i++) {
-			
+
 			$action = "";
-			
+
 			// login as
 			if ($list[$i]['uid'] != $user_config['uid']) {
 				$main_config = $core_config['main'];
@@ -95,38 +96,41 @@ switch (_OP_) {
 					$action = "<a href=\"" . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=login_as&uname=' . $list[$i]['username']) . "\">" . $icon_config['login_as'] . "</a>";
 				}
 			}
-			
+
 			// subuser preferences
 			$action .= "<a href=\"" . _u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref&uname=' . $list[$i]['username']) . "\">" . $icon_config['user_pref'] . "</a>";
-			
+
 			// subuser configurations
 			$action .= "<a href=\"" . _u('index.php?app=main&inc=core_user&route=user_config&op=user_config&uname=' . $list[$i]['username']) . "\">" . $icon_config['user_config'] . "</a>";
-			
+
 			if ($list[$i]['uid'] != '1' || $list[$i]['uid'] != $user_config['uid']) {
 				if (user_banned_get($list[$i]['uid'])) {
 					// unban
 					$action .= _confirm(
 						_("Are you sure you want to unban subuser") . " " . $list[$i]['username'] . " ?",
 						_u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_unban&uname=' . $list[$i]['username']),
-						'unban');
+						'unban'
+					);
 					$banned_icon = $icon_config['ban'];
 				} else {
 					// ban
-					$action .= 
+					$action .=
 						_confirm(
 							_("Are you sure you want to ban subuser") . " " . $list[$i]['username'] . " ?",
 							_u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_ban&uname=' . $list[$i]['username']),
-							'ban');
+							'ban'
+						);
 					$banned_icon = '';
 				}
 			}
-			
+
 			// remove subuser
 			$action .= _confirm(
 				_("Are you sure you want to delete subuser") . " " . $list[$i]['username'] . " ?",
 				_u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del&uname=' . $list[$i]['username']),
-				'user_delete');
-			
+				'user_delete'
+			);
+
 			$j--;
 			$content .= "
 				<tr>
@@ -145,37 +149,38 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>";
 		_p($content);
 		break;
-	
+
 	case "subuser_add":
 		if ($err = TRUE) {
 			$content = _dialog();
 		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
 		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
-		
+
 		// get language options
 		$lang_list = [];
 		if (isset($core_config['plugins']['list']['language']) && is_array($core_config['plugins']['list']['language']) && $languages = $core_config['plugins']['list']['language']) {
-			foreach ($languages as $language) {
+			foreach ( $languages as $language ) {
 				if (isset($plugin_config[$language]['title']) && $plugin_config[$language]['title'] && $c_language_title = $plugin_config[$language]['title']) {
 					$lang_list[$c_language_title] = $language;
 				}
-			}		
+			}
 		}
 		if (is_array($lang_list) && $lang_list) {
-			foreach ($lang_list as $c_language_title => $c_language) {
-				if ($c_language == core_lang_get()) $selected = "selected";
+			foreach ( $lang_list as $c_language_title => $c_language ) {
+				if ($c_language == core_lang_get())
+					$selected = "selected";
 				$option_language_module .= "<option value=\"" . $c_language . "\" $selected>" . $c_language_title . "</option>";
 				$selected = "";
 			}
 		}
-		
+
 		// get access control list
 		$option_uid_acl = array_flip(acl_getallbyuid($user_config['uid']));
 		$option_uid_acl['-'] = 0;
 		ksort($option_uid_acl);
 		$option_acl = _select('add_acl_id', $option_uid_acl);
-		
+
 		$content .= "
 		<h2 class=page-header-title>" . _('Manage subuser') . "</h2>
 		<h3 class=page-header-subtitle>" . _('Add subuser') . "</h3>
@@ -217,7 +222,7 @@ switch (_OP_) {
 		" . _back('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list');
 		_p($content);
 		break;
-	
+
 	case "subuser_add_yes":
 		$add['acl_id'] = (int) $_POST['add_acl_id'];
 		$add['email'] = $_POST['add_email'];
@@ -228,27 +233,27 @@ switch (_OP_) {
 		$add['footer'] = $_POST['add_footer'];
 		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];
 		$add['language_module'] = $_POST['add_language_module'];
-		
+
 		// subuser settings
 		$add['parent_uid'] = $user_config['uid'];
 		$add['status'] = 4;
-		
+
 		// set credit to 0 by default
 		$add['credit'] = 0;
-		
+
 		// add user
 		$ret = user_add($add);
-		
+
 		if (is_array($ret)) {
 			$_SESSION['dialog']['info'][] = $ret['error_string'];
 		} else {
 			$_SESSION['dialog']['info'][] = _('Unable to process subuser addition');
 		}
-		
+
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_add'));
 		exit();
 		break;
-	
+
 	case "subuser_del":
 		$up['username'] = $subuser_edited['username'];
 		$del_uid = user_username2uid($up['username']);
@@ -257,7 +262,7 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list'));
 		exit();
 		break;
-	
+
 	case "subuser_unban":
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
@@ -274,7 +279,7 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list'));
 		exit();
 		break;
-	
+
 	case "subuser_ban":
 		$uid = $subuser_edited['uid'];
 		if ($uid && ($uid == 1 || $uid == $user_config['uid'])) {
@@ -291,7 +296,7 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list'));
 		exit();
 		break;
-	
+
 	case "login_as":
 		$uid = user_username2uid($_REQUEST['uname']);
 		auth_login_as($uid);

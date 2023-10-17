@@ -48,10 +48,16 @@ $c_uid = user_username2uid($c_username);
 
 switch (_OP_) {
 	case "user_config":
-		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-			'flag_deleted' => 0,
-			'uid' => $c_uid 
-		))) {
+		if (
+			$c_user = dba_search(
+				_DB_PREF_ . '_tblUser',
+				'*',
+				array(
+					'flag_deleted' => 0,
+					'uid' => $c_uid
+				)
+			)
+		) {
 			$token = $c_user[0]['token'];
 			$webservices_ip = $c_user[0]['webservices_ip'];
 			$enable_webservices = $c_user[0]['enable_webservices'];
@@ -70,7 +76,7 @@ switch (_OP_) {
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 			exit();
 		}
-		
+
 		// select enable_webservices
 		if ($enable_webservices) {
 			$selected_1 = 'selected';
@@ -81,7 +87,7 @@ switch (_OP_) {
 		}
 		$option_enable_webservices = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_enable_webservices .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select token
 		if ($new_token) {
 			$selected_1 = 'selected';
@@ -92,7 +98,7 @@ switch (_OP_) {
 		}
 		$option_new_token = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_new_token .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select fwd_to_inbox
 		if ($fwd_to_inbox) {
 			$selected_1 = 'selected';
@@ -103,7 +109,7 @@ switch (_OP_) {
 		}
 		$option_fwd_to_inbox = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_fwd_to_inbox .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select fwd_to_email
 		if ($fwd_to_email) {
 			$selected_1 = 'selected';
@@ -114,7 +120,7 @@ switch (_OP_) {
 		}
 		$option_fwd_to_email = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_fwd_to_email .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// select fwd_to_mobile
 		if ($fwd_to_mobile) {
 			$selected_1 = 'selected';
@@ -125,70 +131,78 @@ switch (_OP_) {
 		}
 		$option_fwd_to_mobile = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option>";
 		$option_fwd_to_mobile .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		
+
 		// get language options
 		$lang_list = [];
 		if (isset($core_config['plugins']['list']['language']) && is_array($core_config['plugins']['list']['language']) && $languages = $core_config['plugins']['list']['language']) {
-			foreach ($languages as $language) {
+			foreach ( $languages as $language ) {
 				if (isset($plugin_config[$language]['title']) && $plugin_config[$language]['title'] && $c_language_title = $plugin_config[$language]['title']) {
 					$lang_list[$c_language_title] = $language;
 				}
-			}		
+			}
 		}
 		if (is_array($lang_list) && $lang_list) {
-			foreach ($lang_list as $c_language_title => $c_language) {
-				if ($c_language == user_getfieldbyuid($c_uid, 'language_module')) $selected = "selected";
+			foreach ( $lang_list as $c_language_title => $c_language ) {
+				if ($c_language == user_getfieldbyuid($c_uid, 'language_module'))
+					$selected = "selected";
 				$option_language_module .= "<option value=\"" . $c_language . "\" $selected>" . $c_language_title . "</option>";
 				$selected = "";
 			}
 		}
-		
+
 		// get sender ID
 		$c_sms_from = sender_id_default_get($user_edited['uid']);
 		$option_sender_id = "<option value=\"\">" . _('None') . "</option>";
-		foreach (sender_id_getall($user_edited['username']) as $sender_id) {
+		foreach ( sender_id_getall($user_edited['username']) as $sender_id ) {
 			$selected = '';
 			if (strtoupper($c_sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
 			}
 			$option_sender_id .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
 		}
-		
+
 		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage account');
-			
+
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td><input type=text maxlength=14 name=up_credit value=\"$credit\"></td></tr>";
-			
+
 
 			if ($is_parent) {
 				$button_delete = _confirm(
-					_('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")", 
+					_('Are you sure you want to delete subuser ?') . " (" . _('username') . ": " . $c_username . ")",
 					_u('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_del' . $url_uname),
-					"<input type=button class=button value='" . _('Delete') . "'>");
+					"<input type=button class=button value='" . _('Delete') . "'>"
+				);
 				$button_back = _back('index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list');
 			} else {
 				$button_delete = _confirm(
 					_('Are you sure you want to delete user ?') . " (" . _('username') . ": " . $c_username . ")",
 					_u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_del' . $url_uname . '&view=' . $view),
-					"<input type=button class=button value='" . _('Delete') . "'>");
+					"<input type=button class=button value='" . _('Delete') . "'>"
+				);
 				$button_back = _back('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view);
 			}
 		} else {
 			$form_title = _('User configuration');
-			
+
 			// fixme anton - now disabled since plugin/feature/credit exists
 			// $option_credit = "<tr><td>" . _('Credit') . "</td><td>$credit</td></tr>";
 		}
-		
+
 		// get access control list
 		$c_option_acl = array_flip(acl_getall());
 		$c_option_acl['-'] = 0;
 		ksort($c_option_acl);
-		$option_acl = _input('text', '', acl_getname($acl_id), array(
-			'readonly' 
-		));
+		$option_acl = _input(
+			'text',
+			'',
+			acl_getname($acl_id),
+			array(
+				'readonly'
+			)
+		);
 		if (auth_isadmin()) {
 			$option_acl = _select('up_acl_id', $c_option_acl, $acl_id);
 		}
@@ -199,21 +213,24 @@ switch (_OP_) {
 				$option_acl = _select('up_acl_id', $c_option_acl, $acl_id);
 			}
 		}
-		
+
 		// additional user's config available on registry
 		$data = registry_search($c_uid, 'core', 'user_config');
-		
+
 		// credit unicodes messages as single message
-		$option_enable_credit_unicode = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $data['core']['user_config']['enable_credit_unicode']);
+		$option_enable_credit_unicode = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$data['core']['user_config']['enable_credit_unicode']
+		);
 		if (auth_isadmin()) {
 			$option_enable_credit_unicode = "<select name='edit_enable_credit_unicode'>" . $option_enable_credit_unicode . "</select>";
 		} else {
 			$option_enable_credit_unicode = $user_config['opt']['enable_credit_unicode'] ? _('yes') : _('no');
 		}
-		
+
 		$tpl = array(
 			'name' => 'user_config',
 			'vars' => array(
@@ -271,12 +288,12 @@ switch (_OP_) {
 				'local_length' => $local_length,
 				'replace_zero' => $replace_zero,
 				'credit' => $credit,
-				'option_enable_credit_unicode' => $option_enable_credit_unicode 
-			) 
+				'option_enable_credit_unicode' => $option_enable_credit_unicode
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
-	
+
 	case "user_config_save":
 		$fields = array(
 			'footer',
@@ -291,22 +308,22 @@ switch (_OP_) {
 			'enable_webservices',
 			'webservices_ip',
 			'sender',
-			'acl_id' 
+			'acl_id'
 		);
-		
+
 		$up = array();
-		foreach ($fields as $field) {
+		foreach ( $fields as $field ) {
 			if (isset($_POST['up_' . $field])) {
 				$up[$field] = trim($_POST['up_' . $field]);
 			}
 		}
 		$ret = user_edit_conf($c_uid, $up);
-		
+
 		$items['enable_credit_unicode'] = (int) $_POST['edit_enable_credit_unicode'];
 		registry_update($c_uid, 'core', 'user_config', $items);
-		
+
 		$_SESSION['dialog']['info'][] = $ret['error_string'];
-		
+
 		_log('saving username:' . $c_username . ' error_string:[' . $ret['error_string'] . ']', 2, 'user_config');
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_config&op=user_config' . $url_uname . '&view=' . $view));
 		exit();
