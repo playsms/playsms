@@ -32,16 +32,16 @@ if (auth_isvalid()) {
 		} else {
 			_log("fail to re-login as u:" . $_SESSION['username'] . " uid:" . $uid . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . _REMOTE_ADDR_, 2, "auth logout");
 		}
-		header('Location: '._u(_HTTP_PATH_BASE_));
+		header('Location: ' . _u(_HTTP_PATH_BASE_));
 	} else {
-		_log("u:".$_SESSION['username']." uid:" . $_SESSION['uid'] . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . _REMOTE_ADDR_, 2, "auth logout");
-		
+		_log("u:" . $_SESSION['username'] . " uid:" . $_SESSION['uid'] . " status:" . $_SESSION['status'] . " sid:" . session_id() . " ip:" . _REMOTE_ADDR_, 2, "auth logout");
+
 		// destroy user session for complete logout
 		auth_session_destroy();
-		
+
 		$_SESSION['dialog']['info'][] = _('You have been logged out');
 	}
 }
 
-header("Location: "._u($core_config['http_path']['base']));
+header("Location: " . _u($core_config['http_path']['base']));
 exit();

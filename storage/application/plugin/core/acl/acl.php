@@ -36,16 +36,17 @@ switch (_OP_) {
 				<th width=8% nowrap>" . _('Action') . "</th>
 			</tr></thead>
 			<tbody>";
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted='0' ORDER BY name";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted=0 ORDER BY name";
 		$db_result = dba_query($db_query);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			$action = "<a href=\"" . _u('index.php?app=main&inc=core_acl&route=view&op=user_list&id=' . $db_row['id']) . "\">" . $icon_config['view'] . "</a>&nbsp;";
 			$action .= "<a href=\"" . _u('index.php?app=main&inc=core_acl&op=edit&id=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
 			$action .= _confirm(
-				_('Are you sure you want to delete ACL ?') . " (" . _('ACL ID') . ": " . $db_row['id'] . ")", 
-				_u('index.php?app=main&inc=core_acl&op=del&id=' . $db_row['id']), 
-				'delete');
+				_('Are you sure you want to delete ACL ?') . " (" . _('ACL ID') . ": " . $db_row['id'] . ")",
+				_u('index.php?app=main&inc=core_acl&op=del&id=' . $db_row['id']),
+				'delete'
+			);
 			$i++;
 			$content .= "
 					<tr>
@@ -62,7 +63,7 @@ switch (_OP_) {
 			" . _button('index.php?app=main&inc=core_acl&op=add', _('Add ACL'));
 		_p($content);
 		break;
-	
+
 	case "add":
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage ACL') . "</h2>
@@ -88,11 +89,11 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=core_acl&op=acl_list');
 		_p($content);
 		break;
-	
+
 	case "add_yes":
 		$name = trim(strtoupper($_POST['name']));
 		$acl_subusers = explode(',', trim(strtoupper($_POST['acl_subuser'])));
-		foreach ($acl_subusers as $item) {
+		foreach ( $acl_subusers as $item ) {
 			$acl_subuser .= ' ' . trim(strtoupper($item)) . ',';
 		}
 		$acl_subuser = trim(substr($acl_subuser, 0, -1));
@@ -101,8 +102,14 @@ switch (_OP_) {
 		if ($name) {
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_tblACL (c_timestamp,name,acl_subuser,url,flag_disallowed,flag_deleted)
-				VALUES ('" . time() . "','" . $name . "','" . $acl_subuser . "','" . $url . "'," . $acl_disallowed . ",'0')";
-			if ($new_id = @dba_insert_id($db_query)) {
+				VALUES ('" . time() . "',?,?,?,?,0)";
+			$db_argv = [
+				$name,
+				$acl_subuser,
+				$url,
+				$acl_disallowed
+			];
+			if ($new_id = @dba_insert_id($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('New ACL been added');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to add new ACL');
@@ -112,12 +119,11 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_acl&op=add'));
 		exit();
-		break;
-	
+
 	case "edit":
 		$id = (int) $_REQUEST['id'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted='0' AND id='" . $id . "'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted='0' AND id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage ACL') . "</h2>
@@ -147,12 +153,12 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=core_acl&op=acl_list');
 		_p($content);
 		break;
-	
+
 	case "edit_yes":
 		$id = (int) $_POST['id'];
 		$name = trim(strtoupper($_POST['name']));
 		$acl_subusers = explode(',', trim(strtoupper($_POST['acl_subuser'])));
-		foreach ($acl_subusers as $item) {
+		foreach ( $acl_subusers as $item ) {
 			$acl_subuser .= ' ' . trim(strtoupper($item)) . ',';
 		}
 		$acl_subuser = trim(substr($acl_subuser, 0, -1));
@@ -160,9 +166,15 @@ switch (_OP_) {
 		$url = trim($_POST['url']);
 		if ($id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . time() . "',acl_subuser='" . $acl_subuser . "',url='" . $url . "',flag_disallowed='" . $acl_disallowed . "'
-				WHERE id='" . $id . "'";
-			if ($new_id = @dba_affected_rows($db_query)) {
+				UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . time() . "',acl_subuser=?,url=?,flag_disallowed=?
+				WHERE id=?";
+			$db_argv = [
+				$acl_subuser,
+				$url,
+				$acl_disallowed,
+				$id
+			];
+			if ($new_id = @dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('ACL been edited');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to edit ACL');
@@ -172,15 +184,16 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_acl&op=edit&id=' . $id));
 		exit();
-		break;
-	
+
 	case "del":
 		$id = $_REQUEST['id'];
-		if ($id && dba_isexists(_DB_PREF_ . "_tblACL", array(
-			'id' => $id 
-		), 'AND')) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . time() . "', flag_deleted='1' WHERE id='$id'";
-			if (@dba_affected_rows($db_query)) {
+		if (
+			$id && dba_isexists(_DB_PREF_ . "_tblACL", array(
+				'id' => $id
+			), 'AND')
+		) {
+			$db_query = "UPDATE " . _DB_PREF_ . "_tblACL SET c_timestamp='" . time() . "', flag_deleted=1 WHERE id=?";
+			if (@dba_affected_rows($db_query, [$id])) {
 				$_SESSION['dialog']['info'][] = _('ACL has been deleted');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to delete ACL');
@@ -190,5 +203,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=core_acl&op=acl_list'));
 		exit();
-		break;
 }

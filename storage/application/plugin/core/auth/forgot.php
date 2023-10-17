@@ -22,7 +22,7 @@ use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
 
 if (_OP_ == 'forgot') {
-	
+
 	$username = trim($_REQUEST['username']);
 	$email = trim($_REQUEST['email']);
 
@@ -36,9 +36,9 @@ if (_OP_ == 'forgot') {
 		$session_captcha_phrase = strtolower($_SESSION['tmp']['captcha']['phrase']);
 		$session_captcha_time = (int) $_SESSION['tmp']['captcha']['time'];
 		unset($_SESSION['tmp']['captcha']);
-	
+
 		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == $session_captcha_phrase)) {
-		
+
 			// captcha timeout 15 minutes
 			if (time() > ($session_captcha_time + (15 * 60))) {
 				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
@@ -48,7 +48,7 @@ if (_OP_ == 'forgot') {
 				header("Location: " . _u('index.php?app=main&inc=core_auth&route=forgot'));
 				exit();
 			}
-			
+
 		} else {
 			_log("fail to verify captcha u:" . $username . " e:" . $email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
 
@@ -59,18 +59,25 @@ if (_OP_ == 'forgot') {
 		}
 	}
 
-	if ($core_config['main']['enable_forgot']) {	
+	if ($core_config['main']['enable_forgot']) {
 		if ($username && $email) {
-			$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username' AND email='$email'";
-			$db_result = dba_query($db_query);
+			$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username=? AND email=?";
+			$db_result = dba_query($db_query, [$username, $email]);
 			$db_row = dba_fetch_array($db_result);
 			if ($uid = $db_row['uid']) {
 				$tmp_password_plain = core_get_random_string();
 				$tmp_password_hashed = password_hash($tmp_password_plain, PASSWORD_BCRYPT);
-				if (registry_update(1, 'auth', 'tmp_password', array(
-					$username => $tmp_password_hashed
-				))) {
-					
+				if (
+					registry_update(
+						1,
+						'auth',
+						'tmp_password',
+						array(
+							$username => $tmp_password_hashed
+						)
+					)
+				) {
+
 					// send email
 					$tpl = array(
 						'name' => 'auth_forgot_email',
@@ -83,59 +90,59 @@ if (_OP_ == 'forgot') {
 							'temporary_password' => $tmp_password_plain
 						),
 						'injects' => array(
-							'core_config' 
-						) 
+							'core_config'
+						)
 					);
 					$email_body = tpl_apply($tpl);
 					$email_subject = _('Password recovery');
-					
+
 					$mail_data = array(
 						'mail_from_name' => $core_config['main']['web_title'],
 						'mail_from' => $core_config['main']['email_service'],
 						'mail_to' => $email,
 						'mail_subject' => $email_subject,
-						'mail_body' => $email_body 
+						'mail_body' => $email_body
 					);
 					if (sendmail($mail_data)) {
 						_log("temporary password has been emailed u:" . $username . " email:" . $email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
-	
+
 						$_SESSION['dialog']['info'][] = _('Temporary password has been emailed. You must login immediately.');
-						
+
 						header("Location: " . _u($core_config['http_path']['base']));
 						exit();
 					} else {
 						_log("fail to send email u:" . $username . " email:" . $email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
-						
+
 						$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 					}
 				} else {
 					_log("fail to save temporary password u:" . $username . " email:" . $email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
-	
+
 					$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 				}
 			} else {
 				_log("username and email pair not found u:" . $username . " email:" . $email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
-	
+
 				$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 			}
 		} else {
 			_log("empty username or email u:" . $username . " email:" . $email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
-	
+
 			$_SESSION['dialog']['danger'][] = _('Fail to recover password');
 		}
 	} else {
 		_log("attempted to recover password while disabled u:" . $username . " email:" . $email . " ip:" . _REMOTE_ADDR_, 2, "auth forgot");
-		
+
 		$_SESSION['dialog']['danger'][] = _('Recover password disabled');
 	}
-	
+
 	header("Location: " . _u('index.php?app=main&inc=core_auth&route=forgot'));
 	exit();
 } else {
-	
+
 	$enable_logo = FALSE;
 	$show_web_title = TRUE;
-	
+
 	if ($core_config['main']['enable_logo'] && $core_config['main']['logo_url']) {
 		$enable_logo = TRUE;
 		if ($core_config['main']['logo_replace_title']) {
@@ -147,7 +154,7 @@ if (_OP_ == 'forgot') {
 		'username' => _lastpost('username'),
 		'email' => _lastpost('email')
 	);
-	
+
 	// prepare captcha phrase and set the time
 	$captcha_image = '';
 	if ($auth_captcha_form_forgot) {
@@ -160,7 +167,7 @@ if (_OP_ == 'forgot') {
 		];
 		$captcha_image = $captcha->inline();
 	}
-	
+
 	$tpl = array(
 		'name' => 'auth_forgot',
 		'vars' => array(
@@ -179,18 +186,18 @@ if (_OP_ == 'forgot') {
 			'Submit' => _('Submit'),
 			'Register an account' => _('Register an account'),
 			'Verify captcha' => _('Verify captcha'),
-			'logo_url' => $core_config['main']['logo_url'] 
+			'logo_url' => $core_config['main']['logo_url']
 		),
 		'ifs' => array(
 			'enable_captcha' => $auth_captcha_form_forgot,
 			'enable_register' => $core_config['main']['enable_register'],
 			'enable_logo' => $enable_logo,
-			'show_web_title' => $show_web_title 
+			'show_web_title' => $show_web_title
 		),
 		'injects' => array(
 			'lastpost'
 		)
 	);
-	
+
 	_p(tpl_apply($tpl));
 }

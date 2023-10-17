@@ -18,166 +18,182 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function acl_getall() {
+function acl_getall()
+{
 	$conditions = array(
-		'flag_deleted' => 0 
+		'flag_deleted' => 0
 	);
 	$extras = array(
-		'ORDER BY' => 'name' 
+		'ORDER BY' => 'name'
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', '*', $conditions, '', $extras);
-	foreach ($list as $item) {
+	foreach ( $list as $item ) {
 		if ($item['id'] && trim($item['name'])) {
 			$ret[$item['id']] = trim(strtoupper($item['name']));
 		}
 	}
-	
+
 	return $ret;
 }
 
-function acl_getallbyuid($uid) {
+function acl_getallbyuid($uid)
+{
 	global $core_config;
-	
+
 	$ret = [];
-	
+
 	$acl_id = acl_getidbyuid($uid);
 	$acl_name = acl_getname($acl_id);
-	
+
 	if (!$acl_name) {
 		return FALSE;
 	}
-	
+
 	$acl_subusers = explode(',', acl_getaclsubuser($acl_id));
-	foreach ($acl_subusers as $acl_subuser) {
+	foreach ( $acl_subusers as $acl_subuser ) {
 		$acl_subuser = trim($acl_subuser);
 		$c_acl_id = acl_getid($acl_subuser);
-		
+
 		if ($c_acl_id && $acl_subuser) {
 			$ret[$c_acl_id] = $acl_subuser;
 		}
 	}
-	
+
 	if (!(isset($ret) && is_array($ret) && count($ret))) {
 		$default_acl_id = ($core_config['main']['default_acl'] ? $core_config['main']['default_acl'] : 0);
 		$default_acl_name = acl_getname($default_acl_id);
 		$ret = array(
-			$default_acl_id => $default_acl_name 
+			$default_acl_id => $default_acl_name
 		);
 	}
-	
+
 	return $ret;
 }
 
-function acl_getdata($acl_id) {
+function acl_getdata($acl_id)
+{
 	$conditions = array(
 		'id' => (int) $acl_id,
-		'flag_deleted' => 0 
+		'flag_deleted' => 0
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', '*', $conditions);
 	$ret = $list[0];
-	
+
 	return $ret;
 }
 
-function acl_getname($acl_id) {
+function acl_getname($acl_id)
+{
 	$conditions = array(
 		'id' => (int) $acl_id,
-		'flag_deleted' => 0 
+		'flag_deleted' => 0
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'name', $conditions);
 	$ret = (trim($list[0]['name']) ? trim(strtoupper($list[0]['name'])) : _('-'));
-	
+
 	return $ret;
 }
 
-function acl_getid($acl_name) {
+function acl_getid($acl_name)
+{
 	$conditions = array(
 		'name' => trim(strtoupper($acl_name)),
-		'flag_deleted' => 0 
+		'flag_deleted' => 0
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'id', $conditions);
 	$ret = ((int) $list[0]['id'] ? (int) $list[0]['id'] : 0);
-	
+
 	return $ret;
 }
 
-function acl_getaclsubuser($acl_id) {
+function acl_getaclsubuser($acl_id)
+{
 	$conditions = array(
 		'id' => (int) $acl_id,
-		'flag_deleted' => 0 
+		'flag_deleted' => 0
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'acl_subuser', $conditions);
 	$ret = trim(strtoupper($list[0]['acl_subuser']));
-	
+
 	return $ret;
 }
 
-function acl_geturl($acl_id) {
+function acl_geturl($acl_id)
+{
 	$ret = [];
 
 	$conditions = array(
 		'id' => (int) $acl_id,
-		'flag_deleted' => 0 
+		'flag_deleted' => 0
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'url', $conditions);
 	$urls = explode(',', $list[0]['url']);
-	foreach ($urls as $key => $val) {
+	foreach ( $urls as $key => $val ) {
 		if (trim($val)) {
 			$ret[] = trim(htmlspecialchars_decode($val));
 		}
 	}
-	
+
 	return $ret;
 }
 
-function acl_isexists($acl_id) {
+function acl_isexists($acl_id)
+{
 	$conditions = array(
 		'id' => (int) $acl_id,
-		'flag_deleted' => 0 
+		'flag_deleted' => 0
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'name', $conditions);
 	$ret = (trim($list[0]['name']) ? TRUE : FALSE);
-	
+
 	return $ret;
 }
 
-function acl_getnamebyuid($uid) {
+function acl_getnamebyuid($uid)
+{
 	$acl_name = acl_getname(acl_getidbyuid($uid));
-	
+
 	return $acl_name;
 }
 
-function acl_getidbyuid($uid) {
+function acl_getidbyuid($uid)
+{
 	$list = dba_search(_DB_PREF_ . '_tblUser', 'acl_id', array(
 		'flag_deleted' => 0,
-		'uid' => $uid 
-	));
+		'uid' => $uid
+	)
+	);
 	$acl_id = (int) $list[0]['acl_id'];
 	if (!acl_isexists($acl_id)) {
 		$acl_id = 0;
 	}
-	
+
 	return $acl_id;
 }
 
-function acl_setbyuid($acl_id, $uid) {
+function acl_setbyuid($acl_id, $uid)
+{
 	$ret = FALSE;
-	
+
 	if ((int) $uid && $acl_name = acl_getname($acl_id)) {
-		if (dba_update(_DB_PREF_ . '_tblUser', array(
-			'acl_id' => $acl_id 
-		), array(
-			'flag_deleted' => 0,
-			'uid' => $uid 
-		))) {
+		if (
+			dba_update(_DB_PREF_ . '_tblUser', array(
+				'acl_id' => $acl_id
+			), array(
+				'flag_deleted' => 0,
+				'uid' => $uid
+			)
+			)
+		) {
 			return TRUE;
 		}
 	}
-	
+
 	return $ret;
 }
 
-function acl_checkurl($url, $uid = NULL) {
+function acl_checkurl($url, $uid = NULL)
+{
 	// $uid must exists
 	$uid = ((int) $uid ? (int) $uid : $_SESSION['uid']);
 	$acl_id = acl_getidbyuid($uid);
@@ -215,7 +231,7 @@ function acl_checkurl($url, $uid = NULL) {
 	}
 	$input = _acl_sanitize($input);
 
-	foreach ($acl_urls as $acl_url) {
+	foreach ( $acl_urls as $acl_url ) {
 		// looking for exception rule (prefixed with punctuation)
 		// if found then clean $acl_url from exception marker (remove punctuation)
 		$is_exception = _acl_isexception($acl_url);
@@ -258,10 +274,11 @@ function acl_checkurl($url, $uid = NULL) {
 	}
 }
 
-function _acl_sanitize($data_raw = array()) {
+function _acl_sanitize($data_raw = array())
+{
 	$data = [];
 
-	foreach ($data_raw as $key => $val) {
+	foreach ( $data_raw as $key => $val ) {
 		if ($key && !is_array($val)) {
 			$key = strtolower(trim($key));
 			$val = strtolower(trim($val));
@@ -279,11 +296,12 @@ function _acl_sanitize($data_raw = array()) {
 	return $data;
 }
 
-function _acl_isexception(&$url) {
+function _acl_isexception(&$url)
+{
 	$url = trim($url);
 	if (substr($url, 0, 1) == '!') {
 		$url = substr($url, 1);
-		
+
 		return TRUE;
 	}
 

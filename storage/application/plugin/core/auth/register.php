@@ -33,9 +33,9 @@ if (_OP_ == 'register') {
 		$session_captcha_phrase = strtolower($_SESSION['tmp']['captcha']['phrase']);
 		$session_captcha_time = (int) $_SESSION['tmp']['captcha']['time'];
 		unset($_SESSION['tmp']['captcha']);
-	
+
 		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == $session_captcha_phrase)) {
-		
+
 			// captcha timeout 15 minutes
 			if (time() > ($session_captcha_time + (15 * 60))) {
 				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . _REMOTE_ADDR_, 2, "auth register");
@@ -45,7 +45,7 @@ if (_OP_ == 'register') {
 				header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
 				exit();
 			}
-			
+
 		} else {
 			_log("fail to verify captcha ip:" . _REMOTE_ADDR_, 2, "register");
 
@@ -65,7 +65,7 @@ if (_OP_ == 'register') {
 	if ($core_config['main']['enable_register']) {
 		if (!($data['name'] && $data['username'] && $data['email'])) {
 			_log("incomplete registration data name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . _REMOTE_ADDR_, 2, "auth register");
-		
+
 			$_SESSION['dialog']['danger'][] = _('Incomplete registration data');
 
 			header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
@@ -73,13 +73,13 @@ if (_OP_ == 'register') {
 		}
 	} else {
 		_log("attempted to register an account while disabled name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . _REMOTE_ADDR_, 2, "auth register");
-		
+
 		$_SESSION['dialog']['danger'][] = _('Register an account is disabled');
 
 		header("Location: " . _u($core_config['http_path']['base']));
 		exit();
 	}
-	
+
 	// force non-admin, status=3 is user and status=4 is subuser
 	$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
 
@@ -96,10 +96,10 @@ if (_OP_ == 'register') {
 	$ret = user_add($data, FALSE, FALSE);
 	$ok = ($ret['status'] ? TRUE : FALSE);
 	if ($ok) {
-		
+
 		// injected variable
 		$reg_data = $ret['data'];
-		
+
 		// send email
 		$tpl = array(
 			'name' => 'auth_register_email',
@@ -109,22 +109,22 @@ if (_OP_ == 'register') {
 				'Password' => _('Password'),
 				'Mobile' => _('Mobile'),
 				'Credit' => _('Credit'),
-				'Email' => _('Email') 
+				'Email' => _('Email')
 			),
 			'injects' => array(
 				'core_config',
-				'reg_data' 
-			) 
+				'reg_data'
+			)
 		);
 		$email_body = tpl_apply($tpl);
 		$email_subject = _('New account registration');
-		
+
 		$mail_data = array(
 			'mail_from_name' => $core_config['main']['web_title'],
 			'mail_from' => $core_config['main']['email_service'],
 			'mail_to' => $ret['data']['email'],
 			'mail_subject' => $email_subject,
-			'mail_body' => $email_body 
+			'mail_body' => $email_body
 		);
 		if (sendmail($mail_data)) {
 			$_SESSION['dialog']['info'][] = _('Account has been added and password has been emailed');
@@ -134,14 +134,14 @@ if (_OP_ == 'register') {
 	} else {
 		$_SESSION['dialog']['danger'][] = $ret['error_string'];
 	}
-	
+
 	header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
 	exit();
 } else {
-	
+
 	$enable_logo = FALSE;
 	$show_web_title = TRUE;
-	
+
 	if ($core_config['main']['enable_logo'] && $core_config['main']['logo_url']) {
 		$enable_logo = TRUE;
 		if ($core_config['main']['logo_replace_title']) {
@@ -155,7 +155,7 @@ if (_OP_ == 'register') {
 		'mobile' => _lastpost('mobile'),
 		'email' => _lastpost('email')
 	);
-	
+
 	// prepare captcha phrase and set the time
 	$captcha_image = '';
 	if ($auth_captcha_form_register) {
@@ -168,7 +168,7 @@ if (_OP_ == 'register') {
 		];
 		$captcha_image = $captcha->inline();
 	}
-	
+
 	$tpl = array(
 		'name' => 'auth_register',
 		'vars' => array(
@@ -189,18 +189,18 @@ if (_OP_ == 'register') {
 			'Submit' => _('Submit'),
 			'Recover password' => _('Recover password'),
 			'Verify captcha' => _('Verify captcha'),
-			'logo_url' => $core_config['main']['logo_url'] 
+			'logo_url' => $core_config['main']['logo_url']
 		),
 		'ifs' => array(
 			'enable_captcha' => $auth_captcha_form_register,
 			'enable_forgot' => $core_config['main']['enable_forgot'],
 			'enable_logo' => $enable_logo,
-			'show_web_title' => $show_web_title 
+			'show_web_title' => $show_web_title
 		),
 		'injects' => array(
 			'lastpost'
 		)
 	);
-	
+
 	_p(tpl_apply($tpl));
 }
