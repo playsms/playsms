@@ -43,8 +43,8 @@ $message_status = $requests['message_status'];
 
 // delivery receipt
 if ($remote_smslog_id && $message_status) {
-	$db_query = "SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayJasmin_log WHERE remote_smslog_id='$remote_smslog_id'";
-	$db_result = dba_query($db_query);
+	$db_query = "SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayJasmin_log WHERE remote_smslog_id=?";
+	$db_result = dba_query($db_query, [$remote_smslog_id]);
 	$db_row = dba_fetch_array($db_result);
 	$smslog_id = $db_row['local_smslog_id'];
 	if ($smslog_id) {
