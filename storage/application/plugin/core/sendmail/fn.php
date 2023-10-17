@@ -60,9 +60,10 @@ use PHPMailer\PHPMailer\Exception;
  * @param array
  * @return boolean
  */
-function sendmail($data = array()) {
+function sendmail($data = array())
+{
 	global $core_config;
-	
+
 	if (is_array($data)) {
 		$mail_from_name = $data['mail_from_name'];
 		$mail_from = $data['mail_from'];
@@ -97,7 +98,7 @@ function sendmail($data = array()) {
 
 		return false;
 	}
-	
+
 	_log("start from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
 
 	// Instantiation and passing `true` enables exceptions
@@ -105,21 +106,21 @@ function sendmail($data = array()) {
 
 	try {
 		// Server settings
-		$mail->SMTPDebug = ( $smtp_debug ? SMTP::DEBUG_CONNECTION : SMTP::DEBUG_SERVER ); // Enable verbose debug output
+		$mail->SMTPDebug = ($smtp_debug ? SMTP::DEBUG_CONNECTION : SMTP::DEBUG_SERVER); // Enable verbose debug output
 		$mail->isSMTP(); // Send using SMTP
-		$mail->Host = ( $smtp_host ? $smtp_host : _SMTP_HOST_ ); // Set the SMTP server to send through
-		$mail->Port = ( $smtp_port ? $smtp_port : _SMTP_PORT_ ); // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+		$mail->Host = ($smtp_host ? $smtp_host : _SMTP_HOST_); // Set the SMTP server to send through
+		$mail->Port = ($smtp_port ? $smtp_port : _SMTP_PORT_); // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
 		if ($smtp_user) {
-			$mail->SMTPAuth	= true; // Enable SMTP authentication
-			$mail->Username	= ( $smtp_user ? $smtp_user : _SMTP_USER_ ); // SMTP username
-			$mail->Password	= ( $smtp_pass ? $smtp_pass : _SMTP_PASS_ ); // SMTP password
+			$mail->SMTPAuth = true; // Enable SMTP authentication
+			$mail->Username = ($smtp_user ? $smtp_user : _SMTP_USER_); // SMTP username
+			$mail->Password = ($smtp_pass ? $smtp_pass : _SMTP_PASS_); // SMTP password
 		}
 
 		if ($smtp_secure == 'tls') {
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;	// Enable TLS encryption
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
 		} else if ($smtp_secure == 'ssl') {
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;	// Enable SSL encryption
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Enable SSL encryption
 		}
 
 		// Recipients
@@ -138,8 +139,8 @@ function sendmail($data = array()) {
 
 		// Content
 		$mail->Subject = $mail_subject;
-		$mail->Body    = $mail_body;
-		
+		$mail->Body = $mail_body;
+
 		if ($mail_body_format == 'plain') {
 			$mail->isHTML(false);
 		} else {
@@ -147,7 +148,7 @@ function sendmail($data = array()) {
 			if ($mail_body_alternative) {
 				$mail->AltBody = $mail_body_alternative;
 			}
-		}		
+		}
 
 		// Send it
 		$mail->send();

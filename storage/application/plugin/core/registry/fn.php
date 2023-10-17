@@ -19,11 +19,12 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-function registry_update($uid, $registry_group, $registry_family, $items) {
+function registry_update($uid, $registry_group, $registry_family, $items)
+{
 	$ret = false;
-	$db_table = _DB_PREF_.'_tblRegistry';
+	$db_table = _DB_PREF_ . '_tblRegistry';
 	if (is_array($items)) {
-		foreach ($items as $key => $val) {
+		foreach ( $items as $key => $val ) {
 			$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $key);
 			$values = array('c_timestamp' => strtotime(core_get_datetime()), 'registry_value' => $val);
 			if (dba_count($db_table, $conditions)) {
@@ -38,9 +39,10 @@ function registry_update($uid, $registry_group, $registry_family, $items) {
 	return $ret;
 }
 
-function registry_search($uid, $registry_group, $registry_family = '', $registry_key = '') {
+function registry_search($uid, $registry_group, $registry_family = '', $registry_key = '')
+{
 	$ret = array();
-	$db_table = _DB_PREF_.'_tblRegistry';
+	$db_table = _DB_PREF_ . '_tblRegistry';
 	if ($registry_group && $registry_family && $registry_key) {
 		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $registry_key);
 		$list = dba_search($db_table, 'registry_value', $conditions);
@@ -48,22 +50,23 @@ function registry_search($uid, $registry_group, $registry_family = '', $registry
 	} else if ($registry_group && $registry_family) {
 		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family);
 		$list = dba_search($db_table, 'registry_key, registry_value', $conditions);
-		foreach ($list as $db_row) {
+		foreach ( $list as $db_row ) {
 			$ret[$registry_group][$registry_family][$db_row['registry_key']] = $db_row['registry_value'];
 		}
 	} else if ($registry_group) {
 		$conditions = array('uid' => $uid, 'registry_group' => $registry_group);
 		$list = dba_search($db_table, 'registry_family, registry_key, registry_value', $conditions);
-		foreach ($list as $db_row) {
+		foreach ( $list as $db_row ) {
 			$ret[$registry_group][$db_row['registry_family']][$db_row['registry_key']] = $db_row['registry_value'];
 		}
 	}
 	return $ret;
 }
 
-function registry_remove($uid, $registry_group, $registry_family = '', $registry_key = '') {
+function registry_remove($uid, $registry_group, $registry_family = '', $registry_key = '')
+{
 	$ret = FALSE;
-	$db_table = _DB_PREF_.'_tblRegistry';
+	$db_table = _DB_PREF_ . '_tblRegistry';
 	if ($registry_group && $registry_family && $registry_key) {
 		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $registry_key);
 		$ret = dba_remove($db_table, $conditions);
@@ -77,10 +80,11 @@ function registry_remove($uid, $registry_group, $registry_family = '', $registry
 	return $ret;
 }
 
-function registry_search_record($search, $keywords='', $extras='') {
-	$db_table = _DB_PREF_.'_tblRegistry';
+function registry_search_record($search, $keywords = '', $extras = '')
+{
+	$db_table = _DB_PREF_ . '_tblRegistry';
 
-	foreach ($search as $key => $val) {
+	foreach ( $search as $key => $val ) {
 		if ($val) {
 			$conditions[$key] = $val;
 		}

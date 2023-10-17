@@ -68,10 +68,13 @@ if (auth_isadmin()) {
 switch (_OP_) {
 	case "user_pref":
 		if (
-			$c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-				'flag_deleted' => 0,
-				'username' => $c_username
-			)
+			$c_user = dba_search(
+				_DB_PREF_ . '_tblUser',
+				'*',
+				array(
+					'flag_deleted' => 0,
+					'username' => $c_username
+				)
 			)
 		) {
 			if ($allow_edit_status) {
@@ -206,6 +209,7 @@ switch (_OP_) {
 		);
 		_p(tpl_apply($tpl));
 		break;
+
 	case "user_pref_save":
 		$continue = TRUE;
 
@@ -258,5 +262,4 @@ switch (_OP_) {
 		_log('saving username:' . $c_username . ' error_string:[' . $ret['error_string'] . ']', 2, 'user_pref');
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref' . $url_uname . '&view=' . $view));
 		exit();
-		break;
 }

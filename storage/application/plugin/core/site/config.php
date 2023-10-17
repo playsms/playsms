@@ -8,7 +8,7 @@ $plugin_config['site'] = array(
 		'enable_forgot' => 1,
 		'enable_logo' => 0,
 		'logo_replace_title' => 0,
-		'logo_url' => '' 
+		'logo_url' => ''
 	),
-	'site_config' => array() 
+	'site_config' => array()
 );

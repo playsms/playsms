@@ -61,10 +61,13 @@ switch (_OP_) {
 			$search_var[_('Parent account')] = 'parent_uid';
 		}
 
-		$search = themes_search($search_var, '', array(
-			'parent_uid' => 'user_username2uid',
-			'acl_id' => 'acl_getid'
-		)
+		$search = themes_search(
+			$search_var,
+			'',
+			array(
+				'parent_uid' => 'user_username2uid',
+				'acl_id' => 'acl_getid'
+			)
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);

@@ -18,52 +18,62 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function phonebook_groupid2name($uid, $gpid) {
+function phonebook_groupid2name($uid, $gpid)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupname2id($uid, $name) {
+function phonebook_groupname2id($uid, $name)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupid2code($uid, $gpid) {
+function phonebook_groupid2code($uid, $gpid)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_groupcode2id($uid, $code) {
+function phonebook_groupcode2id($uid, $code)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_getdatabynumber($uid, $mobile) {
+function phonebook_getdatabynumber($uid, $mobile)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_number2id($uid, $p_num) {
+function phonebook_number2id($uid, $p_num)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_number2name($uid, $p_num) {
+function phonebook_number2name($uid, $p_num)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_number2email($uid, $p_num) {
+function phonebook_number2email($uid, $p_num)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_number2tags($uid, $p_num) {
+function phonebook_number2tags($uid, $p_num)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_getmembercountbyid($gpid) {
+function phonebook_getmembercountbyid($gpid)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -76,7 +86,8 @@ function phonebook_getmembercountbyid($gpid) {
  * @param string $orderby
  * @return array array(pid, p_desc, p_num, email)
  */
-function phonebook_getdatabyid($gpid, $orderby = "") {
+function phonebook_getdatabyid($gpid, $orderby = "")
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -89,7 +100,8 @@ function phonebook_getdatabyid($gpid, $orderby = "") {
  * @param string $orderby
  * @return array array(pid, p_desc, p_num, email)
  */
-function phonebook_getdatabyuid($uid, $orderby = "") {
+function phonebook_getdatabyuid($uid, $orderby = "")
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -101,7 +113,8 @@ function phonebook_getdatabyuid($uid, $orderby = "") {
  *        Group ID
  * @return array array(gpid, group_name, code, flag_sender)
  */
-function phonebook_getgroupbyid($gpid) {
+function phonebook_getgroupbyid($gpid)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -114,7 +127,8 @@ function phonebook_getgroupbyid($gpid) {
  * @param string $orderby
  * @return array array(gpid, group_name, code, flag_sender)
  */
-function phonebook_getgroupbyuid($uid, $orderby = "") {
+function phonebook_getgroupbyuid($uid, $orderby = "")
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -130,7 +144,8 @@ function phonebook_getgroupbyuid($uid, $orderby = "") {
  *        Search limit
  * @return array array(pid, p_desc, p_num, email, tags)
  */
-function phonebook_search($uid, $keyword = "", $count = 0) {
+function phonebook_search($uid, $keyword = "", $count = 0)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -146,7 +161,8 @@ function phonebook_search($uid, $keyword = "", $count = 0) {
  *        Search limit
  * @return array array(gpid, group_name, code, flag_sender)
  */
-function phonebook_search_group($uid, $keyword = "", $count = 0) {
+function phonebook_search_group($uid, $keyword = "", $count = 0)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -162,55 +178,59 @@ function phonebook_search_group($uid, $keyword = "", $count = 0) {
  *        Search limit
  * @return array Array of user's data
  */
-function phonebook_search_user($uid, $keyword = "", $count = 0) {
+function phonebook_search_user($uid, $keyword = "", $count = 0)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
 
-function phonebook_webservices_output($keyword, $items) {
+function phonebook_webservices_output($keyword, $items)
+{
 	global $core_config;
-	
+
 	$ret = array();
 	$ret_final = array();
-	
+
 	// feature list
 	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
 		$c_feature = $core_config['plugins']['list']['feature'][$c];
 		$ret = core_hook($c_feature, 'phonebook_webservices_output', array(
 			$keyword,
 			$items
-		));
+		)
+		);
 		if ($ret['modified']) {
-			$items = ( $ret['param']['items'] ? $ret['param']['items'] : $items );
+			$items = ($ret['param']['items'] ? $ret['param']['items'] : $items);
 			$ret_final['modified'] = $ret['modified'];
 			$ret_final['cancel'] = $ret['cancel'];
 			$ret_final['param']['items'] = $items;
 		}
 	}
-	
+
 	return $ret_final;
 }
 
-function phonebook_hook_webservices_output($operation, $requests, $returns) {
+function phonebook_hook_webservices_output($operation, $requests, $returns)
+{
 	$items = array();
-	
+
 	$keyword = stripslashes($requests['keyword']);
 	if (!$keyword) {
 		$keyword = $requests['tag'];
 	}
-	
+
 	if (!($operation == 'phonebook' && $keyword)) {
 		return FALSE;
 	}
-	
+
 	if (!auth_isvalid()) {
 		return FALSE;
 	}
-	
+
 	if ($returns['modified'] && $returns['param']['operation'] == 'phonebook' && isset($returns['param']['content'])) {
 		$items = json_decode($returns['param']['content'], TRUE);
 	}
-	
+
 	$ret = phonebook_webservices_output($keyword, $items);
 
 	if ($ret['modified'] && isset($ret['param']['items'])) {
@@ -218,18 +238,18 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 	} else {
 		$items[] = array(
 			'id' => $keyword,
-			'text' => $keyword 
+			'text' => $keyword
 		);
 	}
-	
-	$items = array_unique($items,SORT_REGULAR);
-	
+
+	$items = array_unique($items, SORT_REGULAR);
+
 	$returns['modified'] = TRUE;
 	$returns['param']['content'] = json_encode($items);
-	
+
 	if ($requests['debug'] == '1') {
 		$returns['param']['content-type'] = "text/plain";
 	}
-	
+
 	return $returns;
 }

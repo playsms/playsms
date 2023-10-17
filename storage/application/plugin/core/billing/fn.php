@@ -26,7 +26,8 @@ defined('_SECURE_') or die('Forbidden');
  * @param float $credit
  * @return boolean TRUE if posted
  */
-function billing_post($smslog_id,$rate,$count,$charge) {
+function billing_post($smslog_id, $rate, $count, $charge)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -36,7 +37,8 @@ function billing_post($smslog_id,$rate,$count,$charge) {
  * @param integer $smslog_id SMS log ID
  * @return boolean TRUE if rollback succeeded
  */
-function billing_rollback($smslog_id) {
+function billing_rollback($smslog_id)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -46,7 +48,8 @@ function billing_rollback($smslog_id) {
  * @param integer $smslog_id SMS log ID
  * @return boolean TRUE if finalization succeeded
  */
-function billing_finalize($smslog_id) {
+function billing_finalize($smslog_id)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -56,7 +59,8 @@ function billing_finalize($smslog_id) {
  * @param integer $smslog_id SMS log ID
  * @return array Billing information
  */
-function billing_getdata($smslog_id) {
+function billing_getdata($smslog_id)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -66,7 +70,8 @@ function billing_getdata($smslog_id) {
  * @param integer $uid User ID
  * @return array Billing information
  */
-function billing_getdata_by_uid($uid) {
+function billing_getdata_by_uid($uid)
+{
 	$ret = core_call_hook();
 	return $ret;
 }

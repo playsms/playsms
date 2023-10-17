@@ -27,37 +27,41 @@ defined('_SECURE_') or die('Forbidden');
  *        Receiver number
  * @return boolean TRUE if available, FALSE if already exists or not available
  */
-function keyword_isavail($keyword, $sms_receiver = '') {
+function keyword_isavail($keyword, $sms_receiver = '')
+{
 	global $core_config;
-	
+
 	$ok = true;
 	$reserved = false;
-	
+
 	$keyword = trim(strtoupper($keyword));
 	for ($i = 0; $i < count($core_config['reserved_keywords']); $i++) {
 		if ($keyword == trim(strtoupper($core_config['reserved_keywords'][$i]))) {
 			$reserved = true;
 		}
 	}
-	
+
 	// if reserved returns not available, FALSE
 	if ($reserved) {
 		$ok = false;
 	} else {
-		foreach ($core_config['plugins']['list']['feature'] as $plugin) {
-			
+		foreach ( $core_config['plugins']['list']['feature'] as $plugin ) {
+
 			// keyword_isavail() on hooks will return TRUE as well if keyword is available
 			// so we're looking for FALSE value
-			if (core_hook($plugin, 'keyword_isavail', array(
-				$keyword,
-				$sms_receiver 
-			)) === FALSE) {
+			if (
+				core_hook($plugin, 'keyword_isavail', array(
+					$keyword,
+					$sms_receiver
+				)
+				) === FALSE
+			) {
 				$ok = false;
 				break;
 			}
 		}
 	}
-	
+
 	return $ok;
 }
 
@@ -70,7 +74,8 @@ function keyword_isavail($keyword, $sms_receiver = '') {
  *        Receiver number
  * @return boolean TRUE if keyword already exists
  */
-function keyword_isexists($keyword, $sms_receiver = '') {
+function keyword_isexists($keyword, $sms_receiver = '')
+{
 	return !keyword_isavail($keyword, $sms_receiver);
 }
 
@@ -79,17 +84,18 @@ function keyword_isexists($keyword, $sms_receiver = '') {
  *
  * @return array
  */
-function keyword_getall() {
+function keyword_getall()
+{
 	global $core_config;
-	
+
 	$ret = array();
-	foreach ($core_config['plugins']['list']['feature'] as $plugin) {
+	foreach ( $core_config['plugins']['list']['feature'] as $plugin ) {
 		list($keyword, $sms_receiver) = core_hook($plugin, 'keyword_getall');
 		$ret[$plugin][] = array(
 			$keyword,
-			$sms_receiver 
+			$sms_receiver
 		);
 	}
-	
+
 	return $ret;
 }

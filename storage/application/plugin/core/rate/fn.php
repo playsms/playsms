@@ -26,34 +26,41 @@ defined('_SECURE_') or die('Forbidden');
  * 
  * @return array User's rates
  */
-function rate_getbyuid($uid, $sms_to = '') {
+function rate_getbyuid($uid, $sms_to = '')
+{
 	return core_call_hook();
 }
 
-function rate_getbyprefix($sms_to, $uid = '') {
+function rate_getbyprefix($sms_to, $uid = '')
+{
 	return core_call_hook();
 }
 
 /**
  * Calculate user's credit balance and save it in user's credit field
  */
-function rate_update() {
+function rate_update()
+{
 	return core_call_hook();
 }
 
-function rate_getusercredit($username) {
+function rate_getusercredit($username)
+{
 	return core_call_hook();
 }
 
-function rate_addusercredit($uid, $amount = 0) {
+function rate_addusercredit($uid, $amount = 0)
+{
 	return core_call_hook();
 }
 
-function rate_deductusercredit($uid, $amount = 0) {
+function rate_deductusercredit($uid, $amount = 0)
+{
 	return core_call_hook();
 }
 
-function rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
+function rate_getcharges($uid, $sms_len, $unicode, $sms_to)
+{
 	$ret = core_call_hook();
 
 	// fixme anton - we'll calculate count, rate and charge if no hook found	
@@ -89,27 +96,31 @@ function rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 			$charge
 		);
 	}
-	
+
 	return $ret;
 }
 
-function rate_cansend($uid, $sms_len, $unicode, $sms_to) {
+function rate_cansend($uid, $sms_len, $unicode, $sms_to)
+{
 	return core_call_hook();
 }
 
-function rate_deduct($smslog_id) {
+function rate_deduct($smslog_id)
+{
 	return core_call_hook();
 }
 
-function rate_refund($smslog_id) {
+function rate_refund($smslog_id)
+{
 	return core_call_hook();
 }
 
-function rate_hook_playsmsd_loop($command, $command_param) {
+function rate_hook_playsmsd_loop($command, $command_param)
+{
 	if ($command != 'ratesmsd') {
-	
+
 		return;
 	}
-	
+
 	rate_update();
 }

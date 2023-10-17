@@ -40,9 +40,12 @@ switch (_OP_) {
 			_('Mobile') => 'mobile',
 			_('ACL') => 'acl_id'
 		);
-		$search = themes_search($search_var, '', array(
-			'acl_id' => 'acl_getid'
-		)
+		$search = themes_search(
+			$search_var,
+			'',
+			array(
+				'acl_id' => 'acl_getid'
+			)
 		);
 		$conditions = array(
 			'flag_deleted' => 0,

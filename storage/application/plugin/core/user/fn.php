@@ -109,8 +109,8 @@ function user_username2uid($username)
 function user_mobile2uid($mobile)
 {
 	if ($mobile) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND mobile LIKE :search";
-		$db_result = dba_query($db_query, ['search' => '%' . core_mobile_matcher_format($mobile)]);
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND mobile LIKE ?";
+		$db_result = dba_query($db_query, ['%' . core_mobile_matcher_format($mobile)]);
 		$db_row = dba_fetch_array($db_result);
 		$uid = $db_row['uid'];
 	}
@@ -1057,6 +1057,7 @@ function user_getsubuserbyuid($uid)
 function user_search($keywords = '', $fields = '', $extras = '', $exact = FALSE)
 {
 	$ret = array();
+	$db_argv = [];
 
 	if (!is_array($keywords)) {
 		$keywords = explode(',', $keywords);
@@ -1071,9 +1072,11 @@ function user_search($keywords = '', $fields = '', $extras = '', $exact = FALSE)
 		foreach ( $keywords as $keyword ) {
 
 			if ($exact) {
-				$search .= $field . '=\'' . $keyword . '\' OR ';
+				$search .= $field . '=? OR ';
+				$db_argv[] = $keyword;
 			} else {
-				$search .= $field . ' LIKE \'%' . $keyword . '%\' OR ';
+				$search .= $field . ' LIKE ? OR ';
+				$db_argv[] = '%' . $keyword . '%';
 			}
 		}
 	}
@@ -1092,10 +1095,11 @@ function user_search($keywords = '', $fields = '', $extras = '', $exact = FALSE)
 
 	if ($search || $extra_sql) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND (" . $search . " " . $extra_sql . ")";
+		$db_result = dba_query($db_query, $db_argv);
 	} else {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0";
+		$db_result = dba_query($db_query);
 	}
-	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
 	}

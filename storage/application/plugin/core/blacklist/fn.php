@@ -27,7 +27,8 @@ defined('_SECURE_') or die('Forbidden');
  *        single IP address
  * @return boolean TRUE on checked (not necessarily added)
  */
-function blacklist_checkip($label, $ip) {
+function blacklist_checkip($label, $ip)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -41,7 +42,8 @@ function blacklist_checkip($label, $ip) {
  *        single IP address
  * @return boolean TRUE on resetted counter
  */
-function blacklist_clearip($label, $ip) {
+function blacklist_clearip($label, $ip)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -55,7 +57,8 @@ function blacklist_clearip($label, $ip) {
  *        single IP address
  * @return boolean TRUE on added
  */
-function blacklist_addip($label, $ip) {
+function blacklist_addip($label, $ip)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -69,7 +72,8 @@ function blacklist_addip($label, $ip) {
  *        single IP address
  * @return boolean TRUE on removed
  */
-function blacklist_removeip($label, $ip) {
+function blacklist_removeip($label, $ip)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -80,7 +84,8 @@ function blacklist_removeip($label, $ip) {
  * @return array labels and IP addresses
  *         array(array('label' => $label, 'ip_address' => $ip_address))
  */
-function blacklist_getips() {
+function blacklist_getips()
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -94,7 +99,8 @@ function blacklist_getips() {
  *        single IP address
  * @return boolean TRUE when found and FALSE if not found
  */
-function blacklist_ifipexists($label, $ip) {
+function blacklist_ifipexists($label, $ip)
+{
 	$ret = core_call_hook();
 	return $ret;
 }
@@ -108,9 +114,10 @@ function blacklist_ifipexists($label, $ip) {
  *        single mobile number
  * @return boolean TRUE upon successful addition
  */
-function blacklist_mobile_add($label, $mobile) {
+function blacklist_mobile_add($label, $mobile)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
@@ -123,9 +130,10 @@ function blacklist_mobile_add($label, $mobile) {
  *        single mobile number
  * @return boolean TRUE upon successful removal
  */
-function blacklist_mobile_remove($label, $mobile) {
+function blacklist_mobile_remove($label, $mobile)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
@@ -138,9 +146,10 @@ function blacklist_mobile_remove($label, $mobile) {
  *        single mobile number
  * @return boolean TRUE if blacklisted, existed in blacklist
  */
-function blacklist_mobile_isexists($label, $mobile) {
+function blacklist_mobile_isexists($label, $mobile)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
@@ -151,9 +160,10 @@ function blacklist_mobile_isexists($label, $mobile) {
  *        single label, can be $username or $uid, its up to the implementator
  * @return array blacklisted mobile numbers
  */
-function blacklist_mobile_get($label) {
+function blacklist_mobile_get($label)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
@@ -162,8 +172,9 @@ function blacklist_mobile_get($label) {
  *
  * @return array all blacklisted mobile numbers
  */
-function blacklist_mobile_getall() {
+function blacklist_mobile_getall()
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }

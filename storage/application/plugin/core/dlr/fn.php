@@ -18,51 +18,66 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function dlr($smslog_id, $uid, $p_status) {
+function dlr($smslog_id, $uid, $p_status)
+{
 	global $core_config;
+
 	if ($core_config['isdlrd']) {
 		$c_isdlrd = 1;
-		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => time(),
-			'flag_processed' => 1,
-			'smslog_id' => $smslog_id,
-			'p_status' => $p_status,
-			'uid' => $uid 
-		));
+		$ret = dba_add(
+			_DB_PREF_ . '_tblDLR',
+			array(
+				'c_timestamp' => time(),
+				'flag_processed' => 1,
+				'smslog_id' => $smslog_id,
+				'p_status' => $p_status,
+				'uid' => $uid
+			)
+		);
 	} else {
 		$c_isdlrd = 0;
-		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => time(),
-			'flag_processed' => 2,
-			'smslog_id' => $smslog_id,
-			'p_status' => $p_status,
-			'uid' => $uid 
-		));
+		$ret = dba_add(
+			_DB_PREF_ . '_tblDLR',
+			array(
+				'c_timestamp' => time(),
+				'flag_processed' => 2,
+				'smslog_id' => $smslog_id,
+				'p_status' => $p_status,
+				'uid' => $uid
+			)
+		);
 		dlr_update($smslog_id, $uid, $p_status);
 	}
 	_log("isdlrd:" . $c_isdlrd . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr");
+
 	return $ret;
 }
 
-function dlr_daemon() {
+function dlr_daemon()
+{
 	global $core_config;
+
 	$core_config['dlrd_limit'] = ((int) $core_config['dlrd_limit'] ? (int) $core_config['dlrd_limit'] : 200);
-	$list = dba_search(_DB_PREF_ . '_tblDLR', '*', array(
-		'flag_processed' => 1 
-	), '', array(
-		'LIMIT' => $core_config['dlrd_limit'] 
-	));
+	$list = dba_search(
+		_DB_PREF_ . '_tblDLR',
+		'*',
+		['flag_processed' => 1],
+		'',
+		['LIMIT' => $core_config['dlrd_limit']]
+	);
 	$j = 0;
 	for ($j = 0; $j < count($list); $j++) {
 		if ($id = $list[$j]['id']) {
 			$smslog_id = $list[$j]['smslog_id'];
 			$p_status = $list[$j]['p_status'];
 			$uid = $list[$j]['uid'];
-			if (dba_update(_DB_PREF_ . '_tblDLR', array(
-				'flag_processed' => 2 
-			), array(
-				'id' => $id 
-			))) {
+			if (
+				dba_update(
+					_DB_PREF_ . '_tblDLR',
+					['flag_processed' => 2],
+					['id' => $id]
+				)
+			) {
 				// debug only, too noisy
 				//_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr_daemon");
 				dlr_update($smslog_id, $uid, $p_status);
@@ -71,14 +86,15 @@ function dlr_daemon() {
 	}
 }
 
-function dlr_update($smslog_id, $uid, $p_status) {
+function dlr_update($smslog_id, $uid, $p_status)
+{
 	global $core_config;
 	// $p_status = 0 --> pending
 	// $p_status = 1 --> sent
 	// $p_status = 2 --> failed
 	// $p_status = 3 --> delivered
 	// _log("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "dlr_update");
-	
+
 	// fixme anton
 	// dlr can be pushed by SMSC several times and sometime they're not in order
 	// so here we add logic to make them in order
@@ -87,36 +103,39 @@ function dlr_update($smslog_id, $uid, $p_status) {
 		case 0:
 
 			return false;
-			break;
 		case 1:
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
-				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
-				WHERE smslog_id='" . $smslog_id . "' AND p_status=0";
+				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status=? 
+				WHERE smslog_id=? AND p_status=0";
 			break;
 		case 2:
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
-				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
-				WHERE smslog_id='" . $smslog_id . "' AND p_status<>2";
+				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status=? 
+				WHERE smslog_id=? AND p_status<>2";
 			break;
 		case 3:
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_tblSMSOutgoing 
-				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='" . $p_status . "' 
-				WHERE smslog_id='" . $smslog_id . "' AND (p_status=0 OR p_status=1)";
+				SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status=? 
+				WHERE smslog_id=? AND (p_status=0 OR p_status=1)";
 			break;
 	}
 
-	if (dba_affected_rows($db_query)) {	
+	if (dba_affected_rows($db_query, [$p_status, $smslog_id])) {
 		if ($p_status > 0) {
 			_log("smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr_update");
 			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-				core_hook($core_config['plugins']['list']['feature'][$c], 'dlr_update', array(
-					$smslog_id,
-					$uid,
-					$p_status 
-				));
+				core_hook(
+					$core_config['plugins']['list']['feature'][$c],
+					'dlr_update',
+					array(
+						$smslog_id,
+						$uid,
+						$p_status
+					)
+				);
 			}
 		}
 	} else {
@@ -127,36 +146,42 @@ function dlr_update($smslog_id, $uid, $p_status) {
 	return true;
 }
 
-function dlr_fetch() {
+function dlr_fetch()
+{
 	$smscs = gateway_getall_smsc_names();
-	foreach ($smscs as $smsc) {
+	foreach ( $smscs as $smsc ) {
 		$smsc_data = gateway_get_smscbyname($smsc);
 		$gateway = $smsc_data['gateway'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='0' AND p_smsc='$smsc' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='0' AND p_smsc=? AND flag_deleted='0'";
+		$db_result = dba_query($db_query, [$smsc]);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$uid = $db_row['uid'];
 			$smslog_id = $db_row['smslog_id'];
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$gpid = $db_row['p_gpid'];
-			core_hook($gateway, 'dlr_fetch', array(
-				$gpid,
-				$uid,
-				$smslog_id,
-				$p_datetime,
-				$p_update 
-			));
+			core_hook(
+				$gateway,
+				'dlr_fetch',
+				[
+					$gpid,
+					$uid,
+					$smslog_id,
+					$p_datetime,
+					$p_update
+				]
+			);
 		}
 	}
 }
 
-function dlr_hook_playsmsd_loop($command, $command_param) {
+function dlr_hook_playsmsd_loop($command, $command_param)
+{
 	if ($command != 'dlrssmsd') {
-	
+
 		return;
 	}
-	
+
 	dlr_daemon();
 	dlr_fetch();
 }

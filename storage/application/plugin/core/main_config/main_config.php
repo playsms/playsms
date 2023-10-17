@@ -24,75 +24,96 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "main_config":
-		
+
 		// get original main_config
 		$data = registry_search(1, 'core', 'main_config');
 		$main_config = $data['core']['main_config'];
-		
+
 		// enable register yes-no option
-		$option_enable_register = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['enable_register']);
-		
+		$option_enable_register = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['enable_register']
+		);
+
 		// enable forgot yes-no option
-		$option_enable_forgot = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['enable_forgot']);
-		
+		$option_enable_forgot = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['enable_forgot']
+		);
+
 		// disable login as subuser yes-no option
-		$option_disable_login_as = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['disable_login_as']);
-		
+		$option_disable_login_as = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['disable_login_as']
+		);
+
 		// enhance privacy for subusers
-		$option_enhance_privacy_subuser = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['enhance_privacy_subuser']);
-		
+		$option_enhance_privacy_subuser = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['enhance_privacy_subuser']
+		);
+
 		// enable logo yes-no option
-		$option_enable_logo = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['enable_logo']);
-		
+		$option_enable_logo = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['enable_logo']
+		);
+
 		// enable logo to replace main website title yes-no option
-		$option_logo_replace_title = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['logo_replace_title']);
-		
+		$option_logo_replace_title = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['logo_replace_title']
+		);
+
 		// option default account status on user registration
-		$option_default_user_status = _options(array(
-			_('User') => 3,
-			_('Subuser') => 4 
-		), $main_config['default_user_status']);
-		
+		$option_default_user_status = _options(
+			array(
+				_('User') => 3,
+				_('Subuser') => 4
+			),
+			$main_config['default_user_status']
+		);
+
 		// option default parent upon registration
 		$option_default_parent = themes_select_account_level_single(3, 'edit_default_parent', $main_config['default_parent']);
-		
+
 		// get access control list
 		$c_option_default_acl = array_flip(acl_getall());
 		$c_option_default_acl['-'] = 0;
 		ksort($c_option_default_acl);
 		$option_default_acl = _select('edit_default_acl', $c_option_default_acl, $main_config['default_acl']);
-		
+
 		// get gateway options
 		$main_gateway = $main_config['gateway_module'];
 		unset($smsc_list);
 		$list = gateway_getall_smsc();
-		foreach ($list as $smsc) {
+		foreach ( $list as $smsc ) {
 			$smsc_list[] = $smsc['name'];
 		}
 		$option_gateway_module = _options($smsc_list, $main_gateway);
-		
+
 		// get themes options
 		$main_themes = $main_config['themes_module'];
 		$option_themes_module = _options($core_config['plugins']['list']['themes'], $main_themes);
-		
+
 		// get language options
 		$lang_list = array();
 		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
@@ -105,33 +126,45 @@ switch (_OP_) {
 		if (is_array($lang_list)) {
 			$option_language_module = _options($lang_list, $main_config['language_module']);
 		}
-		
+
 		// select plus_sign_remove
-		$option_plus_sign_remove = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['plus_sign_remove']);
-		
+		$option_plus_sign_remove = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['plus_sign_remove']
+		);
+
 		// select plus_sign_add
-		$option_plus_sign_add = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['plus_sign_add']);
-		
+		$option_plus_sign_add = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['plus_sign_add']
+		);
+
 		// select enable_credit_unicode
-		$option_enable_credit_unicode = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['enable_credit_unicode']);
-		
+		$option_enable_credit_unicode = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['enable_credit_unicode']
+		);
+
 		// select brute_force_detection
-		$option_brute_force_detection = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $main_config['brute_force_detection']);
-		
+		$option_brute_force_detection = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$main_config['brute_force_detection']
+		);
+
 		// display
-		
+
 
 		$tpl = array(
 			'name' => 'main_config',
@@ -229,60 +262,60 @@ switch (_OP_) {
 				'option_plus_sign_remove' => $option_plus_sign_remove,
 				'option_plus_sign_add' => $option_plus_sign_add,
 				'option_enable_credit_unicode' => $option_enable_credit_unicode,
-				'option_brute_force_detection' => $option_brute_force_detection 
+				'option_brute_force_detection' => $option_brute_force_detection
 			),
 			'injects' => array(
-				'core_config' 
-			) 
+				'core_config'
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
-	
+
 	case "main_config_save":
-		
+
 		// logo
-		
+
 
 		$enable_logo = $_POST['edit_enable_logo'];
 		$logo_url = trim($_POST['edit_logo_url']);
 		$logo_replace_title = $_POST['edit_logo_replace_title'];
-		
+
 		if (!$logo_url) {
 			$themes_logo = _APPS_PATH_THEMES_ . '/' . core_themes_get() . '/images/logo.png';
 			$themes_logo_url = _HTTP_PATH_THEMES_ . '/' . core_themes_get() . '/images/logo.png';
-			
+
 			$default_logo = _APPS_PATH_THEMES_ . '/common/images/logo.png';
 			$default_logo_url = _HTTP_PATH_THEMES_ . '/common/images/logo.png';
-			
+
 			$logo_url = (file_exists($themes_logo) ? $themes_logo_url : $default_logo_url);
-			
+
 			// force to disable logo when neither themes_logo or default_logo exists
 			if (!file_exists($default_logo)) {
 				$logo_url = '';
 				$enable_logo = 0;
 			}
 		}
-		
+
 		// disable logo_replace_title when logo disabled
 		if (!$enable_logo) {
 			$logo_replace_title = 0;
 		}
-		
+
 		// allow default account status 3 and 4 only
 		$edit_default_user_status = (int) $_POST['edit_default_user_status'];
 		if (!(($edit_default_user_status == 3) || ($edit_default_user_status == 4))) {
 			$edit_default_user_status == 4;
 		}
-		
-		// save
-		
 
-		foreach ($_POST as $key => $val) {
+		// save
+
+
+		foreach ( $_POST as $key => $val ) {
 			if (substr($key, 0, 5) == 'edit_') {
 				$post[$key] = str_replace('"', '\'', $val);
 			}
 		}
-		
+
 		$items = array(
 			'web_title' => $post['edit_web_title'],
 			'email_service' => $post['edit_email_service'],
@@ -318,15 +351,14 @@ switch (_OP_) {
 			'logo_replace_title' => (int) $logo_replace_title,
 			'layout_footer' => ($post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.')),
 			'information_title' => ($post['edit_information_title'] ? $post['edit_information_title'] : _('Information')),
-			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page')) 
+			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page'))
 		);
-		
+
 		$result = registry_update(1, 'core', 'main_config', $items);
-		
+
 		_log('main configuration saved. uid:' . $user_config['uid'], 3, 'main_config');
-		
+
 		$_SESSION['dialog']['info'][] = _('Main configuration changes has been saved');
 		header("Location: " . _u('index.php?app=main&inc=core_main_config&op=main_config'));
 		exit();
-		break;
 }

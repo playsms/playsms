@@ -26,25 +26,31 @@ defined('_SECURE_') or die('Forbidden');
  * @param string $prefix Country prefix
  * @return boolean
  */
-function country_add($name, $code, $prefix = '') {
+function country_add($name, $code, $prefix = '')
+{
 	$ret = FALSE;
-	
+
 	if (!$name) {
 		return FALSE;
 	}
-	
+
 	$code = substr(0, 2, core_sanitize_alpha(strtolower(trim($code))));
 	if (!$code) {
 		return FALSE;
 	}
-	
+
 	$prefix = (trim($prefix) ? core_sanitize_numeric($prefix) : '');
-	
+
 	$db_table = _DB_PREF_ . '_tblCountry';
-	if (dba_isavail($db_table, array(
-		'country_name' => $name,
-		'country_code' => $code
-	))) {
+	if (
+		dba_isavail(
+			$db_table,
+			[
+				'country_name' => $name,
+				'country_code' => $code
+			]
+		)
+	) {
 		$items = array(
 			'name' => $name,
 			'code' => $code,
@@ -55,7 +61,7 @@ function country_add($name, $code, $prefix = '') {
 			$ret = TRUE;
 		}
 	}
-	
+
 	return $ret;
 }
 
@@ -64,21 +70,25 @@ function country_add($name, $code, $prefix = '') {
  * @param string $id Country ID
  * @return boolean
  */
-function country_remove($id) {
+function country_remove($id)
+{
 	$ret = FALSE;
-	
+
 	if (!$id) {
 		return FALSE;
 	}
-	
+
 	$db_table = _DB_PREF_ . '_tblCountry';
-	if ($result = dba_remove($db_table, array(
-		'id' => $id,
-	))) {
+	if (
+		$result = dba_remove(
+			$db_table,
+			['id' => $id]
+		)
+	) {
 		_log('id:' . $id, 3, 'country_remove');
 		$ret = TRUE;
 	}
-	
+
 	return $ret;
 }
 
@@ -88,33 +98,40 @@ function country_remove($id) {
  * @param array $data Updated data
  * @return boolean
  */
-function country_update($id, $data = array()) {
+function country_update($id, $data = array())
+{
 	$ret = FALSE;
 	$replaced = '';
-	
+
 	if (!($id && is_array($data))) {
 		return FALSE;
 	}
-	
+
 	$db_table = _DB_PREF_ . '_tblCountry';
-	$result = dba_search($db_table, '*', array(
-		'id' => $id,
-	));
-	foreach ($result[0] as $key => $val) {
+	$result = dba_search(
+		$db_table,
+		'*',
+		['id' => $id]
+	);
+	foreach ( $result[0] as $key => $val ) {
 		$items[$key] = ($data[$key] ? $data[$key] : $val);
 		if ($data[$key]) {
 			$replaced = $key . ':' . $val . ' ';
 		}
 	}
 	if ($items && trim($replaced)) {
-		if (dba_update($db_table, $items, array(
-			'id' => $id
-		))) {
-			_log('id:' . $id . ' ' . trim($replaced) , 3, 'country_update');
+		if (
+			dba_update(
+				$db_table,
+				$items,
+				['id' => $id]
+			)
+		) {
+			_log('id:' . $id . ' ' . trim($replaced), 3, 'country_update');
 			$ret = TRUE;
 		}
 	}
-	
+
 	return $ret;
 }
 
@@ -123,11 +140,16 @@ function country_update($id, $data = array()) {
  * @param array $conditions Search criteria
  * @return array
  */
-function country_search($conditions = '', $keywords = '') {
+function country_search($conditions = '', $keywords = '')
+{
 	$db_table = _DB_PREF_ . '_tblCountry';
-	$results = dba_search($db_table, '*', $conditions, $keywords, array(
-		'ORDER BY' => 'country_name'
-	));
-	
+	$results = dba_search(
+		$db_table,
+		'*',
+		$conditions,
+		$keywords,
+		['ORDER BY' => 'country_name']
+	);
+
 	return $results;
 }
