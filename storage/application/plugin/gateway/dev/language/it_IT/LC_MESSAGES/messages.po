@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Date/Time"
+msgstr "Data/Ora"
+
+msgid "Fail to simulate incoming SMS"
+msgstr "Impossibile simulare SMS in arrivo"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Manage dev"
+msgstr "Gestisci dev"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Receiver"
+msgstr "Ricevitore"
+
+msgid "Sender"
+msgstr "Mittente"
+
+msgid "Simulate incoming SMS"
+msgstr "Simula SMS in arrivo"
+
+msgid "Submit"
+msgstr "Invia"
+
+msgid "This is a test incoming SMS message"
+msgstr "Questo è un SMS di prova in arrivo"

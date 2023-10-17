@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Active themes"
+msgstr "Temi attivi"
+
+msgid "Buy credit page"
+msgstr "Pagina Acquista credito"
+
+msgid "Configuration"
+msgstr "Configurazione"
+
+msgid "Default credit upon registration"
+msgstr "Credito predefinito al momento della registrazione"
+
+msgid "Default language"
+msgstr "Lingua predefinita"
+
+msgid "Domain"
+msgstr "Dominio"
+
+msgid "Email footer"
+msgstr "Piè di pagina email"
+
+msgid "Email service"
+msgstr "Servizio di posta elettronica"
+
+msgid "Enable forgot password"
+msgstr "Abilita password dimenticata"
+
+msgid "Enable logo"
+msgstr "Abilita logo"
+
+msgid "Enable public registration"
+msgstr "Abilita la registrazione pubblica"
+
+msgid "Information page"
+msgstr "Pagina informativa"
+
+msgid "Layout footer"
+msgstr "piè  di pagina layout"
+
+msgid "Logo URL"
+msgstr "URL logo"
+
+msgid "Logo by default will be displayed at login, register and forgot password page"
+msgstr "Il logo per impostazione predefinita verrà visualizzato nella pagina di accesso, registrazione e password dimenticata"
+
+msgid "Main website URL"
+msgstr "URL del sito web principale"
+
+msgid "Main website name"
+msgstr "Nome del sito web principale"
+
+msgid "Manage site"
+msgstr "Gestisci sito"
+
+msgid "Page content"
+msgstr "contenuto della pagina"
+
+msgid "Page title"
+msgstr "Titolo pagina"
+
+msgid "Replace website title with logo"
+msgstr "Sostituisci il titolo del sito web con il logo"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Site configuration"
+msgstr "Configurazione del sito"
+
+msgid "Site configuration has been saved"
+msgstr "La configurazione del sito Ã¨ stata salvata"
+
+msgid "The domain is already configured by other user"
+msgstr "Il dominio Ã¨ giÃ  configurato da un altro utente"
+
+msgid "Website title"
+msgstr "Titolo del sito web"
+
+msgid "domain"
+msgstr "dominio"
+
+msgid "no"
+msgstr "no"
+
+msgid "yes"
+msgstr "si"

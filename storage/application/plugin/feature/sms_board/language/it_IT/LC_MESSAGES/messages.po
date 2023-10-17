@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add SMS board"
+msgstr "Aggiungi scheda SMS"
+
+msgid "Are you sure you want to delete SMS board with all its messages ?"
+msgstr "Sei sicuro di voler eliminare la scheda SMS con tutti i suoi messaggi?"
+
+msgid "CSS URL"
+msgstr "URL CSS"
+
+msgid "Date and time"
+msgstr "Data e ora"
+
+msgid "Edit SMS board"
+msgstr "Modifica scheda SMS"
+
+msgid "Fail to add SMS board"
+msgstr "Impossibile aggiungere la scheda SMS"
+
+msgid "Fail to edit SMS board"
+msgstr "Impossibile modificare la scheda SMS"
+
+msgid "Forward"
+msgstr "Avanti"
+
+msgid "Forward to email"
+msgstr "Inoltra a e-mail"
+
+msgid "HTML output"
+msgstr "uscita HTML"
+
+msgid "JSON output"
+msgstr "Uscita JSON"
+
+msgid "Keyword"
+msgstr "Parola chiave"
+
+msgid "MBOX output"
+msgstr "Uscita MBOX"
+
+msgid "Manage board"
+msgstr "Gestisci scheda"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "PHP serialize output"
+msgstr "output di serializzazione PHP"
+
+msgid "RSS 0.91 output"
+msgstr "Uscita RSS 0.91"
+
+msgid "RSS 1.0 output"
+msgstr "Uscita RSS 1.0"
+
+msgid "RSS 2.0 output"
+msgstr "Uscita RSS 2.0"
+
+msgid "RSS ATOM output"
+msgstr "Uscita RSS ATOM"
+
+msgid "Receiver"
+msgstr "Ricevitore"
+
+msgid "Row template"
+msgstr "Modello riga"
+
+msgid "SMS Board"
+msgstr "Scheda SMS"
+
+msgid "SMS board from"
+msgstr "Scheda SMS da"
+
+msgid "SMS board has been added"
+msgstr "è stata aggiunta la scheda SMS"
+
+msgid "SMS board has been saved"
+msgstr "Scheda SMS salvata"
+
+msgid "SMS board keyword"
+msgstr "parola chiave scheda SMS"
+
+msgid "SMS board reply message"
+msgstr "Messaggio di risposta della scheda SMS"
+
+msgid "SMS board with all its messages has been deleted"
+msgstr "La scheda SMS con tutti i suoi messaggi è stata cancellata"
+
+msgid "SMS keyword already exists, reserved or use by other feature"
+msgstr "La parola chiave SMS esiste già, è riservata o utilizzata da un'altra funzione"
+
+msgid "SMSC"
+msgstr "SMSC"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Sender"
+msgstr "Mittente"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "View board"
+msgstr "Visualizza bacheca"
+
+msgid "XML output"
+msgstr "Uscita XML"
+
+msgid "You must fill all fields"
+msgstr "Devi compilare tutti i campi"
+
+msgid "keyword"
+msgstr "parola chiave"

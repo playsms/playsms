@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+#, php-format
+msgid "%s do not have enough balance for sending %d SMS at %s credit"
+msgstr "%s non ha credito sufficiente per inviare %d SMS con %s di credito"
+
+msgid "CSV file format"
+msgstr "formato file CSV"
+
+msgid "Cancel send from file"
+msgstr "Annulla invio da file"
+
+msgid "Confirmation"
+msgstr "Conferma"
+
+msgid "Destination number"
+msgstr "Numero di destinazione"
+
+msgid "Discharged entries"
+msgstr "Ingressi scaricati"
+
+msgid "Error occurred after uploading CSV file"
+msgstr "si è verificato un errore dopo il caricamento del file CSV"
+
+msgid "Error occurred while opening CSV file"
+msgstr "si è verificato un errore durante l'apertura del file CSV"
+
+msgid "Error occurred while verifying CSV file"
+msgstr "si è verificato un errore durante la verifica del file CSV"
+
+msgid "Fail to deliver uploaded SMS to queue"
+msgstr "Impossibile consegnare gli SMS caricati alla coda"
+
+#, php-format
+msgid "Found %d of %d discharged entries"
+msgstr "Trovato %d di %d voci scaricate"
+
+#, php-format
+msgid "Found %d of %d valid entries"
+msgstr "Trovato %d di %d voci valide"
+
+msgid "Found discharged entries in uploaded file"
+msgstr "Trovate voci scaricate nel file caricato"
+
+msgid "Found valid entries in uploaded file"
+msgstr "Trovate voci valide nel file caricato"
+
+msgid "Invalid session ID"
+msgstr "ID sessione non valido"
+
+msgid "Message"
+msgstr "Messaggio"
+
+#, php-format
+msgid "No valid entries found from %d uploaded rows"
+msgstr "Nessuna voce valida trovata da %d righe caricate"
+
+msgid "Please select CSV file"
+msgstr "Seleziona il file CSV"
+
+msgid "SMS to valid numbers in uploaded file has been delivered to queue"
+msgstr "L'SMS a numeri validi nel file caricato è stato consegnato alla coda"
+
+msgid "Select page size"
+msgstr "Seleziona la dimensione della pagina"
+
+msgid "Send SMS to valid entries"
+msgstr "Invia SMS a voci valide"
+
+msgid "Send from file"
+msgstr "Invia da file"
+
+msgid "Send from file has been cancelled"
+msgstr "L'invio da file è stato annullato"
+
+#, php-format
+msgid "Send from file limit of %d SMS have been reached"
+msgstr "È stato raggiunto il limite di invio da file di %d SMS"
+
+msgid "Upload file"
+msgstr "Carica file"
+
+msgid "Uploaded file"
+msgstr "File caricato"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Valid entries"
+msgstr "Voci valide"
+
+msgid "Verification results"
+msgstr "Risultati della verifica"
+
+msgid "Your choice"
+msgstr "A tua scelta"
+
+msgid "destination number, message"
+msgstr "numero di destinazione, messaggio"
+
+msgid "destination number, message, username"
+msgstr "numero di destinazione, messaggio, nome utente"
+
+msgid "discharged entries"
+msgstr "voci scaricate"
+
+msgid "of"
+msgstr "di"
+
+msgid "valid entries"
+msgstr "voci valide"

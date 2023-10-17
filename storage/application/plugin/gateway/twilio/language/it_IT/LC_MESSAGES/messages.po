@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Account SID"
+msgstr "SID account"
+
+msgid "All mandatory fields must be filled"
+msgstr "Tutti i campi obbligatori devono essere compilati"
+
+msgid "Auth Token"
+msgstr "Token di autenticazione"
+
+msgid "Callback URL"
+msgstr "URL di richiamata"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "caratteri numerici o 11 alfanumerici. "
+
+msgid "Fail to save gateway module configurations"
+msgstr "Impossibile salvare le configurazioni del modulo gateway"
+
+msgid "Fill to change the Auth Token"
+msgstr "Fill per modificare il token di autenticazione"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Le configurazioni del modulo gateway sono state salvate"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Manage twilio"
+msgstr "Gestisci twilio"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Massimo. "
+
+msgid "Module sender ID"
+msgstr "ID mittente modulo"
+
+msgid "Module timezone"
+msgstr "Fuso orario del modulo"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Twilio URL"
+msgstr "URL Twilio"
+
+msgid "Your callback URL should be accessible from twilio"
+msgstr "Il tuo URL di richiamata dovrebbe essere accessibile da twilio"
+
+msgid "twilio will push DLR and incoming SMS to your callback URL"
+msgstr "twilio invierà DLR e SMS in arrivo al tuo URL di richiamata"

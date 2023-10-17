@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "-"
+msgstr "-"
+
+msgid "ACL ID"
+msgstr "ID ACL"
+
+msgid "ACL been edited"
+msgstr "ACL è stato modificato"
+
+msgid "ACL has been deleted"
+msgstr "ACL è stato cancellato"
+
+msgid "ACL name"
+msgstr "nome ACL"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add ACL"
+msgstr "Aggiungi ACL"
+
+msgid "Are you sure you want to delete ACL ?"
+msgstr "Sei sicuro di voler eliminare ACL?"
+
+msgid "Comma separated for multiple entries"
+msgstr "separato da virgola per voci multiple"
+
+msgid "Credit"
+msgstr "Credito"
+
+msgid "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
+msgstr "Decidi se questo ACL contiene URL non consentiti anziché URL consentiti"
+
+msgid "Disallowed URLs"
+msgstr "URL non consentiti"
+
+msgid "Edit ACL"
+msgstr "Modifica ACL"
+
+msgid "Fail to add new ACL"
+msgstr "Impossibile aggiungere un nuovo ACL"
+
+msgid "Fail to delete ACL"
+msgstr "Impossibile eliminare ACL"
+
+msgid "Fail to edit ACL"
+msgstr "Impossibile modificare l'ACL"
+
+# ID
+msgid "ID"
+msgstr "ID"
+
+msgid "List of accounts"
+msgstr "Elenco dei conti"
+
+msgid "Manage ACL"
+msgstr "Gestisci ACL"
+
+msgid "Mandatory fields must not be empty"
+msgstr "I campi obbligatori non devono essere vuoti"
+
+msgid "Mobile"
+msgstr "Cellulare"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "New ACL been added"
+msgstr "Nuovo ACL aggiunto"
+
+msgid "Registered"
+msgstr "Registrato"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Subuser ACL"
+msgstr "ACL subutente"
+
+msgid "URLs"
+msgstr "URL"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "View report"
+msgstr "Visualizza rapporto"

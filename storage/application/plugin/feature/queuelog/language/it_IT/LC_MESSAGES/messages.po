@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "All queues have been removed"
+msgstr "Tutte le code sono state rimosse"
+
+msgid "Are you sure you want to delete ALL queues ?"
+msgstr "Sei sicuro di voler eliminare TUTTE le code?"
+
+msgid "Are you sure you want to delete queue ?"
+msgstr "Sei sicuro di voler eliminare la coda?"
+
+msgid "Delete ALL queues"
+msgstr "Elimina TUTTE le code"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Queue Code"
+msgstr "Codice coda"
+
+msgid "Queue has been removed"
+msgstr "La coda è stata rimossa"
+
+msgid "Scheduled"
+msgstr "programmato"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "View SMS queue"
+msgstr "Visualizza coda SMS"
+
+msgid "queue"
+msgstr "coda"

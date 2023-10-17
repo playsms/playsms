@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-01 08:26+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Additional URL parameter"
+msgstr "parametro URL aggiuntivo"
+
+msgid "Eg: +0700 for Jakarta/Bangkok timezone"
+msgstr "caratteri numerici o 11 alfanumerici. "
+
+msgid "Fill to change the password"
+msgstr "Compila per cambiare la password"
+
+msgid "Gateway module configurations has been saved"
+msgstr "Le configurazioni del modulo gateway sono state salvate"
+
+msgid "Gateway name"
+msgstr "Nome del gateway"
+
+msgid "Infobip API URL"
+msgstr "URL dell'API Infobip"
+
+msgid "Infobip will push DLR and incoming SMS to above URL"
+msgstr "Infobip invierà DLR e SMS in arrivo all'URL sopra"
+
+msgid "Manage infobip"
+msgstr "Gestisci infobip"
+
+msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
+msgstr "Massimo. "
+
+msgid "Module sender ID"
+msgstr "ID mittente modulo"
+
+msgid "Module timezone"
+msgstr "Fuso orario del modulo"
+
+msgid "No changes have been made"
+msgstr "Non sono state apportate modifiche"
+
+msgid "No trailing slash"
+msgstr "Nessuna barra finale"
+
+msgid "Notes"
+msgstr "Note"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "Your DLR URL is"
+msgstr "Il tuo URL DLR è"
+
+msgid "Your callback URL is"
+msgstr "Il tuo URL di richiamata è"
+
+msgid "Your callback URL should be accessible from Infobip"
+msgstr "Il tuo URL di richiamata dovrebbe essere accessibile da Infobip"

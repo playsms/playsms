@@ -1,0 +1,211 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "1 Day"
+msgstr "1 Giorno"
+
+msgid "1 Month"
+msgstr "1 mese"
+
+msgid "1 Week"
+msgstr "1 settimana"
+
+msgid "2 Days"
+msgstr "2 Giorni"
+
+msgid "2 Weeks"
+msgstr "2 Settimane"
+
+msgid "6 Months"
+msgstr "6 Mesi"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add SMS subscribe"
+msgstr "Aggiungi sottoscrizione SMS"
+
+msgid "Add message"
+msgstr "Aggiungi messaggio"
+
+msgid "Already a member reply"
+msgstr "Già un membro risponde"
+
+msgid "Are you sure you want to delete SMS subscribe ?"
+msgstr "Sei sicuro di voler eliminare l'abbonamento SMS?"
+
+msgid "Are you sure you want to delete this member ?"
+msgstr "Sei sicuro di voler eliminare questo membro?"
+
+msgid "Are you sure you want to delete this message?"
+msgstr "Sei sicuro di voler eliminare questo messaggio?"
+
+msgid "Created"
+msgstr "Creato"
+
+msgid "Edit SMS subscribe"
+msgstr "Modifica sottoscrizione SMS"
+
+msgid "Edit message"
+msgstr "Modifica messaggio"
+
+msgid "Fail to add SMS subscribe"
+msgstr "Impossibile aggiungere sottoscrizione SMS"
+
+msgid "Fail to add message"
+msgstr "Impossibile aggiungere il messaggio"
+
+msgid "Fail to edit SMS subscribe"
+msgstr "Impossibile modificare la sottoscrizione SMS"
+
+msgid "Fail to edit message"
+msgstr "Impossibile modificare il messaggio"
+
+msgid "Fail to send SMS"
+msgstr "Mancato invio SMS"
+
+msgid "Keyword"
+msgstr "Parola chiave"
+
+msgid "Last update"
+msgstr "Ultimo aggiornamento"
+
+msgid "Manage subscribe"
+msgstr "Gestisci iscriviti"
+
+msgid "Member has been deleted"
+msgstr "Il membro è stato eliminato"
+
+msgid "Member join datetime"
+msgstr "Data e ora di iscrizione del membro"
+
+msgid "Member list for keyword"
+msgstr "Elenco membri per parola chiave"
+
+msgid "Members"
+msgstr "Membri"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Message ID"
+msgstr "ID messaggio"
+
+msgid "Message body"
+msgstr "Corpo del messaggio"
+
+msgid "Message detail"
+msgstr "Dettaglio messaggio"
+
+msgid "Message has been added"
+msgstr "Il messaggio è stato aggiunto"
+
+msgid "Message has been deleted"
+msgstr "Il messaggio è stato eliminato"
+
+msgid "Message has been edited"
+msgstr "Il messaggio è stato modificato"
+
+msgid "Messages"
+msgstr "Messaggi"
+
+msgid "Phone number"
+msgstr "Numero di telefono"
+
+msgid "Reply SMSC"
+msgstr "Rispondi SMSC"
+
+msgid "SMS forward parameter"
+msgstr "Parametro di inoltro SMS"
+
+msgid "SMS messages list for keyword"
+msgstr "Elenco messaggi SMS per parola chiave"
+
+msgid "SMS subscribe already exists, reserved or use by other feature"
+msgstr "L'abbonamento SMS esiste già, è riservato o utilizzato da un'altra funzione"
+
+msgid "SMS subscribe has been added"
+msgstr "È stata aggiunta la sottoscrizione SMS"
+
+msgid "SMS subscribe has been saved"
+msgstr "L'iscrizione all'SMS è stata salvata"
+
+msgid "SMS subscribe keyword"
+msgstr "Parola chiave di sottoscrizione SMS"
+
+msgid "SMS subscribe parameter"
+msgstr "Parametro sottoscrizione SMS"
+
+msgid "SMS subscribe reply"
+msgstr "Risposta sottoscrizione SMS"
+
+msgid "SMS subscribe status has been changed"
+msgstr "Lo stato di sottoscrizione SMS è stato modificato"
+
+msgid "SMS subscribe with all its messages and members has been deleted"
+msgstr "L'iscrizione all'SMS con tutti i suoi messaggi e membri è stata eliminata"
+
+msgid "SMS unsubscribe parameter"
+msgstr "Parametro di annullamento dell'iscrizione SMS"
+
+msgid "SMS unsubscribe reply"
+msgstr "Risposta annullamento iscrizione SMS"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Send"
+msgstr "Invia"
+
+msgid "Send this message to all members"
+msgstr "Invia questo messaggio a tutti i membri"
+
+msgid "Sent"
+msgstr "Inviato"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "Subscribe duration"
+msgstr "Durata sottoscrizione"
+
+msgid "Subscription expired reply"
+msgstr "Risposta abbonamento scaduto"
+
+msgid "Unknown format reply"
+msgstr "Risposta formato sconosciuto"
+
+msgid "Unlimited"
+msgstr "Illimitato"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "View members"
+msgstr "Visualizza membri"
+
+msgid "View messages"
+msgstr "Visualizza i messaggi"
+
+msgid "You have no member"
+msgstr "Non hai un membro"
+
+msgid "You must fill all fields"
+msgstr "Devi compilare tutti i campi"
+
+msgid "Your SMS has been delivered to queue"
+msgstr "Il tuo SMS è stato consegnato in coda"
+
+msgid "keyword"
+msgstr "parola chiave"

@@ -1,0 +1,228 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it_IT\n"
+"X-Generator: Poedit 2.2\n"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Add"
+msgstr "Aggiungi"
+
+msgid "Administrator"
+msgstr "Amministratore"
+
+msgid "All users"
+msgstr "Tutti gli utenti"
+
+msgid "Ban"
+msgstr "Divieto"
+
+msgid "Buy"
+msgstr "Compra"
+
+msgid "Card"
+msgstr "Carta"
+
+msgid "Charge"
+msgstr "Carica"
+
+msgid "Close"
+msgstr "Chiudi"
+
+msgid "Compose message"
+msgstr "Componi messaggio"
+
+msgid "Confirmation"
+msgstr "Conferma"
+
+msgid "Credit"
+msgstr "Credito"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Download"
+msgstr "Scarica"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Export"
+msgstr "Esporta"
+
+msgid "Feature"
+msgstr "Caratteristica"
+
+msgid "Features"
+msgstr "Caratteristiche"
+
+msgid "Forward"
+msgstr "Avanti"
+
+msgid "Go"
+msgstr "Vai"
+
+msgid "Group"
+msgstr "Gruppo"
+
+msgid "Hide"
+msgstr "Nascondi"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Idle"
+msgstr "Inattivo"
+
+msgid "Import"
+msgstr "Importa"
+
+msgid "Inbox"
+msgstr "SMS in arrivo"
+
+msgid "Info"
+msgstr "Informazioni"
+
+msgid "Information"
+msgstr "Informazioni"
+
+msgid "Key"
+msgstr "Chiave"
+
+msgid "Keyword"
+msgstr "Parola chiave"
+
+msgid "Lock"
+msgstr "Blocca"
+
+msgid "Logged in as"
+msgstr "Accesso come"
+
+msgid "Login"
+msgstr "Accesso"
+
+msgid "Login as"
+msgstr "Accedi come"
+
+msgid "Logout"
+msgstr "Esci"
+
+msgid "Main configuration"
+msgstr "Configurazione principale"
+
+msgid "Manage"
+msgstr "Gestisci"
+
+msgid "Manage ACL"
+msgstr "Gestisci ACL"
+
+msgid "Manage SMSC"
+msgstr "Gestisci SMSC"
+
+msgid "Manage account"
+msgstr "Gestisci account"
+
+msgid "Manage sender ID"
+msgstr "Gestisci ID mittente"
+
+msgid "Manage site"
+msgstr "Gestisci sito"
+
+msgid "Manage subuser"
+msgstr "Gestisci sottoutente"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Move"
+msgstr "Muoviti"
+
+msgid "My account"
+msgstr "Il mio account"
+
+msgid "No"
+msgstr "No"
+
+msgid "Offline"
+msgstr "Non in linea"
+
+msgid "Online"
+msgstr "in linea"
+
+msgid "Preferences"
+msgstr "Preferenze"
+
+msgid "Rate"
+msgstr "Valuta"
+
+msgid "Ratecard"
+msgstr "Tariffario"
+
+msgid "Recover password"
+msgstr "Recupera password"
+
+msgid "Reduce"
+msgstr "Riduci"
+
+msgid "Register"
+msgstr "Registrati"
+
+msgid "Register an account"
+msgstr "Registra un account"
+
+msgid "Remove"
+msgstr "Rimuovi"
+
+msgid "Reply"
+msgstr "Rispondi"
+
+msgid "Reports"
+msgstr "Rapporti"
+
+msgid "Resend"
+msgstr "Invia di nuovo"
+
+msgid "SMS"
+msgstr "SMS"
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "Unban"
+msgstr "Sbloccare"
+
+msgid "Unlock"
+msgstr "Sblocca"
+
+msgid "Upload"
+msgstr "Carica"
+
+msgid "User"
+msgstr "Utente"
+
+msgid "User configuration"
+msgstr "Configurazione utente"
+
+msgid "User preference"
+msgstr "Preferenze dell'utente"
+
+msgid "View"
+msgstr "Vedi"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "Your credit"
+msgstr "Il tuo credito"
+
+msgid "return"
+msgstr "ritorno"
