@@ -29,7 +29,7 @@ function dba_connect($db_user, $db_pass, $db_name, $db_host = '127.0.0.1', $db_p
 	$db_port = (int) $db_port ? $db_port : _DB_PORT_;
 
 	if (defined(_DB_TYPE_) && _DB_TYPE_) {
-		$db_type = _DB_TYPE_ == 'mysqli' ? 'mysql' : _DB_TYPE_;
+		$db_type = strtolower(_DB_TYPE_) == 'mysqli' ? 'mysql' : strtolower(_DB_TYPE_);
 	} else {
 		$db_type = 'mysql';
 	}
@@ -59,9 +59,6 @@ function dba_connect($db_user, $db_pass, $db_name, $db_host = '127.0.0.1', $db_p
 			$db_opt
 		);
 	} catch (PDOException $e) {
-		//ob_end_clean();
-		//echo 'DB Error: ' . $e->getMessage() . PHP_EOL;
-		//exit();
 		_log(_('Exception') . ': ' . $e->getMessage() . ' ip:' . _REMOTE_ADDR_, 2, 'dba_connect');
 		die(_('FATAL ERROR') . ' : ' . _('Fail to connect to database'));
 	}
@@ -73,8 +70,8 @@ function dba_prepare($db_query)
 {
 	global $DBA_PDO;
 
-	if ($q = $DBA_PDO->prepare($db_query)) {
-		return $q;
+	if ($pdo_statement = $DBA_PDO->prepare($db_query)) {
+		return $pdo_statement;
 	}
 
 	return false;
@@ -93,9 +90,9 @@ function dba_execute($pdo_statement, $db_argv = [])
 
 function dba_query($db_query, $db_argv = [])
 {
-	if ($q = dba_prepare($db_query)) {
-		if (dba_execute($q, $db_argv)) {
-			return $q;
+	if ($pdo_statement = dba_prepare($db_query)) {
+		if (dba_execute($pdo_statement, $db_argv)) {
+			return $pdo_statement;
 		}
 	}
 
@@ -133,28 +130,28 @@ function dba_num_rows($db_query)
 	}
 }
 
-function dba_affected_rows($db_query)
+function dba_affected_rows($db_query, $db_argv = [])
 {
-	global $DBA_PDO;
-
-	$q = $DBA_PDO->prepare($db_query);
-	if ($q->execute()) {
-		return $q->rowCount();
-	} else {
-		return 0;
+	if ($pdo_statement = dba_prepare($db_query)) {
+		if (dba_execute($pdo_statement, $db_argv)) {
+			return $pdo_statement->rowCount();
+		}
 	}
+
+	return 0;
 }
 
-function dba_insert_id($db_query)
+function dba_insert_id($db_query, $db_argv = [])
 {
 	global $DBA_PDO;
 
-	$q = $DBA_PDO->prepare($db_query);
-	if ($q->execute()) {
-		return $DBA_PDO->lastInsertId();
-	} else {
-		return 0;
+	if ($pdo_statement = dba_prepare($db_query)) {
+		if (dba_execute($pdo_statement, $db_argv)) {
+			return $DBA_PDO->lastInsertId();
+		}
 	}
+
+	return 0;
 }
 
 function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', $extras = '', $join = '')
