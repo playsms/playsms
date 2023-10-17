@@ -66,7 +66,7 @@ function dba_connect($db_user, $db_pass, $db_name, $db_host = '127.0.0.1', $db_p
 	return $DBA_PDO;
 }
 
-function dba_prepare($db_query)
+function _dba_prepare($db_query)
 {
 	global $DBA_PDO;
 
@@ -77,7 +77,7 @@ function dba_prepare($db_query)
 	return false;
 }
 
-function dba_execute($pdo_statement, $db_argv = [])
+function _dba_execute($pdo_statement, $db_argv = [])
 {
 	if (is_array($db_argv) && $db_argv) {
 		$db_result = $pdo_statement->execute($db_argv);
@@ -90,8 +90,8 @@ function dba_execute($pdo_statement, $db_argv = [])
 
 function dba_query($db_query, $db_argv = [])
 {
-	if ($pdo_statement = dba_prepare($db_query)) {
-		if (dba_execute($pdo_statement, $db_argv)) {
+	if ($pdo_statement = _dba_prepare($db_query)) {
+		if (_dba_execute($pdo_statement, $db_argv)) {
 			return $pdo_statement;
 		}
 	}
@@ -132,8 +132,8 @@ function dba_num_rows($db_query)
 
 function dba_affected_rows($db_query, $db_argv = [])
 {
-	if ($pdo_statement = dba_prepare($db_query)) {
-		if (dba_execute($pdo_statement, $db_argv)) {
+	if ($pdo_statement = _dba_prepare($db_query)) {
+		if (_dba_execute($pdo_statement, $db_argv)) {
 			return $pdo_statement->rowCount();
 		}
 	}
@@ -145,8 +145,8 @@ function dba_insert_id($db_query, $db_argv = [])
 {
 	global $DBA_PDO;
 
-	if ($pdo_statement = dba_prepare($db_query)) {
-		if (dba_execute($pdo_statement, $db_argv)) {
+	if ($pdo_statement = _dba_prepare($db_query)) {
+		if (_dba_execute($pdo_statement, $db_argv)) {
 			return $DBA_PDO->lastInsertId();
 		}
 	}
@@ -157,18 +157,22 @@ function dba_insert_id($db_query, $db_argv = [])
 function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', $extras = '', $join = '')
 {
 	$ret = array();
+	$db_argv = [];
+
 	if ($fields) {
 		$q_fields = trim($fields);
 	}
 	if (is_array($conditions)) {
 		foreach ( $conditions as $key => $val ) {
-			$q_conditions .= "AND " . $key . "='" . $val . "' ";
+			$q_conditions .= "AND " . $key . "=? ";
+			$db_argv[] = $val;
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
 		foreach ( $keywords as $key => $val ) {
-			$q_keywords .= "OR " . $key . " LIKE '" . $val . "' ";
+			$q_keywords .= "OR " . $key . " LIKE ? ";
+			$db_argv[] = $val;
 		}
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR", "(", $q_keywords);
@@ -183,27 +187,36 @@ function dba_search($db_table, $fields = '*', $conditions = '', $keywords = '', 
 			$q_extras .= $key . " " . $val . " ";
 		}
 	}
-	$db_query = "SELECT " . $q_fields . " FROM " . $db_table . " " . $join . " " . $q_where . " " . $q_sql_where . " " . $q_extras;
-	// _log("q: ".$db_query, 3, "dba_search");
-	$db_result = dba_query($db_query);
+	$db_query = trim("SELECT " . $q_fields . " FROM " . $db_table . " " . $join . " " . $q_where . " " . $q_sql_where . " " . $q_extras);
+	//_log("DEBUG q: ".$db_query, 2, "dba_search");
+	if ($db_argv) {
+		$db_result = dba_query($db_query, $db_argv);
+	} else {
+		$db_result = dba_query($db_query);
+	}
 	while ($db_row = dba_fetch_array($db_result)) {
 		$ret[] = $db_row;
 	}
+
 	return $ret;
 }
 
 function dba_count($db_table, $conditions = '', $keywords = '', $extras = '', $join = '')
 {
 	$ret = 0;
+	$db_argv = [];
+
 	if (is_array($conditions)) {
 		foreach ( $conditions as $key => $val ) {
-			$q_conditions .= "AND " . $key . "='" . $val . "' ";
+			$q_conditions .= "AND " . $key . "=? ";
+			$db_argv[] = $val;
 		}
 	}
 	if (is_array($keywords)) {
 		$q_keywords = "AND (";
 		foreach ( $keywords as $key => $val ) {
-			$q_keywords .= "OR " . $key . " LIKE '" . $val . "' ";
+			$q_keywords .= "OR " . $key . " LIKE ? ";
+			$db_argv[] = $val;
 		}
 		$q_keywords .= ")";
 		$q_keywords = str_replace("(OR", "(", $q_keywords);
@@ -219,98 +232,122 @@ function dba_count($db_table, $conditions = '', $keywords = '', $extras = '', $j
 		}
 	}
 	$db_query = "SELECT COUNT(*) AS count FROM " . $db_table . " " . $join . " " . $q_where . " " . $q_sql_where . " " . $q_extras;
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-		$ret = $db_row['count'];
+	if ($db_argv) {
+		$db_result = dba_query($db_query, $db_argv);
+	} else {
+		$db_result = dba_query($db_query);
 	}
-	// fixme anton - just to make sure, if its empty then should be 0
-	$ret = (trim($ret) ? trim($ret) : 0);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$ret = (int) $db_row['count'];
+	}
+
 	return $ret;
 }
 
 function dba_add($db_table, $items)
 {
 	$ret = false;
+	$db_argv = [];
+	$sets = '';
+	$vals = '';
+
 	if (is_array($items)) {
 		foreach ( $items as $key => $val ) {
 			$sets .= $key . ",";
-			$vals .= "'" . $val . "',";
+			$vals .= "?,";
+			$db_argv[] = $val;
 		}
 		if ($sets && $vals) {
 			$sets = substr($sets, 0, -1);
 			$vals = substr($vals, 0, -1);
 			$db_query = "INSERT INTO " . $db_table . " (" . $sets . ") VALUES (" . $vals . ")";
-			if ($c_id = dba_insert_id($db_query)) {
+			if ($c_id = dba_insert_id($db_query, $db_argv)) {
 				$ret = $c_id;
 			}
 		}
 	}
+
 	return $ret;
 }
 
 function dba_update($db_table, $items, $condition = '', $operand = 'AND')
 {
 	$ret = false;
-	global $core_config;
+	$db_argv = [];
+	$q_condition = '';
+
 	if (is_array($items)) {
 		foreach ( $items as $key => $val ) {
-			$sets .= $key . "='" . $val . "',";
+			$sets .= $key . "=?,";
+			$db_argv[] = $val;
 		}
 		if ($sets) {
 			$sets = substr($sets, 0, -1);
 			if (is_array($condition)) {
 				foreach ( $condition as $key => $val ) {
-					$q_condition .= " " . $operand . " " . $key . "='" . $val . "'";
+					$q_condition .= $operand . " " . $key . "=? ";
+					$db_argv[] = $val;
 				}
-				if ($q_condition) {
-					$q_condition = " WHERE 1=1 " . $q_condition;
+				if ($q_condition = trim($q_condition)) {
+					$q_condition = "WHERE " . substr($q_condition, 3);
 				}
 			}
 			$db_query = "UPDATE " . $db_table . " SET " . $sets . " " . $q_condition;
-			if ($c_rows = dba_affected_rows($db_query)) {
+			if ($c_rows = dba_affected_rows($db_query, $db_argv)) {
 				$ret = $c_rows;
 			}
 		}
 	}
+
 	return $ret;
 }
 
 function dba_remove($db_table, $condition = '', $operand = 'AND')
 {
 	$ret = false;
+	$db_argv = [];
+	$q_condition = '';
+
 	if (is_array($condition)) {
 		foreach ( $condition as $key => $val ) {
-			$q_condition .= $operand . " " . $key . "='" . $val . "' ";
+			$q_condition .= $operand . " " . $key . "=? ";
+			$db_argv[] = $val;
 		}
-		if ($q_condition) {
+		if ($q_condition = trim($q_condition)) {
 			$q_condition = "WHERE " . substr($q_condition, 3);
 		}
 		$db_query = "DELETE FROM " . $db_table . " " . $q_condition;
-		if ($c_rows = dba_affected_rows($db_query)) {
+		if ($c_rows = dba_affected_rows($db_query, $db_argv)) {
 			$ret = $c_rows;
 		}
 	}
+
 	return $ret;
 }
 
 function dba_isavail($db_table, $conditions = '', $operand = 'OR')
 {
 	$ret = false;
+	$db_argv = [];
+	$q_condition = '';
+
 	if (is_array($conditions)) {
 		foreach ( $conditions as $key => $val ) {
-			$q_condition .= $operand . " " . $key . "='" . $val . "' ";
+			$q_condition .= $operand . " " . $key . "=? ";
+			$db_argv[] = $val;
 		}
-		if ($q_condition) {
+		if ($q_condition = trim($q_condition)) {
 			$q_condition = "WHERE " . substr($q_condition, 3);
 		}
 	}
 	$db_query = "SELECT * FROM " . $db_table . " " . $q_condition . " LIMIT 1";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
+	$db_result = dba_query($db_query, $db_argv);
+	if (dba_fetch_array($db_result)) {
 		$ret = false;
 	} else {
 		$ret = true;
 	}
+
 	return $ret;
 }
 
