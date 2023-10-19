@@ -42,8 +42,8 @@ function outgoing_getdata($extras = array())
 function outgoing_getuid($id)
 {
 	if ($id) {
-		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT uid FROM " . _DB_PREF_ . "_featureOutgoing WHERE id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$dst = $db_row['uid'];
 	}
@@ -54,8 +54,8 @@ function outgoing_getuid($id)
 function outgoing_getdst($id)
 {
 	if ($id) {
-		$db_query = "SELECT dst FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT dst FROM " . _DB_PREF_ . "_featureOutgoing WHERE id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$dst = $db_row['dst'];
 	}
@@ -66,8 +66,8 @@ function outgoing_getdst($id)
 function outgoing_getprefix($id)
 {
 	if ($id) {
-		$db_query = "SELECT prefix FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT prefix FROM " . _DB_PREF_ . "_featureOutgoing WHERE id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$prefix = outgoing_display_prefix($db_row['prefix']);
 	}
@@ -78,8 +78,8 @@ function outgoing_getprefix($id)
 function outgoing_getsmsc($id)
 {
 	if ($id) {
-		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$smsc = $db_row['smsc'];
 	}
@@ -97,16 +97,16 @@ function outgoing_prefix2smsc($prefix, $uid = 0)
 	}
 	$uid = ((int) $uid ? (int) $uid : 0);
 
-	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix LIKE '%[" . $prefix . "]%' AND uid='" . $uid . "'";
-	$db_result = dba_query($db_query);
+	$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix LIKE ? AND uid=?";
+	$db_result = dba_query($db_query, ["%[" . $prefix . "]%", $uid]);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$smsc[] = $db_row['smsc'];
 	}
 
 	// backward compatibility with playSMS 1.1 and below
 	if (!count($smsc)) {
-		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix='" . $prefix . "' AND uid='" . $uid . "'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT smsc FROM " . _DB_PREF_ . "_featureOutgoing WHERE prefix=? AND uid=?";
+		$db_result = dba_query($db_query, [$prefix, $uid]);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$smsc[] = $db_row['smsc'];
 		}
