@@ -43,14 +43,14 @@ function credit_getbalance($uid)
  *
  * @param integer $uid
  *        User ID
- * @param decimal $amount
+ * @param float $amount
  *        Credit amount to add (positive value)
  * @return boolean TRUE on success
  */
 function credit_add($uid, $amount)
 {
 	$amount = (float) $amount;
-	return rate_addusercredit($uid, $amount);
+	return (bool) rate_addusercredit($uid, $amount);
 }
 
 /**
@@ -58,14 +58,14 @@ function credit_add($uid, $amount)
  *
  * @param integer $uid
  *        User ID
- * @param decimal $amount
+ * @param float $amount
  *        Credit amount to reduce (positive value)
  * @return boolean TRUE on success
  */
 function credit_reduce($uid, $amount)
 {
 	$amount = (float) $amount;
-	return rate_deductusercredit($uid, $amount);
+	return (bool) rate_deductusercredit($uid, $amount);
 }
 
 /**
