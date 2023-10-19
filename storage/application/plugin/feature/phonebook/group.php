@@ -26,12 +26,12 @@ switch (_OP_) {
 	case "list":
 		$search_category = array(
 			_('Name') => 'name',
-			_('Group code') => 'code' 
+			_('Group code') => 'code'
 		);
 		$base_url = 'index.php?app=main&inc=feature_phonebook&route=group&op=list';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
-			'uid' => $user_config['uid'] 
+			'uid' => $user_config['uid']
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featurePhonebook_group', $conditions, $keywords);
@@ -39,11 +39,11 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'name',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$fields = 'id, name, code, flag_sender';
 		$list = dba_search(_DB_PREF_ . '_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
 			<h3 class=page-header-subtitle>" . _('Group') . "</h3>
@@ -66,26 +66,29 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
-		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
-			$gpid = $list[$j]['id'];
-			$name = $list[$j]['name'];
-			$code = $list[$j]['code'];
-			$flag_sender = (int) $list[$j]['flag_sender'];
-			$i++;
-			$content .= "
-				<tr>
-					<td><a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $gpid) . "'>" . $name . "</a></td>
-					<td>" . $phonebook_flag_sender[$flag_sender] . " " . $code . "</td>
-					<td nowrap>" . _confirm(
-								_('Are you sure you want to delete this group ?') . " (" ._('group') . " : " . $name . ")", 
-								_u('index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=delete&gpid=' . $gpid), 
-								'delete') . "
-					</td>
-				</tr>";
+
+		if (isset($list) && is_array($list)) {
+			$j = 0;
+			for ($j = 0; $j < count($list); $j++) {
+				$gpid = $list[$j]['id'];
+				$name = $list[$j]['name'];
+				$code = $list[$j]['code'];
+				$flag_sender = (int) $list[$j]['flag_sender'];
+				$i++;
+				$content .= "
+					<tr>
+						<td><a href='" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $gpid) . "'>" . $name . "</a></td>
+						<td>" . $phonebook_flag_sender[$flag_sender] . " " . $code . "</td>
+						<td nowrap>" . _confirm(
+					_('Are you sure you want to delete this group ?') . " (" . _('group') . " : " . $name . ")",
+					_u('index.php?app=main&inc=feature_phonebook&route=group&op=actions&go=delete&gpid=' . $gpid),
+					'delete'
+				) . "
+						</td>
+					</tr>";
+			}
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
@@ -93,7 +96,7 @@ switch (_OP_) {
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
-		
+
 		_p($content);
 		break;
 	case "add":
@@ -171,13 +174,23 @@ switch (_OP_) {
 		switch ($go) {
 			case 'delete':
 				if ($gpid = $_REQUEST['gpid']) {
-					if (!dba_count(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-						'gpid' => $gpid 
-					))) {
-						if (dba_remove(_DB_PREF_ . '_featurePhonebook_group', array(
-							'uid' => $user_config['uid'],
-							'id' => $gpid 
-						))) {
+					if (
+						!dba_count(
+							_DB_PREF_ . '_featurePhonebook_group_contacts',
+							array(
+								'gpid' => $gpid
+							)
+						)
+					) {
+						if (
+							dba_remove(
+								_DB_PREF_ . '_featurePhonebook_group',
+								array(
+									'uid' => $user_config['uid'],
+									'id' => $gpid
+								)
+							)
+						) {
 							$_SESSION['dialog']['info'][] = _('Selected group has been deleted');
 						} else {
 							$_SESSION['dialog']['danger'][] = _('Fail to delete group');
@@ -189,7 +202,6 @@ switch (_OP_) {
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				header("Location: " . _u($ref));
 				exit();
-				break;
 			case 'add':
 				$group_name = $_POST['group_name'];
 				$group_code = strtoupper(trim($_POST['group_code']));
@@ -212,7 +224,6 @@ switch (_OP_) {
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=add'));
 				exit();
-				break;
 			case 'edit':
 				$gpid = $_POST['gpid'];
 				$group_name = $_POST['group_name'];
@@ -228,7 +239,7 @@ switch (_OP_) {
 						$_SESSION['dialog']['danger'][] = _('No changes have been made');
 					} else {
 						$string_group_edit = _('Group has been edited');
-						
+
 						// check whether or not theres a group code with the same name and flag_sender <> 0
 						if ($flag_sender > 0) {
 							$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0 AND NOT id='$gpid'";
@@ -238,11 +249,11 @@ switch (_OP_) {
 								$string_group_edit = _('Group has been edited but unable to set broadcast from members or anyone');
 							}
 						}
-						
+
 						// update data
 						$db_query = "UPDATE " . _DB_PREF_ . "_featurePhonebook_group SET c_timestamp='" . time() . "',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
 						$db_result = dba_query($db_query);
-						
+
 						$_SESSION['dialog']['info'][] = $string_group_edit . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 					}
 				} else {
@@ -250,7 +261,6 @@ switch (_OP_) {
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $gpid));
 				exit();
-				break;
 		}
 		break;
 }

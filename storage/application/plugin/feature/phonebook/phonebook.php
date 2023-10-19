@@ -24,62 +24,61 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case "phonebook_list":
+		$db_argv = [];
 		$search_category = array(
 			_('Name') => 'A.name',
 			_('Mobile') => 'mobile',
 			_('Email') => 'email',
 			_('Tags') => 'tags',
-			_('Group code') => 'code' 
+			_('Group code') => 'code'
 		);
 		$base_url = 'index.php?app=main&inc=feature_phonebook&op=phonebook_list';
 		$search = themes_search($search_category, $base_url);
-	
-// modified by andregronwald (author of code: erick_hdz), issued by https://forum.playsms.org/t/share-user-phonebook-with-its-subusers-solved/483/3
-//		if(($parent_uid = user_getparentbyuid($user_config["uid"])) == FALSE){
-//			$parent_uid = $user_config["uid"];
-//		}	
-
-// original code
-		$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, A.tags AS tags';
-		$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
-		$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
-		$conditions = array(
-			'( A.uid' => $user_config['uid'] . "' OR B.id in (
-				SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-				" . $join . "
-				WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
-				AND B.flag_sender='1'
-				) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
-		);
-
-// modified by andregronwald (author of code: erick_hdz), issued by https://forum.playsms.org/t/share-user-phonebook-with-its-subusers-solved/483/3
-//		$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, A.tags AS tags';
-//		$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
-//		$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
-//		$conditions = array(
-//			'( A.uid' => $user_config['uid'] . "' OR B.id in ( 
-//				SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A 
-//				LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid AND A.uid in (SELECT DISTINCT uid From " . _DB_PREF_ . "_tblUser WHERE parent_uid = '" . $user_config['uid'] . "' UNION Select '" . $parent_uid . "') 
-//				LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid AND B.flag_sender='1' 
-//				)" . ") OR ( B.flag_sender='2' ) OR (B.flag_sender='0' AND A.uid='" . $user_config['uid'] . "') AND '1'='1"
-//		);
-// modification end
-
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_ . '_featurePhonebook AS A', $conditions, $keywords, '', $join);
+		$keywords_sql = "";
+		foreach ( $keywords as $key => $val ) {
+			$keywords_sql .= " " . $key . " LIKE ?";
+			$db_argv[] = $val;
+		}
+		if ($keywords_sql) {
+			$keywords_sql .= " AND ";
+		}
+
+		$db_query = "
+			SELECT DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, A.tags AS tags 
+			FROM " . _DB_PREF_ . "_featurePhonebook AS A 
+			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid 
+			LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid 
+			WHERE " . $keywords_sql . " 
+				(
+					A.uid = ? 
+					OR B.id IN (
+						SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+						LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid 
+						LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid 
+						WHERE A.mobile LIKE ? AND B.flag_sender=1
+					) 
+					OR (A.uid<>? AND B.flag_sender>1)
+				)";
+		$db_argv[] = (int) $user_config['uid'];
+		$db_argv[] = "%" . core_mobile_matcher_format($user_config['mobile']);
+		$db_argv[] = (int) $user_config['uid'];
+		$count = dba_num_rows($db_query, $db_argv);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'A.name, mobile',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
-		$list = dba_search(_DB_PREF_ . '_featurePhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
-		
+
+		$db_query .= " ORDER BY A.name, mobile LIMIT " . (int) $nav['limit'] . " OFFSET " . (int) $nav['offset'];
+		$db_result = dba_query($db_query, $db_argv);
+
+		$list = [];
+		while ($db_row = dba_fetch_array($db_result)) {
+			$list[] = $db_row;
+		}
+
 		$phonebook_groups = phonebook_getgroupbyuid($user_config['uid']);
-		foreach ($phonebook_groups as $group) {
+		foreach ( $phonebook_groups as $group ) {
 			$action_move_options .= '<option value=move_' . $group['gpid'] . '>' . _('Move to') . ' ' . $group['gp_name'] . ' (' . $group['gp_code'] . ')</option>';
 		}
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
 			<p>" . $search['form'] . "</p>
@@ -123,7 +122,7 @@ switch (_OP_) {
 				</tr>
 				</thead>
 				<tbody>";
-		
+
 		$i = $nav['top'];
 		$j = 0;
 		for ($j = 0; $j < count($list); $j++) {
@@ -132,23 +131,39 @@ switch (_OP_) {
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
 			$tags = $list[$j]['tags'];
+
+			$db_query = "
+				SELECT B.id AS id, B.uid AS uid, B.code AS code, B.flag_sender AS flag_sender 
+				FROM " . _DB_PREF_ . "_featurePhonebook_group AS B 
+				INNER JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON C.gpid = B.id
+				WHERE
+					C.pid = ? 
+					AND (
+						B.uid = ? 
+						OR B.id IN (
+							SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+							LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid 
+							LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid 
+							WHERE A.mobile LIKE ?
+							AND B.flag_sender=1
+						) OR ( B.uid<>? AND B.flag_sender>1 ) 
+					)
+				ORDER BY B.code ASC
+				LIMIT " . (int) $nav['limit'];
+			$db_argv = [
+				(int) $list[$j]['pid'],
+				(int) $user_config['uid'],
+				"%" . core_mobile_matcher_format($user_config['mobile']),
+				(int) $user_config['uid']
+			];
+			$db_result = dba_query($db_query, $db_argv);
+
+			$grouplist = [];
+			while ($db_row = dba_fetch_array($db_result)) {
+				$grouplist[] = $db_row;
+			}
+
 			$group_code = "";
-			$groupfields = 'B.id AS id, B.uid AS uid, B.code AS code, B.flag_sender AS flag_sender';
-			$groupconditions = array(
-				'C.pid' => $list[$j]['pid'],
-				'( B.uid' => $user_config['uid'] . "' OR B.id in (
-					SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-					" . $join . "
-					WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
-					AND B.flag_sender='1'
-					) OR ( B.uid<>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
-			);
-			$groupextras = array(
-				'ORDER BY' => 'B.code ASC',
-				'LIMIT' => $nav['limit'] 
-			);
-			$groupjoin = 'INNER JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON C.gpid = B.id';
-			$grouplist = dba_search(_DB_PREF_ . '_featurePhonebook_group AS B', $groupfields, $groupconditions, '', $groupextras, $groupjoin);
 			for ($k = 0; $k < count($grouplist); $k++) {
 				if ($grouplist[$k]['uid'] == $user_config['uid']) {
 					$group_code .= $phonebook_flag_sender[$grouplist[$k]['flag_sender']] . "<a href=\"" . _u('index.php?app=main&inc=feature_phonebook&route=group&op=edit&gpid=' . $grouplist[$k]['id']) . "\">" . strtoupper($grouplist[$k]['code']) . "</a><br />";
@@ -173,21 +188,21 @@ switch (_OP_) {
 					</td>
 				</tr>";
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
 	case "phonebook_add":
 		$phone = trim(urlencode($_REQUEST['phone']));
 		$uid = $user_config['uid'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid=?";
+		$db_result = dba_query($db_query, [$uid]);
 		$list_of_group = array();
 		while ($db_row = dba_fetch_array($db_result)) {
 			$list_of_group[] = '<input type=hidden name=gpids[' . $db_row['id'] . '] value=0>
@@ -220,18 +235,22 @@ switch (_OP_) {
 	case "phonebook_edit":
 		$uid = $user_config['uid'];
 		$pid = $_REQUEST['pid'];
-		$list = dba_search(_DB_PREF_ . '_featurePhonebook', '*', array(
-			'id' => $pid,
-			'uid' => $uid 
-		));
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid'";
-		$db_result = dba_query($db_query);
+		$list = dba_search(
+			_DB_PREF_ . '_featurePhonebook',
+			'*',
+			array(
+				'id' => $pid,
+				'uid' => $uid
+			)
+		);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid=?";
+		$db_result = dba_query($db_query, [$uid]);
 		$list_of_group = array();
 		while ($db_row = dba_fetch_array($db_result)) {
 			$checked = '';
 			$conditions = array(
 				'gpid' => $db_row['id'],
-				'pid' => $pid 
+				'pid' => $pid
 			);
 			if (dba_isexists(_DB_PREF_ . '_featurePhonebook_group_contacts', $conditions, 'AND')) {
 				$checked = ' checked';
@@ -270,29 +289,48 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$fields = 'DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code, A.tags AS tags';
-				$join = 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group_contacts AS C ON A.id=C.pid ';
-				$join .= 'LEFT JOIN ' . _DB_PREF_ . '_featurePhonebook_group AS B ON B.id=C.gpid';
-				$conditions = array(
-					'( A.uid' => $user_config['uid'] . "' OR B.id in (
-						SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
-						" . $join . "
-						WHERE A.mobile LIKE '%" . core_mobile_matcher_format($user_config['mobile']) . "'
-						AND B.flag_sender='1'
-						) OR ( A.uid <>'" . $user_config['uid'] . "' AND B.flag_sender>'1' ) ) AND '1'='1" 
-				);
+				$db_argv = [];
 				$keywords = $search['dba_keywords'];
-				$extras = array(
-					'ORDER BY' => 'A.name, mobile',
-					'LIMIT' => $phonebook_row_limit 
-				);
-				$list = dba_search(_DB_PREF_ . '_featurePhonebook AS A', $fields, $conditions, $keywords, $extras, $join);
+				$keywords_sql = "";
+				foreach ( $keywords as $key => $val ) {
+					$keywords_sql .= " " . $key . " LIKE ?";
+					$db_argv[] = $val;
+				}
+				if ($keywords_sql) {
+					$keywords_sql .= " AND ";
+				}
+				$db_query = "
+					SELECT DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code, A.tags AS tags 
+					FROM " . _DB_PREF_ . "_featurePhonebook AS A 
+					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid 
+					LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid 
+					WHERE " . $keywords_sql . " 
+						(
+							A.uid = ? 
+							OR B.id IN (
+								SELECT B.id AS id FROM " . _DB_PREF_ . "_featurePhonebook AS A
+								LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group_contacts AS C ON A.id=C.pid 
+								LEFT JOIN " . _DB_PREF_ . "_featurePhonebook_group AS B ON B.id=C.gpid 
+								WHERE A.mobile LIKE ? AND B.flag_sender=1
+							) 
+							OR (A.uid <>? AND B.flag_sender>1)
+						)
+					ORDER BY A.name, mobile
+					LIMIT " . (int) $phonebook_row_limit;
+				$db_argv[] = (int) $user_config['uid'];
+				$db_argv[] = "%" . core_mobile_matcher_format($user_config['mobile']);
+				$db_argv[] = (int) $user_config['uid'];
+				$db_result = dba_query($db_query, $db_argv);
+				$list = [];
+				while ($db_row = dba_fetch_array($db_result)) {
+					$list[] = $db_row;
+				}
 				$data[0] = array(
 					_('Name'),
 					_('Mobile'),
 					_('Email'),
 					_('Group code'),
-					_('Tags') 
+					_('Tags')
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
@@ -301,7 +339,7 @@ switch (_OP_) {
 						sendsms_getvalidnumber($list[$i]['mobile']),
 						$list[$i]['email'],
 						$list[$i]['code'],
-						phonebook_tags_clean($list[$i]['tags']) 
+						phonebook_tags_clean($list[$i]['tags'])
 					);
 				}
 				$content = core_csv_format($data);
@@ -321,33 +359,33 @@ switch (_OP_) {
 				$email = str_replace("\"", "", $email);
 				$tags = phonebook_tags_clean($_POST['tags']);
 				if ($mobile && $name) {
-					$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', array(
-						'uid' => $uid,
-						'mobile' => $mobile 
-					));
-					// fixme anton - temporary - contacts not unique
-					// if ($c_pid = $list[0]['id']) {
-					if (FALSE) {
-						$save_to_group = TRUE;
-					} else {
-						$items = array(
+					$list = dba_search(
+						_DB_PREF_ . '_featurePhonebook',
+						'id',
+						array(
 							'uid' => $uid,
-							'name' => $name,
-							'mobile' => $mobile,
-							'email' => $email,
-							'tags' => $tags 
-						);
-						if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
-							$save_to_group = TRUE;
-						} else {
-							_log('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
-						}
+							'mobile' => $mobile
+						)
+					);
+					// fixme anton - temporary - contacts not unique
+					$save_to_group = false;
+					$items = array(
+						'uid' => $uid,
+						'name' => $name,
+						'mobile' => $mobile,
+						'email' => $email,
+						'tags' => $tags
+					);
+					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
+						$save_to_group = true;
+					} else {
+						_log('fail to add contact pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email . ' tags:[' . $tags . ']', 3, 'phonebook_add');
 					}
-					foreach ($gpids as $gpid => $add) {
+					foreach ( $gpids as $gpid => $add ) {
 						if ($save_to_group && $add) {
 							$items = array(
 								'gpid' => $gpid,
-								'pid' => $c_pid 
+								'pid' => $c_pid
 							);
 							if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 								if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
@@ -364,7 +402,6 @@ switch (_OP_) {
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add'));
 				exit();
-				break;
 			case 'edit':
 				$uid = $user_config['uid'];
 				$c_pid = $_POST['pid'];
@@ -383,11 +420,11 @@ switch (_OP_) {
 						'name' => $name,
 						'mobile' => $mobile,
 						'email' => $email,
-						'tags' => $tags 
+						'tags' => $tags
 					);
 					$conditions = array(
 						'id' => $c_pid,
-						'uid' => $uid 
+						'uid' => $uid
 					);
 					dba_update(_DB_PREF_ . '_featurePhonebook', $items, $conditions, 'AND');
 					_log('contact edited pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
@@ -395,13 +432,12 @@ switch (_OP_) {
 					$_SESSION['dialog']['info'][] = _('You must fill mandatory fields');
 					header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_list'));
 					exit();
-					break;
 				}
-				foreach ($gpids as $gpid => $add) {
+				foreach ( $gpids as $gpid => $add ) {
 					if ($add) {
 						$items = array(
 							'gpid' => $gpid,
-							'pid' => $c_pid 
+							'pid' => $c_pid
 						);
 						if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 							if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
@@ -411,16 +447,18 @@ switch (_OP_) {
 							}
 						}
 					} else {
-						dba_remove(_DB_PREF_ . '_featurePhonebook_group_contacts', array(
-							'gpid' => $gpid,
-							'pid' => $c_pid
-						));
+						dba_remove(
+							_DB_PREF_ . '_featurePhonebook_group_contacts',
+							array(
+								'gpid' => $gpid,
+								'pid' => $c_pid
+							)
+						);
 					}
 				}
 				$_SESSION['dialog']['info'][] = _('Contact has been edited');
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_list'));
 				exit();
-				break;
 		}
 		break;
 }
