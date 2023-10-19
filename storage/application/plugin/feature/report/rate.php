@@ -40,7 +40,7 @@ switch (_OP_) {
 
 		$rates = rate_getbyuid($_SESSION['uid']);
 
-		foreach ($rates as $rate) {
+		foreach ( $rates as $rate ) {
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
 				'dst' => $rate['dst'],

@@ -21,7 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
 
 // if kick action
 if (_OP_ == 'kick') {
@@ -37,12 +37,12 @@ if (_OP_ == 'kick') {
 $tpl = array(
 	'name' => 'report_online',
 	'vars' => array(
-		'Report' => _('Report') ,
-		'Whose online' => _('Whose online') ,
-		'User' => _('User') ,
-		'Last update' => _('Last update') ,
-		'Current IP address' => _('Current IP address') ,
-		'User agent' => _('User agent') ,
+		'Report' => _('Report'),
+		'Whose online' => _('Whose online'),
+		'User' => _('User'),
+		'Last update' => _('Last update'),
+		'Current IP address' => _('Current IP address'),
+		'User agent' => _('User agent'),
 		'Action' => 'Action',
 		'Select page size' => _('Select page size'),
 	),
@@ -54,8 +54,8 @@ $tpl = array(
 // display admin users
 
 $users = report_whoseonline_admin();
-foreach ($users as $user) {
-	foreach ($user as $hash) {
+foreach ( $users as $user ) {
+	foreach ( $user as $hash ) {
 		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
@@ -72,8 +72,8 @@ foreach ($users as $user) {
 // display users
 
 $users = report_whoseonline_user();
-foreach ($users as $user) {
-	foreach ($user as $hash) {
+foreach ( $users as $user ) {
+	foreach ( $user as $hash ) {
 		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
@@ -90,8 +90,8 @@ foreach ($users as $user) {
 // display subusers
 
 $users = report_whoseonline_subuser();
-foreach ($users as $user) {
-	foreach ($user as $hash) {
+foreach ( $users as $user ) {
+	foreach ( $user as $hash ) {
 		$tpl['loops']['data'][] = array(
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],

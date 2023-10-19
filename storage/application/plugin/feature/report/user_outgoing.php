@@ -35,11 +35,11 @@ switch (_OP_) {
 			_('Footer') => 'p_footer',
 			_('Queue') => 'queue_code',
 		);
-		
+
 		$base_url = 'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing';
 		$queue_label = "";
 		$queue_home_link = "";
-		
+
 		$table = _DB_PREF_ . "_tblSMSOutgoing AS A";
 		$fields = "B.username, A.p_gateway, A.p_smsc, A.smslog_id, A.p_dst, A.p_sms_type, A.p_msg, A.p_footer, A.p_datetime, A.p_update, A.p_status, B.uid, A.queue_code";
 		$conditions = [
@@ -47,7 +47,7 @@ switch (_OP_) {
 			'A.flag_deleted' => 0,
 		];
 		$extras = [];
-		
+
 		if ($queue_code = trim($_REQUEST['queue_code'])) {
 			$conditions['A.queue_code'] = $queue_code;
 			$queue_label = "<p class=lead>" . sprintf(_('List of queue %s'), $queue_code) . "</p>";
@@ -57,7 +57,7 @@ switch (_OP_) {
 			$fields .= ", COUNT(A.queue_code) AS queue_count";
 			$extras['GROUP BY'] = "A.queue_code";
 		}
-		
+
 		$search = themes_search($search_category, $base_url);
 		$keywords = $search['dba_keywords'];
 		$extras['ORDER BY'] = "A.smslog_id DESC";
@@ -68,7 +68,7 @@ switch (_OP_) {
 		$extras['LIMIT'] = $nav['limit'];
 		$extras['OFFSET'] = $nav['offset'];
 		$list = dba_search($table, $fields, $conditions, $keywords, $extras, $join);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('My sent messages') . "</h2>
 			" . $queue_label . "
@@ -93,7 +93,7 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
+
 		if (isset($list) && is_array($list) && count($list) > 0) {
 			foreach ( $list as $item ) {
 				$item = core_display_data($item);
@@ -182,17 +182,17 @@ switch (_OP_) {
 					</tr>";
 			}
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>" . $queue_home_link;
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -209,7 +209,7 @@ switch (_OP_) {
 					$conditions['A.queue_code'] = $queue_code;
 				}
 				$keywords = $search['dba_keywords'];
-				
+
 				// fixme anton - will solve this later, for now maxed to 50k
 				$extras = array(
 					'ORDER BY' => "A.smslog_id DESC",
@@ -255,13 +255,13 @@ switch (_OP_) {
 				}
 				core_download($content, $fn, 'text/csv');
 				break;
-			
+
 			case 'delete':
 				if (isset($_POST['itemid'])) {
-					foreach ($_POST['itemid'] as $itemid) {
+					foreach ( $_POST['itemid'] as $itemid ) {
 						$up = array(
 							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
+							'flag_deleted' => '1'
 						);
 						$conditions = array(
 							'uid' => $_SESSION['uid'],

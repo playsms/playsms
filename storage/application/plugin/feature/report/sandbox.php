@@ -28,13 +28,13 @@ switch (_OP_) {
 		$search_category = array(
 			_('Time') => 'in_datetime',
 			_('From') => 'in_sender',
-			_('Content') => 'in_message' 
+			_('Content') => 'in_message'
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox';
 		$search = themes_search($search_category, $base_url);
 		$conditions = array(
 			'flag_deleted' => 0,
-			'in_status' => 0 
+			'in_status' => 0
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblSMSIncoming', $conditions, $keywords, '', $join);
@@ -42,10 +42,10 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'in_id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_id, in_uid, in_sender, in_datetime, in_message', $conditions, $keywords, $extras, $join);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Sandbox') . "</h2>
 			<p>" . $search['form'] . "</p>
@@ -106,10 +106,10 @@ switch (_OP_) {
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -118,37 +118,38 @@ switch (_OP_) {
 			case 'export':
 				$conditions = array(
 					'flag_deleted' => 0,
-					'in_status' => 0 
+					'in_status' => 0
 				);
 				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming', 'in_datetime, in_sender, in_message', $conditions, $search['dba_keywords'], '', $join);
 				$data[0] = array(
 					_('Time'),
 					_('From'),
-					_('Content') 
+					_('Content')
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
-						$list[$i]['in_message'] 
+						$list[$i]['in_message']
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'sandbox-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			
+
 			case 'delete':
 				if (isset($_POST['itemid'])) {
-					foreach ($_POST['itemid'] as $itemid) {
+					foreach ( $_POST['itemid'] as $itemid ) {
 						$up = array(
 							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
+							'flag_deleted' => '1'
 						);
 						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(
-							'in_id' => $itemid 
-						));
+							'in_id' => $itemid
+						)
+						);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

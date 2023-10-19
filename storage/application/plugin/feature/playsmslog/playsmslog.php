@@ -25,7 +25,7 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "playsmslog_list":
 	case "playsmslog_log":
-		
+
 		$tpl = array(
 			'name' => 'playsmslog',
 			'vars' => array(
@@ -33,10 +33,10 @@ switch (_OP_) {
 				'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'),
 				'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'),
 				'LOG' => playsmslog_view(),
-				'View log' => _('View log') 
-			) 
+				'View log' => _('View log')
+			)
 		);
-		
+
 		$content = tpl_apply($tpl);
 		if (_OP_ == 'playsmslog_log') {
 			ob_clean();

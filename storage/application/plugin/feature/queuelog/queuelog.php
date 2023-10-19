@@ -26,18 +26,19 @@ switch (_OP_) {
 	case "queuelog_list":
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('View SMS queue') . "</h2>";
-		
+
 		$count = queuelog_countall();
 		if ($count) {
 			$content .= "
 				<p>
 					" . _confirm(
-							_("Are you sure you want to delete ALL queues ?"), 
-							_u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete_all'),
-							$icon_config['delete'] . _("Delete ALL queues") . " ($count)") . "
+				_("Are you sure you want to delete ALL queues ?"),
+				_u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete_all'),
+				$icon_config['delete'] . _("Delete ALL queues") . " ($count)"
+			) . "
 				</p>";
 		}
-		
+
 		$content .= "
 			<div class=table-responsive>
 			<table id=playsms-table-list class=playsms-table-list>
@@ -68,15 +69,16 @@ switch (_OP_) {
 			$c_queue_code = $data[$c]['queue_code'];
 			$c_datetime_scheduled = core_display_datetime($data[$c]['datetime_scheduled']);
 			$c_username = user_uid2username($data[$c]['uid']);
-			
+
 			// total number of SMS in queue
 			$c_count = $data[$c]['sms_count'];
-			
+
 			$c_message = stripslashes(core_display_text($data[$c]['message']));
 			$c_action = _confirm(
-				_("Are you sure you want to delete queue ?") . " (" . _('queue'). ": " . $c_queue_code . ")",
+				_("Are you sure you want to delete queue ?") . " (" . _('queue') . ": " . $c_queue_code . ")",
 				_u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete&queue=' . $c_queue_code),
-				'delete');
+				'delete'
+			);
 			$content .= "
 				<tr>
 			";
@@ -140,12 +142,10 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_queuelog&op=queuelog_list'));
 		exit();
-		break;
 	case "queuelog_delete_all":
 		if (queuelog_delete_all($queue)) {
 			$_SESSION['dialog']['info'][] = _('All queues have been removed');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_queuelog&op=queuelog_list'));
 		exit();
-		break;
 }

@@ -30,7 +30,7 @@ switch (_OP_) {
 			_('From') => 'in_sender',
 			_('Keyword') => 'in_keyword',
 			_('Content') => 'in_message',
-			_('Feature') => 'in_feature' 
+			_('Feature') => 'in_feature'
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming';
 		$search = themes_search($search_category, $base_url);
@@ -46,10 +46,10 @@ switch (_OP_) {
 			'AND A.in_feature' => '!= ""',
 			'ORDER BY' => 'A.in_id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSIncoming AS A', 'B.username, A.in_id, A.in_uid, A.in_sender, A.in_keyword, A.in_datetime, A.in_feature, A.in_message', $conditions, $keywords, $extras, $join);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('All feature messages') . "</h2>
 			<p>" . $search['form'] . "</p>
@@ -119,10 +119,10 @@ switch (_OP_) {
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -135,7 +135,7 @@ switch (_OP_) {
 				);
 				$join = "INNER JOIN " . _DB_PREF_ . "_tblUser AS B ON A.in_uid=B.uid AND A.flag_deleted=B.flag_deleted";
 				$extras = array(
-					'AND A.in_keyword' => '!= ""' 
+					'AND A.in_keyword' => '!= ""'
 				);
 				$list = dba_search(_DB_PREF_ . '_tblSMSIncoming as A', 'B.username, A.in_id, A.in_uid, A.in_sender, A.in_keyword, A.in_datetime, A.in_feature, A.in_message', $conditions, $search['dba_keywords'], $extras, $join);
 				$data[0] = array(
@@ -144,7 +144,7 @@ switch (_OP_) {
 					_('From'),
 					_('Keyword'),
 					_('Content'),
-					_('Feature') 
+					_('Feature')
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
@@ -154,24 +154,25 @@ switch (_OP_) {
 						$list[$i]['in_sender'],
 						$list[$i]['in_keyword'],
 						$list[$i]['in_message'],
-						$list[$i]['in_feature'] 
+						$list[$i]['in_feature']
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'all_incoming-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			
+
 			case 'delete':
 				if (isset($_POST['itemid'])) {
-					foreach ($_POST['itemid'] as $itemid) {
+					foreach ( $_POST['itemid'] as $itemid ) {
 						$up = array(
 							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
+							'flag_deleted' => '1'
 						);
 						dba_update(_DB_PREF_ . '_tblSMSIncoming', $up, array(
-							'in_id' => $itemid 
-						));
+							'in_id' => $itemid
+						)
+						);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];

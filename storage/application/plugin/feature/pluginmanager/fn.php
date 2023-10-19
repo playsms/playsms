@@ -18,7 +18,8 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function pluginmanager_get_status($plugin_category, $name) {
+function pluginmanager_get_status($plugin_category, $name)
+{
 	if ($plugin_category == "themes") {
 		if (core_themes_get() == $name) {
 			$ret = TRUE;
@@ -37,7 +38,8 @@ function pluginmanager_get_status($plugin_category, $name) {
 	return $ret;
 }
 
-function pluginmanager_list($plugin_category) {
+function pluginmanager_list($plugin_category)
+{
 	global $core_config;
 	$upload_path = $core_config['apps_path']['plug'] . "/" . $plugin_category . "/";
 	$dir = opendir($upload_path);
@@ -59,7 +61,8 @@ function pluginmanager_list($plugin_category) {
 	return $subdir_tab;
 }
 
-function pluginmanager_display($plugin_category) {
+function pluginmanager_display($plugin_category)
+{
 	global $core_config;
 	$content = "
 		<div class=table-responsive>
@@ -74,14 +77,14 @@ function pluginmanager_display($plugin_category) {
 			</tr></thead>
 			<tbody>";
 	$subdir_tab = pluginmanager_list($plugin_category);
-	for($l = 0; $l < sizeof($subdir_tab); $l++) {
+	for ($l = 0; $l < sizeof($subdir_tab); $l++) {
 		unset($plugin_info);
 		$xml_file = $core_config['apps_path']['plug'] . "/" . $plugin_category . "/" . $subdir_tab[$l]['name'] . "/docs/info.xml";
 		if ($fc = file_get_contents($xml_file)) {
 			$plugin_info = core_xml_to_array($fc);
 			$plugin_info['status'] = $subdir_tab[$l]['status'];
 		}
-		$last_update = ( $plugin_info['last_update'] ? $plugin_info['last_update'] : $plugin_info['date'] );
+		$last_update = ($plugin_info['last_update'] ? $plugin_info['last_update'] : $plugin_info['date']);
 		if ($plugin_info['name']) {
 			$content .= "
 				<tr>
@@ -89,7 +92,7 @@ function pluginmanager_display($plugin_category) {
 					<td>" . core_display_text($plugin_info['description']) . "</td>
 					<td>" . core_display_text($plugin_info['release']) . "</td>
 					<td>" . core_display_text($plugin_info['author']) . "</td>
-					<td>" . core_display_text($last_update)  . "</td>
+					<td>" . core_display_text($last_update) . "</td>
 					<td>" . core_display_html($plugin_info['status']) . "</td>
 				</tr>";
 		}

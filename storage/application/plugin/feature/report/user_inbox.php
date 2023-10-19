@@ -27,11 +27,11 @@ switch (_OP_) {
 		$search_category = array(
 			_('Time') => 'in_datetime',
 			_('From') => 'in_sender',
-			_('Message') => 'in_msg' 
+			_('Message') => 'in_msg'
 		);
-		
+
 		$base_url = 'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox';
-		
+
 		if ($in_sender = trim($_REQUEST['in_sender'])) {
 			$subpage_label = "<p class=lead>" . sprintf(_('List of messages from %s'), $in_sender) . "</p>";
 			$home_link = _back($base_url);
@@ -40,7 +40,7 @@ switch (_OP_) {
 			$conditions = array(
 				'in_sender' => $in_sender,
 				'in_uid' => $user_config['uid'],
-				'flag_deleted' => 0 
+				'flag_deleted' => 0
 			);
 			$keywords = $search['dba_keywords'];
 			$count = dba_count(_DB_PREF_ . '_tblSMSInbox', $conditions, $keywords);
@@ -48,30 +48,36 @@ switch (_OP_) {
 			$extras = array(
 				'ORDER BY' => 'in_id DESC',
 				'LIMIT' => $nav['limit'],
-				'OFFSET' => $nav['offset'] 
+				'OFFSET' => $nav['offset']
 			);
 			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id, in_uid, in_datetime, in_sender, in_msg', $conditions, $keywords, $extras);
 		} else {
 			$search = themes_search($search_category, $base_url);
 			$conditions = array(
 				'in_uid' => $user_config['uid'],
-				'flag_deleted' => 0 
+				'flag_deleted' => 0
 			);
 			$keywords = $search['dba_keywords'];
-			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id', $conditions, $keywords, array(
-				'GROUP BY' => 'in_sender, in_id'
-			));
+			$list = dba_search(
+				_DB_PREF_ . '_tblSMSInbox',
+				'in_id',
+				$conditions,
+				$keywords,
+				array(
+					'GROUP BY' => 'in_sender, in_id'
+				)
+			);
 			$count = count($list);
 			$nav = themes_nav($count, $search['url']);
 			$extras = array(
 				'GROUP BY' => 'in_sender, in_id',
 				'ORDER BY' => 'in_id DESC',
 				'LIMIT' => $nav['limit'],
-				'OFFSET' => $nav['offset'] 
+				'OFFSET' => $nav['offset']
 			);
 			$list = dba_search(_DB_PREF_ . '_tblSMSInbox', 'in_id, in_uid, in_datetime, in_sender, in_msg, COUNT(*) AS message_count', $conditions, $keywords, $extras);
 		}
-		
+
 		$tpl = array(
 			'vars' => array(
 				'SEARCH_FORM' => $search['form'],
@@ -85,8 +91,8 @@ switch (_OP_) {
 				'From' => _('From'),
 				'Message' => _('Message'),
 				'ARE_YOU_SURE' => _('Are you sure you want to delete these items ?'),
-				'in_sender' => urlencode($in_sender) 
-			) 
+				'in_sender' => urlencode($in_sender)
+			)
 		);
 		if (isset($list) && is_array($list) && count($list) > 0) {
 			foreach ( $list as $item ) {
@@ -124,7 +130,7 @@ switch (_OP_) {
 		$content = tpl_apply($tpl);
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -133,7 +139,7 @@ switch (_OP_) {
 			case 'export':
 				$conditions = array(
 					'in_uid' => $user_config['uid'],
-					'flag_deleted' => 0 
+					'flag_deleted' => 0
 				);
 				if ($in_sender = trim($_REQUEST['in_sender'])) {
 					$conditions['in_sender'] = $in_sender;
@@ -142,14 +148,14 @@ switch (_OP_) {
 				$data[0] = array(
 					_('Time'),
 					_('From'),
-					_('Message') 
+					_('Message')
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
-						$list[$i]['in_msg'] 
+						$list[$i]['in_msg']
 					);
 				}
 				$content = core_csv_format($data);
@@ -160,17 +166,17 @@ switch (_OP_) {
 				}
 				core_download($content, $fn, 'text/csv');
 				break;
-			
+
 			case 'delete':
 				if (isset($_POST['itemid'])) {
-					foreach ($_POST['itemid'] as $itemid) {
+					foreach ( $_POST['itemid'] as $itemid ) {
 						$up = array(
 							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
+							'flag_deleted' => '1'
 						);
 						$conditions = array(
 							'in_uid' => $user_config['uid'],
-							'in_id' => $itemid 
+							'in_id' => $itemid
 						);
 						if ($in_sender = trim($_REQUEST['in_sender'])) {
 							$conditions['in_sender'] = $in_sender;

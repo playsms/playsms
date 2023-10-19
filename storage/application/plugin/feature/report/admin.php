@@ -35,34 +35,41 @@ $tpl = array(
 		'Billing' => _('Billing'),
 		'Credit' => _('Credit'),
 		'Select page size' => _('Select page size'),
-	) 
+	)
 );
 // p_status values mapped to tpl array elements
 $map_values = array(
 	'0' => 'num_rows_pending',
 	'1' => 'num_rows_sent',
 	'2' => 'num_rows_failed',
-	'3' => 'num_rows_delivered' 
+	'3' => 'num_rows_delivered'
 );
 
 $l = 0;
 
 // USER LIST RESTRIVAL
-$rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed', array(
-	'flag_deleted' => 0 
-), '', array(
-	'ORDER BY' => 'status' 
-));
+$rows = dba_search(
+	_DB_PREF_ . '_tblUser',
+	'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed',
+	array(
+		'flag_deleted' => 0
+	),
+	'',
+	array(
+		'ORDER BY' => 'status'
+	)
+);
 
 // populate array with the values from the mysql query
-$db_query = "SELECT uid, flag_deleted, p_status, COUNT(*) AS count from " . _DB_PREF_ . "_tblSMSOutgoing GROUP BY uid, flag_deleted, p_status";
+$db_query = "SELECT uid, flag_deleted, p_status, COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing GROUP BY uid, flag_deleted, p_status";
 $db_result = dba_query($db_query);
-for ($iset = array(); $irow = dba_fetch_array($db_result); $iset[] = $irow) {}
+for ($iset = array(); $irow = dba_fetch_array($db_result); $iset[] = $irow) {
+}
 
 // update the rows array with values from the iset array
 for ($i = 0; $i < count($iset); $i++) {
 	$c = 0;
-	
+
 	// find the array key to update based on uid
 	for ($ii = 0; $ii < count($rows); ++$ii) {
 		if ($rows[$ii]['uid'] === $iset[$i]['uid']) {
@@ -70,7 +77,7 @@ for ($i = 0; $i < count($iset); $i++) {
 			break;
 		}
 	}
-	
+
 	/*
 	 * update values of pending, sent, delivered, failed and deleted messages. might be better to update the billing and credit from the last mysql query as well to avoid any incorrect values because of delays between the first and the second query on busy or overloaded systems
 	 */
@@ -81,27 +88,27 @@ for ($i = 0; $i < count($iset); $i++) {
 	}
 }
 
-foreach ($rows as $row) {
+foreach ( $rows as $row ) {
 	$c_username = $row['username'];
 	$c_uid = $row['uid'];
 	$c_credit = rate_getusercredit($c_username);
 	$c_status = $row['status'];
-	
+
 	// BILLING
 	$c_billing = 0;
 	$c_data = billing_getdata_by_uid($c_uid);
-	foreach ($c_data as $a) {
+	foreach ( $c_data as $a ) {
 		$c_billing += $a['count'] * $a['rate'];
 	}
-	
+
 	$sum_billing += $c_billing;
 	$sum_credit += $c_credit;
-	
+
 	$c_isadmin = '';
 	if ($c_status == '2') {
 		$c_isadmin = $icon_config['admin'];
 	}
-	
+
 	$tpl['loops']['data'][] = array(
 		'tr_class' => $tr_class,
 		'c_username' => $c_username,
@@ -113,7 +120,7 @@ foreach ($rows as $row) {
 		'c_billing' => core_display_credit($c_billing),
 		'c_credit' => core_display_credit($c_credit)
 	);
-	
+
 	// Totals
 	$sum_num_rows_pending += $row['num_rows_pending'];
 	$sum_num_rows_delivered += $row['num_rows_delivered'];

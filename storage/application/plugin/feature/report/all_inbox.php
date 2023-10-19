@@ -28,7 +28,7 @@ switch (_OP_) {
 			_('User') => 'username',
 			_('Time') => 'in_datetime',
 			_('From') => 'in_sender',
-			_('Message') => 'in_msg' 
+			_('Message') => 'in_msg'
 		);
 		$base_url = 'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox';
 		$search = themes_search($search_category, $base_url);
@@ -42,10 +42,10 @@ switch (_OP_) {
 		$extras = array(
 			'ORDER BY' => 'A.in_id DESC',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_tblSMSInbox AS A', 'B.username, A.in_id, A.in_uid, A.in_datetime, A.in_sender, A.in_msg', $conditions, $keywords, $extras, $join);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('All inbox') . "</h2>
 			<p>" . $search['form'] . "</p>
@@ -109,10 +109,10 @@ switch (_OP_) {
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -128,7 +128,7 @@ switch (_OP_) {
 					_('User'),
 					_('Time'),
 					_('From'),
-					_('Message') 
+					_('Message')
 				);
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
@@ -136,24 +136,25 @@ switch (_OP_) {
 						$list[$i]['username'],
 						core_display_datetime($list[$i]['in_datetime']),
 						$list[$i]['in_sender'],
-						$list[$i]['in_msg'] 
+						$list[$i]['in_msg']
 					);
 				}
 				$content = core_csv_format($data);
 				$fn = 'all_inbox-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			
+
 			case 'delete':
 				if (isset($_POST['itemid'])) {
-					foreach ($_POST['itemid'] as $itemid) {
+					foreach ( $_POST['itemid'] as $itemid ) {
 						$up = array(
 							'c_timestamp' => time(),
-							'flag_deleted' => '1' 
+							'flag_deleted' => '1'
 						);
 						dba_update(_DB_PREF_ . '_tblSMSInbox', $up, array(
-							'in_id' => $itemid 
-						));
+							'in_id' => $itemid
+						)
+						);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
