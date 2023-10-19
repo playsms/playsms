@@ -70,8 +70,13 @@ function _dba_prepare($db_query)
 {
 	global $DBA_PDO;
 
-	if ($pdo_statement = $DBA_PDO->prepare($db_query)) {
-		return $pdo_statement;
+	try {
+		if ($pdo_statement = $DBA_PDO->prepare($db_query)) {
+			return $pdo_statement;
+		}
+	} catch (PDOException $e) {
+		_log(_('Exception') . ': ' . $e->getMessage() . ' ip:' . _REMOTE_ADDR_, 2, '_dba_prepare');
+		die(_('FATAL ERROR') . ' : ' . _('Database prepare statement operation has failed'));
 	}
 
 	return false;
@@ -79,10 +84,16 @@ function _dba_prepare($db_query)
 
 function _dba_execute($pdo_statement, $db_argv = [])
 {
-	if (is_array($db_argv) && $db_argv) {
-		$db_result = $pdo_statement->execute($db_argv);
-	} else {
-		$db_result = $pdo_statement->execute();
+	try {
+		if (is_array($db_argv) && $db_argv) {
+			$db_result = $pdo_statement->execute($db_argv);
+		} else {
+			$db_result = $pdo_statement->execute();
+		}
+
+	} catch (PDOException $e) {
+		_log(_('Exception') . ': ' . $e->getMessage() . ' ip:' . _REMOTE_ADDR_, 2, '_dba_execute');
+		die(_('FATAL ERROR') . ' : ' . _('Database query execution has failed'));
 	}
 
 	return $db_result;
@@ -117,9 +128,9 @@ function dba_fetch_row($db_result)
 	}
 }
 
-function dba_num_rows($db_query)
+function dba_num_rows($db_query, $db_argv = [])
 {
-	if ($db_result = dba_query($db_query)) {
+	if ($db_result = dba_query($db_query, $db_argv)) {
 		if ($db_result = dba_query('SELECT FOUND_ROWS()')) {
 			return $db_result->fetchColumn();
 		} else {
