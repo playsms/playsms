@@ -132,7 +132,7 @@ function dba_num_rows($db_query, $db_argv = [])
 {
 	if ($db_result = dba_query($db_query, $db_argv)) {
 		if ($db_result = dba_query('SELECT FOUND_ROWS()')) {
-			return $db_result->fetchColumn();
+			return (int) $db_result->fetchColumn();
 		} else {
 			return 0;
 		}
@@ -145,7 +145,7 @@ function dba_affected_rows($db_query, $db_argv = [])
 {
 	if ($pdo_statement = _dba_prepare($db_query)) {
 		if (_dba_execute($pdo_statement, $db_argv)) {
-			return $pdo_statement->rowCount();
+			return (int) $pdo_statement->rowCount();
 		}
 	}
 
@@ -158,7 +158,7 @@ function dba_insert_id($db_query, $db_argv = [])
 
 	if ($pdo_statement = _dba_prepare($db_query)) {
 		if (_dba_execute($pdo_statement, $db_argv)) {
-			return $DBA_PDO->lastInsertId();
+			return (int) $DBA_PDO->lastInsertId();
 		}
 	}
 
