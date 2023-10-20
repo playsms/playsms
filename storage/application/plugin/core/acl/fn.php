@@ -241,8 +241,6 @@ function acl_checkurl($url, $uid = NULL)
 		parse_str($acl_url, $acl);
 		$acl = _acl_sanitize($acl);
 
-		$found_match = FALSE;
-
 		// if the rule not match with input url then flip to FALSE
 		if ($acl == array_intersect_assoc($acl, $input)) {
 			// flip if an exception rule
