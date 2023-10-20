@@ -51,11 +51,13 @@ switch (_OP_) {
 		$content .= "
 			</tr></thead>
 			<tbody>";
-		if (!auth_isadmin()) {
-			$query_user_only = "WHERE uid='" . $user_config['uid'] . "'";
+		if (auth_isadmin()) {
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard ORDER BY board_keyword";
+			$db_result = dba_query($db_query);
+		} else {
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard WHERE uid=? ORDER BY board_keyword";
+			$db_result = dba_query($db_query, [$user_config['uid']]);
 		}
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard " . $query_user_only . " ORDER BY board_keyword";
-		$db_result = dba_query($db_query);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
@@ -64,7 +66,8 @@ switch (_OP_) {
 				$action .= _confirm(
 					_('Are you sure you want to delete SMS board with all its messages ?') . " (" . _('keyword') . ": " . $db_row['board_keyword'] . ")",
 					_u('index.php?app=main&inc=feature_sms_board&op=sms_board_del&board_id=' . $db_row['board_id']),
-					'delete');
+					'delete'
+				);
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -85,10 +88,10 @@ switch (_OP_) {
 			" . _button('index.php?app=main&inc=feature_sms_board&op=sms_board_add', _('Add SMS board'));
 		_p($content);
 		break;
-	
+
 	case "sms_board_edit":
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard WHERE board_id='$board_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard WHERE board_id=?";
+		$db_result = dba_query($db_query, [$board_id]);
 		$db_row = dba_fetch_array($db_result);
 		$edit_board_keyword = $db_row['board_keyword'];
 		$edit_board_reply = $db_row['board_reply'];
@@ -98,7 +101,7 @@ switch (_OP_) {
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $db_row['smsc']) . "</td></tr>";
 		}
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage board') . "</h2>
 			<h3 class=page-header-subtitle>" . _('Edit SMS board') . "</h3>
@@ -131,17 +134,13 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_board&op=sms_board_list');
 		_p($content);
 		break;
-	
+
 	case "sms_board_edit_yes":
 		$edit_board_keyword = $_POST['edit_board_keyword'];
 		$edit_board_reply = trim($_POST['edit_board_reply']);
 		$edit_email = $_POST['edit_email'];
 		$edit_css = $_POST['edit_css'];
 		$edit_template = $_POST['edit_template'];
-		if (auth_isadmin()) {
-			$smsc = $_REQUEST['smsc'];
-			$smsc_sql = ",smsc='$smsc'";
-		}
 		if ($board_id) {
 			if (!$edit_template) {
 				$edit_template = "<div class=sms_board_row>\n";
@@ -152,10 +151,24 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureBoard
-				SET c_timestamp='" . time() . "',board_reply='$edit_board_reply',board_forward_email='$edit_email',board_css='$edit_css',board_pref_template='$edit_template'$smsc_sql
-				WHERE board_id='$board_id'";
-			if (@dba_affected_rows($db_query)) {
+				SET c_timestamp='" . time() . "',board_reply=?,board_forward_email=?,board_css=?,board_pref_template=?
+				WHERE board_id=?";
+			$db_argv = [
+				$edit_board_reply,
+				$edit_email,
+				$edit_css,
+				$edit_template,
+				$board_id
+			];
+			if (dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('SMS board has been saved') . " (" . _('keyword') . ": $edit_board_keyword)";
+
+				if (auth_isadmin()) {
+					$db_query = "UPDATE " . _DB_PREF_ . "_featureBoard SET smsc=? WHERE board_id=?";
+					if (dba_affected_rows($db_query, [$_REQUEST['smsc'], $board_id]) === 0) {
+						_log("Fail to update smsc board_id:" . $board_id . " smsc:" . $_REQUEST['smsc'], 3, "sms board edit");
+					}
+				}
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to edit SMS board') . " (" . _('keyword') . ": $edit_board_keyword)";
 			}
@@ -164,28 +177,26 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_board&op=sms_board_edit&board_id=' . $board_id));
 		exit();
-		break;
-	
+
 	case "sms_board_del":
-		$db_query = "SELECT board_keyword FROM " . _DB_PREF_ . "_featureBoard WHERE board_id='$board_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT board_keyword FROM " . _DB_PREF_ . "_featureBoard WHERE board_id=?";
+		$db_result = dba_query($db_query, [$board_id]);
 		$db_row = dba_fetch_array($db_result);
 		$board_keyword = $db_row['board_keyword'];
 		if ($board_keyword) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword='$board_keyword'";
-			if (@dba_affected_rows($db_query)) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword=?";
+			if (@dba_affected_rows($db_query, [$board_keyword])) {
 				$_SESSION['dialog']['info'][] = _('SMS board with all its messages has been deleted') . " (" . _('keyword') . ": $board_keyword)";
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_board&op=sms_board_list'));
 		exit();
-		break;
-	
+
 	case "sms_board_add":
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage board') . "</h2>
 			<h3 class=page-header-subtitle>" . _('Add SMS board') . "</h3>
@@ -213,18 +224,18 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_board&op=sms_board_list');
 		_p($content);
 		break;
-	
+
 	case "sms_board_add_yes":
 		$add_board_keyword = strtoupper($_POST['add_board_keyword']);
 		$add_board_reply = trim($_POST['add_board_reply']);
 		$add_email = $_POST['add_email'];
 		$add_css = $_POST['add_css'];
 		$add_template = $_POST['add_template'];
-		
+
 		if (auth_isadmin()) {
 			$smsc = $_POST['smsc'];
 		}
-		
+
 		if ($add_board_keyword) {
 			if (keyword_isavail($add_board_keyword)) {
 				if (!$add_template) {
@@ -236,8 +247,17 @@ switch (_OP_) {
 				}
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureBoard (uid,board_keyword,board_reply,board_forward_email,board_css,board_pref_template,smsc)
-					VALUES ('" . $user_config['uid'] . "','$add_board_keyword','$add_board_reply','$add_email','$add_css','$add_template','$smsc')";
-				if ($new_uid = @dba_insert_id($db_query)) {
+					VALUES (?,?,?,?,?,?,?)";
+				$db_argv = [
+					$user_config['uid'],
+					$add_board_keyword,
+					$add_board_reply,
+					$add_email,
+					$add_css,
+					$add_template,
+					$smsc
+				];
+				if ($new_uid = @dba_insert_id($db_query, $db_argv)) {
 					$_SESSION['dialog']['info'][] = _('SMS board has been added') . " (" . _('keyword') . ": $add_board_keyword)";
 				} else {
 					$_SESSION['dialog']['info'][] = _('Fail to add SMS board') . " (" . _('keyword') . ": $add_board_keyword)";
@@ -250,5 +270,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_board&op=sms_board_add'));
 		exit();
-		break;
 }

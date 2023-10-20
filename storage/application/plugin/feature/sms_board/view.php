@@ -19,7 +19,7 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-$board_id = $_REQUEST['board_id'];
+$board_id = (int) $_REQUEST['board_id'];
 
 switch (_OP_) {
 	case 'list':
