@@ -1352,8 +1352,8 @@ function sendsms_hook_playsmsd_loop($command, $command_param)
 	// get unprocessed and delivering queues
 	// $core_config['sendsmsd_queue'] = number of simultaneous queues
 	// $core_config['sendsmsd_chunk'] = number of chunk per queue
-	$db_query = "SELECT id,queue_code,flag FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag=0 OR flag=3 LIMIT ?";
-	$db_result = dba_query($db_query, [(int) $core_config['sendsmsd_queue']]);
+	$db_query = "SELECT id,queue_code,flag FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag=0 OR flag=3 LIMIT " . (int) $core_config['sendsmsd_queue'];
+	$db_result = dba_query($db_query);
 	while ($db_row = dba_fetch_array($db_result)) {
 		$queue_id = $db_row['id'];
 		$queue_code = $db_row['queue_code'];
@@ -1419,8 +1419,8 @@ function sendsms_hook_playsmsd_loop($command, $command_param)
 
 			// get chunks
 			$c_chunk_found = FALSE;
-			$db_query2 = "SELECT chunk FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id=? AND flag=0 GROUP BY chunk LIMIT ?";
-			$db_result2 = dba_query($db_query2, [$queue_id, (int) $core_config['sendsmsd_chunk']]);
+			$db_query2 = "SELECT chunk FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id=? AND flag=0 GROUP BY chunk LIMIT " . (int) $core_config['sendsmsd_chunk'];
+			$db_result2 = dba_query($db_query2, [$queue_id]);
 			while ($db_row2 = dba_fetch_array($db_result2)) {
 				$c_chunk = (int) $db_row2['chunk'];
 				$queue_jobs[] = 'Q_' . $queue_code . '_' . $c_chunk;
