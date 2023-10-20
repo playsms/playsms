@@ -49,9 +49,9 @@ switch (_OP_) {
 		_p($content);
 		break;
 	case 'upload_confirm':
-	
+
 		// fixme anton - https://www.exploit-database.net/?id=92843
-		$filename = core_sanitize_filename($_FILES['fncsv']['name']);		
+		$filename = core_sanitize_filename($_FILES['fncsv']['name']);
 		if ($filename && $filename == $_FILES['fncsv']['name']) {
 			$fn = $_FILES['fncsv']['tmp_name'];
 			$fs = (int) $_FILES['fncsv']['size'];
@@ -69,7 +69,7 @@ switch (_OP_) {
 
 			$continue = FALSE;
 		}
-		
+
 		if ($continue) {
 			list($all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings) = sendfromfile_verify($fn);
 		} else {
@@ -78,15 +78,15 @@ switch (_OP_) {
 			exit();
 			break;
 		}
-		
+
 		$content = '<h2 class=page-header-title>' . _('Send from file') . '</h2>';
-		$content .= '<p class=lead>' . _('Confirmation') . '</p>';	
+		$content .= '<p class=lead>' . _('Confirmation') . '</p>';
 		$content .= '<p>' . _('Uploaded file') . ': ' . $filename . '</p>';
 
 		if (count($error_strings)) {
 			$content .= "<p class=lead>" . _('Verification results') . "</p>";
 			$content .= "<ul>";
-			foreach ($error_strings as $err) {
+			foreach ( $error_strings as $err ) {
 				$content .= "<li>" . $err . "</li>";
 			}
 			$content .= "</ul>";
@@ -104,7 +104,7 @@ switch (_OP_) {
 				</div>";
 
 		if ($sendfromfile_id && $valid) {
-    		$content .= "
+			$content .= "
 				<div class='col_sm'>
 					<form action=\"index.php?app=main&inc=feature_sendfromfile&op=upload_process\" method=\"post\">
 						" . _CSRF_FORM_ . "
@@ -140,8 +140,8 @@ switch (_OP_) {
 					</thead>
 					<tbody>";
 			$j = 0;
-			foreach ($item_valid as $sender_uid => $item_data) {
-				foreach ($item_data as $item) {
+			foreach ( $item_valid as $sender_uid => $item_data ) {
+				foreach ( $item_data as $item ) {
 					if ($_SESSION['status'] == 2) {
 						$content .= "
 							<tr>
@@ -191,7 +191,7 @@ switch (_OP_) {
 					});
 				</script>";
 		} // if valid
-		
+
 		if ($discharged) {
 			$content .= '<p />';
 			$content .= '<p class=lead><span class="playsms-icon fa fas fa-thumbs-down" alt="' . _('Discharged entries') . '"></span>' . _('Discharged entries') . '</p>';
@@ -218,8 +218,8 @@ switch (_OP_) {
 					</thead>
 					<tbody>";
 			$j = 0;
-			foreach ($item_discharged as $sender_uid => $item_data) {
-				foreach ($item_data as $item) {
+			foreach ( $item_discharged as $sender_uid => $item_data ) {
+				foreach ( $item_data as $item ) {
 					if ($_SESSION['status'] == 2) {
 						$content .= "
 							<tr>
@@ -292,10 +292,10 @@ switch (_OP_) {
 				</div>";
 		}
 		$content .= "</div></div>"; // div container
-		
+
 		_p($content);
 		break;
-	
+
 	case 'upload_cancel':
 		if ($sendfromfile_id = $_REQUEST['sendfromfile_id']) {
 			sendfromfile_destroy($sendfromfile_id);
@@ -307,7 +307,7 @@ switch (_OP_) {
 		header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 		exit();
 		break;
-	
+
 	case 'upload_process':
 		if ($sendfromfile_id = $_REQUEST['sendfromfile_id']) {
 			if (playsmsd_register_once('sendfromfile_process', $sendfromfile_id)) {

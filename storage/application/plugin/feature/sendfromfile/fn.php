@@ -22,9 +22,10 @@ defined('_SECURE_') or die('Forbidden');
  * Verify uploaded CSV file
  *
  * @param  string $csv_file CSV file
- * @return void
+ * @return array
  */
-function sendfromfile_verify($csv_file) {
+function sendfromfile_verify($csv_file)
+{
 	global $user_config, $plugin_config;
 
 	$all_numbers = array();
@@ -34,14 +35,14 @@ function sendfromfile_verify($csv_file) {
 	$discharged = 0;
 	$num_of_rows = 0;
 	$charges = (float) 0;
-	$sendfromfile_id = '';	
+	$sendfromfile_id = '';
 	$error_strings = array();
 
 	// CSV file must exists and has content
 	if ($csv_file && file_exists($csv_file)) {
 		$csv_file_size = filesize($csv_file);
 	} else {
-		_log("CSV file not found or empty file:" . $csv_file . " size:" . $csv_file_size, 2, "sendfromfile_verify");
+		_log("CSV file not found or empty file:" . $csv_file, 2, "sendfromfile_verify");
 		$error_strings[] = _('Error occurred while verifying CSV file');
 
 		return [$all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings];
@@ -57,7 +58,10 @@ function sendfromfile_verify($csv_file) {
 
 	// mark start
 	_log("start sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
-	
+
+	// check if admin once to save resources
+	$is_admin = auth_isadmin() ? true : false;
+
 	// load and verify data from CSV file
 	$continue = true;
 	while ((($data = fgetcsv($fd, $csv_file_size, ',')) !== false) && $continue) {
@@ -70,8 +74,7 @@ function sendfromfile_verify($csv_file) {
 		$item_msg = core_sanitize_string($data[1]);
 
 		$skip = false;
-		// if admin
-		if ($_SESSION['status'] == 2) {
+		if ($is_admin) {
 			if ($item_username = core_sanitize_username($data[2])) {
 				// if supplied username is clean and it exists
 				if (!($item_username == $data[2])) {
@@ -111,14 +114,15 @@ function sendfromfile_verify($csv_file) {
 				$sender_uid,
 				strlen($item_msg),
 				$unicode,
-				$item_to);
+				$item_to
+			);
 
 			// group all valid SMS by sender's uid
 			$item_valid[$sender_uid][] = [
 				'sms_to' => $item_to,
 				'sms_msg' => $item_msg,
 				'sms_username' => $item_username,
-				'unicode' => $unicode,
+				'unicode' => (int) $unicode,
 				'charge' => (float) $charge,
 			];
 
@@ -129,7 +133,7 @@ function sendfromfile_verify($csv_file) {
 				'sms_to' => $item_to,
 				'sms_msg' => $item_msg,
 				'sms_username' => $item_username,
-				'unicode' => $unicode,
+				'unicode' => (int) $unicode,
 				'charge' => (float) 0,
 			];
 
@@ -150,9 +154,9 @@ function sendfromfile_verify($csv_file) {
 	_log("collected sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
 
 	$charges = (float) 0;
-	foreach ($item_valid as $sender_uid => $item_data) {
+	foreach ( $item_valid as $sender_uid => $item_data ) {
 		// get total charges
-		foreach ($item_data as $key => $item) {
+		foreach ( $item_data as $key => $item ) {
 			$charges += $item['charge'];
 		}
 
@@ -178,16 +182,27 @@ function sendfromfile_verify($csv_file) {
 			_log("saving data to db for processing sendfromfile_id:" . $sendfromfile_id . " uid:" . $user_config['uid'] . " sender_uid:" . $sender_uid . " sms_username:" . $item_data[0]['sms_username'] . " item_count:" . count($item_data) . " charges:" . $charges . " balance:" . $sender_balance, 2, "sendfromfile_verify");
 
 			// save to db for delivery
-			foreach ($item_data as $key => $item) {
+			foreach ( $item_data as $key => $item ) {
 				$hash = md5($item['sms_uid'] . $item['sms_username'] . $item['sms_msg']);
 				$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureSendfromfile 
-					(uid, sid, sms_datetime, sms_to, sms_msg, sms_username, 
-					sms_uid, hash, unicode, charge, smslog_id, queue_code, status, flag_processed) 
+					(uid, sid, sms_datetime, sms_to, sms_msg, sms_username, sms_uid, hash, unicode, charge, smslog_id, queue_code, status, flag_processed) 
 					VALUES 
-					('" . $user_config['uid'] . "','" . $sendfromfile_id . "','" . core_get_datetime() . "','" . $item['sms_to'] . "','" . addslashes($item['sms_msg']) . "','" . $item['sms_username'] . "',
-					'" . $sender_uid . "','" . $hash . "','" . $item['unicode']. "','" . $item['charge'] . "',0,'',0,0)";
-				dba_query($db_query);
+					(?,?,'" . core_get_datetime() . "',?,?,?,?,?,?,?,0,'',0,0)";
+				$db_argv = [
+					$user_config['uid'],
+					$sendfromfile_id,
+					$item['sms_to'],
+					addslashes($item['sms_msg']),
+					$item['sms_username'],
+					$sender_uid,
+					$hash,
+					$item['unicode'],
+					$item['charge']
+				];
+				if (dba_insert_id($db_query, $db_argv) === 0) {
+					_log("fail to insert data u:" . $user_config['uid'] . ' to:' . $item['sms_to'], 2, "sendfromfile_verify");
+				}
 				//_log("debug db_query:[" . trim($db_query) . "]", 2, "sendfromfile_verify");
 			}
 
@@ -211,7 +226,7 @@ function sendfromfile_verify($csv_file) {
 
 	// mark finish
 	_log("finish sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_verify");
-	
+
 	return [$all_numbers, $item_valid, $item_discharged, $valid, $discharged, $num_of_rows, $sendfromfile_id, $error_strings];
 }
 
@@ -221,57 +236,69 @@ function sendfromfile_verify($csv_file) {
  * @param  string $sendfromfile_id Send from file session ID
  * @return void
  */
-function sendfromfile_process($sendfromfile_id) {
+function sendfromfile_process($sendfromfile_id)
+{
 
 	// send from file session ID
 	if (!($sendfromfile_id = trim($sendfromfile_id))) {
-		
+
 		return;
 	}
 
 	// mark start
 	_log("start sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_process");
-	
+
 	// set time limit to forever
 	@set_time_limit(0);
-	
+
 	$data = array();
 
 	// collect send from file data and group them by hash
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='" . $sendfromfile_id . "' AND flag_processed=0";
-	$db_result = dba_query($db_query);
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid=? AND flag_processed=0";
+	$db_result = dba_query($db_query, [$sendfromfile_id]);
 	while ($db_row = dba_fetch_array($db_result)) {
 		if ($db_row['sms_to'] && $db_row['sms_msg'] && $db_row['sms_username']) {
 			$data[$db_row['hash']]['sms_to'][] = $db_row['sms_to'];
 			$data[$db_row['hash']]['message'] = $db_row['sms_msg'];
 			$data[$db_row['hash']]['username'] = $db_row['sms_username'];
-			$data[$db_row['hash']]['unicode'] = $db_row['unicode'];
+			$data[$db_row['hash']]['unicode'] = (int) $db_row['unicode'];
 		}
 	}
 
 	// send SMS
-	foreach ($data as $hash => $item) {
+	foreach ( $data as $hash => $item ) {
 		_log('process sendfromfile_id:' . $sendfromfile_id . ' hash:' . $item['hash'] . ' u:' . $item['username'] . ' m:[' . $item['message'] . '] to_count:' . count($item['sms_to']) . ' unicode:' . $item['unicode'], 3, 'sendfromfile_process');
 		if ($item['username'] && $item['message'] && count($item['sms_to'])) {
 
 			// send SMS to queue
 			list($ok, $to, $smslog_id, $queue_code) = sendsms_helper($item['username'], $item['sms_to'], addslashes($item['message']), 'text', $item['unicode']);
-			
+
 			// update send from file data
-			for ($i=0;$i<count($to);$i++) {
-				$db_query = "
-					UPDATE " . _DB_PREF_ . "_featureSendfromfile 
-					SET smslog_id='" . $smslog_id[$i] . "', queue_code='" . $queue_code[$i] . "', status='" . $ok[$i] . "', flag_processed=1
-					WHERE hash='" . $hash. "' AND sms_to='" . $to[$i] . "'";
-				dba_query($db_query);
-				//_log("i:" . $i . " db_query:[" . trim($db_query) . "]", 2, "sendfromfile_process");
-			}			
+			if (isset($to) && is_array($to)) {
+				for ($i = 0; $i < count($to); $i++) {
+					$db_query = "
+						UPDATE " . _DB_PREF_ . "_featureSendfromfile 
+						SET smslog_id=?, queue_code=?, status=?, flag_processed=1
+						WHERE hash=? AND sms_to=?";
+					$db_argv = [
+						$smslog_id[$i],
+						$queue_code[$i],
+						$ok[$i],
+						$hash,
+						$to[$i]
+					];
+					if (dba_affected_rows($db_query, $db_argv) === 0) {
+						_log("fail to send SMS smslog_id:" . $smslog_id[$i] . " queue:" . $queue_code[$i] . " to:" . $to[$i], 2, "sendfromfile_process");
+					}
+					//_log("i:" . $i . " db_query:[" . trim($db_query) . "]", 2, "sendfromfile_process");
+				}
+			}
 		}
 	}
-	
+
 	// mark finish
 	_log("finish sendfromfile_id:" . $sendfromfile_id, 2, "sendfromfile_process");
-	
+
 	//sendfromfile_destroy($sendfromfile_id);
 }
 
@@ -281,25 +308,29 @@ function sendfromfile_process($sendfromfile_id) {
  * @param  string $sendfromfile_id Send from file session ID
  * @return void
  */
-function sendfromfile_destroy($sendfromfile_id) {
+function sendfromfile_destroy($sendfromfile_id)
+{
 	if (!($sendfromfile_id = trim($sendfromfile_id))) {
 
-    	return;
+		return;
 	}
 
-	$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='" . $sendfromfile_id . "'";
-	dba_query($db_query);
+	$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid=?";
+	if (dba_affected_rows($db_query, [(int) $sendfromfile_id]) === 0) {
+		_log("fail to delete data sid:" . $sendfromfile_id, 2, "sendfromfile_destroy");
+	}
 }
 
-function sendfromfile_hook_playsmsd_once($command, $command_param) {
+function sendfromfile_hook_playsmsd_once($command, $command_param)
+{
 	if (!($command == 'sendfromfile_process' && $sendfromfile_id = trim($command_param))) {
-		
+
 		return false;
 	}
-	
+
 	_log('running once command:' . $command . ' param:' . $command_param, 2, 'sendfromfile_hook_playsmsd_once');
-	
+
 	sendfromfile_process($sendfromfile_id);
-	
+
 	return true;
 }
