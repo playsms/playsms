@@ -25,14 +25,15 @@ defined('_SECURE_') or die('Forbidden');
  *        will insert keyword for checking to the hook here
  * @return TRUE if keyword is available
  */
-function sms_autoreply_hook_keyword_isavail($keyword) {
+function sms_autoreply_hook_keyword_isavail($keyword)
+{
 	$ok = true;
-	
-	$db_query = "SELECT autoreply_id FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword='$keyword'";
-	if ($db_result = dba_num_rows($db_query)) {
+
+	$db_query = "SELECT autoreply_id FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword=?";
+	if ($db_result = dba_num_rows($db_query, [$keyword])) {
 		$ok = false;
 	}
-	
+
 	return $ok;
 }
 
@@ -51,11 +52,12 @@ function sms_autoreply_hook_keyword_isavail($keyword) {
  *        number that is receiving incoming sms
  * @return $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autoreply_keyword, $autoreply_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
+function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autoreply_keyword, $autoreply_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
+{
 	$ok = false;
-	
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword='$autoreply_keyword'";
-	$db_result = dba_query($db_query);
+
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword=?";
+	$db_result = dba_query($db_query, [$autoreply_keyword]);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$c_uid = $db_row['uid'];
 		$autoreply_id = $db_row['autoreply_id'];
@@ -66,29 +68,38 @@ function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autorep
 	}
 	$ret['uid'] = $c_uid;
 	$ret['status'] = $ok;
-	
+
 	return $ret;
 }
 
-function sms_autoreply_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_id, $autoreply_keyword, $autoreply_param = '', $smsc = '', $raw_message = '') {
+function sms_autoreply_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_id, $autoreply_keyword, $autoreply_param = '', $smsc = '', $raw_message = '')
+{
 	$ok = false;
-	
+
 	$autoreply_keyword = strtoupper(trim($autoreply_keyword));
 	$autoreply_param = strtoupper(trim($autoreply_param));
 	$autoreply_request = $autoreply_keyword . " " . $autoreply_param;
-	$array_autoreply_request = preg_split('/[\s]+/', $autoreply_request);
-	for ($i = 0; $i < count($array_autoreply_request); $i++) {
-		$autoreply_part[$i] = trim($array_autoreply_request[$i]);
-		$tmp_autoreply_request .= trim($array_autoreply_request[$i]) . " ";
+	$array_autoreply_requests = preg_split('/[\s]+/', $autoreply_request);
+	$autoreply_scenario_param_list = '';
+	$db_argv = [];
+	$i = 0;
+	foreach ( $array_autoreply_requests as $request ) {
+		$i++;
+		$autoreply_part[$i] = trim($request[$i]);
+		$tmp_autoreply_request .= trim($request[$i]) . " ";
+		$autoreply_scenario_param_list .= "autoreply_scenario_param" . $i . "=? AND ";
+		$db_argv[] = $autoreply_part[$i];
 	}
 	$autoreply_request = trim($tmp_autoreply_request);
-	for ($i = 1; $i < 7; $i++) {
-		$autoreply_scenario_param_list .= "autoreply_scenario_param$i='" . $autoreply_part[$i] . "' AND ";
+	if ($autoreply_scenario_param_list) {
+		$autoreply_scenario_param_list = substr($autoreply_scenario_param_list, 0, -4); // remove trailing AND
+		$autoreply_scenario_param_list = trim($autoreply_scenario_param_list);
 	}
 	$db_query = "
 		SELECT autoreply_scenario_result FROM " . _DB_PREF_ . "_featureAutoreply_scenario 
-		WHERE autoreply_id='$autoreply_id' AND $autoreply_scenario_param_list 1=1";
-	$db_result = dba_query($db_query);
+		WHERE $autoreply_scenario_param_list AND autoreply_id=?";
+	$db_argv[] = $autoreply_id;
+	$db_result = dba_query($db_query, $db_argv);
 	$db_row = dba_fetch_array($db_result);
 	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result']) {
 		$ok = false;
@@ -98,6 +109,6 @@ function sms_autoreply_handle($c_uid, $sms_datetime, $sms_sender, $sms_receiver,
 		list($ok, $to, $smslog_id, $queue) = sendsms_helper($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode, $smsc);
 		$ok = $ok[0];
 	}
-	
+
 	return $ok;
 }

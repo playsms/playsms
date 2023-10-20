@@ -25,7 +25,7 @@ if (!auth_isvalid()) {
 if ($autoreply_id = (int) $_REQUEST['autoreply_id']) {
 	$db_table = _DB_PREF_ . '_featureAutoreply';
 	$conditions = array(
-		'autoreply_id' => $autoreply_id 
+		'autoreply_id' => $autoreply_id
 	);
 	if (!auth_isadmin()) {
 		$conditions['uid'] = $user_config['uid'];
@@ -57,7 +57,7 @@ switch (_OP_) {
 		}
 		$content .= "</tr></thead><tbody>";
 		if (!auth_isadmin()) {
-			$query_user_only = "WHERE uid='" . $user_config['uid'] . "'";
+			$query_user_only = "WHERE uid='" . (int) $user_config['uid'] . "'";
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply " . $query_user_only . " ORDER BY autoreply_keyword";
 		$db_result = dba_query($db_query);
@@ -69,7 +69,8 @@ switch (_OP_) {
 				$action .= _confirm(
 					_('Are you sure you want to delete SMS autoreply ?') . " (" . _('keyword') . ": " . $db_row['autoreply_keyword'] . ")",
 					_u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_del&autoreply_id=' . $db_row['autoreply_id']),
-					'delete');
+					'delete'
+				);
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -89,10 +90,10 @@ switch (_OP_) {
 			<p>" . _button('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add', _('Add SMS autoreply'));
 		_p($content);
 		break;
-	
+
 	case "sms_autoreply_manage":
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id='$autoreply_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id=?";
+		$db_result = dba_query($db_query, [$autoreply_id]);
 		$db_row = dba_fetch_array($db_result);
 		$manage_autoreply_keyword = $db_row['autoreply_keyword'];
 		$o_uid = $db_row['uid'];
@@ -116,8 +117,8 @@ switch (_OP_) {
 				<th width=6% nowrap>" . _('Action') . "</th>";
 		}
 		$content .= "</tr></thead><tbody>";
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' ORDER BY autoreply_scenario_param1";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id=? ORDER BY autoreply_scenario_param1";
+		$db_result = dba_query($db_query, [$autoreply_id]);
 		$j = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($o_uid)) {
@@ -129,7 +130,8 @@ switch (_OP_) {
 				$action .= _confirm(
 					_('Are you sure you want to delete this SMS autoreply scenario ?'),
 					_u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_del&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $db_row['autoreply_scenario_id']),
-					'delete');
+					'delete'
+				);
 				if (auth_isadmin()) {
 					$option_owner = "<td>" . $owner . "</td>";
 				}
@@ -152,30 +154,32 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		_p($content);
 		break;
-	
+
 	case "sms_autoreply_del":
-		$db_query = "SELECT autoreply_keyword FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id='$autoreply_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT autoreply_keyword FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id=?";
+		$db_result = dba_query($db_query, [$autoreply_id]);
 		$db_row = dba_fetch_array($db_result);
 		if ($keyword_name = $db_row['autoreply_keyword']) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword='$keyword_name'";
-			if (@dba_affected_rows($db_query)) {
-				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id'";
-				dba_query($db_query);
-				$_SESSION['dialog']['info'][] = _('SMS autoreply has been deleted') . " (" . _('keyword') . ": $keyword_name)";
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword=?";
+			if (dba_affected_rows($db_query, [$keyword_name])) {
+				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id=?";
+				if (dba_affected_rows($db_query, [$autoreply_id])) {
+					$_SESSION['dialog']['info'][] = _('SMS autoreply has been deleted') . " (" . _('keyword') . ": $keyword_name)";
+				} else {
+					$_SESSION['dialog']['info'][] = _('SMS autoreply has been incompletely deleted') . " (" . _('keyword') . ": $keyword_name)";
+				}
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to delete SMS autoreply') . " (" . _('keyword') . ": $keyword_name";
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list'));
 		exit();
-		break;
-	
+
 	case "sms_autoreply_add":
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc') . "</td></tr>";
 		}
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage autoreply') . "</h2>
 			<h3 class=page-header-subtitle>" . _('Add SMS autoreply') . "</h3>
@@ -195,19 +199,19 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		_p($content);
 		break;
-	
+
 	case "sms_autoreply_add_yes":
 		// max keyword is 10 chars
 		$add_autoreply_keyword = substr(trim(strtoupper($_POST['add_autoreply_keyword'])), 0, 10);
-		
+
 		if (auth_isadmin()) {
 			$smsc = $_POST['smsc'];
 		}
-		
+
 		if ($add_autoreply_keyword) {
 			if (keyword_isavail($add_autoreply_keyword)) {
-				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureAutoreply (uid,autoreply_keyword,smsc) VALUES ('" . $user_config['uid'] . "','$add_autoreply_keyword','$smsc')";
-				if ($new_uid = @dba_insert_id($db_query)) {
+				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureAutoreply (uid,autoreply_keyword,smsc) VALUES (?,?,?)";
+				if ($new_uid = dba_insert_id($db_query, [$user_config['uid'], $add_autoreply_keyword, $smsc])) {
 					$_SESSION['dialog']['info'][] = _('SMS autoreply keyword has been added') . " (" . _('keyword') . ": $add_autoreply_keyword)";
 				} else {
 					$_SESSION['dialog']['info'][] = _('Fail to add SMS autoreply') . " (" . _('keyword') . ": $add_autoreply_keyword)";
@@ -220,12 +224,11 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_add'));
 		exit();
-		break;
-	
+
 	case "sms_autoreply_edit":
 		$db_table = _DB_PREF_ . "_featureAutoreply";
 		$conditions = array(
-			'autoreply_id' => $autoreply_id 
+			'autoreply_id' => $autoreply_id
 		);
 		$list = dba_search($db_table, '*', $conditions);
 		$edit_autoreply_keyword = strtoupper($list[0]['autoreply_keyword']);
@@ -252,7 +255,7 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list');
 		_p($content);
 		break;
-	
+
 	case "sms_autoreply_edit_yes":
 		if (auth_isadmin()) {
 			$smsc = $_REQUEST['smsc'];
@@ -260,10 +263,10 @@ switch (_OP_) {
 		if ((int) $autoreply_id && $smsc) {
 			$db_table = _DB_PREF_ . "_featureAutoreply";
 			$items = array(
-				'smsc' => $smsc 
+				'smsc' => $smsc
 			);
 			$conditions = array(
-				'autoreply_id' => (int) $autoreply_id 
+				'autoreply_id' => (int) $autoreply_id
 			);
 			dba_update($db_table, $items, $conditions);
 			$_SESSION['dialog']['info'][] = _('SMS autoreply has been updated');
@@ -272,24 +275,22 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_edit&autoreply_id=' . $autoreply_id));
 		exit();
-		break;
-	
+
 	// scenario
 	case "sms_autoreply_scenario_del":
 		$_SESSION['dialog']['info'][] = _('Fail to delete SMS autoreply scenario');
 		if ($autoreply_id && ($autoreply_scenario_id = $_REQUEST['autoreply_scenario_id'])) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
-			if (@dba_affected_rows($db_query)) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id=? AND autoreply_scenario_id=?";
+			if (@dba_affected_rows($db_query, [$autoreply_id, $autoreply_scenario_id])) {
 				$_SESSION['dialog']['info'][] = _('SMS autoreply scenario has been deleted');
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id));
 		exit();
-		break;
-	
+
 	case "sms_autoreply_scenario_add":
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id='$autoreply_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id=?";
+		$db_result = dba_query($db_query, [$autoreply_id]);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
 		$content = _dialog() . "
@@ -319,7 +320,7 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
 		_p($content);
 		break;
-	
+
 	case "sms_autoreply_scenario_add_yes":
 		$add_autoreply_scenario_result = $_POST['add_autoreply_scenario_result'];
 		for ($i = 1; $i <= 7; $i++) {
@@ -329,13 +330,19 @@ switch (_OP_) {
 			for ($i = 1; $i <= 7; $i++) {
 				$autoreply_scenario_param_list .= "autoreply_scenario_param$i,";
 			}
+			$autoreply_scenario_param_list = $autoreply_scenario_param_list ? substr($autoreply_scenario_param_list, 0, -1) : '';
+			$db_argv = [];
 			for ($i = 1; $i <= 7; $i++) {
-				$autoreply_scenario_keyword_param_entry .= "'" . ${"add_autoreply_scenario_param" . $i} . "',";
+				$autoreply_scenario_keyword_param_entry .= "?,";
+				$db_argv[] = ${"add_autoreply_scenario_param" . $i};
 			}
+			$autoreply_scenario_keyword_param_entry = $autoreply_scenario_keyword_param_entry ? substr($autoreply_scenario_keyword_param_entry, 0, -1) : '';
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_featureAutoreply_scenario 
-				(autoreply_id," . $autoreply_scenario_param_list . "autoreply_scenario_result) VALUES ('$autoreply_id',$autoreply_scenario_keyword_param_entry'$add_autoreply_scenario_result')";
-			if ($new_uid = dba_insert_id($db_query)) {
+				(" . $autoreply_scenario_param_list . ",autoreply_scenario_result,autoreply_id) VALUES ($autoreply_scenario_keyword_param_entry,?,?)";
+			$db_argv[] = $add_autoreply_scenario_result;
+			$db_argv[] = $autoreply_id;
+			if ($new_uid = dba_insert_id($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('SMS autoreply scenario has been added');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to add SMS autoreply scenario');
@@ -345,12 +352,11 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_add&autoreply_id=' . $autoreply_id));
 		exit();
-		break;
-	
+
 	case "sms_autoreply_scenario_edit":
 		$autoreply_scenario_id = $_REQUEST['autoreply_scenario_id'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id='$autoreply_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id=?";
+		$db_result = dba_query($db_query, [$autoreply_id]);
 		$db_row = dba_fetch_array($db_result);
 		$autoreply_keyword = $db_row['autoreply_keyword'];
 		$content = _dialog() . "
@@ -365,8 +371,8 @@ switch (_OP_) {
 				<tr>
 					<td class=playsms-label-sizer>" . _('SMS autoreply keyword') . "</td><td>" . $autoreply_keyword . "</td>
 				</tr>";
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply_scenario WHERE autoreply_id=? AND autoreply_scenario_id=?";
+		$db_result = dba_query($db_query, [$autoreply_id, $autoreply_scenario_id]);
 		$db_row = dba_fetch_array($db_result);
 		for ($i = 1; $i <= 7; $i++) {
 			${"edit_autoreply_scenario_param" . $i} = $db_row['autoreply_scenario_param' . $i];
@@ -388,7 +394,7 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_manage&autoreply_id=' . $autoreply_id);
 		_p($content);
 		break;
-	
+
 	case "sms_autoreply_scenario_edit_yes":
 		$autoreply_scenario_id = $_POST['autoreply_scenario_id'];
 		$edit_autoreply_scenario_result = $_POST['edit_autoreply_scenario_result'];
@@ -396,14 +402,20 @@ switch (_OP_) {
 			${"edit_autoreply_scenario_param" . $i} = trim(strtoupper($_POST['edit_autoreply_scenario_param' . $i]));
 		}
 		if ($edit_autoreply_scenario_result) {
+			$db_argv = [];
 			for ($i = 1; $i <= 7; $i++) {
-				$autoreply_scenario_param_list .= "autoreply_scenario_param" . $i . "='" . ${"edit_autoreply_scenario_param" . $i} . "',";
+				$autoreply_scenario_param_list .= "autoreply_scenario_param" . $i . "=?,";
+				$db_argv[] = ${"edit_autoreply_scenario_param" . $i};
 			}
+			$autoreply_scenario_param_list = $autoreply_scenario_param_list ? substr($autoreply_scenario_param_list, 0, -1) : '';
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureAutoreply_scenario 
-				SET c_timestamp='" . time() . "'," . $autoreply_scenario_param_list . "autoreply_scenario_result='$edit_autoreply_scenario_result' 
-				WHERE autoreply_id='$autoreply_id' AND autoreply_scenario_id='$autoreply_scenario_id'";
-			if ($db_result = @dba_affected_rows($db_query)) {
+				SET c_timestamp='" . time() . "'," . $autoreply_scenario_param_list . ",autoreply_scenario_result=? 
+				WHERE autoreply_id=? AND autoreply_scenario_id=?";
+			$db_argv[] = $edit_autoreply_scenario_result;
+			$db_argv[] = $autoreply_id;
+			$db_argv[] = $autoreply_scenario_id;
+			if ($db_result = @dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('SMS autoreply scenario has been edited');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to edit SMS autoreply scenario');
@@ -413,5 +425,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_scenario_edit&autoreply_id=' . $autoreply_id . '&autoreply_scenario_id=' . $autoreply_scenario_id));
 		exit();
-		break;
 }
