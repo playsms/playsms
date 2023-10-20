@@ -48,6 +48,7 @@ switch (_OP_) {
 			</table>";
 		_p($content);
 		break;
+
 	case 'upload_confirm':
 
 		// fixme anton - https://www.exploit-database.net/?id=92843
@@ -76,7 +77,6 @@ switch (_OP_) {
 			$_SESSION['dialog']['danger'][] = _('Error occurred after uploading CSV file');
 			header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 			exit();
-			break;
 		}
 
 		$content = '<h2 class=page-header-title>' . _('Send from file') . '</h2>';
@@ -306,7 +306,6 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 		exit();
-		break;
 
 	case 'upload_process':
 		if ($sendfromfile_id = $_REQUEST['sendfromfile_id']) {
@@ -320,5 +319,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sendfromfile&op=list'));
 		exit();
-		break;
 }
