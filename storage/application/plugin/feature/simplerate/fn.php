@@ -21,8 +21,8 @@ defined('_SECURE_') or die('Forbidden');
 function simplerate_getdst($id)
 {
 	if ($id) {
-		$db_query = "SELECT dst FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT dst FROM " . _DB_PREF_ . "_featureSimplerate WHERE id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$dst = $db_row['dst'];
 	}
@@ -32,8 +32,8 @@ function simplerate_getdst($id)
 function simplerate_getprefix($id)
 {
 	if ($id) {
-		$db_query = "SELECT prefix FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT prefix FROM " . _DB_PREF_ . "_featureSimplerate WHERE id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$prefix = $db_row['prefix'];
 	}
@@ -43,8 +43,8 @@ function simplerate_getprefix($id)
 function simplerate_getbyid($id)
 {
 	if ($id) {
-		$db_query = "SELECT rate FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT rate FROM " . _DB_PREF_ . "_featureSimplerate WHERE id=?";
+		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$rate = $db_row['rate'];
 	}
@@ -57,9 +57,11 @@ function simplerate_getcard($id)
 	$card = [];
 
 	if ($id = (int) $id) {
-		if ($list = dba_search(_DB_PREF_ . '_featureSimplerate_card', '*', [
-			'id' => $id,
-		])) {
+		if (
+			$list = dba_search(_DB_PREF_ . '_featureSimplerate_card', '*', [
+				'id' => $id,
+			])
+		) {
 			$card = $list[0];
 		}
 	}
@@ -72,17 +74,19 @@ function simplerate_getcardsbyuid($uid)
 	$cards = [];
 
 	if ($uid = (int) $uid) {
-		/*
-		 SELECT C.id, C.name, C.notes, C.created, C.last_update FROM `playsms_featureSimplerate_card` C 
-		 LEFT JOIN `playsms_featureSimplerate_card_user` CU ON C.id = CU.card_id 
-		 LEFT JOIN `playsms_tblUser` U ON CU.uid = U.uid WHERE U.uid = '1'
-		 */
-		if ($list = dba_search(_DB_PREF_ . "_featureSimplerate_card C", 'C.id, C.name, C.notes, C.created, C.last_update', [
-			'U.uid' => $uid,
-		], '', '', "
+
+		// SELECT C.id, C.name, C.notes, C.created, C.last_update FROM `playsms_featureSimplerate_card` C 
+		// LEFT JOIN `playsms_featureSimplerate_card_user` CU ON C.id = CU.card_id 
+		// LEFT JOIN `playsms_tblUser` U ON CU.uid = U.uid WHERE U.uid = '1'
+
+		if (
+			$list = dba_search(_DB_PREF_ . "_featureSimplerate_card C", 'C.id, C.name, C.notes, C.created, C.last_update', [
+				'U.uid' => $uid,
+			], '', '', "
 			LEFT JOIN " . _DB_PREF_ . "_featureSimplerate_card_user CU ON C.id=CU.card_id
 			LEFT JOIN " . _DB_PREF_ . "_tblUser U ON CU.uid=U.uid
-		")) {
+		")
+		) {
 			$cards = $list;
 		}
 	}
@@ -96,8 +100,8 @@ function simplerate_getadhoccredit($uid)
 	$balance = 0;
 
 	if ($c_uid = (int) $uid) {
-		$db_query = "SELECT adhoc_credit FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND uid='$c_uid'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT adhoc_credit FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND uid=?";
+		$db_result = dba_query($db_query, [$c_uid]);
 		$db_row = dba_fetch_array($db_result);
 		$balance = (float) $db_row['adhoc_credit'];
 	}
@@ -110,8 +114,10 @@ function simplerate_setadhoccredit($uid, $balance)
 	$balance = (float) $balance;
 
 	if ($c_uid = (int) $uid) {
-		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . time() . "', adhoc_credit='$balance' WHERE uid='$c_uid' AND flag_deleted='0'";
-		dba_query($db_query);
+		$db_query = "UPDATE " . _DB_PREF_ . "_tblUser SET c_timestamp='" . time() . "', adhoc_credit=? WHERE uid=? AND flag_deleted=0";
+		if (dba_affected_rows($db_query, [$balance, $c_uid]) === 0) {
+			_log("Fail to update data u:" . $c_uid . " balance:" . $balance, 3, "simplerate_setadhoccredit");
+		}
 	}
 }
 
@@ -122,17 +128,19 @@ function simplerate_hook_rate_getbyuid($uid, $sms_to = '')
 
 	$cards = simplerate_getcardsbyuid($uid);
 
-	foreach ($cards as $card) {
-		if ($card['id']) {
-			/*
-		 	 SELECT prefix, rate, dst FROM `playsms_featureSimplerate` R
-		 	 LEFT JOIN `playsms_featureSimplerate_card_rate` CR ON R.id=CR.rate_id
-			 WHERE CR.card_id='1'
-			 ORDER BY prefix DESC
-			 */
-			if ($list = dba_search(_DB_PREF_ . "_featureSimplerate R", 'R.id AS rate_id, prefix, rate, dst, card_id', [
-				'CR.card_id' => $card['id'],
-			], '', '', "LEFT JOIN " . _DB_PREF_ . "_featureSimplerate_card_rate CR ON R.id=CR.rate_id")) {
+	foreach ( $cards as $card ) {
+		if (isset($card['id']) && (int) $card['id']) {
+
+			// SELECT prefix, rate, dst FROM `playsms_featureSimplerate` R
+			// LEFT JOIN `playsms_featureSimplerate_card_rate` CR ON R.id=CR.rate_id
+			// WHERE CR.card_id='1'
+			// ORDER BY prefix DESC
+
+			if (
+				$list = dba_search(_DB_PREF_ . "_featureSimplerate R", 'R.id AS rate_id, prefix, rate, dst, card_id', [
+					'CR.card_id' => $card['id'],
+				], '', '', "LEFT JOIN " . _DB_PREF_ . "_featureSimplerate_card_rate CR ON R.id=CR.rate_id")
+			) {
 				$rates = array_merge($rates, $list);
 			}
 		}
@@ -144,7 +152,7 @@ function simplerate_hook_rate_getbyuid($uid, $sms_to = '')
 
 	// eliminate double prefix, choose the 1st match
 	$r = [];
-	foreach ($rates as $rate) {
+	foreach ( $rates as $rate ) {
 		if (!isset($r[$rate['prefix']])) {
 			$r[$rate['prefix']] = [
 				'rate_id' => $rate['rate_id'],
@@ -157,7 +165,7 @@ function simplerate_hook_rate_getbyuid($uid, $sms_to = '')
 
 	// final format
 	$rates = [];
-	foreach ($r as $key => $val) {
+	foreach ( $r as $key => $val ) {
 		if (isset($key) && isset($val['card_id'])) {
 			$rates[] = [
 				'prefix' => $key,
@@ -183,7 +191,7 @@ function simplerate_hook_rate_getbyprefix($sms_to, $uid = '')
 
 	$effective_row = [];
 	$list = rate_getbyuid($uid);
-	foreach ($list as $row) {
+	foreach ( $list as $row ) {
 		if ($found) {
 			break;
 		}
@@ -299,8 +307,8 @@ function simplerate_hook_rate_deduct($smslog_id)
 	global $core_config;
 
 	_log("enter smslog_id:" . $smslog_id, 2, "simplerate_hook_rate_deduct");
-	$db_query = "SELECT p_dst,p_footer,p_msg,uid,parent_uid,unicode FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
-	$db_result = dba_query($db_query);
+	$db_query = "SELECT p_dst,p_footer,p_msg,uid,parent_uid,unicode FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id=?";
+	$db_result = dba_query($db_query, [$smslog_id]);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$p_dst = $db_row['p_dst'];
 		$p_msg = $db_row['p_msg'];
@@ -337,14 +345,12 @@ function simplerate_hook_rate_refund($smslog_id)
 	global $core_config;
 
 	_log("start smslog_id:" . $smslog_id, 2, "simplerate_hook_rate_refund");
-	$db_query = "SELECT p_dst,p_msg,uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
-	$db_result = dba_query($db_query);
+	$db_query = "SELECT p_dst,p_msg,uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status=2 AND smslog_id=?";
+	$db_result = dba_query($db_query, [$smslog_id]);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$p_dst = $db_row['p_dst'];
 		$p_msg = $db_row['p_msg'];
-		$p_footer = $db_row['p_footer'];
 		$uid = $db_row['uid'];
-		$unicode = $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {
 			if (billing_rollback($smslog_id)) {
 
@@ -361,8 +367,8 @@ function simplerate_hook_dlr_update($smslog_id, $uid, $p_status)
 	//_log("start smslog_id:".$smslog_id, 2, "simplerate_hook_dlr_update");
 	if ($p_status == 2) {
 		// check in billing table smslog_id with status=0, status=1 is finalized, status=2 is rolled-back
-		$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status=0 AND smslog_id=?";
+		$db_result = dba_query($db_query, [$smslog_id]);
 		if ($db_row = dba_fetch_array($db_result)) {
 			rate_refund($smslog_id);
 		}

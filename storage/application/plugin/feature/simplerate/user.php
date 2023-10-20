@@ -58,19 +58,18 @@ switch (_OP_) {
 			]
 		];
 
-		/*
-         SELECT U.uid AS uid, username, name, credit, status FROM playsms_tblUser U
-         LEFT JOIN playsms_featureSimplerate_card_user CR ON U.uid = CR.uid
-		 WHERE CR.card_id = '$card_id'
-		 ORDER BY status, username, name
-         */
+		// SELECT U.uid AS uid, username, name, credit, status FROM playsms_tblUser U
+		// LEFT JOIN playsms_featureSimplerate_card_user CR ON U.uid = CR.uid
+		// WHERE CR.card_id = '$card_id'
+		// ORDER BY status, username, name
+
 		$list = dba_search(_DB_PREF_ . '_tblUser U', 'U.uid AS uid, username, name, credit, status', [
 			'CR.card_id' => $card_id
 		], '', [
 			'ORDER BY' => 'status, username, name'
 		], 'LEFT JOIN ' . _DB_PREF_ . '_featureSimplerate_card_user CR ON U.uid = CR.uid');
 
-		foreach ($list as $row) {
+		foreach ( $list as $row ) {
 			$action = _confirm(
 				sprintf(_('Are you sure you want to remove user %s ?'), $row['username']),
 				_u('index.php?app=main&inc=feature_simplerate&route=user&op=user_remove&card_id=' . $card_id . '&uid=' . $row['uid']),
@@ -136,10 +135,12 @@ switch (_OP_) {
 			exit();
 		}
 
-		if (dba_add(_DB_PREF_ . '_featureSimplerate_card_user', [
-			'card_id' => $card_id,
-			'uid' => $uid,
-		])) {
+		if (
+			dba_add(_DB_PREF_ . '_featureSimplerate_card_user', [
+				'card_id' => $card_id,
+				'uid' => $uid,
+			])
+		) {
 			$_SESSION['dialog']['info'][] = sprintf(_('User %s has been added'), $username);
 
 			// clear laspost for new input
@@ -150,7 +151,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=user&op=user_add&card_id=' . $card_id));
 		exit();
-		break;
 
 	case "user_remove":
 		if (!($uid = (int) $_REQUEST['uid'])) {
@@ -160,10 +160,12 @@ switch (_OP_) {
 			exit();
 		}
 
-		if (dba_remove(_DB_PREF_ . '_featureSimplerate_card_user', [
-			'card_id' => $card_id,
-			'uid' => $uid,
-		])) {
+		if (
+			dba_remove(_DB_PREF_ . '_featureSimplerate_card_user', [
+				'card_id' => $card_id,
+				'uid' => $uid,
+			])
+		) {
 			$_SESSION['dialog']['info'][] = sprintf(_('User %s has been removed'), user_uid2username($uid));
 		} else {
 			$_SESSION['dialog']['danger'][] = sprintf(_('Fail to remove user id:%d'), $uid);
@@ -171,5 +173,4 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=user&op=user_list&card_id=' . $card_id));
 		exit();
-		break;
 }

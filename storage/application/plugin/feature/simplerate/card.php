@@ -44,7 +44,7 @@ switch (_OP_) {
 		$list = dba_search(_DB_PREF_ . '_featureSimplerate_card', '*', '', '', [
 			'ORDER BY' => 'name'
 		]);
-		foreach ($list as $row) {
+		foreach ( $list as $row ) {
 			$num_of_rate = dba_count(_DB_PREF_ . '_featureSimplerate R', [
 				'CR.card_id' => $row['id']
 			], '', '', 'LEFT JOIN ' . _DB_PREF_ . '_featureSimplerate_card_rate CR ON R.id = CR.rate_id');
@@ -126,7 +126,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=card&op=card_list'));
 		exit();
-		break;
 
 	case "card_edit":
 		if (!($card_id = (int) $_REQUEST['card_id'])) {
@@ -197,7 +196,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=card&op=card_edit&card_id=' . $card_id));
 		exit();
-		break;
 
 	case "card_delete":
 		if (!($card_id = (int) $_REQUEST['card_id'])) {
@@ -219,5 +217,4 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=card&op=card_list'));
 		exit();
-		break;
 }

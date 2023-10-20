@@ -58,17 +58,17 @@ switch (_OP_) {
 		];
 
 		/*
-         * SELECT R.id AS id, dst, prefix, rate FROM playsms_featureSimplerate R
-         * LEFT JOIN playsms_featureSimplerate_card_rate CR ON R.id = CR.rate_id
-         * WHERE CR.card_id = '$card_id'
-         */
+		 * SELECT R.id AS id, dst, prefix, rate FROM playsms_featureSimplerate R
+		 * LEFT JOIN playsms_featureSimplerate_card_rate CR ON R.id = CR.rate_id
+		 * WHERE CR.card_id = '$card_id'
+		 */
 		$list = dba_search(_DB_PREF_ . '_featureSimplerate R', 'R.id AS id, dst, prefix, rate', [
 			'CR.card_id' => $card_id
 		], '', [
 			'ORDER BY' => 'dst, prefix'
 		], 'LEFT JOIN ' . _DB_PREF_ . '_featureSimplerate_card_rate CR ON R.id = CR.rate_id');
 
-		foreach ($list as $row) {
+		foreach ( $list as $row ) {
 			$action = "
 				<a href='" . _u('index.php?app=main&inc=feature_simplerate&route=rate&op=rate_edit&card_id=' . $card_id . '&rate_id=' . $row['id']) . "'>" . $icon_config['edit'] . "</a>
 				" . _confirm(sprintf(_('Are you sure you want to delete rate %s ?'), $row['dst']), _u('index.php?app=main&inc=feature_simplerate&route=rate&op=rate_delete&card_id=' . $card_id . '&rate_id=' . $row['id']), 'delete');
@@ -130,15 +130,19 @@ switch (_OP_) {
 		$prefix = (string) $_REQUEST['prefix'];
 		$rate = (float) $_REQUEST['rate'];
 
-		if ($rate_id = dba_add(_DB_PREF_ . '_featureSimplerate', [
-			'dst' => $dst,
-			'prefix' => (string) core_sanitize_numeric($prefix),
-			'rate' => (float) $rate,
-		])) {
-			if (dba_add(_DB_PREF_ . '_featureSimplerate_card_rate', [
-				'card_id' => $card_id,
-				'rate_id' => $rate_id,
-			])) {
+		if (
+			$rate_id = dba_add(_DB_PREF_ . '_featureSimplerate', [
+				'dst' => $dst,
+				'prefix' => (string) core_sanitize_numeric($prefix),
+				'rate' => (float) $rate,
+			])
+		) {
+			if (
+				dba_add(_DB_PREF_ . '_featureSimplerate_card_rate', [
+					'card_id' => $card_id,
+					'rate_id' => $rate_id,
+				])
+			) {
 
 				$_SESSION['dialog']['info'][] = sprintf(_('Rate %s has been added'), $dst);
 
@@ -153,7 +157,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=rate&op=rate_add&card_id=' . $card_id));
 		exit();
-		break;
 
 	case "rate_edit":
 		if (!($rate_id = (int) $_REQUEST['rate_id'])) {
@@ -164,17 +167,19 @@ switch (_OP_) {
 		}
 
 		/*
-         * SELECT R.id AS id, dst, prefix, rate FROM playsms_featureSimplerate R
-         * LEFT JOIN playsms_featureSimplerate_card_rate CR ON R.id = CR.rate_id
-         * WHERE CR.card_id = '$card_id' AND CR.rate_id = '$rate_id'
+		 * SELECT R.id AS id, dst, prefix, rate FROM playsms_featureSimplerate R
+		 * LEFT JOIN playsms_featureSimplerate_card_rate CR ON R.id = CR.rate_id
+		 * WHERE CR.card_id = '$card_id' AND CR.rate_id = '$rate_id'
 		 * LIMIT 1
-         */
-		if ($list = dba_search(_DB_PREF_ . '_featureSimplerate R', 'R.id AS id, dst, prefix, rate', [
-			'CR.card_id' => $card_id,
-			'CR.rate_id' => $rate_id,
-		], '', [
-			'LIMIT' => 1,
-		], 'LEFT JOIN ' . _DB_PREF_ . '_featureSimplerate_card_rate CR ON R.id = CR.rate_id')) {
+		 */
+		if (
+			$list = dba_search(_DB_PREF_ . '_featureSimplerate R', 'R.id AS id, dst, prefix, rate', [
+				'CR.card_id' => $card_id,
+				'CR.rate_id' => $rate_id,
+			], '', [
+				'LIMIT' => 1,
+			], 'LEFT JOIN ' . _DB_PREF_ . '_featureSimplerate_card_rate CR ON R.id = CR.rate_id')
+		) {
 			$list = $list[0];
 			$list['rate'] = core_display_credit($list['rate']);
 		} else {
@@ -227,13 +232,15 @@ switch (_OP_) {
 		$prefix = (string) $_REQUEST['prefix'];
 		$rate = (float) $_REQUEST['rate'];
 
-		if (dba_update(_DB_PREF_ . '_featureSimplerate', [
-			'dst' => $dst,
-			'prefix' => (string) core_sanitize_numeric($prefix),
-			'rate' => (float) $rate,
-		], [
-			'id' => $rate_id,
-		])) {
+		if (
+			dba_update(_DB_PREF_ . '_featureSimplerate', [
+				'dst' => $dst,
+				'prefix' => (string) core_sanitize_numeric($prefix),
+				'rate' => (float) $rate,
+			], [
+				'id' => $rate_id,
+			])
+		) {
 			$_SESSION['dialog']['info'][] = sprintf(_('Rate %s has been updated'), $dst);
 
 			// clear laspost for new input
@@ -244,7 +251,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=rate&op=rate_edit&card_id=' . $card_id . '&rate_id=' . $rate_id));
 		exit();
-		break;
 
 	case "rate_delete":
 		if (!($rate_id = (int) $_REQUEST['rate_id'])) {
@@ -254,9 +260,11 @@ switch (_OP_) {
 			exit();
 		}
 
-		if ($result = dba_remove(_DB_PREF_ . '_featureSimplerate', [
-			'id' => $rate_id
-		])) {
+		if (
+			$result = dba_remove(_DB_PREF_ . '_featureSimplerate', [
+				'id' => $rate_id
+			])
+		) {
 			dba_remove(_DB_PREF_ . '_featureSimplerate_card_rate', [
 				'rate_id' => $rate_id
 			]);
@@ -270,5 +278,4 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&route=rate&op=rate_list&card_id=' . $card_id));
 		exit();
-		break;
 }
