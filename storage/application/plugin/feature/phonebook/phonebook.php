@@ -37,11 +37,12 @@ switch (_OP_) {
 		$keywords = $search['dba_keywords'];
 		$keywords_sql = "";
 		foreach ( $keywords as $key => $val ) {
-			$keywords_sql .= " " . $key . " LIKE ?";
+			$keywords_sql .= " OR " . $key . " LIKE ?";
 			$db_argv[] = $val;
 		}
 		if ($keywords_sql) {
-			$keywords_sql .= " AND ";
+			$keywords_sql = substr($keywords_sql, 3); // remove first OR
+			$keywords_sql .= " AND "; // adds trailing AND for next condition
 		}
 
 		$db_query = "
@@ -293,11 +294,12 @@ switch (_OP_) {
 				$keywords = $search['dba_keywords'];
 				$keywords_sql = "";
 				foreach ( $keywords as $key => $val ) {
-					$keywords_sql .= " " . $key . " LIKE ?";
+					$keywords_sql .= " OR " . $key . " LIKE ?";
 					$db_argv[] = $val;
 				}
 				if ($keywords_sql) {
-					$keywords_sql .= " AND ";
+					$keywords_sql = substr($keywords_sql, 3); // remove first OR
+					$keywords_sql .= " AND "; // adds trailing AND for next condition
 				}
 				$db_query = "
 					SELECT DISTINCT A.id AS pid, A.uid AS uid, A.name AS name, A.mobile AS mobile, A.email AS email, B.code AS code, A.tags AS tags 
