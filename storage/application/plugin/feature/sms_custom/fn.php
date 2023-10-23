@@ -27,34 +27,25 @@ defined('_SECURE_') or die('Forbidden');
  *        Receiver number
  * @return boolean TRUE if keyword is available
  */
-function sms_custom_hook_keyword_isavail($keyword, $sms_receiver) {
-	$found = FALSE;
-	
+function sms_custom_hook_keyword_isavail($keyword, $sms_receiver = '')
+{
 	$keyword = trim(strtoupper($keyword));
 	$sms_receiver = trim($sms_receiver);
-	
-	// check with receiver number empty, a catchall
-	$db_query = "SELECT custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver=''";
-	if ($db_result = dba_num_rows($db_query)) {
-		$found = TRUE;
+
+	$db_query = "SELECT custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword=? OR custom_keyword LIKE ? OR custom_keyword LIKE ? OR custom_keyword LIKE ?) AND sms_receiver=? LIMIT 1";
+	$db_argv = [
+		$keyword,
+		$keyword . " %",
+		"% " . $keyword,
+		"% " . $keyword . " %",
+		$sms_receiver
+	];
+	if (dba_num_rows($db_query, $db_argv)) {
+
+		return false;
 	}
-	
-	// if no cathall
-	if (!$found) {
-		if ($sms_receiver) {
-			$db_query = "SELECT custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver='$sms_receiver'";
-		} else {
-			$db_query = "SELECT custom_id FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %')";
-		}
-		if ($db_result = dba_num_rows($db_query)) {
-			$found = TRUE;
-		}
-	}
-	
-	// found means not available
-	$ret = !$found;
-	
-	return $ret;
+
+	return true;
 }
 
 /**
@@ -76,55 +67,53 @@ function sms_custom_hook_keyword_isavail($keyword, $sms_receiver) {
  *        raw incoming message
  * @return array $ret array of keyword owner uid and status, TRUE if incoming sms handled
  */
-function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $custom_param = '', $sms_receiver = '', $smsc = '', $raw_message = '') {
-	$ok = FALSE;
-	
+function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $custom_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
+{
 	$keyword = trim(strtoupper($keyword));
 	$sms_receiver = trim($sms_receiver);
-	
-	// match keyword with receiver number
-	if ($sms_receiver) {
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver='$sms_receiver'";
-		$db_result = dba_query($db_query);
-		if ($db_row = dba_fetch_array($db_result)) {
-			$uid = $db_row['uid'];
-			$custom_id = $db_row['custom_id'];
-			$list = $db_row;
+	$list = [];
+	$uid = 0;
+	$custom_id = 0;
+
+	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword=? OR custom_keyword LIKE ? OR custom_keyword LIKE ? OR custom_keyword LIKE ?) AND sms_receiver=? LIMIT 1";
+	$db_argv = [
+		$keyword,
+		$keyword . " %",
+		"% " . $keyword,
+		"% " . $keyword . " %",
+		$sms_receiver
+	];
+	$db_result = dba_query($db_query, $db_argv);
+	if ($list = dba_fetch_array($db_result)) {
+		if (isset($list['uid']) && isset($list['custom_id']) && (int) $list['uid'] && (int) $list['custom_id']) {
+			$uid = (int) $list['uid'];
+			$custom_id = (int) $list['custom_id'];
+			if (sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param, $smsc, $raw_message)) {
+				return [
+					'status' => true,
+					'uid' => $uid
+
+				];
+			}
 		}
 	}
-	
-	// look for matching with catchall, if found it will override above matches
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom WHERE (custom_keyword='$keyword' OR custom_keyword LIKE '$keyword %' OR custom_keyword LIKE '% $keyword' OR custom_keyword LIKE '% $keyword %') AND sms_receiver = ''";
-	$db_result = dba_query($db_query);
-	if ($db_row = dba_fetch_array($db_result)) {
-		$uid = $db_row['uid'];
-		$custom_id = $db_row['custom_id'];
-		$list = $db_row;
-	}
-	
-	if ($uid && $custom_id) {
-		if (sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param, $smsc, $raw_message)) {
-			$ok = TRUE;
-		}
-		$ret['uid'] = $c_uid;
-	}
-	
-	$ret['status'] = $ok;
-	
-	return $ret;
+
+	return [
+		'status' => false,
+		'uid' => 0
+	];
 }
 
-function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param = '', $smsc = '', $raw_message = '') {
-	$ok = FALSE;
-	
+function sms_custom_handle($list = [], $uid = 0, $custom_id = 0, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param = '', $smsc = '', $raw_message = '')
+{
 	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
-	
+
 	$username = user_uid2username($uid);
 	$keyword = trim(strtoupper($keyword));
 	$custom_param = trim($custom_param);
-	
-	$db_query = "SELECT custom_url,service_name,custom_return_as_reply FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id='$custom_id'";
-	$db_result = dba_query($db_query);
+
+	$db_query = "SELECT custom_url,service_name,custom_return_as_reply FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id=?";
+	$db_result = dba_query($db_query, [$custom_id]);
 	$db_row = dba_fetch_array($db_result);
 	$service_name = htmlspecialchars_decode($db_row['service_name']);
 	$custom_url = htmlspecialchars_decode($db_row['custom_url']);
@@ -139,21 +128,21 @@ function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, 
 		$custom_url = str_replace("{CUSTOMPARAM}", urlencode($custom_param), $custom_url);
 		$custom_url = str_replace("{CUSTOMRAW}", urlencode($raw_message), $custom_url);
 		_log("custom_url:[" . $custom_url . "]", 3, "sms_custom_handle");
-		
+
 		$parsed_url = parse_url($custom_url);
-		
+
 		$opts = array(
 			'http' => array(
 				'method' => 'POST',
 				'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-				'content' => $parsed_url['query'] 
-			) 
+				'content' => $parsed_url['query']
+			)
 		);
-		
+
 		$context = stream_context_create($opts);
-		
+
 		$server_url = explode('?', $custom_url);
-		
+
 		if ($returns = trim(file_get_contents($server_url[0], FALSE, $context))) {
 			$unicode = core_detect_unicode($returns);
 			$returns = addslashes($returns);
@@ -164,9 +153,9 @@ function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, 
 		} else {
 			_log("returns empty", 3, "sms_custom_handle");
 		}
-		
-		$ok = true;
+
+		return true;
 	}
-	
-	return $ok;
+
+	return false;
 }
