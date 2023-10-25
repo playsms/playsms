@@ -222,7 +222,6 @@ function playsmsd_stop()
  *
  * @param boolean $json
  *        TRUE for json output
- * @return string
  */
 function playsmsd_check($json)
 {
@@ -474,7 +473,7 @@ function playsmsd_run($run_type = 'once', $command, $command_param = '')
 			}
 		}
 		if (!($playsmsd && file_exists(($playsmsd)))) {
-			_log('daemon not found bin:' . $playsmsd . ' run_type:' . $run_type . ' command:' . $command . ' param:' . $command_param . ' pid:' . $pid, 2, 'playsmsd_run');
+			_log('daemon not found bin:' . $playsmsd . ' run_type:' . $run_type . ' command:' . $command . ' param:' . $command_param, 2, 'playsmsd_run');
 
 			return false;
 		}

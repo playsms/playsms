@@ -152,7 +152,7 @@ function dlr_fetch()
 	foreach ( $smscs as $smsc ) {
 		$smsc_data = gateway_get_smscbyname($smsc);
 		$gateway = $smsc_data['gateway'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='0' AND p_smsc=? AND flag_deleted='0'";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status=0 AND p_smsc=? AND flag_deleted=0";
 		$db_result = dba_query($db_query, [$smsc]);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$uid = $db_row['uid'];

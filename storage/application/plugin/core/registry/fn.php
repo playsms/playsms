@@ -21,7 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 
 function registry_update($uid, $registry_group, $registry_family, $items)
 {
-	$ret = false;
+	$ret = [];
 	$db_table = _DB_PREF_ . '_tblRegistry';
 	if (is_array($items)) {
 		foreach ( $items as $key => $val ) {

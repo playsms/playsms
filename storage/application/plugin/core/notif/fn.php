@@ -80,10 +80,12 @@ function notif_remove($uid, $id)
 
 	$db_table = _DB_PREF_ . '_tblNotif';
 	if (
-		$result = dba_remove($db_table, array(
-			'uid' => $uid,
-			'id' => $id
-		)
+		$result = dba_remove(
+			$db_table,
+			array(
+				'uid' => $uid,
+				'id' => $id
+			)
 		)
 	) {
 		_log('uid:' . $uid . ' id:' . $id, 2, 'notif_remove');
@@ -114,10 +116,13 @@ function notif_update($uid, $id, $fields)
 	}
 
 	$db_table = _DB_PREF_ . '_tblNotif';
-	$result = dba_search($db_table, '*', array(
-		'uid' => $uid,
-		'id' => $id
-	)
+	$result = dba_search(
+		$db_table,
+		'*',
+		array(
+			'uid' => $uid,
+			'id' => $id
+		)
 	);
 	foreach ( $result[0] as $key => $val ) {
 		$items[$key] = ($fields[$key] ? $fields[$key] : $val);
@@ -125,11 +130,14 @@ function notif_update($uid, $id, $fields)
 			$fields_replaced .= $key . ':' . $val . ' ';
 		}
 	}
-	if ($items && trim($replaced)) {
+	if ($items && trim($fields_replaced)) {
 		if (
-			dba_update($db_table, $items, array(
-				'id' => $id
-			)
+			dba_update(
+				$db_table,
+				$items,
+				array(
+					'id' => $id
+				)
 			)
 		) {
 			_log('uid:' . $uid . ' id:' . $id . ' ' . trim($fields_replaced), 2, 'notif_update');

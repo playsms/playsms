@@ -122,7 +122,7 @@ switch (_OP_) {
 
 	case "edit":
 		$id = (int) $_REQUEST['id'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted='0' AND id=?";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblACL WHERE flag_deleted=0 AND id=?";
 		$db_result = dba_query($db_query, [$id]);
 		$db_row = dba_fetch_array($db_result);
 		$content = _dialog() . "

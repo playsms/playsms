@@ -167,11 +167,12 @@ function gateway_valid_name($name)
  * List gateway plugins and load its configuration
  *
  * @global array $core_config
- * @return string gateway plugins configuration
+ * @return array gateway plugins configuration
  */
 function gateway_list()
 {
 	global $core_config;
+	$subdir_tab = [];
 	$upload_path = $core_config['apps_path']['plug'] . '/gateway/';
 	$dir = opendir($upload_path);
 	$z = 0;

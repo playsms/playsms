@@ -187,10 +187,10 @@ function sendsms_intercept_after($status, $smslog_id, $p_status, $sms_sender, $s
  * @param string $sms_sender        
  * @param string $sms_footer        
  * @param string $sms_msg        
- * @param integer $uid        
- * @param integer $gpid        
+ * @param int $uid        
+ * @param int $gpid        
  * @param string $sms_type        
- * @param integer $unicode        
+ * @param int $unicode        
  * @param string $sms_schedule        
  * @param string $smsc        
  * @return string Queue code
@@ -641,7 +641,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * @param mixed $sms_to        
  * @param string $message        
  * @param string $sms_type        
- * @param integer $unicode        
+ * @param int $unicode        
  * @param string $smsc        
  * @param boolean $nofooter        
  * @param string $sms_footer        
@@ -671,7 +671,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 	for ($i = 0; $i < count($sms_to); $i++) {
 		if (substr(trim($sms_to[$i]), 0, 1) == '#') {
 			if ($c_group_code = substr(trim($sms_to[$i]), 1)) {
-				$list = phonebook_search_group($user_config['uid'], $c_group_code, '', TRUE);
+				$list = phonebook_search_group($user_config['uid'], $c_group_code);
 				$c_gpid = $list[0]['gpid'];
 				$members = phonebook_getdatabyid($c_gpid);
 				foreach ( $members as $member ) {
@@ -748,7 +748,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
  * @param mixed $sms_to        
  * @param string $message        
  * @param string $sms_type        
- * @param integer $unicode        
+ * @param int $unicode        
  * @param string $smsc        
  * @param boolean $nofooter        
  * @param string $sms_footer        
@@ -1033,10 +1033,10 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
  *
  * @global array $core_config
  * @param string $username        
- * @param integer $gpid        
+ * @param int $gpid        
  * @param string $message        
  * @param string $sms_type        
- * @param integer $unicode        
+ * @param int $unicode        
  * @param string $smsc        
  * @param boolean $nofooter        
  * @param string $sms_footer        
@@ -1147,7 +1147,7 @@ function sendsms_get_template()
 /**
  * Get SMS data from $smslog_id
  *
- * @param integer $smslog_id        
+ * @param int $smslog_id        
  * @return array
  */
 function sendsms_get_sms($smslog_id)
@@ -1164,11 +1164,11 @@ function sendsms_get_sms($smslog_id)
 /**
  * Check send SMS throttle limit
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
- * @param integer $limit
+ * @param int $limit
  *        Number of SMS sent
- * @param integer $period
+ * @param int $period
  *        Throttle period in minute (default is 60)
  * @return boolean TRUE on overlimit
  */
@@ -1232,9 +1232,9 @@ function sendsms_throttle_isoverlimit($uid, $limit = 0, $period = 60)
 /**
  * Counter for throttle limit
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
- * @param integer $count
+ * @param int $count
  *        (default is 1)
  *        Sent SMS
  * @return boolean TRUE of successful counter

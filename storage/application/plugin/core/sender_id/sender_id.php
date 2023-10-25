@@ -205,7 +205,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_add'));
 		exit();
-		break;
 
 	case "sender_id_edit":
 		$nav = themes_nav_session();
@@ -270,7 +269,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $_REQUEST['id']));
 		exit();
-		break;
 
 	case "toggle_status":
 		$search = array(
@@ -287,7 +285,6 @@ switch (_OP_) {
 
 		header("Location: " . _u('index.php?app=main&inc=core_sender_id&op=sender_id_list'));
 		exit();
-		break;
 
 	case "sender_id_delete":
 		$nav = themes_nav_session();
@@ -307,5 +304,4 @@ switch (_OP_) {
 		$_SESSION['dialog']['info'][] = _('Sender ID has been removed') . ' (' . _('Sender ID') . ': ' . $data_sender_id[0]['registry_key'] . ')';
 		header("Location: " . _u($ref));
 		exit();
-		break;
 }

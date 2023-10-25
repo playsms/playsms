@@ -155,15 +155,15 @@ function sender_id_default_get($uid)
 /**
  * Add sender ID
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $sender_id
  *        Sender ID
  * @param string $sender_id_description
  *        Sender ID description
- * @param integer $isdefault
+ * @param int $isdefault
  *        Flag 1 for default sender ID
- * @param integer $isapproved
+ * @param int $isapproved
  *        Flag 1 for approved sender ID
  * @return boolean TRUE when new sender ID has been added
  */
@@ -229,15 +229,15 @@ function sender_id_add($uid, $sender_id, $sender_id_description = '', $isdefault
 /**
  * Update sender ID
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $sender_id
  *        Sender ID
  * @param string $sender_id_description
  *        Sender ID description
- * @param integer $isdefault
+ * @param int $isdefault
  *        Flag 1 for default sender ID
- * @param integer $isapproved
+ * @param int $isapproved
  *        Flag 1 for approved sender ID
  * @return boolean TRUE when new sender ID has been updated
  */
