@@ -22,10 +22,10 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$poll_id = $_REQUEST['poll_id'];
+$poll_id = (int) $_REQUEST['poll_id'];
 
 switch (_OP_) {
-	case 'list' :
+	case 'list':
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_ . '_featurePoll', '*', $conditions);
 		$poll_keyword = $list[0]['poll_keyword'];
@@ -35,9 +35,9 @@ switch (_OP_) {
 		$output_xml = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=xml";
 		$output_html = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=html";
 		$output_graph = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_poll&keyword=" . urlencode($poll_keyword) . "&code=" . $poll_access_code . "&type=graph";
-		
+
 		$stat = sms_poll_statistics($poll_id);
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage poll') . "</h2>
 			<p class=lead>" . _('Keyword') . " : " . $poll_keyword . "</p>

@@ -22,15 +22,16 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$poll_id = $_REQUEST['poll_id'];
+$poll_id = (int) $_REQUEST['poll_id'];
 
 switch (_OP_) {
-	case 'list' :
+	case 'list':
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_ . '_featurePoll', '*', $conditions);
-		$poll_keyword = $list[0]['poll_keyword'];
-		$content = sms_poll_export_csv($poll_id, $poll_keyword);
-		$filename = 'sms-poll-' . $poll_keyword . '-' . $core_config['datetime']['now_stamp'] . '.csv';
-		core_download($content, $filename, 'text/csv');
-		break;
+		if (isset($list[0]['poll_keyword']) && $poll_keyword = $list[0]['poll_keyword']) {
+			$content = sms_poll_export_csv($poll_id, $poll_keyword);
+			$filename = 'sms-poll-' . $poll_keyword . '-' . $core_config['datetime']['now_stamp'] . '.csv';
+			core_download($content, $filename, 'text/csv');
+		}
+		exit();
 }
