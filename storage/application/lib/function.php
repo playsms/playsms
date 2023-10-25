@@ -20,37 +20,37 @@
 defined('_SECURE_') or die('Forbidden');
 
 // load common configurations
-$c_fn1 = $core_config['apps_path']['plug'].'/themes/common/config.php';
+$c_fn1 = $core_config['apps_path']['plug'] . '/themes/common/config.php';
 if (file_exists($c_fn1)) {
 	include $c_fn1;
-	$c_fn2 = $core_config['apps_path']['plug'].'/themes/common/fn.php';
+	$c_fn2 = $core_config['apps_path']['plug'] . '/themes/common/fn.php';
 	if (file_exists($c_fn2)) {
 		include $c_fn2;
 	}
 }
 
 // load list of plugins
-for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
+for ($i = 0; $i < count($core_config['plugins']['category']); $i++) {
 	if ($pc = $core_config['plugins']['category'][$i]) {
 		// get plugins
-		$dir = $core_config['apps_path']['plug'].'/'.$pc.'/';
+		$dir = $core_config['apps_path']['plug'] . '/' . $pc . '/';
 		unset($core_config['plugins']['list'][$pc]);
 		unset($tmp_core_config['plugins']['list'][$pc]);
 		$fd = opendir($dir);
 		$pc_names = array();
-		while(false !== ($pl_name = readdir($fd))) {
+		while (false !== ($pl_name = readdir($fd))) {
 			// plugin's dir prefixed with dot or underscore will not be loaded
-			if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_" ) {
+			if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_") {
 				// exeptions for themes/common
-				if (! (($pc == 'themes') && ($pl_name == 'common'))) {
+				if (!(($pc == 'themes') && ($pl_name == 'common'))) {
 					$pc_names[] = $pl_name;
 				}
 			}
 		}
 		closedir();
 		sort($pc_names);
-		for ($j=0;$j<count($pc_names);$j++) {
-			if (is_dir($dir.$pc_names[$j])) {
+		for ($j = 0; $j < count($pc_names); $j++) {
+			if (is_dir($dir . $pc_names[$j])) {
 				$core_config['plugins']['list'][$pc][] = $pc_names[$j];
 			}
 		}
@@ -58,13 +58,13 @@ for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
 }
 
 // load each plugin's config
-$dir = $core_config['apps_path']['plug'].'/';
+$dir = $core_config['apps_path']['plug'] . '/';
 $pcs = array('themes', 'language', 'gateway', 'feature');
-foreach ($pcs as $pc) {
-	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
+foreach ( $pcs as $pc ) {
+	for ($i = 0; $i < count($core_config['plugins']['list'][$pc]); $i++) {
 		$pl = $core_config['plugins']['list'][$pc][$i];
-		$pl_dir = $dir.$pc.'/'.$pl;
-		$c_fn1 = $pl_dir.'/config.php';
+		$pl_dir = $dir . $pc . '/' . $pl;
+		$c_fn1 = $pl_dir . '/config.php';
 		if (file_exists($c_fn1)) {
 			include $c_fn1;
 		}
@@ -72,13 +72,13 @@ foreach ($pcs as $pc) {
 }
 
 // load each plugin's libs
-$dir = $core_config['apps_path']['plug'].'/';
+$dir = $core_config['apps_path']['plug'] . '/';
 $pcs = array('feature', 'gateway');
-foreach ($pcs as $pc) {
-	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
+foreach ( $pcs as $pc ) {
+	for ($i = 0; $i < count($core_config['plugins']['list'][$pc]); $i++) {
 		$pl = $core_config['plugins']['list'][$pc][$i];
-		$pl_dir = $dir.$pc.'/'.$pl;
-		$c_fn1 = $pl_dir.'/fn.php';
+		$pl_dir = $dir . $pc . '/' . $pl;
+		$c_fn1 = $pl_dir . '/fn.php';
 		if (file_exists($c_fn1)) {
 			include $c_fn1;
 		}
@@ -86,11 +86,11 @@ foreach ($pcs as $pc) {
 }
 
 // load active themes libs
-$dir = $core_config['apps_path']['plug'].'/';
+$dir = $core_config['apps_path']['plug'] . '/';
 $pc = 'themes';
 $pl = core_themes_get();
-$pl_dir = $dir.$pc.'/'.$pl;
-$c_fn1 = $pl_dir.'/fn.php';
+$pl_dir = $dir . $pc . '/' . $pl;
+$c_fn1 = $pl_dir . '/fn.php';
 if (file_exists($c_fn1)) {
 	include $c_fn1;
 }
@@ -98,7 +98,7 @@ if (file_exists($c_fn1)) {
 // themes main overrides
 $mains = $themes_config[core_themes_get()]['main'];
 if (is_array($mains)) {
-	foreach ($mains as $main_key => $main_val) {
+	foreach ( $mains as $main_key => $main_val ) {
 		if ($main_key && $main_val) {
 			$core_config['main'][$main_key] = $main_val;
 		}
@@ -108,7 +108,7 @@ if (is_array($mains)) {
 // themes icons overrides
 $icons = $themes_config[core_themes_get()]['icon'];
 if (is_array($icons)) {
-	foreach ($icons as $icon_action => $icon_url) {
+	foreach ( $icons as $icon_action => $icon_url ) {
 		if ($icon_action && $icon_url) {
 			$icon_config[$icon_action] = $icon_url;
 		}
@@ -118,10 +118,10 @@ if (is_array($icons)) {
 // themes menus overrides
 $menus = $themes_config[core_themes_get()]['menu'];
 if (is_array($menus)) {
-	foreach ($menus as $menu_menutab => $menu_item) {
+	foreach ( $menus as $menu_menutab => $menu_item ) {
 		unset($menu_config[$menu_menutab]);
 	}
-	foreach ($menus as $menu_menutab => $menu_item) {
+	foreach ( $menus as $menu_menutab => $menu_item ) {
 		if ($menu_menutab && $menu_item) {
 			$menu_config[$menu_menutab] = $menu_item;
 		}
