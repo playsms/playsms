@@ -45,19 +45,19 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
+
 	case "manage_save":
 		$up_default_queue = trim(core_sanitize_path($_POST['up_default_queue']));
 		if (!$up_default_queue) {
 			$up_default_queue = "/var/spool/sms";
 		}
-		
+
 		$items = array(
-			'default_queue' => $up_default_queue 
+			'default_queue' => $up_default_queue
 		);
 		registry_update(0, 'gateway', 'smstools', $items);
-		
+
 		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		header("Location: " . _u('index.php?app=main&inc=gateway_smstools&op=manage'));
 		exit();
-		break;
 }
