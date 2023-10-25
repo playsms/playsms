@@ -22,18 +22,20 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
+$subscribe_name = '';
 if ($subscribe_id = (int) $_REQUEST['subscribe_id']) {
 	$db_table = _DB_PREF_ . '_featureSubscribe';
 	$conditions = array(
-		'subscribe_id' => $subscribe_id 
+		'subscribe_id' => $subscribe_id
 	);
 	if (!auth_isadmin()) {
 		$conditions['uid'] = $user_config['uid'];
 	}
-	$list = dba_search($db_table, 'subscribe_id', $conditions);
+	$list = dba_search($db_table, 'subscribe_id, subscribe_keyword', $conditions);
 	if (!($list[0]['subscribe_id'] == $subscribe_id)) {
 		auth_block();
 	}
+	$subscribe_name = $list[0]['subscribe_keyword'];
 }
 
 switch (_OP_) {
@@ -52,6 +54,8 @@ switch (_OP_) {
 				<th width=20%>" . _('User') . "</th>
 				<th width=10%>" . _('Status') . "</th>
 				<th width=6% nowrap>" . _('Action') . "</th>";
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe ORDER BY subscribe_id";
+			$db_result = dba_query($db_query);
 		} else {
 			$content .= "
 				<th width=20%>" . _('Keyword') . "</th>
@@ -59,28 +63,19 @@ switch (_OP_) {
 				<th width=34%>" . _('Messages') . "</th>
 				<th width=10%>" . _('Status') . "</th>
 				<th width=6% nowrap>" . _('Action') . "</th>";
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE uid=? ORDER BY subscribe_id";
+			$db_result = dba_query($db_query, [$user_config['uid']]);
 		}
 		$content .= "
 			</tr></thead>
 			<tbody>";
 		$i = 0;
-		if (!auth_isadmin()) {
-			$query_user_only = "WHERE uid='" . $user_config['uid'] . "'";
-		}
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe " . $query_user_only . " ORDER BY subscribe_id";
-		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
 			if ($owner = user_uid2username($db_row['uid'])) {
-				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '" . $db_row['subscribe_id'] . "'";
-				$members = @dba_num_rows($db_query);
-				if (!$members) {
-					$members = 0;
-				}
-				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id = '" . $db_row['subscribe_id'] . "'";
-				$messages = @dba_num_rows($db_query);
-				if (!$messages) {
-					$messages = 0;
-				}
+				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id=?";
+				$members = dba_num_rows($db_query, [$db_row['subscribe_id']]);
+				$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id=?";
+				$messages = dba_num_rows($db_query, [$db_row['subscribe_id']]);
 				$subscribe_status = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=' . $db_row['subscribe_id'] . '&ps=1') . "\"><span class=status_disabled /></a>";
 				if ($db_row['subscribe_enable']) {
 					$subscribe_status = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_status&subscribe_id=' . $db_row['subscribe_id'] . '&ps=0') . "\"><span class=status_enabled /></a>";
@@ -89,7 +84,8 @@ switch (_OP_) {
 				$action .= _confirm(
 					_('Are you sure you want to delete SMS subscribe ?') . " (" . _('keyword') . ": " . $db_row['subscribe_keyword'] . ")",
 					_u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_del&subscribe_id=' . $db_row['subscribe_id']),
-					'delete');
+					'delete'
+				);
 				if (auth_isadmin()) {
 					$option_owner = "<td>$owner</td>";
 				}
@@ -111,18 +107,16 @@ switch (_OP_) {
 			" . _button('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add', _('Add SMS subscribe'));
 		_p($content);
 		break;
-	
+
 	case "sms_subscribe_status":
 		$ps = $_REQUEST['ps'];
-		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . time() . "',subscribe_enable='$ps' WHERE subscribe_id='$subscribe_id'";
-		$db_result = @dba_affected_rows($db_query);
-		if ($db_result > 0) {
+		$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET c_timestamp='" . time() . "',subscribe_enable=? WHERE subscribe_id=?";
+		if (dba_affected_rows($db_query, [$ps, $subscribe_id])) {
 			$_SESSION['dialog']['info'][] = _('SMS subscribe status has been changed');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list'));
 		exit();
-		break;
-	
+
 	case "sms_subscribe_add":
 		$max_length = $core_config['main']['max_sms_length'];
 		if (auth_isadmin()) {
@@ -247,7 +241,7 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		_p($content);
 		break;
-	
+
 	case "sms_subscribe_add_yes":
 		$add_subscribe_keyword = strtoupper($_POST['add_subscribe_keyword']);
 		$add_subscribe_msg = $_POST['add_subscribe_msg'];
@@ -259,15 +253,27 @@ switch (_OP_) {
 		$add_already_member_msg = $_POST['add_already_member_msg'];
 		$add_expire_msg = $_POST['add_expire_msg'];
 		$add_duration = (int) $_POST['add_duration'];
-		if (auth_isadmin()) {
-			$smsc = $_REQUEST['smsc'];
-		}
 		if ($add_subscribe_keyword && $add_subscribe_msg && $add_unsubscribe_msg && $add_forward_param && $add_unknown_format_msg && $add_already_member_msg) {
 			if (keyword_isavail($add_subscribe_keyword)) {
 				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureSubscribe (uid,subscribe_keyword,subscribe_msg,unsubscribe_msg, subscribe_param, unsubscribe_param, forward_param, unknown_format_msg, already_member_msg,smsc,duration,expire_msg)
-					VALUES ('" . $user_config['uid'] . "','$add_subscribe_keyword','$add_subscribe_msg','$add_unsubscribe_msg','$add_subscribe_param','$add_unsubscribe_param','$add_forward_param','$add_unknown_format_msg','$add_already_member_msg','$smsc','$add_duration','$add_expire_msg')";
-				if ($new_uid = @dba_insert_id($db_query)) {
+					INSERT INTO " . _DB_PREF_ . "_featureSubscribe 
+					(uid,subscribe_keyword,subscribe_msg,unsubscribe_msg,subscribe_param,unsubscribe_param,forward_param,unknown_format_msg,already_member_msg,smsc,duration,expire_msg)
+					VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+				$db_argv = [
+					$user_config['uid'],
+					$add_subscribe_keyword,
+					$add_subscribe_msg,
+					$add_unsubscribe_msg,
+					$add_subscribe_param,
+					$add_unsubscribe_param,
+					$add_forward_param,
+					$add_unknown_format_msg,
+					$add_already_member_msg,
+					auth_isadmin() ? $_REQUEST['smsc'] : '',
+					$add_duration,
+					$add_expire_msg
+				];
+				if (dba_insert_id($db_query, $db_argv)) {
 					$_SESSION['dialog']['info'][] = _('SMS subscribe has been added') . " (" . _('keyword') . ": $add_subscribe_keyword)";
 				} else {
 					$_SESSION['dialog']['info'][] = _('Fail to add SMS subscribe') . " (" . _('keyword') . ": $add_subscribe_keyword)";
@@ -280,11 +286,10 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_add'));
 		exit();
-		break;
-	
+
 	case "sms_subscribe_edit":
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id]);
 		$db_row = dba_fetch_array($db_result);
 		$edit_subscribe_keyword = $db_row['subscribe_keyword'];
 		$edit_subscribe_msg = $db_row['subscribe_msg'];
@@ -423,7 +428,7 @@ switch (_OP_) {
 		<p>" . _back('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		_p($content);
 		break;
-	
+
 	case "sms_subscribe_edit_yes":
 		$edit_subscribe_keyword = strtoupper($_POST['edit_subscribe_keyword']);
 		$edit_subscribe_msg = $_POST['edit_subscribe_msg'];
@@ -436,21 +441,36 @@ switch (_OP_) {
 		$edit_already_member_msg = $_POST['edit_already_member_msg'];
 		$edit_expire_msg = $_POST['edit_expire_msg'];
 		$edit_duration = (int) $_POST['edit_duration'];
-		if (auth_isadmin()) {
-			$smsc = $_REQUEST['smsc'];
-			$smsc_sql = ",smsc='$smsc'";
-		}
 		if ($subscribe_id && $edit_subscribe_keyword && $edit_subscribe_msg && $edit_unsubscribe_msg && $edit_forward_param && $edit_unknown_format_msg && $edit_already_member_msg) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSubscribe
-				SET c_timestamp='" . time() . "', subscribe_keyword='$edit_subscribe_keyword', subscribe_msg='$edit_subscribe_msg',
-					unsubscribe_msg='$edit_unsubscribe_msg', subscribe_param='$edit_subscribe_param', unsubscribe_param='$edit_unsubscribe_param',
-					forward_param='$edit_forward_param', unknown_format_msg='$edit_unknown_format_msg', already_member_msg='$edit_already_member_msg',
-					duration='$edit_duration',expire_msg='$edit_expire_msg'
-					" . $smsc_sql . "
-				WHERE subscribe_id='$subscribe_id'";
-			if (@dba_affected_rows($db_query)) {
+				SET c_timestamp='" . time() . "', subscribe_keyword=?, subscribe_msg=?,
+					unsubscribe_msg=?, subscribe_param=?, unsubscribe_param=?,
+					forward_param=?, unknown_format_msg=?, already_member_msg=?,
+					duration=?,expire_msg=? 
+				WHERE subscribe_id=?";
+			$db_argv = [
+				$edit_subscribe_keyword,
+				$edit_subscribe_msg,
+				$edit_unsubscribe_msg,
+				$edit_subscribe_param,
+				$edit_unsubscribe_param,
+				$edit_forward_param,
+				$edit_unknown_format_msg,
+				$edit_already_member_msg,
+				$edit_duration,
+				$edit_expire_msg,
+				$subscribe_id
+			];
+			if (dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('SMS subscribe has been saved') . " (" . _('keyword') . ": $edit_subscribe_keyword)";
+
+				if (auth_isadmin()) {
+					$db_query = "UPDATE " . _DB_PREF_ . "_featureSubscribe SET smsc=? WHERE subscribe_id=?";
+					if (dba_affected_rows($db_query, [$_REQUEST['smsc'], $subscribe_id]) === 0) {
+						_log("Fail to update smsc subscribe_id:" . $subscribe_id . " smsc:" . $_REQUEST['smsc'], 3, "sms quiz edit");
+					}
+				}
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to edit SMS subscribe') . " (" . _('keyword') . ": $edit_subscribe_keyword)";
 			}
@@ -459,30 +479,26 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_edit&subscribe_id=' . $subscribe_id));
 		exit();
-		break;
-	
+
 	case "sms_subscribe_del":
-		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id]);
 		$db_row = dba_fetch_array($db_result);
 		$subscribe_keyword = $db_row['subscribe_keyword'];
 		if ($subscribe_keyword) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
-			if (@dba_affected_rows($db_query)) {
-				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id'";
-				$del_msg = dba_affected_rows($db_query);
-				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
-				$del_member = dba_affected_rows($db_query);
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id=?";
+			if (dba_affected_rows($db_query, [$subscribe_id])) {
+				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id=?";
+				dba_affected_rows($db_query, [$subscribe_id]);
+				$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id=?";
+				dba_affected_rows($db_query, [$subscribe_id]);
 				$_SESSION['dialog']['info'][] = _('SMS subscribe with all its messages and members has been deleted') . " (" . _('keyword') . ": $subscribe_keyword)";
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list'));
 		exit();
-		break;
-	
+
 	case "mbr_list":
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id = '$subscribe_id' ORDER BY member_since DESC";
-		$db_result = dba_query($db_query);
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
 			<p class=lead>" . _('Member list for keyword') . " $subscribe_name</p>
@@ -494,12 +510,15 @@ switch (_OP_) {
 				<th width=3%>" . $icon_config['action'] . "</th>
 			</tr></thead>
 			<tbody>";
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id=? ORDER BY member_since DESC";
+		$db_result = dba_query($db_query, [$subscribe_id]);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			$action = _confirm(
 				_('Are you sure you want to delete this member ?'),
 				_u('index.php?app=main&inc=feature_sms_subscribe&op=mbr_del&subscribe_id=' . $subscribe_id . '&mbr_id=' . $db_row['member_id']),
-				'delete');
+				'delete'
+			);
 			$i++;
 			$content .= "
 				<tr>
@@ -515,18 +534,19 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		_p($content);
 		break;
-	
+
 	case "mbr_del":
-		if ($subscribe_id && ($mbr_id = $_REQUEST['mbr_id'])) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id' AND member_id='$mbr_id'";
-			if (@dba_affected_rows($db_query)) {
+		if ($subscribe_id && ($mbr_id = (int) $_REQUEST['mbr_id'])) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id=? AND member_id=?";
+			if (dba_affected_rows($db_query, [$subscribe_id, $mbr_id])) {
 				$_SESSION['dialog']['info'][] = _('Member has been deleted');
+			} else {
+				$_SESSION['dialog']['info'][] = _('Fail to delete member');
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=mbr_list&subscribe_id=' . $subscribe_id));
 		exit();
-		break;
-	
+
 	case "msg_list":
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage subscribe') . "</h2>
@@ -543,15 +563,16 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$i = 0;
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id]);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$action = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_view&subscribe_id=' . $db_row['subscribe_id'] . '&msg_id=' . $db_row['msg_id']) . "\">" . $icon_config['view'] . "</a>";
 			$action .= "<a href=\"" . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=' . $subscribe_id . '&msg_id=' . $db_row['msg_id']) . "\">" . $icon_config['edit'] . "</a>";
 			$action .= _confirm(
 				_('Are you sure you want to delete this message?'),
 				_u('index.php?app=main&inc=feature_sms_subscribe&op=msg_del&subscribe_id=' . $subscribe_id . '&msg_id=' . $db_row['msg_id']),
-				'delete');
+				'delete'
+			);
 			$i++;
 			$content .= "
 				<tr>
@@ -570,11 +591,11 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_subscribe&op=sms_subscribe_list');
 		_p($content);
 		break;
-	
+
 	case "msg_edit":
-		$msg_id = $_REQUEST['msg_id'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id = '$msg_id'";
-		$db_result = dba_query($db_query);
+		$msg_id = (int) $_REQUEST['msg_id'];
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id=? AND msg_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id, $msg_id]);
 		$db_row = dba_fetch_array($db_result);
 		$edit_mbr_msg = $db_row['msg'];
 		$content = _dialog() . "
@@ -600,15 +621,20 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id=' . $subscribe_id);
 		_p($content);
 		break;
-	
+
 	case "msg_edit_yes":
 		$edit_mbr_msg = $_POST['edit_mbr_msg'];
 		$msg_id = $_POST['msg_id'];
 		if ($subscribe_id && $edit_mbr_msg && $msg_id) {
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . time() . "', msg='$edit_mbr_msg',update_datetime='" . core_get_datetime() . "'
-				WHERE subscribe_id='$subscribe_id' AND msg_id ='$msg_id'";
-			if (@dba_affected_rows($db_query)) {
+				UPDATE " . _DB_PREF_ . "_featureSubscribe_msg set c_timestamp='" . time() . "', msg=?,update_datetime='" . core_get_datetime() . "'
+				WHERE subscribe_id=? AND msg_id=?";
+			$db_argv = [
+				$edit_mbr_msg,
+				$subscribe_id,
+				$msg_id
+			];
+			if (dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('Message has been edited');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to edit message');
@@ -618,11 +644,10 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_edit&subscribe_id=' . $subscribe_id . '&msg_id=' . $msg_id));
 		exit();
-		break;
-	
+
 	case "msg_add":
-		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe where subscribe_id='$subscribe_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT subscribe_keyword FROM " . _DB_PREF_ . "_featureSubscribe where subscribe_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id]);
 		$db_row = dba_fetch_array($db_result);
 		$subscribe_name = $db_row['subscribe_keyword'];
 		$content = _dialog() . "
@@ -647,15 +672,15 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id=' . $subscribe_id);
 		_p($content);
 		break;
-	
+
 	case "msg_add_yes":
 		$add_mbr_message = $_POST['add_mbr_message'];
 		if ($subscribe_id && $add_mbr_message) {
 			$dt = core_get_datetime();
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_featureSubscribe_msg (subscribe_id,msg,create_datetime,update_datetime)
-				VALUES ('$subscribe_id','$add_mbr_message','$dt','$dt')";
-			if ($new_uid = @dba_insert_id($db_query)) {
+				VALUES (?,?,?,?)";
+			if (dba_insert_id($db_query, [$subscribe_id, $add_mbr_message, $dt, $dt])) {
 				$_SESSION['dialog']['info'][] = _('Message has been added');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to add message');
@@ -665,28 +690,30 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_add&subscribe_id=' . $subscribe_id));
 		exit();
-		break;
-	
+
 	case "msg_del":
 		$msg_id = $_REQUEST['msg_id'];
 		if ($msg_id) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
-			if (@dba_affected_rows($db_query)) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id=? AND msg_id=?";
+			if (@dba_affected_rows($db_query, [$subscribe_id, $msg_id])) {
 				$_SESSION['dialog']['info'][] = _('Message has been deleted');
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id=' . $subscribe_id));
 		exit();
-		break;
-	
+
 	case "msg_view":
-		$list = dba_search(_DB_PREF_ . '_featureSubscribe', 'subscribe_keyword', array(
-			'subscribe_id' => $subscribe_id 
-		));
+		$list = dba_search(
+			_DB_PREF_ . '_featureSubscribe',
+			'subscribe_keyword',
+			array(
+				'subscribe_id' => $subscribe_id
+			)
+		);
 		$subscribe_name = $list[0]['subscribe_keyword'];
 		$msg_id = (int) $_REQUEST['msg_id'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id=? AND msg_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id, $msg_id]);
 		$db_row = dba_fetch_array($db_result);
 		$message = core_display_html($db_row['msg']);
 		$counter = $db_row['counter'];
@@ -710,24 +737,24 @@ switch (_OP_) {
 			<p>" . _back('index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id=' . $subscribe_id);
 		_p($content);
 		break;
-	
+
 	case "msg_send":
-		$db_query = "SELECT uid, smsc FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id='$subscribe_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT uid, smsc FROM " . _DB_PREF_ . "_featureSubscribe WHERE subscribe_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id]);
 		$db_row = dba_fetch_array($db_result);
 		$smsc = $db_row['smsc'];
 		$c_uid = (int) $db_row['uid'];
 		$username = user_uid2username($c_uid);
-		
+
 		$msg_id = $_POST['msg_id'];
-		$db_query = "SELECT msg, counter FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id='$subscribe_id' AND msg_id='$msg_id'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT msg, counter FROM " . _DB_PREF_ . "_featureSubscribe_msg WHERE subscribe_id=? AND msg_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id, $msg_id]);
 		$db_row = dba_fetch_array($db_result);
 		$message = addslashes(trim($db_row['msg']));
 		$counter = (int) $db_row['counter'];
-		
-		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id='$subscribe_id'";
-		$db_result = dba_query($db_query);
+
+		$db_query = "SELECT member_number FROM " . _DB_PREF_ . "_featureSubscribe_member WHERE subscribe_id=?";
+		$db_result = dba_query($db_query, [$subscribe_id]);
 		$sms_to = array();
 		if ($message && $subscribe_id) {
 			while ($db_row = dba_fetch_array($db_result)) {
@@ -740,15 +767,19 @@ switch (_OP_) {
 				list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, 'text', $unicode, '', TRUE);
 				if ($ok[0]) {
 					$counter++;
-					dba_update(_DB_PREF_ . '_featureSubscribe_msg', array(
-						'counter' => $counter 
-					), array(
-						'subscribe_id' => $subscribe_id,
-						'msg_id' => $msg_id 
-					));
-					$_SESSION['dialog']['info'][] .= _('Your SMS has been delivered to queue') . "<br>";
+					dba_update(
+						_DB_PREF_ . '_featureSubscribe_msg',
+						array(
+							'counter' => $counter
+						),
+						array(
+							'subscribe_id' => $subscribe_id,
+							'msg_id' => $msg_id
+						)
+					);
+					$_SESSION['dialog']['info'][] = _('Your SMS has been delivered to queue') . "<br>";
 				} else {
-					$_SESSION['dialog']['info'][] .= _('Fail to send SMS') . "<br>";
+					$_SESSION['dialog']['info'][] = _('Fail to send SMS') . "<br>";
 				}
 			} else {
 				$_SESSION['dialog']['info'][] = _('You have no member');
@@ -756,7 +787,6 @@ switch (_OP_) {
 		} else {
 			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
-		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_view&msg_id=' . $msg_id . '&subscribe_id=' . $subscribe_id));
+		header("Location: " . _u('index.php?app=main&inc=feature_sms_subscribe&op=msg_list&subscribe_id=' . $subscribe_id));
 		exit();
-		break;
 }
