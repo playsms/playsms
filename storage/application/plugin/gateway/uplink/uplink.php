@@ -33,7 +33,7 @@ switch (_OP_) {
 		}
 		$option_try_disable_footer = "<option value=\"1\" " . $selected['yes'] . ">" . _('yes') . "</option>";
 		$option_try_disable_footer .= "<option value=\"0\" " . $selected['no'] . ">" . _('no') . "</option>";
-		
+
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage uplink') . "</h2>
 			<form action=index.php?app=main&inc=gateway_uplink&op=manage_save method=post>
@@ -70,6 +70,7 @@ switch (_OP_) {
 			</form>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
+
 	case "manage_save":
 		$up_master = $_POST['up_master'];
 		$up_additional_param = $_POST['up_additional_param'];
@@ -81,15 +82,18 @@ switch (_OP_) {
 		if ($up_master && $up_username && $up_token) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayUplink_config
-				SET c_timestamp='" . time() . "',
-				cfg_master='$up_master',
-				cfg_additional_param='$up_additional_param',
-				cfg_username='$up_username',
-				cfg_token='$up_token',
-				cfg_module_sender='$up_module_sender',
-				cfg_datetime_timezone='$up_datetime_timezone',
-				cfg_try_disable_footer='$up_try_disable_footer'";
-			if (@dba_affected_rows($db_query)) {
+				SET c_timestamp='" . time() . "',cfg_master=?,cfg_additional_param=?,cfg_username=?,
+				cfg_token=?,cfg_module_sender=?,cfg_datetime_timezone=?,cfg_try_disable_footer=?";
+			$db_argv = [
+				$up_master,
+				$up_additional_param,
+				$up_username,
+				$up_token,
+				$up_module_sender,
+				$up_datetime_timezone,
+				$up_try_disable_footer
+			];
+			if (dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
 			} else {
 				$_SESSION['dialog']['danger'][] = _('Unable to save gateway module configurations');
@@ -99,5 +103,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_uplink&op=manage'));
 		exit();
-		break;
 }
