@@ -25,17 +25,13 @@ if (!auth_isadmin()) {
 include $core_config['apps_path']['plug'] . "/gateway/blocked/config.php";
 
 switch (_OP_) {
-	case "manage" :
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+	case "manage":
+		$content .= _dialog() . "
 			<h2 class=page-header-title>" . _('Manage blocked') . "</h2>
 			<table class=playsms-table>
 				<tbody><tr><td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>blocked</td></tr></tbody>
-			</table>
-		";
-		$content.= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
+			</table>";
+		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
 }

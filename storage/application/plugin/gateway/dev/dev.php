@@ -25,17 +25,14 @@ if (!auth_isadmin()) {
 include $core_config['apps_path']['plug'] . "/gateway/dev/config.php";
 
 switch (_OP_) {
-	case "manage" :
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+	case "manage":
+		$content .= _dialog() . "
 			<h2 class=page-header-title>" . _('Manage dev') . "</h2>
 			<table class=playsms-table>
 				<tbody><tr><td class=playsms-label-sizer>" . _('Gateway name') . "</td><td>dev</td></tr></tbody>
 			</table>
 		";
-		$content.= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
+		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
 }

@@ -1,4 +1,21 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
 // hook_sendsms
@@ -14,11 +31,12 @@ defined('_SECURE_') or die('Forbidden');
 // $smslog_id	: sms ID
 // $sms_type	: send flash message when the value is "flash"
 // $unicode		: send unicode character (16 bit)
-function _template_hook_sendsms($smsc, $sms_sender,$sms_footer,$sms_to,$sms_msg,$uid='',$gpid=0,$smslog_id=0,$sms_type='text',$unicode=0) {
+function _template_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+{
 	// global $tmpl_param;   // global all variables needed, eg: varibles from config.php
 
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "_template_hook_sendsms");
-	
+
 	//$sms_sender = stripslashes($sms_sender);
 	//$sms_footer = stripslashes($sms_footer);
 	//$sms_msg = stripslashes($sms_msg);
@@ -31,12 +49,12 @@ function _template_hook_sendsms($smsc, $sms_sender,$sms_footer,$sms_to,$sms_msg,
 // hook_playsmsd
 // used by index.php?app=main&inc=daemon to execute custom commands
 //function _template_hook_playsmsd() {
-	// fetch every 60 seconds
-	//if (!core_playsmsd_timer(60)) {
-	//	return;
-	//}
+// fetch every 60 seconds
+//if (!core_playsmsd_timer(60)) {
+//	return;
+//}
 
-	// custom commands
+// custom commands
 //}
 
 // hook_dlr_fetch
@@ -44,7 +62,8 @@ function _template_hook_sendsms($smsc, $sms_sender,$sms_footer,$sms_to,$sms_msg,
 // no returns needed
 // $p_datetime	: first sms delivery datetime
 // $p_update	: last status update datetime
-function _template_hook_dlr_fetch($gpid=0,$uid="",$smslog_id="",$p_datetime="",$p_update="") {
+function _template_hook_dlr_fetch($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "")
+{
 	// global $tmpl_param;
 	// p_status :
 	// 0 = pending
@@ -57,7 +76,8 @@ function _template_hook_dlr_fetch($gpid=0,$uid="",$smslog_id="",$p_datetime="",$
 // hook_recvsms_fetch
 // called by incoming sms processor
 // no returns needed
-function _template_hook_recvsms_fetch() {
+function _template_hook_recvsms_fetch()
+{
 	// global $tmpl_param;
 	// $sms_datetime	: incoming sms datetime
 	// $message		: incoming sms message
@@ -71,12 +91,13 @@ function _template_hook_recvsms_fetch() {
 
 // hook_call
 // called by external via index.php?app=call&cat=gateway&plugin=_template&access=callback
-function _template_hook_call($requests) {
+function _template_hook_call($requests)
+{
 	// please note that we must globalize these 2 variables
 	global $core_config, $plugin_config;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
-	
+
 	if ($access == 'callback') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/_template/callback.php';
 		_log("start load:" . $fn, 2, "_template call");
@@ -84,5 +105,3 @@ function _template_hook_call($requests) {
 		_log("end load callback", 2, "_template call");
 	}
 }
-
-?>
