@@ -1,18 +1,36 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
-function common_hook_themes_apply($content) {
+function common_hook_themes_apply($content)
+{
 	global $core_config, $user_config, $icon_config;
-	
+
 	$themes_lang = strtolower(substr($user_config['language_module'], 0, 2));
-	
+
 	if ($themes_layout = trim($_SESSION['tmp']['themes']['layout'])) {
 		$themes_layout = 'themes_layout_' . $themes_layout;
 		unset($_SESSION['tmp']['themes']['layout']);
 	} else {
 		$themes_layout = 'themes_layout';
 	}
-	
+
 	$tpl = array(
 		'name' => $themes_layout,
 		'vars' => array(
@@ -41,55 +59,60 @@ function common_hook_themes_apply($content) {
 		'ifs' => array(
 			'valid' => auth_isvalid(),
 			'logout' => !auth_isvalid()
-		) 
+		)
 	);
-	$content = tpl_apply($tpl, array(
-		'core_config',
-		'user_config',
-		'icon_config'
-	));
-	
+	$content = tpl_apply(
+		$tpl,
+		array(
+			'core_config',
+			'user_config',
+			'icon_config'
+		)
+	);
+
 	return $content;
 }
 
-function common_hook_themes_submenu($content = '') {
+function common_hook_themes_submenu($content = '')
+{
 	global $user_config;
-	
+
 	$separator = "<span class='ml-3' />";
-	
-	$logged_in = ( $user_config['name'] ? $user_config['name'] : $user_config['username'] );
+
+	$logged_in = ($user_config['name'] ? $user_config['name'] : $user_config['username']);
 	$tooltips_logged_in = _('Logged in as') . ' ' . $logged_in;
-	
+
 	$credit = core_display_credit(rate_getusercredit($user_config['username']));
 	$tooltips_credit = _('Your credit');
-	
+
 	$ret = '<div class="playsms-submenu">';
 	$ret .= '<span class="playsms-icon fas fa-user" alt="' . $tooltips_logged_in . '" title="' . $tooltips_logged_in . '"></span>' . $logged_in;
 	$ret .= $separator . '<span class="playsms-icon fas fa-credit-card" alt="' . $tooltips_credit . '" title="' . $tooltips_credit . '"></span><div id="submenu-credit-show">' . $credit . '</div>';
-	
+
 	if (auth_login_as_check()) {
 		$ret .= $separator . _a('index.php?app=main&inc=core_auth&route=logout', _('return'));
 	}
-	
+
 	$ret .= $content;
 	$ret .= '</div>';
-	
+
 	return $ret;
 }
 
-function common_hook_themes_menu_tree($menu_config) {
+function common_hook_themes_menu_tree($menu_config)
+{
 	global $core_config, $user_config, $icon_config;
-	
+
 	$main_menu = "";
-	foreach ($menu_config as $menu_title => $array_menu) {
+	foreach ( $menu_config as $menu_title => $array_menu ) {
 		$found_sub_menu = false;
 
 		$m = [];
-		foreach ($array_menu as $sub_menu) {
+		foreach ( $array_menu as $sub_menu ) {
 			$sub_menu_url = $sub_menu[0];
 			$sub_menu_title = $sub_menu[1];
 			$sub_menu_index = (int) ($sub_menu[2] ? $sub_menu[2] : 10) + 100;
-			
+
 			// devider or valid entry
 			if (($sub_menu_url == '#') && ($sub_menu_title == '-')) {
 				$m[$sub_menu_index . '.' . $sub_menu_title] = "<div class='dropdown-divider'></div>";
@@ -102,33 +125,33 @@ function common_hook_themes_menu_tree($menu_config) {
 				}
 			}
 		}
-		
+
 		if (!$found_sub_menu) {
 			continue;
 		}
-		
+
 		if (count($m)) {
 			$main_menu_tree = "
 				<div class='nav-item dropdown'>
 					<a href='#' data-toggle='dropdown' id='" . core_sanitize_alphanumeric($menu_title) . "' class='nav-item nav-link dropdown-toggle'>" . $menu_title . "</a>
 					<div class='dropdown-menu' aria-labelledby='" . core_sanitize_alphanumeric($menu_title) . "'>";
-			
+
 			ksort($m);
-			foreach ($m as $mm) {
+			foreach ( $m as $mm ) {
 				if ($mm) {
 					$main_menu_tree .= $mm;
 					$found = true;
 				}
 			}
 			unset($m);
-			
+
 			$main_menu_tree .= "</div>";
 			$main_menu_tree .= "</div>";
 		}
-		
+
 		$main_menu .= $main_menu_tree;
 	}
-	
+
 	$content = "
 		<nav class='playsms-navbar navbar navbar-expand-md fixed-top' role='navigation'>
 				<div class='container'>
@@ -150,43 +173,44 @@ function common_hook_themes_menu_tree($menu_config) {
 				</div>
 		</nav>
 	";
-	
+
 	return $content;
 }
 
-function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
+function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page)
+{
 	global $core_config;
-	
+
 	$nav_pages = "";
 	if ($num) {
 		$nav_start = ((($nav - 1) * $max_nav) + 1);
 		$nav_end = (($nav) * $max_nav);
 		$start = 1;
 		$end = ceil($num / $max_nav);
-		
+
 		$nav_pages = "<div class=playsms-pagination><ul class=pagination>";
 		$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=1&nav=1') . "'> << </a></li>";
-		
+
 		if ($nav == $start) {
 			$nav_pages .= "";
 		} else {
 			$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=' . ((($nav - 2) * $max_nav) + 1) . '&nav=' . ($nav - 1)) . "'> < </a></li>";
 		}
-		
+
 		for ($i = $nav_start; $i <= $nav_end; $i++) {
 			if ($i > $num) {
 				break;
 			}
-			
+
 			if ($i == $page) {
 				$page_active = 'active';
 			} else {
 				$page_active = '';
 			}
-			
+
 			$nav_pages .= "<li class='page-item " . $page_active . "'><a class=page-link href='" . _u($url . '&page=' . $i . '&nav=' . $nav) . "'>" . $i . "</a></li>";
 		}
-		
+
 		if ($nav == $end) {
 			$nav_pages .= "";
 		} else {
@@ -196,11 +220,12 @@ function common_hook_themes_navbar($num, $nav, $max_nav, $url, $page) {
 		$nav_pages .= "<li class=page-item><a class=page-link href='" . _u($url . '&page=' . $num . '&nav=' . $end) . "'> >> </a></li>";
 		$nav_pages .= "</ul></div>";
 	}
-	
+
 	return $nav_pages;
 }
 
-function common_hook_themes_dialog($type, $message) {
+function common_hook_themes_dialog($type, $message)
+{
 	$modal_id = uniqid();
 
 	$ret .= "<!-- Modal " . $modal_id . " -->";
@@ -234,21 +259,22 @@ function common_hook_themes_dialog($type, $message) {
 	return $ret;
 }
 
-function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $form, $load, $nofooter) {
+function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $form, $load, $nofooter)
+{
 	$modal_id = uniqid();
-	
+
 	if ($form) {
 		$action = "$('#" . $url . "').submit();";
 	} else {
 		$action = "window.location.href = '" . $url . "';";
 	}
-	
+
 	if ($load) {
 		$url_to_load = $content;
 		$content_load_js = "$('#dialog_confirmation_box_content_" . $modal_id . "').load('" . $url_to_load . "');";
 		$content = "";
 	}
-	
+
 	if ($nofooter) {
 		$modal_footer = "";
 	} else {
@@ -258,7 +284,7 @@ function common_hook_themes_dialog_confirmation($content, $url, $icon, $title, $
 				<button type='button' id='confirmation_button_yes_" . $modal_id . "' class='btn btn-danger' data-dismiss='modal'>" . _('Yes') . "</button>
 			</div>";
 	}
-	
+
 	$ret .= "<!-- Modal " . $modal_id . "-->";
 	$ret .= "<a href='#' data-toggle='modal' data-target='#dialog_confirmation_box_" . $modal_id . "' id='confirmation_icon_" . $modal_id . "' class='confirmation-icon'>" . $icon . "</a>";
 	$ret .= "
