@@ -210,7 +210,7 @@ function core_hook($c_plugin, $c_function, $c_param = array()) {
  * @global array $core_config
  * @param string $function_name        
  * @param array $arguments        
- * @return string
+ * @return mixed
  */
 function core_call_hook($function_name = '', $arguments = array()) {
 	global $core_config;
