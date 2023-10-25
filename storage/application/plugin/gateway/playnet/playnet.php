@@ -47,10 +47,11 @@ switch (_OP_) {
 			</form>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
+
 	case "manage_save":
 		$items = array(
 			'module_sender' => $_POST['up_module_sender'],
-			'module_timezone' => $_POST['up_module_timezone'] 
+			'module_timezone' => $_POST['up_module_timezone']
 		);
 		if ($_POST['up_password']) {
 			$items['password'] = $_POST['up_password'];
@@ -62,5 +63,4 @@ switch (_OP_) {
 		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		header("Location: " . _u('index.php?app=main&inc=gateway_playnet&op=manage'));
 		exit();
-		break;
 }

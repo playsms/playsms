@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
  *
  * @param string $smsc
  *        SMSC name
- * @param unknown $sms_sender
+ * @param string $sms_sender
  *        Sender ID
  * @param string $sms_footer
  *        Message footer
@@ -31,47 +31,48 @@ defined('_SECURE_') or die('Forbidden');
  *        Destination number
  * @param string $sms_msg
  *        Message
- * @param integer $uid
+ * @param int $uid
  *        User ID
- * @param integer $gpid
+ * @param int $gpid
  *        Group ID
- * @param integer $smslog_id
+ * @param int $smslog_id
  *        SMS Log ID
- * @param integer $sms_type
+ * @param int $sms_type
  *        Type of SMS
- * @param integer $unicode
+ * @param int $unicode
  *        Unicode flag
  * @return boolean
  */
-function playnet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function playnet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+{
 	global $plugin_config;
-	
+
 	$ok = FALSE;
-	
+
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "playnet_hook_sendsms");
-	
+
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	
+
 	$sms_sender = stripslashes($sms_sender);
 	if ($plugin_config['playnet']['module_sender']) {
 		$sms_sender = $plugin_config['playnet']['module_sender'];
 	}
-	
+
 	$sms_footer = stripslashes(htmlspecialchars_decode($sms_footer));
 	$sms_msg = stripslashes(htmlspecialchars_decode($sms_msg));
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
-	
+
 	$unicode = (trim($unicode) ? 1 : 0);
 	//if (!$unicode) {
 	//	$unicode = core_detect_unicode($sms_msg);
 	//}
-	
+
 	if ($sms_to && $sms_msg) {
 		$now = core_get_datetime();
-		
+
 		$items = array(
 			'created' => $now,
 			'last_update' => $now,
@@ -83,61 +84,62 @@ function playnet_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			'sms_to' => $sms_to,
 			'message' => $sms_msg,
 			'sms_type' => $sms_type,
-			'unicode' => $unicode 
+			'unicode' => $unicode
 		);
 		if ($id = dba_add(_DB_PREF_ . '_gatewayPlaynet_outgoing', $items)) {
 			$ok = TRUE;
 		}
 	}
-	
+
 	if ($ok) {
 		$p_status = 0; // pending
 	} else {
 		$p_status = 2; // failed
 	}
 	dlr($smslog_id, $uid, $p_status);
-	
+
 	return $ok;
 }
 
-function playnet_hook_webservices_output($operation, $requests, $returns) {
+function playnet_hook_webservices_output($operation, $requests, $returns)
+{
 	global $plugin_config;
-	
+
 	$go = $requests['go'];
 	$smsc = $requests['smsc'];
 	$username = $requests['u'];
 	$password = $requests['p'];
-	
+
 	if (!($operation == 'playnet' && $go && $smsc && $username && $password)) {
 		return FALSE;
 	}
-	
+
 	$c_plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	
+
 	// auth remote
 	if (!($c_plugin_config['playnet']['local_playnet_username'] && $c_plugin_config['playnet']['local_playnet_password'] && ($c_plugin_config['playnet']['local_playnet_username'] == $username) && ($c_plugin_config['playnet']['local_playnet_password'] == $password))) {
 		$content['status'] = 'ERROR';
 		$content['error_string'] = 'Authentication failed';
-		
+
 		$returns['modified'] = TRUE;
 		$returns['param']['content'] = json_encode($content);
 		$returns['param']['content-type'] = 'text/json';
-		
+
 		return $returns;
 	}
-	
+
 	switch ($go) {
 		case 'get_outgoing':
 			$conditions = array(
 				'flag' => 1,
-				'smsc' => $smsc 
+				'smsc' => $smsc
 			);
 			$extras = array(
 				'ORDER BY' => 'id',
-				'LIMIT' => $c_plugin_config['playnet']['poll_limit'] 
+				'LIMIT' => $c_plugin_config['playnet']['poll_limit']
 			);
 			$list = dba_search(_DB_PREF_ . '_gatewayPlaynet_outgoing', '*', $conditions, '', $extras);
-			foreach ($list as $data) {
+			foreach ( $list as $data ) {
 				$rows[] = array(
 					'smsc' => $data['smsc'],
 					'smslog_id' => $data['smslog_id'],
@@ -146,24 +148,24 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 					'sms_to' => $data['sms_to'],
 					'message' => $data['message'],
 					'sms_type' => $data['sms_type'],
-					'unicode' => $data['unicode'] 
+					'unicode' => $data['unicode']
 				);
-				
+
 				// update flag
 				$items = array(
-					'flag' => 2 
+					'flag' => 2
 				);
 				$condition = array(
 					'flag' => 1,
-					'id' => $data['id'] 
+					'id' => $data['id']
 				);
 				dba_update(_DB_PREF_ . '_gatewayPlaynet_outgoing', $items, $condition, 'AND');
-				
+
 				// update dlr
 				$p_status = 1;
 				dlr($data['smslog_id'], $data['uid'], $p_status);
 			}
-			
+
 			if (count($rows)) {
 				$content['status'] = 'OK';
 				$content['data'] = $rows;
@@ -172,10 +174,10 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				$content['error_string'] = 'No outgoing data';
 			}
 			break;
-		
+
 		case 'set_incoming':
 			$payload = json_decode(stripslashes($requests['payload']), 1);
-			
+
 			if ($payload['message']) {
 				$sms_sender = $payload['sms_sender'];
 				$message = $payload['message'];
@@ -183,7 +185,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				if ($id = recvsms(core_get_datetime(), $sms_sender, $message, $sms_receiver, $smsc)) {
 					$content['status'] = 'OK';
 					$content['data'] = array(
-						'recvsms_id' => $id 
+						'recvsms_id' => $id
 					);
 				} else {
 					$content['status'] = 'ERROR';
@@ -194,33 +196,34 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 				$content['error_string'] = 'No incoming data';
 			}
 	}
-	
+
 	$returns['modified'] = TRUE;
 	$returns['param']['content'] = json_encode($content);
 	$returns['param']['content-type'] = 'text/json';
-	
+
 	if ($content['status'] == 'OK') {
 		_log('accessed param_go:[' . $go . '] param_smsc:[' . $smsc . '] param_u:[' . $username . '] param_p:[' . $password . ']', 3, 'playnet_hook_webservices_output');
 	}
-	
+
 	return $returns;
 }
 
-function playnet_hook_playsmsd() {
+function playnet_hook_playsmsd()
+{
 	global $core_config, $plugin_config;
-	
+
 	if (!core_playsmsd_timer($plugin_config['playnet']['poll_interval'])) {
 		return;
 	}
-	
+
 	$smscs = gateway_getall_smsc_names('playnet');
-	foreach ($smscs as $smsc) {
+	foreach ( $smscs as $smsc ) {
 		$c_plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-		
+
 		$is_master = (boolean) ($c_plugin_config['playnet']['local_playnet_username'] && $c_plugin_config['playnet']['local_playnet_password']);
-		
+
 		if ((int) $c_plugin_config['playnet']['remote_on'] && !$is_master) {
-			
+
 			// fetch from remote
 			$ws = $c_plugin_config['playnet']['remote_playsms_url'] . '/index.php?app=ws&op=playnet';
 			$ws .= '&go=get_outgoing';
@@ -229,11 +232,11 @@ function playnet_hook_playsmsd() {
 			$ws .= '&p=' . $c_plugin_config['playnet']['remote_playnet_password'];
 			$response_raw = @file_get_contents($ws);
 			$response = json_decode($response_raw, 1);
-			
+
 			// validate response
 			if (strtoupper($response['status']) == 'OK') {
 				if (is_array($response['data'])) {
-					foreach ($response['data'] as $data) {
+					foreach ( $response['data'] as $data ) {
 						$remote_smsc = $data['smsc'];
 						$remote_smslog_id = $data['smslog_id'];
 						$remote_uid = $data['uid'];
