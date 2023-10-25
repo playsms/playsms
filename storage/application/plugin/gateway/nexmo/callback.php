@@ -20,10 +20,10 @@ error_reporting(0);
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
-	
+
 	// ignore CSRF
 	$core_config['init']['ignore_csrf'] = TRUE;
-	
+
 	include "init.php";
 	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir("plugin/gateway/nexmo/");
@@ -32,7 +32,7 @@ if (!$called_from_hook_call) {
 
 $log = '';
 if (is_array($requests)) {
-	foreach ($requests as $key => $val) {
+	foreach ( $requests as $key => $val ) {
 		$log .= $key . ':' . $val . ' ';
 	}
 	_log("pushed " . $log, 2, "nexmo callback");
@@ -46,8 +46,8 @@ $status = $requests['status'];
 if ($remote_smslog_id && $client_ref && $status) {
 	$db_query = "
 		SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayNexmo
-		WHERE local_smslog_id='$client_ref' AND remote_smslog_id='$remote_smslog_id'";
-	$db_result = dba_query($db_query);
+		WHERE local_smslog_id=? AND remote_smslog_id=?";
+	$db_result = dba_query($db_query, [$client_ref, $remote_smslog_id]);
 	$db_row = dba_fetch_array($db_result);
 	$smslog_id = $db_row['local_smslog_id'];
 	if ($smslog_id) {
@@ -62,7 +62,7 @@ if ($remote_smslog_id && $client_ref && $status) {
 			case "accepted":
 				$p_status = 1;
 				break; // sent
-			default :
+			default:
 				$p_status = 2;
 				break; // failed
 		}

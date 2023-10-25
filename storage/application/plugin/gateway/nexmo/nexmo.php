@@ -27,7 +27,7 @@ include $core_config['apps_path']['plug'] . "/gateway/nexmo/config.php";
 $callback_url = _HTTP_PATH_BASE_ . "/index.php?app=call&cat=gateway&plugin=nexmo&access=callback";
 
 switch (_OP_) {
-	case "manage" :
+	case "manage":
 		$tpl = array(
 			'name' => 'nexmo',
 			'vars' => array(
@@ -56,12 +56,13 @@ switch (_OP_) {
 				'nexmo_param_api_key' => $plugin_config['nexmo']['api_key'],
 				'nexmo_param_module_sender' => $plugin_config['nexmo']['module_sender'],
 				'nexmo_param_datetime_timezone' => $plugin_config['nexmo']['datetime_timezone'],
-				'callback_url' => $callback_url 
-			) 
+				'callback_url' => $callback_url
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
-	case "manage_save" :
+
+	case "manage_save":
 		$up_url = $_POST['up_url'];
 		$up_api_key = $_POST['up_api_key'];
 		$up_api_secret = $_POST['up_api_secret'];
@@ -69,22 +70,26 @@ switch (_OP_) {
 		$up_global_timezone = $_POST['up_global_timezone'];
 		$_SESSION['dialog']['info'][] = _('No changes have been made');
 		if ($up_url && $up_api_key) {
-			if ($up_api_secret) {
-				$api_secret_change = "cfg_api_secret='$up_api_secret',";
-			}
 			$db_query = "
-				UPDATE " . _DB_PREF_ . "_gatewayNexmo_config
-				SET c_timestamp='" . time() . "',
-				cfg_url='$up_url',
-				cfg_api_key='$up_api_key',
-				" . $api_secret_change . "
-				cfg_module_sender='$up_module_sender',
-				cfg_datetime_timezone='$up_global_timezone'";
-			if (@dba_affected_rows($db_query)) {
+				UPDATE " . _DB_PREF_ . "_gatewayNexmo_config SET c_timestamp='" . time() . "',
+				cfg_url=?,cfg_api_key=?,cfg_module_sender=?,cfg_datetime_timezone=?";
+			$db_argv = [
+				$up_url,
+				$up_api_key,
+				$up_module_sender,
+				$up_global_timezone
+			];
+			if (dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
+
+				if ($up_api_secret) {
+					$db_query = "UPDATE " . _DB_PREF_ . "_gatewayNexmo_config SET cfg_api_secret=?";
+					if (dba_affected_rows($db_query, [$up_api_secret]) === 0) {
+						$_SESSION['dialog']['info'][] = _('Fail to update API secret');
+					}
+				}
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_nexmo&op=manage'));
 		exit();
-		break;
 }
