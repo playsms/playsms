@@ -1,5 +1,23 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
+
 if (!auth_isadmin()) {
 	auth_block();
 }
@@ -10,10 +28,7 @@ $dlr_url = _HTTP_PATH_BASE_ . "/index.php?app=call&cat=gateway&plugin=infobip&ac
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
+		$content .= _dialog() . "
 			<h2 class=page-header-title>" . _('Manage infobip') . "</h2>
 			<form action=index.php?app=main&inc=gateway_infobip&op=manage_save method=post>
 			" . _CSRF_FORM_ . "
@@ -52,6 +67,7 @@ switch (_OP_) {
 		$content .= '<p>' . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
+
 	case "manage_save":
 		$up_username = $_POST['up_username'];
 		$up_password = $_POST['up_password'];
@@ -67,18 +83,29 @@ switch (_OP_) {
 			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayInfobip_config
-				SET c_timestamp='" . time() . "',
-				cfg_username='$up_username',
-				" . $password_change . "
-				cfg_module_sender='$up_module_sender',
-				cfg_datetime_timezone='$up_global_timezone',
-				cfg_send_url='$up_send_url',
-				cfg_additional_param='$up_additional_param',
-				cfg_dlr_nopush='$up_nopush'";
-			if (@dba_affected_rows($db_query)) {
+				SET c_timestamp='" . time() . "',cfg_username=?,cfg_module_sender=?,cfg_datetime_timezone=?,
+				cfg_send_url=?,cfg_additional_param=?,cfg_dlr_nopush=?";
+			$db_argv = [
+				$up_username,
+				$up_module_sender,
+				$up_global_timezone,
+				$up_send_url,
+				$up_additional_param,
+				$up_nopush
+			];
+			if (dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
+
+				if ($up_password) {
+					$db_query = "UPDATE " . _DB_PREF_ . "_gatewayInfobip_config SET cfg_password=?";
+					if (dba_affected_rows($db_query, [$up_password]) === 0) {
+						$_SESSION['dialog']['info'][] = _('Fail to update password');
+					}
+				}
+			} else {
+				$_SESSION['dialog']['info'][] = _('No changes has been made');
 			}
 		}
 		header("Location: index.php?app=main&inc=gateway_infobip&op=manage");
-		break;
+		exit();
 }

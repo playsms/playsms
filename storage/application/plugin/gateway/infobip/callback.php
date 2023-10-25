@@ -1,12 +1,29 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 error_reporting(0);
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
-	
+
 	// ignore CSRF
 	$core_config['init']['ignore_csrf'] = TRUE;
-	
+
 	include "init.php";
 	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir("plugin/gateway/infobip/");
@@ -32,9 +49,9 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 	$sms_sender = trim($cb_from);
 	$message = trim(htmlspecialchars_decode(urldecode($cb_text)));
 	$sms_receiver = trim($cb_to);
-	
+
 	_log("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:[" . $message . "]", 3, "infobip incoming");
-	
+
 	// collected:
 	// $sms_datetime, $sms_sender, $message, $sms_receiver
 	$sms_sender = addslashes($sms_sender);
@@ -44,49 +61,48 @@ if ($cb_timestamp && $cb_from && $cb_text) {
 
 if ($cb_status && $cb_apimsgid) {
 	$db_query = "
-	SELECT " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id AS smslog_id," . _DB_PREF_ . "_tblSMSOutgoing.uid AS uid
-	FROM " . _DB_PREF_ . "_tblSMSOutgoing," . _DB_PREF_ . "_gatewayInfobip_apidata
-	WHERE
-	    " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id=" . _DB_PREF_ . "_gatewayInfobip_apidata.smslog_id AND
-	    " . _DB_PREF_ . "_gatewayInfobip_apidata.apimsgid='$cb_apimsgid'
-    ";
-	$db_result = dba_query($db_query);
+		SELECT " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id AS smslog_id," . _DB_PREF_ . "_tblSMSOutgoing.uid AS uid
+		FROM " . _DB_PREF_ . "_tblSMSOutgoing," . _DB_PREF_ . "_gatewayInfobip_apidata
+		WHERE
+			" . _DB_PREF_ . "_tblSMSOutgoing.smslog_id=" . _DB_PREF_ . "_gatewayInfobip_apidata.smslog_id AND
+			" . _DB_PREF_ . "_gatewayInfobip_apidata.apimsgid=?";
+	$db_result = dba_query($db_query, [$cb_apimsgid]);
 	$db_row = dba_fetch_array($db_result);
 	$uid = $db_row['uid'];
 	$smslog_id = $db_row['smslog_id'];
 	if ($uid && $smslog_id) {
 		$c_sms_status = 0;
 		switch ($cb_status) {
-			case "001" :
-			case "002" :
-			case "011" :
+			case "001":
+			case "002":
+			case "011":
 				$c_sms_status = 0;
 				break;
 			// pending
-			
-			case "003" :
-			case "008" :
+
+			case "003":
+			case "008":
 				$c_sms_status = 1;
 				break;
 			// sent
-			
-			case "005" :
-			case "006" :
-			case "007" :
-			case "009" :
-			case "010" :
-			case "012" :
+
+			case "005":
+			case "006":
+			case "007":
+			case "009":
+			case "010":
+			case "012":
 				$c_sms_status = 2;
 				break;
 			// failed
-			
-			case "004" :
+
+			case "004":
 				$c_sms_status = 3;
 				break;
 			// delivered
 		}
 		$c_sms_credit = ceil($cb_charge);
-		
+
 		// pending
 		$p_status = 0;
 		if ($c_sms_status) {
