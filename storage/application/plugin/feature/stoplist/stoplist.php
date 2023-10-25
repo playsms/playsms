@@ -26,19 +26,23 @@ switch (_OP_) {
 	case "stoplist_list":
 		$search_category = array(
 			_('Mobile') => 'mobile',
-			_('Username') => 'uid' 
+			_('Username') => 'uid'
 		);
 		$base_url = 'index.php?app=main&inc=feature_stoplist&op=stoplist_list';
-		$search = themes_search($search_category, $base_url, array(
-			'uid' => 'user_username2uid' 
-		));
+		$search = themes_search(
+			$search_category,
+			$base_url,
+			array(
+				'uid' => 'user_username2uid'
+			)
+		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featureStoplist', '', $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'uid',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'OFFSET' => $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_featureStoplist', '*', '', $keywords, $extras);
 
@@ -64,7 +68,7 @@ switch (_OP_) {
 					</tr>
 				</thead>
 				<tbody>";
-		
+
 		$i = $nav['top'];
 		$j = 0;
 		for ($j = 0; $j < count($list); $j++) {
@@ -85,26 +89,26 @@ switch (_OP_) {
 					</td>
 				</tr>";
 		}
-		
+
 		$content .= "
 				</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$items = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : array();
 		$removed = FALSE;
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'delete':
-				foreach ($items as $item) {
+				foreach ( $items as $item ) {
 					$conditions = array(
-						'id' => $item 
+						'id' => $item
 					);
 					if (dba_remove(_DB_PREF_ . '_featureStoplist', $conditions)) {
 						$removed = TRUE;
@@ -112,18 +116,17 @@ switch (_OP_) {
 				}
 				break;
 		}
-		
+
 		$search = themes_search_session();
 		$nav = themes_nav_session();
-		
+
 		if ($removed) {
 			$_SESSION['dialog']['info'][] = _('Mobile numbers have been deleted');
 		}
 		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 		header("Location: " . _u($ref));
 		exit();
-		break;
-	
+
 	case "stoplist_add":
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Manage stoplist') . "</h2>
@@ -142,12 +145,12 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_stoplist&op=stoplist_list');
 		_p($content);
 		break;
-	
+
 	case "stoplist_add_yes":
 		$add_mobile = $_POST['add_mobile'];
 		if ($add_mobile) {
 			$mobiles = explode(',', str_replace(' ', '', $add_mobile));
-			foreach ($mobiles as $mobile) {
+			foreach ( $mobiles as $mobile ) {
 				blacklist_mobile_add($user_config['uid'], $mobile);
 			}
 			$_SESSION['dialog']['info'][] = _('Mobile numbers have been blocked');
@@ -156,5 +159,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_stoplist&op=stoplist_add'));
 		exit();
-		break;
 }

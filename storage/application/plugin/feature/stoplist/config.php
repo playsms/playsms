@@ -6,6 +6,6 @@ if (auth_isadmin()) {
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_stoplist&op=stoplist_list',
 		_('Manage stoplist'),
-		3 
+		3
 	);
 }
