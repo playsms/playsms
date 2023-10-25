@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
  *
  * @param string $smsc
  *        SMSC name
- * @param unknown $sms_sender
+ * @param string $sms_sender
  *        Sender ID
  * @param string $sms_footer
  *        Message footer
@@ -31,71 +31,72 @@ defined('_SECURE_') or die('Forbidden');
  *        Destination number
  * @param string $sms_msg
  *        Message
- * @param integer $uid
+ * @param int $uid
  *        User ID
- * @param integer $gpid
+ * @param int $gpid
  *        Group ID
- * @param integer $smslog_id
+ * @param int $smslog_id
  *        SMS Log ID
- * @param integer $sms_type
+ * @param int $sms_type
  *        Type of SMS
- * @param integer $unicode
+ * @param int $unicode
  *        Unicode flag
  * @return boolean
  */
-function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+{
 	global $core_config, $plugin_config;
-	
+
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "kannel_hook_sendsms");
-	
+
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	
+
 	$sms_sender = stripslashes($sms_sender);
 	if ($plugin_config['kannel']['module_sender']) {
 		$sms_sender = $plugin_config['kannel']['module_sender'];
 	}
-	
+
 	$sms_footer = stripslashes(htmlspecialchars_decode($sms_footer));
 	$sms_msg = stripslashes(htmlspecialchars_decode($sms_msg));
 	$ok = false;
 	$account = user_uid2username($uid);
 	$msg_type = 1;
-	
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
-	
+
 	if ($sms_type == 'flash') {
 		$msg_type = 0; // flash
 	} else {
 		$msg_type = 1; // text, default
 	}
-	
+
 	// this doesn't work properly if kannel is not on the same server with playSMS
 	// $dlr_url = $core_config['http_path']['base'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=$smslog_id&uid=$uid";
-	
+
 
 	// prior to 0.9.5.1
 	// $dlr_url = $plugin_config['kannel']['playsms_web'] . "/plugin/gateway/kannel/dlr.php?type=%d&smslog_id=".$smslog_id."&uid=".$uid;
 	// since 0.9.5.1
 	$dlr_url = $plugin_config['kannel']['playsms_web'] . "/index.php?app=call&cat=gateway&plugin=kannel&access=dlr&type=%d&smslog_id=" . $smslog_id . "&uid=" . $uid . "&smsc=" . $smsc;
-	
+
 	$URL = "/cgi-bin/sendsms?username=" . urlencode($plugin_config['kannel']['username']) . "&password=" . urlencode(htmlspecialchars_decode($plugin_config['kannel']['password']));
 	$URL .= "&from=" . urlencode($sms_sender) . "&to=" . urlencode($sms_to);
 	// Handle DLR options config (emmanuel)
 	// $URL .= "&dlr-mask=31&dlr-url=".urlencode($dlr_url);
 	$URL .= "&dlr-mask=" . $plugin_config['kannel']['dlr_mask'] . "&dlr-url=" . urlencode($dlr_url);
 	// end of Handle DLR options config (emmanuel)
-	
+
 
 	if ($sms_type == 'flash') {
 		$URL .= "&mclass=" . $msg_type;
 	}
-	
+
 	// Automatically setting the unicode flag if necessary
 	//if (!$unicode) $unicode = core_detect_unicode($sms_msg);
-	
+
 	if ($unicode) {
 		if (function_exists('mb_convert_encoding')) {
 			$sms_msg = mb_convert_encoding($sms_msg, "UCS-2BE", "auto");
@@ -103,19 +104,19 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 		}
 		$URL .= "&coding=2";
 	}
-	
+
 	$URL .= "&account=" . $account;
 	$URL .= "&text=" . urlencode($sms_msg);
-	
+
 	// fixme anton - patch 1.4.3, dlr requries smsc-id, you should add at least smsc=<your smsc-id in kannel.conf> from web
 	if ($additional_param = htmlspecialchars_decode($plugin_config['kannel']['additional_param'])) {
 		$additional_param = "&" . $additional_param;
 	}
 	$URL .= $additional_param;
 	$URL = str_replace("&&", "&", $URL);
-	
+
 	_log("URL: http://" . $plugin_config['kannel']['sendsms_host'] . ":" . $plugin_config['kannel']['sendsms_port'] . $URL, 3, "kannel_hook_sendsms");
-	
+
 	// srosa 20100531: Due to improper http response from Kannel, file_get_contents cannot be used.
 	// One issue is that Kannel responds with HTTP 202 whereas file_get_contents expect HTTP 200
 	// The other is that a missing CRLF at the end of Kannel's message forces file_get_contents to wait forever.
@@ -147,13 +148,14 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 	}
 	dlr($smslog_id, $uid, $p_status);
 	_log("end smslog_id:" . $smslog_id . " p_status:" . $p_status, 3, "kannel outgoing");
-	
+
 	return $ok;
 }
 
-function kannel_hook_call($requests) {
+function kannel_hook_call($requests)
+{
 	global $core_config, $plugin_config;
-	
+
 	$called_from_hook_call = true;
 	$access = $requests['access'];
 	if ($access == 'dlr') {

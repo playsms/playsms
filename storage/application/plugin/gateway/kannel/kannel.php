@@ -35,7 +35,7 @@ switch (_OP_) {
 			<option value=1 $selected1>" . _('Yes') . "</option>
 			<option value=0 $selected2>" . _('No') . "</option>
 			";
-		
+
 		$admin_port = $plugin_config['kannel']['admin_port'];
 		$admin_host = $plugin_config['kannel']['sendsms_host'];
 		$admin_host = ($admin_port ? $admin_host . ':' . $admin_port : $admin_host);
@@ -45,7 +45,7 @@ switch (_OP_) {
 		if (!$kannel_status) {
 			$kannel_status = 'Unable to access Kannel admin commands';
 		}
-		
+
 		$content .= _dialog() . "
 			<h2 class=page-header-title>" . _('Manage kannel') . "</h2>
 			<div class=playsms-actions-box>
@@ -127,7 +127,7 @@ switch (_OP_) {
 			</div>" . _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
-	
+
 	case "manage_save":
 		$items = array(
 			'username' => $_POST['up_username'],
@@ -141,7 +141,7 @@ switch (_OP_) {
 			'dlr_mask' => $_POST['up_dlr_mask'],
 			'admin_host' => $_POST['up_admin_host'],
 			'admin_port' => $_POST['up_admin_port'],
-			'local_time' => $_POST['up_local_time'] 
+			'local_time' => $_POST['up_local_time']
 		);
 		if ($_POST['up_password']) {
 			$items['password'] = $_POST['up_password'];
@@ -153,13 +153,11 @@ switch (_OP_) {
 		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
-		break;
-	
+
 	case "manage_update":
 		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
-		break;
-	
+
 	case "manage_restart":
 		$admin_port = $plugin_config['kannel']['admin_port'];
 		$admin_host = $plugin_config['kannel']['bearerbox_host'];
@@ -170,5 +168,4 @@ switch (_OP_) {
 		$_SESSION['dialog']['info'][] = _('Restart Kannel') . ' - ' . _('Status') . ': ' . $restart;
 		header("Location: " . _u('index.php?app=main&inc=gateway_kannel&op=manage'));
 		exit();
-		break;
 }
