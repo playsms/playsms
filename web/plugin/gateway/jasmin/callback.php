@@ -20,10 +20,10 @@ error_reporting(0);
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
-	
+
 	// ignore CSRF
 	$core_config['init']['ignore_csrf'] = TRUE;
-	
+
 	include "init.php";
 	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir("plugin/gateway/jasmin/");
@@ -32,7 +32,7 @@ if (!$called_from_hook_call) {
 
 $log = '';
 if (is_array($requests)) {
-	foreach ($requests as $key => $val) {
+	foreach ( $requests as $key => $val ) {
 		$log .= $key . ':' . $val . ' ';
 	}
 	_log("pushed " . $log, 2, "jasmin callback");
@@ -56,13 +56,13 @@ if ($remote_smslog_id && $message_status) {
 			case "ESME_ROK":
 				$p_status = 3;
 				break; // delivered
-			default :
+			default:
 				$p_status = 2;
 				break; // failed
 		}
 		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $p_status, 2, "jasmin callback");
 		dlr($smslog_id, $uid, $p_status);
-		
+
 		ob_end_clean();
 		echo "ACK/Jasmin";
 		exit();
@@ -80,7 +80,7 @@ if ($remote_smslog_id && $message) {
 	$sms_sender = addslashes($sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
-	
+
 	ob_end_clean();
 	echo "ACK/Jasmin";
 	exit();
