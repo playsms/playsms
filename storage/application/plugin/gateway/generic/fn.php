@@ -29,29 +29,30 @@ defined('_SECURE_') or die('Forbidden');
 // $gpid : group phonebook id (optional)
 // $uid : sender User ID
 // $smslog_id : sms ID
-function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+{
 	global $plugin_config;
-	
+
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "generic_hook_sendsms");
-	
+
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	
+
 	$sms_sender = stripslashes($sms_sender);
 	if ($plugin_config['generic']['module_sender']) {
 		$sms_sender = $plugin_config['generic']['module_sender'];
 	}
-	
+
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
-	
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
-	
+
 	if ($sms_sender && $sms_to && $sms_msg) {
-		
+
 		$unicode_query_string = '';
 		if ($unicode) {
 			if (function_exists('mb_convert_encoding')) {
@@ -61,7 +62,7 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 				$unicode_query_string = "&coding=8"; // added at the of query string if unicode
 			}
 		}
-		
+
 		// $plugin_config['generic']['default_url'] = 'http://example.api.url/handler.php?user={GENERIC_API_USERNAME}&pwd={GENERIC_API_PASSWORD}&sender={GENERIC_SENDER}&msisdn={GENERIC_TO}&message={GENERIC_MESSAGE}&dlr-url={GENERIC_CALLBACK_URL}';
 		$url = htmlspecialchars_decode($plugin_config['generic']['url']);
 		$url = str_replace('{GENERIC_API_USERNAME}', urlencode($plugin_config['generic']['api_username']), $url);
@@ -70,25 +71,22 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$url = str_replace('{GENERIC_TO}', urlencode($sms_to), $url);
 		$url = str_replace('{GENERIC_MESSAGE}', urlencode($sms_msg), $url);
 		$url = str_replace('{GENERIC_CALLBACK_URL}', urlencode($plugin_config['generic']['callback_url']), $url);
-		
+
 		_log("send url:[" . $url . "]", 3, "generic_hook_sendsms");
-		
+
 		// send it
 		$response = file_get_contents($url);
-		
+
 		// 14395227002806904200 SENT
 		// 0 User Not Found
 		$resp = explode(' ', $response, 2);
-		
+
 		// a single non-zero respond will be considered as a SENT response
 		if ($resp[0]) {
 			$c_message_id = (int) $resp[0];
 			_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " smsc:" . $smsc, 2, "generic_hook_sendsms");
-			$db_query = "
-				INSERT INTO " . _DB_PREF_ . "_gatewayGeneric_log (local_smslog_id, remote_smslog_id)
-				VALUES ('$smslog_id', '$c_message_id')";
-			$id = @dba_insert_id($db_query);
-			if ($id) {
+			$db_query = "INSERT INTO " . _DB_PREF_ . "_gatewayGeneric_log (local_smslog_id,remote_smslog_id) VALUES (?,?)";
+			if (dba_insert_id($db_query, [$smslog_id, $c_message_id])) {
 				$ok = true;
 				$p_status = 1;
 				dlr($smslog_id, $uid, $p_status);
@@ -111,16 +109,17 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$p_status = 2;
 		dlr($smslog_id, $uid, $p_status);
 	}
-	
+
 	return $ok;
 }
 
-function generic_hook_call($requests) {
+function generic_hook_call($requests)
+{
 	// please note that we must globalize these 2 variables
 	global $core_config, $plugin_config;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
-	
+
 	if ($access == 'callback') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/generic/callback.php';
 		_log("start load:" . $fn, 2, "generic call");

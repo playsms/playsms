@@ -20,10 +20,10 @@ error_reporting(0);
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
-	
+
 	// ignore CSRF
 	$core_config['init']['ignore_csrf'] = TRUE;
-	
+
 	include "init.php";
 	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir("plugin/gateway/generic/");
@@ -32,7 +32,7 @@ if (!$called_from_hook_call) {
 
 $log = '';
 if (is_array($requests)) {
-	foreach ($requests as $key => $val) {
+	foreach ( $requests as $key => $val ) {
 		$log .= $key . ':' . $val . ' ';
 	}
 	_log("pushed " . $log, 2, "generic callback");
@@ -43,7 +43,7 @@ $authcode = trim($requests['authcode']);
 $data = registry_search(0, 'gateway', 'generic');
 if (!($authcode && $data['gateway']['generic']['callback_url_authcode'] && ($authcode == $data['gateway']['generic']['callback_url_authcode']))) {
 	_log("error auth authcode:" . $authcode . " smsc:" . $smsc . " message_id:" . $remote_smslog_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
-	
+
 	ob_end_clean();
 	echo 'ERROR AUTH';
 	exit();
@@ -54,8 +54,8 @@ $message_status = $requests['message_status'];
 
 // delivery receipt
 if ($remote_smslog_id && $message_status) {
-	$db_query = "SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayGeneric_log WHERE remote_smslog_id='$remote_smslog_id'";
-	$db_result = dba_query($db_query);
+	$db_query = "SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayGeneric_log WHERE remote_smslog_id=?";
+	$db_result = dba_query($db_query, [$remote_smslog_id]);
 	$db_row = dba_fetch_array($db_result);
 	$smslog_id = $db_row['local_smslog_id'];
 	if ($smslog_id) {
@@ -69,13 +69,13 @@ if ($remote_smslog_id && $message_status) {
 			case "3":
 				$p_status = 3;
 				break; // delivered
-			default :
+			default:
 				$p_status = 2;
 				break; // failed
 		}
 		_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " message_id:" . $remote_smslog_id . " status:" . $status, 2, "generic callback");
 		dlr($smslog_id, $uid, $p_status);
-		
+
 		ob_end_clean();
 		echo 'OK';
 		exit();
@@ -93,7 +93,7 @@ if ($remote_smslog_id && $message) {
 	$sms_sender = addslashes($sms_sender);
 	$message = addslashes($message);
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
-	
+
 	ob_end_clean();
 	echo 'OK';
 	exit();
