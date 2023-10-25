@@ -81,7 +81,7 @@ function phonebook_getmembercountbyid($gpid)
 /**
  * Get members of a group, search by group ID
  *
- * @param integer $gpid
+ * @param int $gpid
  *        Group ID
  * @param string $orderby
  * @return array array(pid, p_desc, p_num, email)
@@ -95,7 +95,7 @@ function phonebook_getdatabyid($gpid, $orderby = "")
 /**
  * Get members of a group, search by User ID
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $orderby
  * @return array array(pid, p_desc, p_num, email)
@@ -109,7 +109,7 @@ function phonebook_getdatabyuid($uid, $orderby = "")
 /**
  * Get data of a group, search by group ID
  *
- * @param integer $gpid
+ * @param int $gpid
  *        Group ID
  * @return array array(gpid, group_name, code, flag_sender)
  */
@@ -122,7 +122,7 @@ function phonebook_getgroupbyid($gpid)
 /**
  * Get data of a group, search by User ID
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $orderby
  * @return array array(gpid, group_name, code, flag_sender)
@@ -136,11 +136,11 @@ function phonebook_getgroupbyuid($uid, $orderby = "")
 /**
  * Search members, search by User ID and/or a keyword
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $keyword
  *        Keyword
- * @param integer $count
+ * @param int $count
  *        Search limit
  * @return array array(pid, p_desc, p_num, email, tags)
  */
@@ -153,11 +153,11 @@ function phonebook_search($uid, $keyword = "", $count = 0)
 /**
  * Search groups, search by User ID and/or a keyword
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $keyword
  *        Keyword
- * @param integer $count
+ * @param int $count
  *        Search limit
  * @return array array(gpid, group_name, code, flag_sender)
  */
@@ -170,11 +170,11 @@ function phonebook_search_group($uid, $keyword = "", $count = 0)
 /**
  * Search users, search by User ID and/or a keyword
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $keyword
  *        Keyword
- * @param integer $count
+ * @param int $count
  *        Search limit
  * @return array Array of user's data
  */
@@ -194,10 +194,13 @@ function phonebook_webservices_output($keyword, $items)
 	// feature list
 	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
 		$c_feature = $core_config['plugins']['list']['feature'][$c];
-		$ret = core_hook($c_feature, 'phonebook_webservices_output', array(
-			$keyword,
-			$items
-		)
+		$ret = core_hook(
+			$c_feature,
+			'phonebook_webservices_output',
+			array(
+				$keyword,
+				$items
+			)
 		);
 		if ($ret['modified']) {
 			$items = ($ret['param']['items'] ? $ret['param']['items'] : $items);
