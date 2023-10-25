@@ -29,29 +29,30 @@ defined('_SECURE_') or die('Forbidden');
 // $gpid : group phonebook id (optional)
 // $uid : sender User ID
 // $smslog_id : sms ID
-function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+{
 	global $plugin_config;
-	
+
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "jasmin_hook_sendsms");
-	
+
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	
+
 	$sms_sender = stripslashes($sms_sender);
 	if ($plugin_config['jasmin']['module_sender']) {
 		$sms_sender = $plugin_config['jasmin']['module_sender'];
 	}
-	
+
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
 	$ok = false;
-	
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
-	
+
 	if ($sms_sender && $sms_to && $sms_msg) {
-		
+
 		$unicode_query_string = '';
 		if ($unicode) {
 			if (function_exists('mb_convert_encoding')) {
@@ -61,31 +62,31 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 				$unicode_query_string = "&coding=8"; // added at the of query string if unicode
 			}
 		}
-		
+
 		$query_string = "username=" . urlencode($plugin_config['jasmin']['api_username']) . "&password=" . urlencode($plugin_config['jasmin']['api_password']) . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
-		
+
 		// ref dlr-level=1 https://forum.playsms.org/t/solved-delivered-issue-with-jasmin/2945/9
 		$query_string .= "&dlr=yes&dlr-level=1&dlr-url=" . urlencode($plugin_config['jasmin']['callback_url']);
-		
+
 		$url = $plugin_config['jasmin']['url'] . "?" . $query_string;
-		
+
 		_log("send url:[" . $url . "]", 3, "jasmin_hook_sendsms");
-		
+
 		// new way
 		$opts = array(
 			'http' => array(
 				'method' => 'POST',
 				'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n",
-				'content' => $query_string 
-			) 
+				'content' => $query_string
+			)
 		);
 		$context = stream_context_create($opts);
 		$response = file_get_contents($plugin_config['jasmin']['url'], FALSE, $context);
-		
+
 		// Success "07033084-5cfd-4812-90a4-e4d24ffb6e3d"
 		// Error "No route found"
 		$resp = explode(' ', $response, 2);
-		
+
 		if ($resp[0] == 'Success') {
 			$c_message_id = $resp[1];
 			$c_message_id = str_replace('"', '', $c_message_id);
@@ -113,16 +114,17 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 		$p_status = 2;
 		dlr($smslog_id, $uid, $p_status);
 	}
-	
+
 	return $ok;
 }
 
-function jasmin_hook_call($requests) {
+function jasmin_hook_call($requests)
+{
 	// please note that we must globalize these 2 variables
 	global $core_config, $plugin_config;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
-	
+
 	if ($access == 'callback') {
 		$fn = _HTTP_PATH_BASE_ . '/plugin/gateway/jasmin/callback.php';
 		_log("start load:" . $fn, 2, "jasmin call");

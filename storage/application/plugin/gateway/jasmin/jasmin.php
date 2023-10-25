@@ -53,12 +53,12 @@ switch (_OP_) {
 				'jasmin_param_callback_url' => $plugin_config['jasmin']['callback_url'],
 				'jasmin_param_api_username' => $plugin_config['jasmin']['api_username'],
 				'jasmin_param_module_sender' => $plugin_config['jasmin']['module_sender'],
-				'jasmin_param_datetime_timezone' => $plugin_config['jasmin']['datetime_timezone'] 
-			) 
+				'jasmin_param_datetime_timezone' => $plugin_config['jasmin']['datetime_timezone']
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
-	
+
 	case "manage_save":
 		$up_url = ($_REQUEST['up_url'] ? $_REQUEST['up_url'] : $plugin_config['jasmin']['default_url']);
 		$up_callback_url = ($_REQUEST['up_callback_url'] ? $_REQUEST['up_callback_url'] : $plugin_config['jasmin']['default_callback_url']);
@@ -72,7 +72,7 @@ switch (_OP_) {
 				'callback_url' => $up_callback_url,
 				'api_username' => $up_api_username,
 				'module_sender' => $up_module_sender,
-				'datetime_timezone' => $up_datetime_timezone 
+				'datetime_timezone' => $up_datetime_timezone
 			);
 			if ($up_api_password) {
 				$items['api_password'] = $up_api_password;
@@ -87,5 +87,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_jasmin&op=manage'));
 		exit();
-		break;
 }
