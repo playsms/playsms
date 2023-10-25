@@ -26,9 +26,6 @@ msgstr ""
 msgid "Fail to delete SMS command"
 msgstr ""
 
-msgid "Fail to save SMS command"
-msgstr ""
-
 msgid "Keyword"
 msgstr ""
 
@@ -37,6 +34,9 @@ msgstr ""
 
 msgid "Manage command"
 msgstr "Manage command"
+
+msgid "No changes has been made"
+msgstr ""
 
 msgid "Pass these parameter to command exec field"
 msgstr ""

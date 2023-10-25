@@ -48,7 +48,8 @@ msgstr "Réduire le crédit des utilisateurs"
 msgid "Select users"
 msgstr "Sélectionner les utilisateurs"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "La transaction sélectionnée a été supprimée"
 
 msgid "Subuser"

@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -115,7 +117,7 @@ msgid "Account with this mobile already exists"
 msgstr ""
 
 msgid "Action"
-msgstr "行动"
+msgstr "行为"
 
 msgid "Active language"
 msgstr ""
@@ -226,7 +228,7 @@ msgid "Add user"
 msgstr "增加等级"
 
 msgid "Additional URL parameter"
-msgstr "附加链接参数"
+msgstr "增加的链接参数"
 
 msgid "Address"
 msgstr ""
@@ -447,9 +449,6 @@ msgstr ""
 msgid "Cannot change status when user have subusers"
 msgstr ""
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr ""
-
 msgid "Captcha was expired, please try again"
 msgstr ""
 
@@ -593,6 +592,12 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -607,9 +612,6 @@ msgstr "日期时间"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
-msgstr ""
-
-msgid "Default"
 msgstr ""
 
 msgid "Default ACL during account registration"
@@ -878,6 +880,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "短信字定义链接"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr ""
 
@@ -965,6 +970,9 @@ msgstr "保存等级失败"
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1079,9 +1087,6 @@ msgstr ""
 #, php-format
 msgid "Fail to remove user id:%d"
 msgstr ""
-
-msgid "Fail to save SMS command"
-msgstr "保存短信指令失败"
 
 msgid "Fail to save SMS custom"
 msgstr "保存短信字定义失败"
@@ -1420,9 +1425,8 @@ msgstr ""
 msgid "Keyword separator"
 msgstr ""
 
-#, fuzzy
 msgid "Keywords"
-msgstr "关键字"
+msgstr ""
 
 msgid "Languages"
 msgstr ""
@@ -1690,9 +1694,8 @@ msgstr ""
 msgid "Member list for keyword"
 msgstr "会员列表关键字"
 
-#, fuzzy
 msgid "Members"
-msgstr "浏览人数"
+msgstr ""
 
 msgid "Message"
 msgstr "信息"
@@ -1826,6 +1829,10 @@ msgstr ""
 
 msgid "No"
 msgstr ""
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "短信指令已增加"
 
 msgid "No changes have been made"
 msgstr "没有改变"
@@ -2234,6 +2241,10 @@ msgid "SMS autoreply has been deleted"
 msgstr "短信自动回复已删除"
 
 #, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "短信自动回复已删除"
+
+#, fuzzy
 msgid "SMS autoreply has been updated"
 msgstr "短信自动回复已删除"
 
@@ -2343,6 +2354,10 @@ msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "短信投票已存在, 保留或其他功能的使用"
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr "短信投票选项和它的全部选民已删除"
+
+#, fuzzy
+msgid "SMS poll choice has been deleted"
 msgstr "短信投票选项和它的全部选民已删除"
 
 msgid "SMS poll has been added"
@@ -2525,7 +2540,7 @@ msgstr ""
 msgid "Selected message template has been deleted"
 msgstr ""
 
-msgid "Selected transactions has been deleted"
+msgid "Selected transactions have been deleted"
 msgstr ""
 
 msgid "Selected users"
@@ -3229,10 +3244,10 @@ msgid "valid entries"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
-msgstr "将被短信传入日期/时间替换"
+msgstr "用短信收到日期/时间替换"
 
 msgid "will be replaced by SMS raw message"
-msgstr "将被发件人数替换"
+msgstr "被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"
@@ -3255,7 +3270,7 @@ msgid "will be replaced by receiver number"
 msgstr "将被发件人数替换"
 
 msgid "will be replaced by sender number"
-msgstr "将被发件人数替换"
+msgstr "被发件人数替换"
 
 #, fuzzy
 msgid "will be replaced by service name"

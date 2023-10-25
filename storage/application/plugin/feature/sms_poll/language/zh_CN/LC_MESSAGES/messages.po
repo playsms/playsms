@@ -120,6 +120,10 @@ msgstr "短信投票已存在, 保留或其他功能的使用"
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "短信投票选项和它的全部选民已删除"
 
+#, fuzzy
+msgid "SMS poll choice has been deleted"
+msgstr "短信投票选项和它的全部选民已删除"
+
 msgid "SMS poll has been added"
 msgstr "短信投票已增加"
 

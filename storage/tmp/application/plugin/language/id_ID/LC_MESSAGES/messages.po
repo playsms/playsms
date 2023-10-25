@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: id_ID\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -472,9 +474,6 @@ msgstr "Batal kirim dari file"
 msgid "Cannot change status when user have subusers"
 msgstr ""
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr ""
-
 msgid "Captcha was expired, please try again"
 msgstr ""
 
@@ -620,6 +619,12 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -634,9 +639,6 @@ msgstr "Waktu dan Tanggal"
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
-msgstr ""
-
-msgid "Default"
 msgstr ""
 
 msgid "Default ACL during account registration"
@@ -911,6 +913,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "URL SMS kustom"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "Eksklusif"
 
@@ -995,6 +1000,9 @@ msgstr "Gagal menyimpan tarif"
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1105,9 +1113,6 @@ msgstr ""
 #, php-format
 msgid "Fail to remove user id:%d"
 msgstr ""
-
-msgid "Fail to save SMS command"
-msgstr "Gagal menyimpan perintah SMS"
 
 msgid "Fail to save SMS custom"
 msgstr "Gagal menyimpan SMS kustom"
@@ -1447,7 +1452,7 @@ msgid "Key"
 msgstr ""
 
 msgid "Keyword"
-msgstr "Kata Kunci"
+msgstr "Kata kunci"
 
 #, php-format
 msgid "Keyword %s is not available"
@@ -1797,7 +1802,7 @@ msgid "Min length to detect missing country code"
 msgstr ""
 
 msgid "Mobile"
-msgstr "Handphone"
+msgstr "Ponsel"
 
 msgid "Mobile numbers"
 msgstr ""
@@ -1886,6 +1891,10 @@ msgstr "Nexmo akan mengirim DLR dan SMS yang masuk ke URL callback anda"
 msgid "No"
 msgstr ""
 
+#, fuzzy
+msgid "No changes has been made"
+msgstr "Perintah SMS telah ditambahkan"
+
 msgid "No changes have been made"
 msgstr "Tidak ada perubahan"
 
@@ -1946,7 +1955,7 @@ msgid "Options"
 msgstr ""
 
 msgid "PHP serialize output"
-msgstr "Keluaran PHP serialize"
+msgstr "Keluaran PHO serialize"
 
 msgid "PIN for email to SMS"
 msgstr ""
@@ -2322,6 +2331,10 @@ msgid "SMS autoreply has been deleted"
 msgstr "Layanan balas SMS otomatis telah terhapus"
 
 #, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "Layanan balas SMS otomatis telah terhapus"
+
+#, fuzzy
 msgid "SMS autoreply has been updated"
 msgstr "Layanan balas SMS otomatis telah terhapus"
 
@@ -2431,6 +2444,10 @@ msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "Poling SMS sudah ada, dipesan, atau digunakan oleh fitur lain."
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
+
+#, fuzzy
+msgid "SMS poll choice has been deleted"
 msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
 
 msgid "SMS poll has been added"
@@ -2625,7 +2642,7 @@ msgstr "Template pesan terpilih telah dihapus"
 msgid "Selected outgoing message has been deleted"
 msgstr ""
 
-msgid "Selected transactions has been deleted"
+msgid "Selected transactions have been deleted"
 msgstr ""
 
 msgid "Selected users"

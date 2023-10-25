@@ -69,6 +69,10 @@ msgstr "SMS"
 msgid "SMS autoreply has been deleted"
 msgstr "SMS autosvar er blevet slettet"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "SMS autosvar er blevet slettet"
+
 msgid "SMS autoreply has been updated"
 msgstr "SMS autosvar er blevet opdateret"
 

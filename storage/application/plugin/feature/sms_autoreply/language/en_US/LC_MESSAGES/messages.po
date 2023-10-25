@@ -62,6 +62,9 @@ msgstr ""
 msgid "SMS autoreply has been deleted"
 msgstr ""
 
+msgid "SMS autoreply has been incompletely deleted"
+msgstr ""
+
 msgid "SMS autoreply has been updated"
 msgstr ""
 

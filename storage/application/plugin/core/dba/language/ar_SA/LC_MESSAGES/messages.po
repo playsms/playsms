@@ -13,8 +13,17 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "لايمكن العثور على PHP PEAR-DB"
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
+msgid "Exception"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "خطأ فادح!"
+
+msgid "Fail to connect to database"
+msgstr ""

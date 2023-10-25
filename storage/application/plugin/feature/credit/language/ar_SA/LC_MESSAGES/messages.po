@@ -58,7 +58,8 @@ msgstr "سحب رصيد من المستخدمين"
 msgid "Select users"
 msgstr "اختيار مستخدمين"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "الحوالات المحددة تم حذفها"
 
 msgid "Subuser"

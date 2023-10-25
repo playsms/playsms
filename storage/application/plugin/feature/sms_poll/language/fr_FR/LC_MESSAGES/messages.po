@@ -125,6 +125,12 @@ msgstr ""
 "La réponse de sondage SMS et tous les votes pour cette réponses ont été "
 "supprimés"
 
+#, fuzzy
+msgid "SMS poll choice has been deleted"
+msgstr ""
+"La réponse de sondage SMS et tous les votes pour cette réponses ont été "
+"supprimés"
+
 msgid "SMS poll has been added"
 msgstr "Le sondage SMS a été ajouté"
 

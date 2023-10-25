@@ -128,9 +128,6 @@ msgstr "Crédito"
 msgid "Currently logged in user is immune to deletion"
 msgstr "O usuário atualmente logado é imune à exclusão"
 
-msgid "Default"
-msgstr "Padrão"
-
 msgid "Default message footer"
 msgstr "Rodapé padrão"
 

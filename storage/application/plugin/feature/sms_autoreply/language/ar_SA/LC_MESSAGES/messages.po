@@ -72,6 +72,10 @@ msgstr "مركز الرسائل"
 msgid "SMS autoreply has been deleted"
 msgstr "تم الحذف"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "تم الحذف"
+
 msgid "SMS autoreply has been updated"
 msgstr "تم التحديث"
 

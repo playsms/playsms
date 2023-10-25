@@ -26,9 +26,6 @@ msgstr "Fallo al añadir el comando SMS"
 msgid "Fail to delete SMS command"
 msgstr "Fallo al eliminar el comando SMS"
 
-msgid "Fail to save SMS command"
-msgstr "Falló al guardar el comando SMS"
-
 msgid "Keyword"
 msgstr "Clave"
 
@@ -37,6 +34,10 @@ msgstr ""
 
 msgid "Manage command"
 msgstr "Administrar comando"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "El comando SMS ha sido añadido"
 
 msgid "Pass these parameter to command exec field"
 msgstr "Transferir parámetro al cmpo de ejecución"

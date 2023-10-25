@@ -121,6 +121,10 @@ msgstr "Encuesta SMS ya existe, está reservada o en uso por otra función"
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Opciones de encuesta SMS y sus votantes ha sido borrada"
 
+#, fuzzy
+msgid "SMS poll choice has been deleted"
+msgstr "Opciones de encuesta SMS y sus votantes ha sido borrada"
+
 msgid "SMS poll has been added"
 msgstr "Encuesta SMS ha sido añadida"
 

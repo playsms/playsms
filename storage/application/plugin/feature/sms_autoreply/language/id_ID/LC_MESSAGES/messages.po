@@ -65,6 +65,10 @@ msgid "SMS autoreply has been deleted"
 msgstr "Layanan balas SMS otomatis telah terhapus"
 
 #, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "Layanan balas SMS otomatis telah terhapus"
+
+#, fuzzy
 msgid "SMS autoreply has been updated"
 msgstr "Layanan balas SMS otomatis telah terhapus"
 

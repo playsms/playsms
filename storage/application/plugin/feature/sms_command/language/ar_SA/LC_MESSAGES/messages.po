@@ -35,9 +35,6 @@ msgstr "فشل إضافة"
 msgid "Fail to delete SMS command"
 msgstr "فشل الحذف"
 
-msgid "Fail to save SMS command"
-msgstr "فشل الحفظ "
-
 msgid "Keyword"
 msgstr "الكلمات المفتاحية"
 
@@ -46,6 +43,10 @@ msgstr "إرسال القيمة الناتجة كرسالة رد"
 
 msgid "Manage command"
 msgstr "إدارة الأوامر"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "تمت الإضافة"
 
 msgid "Pass these parameter to command exec field"
 msgstr "تمرير هذه المعاملات لأمر التنفيذ"

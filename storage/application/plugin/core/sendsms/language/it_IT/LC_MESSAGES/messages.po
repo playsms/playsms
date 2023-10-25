@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"MIME-Version: 1.0\n"
 "Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 
 #, php-format
@@ -72,11 +72,14 @@ msgid "Send message failed due to insufficient funds"
 msgstr "Invio messaggio non riuscito a causa di fondi insufficienti"
 
 msgid "Send message failed due to unable to create queue"
-msgstr "Invio messaggio non riuscito a causa dell'impossibilità di creare la coda"
+msgstr ""
+"Invio messaggio non riuscito a causa dell'impossibilità di creare la coda"
 
 #, php-format
 msgid "Send message failed due to unable to prepare queue %s"
-msgstr "Invio messaggio non riuscito a causa dell'impossibilità di preparare la coda %s"
+msgstr ""
+"Invio messaggio non riuscito a causa dell'impossibilità di preparare la coda "
+"%s"
 
 #, php-format
 msgid "Send message to %s in queue %s has failed"
@@ -101,7 +104,8 @@ msgid "Unicode message detected automatically"
 msgstr "SMS Unicode viene rilevato automaticamente"
 
 msgid "You must select receiver and your message should not be empty"
-msgstr "Devi selezionare il destinatario e il tuo messaggio non dovrebbe essere vuoto"
+msgstr ""
+"Devi selezionare il destinatario e il tuo messaggio non dovrebbe essere vuoto"
 
 msgid "Your message has been delivered to queue"
 msgstr "Il tuo messaggio è stato consegnato alla coda"

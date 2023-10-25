@@ -26,9 +26,6 @@ msgstr "增加短信指令失败"
 msgid "Fail to delete SMS command"
 msgstr "删除短信指令失败"
 
-msgid "Fail to save SMS command"
-msgstr "保存短信指令失败"
-
 msgid "Keyword"
 msgstr "关键字"
 
@@ -37,6 +34,10 @@ msgstr ""
 
 msgid "Manage command"
 msgstr "管理指令"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "短信指令已增加"
 
 msgid "Pass these parameter to command exec field"
 msgstr "通过这些参数命令执行领域"

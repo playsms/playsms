@@ -125,6 +125,10 @@ msgstr "Poling SMS sudah ada, dipesan, atau digunakan oleh fitur lain."
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
 
+#, fuzzy
+msgid "SMS poll choice has been deleted"
+msgstr "Pilihan poling SMS beserta semua pemilihnya telah dihapus"
+
 msgid "SMS poll has been added"
 msgstr "Poling SMS telah ditambahkan"
 

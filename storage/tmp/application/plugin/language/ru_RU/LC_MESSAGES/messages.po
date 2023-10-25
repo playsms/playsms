@@ -300,7 +300,7 @@ msgid "Always remove plus sign"
 msgstr "Всегда отрезать знак +"
 
 msgid "Amount"
-msgstr "Сумма"
+msgstr "Количество"
 
 msgid "Annually"
 msgstr ""
@@ -642,6 +642,12 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr "Дата"
 
@@ -657,9 +663,6 @@ msgstr "Дата время"
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
 msgstr ""
-
-msgid "Default"
-msgstr "По умолчанию"
 
 #, fuzzy
 msgid "Default ACL during account registration"
@@ -679,8 +682,9 @@ msgstr "SMSC по умолчанию"
 msgid "Default account status upon registration"
 msgstr "Тип пользователя при регистрации"
 
+#, fuzzy
 msgid "Default credit upon registration"
-msgstr ""
+msgstr "Тип пользователя при регистрации"
 
 msgid "Default default_queue directory"
 msgstr ""
@@ -936,6 +940,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "URL адрес"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "Закрытый"
 
@@ -1017,6 +1024,9 @@ msgstr "Не удалось сохранить маршрут"
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1126,9 +1136,6 @@ msgstr "Не удалось удалить SMSC"
 #, php-format
 msgid "Fail to remove user id:%d"
 msgstr ""
-
-msgid "Fail to save SMS command"
-msgstr "Не удалось сохранить команду"
 
 msgid "Fail to save SMS custom"
 msgstr "Не удалось сохранить запрос url"
@@ -1265,7 +1272,7 @@ msgid "Gateway host"
 msgstr "Адрес шлюза"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Настройки шлюза схранены"
+msgstr "Настройки шлюза сохранены"
 
 msgid "Gateway name"
 msgstr "Название шлюза"
@@ -1722,7 +1729,8 @@ msgid "Match with all approved sender ID"
 msgstr "Проверять совпадение с проверенными именами отправителя"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Максимум 16 цифр или 11 символов, чтобы отключить оставьте пустым"
+msgstr ""
+"Максимум 16 цифр или 11 латинских символов, оставьте пустым, чтобы отключить"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Макс. 16 цифр или 11 символов"
@@ -1746,7 +1754,7 @@ msgid "Member has been added"
 msgstr "Участник добавлен"
 
 msgid "Member has been deleted"
-msgstr "Подписчик удалён"
+msgstr "Участник удалён"
 
 msgid "Member join datetime"
 msgstr "Дата подписки"
@@ -1758,7 +1766,7 @@ msgid "Member list for keyword"
 msgstr "Подписчики по ключевому слову"
 
 msgid "Members"
-msgstr "Подписчики"
+msgstr "Участники"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -1831,7 +1839,7 @@ msgid "Module sender ID"
 msgstr "Имя отправителя"
 
 msgid "Module timezone"
-msgstr "Часовой пояс"
+msgstr "часвой пояс"
 
 msgid "Monthly"
 msgstr ""
@@ -1905,6 +1913,10 @@ msgstr "Nexmo отправит DLR и входящие СМС на Ваш callba
 
 msgid "No"
 msgstr "Нет"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "Команда добавлена"
 
 msgid "No changes have been made"
 msgstr "Нет изменений"
@@ -2343,6 +2355,10 @@ msgstr "Доска объявлений"
 msgid "SMS autoreply has been deleted"
 msgstr "Автоответ удалён"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "Автоответ удалён"
+
 msgid "SMS autoreply has been updated"
 msgstr "Автоответ обновлён"
 
@@ -2454,6 +2470,10 @@ msgstr ""
 "Голосование уже существует, зарезервировано или используется другими модулями"
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr "Вариант со всемии его выбравшими удалён"
+
+#, fuzzy
+msgid "SMS poll choice has been deleted"
 msgstr "Вариант со всемии его выбравшими удалён"
 
 msgid "SMS poll has been added"
@@ -2649,7 +2669,8 @@ msgstr "Выбранные шаблоны удалены"
 msgid "Selected outgoing message has been deleted"
 msgstr "Выбранное исходящее сообщение было удалено"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "Выбранные транзакции были удалены"
 
 msgid "Selected users"

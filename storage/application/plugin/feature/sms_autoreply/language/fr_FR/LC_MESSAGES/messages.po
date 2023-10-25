@@ -64,6 +64,10 @@ msgstr "SMSC"
 msgid "SMS autoreply has been deleted"
 msgstr "La réponse auto a été supprimée"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "La réponse auto a été supprimée"
+
 msgid "SMS autoreply has been updated"
 msgstr "La réponse auto a été mise à jour"
 

@@ -118,9 +118,6 @@ msgstr ""
 msgid "Currently logged in user is immune to deletion"
 msgstr ""
 
-msgid "Default"
-msgstr ""
-
 msgid "Default message footer"
 msgstr ""
 

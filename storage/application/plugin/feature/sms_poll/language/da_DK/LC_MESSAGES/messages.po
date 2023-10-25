@@ -128,6 +128,10 @@ msgstr ""
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "SMS afstemingsvalg og alle dets stemmer er blevet slettet"
 
+#, fuzzy
+msgid "SMS poll choice has been deleted"
+msgstr "SMS afstemingsvalg og alle dets stemmer er blevet slettet"
+
 msgid "SMS poll has been added"
 msgstr "SMS afstemning er blevet tilføjet"
 

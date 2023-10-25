@@ -1,6 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: playSMS\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
@@ -101,7 +102,7 @@ msgid "Account has been added and password has been emailed"
 msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
 
 msgid "Account has been added but failed to send email"
-msgstr "Konto er blevet tilføjet men kunne ikke sende e-mail"
+msgstr "Konto er blevet tilføjet, men e-mail kunne ikke sendes"
 
 msgid "Account has been banned"
 msgstr "Konto er blevet bandlyst"
@@ -468,7 +469,7 @@ msgid "Buy"
 msgstr ""
 
 msgid "Buy credit page"
-msgstr "KÃÂ¸b kredit siden"
+msgstr "Køb kredit side"
 
 msgid "CSS URL"
 msgstr "CSS URL"
@@ -530,7 +531,7 @@ msgid "Catch-all list"
 msgstr "Catch-all liste"
 
 msgid "Changes have been made"
-msgstr "Ændringer er blevet foretaget"
+msgstr "Der er foretaget ændringer"
 
 msgid "Charge"
 msgstr ""
@@ -636,6 +637,12 @@ msgstr "DLR maske"
 msgid "Daily"
 msgstr "Dagligt"
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr "Dato"
 
@@ -653,9 +660,6 @@ msgid ""
 msgstr ""
 "Vælg om denne ACL indeholder ikke tilladte URL'er i stedet for tilladte "
 "URL'er"
-
-msgid "Default"
-msgstr "Standard"
 
 #, fuzzy
 msgid "Default ACL during account registration"
@@ -933,6 +937,9 @@ msgstr "Eksempel"
 msgid "Example of SMS custom URL"
 msgstr "Eksempel på tilpasset SMS URL"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "Eksklusiv"
 
@@ -1013,6 +1020,9 @@ msgstr "Kunne ikke tilføje rute"
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1122,9 +1132,6 @@ msgstr "Kunne ikke fjerne SMSC"
 #, php-format
 msgid "Fail to remove user id:%d"
 msgstr ""
-
-msgid "Fail to save SMS command"
-msgstr "Kunne ikke gemme SMS kommando"
 
 msgid "Fail to save SMS custom"
 msgstr "Kunne ikke gemme tilpasset SMS"
@@ -1479,7 +1486,7 @@ msgid "Last update"
 msgstr "Sidst opdateret"
 
 msgid "Layout footer"
-msgstr "Layout footer"
+msgstr "Layout bundtekst"
 
 msgid "Leave a copy in sandbox SMS page"
 msgstr "Læg en kopi i sandbox SMS siden"
@@ -1551,8 +1558,8 @@ msgstr "Logo URL"
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Logo vil som standard blive vist pÃ¥ login, registrering og glemt "
-"adgangskode siderne"
+"Logo vil vises som standard ved login-, registrerings- og glemt adgangskode-"
+"sider"
 
 msgid "Logout"
 msgstr ""
@@ -1582,10 +1589,10 @@ msgid "Main configuration changes has been saved"
 msgstr "Ændringer i primær konfiguration er blevet gemt"
 
 msgid "Main website URL"
-msgstr "PrimÃÂ¦r webside URL"
+msgstr "Primær websted URL"
 
 msgid "Main website name"
-msgstr "PrimÃÂ¦r webside navn"
+msgstr "Primær webstedsnavn"
 
 msgid "Make return as reply"
 msgstr "Gør returværdi til svar"
@@ -1878,7 +1885,7 @@ msgid "New SMSC has been added"
 msgstr "Ny SMSC er blevet tilføjet"
 
 msgid "New account registration"
-msgstr "Ny konto registrering"
+msgstr "Registrer ny konto"
 
 msgid "New destination has been added"
 msgstr "Ny destination er blevet tilfÃÂ¸jet"
@@ -1900,6 +1907,10 @@ msgstr "Nexmo vil sende DLR og indkommende SMS til din callback URL"
 
 msgid "No"
 msgstr "Nej"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "SMS kommando er blevet tilføjet"
 
 msgid "No changes have been made"
 msgstr "Ingen ændringer foretaget"
@@ -1945,7 +1956,7 @@ msgid "Offline"
 msgstr ""
 
 msgid "Once"
-msgstr "ÃÂn gang"
+msgstr "Én gang"
 
 msgid "Online"
 msgstr ""
@@ -2227,7 +2238,7 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr "Erstat præfiks 0 eller udvid lokale numre"
 
 msgid "Replace website title with logo"
-msgstr "Erstat webstedstitel med logo"
+msgstr "Erstat websidetitel med logo"
 
 msgid "Reply"
 msgstr "Svar"
@@ -2331,6 +2342,10 @@ msgid "SMS Board"
 msgstr "SMS forum"
 
 msgid "SMS autoreply has been deleted"
+msgstr "SMS autosvar er blevet slettet"
+
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
 msgstr "SMS autosvar er blevet slettet"
 
 msgid "SMS autoreply has been updated"
@@ -2444,6 +2459,10 @@ msgstr ""
 "funktion"
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr "SMS afstemingsvalg og alle dets stemmer er blevet slettet"
+
+#, fuzzy
+msgid "SMS poll choice has been deleted"
 msgstr "SMS afstemingsvalg og alle dets stemmer er blevet slettet"
 
 msgid "SMS poll has been added"
@@ -2640,7 +2659,8 @@ msgstr "Valgt beskedskabelon er blevet slettet"
 msgid "Selected outgoing message has been deleted"
 msgstr "Valgte udgående besked er blevet slettet"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "Valgte transaktioner er blevet slettet"
 
 msgid "Selected users"
@@ -3119,7 +3139,7 @@ msgid "Website email"
 msgstr "Webside e-mail"
 
 msgid "Website title"
-msgstr "Websted titel"
+msgstr "Websidetitel"
 
 msgid "Weekly"
 msgstr "Ugentligt"

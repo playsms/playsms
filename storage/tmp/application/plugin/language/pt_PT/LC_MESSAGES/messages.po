@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -465,7 +466,7 @@ msgid "Buy"
 msgstr ""
 
 msgid "Buy credit page"
-msgstr "Comprar crÃ©dito"
+msgstr "Página para Compra de Créditos"
 
 msgid "CSS URL"
 msgstr "URL do CSS"
@@ -635,6 +636,12 @@ msgstr ""
 msgid "Daily"
 msgstr "Diariamente"
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr "Data"
 
@@ -650,9 +657,6 @@ msgstr "Data/hora"
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
 msgstr ""
-
-msgid "Default"
-msgstr "Padrão"
 
 #, fuzzy
 msgid "Default ACL during account registration"
@@ -671,13 +675,13 @@ msgid "Default account status upon registration"
 msgstr "Status da conta padrão no ato do registro"
 
 msgid "Default credit upon registration"
-msgstr "CrÃ©ditos PadrÃ£o no acto do Registro"
+msgstr "Crédito padrão no ato do registo"
 
 msgid "Default default_queue directory"
 msgstr ""
 
 msgid "Default language"
-msgstr "Idioma padrÃ£o"
+msgstr "Idioma padrão"
 
 msgid "Default message footer"
 msgstr "Mensagem rodapé padrão"
@@ -897,16 +901,16 @@ msgid "Enable fetch new emails"
 msgstr "Permitir verificar novos e-mails"
 
 msgid "Enable forgot password"
-msgstr "Ativar recuperaÃ§Ã£o de palavra-passe"
+msgstr "Ativar recuperação de palavra-passe"
 
 msgid "Enable login brute force detection"
 msgstr "Ativar login brute force  deteção "
 
 msgid "Enable logo"
-msgstr "Ativar Logo"
+msgstr "Ativar logotipo"
 
 msgid "Enable public registration"
-msgstr "Ativar registros pÃºblicos"
+msgstr "Ativar registros públicos"
 
 msgid "Enable webservices"
 msgstr "Ativar webservices"
@@ -932,6 +936,9 @@ msgstr ""
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "URL do SMS personalizado"
+
+msgid "Exception"
+msgstr ""
 
 msgid "Exclusive"
 msgstr "Exclusivo"
@@ -1014,6 +1021,9 @@ msgstr "Erro ao guardar a rota"
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1123,9 +1133,6 @@ msgstr "Erro ao remover SMSC"
 #, php-format
 msgid "Fail to remove user id:%d"
 msgstr ""
-
-msgid "Fail to save SMS command"
-msgstr "Erro ao guardar o comando SMS"
 
 msgid "Fail to save SMS custom"
 msgstr "Erro ao guardar o SMS personalizado"
@@ -1262,7 +1269,7 @@ msgid "Gateway host"
 msgstr "Host do gateway"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram guardadas"
+msgstr "Configurações do módulo de gateway foram guardas"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
@@ -1409,7 +1416,7 @@ msgid "Information"
 msgstr "Informações"
 
 msgid "Information page"
-msgstr "InformaÃ§Ãµes da pÃ¡gina"
+msgstr "Informações da página"
 
 msgid "Insert keyword"
 msgstr "Inserir palavra-chave"
@@ -1480,7 +1487,7 @@ msgid "Last update"
 msgstr "Última atualização"
 
 msgid "Layout footer"
-msgstr "RodapÃ© de layout"
+msgstr "Rodapé de layout"
 
 msgid "Leave a copy in sandbox SMS page"
 msgstr "Deixar uma copia na página sandbox "
@@ -1547,13 +1554,13 @@ msgid "Login information"
 msgstr "Informação Login"
 
 msgid "Logo URL"
-msgstr "URL do LogÃ³tipo"
+msgstr "URL do Logótipo"
 
 msgid ""
 "Logo by default will be displayed at login, register and forgot password page"
 msgstr ""
-"Logotipo, por padrÃ£o, serÃ¡ exibido no inÃ­cio da sessÃ£o, registo e na "
-"recuperaÃ§Ã£o da palavra-passe"
+"Logotipo, por padrão, será exibido no início da sessão, registo e na "
+"recuperação da palavra-passe"
 
 msgid "Logout"
 msgstr ""
@@ -1589,7 +1596,7 @@ msgid "Main website name"
 msgstr "Nome do principal "
 
 msgid "Make return as reply"
-msgstr "Enviar retorno como resposta"
+msgstr "Enviar saída do comando como resposta"
 
 msgid "Manage"
 msgstr ""
@@ -1719,7 +1726,8 @@ msgid "Match with all approved sender ID"
 msgstr "Combine com todos ID dos remetentes  aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
+msgstr ""
+"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 numérico ou 11 caracteres alfanuméricos"
@@ -1743,7 +1751,7 @@ msgid "Member has been added"
 msgstr "Membro foi adicionado"
 
 msgid "Member has been deleted"
-msgstr "O membro foi eliminado"
+msgstr "Membro foi removido"
 
 msgid "Member join datetime"
 msgstr "Data de entrada do membro"
@@ -1755,7 +1763,7 @@ msgid "Member list for keyword"
 msgstr "Lista de membros por palavra-chave"
 
 msgid "Members"
-msgstr "Ver membros"
+msgstr "Membros"
 
 msgid "Message"
 msgstr "Mensagem"
@@ -1825,10 +1833,10 @@ msgid "Mobile numbers have been deleted"
 msgstr ""
 
 msgid "Module sender ID"
-msgstr "Módulo ID Remetente"
+msgstr "Modulo Remetente ID"
 
 msgid "Module timezone"
-msgstr "Módulo Fuso Horário"
+msgstr "Modulo Fuso Horário"
 
 msgid "Monthly"
 msgstr "Mensal"
@@ -1902,6 +1910,10 @@ msgstr "Nexmo irá enviar DLR e SMS para sua URL de callback"
 msgid "No"
 msgstr "Não"
 
+#, fuzzy
+msgid "No changes has been made"
+msgstr "Comando SMS foi adicionado"
+
 msgid "No changes have been made"
 msgstr "Não foi efectuado qualquer alteração"
 
@@ -1971,10 +1983,10 @@ msgid "PIN is empty"
 msgstr "PIN não está introduzido"
 
 msgid "Page content"
-msgstr "O conteÃºdo da pÃ¡gina"
+msgstr "O conteúdo da página"
 
 msgid "Page title"
-msgstr "TÃ­tulo da PÃ¡gina"
+msgstr "Título da Página"
 
 msgid "Parent"
 msgstr "Principal"
@@ -2234,7 +2246,7 @@ msgid "Replace prefix 0 or padding local numbers"
 msgstr "Substituir o prefixo 0 ou preencher com números locais"
 
 msgid "Replace website title with logo"
-msgstr "Substitua tÃ­tulo do site pelo logotipo"
+msgstr "Substitua título do site pelo logotipo"
 
 msgid "Reply"
 msgstr ""
@@ -2345,6 +2357,10 @@ msgstr "Placa SMS"
 msgid "SMS autoreply has been deleted"
 msgstr "A auto-resposta SMS foi eliminada"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "A auto-resposta SMS foi eliminada"
+
 msgid "SMS autoreply has been updated"
 msgstr "A auto-resposta SMS foi atualizada"
 
@@ -2452,6 +2468,10 @@ msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "A votação SMS já existe, está reservada ou em uso por outro recurso"
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr "A opção da votação SMS foi eliminada com todos os seus votos"
+
+#, fuzzy
+msgid "SMS poll choice has been deleted"
 msgstr "A opção da votação SMS foi eliminada com todos os seus votos"
 
 msgid "SMS poll has been added"
@@ -2645,7 +2665,8 @@ msgstr "Modelo de mensagem selecionado foi eliminado"
 msgid "Selected outgoing message has been deleted"
 msgstr "Mensagens enviadas selecionadas foram apagadas"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "Transações selecionadas foram apagadas"
 
 msgid "Selected users"
@@ -3167,7 +3188,7 @@ msgid "You must fill all field"
 msgstr "Preencha todos os campos"
 
 msgid "You must fill all fields"
-msgstr "Preencha todos os campos"
+msgstr "Você deve preencher todos os campos"
 
 msgid "You must fill all mandatory fields"
 msgstr "Deve preencher todos os campos obrigatórios"
@@ -3325,7 +3346,7 @@ msgid "multiple times"
 msgstr "Vária vezes"
 
 msgid "no"
-msgstr "NÃ£o"
+msgstr "Não"
 
 msgid "of"
 msgstr "de"
@@ -3380,7 +3401,7 @@ msgid "will be replaced by SMS incoming date/time"
 msgstr "será substituído pela data/hora de chegada do SMS"
 
 msgid "will be replaced by SMS raw message"
-msgstr "será substituído pela mensagem SMS pura"
+msgstr "será substituído pelo SMS puro"
 
 #, fuzzy
 msgid "will be replaced by actual receiver number"

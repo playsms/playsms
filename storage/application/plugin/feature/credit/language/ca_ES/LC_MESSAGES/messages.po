@@ -48,7 +48,7 @@ msgstr ""
 msgid "Select users"
 msgstr ""
 
-msgid "Selected transactions has been deleted"
+msgid "Selected transactions have been deleted"
 msgstr ""
 
 msgid "Subuser"

@@ -29,9 +29,6 @@ msgstr "Kunne ikke legge til SMS-kommando"
 msgid "Fail to delete SMS command"
 msgstr "Kunne ikke slette SMS-kommando"
 
-msgid "Fail to save SMS command"
-msgstr "Kunne ikke lagre SMS-kommando"
-
 msgid "Keyword"
 msgstr "Nøkkelord"
 
@@ -40,6 +37,10 @@ msgstr "Gjør returverdi til svar"
 
 msgid "Manage command"
 msgstr "Håndter kommando"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "SMS-kommando har blitt lagt til"
 
 msgid "Pass these parameter to command exec field"
 msgstr "Bruk disse parameterene til kommandoen"

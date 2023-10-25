@@ -141,9 +141,6 @@ msgstr "Средства"
 msgid "Currently logged in user is immune to deletion"
 msgstr "Вошедшего в систему пользователя невозможно удалить"
 
-msgid "Default"
-msgstr "По умолчанию"
-
 msgid "Default message footer"
 msgstr "Подпись по умолчанию"
 

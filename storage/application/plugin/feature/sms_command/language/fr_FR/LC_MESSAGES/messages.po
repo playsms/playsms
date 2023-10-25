@@ -33,9 +33,6 @@ msgstr "Échec de l'ajout de la commande SMS"
 msgid "Fail to delete SMS command"
 msgstr "Échec de la suppression de la commande SMS"
 
-msgid "Fail to save SMS command"
-msgstr "Échec de l'enregistrement de la commande SMS"
-
 msgid "Keyword"
 msgstr "Mot-clé"
 
@@ -44,6 +41,10 @@ msgstr "Envoyer le résultat de la commande comme réponse"
 
 msgid "Manage command"
 msgstr "Gérer commande shell"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "La commande SMS a été ajoutée"
 
 msgid "Pass these parameter to command exec field"
 msgstr "Passez ces paramètres dans le champ 'Commande à exécuter'"

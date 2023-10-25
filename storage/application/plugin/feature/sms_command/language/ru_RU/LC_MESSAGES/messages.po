@@ -33,9 +33,6 @@ msgstr "Не удалось добавить команду"
 msgid "Fail to delete SMS command"
 msgstr "Не удалось удалить команду"
 
-msgid "Fail to save SMS command"
-msgstr "Не удалось сохранить команду"
-
 msgid "Keyword"
 msgstr "Ключевое слово"
 
@@ -44,6 +41,10 @@ msgstr "Отправить результат в ответе"
 
 msgid "Manage command"
 msgstr "Команды"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "Команда добавлена"
 
 msgid "Pass these parameter to command exec field"
 msgstr "Эти параметры можно передать исполняемому файлу в строке вызова"

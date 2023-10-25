@@ -65,6 +65,10 @@ msgid "SMS autoreply has been deleted"
 msgstr "短信自动回复已删除"
 
 #, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "短信自动回复已删除"
+
+#, fuzzy
 msgid "SMS autoreply has been updated"
 msgstr "短信自动回复已删除"
 

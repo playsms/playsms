@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"MIME-Version: 1.0\n"
 "Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 
 msgid "Add credit"
@@ -56,7 +56,8 @@ msgstr "Ridurre il credito degli utenti"
 msgid "Select users"
 msgstr "Seleziona utenti"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "le transazioni selezionate sono state eliminate"
 
 msgid "Subuser"
@@ -79,7 +80,9 @@ msgstr "Nome utente"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
-msgstr "Il nome utente %s con ID account %d ha raggiunto il limite di credito minimo di %s"
+msgstr ""
+"Il nome utente %s con ID account %d ha raggiunto il limite di credito minimo "
+"di %s"
 
 msgid "Users"
 msgstr "Utenti"
@@ -93,10 +96,11 @@ msgstr "Hai raggiunto il limite di credito minimo di %s"
 
 #, php-format
 msgid ""
-"Your subuser with username %s and account ID %d has reached lowest credit limit of %s"
+"Your subuser with username %s and account ID %d has reached lowest credit "
+"limit of %s"
 msgstr ""
-"Il tuo subutente con nome utente %s e ID account %d ha raggiunto il limite di credito "
-"minimo di %s"
+"Il tuo subutente con nome utente %s e ID account %d ha raggiunto il limite "
+"di credito minimo di %s"
 
 msgid "amount"
 msgstr "importo"

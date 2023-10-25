@@ -135,9 +135,6 @@ msgstr "الرصيد"
 msgid "Currently logged in user is immune to deletion"
 msgstr "لايمكن حذف مستخدم متصل"
 
-msgid "Default"
-msgstr "الافتراضي"
-
 msgid "Default message footer"
 msgstr " التذييل الافتراضي"
 

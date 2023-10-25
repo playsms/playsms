@@ -135,9 +135,6 @@ msgstr "Créditos"
 msgid "Currently logged in user is immune to deletion"
 msgstr "Utilizador conectado no momento é imune a eliminação"
 
-msgid "Default"
-msgstr "Padrão"
-
 msgid "Default message footer"
 msgstr "Mensagem rodapé padrão"
 

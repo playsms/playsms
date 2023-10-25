@@ -55,7 +55,8 @@ msgstr "Уменьшение средств пользователям"
 msgid "Select users"
 msgstr "Выберите пользователей"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "Выбранные транзакции были удалены"
 
 msgid "Subuser"

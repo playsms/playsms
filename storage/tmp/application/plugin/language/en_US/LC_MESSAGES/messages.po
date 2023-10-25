@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: en_US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -466,9 +468,6 @@ msgstr ""
 msgid "Cannot change status when user have subusers"
 msgstr ""
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr ""
-
 msgid "Captcha was expired, please try again"
 msgstr ""
 
@@ -612,6 +611,12 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -626,9 +631,6 @@ msgstr ""
 
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
-msgstr ""
-
-msgid "Default"
 msgstr ""
 
 msgid "Default ACL during account registration"
@@ -897,6 +899,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr ""
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr ""
 
@@ -980,6 +985,9 @@ msgstr ""
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1088,9 +1096,6 @@ msgstr ""
 
 #, php-format
 msgid "Fail to remove user id:%d"
-msgstr ""
-
-msgid "Fail to save SMS command"
 msgstr ""
 
 msgid "Fail to save SMS custom"
@@ -1855,6 +1860,9 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+msgid "No changes has been made"
+msgstr ""
+
 msgid "No changes have been made"
 msgstr ""
 
@@ -2275,6 +2283,9 @@ msgstr ""
 msgid "SMS autoreply has been deleted"
 msgstr ""
 
+msgid "SMS autoreply has been incompletely deleted"
+msgstr ""
+
 msgid "SMS autoreply has been updated"
 msgstr ""
 
@@ -2379,6 +2390,9 @@ msgid "SMS poll already exists, reserved or use by other feature"
 msgstr ""
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr ""
+
+msgid "SMS poll choice has been deleted"
 msgstr ""
 
 msgid "SMS poll has been added"
@@ -2570,7 +2584,7 @@ msgstr ""
 msgid "Selected outgoing message has been deleted"
 msgstr ""
 
-msgid "Selected transactions has been deleted"
+msgid "Selected transactions have been deleted"
 msgstr ""
 
 msgid "Selected users"

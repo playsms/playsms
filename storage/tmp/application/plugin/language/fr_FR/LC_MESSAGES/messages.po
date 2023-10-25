@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "Language: fr_FR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -466,13 +468,13 @@ msgid "Buy"
 msgstr ""
 
 msgid "Buy credit page"
-msgstr "Page d'achat de crédit"
+msgstr "Page Ajouter du crédit"
 
 msgid "CSS URL"
 msgstr "URL CSS"
 
 msgid "CSV file format"
-msgstr "Format du fichier CSV"
+msgstr "Format de fichier CSV"
 
 msgid "Callback URL"
 msgstr "URL de callback"
@@ -637,6 +639,12 @@ msgstr ""
 msgid "Daily"
 msgstr "Chaque jour"
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr "Date"
 
@@ -652,9 +660,6 @@ msgstr "Date"
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
 msgstr ""
-
-msgid "Default"
-msgstr "Par défaut"
 
 #, fuzzy
 msgid "Default ACL during account registration"
@@ -899,7 +904,7 @@ msgid "Enable fetch new emails"
 msgstr "Activer le rapatriement des nouveaux emails"
 
 msgid "Enable forgot password"
-msgstr "Activer Mot de passe oublié"
+msgstr "Activer la récupération du mot de passe"
 
 msgid "Enable login brute force detection"
 msgstr "Activer la détection de connexion par force brute"
@@ -908,7 +913,7 @@ msgid "Enable logo"
 msgstr "Activer le logo"
 
 msgid "Enable public registration"
-msgstr "Activer l'enregistrement public"
+msgstr "Activer l'inscription publique"
 
 msgid "Enable webservices"
 msgstr "Activer les webservices"
@@ -934,6 +939,9 @@ msgstr ""
 #, fuzzy
 msgid "Example of SMS custom URL"
 msgstr "URL du script personnalisé"
+
+msgid "Exception"
+msgstr ""
 
 msgid "Exclusive"
 msgstr "Exclusif"
@@ -1016,6 +1024,9 @@ msgstr "Échec de l'enregistrement de la route"
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1125,9 +1136,6 @@ msgstr "Échec de la suppression du SMSC"
 #, php-format
 msgid "Fail to remove user id:%d"
 msgstr ""
-
-msgid "Fail to save SMS command"
-msgstr "Échec de l'enregistrement de la commande SMS"
 
 msgid "Fail to save SMS custom"
 msgstr "Échec de l'enregistrement de l'URL script personnalisé"
@@ -1595,7 +1603,7 @@ msgid "Main website name"
 msgstr "Nom du site web principal"
 
 msgid "Make return as reply"
-msgstr "Envoyer le résultat du script comme réponse"
+msgstr "Envoyer le résultat de la commande comme réponse"
 
 msgid "Manage"
 msgstr ""
@@ -1912,6 +1920,10 @@ msgstr ""
 msgid "No"
 msgstr "Non"
 
+#, fuzzy
+msgid "No changes has been made"
+msgstr "La commande SMS a été ajoutée"
+
 msgid "No changes have been made"
 msgstr "Aucune modification apportée"
 
@@ -2216,7 +2228,7 @@ msgid "Register an account is disabled"
 msgstr "Inscrire un nouveau compte"
 
 msgid "Registered"
-msgstr "Enregistré"
+msgstr "Inscrit"
 
 msgid "Remote gateway will push DLR and incoming SMS to your callback URL"
 msgstr ""
@@ -2355,6 +2367,10 @@ msgstr "Service de redirection"
 msgid "SMS autoreply has been deleted"
 msgstr "La réponse auto a été supprimée"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "La réponse auto a été supprimée"
+
 msgid "SMS autoreply has been updated"
 msgstr "La réponse auto a été mise à jour"
 
@@ -2466,6 +2482,12 @@ msgstr ""
 "Le sondage SMS existe déjà, est réservé ou utilisé par une autre fonction"
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr ""
+"La réponse de sondage SMS et tous les votes pour cette réponses ont été "
+"supprimés"
+
+#, fuzzy
+msgid "SMS poll choice has been deleted"
 msgstr ""
 "La réponse de sondage SMS et tous les votes pour cette réponses ont été "
 "supprimés"
@@ -2662,7 +2684,8 @@ msgstr "Le modèle de message sélectionné a été supprimé"
 msgid "Selected outgoing message has been deleted"
 msgstr "Le message sortant sélectionné a été supprimé"
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "La transaction sélectionnée a été supprimée"
 
 msgid "Selected users"

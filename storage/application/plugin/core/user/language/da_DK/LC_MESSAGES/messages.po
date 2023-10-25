@@ -135,9 +135,6 @@ msgstr "Kredit"
 msgid "Currently logged in user is immune to deletion"
 msgstr "Aktuelt indloggede brugere kan ikke slettes"
 
-msgid "Default"
-msgstr "Standard"
-
 msgid "Default message footer"
 msgstr "Standard besked bundtekst"
 

@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PlaySMS\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-19 17:59+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
 "Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
@@ -628,6 +629,12 @@ msgstr ""
 msgid "Daily"
 msgstr "يوميًا"
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr "التاريخ"
 
@@ -644,9 +651,6 @@ msgstr "الوقت"
 msgid ""
 "Decide if this ACL is containing disallowed URLs rather than allowed URLs"
 msgstr ""
-
-msgid "Default"
-msgstr "الافتراضي"
 
 #, fuzzy
 msgid "Default ACL during account registration"
@@ -924,6 +928,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "رابط الرسالة المخصصة"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "حصري"
 
@@ -1004,6 +1011,9 @@ msgstr "اضف مسار"
 
 #, php-format
 msgid "Fail to add user %s to card %s"
+msgstr ""
+
+msgid "Fail to connect to database"
 msgstr ""
 
 msgid "Fail to delete ACL"
@@ -1113,9 +1123,6 @@ msgstr "فشل حذف مركز الرسائل"
 #, php-format
 msgid "Fail to remove user id:%d"
 msgstr ""
-
-msgid "Fail to save SMS command"
-msgstr "فشل الحفظ "
 
 msgid "Fail to save SMS custom"
 msgstr "فشل الحفظ "
@@ -1888,6 +1895,10 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#, fuzzy
+msgid "No changes has been made"
+msgstr "تمت الإضافة"
+
 msgid "No changes have been made"
 msgstr "لم يتم إجراء تغييرات!"
 
@@ -2314,6 +2325,10 @@ msgstr "لوح الرسائل"
 msgid "SMS autoreply has been deleted"
 msgstr "تم الحذف"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "تم الحذف"
+
 msgid "SMS autoreply has been updated"
 msgstr "تم التحديث"
 
@@ -2421,6 +2436,10 @@ msgid "SMS poll already exists, reserved or use by other feature"
 msgstr "الاستفتاء موجودة مسبقًا"
 
 msgid "SMS poll choice and all its voters has been deleted"
+msgstr "تم حذف الاستفتاء وكافة الخيارات والمصوتين"
+
+#, fuzzy
+msgid "SMS poll choice has been deleted"
 msgstr "تم حذف الاستفتاء وكافة الخيارات والمصوتين"
 
 msgid "SMS poll has been added"
@@ -2614,7 +2633,8 @@ msgstr "تم حذف قوالب الرسائل المحددة "
 msgid "Selected outgoing message has been deleted"
 msgstr "تم حذف الرسائل الصادرة المحددة "
 
-msgid "Selected transactions has been deleted"
+#, fuzzy
+msgid "Selected transactions have been deleted"
 msgstr "الحوالات المحددة تم حذفها"
 
 msgid "Selected users"
@@ -3279,7 +3299,7 @@ msgid "multiple times"
 msgstr "مرات متعددة"
 
 msgid "no"
-msgstr "لا"
+msgstr "لأا"
 
 msgid "of"
 msgstr "من"

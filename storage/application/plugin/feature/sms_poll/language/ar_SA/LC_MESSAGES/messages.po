@@ -126,6 +126,10 @@ msgstr "الاستفتاء موجودة مسبقًا"
 msgid "SMS poll choice and all its voters has been deleted"
 msgstr "تم حذف الاستفتاء وكافة الخيارات والمصوتين"
 
+#, fuzzy
+msgid "SMS poll choice has been deleted"
+msgstr "تم حذف الاستفتاء وكافة الخيارات والمصوتين"
+
 msgid "SMS poll has been added"
 msgstr "تمت الإضافة"
 

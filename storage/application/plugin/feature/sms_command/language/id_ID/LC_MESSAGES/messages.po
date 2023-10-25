@@ -26,9 +26,6 @@ msgstr "Gagal menambahkan SMS command"
 msgid "Fail to delete SMS command"
 msgstr "Gagal menghapus perintah SMS"
 
-msgid "Fail to save SMS command"
-msgstr "Gagal menyimpan perintah SMS"
-
 msgid "Keyword"
 msgstr "Kata kunci"
 
@@ -37,6 +34,10 @@ msgstr "Membuat kembalian menjadi balasan"
 
 msgid "Manage command"
 msgstr "Pengaturan perintah SMS"
+
+#, fuzzy
+msgid "No changes has been made"
+msgstr "Perintah SMS telah ditambahkan"
 
 msgid "Pass these parameter to command exec field"
 msgstr "Masukkan parameter-parameter ini ke kolom pelaksanaan perintah"

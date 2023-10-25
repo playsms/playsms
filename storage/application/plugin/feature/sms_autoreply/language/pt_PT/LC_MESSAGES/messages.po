@@ -70,6 +70,10 @@ msgstr ""
 msgid "SMS autoreply has been deleted"
 msgstr "A auto-resposta SMS foi eliminada"
 
+#, fuzzy
+msgid "SMS autoreply has been incompletely deleted"
+msgstr "A auto-resposta SMS foi eliminada"
+
 msgid "SMS autoreply has been updated"
 msgstr "A auto-resposta SMS foi atualizada"
 
