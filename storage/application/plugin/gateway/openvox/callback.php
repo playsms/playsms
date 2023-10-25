@@ -20,10 +20,10 @@ error_reporting(0);
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
-	
+
 	// ignore CSRF
 	$core_config['init']['ignore_csrf'] = TRUE;
-	
+
 	include "init.php";
 	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir("plugin/gateway/openvox/");
@@ -32,7 +32,7 @@ if (!$called_from_hook_call) {
 
 $log = '';
 if (is_array($requests)) {
-	foreach ($requests as $key => $val) {
+	foreach ( $requests as $key => $val ) {
 		$log .= $key . ':' . $val . ' ';
 	}
 	_log("pushed " . $log, 2, "openvox callback");

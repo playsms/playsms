@@ -29,49 +29,50 @@ defined('_SECURE_') or die('Forbidden');
 // $gpid : group phonebook id (optional)
 // $uid : sender User ID
 // $smslog_id : sms ID
-function openvox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+function openvox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+{
 	global $plugin_config;
-	
+
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "openvox_hook_sendsms");
-	
+
 	// override plugin gateway configuration by smsc configuration
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	
+
 	$sms_footer = stripslashes($sms_footer);
 	$sms_msg = stripslashes($sms_msg);
-	
+
 	if ($sms_footer) {
 		$sms_msg = $sms_msg . $sms_footer;
 	}
-	
+
 	if ($plugin_config['openvox']['gateway_host'] && $plugin_config['openvox']['gateway_port'] && $sms_to && $sms_msg) {
 		$query_string = "username=" . $plugin_config['openvox']['username'] . "&password=" . $plugin_config['openvox']['password'] . "&phonenumber=" . urlencode($sms_to) . "&message=" . urlencode($sms_msg) . "&report=JSON&smslog_id=" . $smslog_id;
 		$url = 'http://' . $plugin_config['openvox']['gateway_host'] . ":" . $plugin_config['openvox']['gateway_port'] . '/sendsms?' . $query_string;
-		
+
 		_log("url:[" . $url . "]", 3, "openvox outgoing");
-		
-                $result = file_get_contents($url);
-                
-                $result = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $result);
-                $mesg_start = stripos($result, '":"');
-                $mesg_end = strrpos($result, '","report":');
-                
-                if ($mesg_start and $mesg_end) {
-                        $mesg_start += 3;
-                        $mesg = substr($result, $mesg_start, $mesg_end - $mesg_start);
-                        if ($mesg != '') {
-                                $escaped_mesg = addcslashes($mesg, '"\\/');
-                                $result = str_replace($mesg, $escaped_mesg, $result);
-                        }
-                }
-                
-                $resp = json_decode($result, true);
+
+		$result = file_get_contents($url);
+
+		$result = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $result);
+		$mesg_start = stripos($result, '":"');
+		$mesg_end = strrpos($result, '","report":');
+
+		if ($mesg_start and $mesg_end) {
+			$mesg_start += 3;
+			$mesg = substr($result, $mesg_start, $mesg_end - $mesg_start);
+			if ($mesg != '') {
+				$escaped_mesg = addcslashes($mesg, '"\\/');
+				$result = str_replace($mesg, $escaped_mesg, $result);
+			}
+		}
+
+		$resp = json_decode($result, true);
 		$data = $resp['report'][0][0][0];
 		// $data = $resp['report'][0][1][0];
 		$data['message'] = $resp['message'];
-		
+
 		_log('response result:' . $data['result'] . ' port:' . $data['port'] . ' to:' . $data['phonenumber'] . ' time:' . $data['time'], 3, 'openvox_hook_sendsms');
-		
+
 		if ($data['result'] == 'success') {
 			$p_status = 1;
 			dlr($smslog_id, $uid, $p_status);
@@ -80,16 +81,17 @@ function openvox_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			dlr($smslog_id, $uid, $p_status);
 		}
 	}
-	
+
 	return TRUE;
 }
 
-function openvox_hook_call($requests) {
+function openvox_hook_call($requests)
+{
 	// please note that we must globalize these 2 variables
 	global $core_config, $plugin_config;
 	$called_from_hook_call = true;
 	$access = $requests['access'];
-	
+
 	if ($access == 'callback') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/openvox/callback.php';
 		_log("start load:" . $fn, 2, "openvox call");

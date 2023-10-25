@@ -49,11 +49,12 @@ switch (_OP_) {
 				'openvox_param_gateway_host' => $plugin_config['openvox']['gateway_host'],
 				'openvox_param_gateway_port' => $plugin_config['openvox']['gateway_port'],
 				'openvox_param_username' => $plugin_config['openvox']['username'],
-				'callback_url' => $callback_url 
-			) 
+				'callback_url' => $callback_url
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
+
 	case "manage_save":
 		$_SESSION['dialog']['info'][] = _('Changes have been made');
 		$items = array(
@@ -68,5 +69,4 @@ switch (_OP_) {
 		registry_update(1, 'gateway', 'openvox', $items);
 		header("Location: " . _u('index.php?app=main&inc=gateway_openvox&op=manage'));
 		exit();
-		break;
 }
