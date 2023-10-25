@@ -1,4 +1,21 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
 $db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayTwilio_config";
@@ -18,7 +35,7 @@ $plugin_config['twilio']['_smsc_config_'] = array(
 	'account_sid' => _('Account SID'),
 	'auth_token' => _('Auth Token'),
 	'module_sender' => _('Module sender ID'),
-	'datetime_timezone' => _('Module timezone') 
+	'datetime_timezone' => _('Module timezone')
 );
 
 //$gateway_number = $plugin_config['twilio']['module_sender'];

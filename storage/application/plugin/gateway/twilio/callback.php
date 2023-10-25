@@ -1,12 +1,29 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 error_reporting(0);
 
 if (!$called_from_hook_call) {
 	chdir("../../../");
-	
+
 	// ignore CSRF
 	$core_config['init']['ignore_csrf'] = TRUE;
-	
+
 	include "init.php";
 	include $core_config['apps_path']['libs'] . "/function.php";
 	chdir("plugin/gateway/twilio/");
@@ -15,7 +32,7 @@ if (!$called_from_hook_call) {
 
 $log = '';
 if (is_array($requests)) {
-	foreach ($requests as $key => $val) {
+	foreach ( $requests as $key => $val ) {
 		$log .= $key . ':' . $val . ' ';
 	}
 	_log("pushed " . $log, 2, "twilio callback");
@@ -26,8 +43,8 @@ $status = $requests['SmsStatus'];
 
 // delivery receipt
 if ($remote_smslog_id && $status && ($status != 'received')) {
-	$db_query = "SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayTwilio WHERE remote_smslog_id='$remote_smslog_id'";
-	$db_result = dba_query($db_query);
+	$db_query = "SELECT local_smslog_id FROM " . _DB_PREF_ . "_gatewayTwilio WHERE remote_smslog_id=?";
+	$db_result = dba_query($db_query, [$remote_smslog_id]);
 	$db_row = dba_fetch_array($db_result);
 	$smslog_id = $db_row['local_smslog_id'];
 	if ($smslog_id) {
@@ -38,7 +55,7 @@ if ($remote_smslog_id && $status && ($status != 'received')) {
 			case "sent":
 				$p_status = 1;
 				break; // delivered
-			default :
+			default:
 				$p_status = 2;
 				break; // failed
 		}

@@ -54,6 +54,7 @@ switch (_OP_) {
 		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
+
 	case "manage_save":
 		$up_callback_url = $_POST['up_callback_url'];
 		$up_account_sid = $_POST['up_account_sid'];
@@ -61,19 +62,28 @@ switch (_OP_) {
 		$up_module_sender = $_POST['up_module_sender'];
 		$up_global_timezone = $_POST['up_global_timezone'];
 		if ($up_account_sid) {
-			if ($up_auth_token) {
-				$auth_token_change = "cfg_auth_token='$up_auth_token',";
-			}
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_gatewayTwilio_config
 				SET c_timestamp='" . time() . "',
-				cfg_callback_url='$up_callback_url',
-				cfg_account_sid='$up_account_sid',
-				" . $auth_token_change . "
-				cfg_module_sender='$up_module_sender',
-				cfg_datetime_timezone='$up_global_timezone'";
-			if (@dba_affected_rows($db_query)) {
+				cfg_callback_url=?,
+				cfg_account_sid=?,
+				cfg_module_sender=?,
+				cfg_datetime_timezone=?";
+			$db_argv = [
+				$up_callback_url,
+				$up_account_sid,
+				$up_module_sender,
+				$up_global_timezone
+			];
+			if (dba_affected_rows($db_query, $db_argv)) {
 				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
+
+				if ($up_auth_token) {
+					$db_query = "UPDATE " . _DB_PREF_ . "_gatewayTwilio_config SET cfg_auth_token=?";
+					if (dba_affected_rows($db_query, [$up_auth_token]) === 0) {
+						$_SESSION['dialog']['info'][] = _('Fail to update auth token');
+					}
+				}
 			} else {
 				$_SESSION['dialog']['danger'][] = _('Fail to save gateway module configurations');
 			}
@@ -82,5 +92,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_twilio&op=manage'));
 		exit();
-		break;
 }
