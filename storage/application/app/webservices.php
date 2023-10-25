@@ -101,12 +101,12 @@ $ws_error_string = array(
 	'623' => 'deducting credit failed due to missing data',
 	'624' => 'fail to deduct credit',
 	'625' => 'setting login key failed due to missing data',
-	'626' => 'fail to set login key' 
+	'626' => 'fail to set login key'
 );
 
 if (_OP_) {
 	switch (strtoupper(_OP_)) {
-		
+
 		// ---------------------- ADMIN TASKS ---------------------- //
 		case "INJECT":
 			if ($u = webservices_validate_admin($h, $u)) {
@@ -117,11 +117,11 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "ACCOUNTADD":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data = array();
-				foreach ($_REQUEST as $key => $value) {
+				foreach ( $_REQUEST as $key => $value ) {
 					switch ($key) {
 						case 'data_status':
 						case 'data_parent':
@@ -154,7 +154,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "ACCOUNTREMOVE":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
@@ -170,7 +170,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "PARENTSET":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
@@ -187,7 +187,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "PARENTGET":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
@@ -203,7 +203,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "ACCOUNTBAN":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
@@ -219,7 +219,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "ACCOUNTUNBAN":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
@@ -235,7 +235,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "ACCOUNTPREF":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
@@ -248,10 +248,10 @@ if (_OP_) {
 					'state',
 					'country',
 					'password',
-					'zipcode' 
+					'zipcode'
 				);
 				$data = array();
-				foreach ($fields as $field) {
+				foreach ( $fields as $field ) {
 					if ($c_data = trim($_REQUEST['data_' . $field])) {
 						$data[$field] = $c_data;
 					}
@@ -268,7 +268,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "ACCOUNTCONF":
 			if ($u = webservices_validate_admin($h, $u)) {
 				$data_uid = (int) user_username2uid($_REQUEST['data_username']);
@@ -281,10 +281,10 @@ if (_OP_) {
 					'fwd_to_mobile',
 					'local_length',
 					'replace_zero',
-					'sender' 
+					'sender'
 				);
 				$data = array();
-				foreach ($fields as $field) {
+				foreach ( $fields as $field ) {
 					if (strlen(trim($_REQUEST['data_' . $field]))) {
 						$data[$field] = trim($_REQUEST['data_' . $field]);
 					}
@@ -301,7 +301,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "CREDITVIEW":
 			if ($u = webservices_validate_admin($h, $u)) {
 				if ($data_username = $_REQUEST['data_username']) {
@@ -316,7 +316,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "CREDITADD":
 			if ($u = webservices_validate_admin($h, $u)) {
 				if ($data_username = $_REQUEST['data_username']) {
@@ -332,7 +332,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "CREDITDEDUCT":
 			if ($u = webservices_validate_admin($h, $u)) {
 				if ($data_username = $_REQUEST['data_username']) {
@@ -348,7 +348,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "LOGINKEYSET":
 			if ($u = webservices_validate_admin($h, $u)) {
 				if ($data_username = trim($_REQUEST['data_username'])) {
@@ -363,7 +363,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		// ------------------- INDIVIDUAL TASKS ------------------- //
 		case "PV":
 			if ($u = webservices_validate($h, $u)) {
@@ -374,7 +374,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "DS":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_ds($u, $queue, $src, $dst, $dt, $smslog_id, $c, $last);
@@ -389,7 +389,7 @@ if (_OP_) {
 				$log_this = FALSE;
 			}
 			break;
-		
+
 		case "IN":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_in($u, $src, $dst, $kwd, $dt, $c, $last);
@@ -399,7 +399,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "SX":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_sx($u, $src, $dst, $dt, $c, $last);
@@ -409,7 +409,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "IX":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_ix($u, $src, $dst, $dt, $c, $last);
@@ -418,13 +418,13 @@ if (_OP_) {
 				$json['error'] = '100';
 			}
 			$log_this = TRUE;
-	
+
 			// ignore no data on log
 			if ($json['error'] == '501') {
 				$log_this = FALSE;
 			}
 			break;
-		
+
 		case "CR":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_cr($u);
@@ -434,7 +434,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "GET_CONTACT":
 			if ($u = webservices_validate($h, $u)) {
 				$c_uid = user_username2uid($u);
@@ -445,7 +445,7 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "GET_CONTACT_GROUP":
 			if ($u = webservices_validate($h, $u)) {
 				$c_uid = user_username2uid($u);
@@ -456,10 +456,10 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "GET_TOKEN":
 			$user = array();
-			
+
 			if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
 				if (auth_validate_email($u, $p)) {
 					$u = user_email2username($u);
@@ -470,14 +470,14 @@ if (_OP_) {
 					$user = user_getdatabyusername($u);
 				}
 			}
-			
+
 			if ($user['uid']) {
 				$continue = false;
 				$json['status'] = 'ERR';
 				$json['error'] = '106';
 				$nets = explode(',', $user['webservices_ip']);
 				if (is_array($nets)) {
-					foreach ($nets as $net) {
+					foreach ( $nets as $net ) {
 						if (core_net_match($net, _REMOTE_ADDR_)) {
 							$continue = true;
 						}
@@ -508,18 +508,18 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "SET_TOKEN":
 			if ($u = webservices_validate($h, $u)) {
 				$user = user_getdatabyusername($u);
 				if ($c_uid = $user['uid']) {
 					$token = md5(core_get_random_string());
 					$items = array(
-						'token' => $token 
+						'token' => $token
 					);
 					$conditions = array(
 						'flag_deleted' => 0,
-						'uid' => $c_uid 
+						'uid' => $c_uid
 					);
 					if (dba_update(_DB_PREF_ . '_tblUser', $items, $conditions)) {
 						$json['status'] = 'OK';
@@ -539,27 +539,27 @@ if (_OP_) {
 			}
 			$log_this = TRUE;
 			break;
-		
+
 		case "WS_LOGIN":
 			$user = user_getdatabyusername($u);
 			if ($c_uid = $user['uid']) {
-				
+
 				// supplied login key
 				$login_key = trim($_REQUEST['login_key']);
-				
+
 				// saved login key
 				$reg = registry_search($c_uid, 'core', 'webservices', 'login_key');
 				$c_login_key = trim($reg['core']['webservices']['login_key']);
-				
+
 				// immediately remove saved login key, only proceed upon successful removal
 				if (registry_remove($c_uid, 'core', 'webservices', 'login_key')) {
-					
+
 					// auth by comparing login keys
 					if ($login_key && $c_login_key && ($login_key == $c_login_key)) {
-						
+
 						// setup login session after successful login
 						auth_session_setup($c_uid);
-						
+
 						_log("webservices logged in u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_, 3, "webservices");
 					} else {
 						_log("webservices invalid login u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_, 3, "webservices");
@@ -570,12 +570,11 @@ if (_OP_) {
 			} else {
 				_log("webservices invalid user u:" . $u . " ip:" . _REMOTE_ADDR_ . " op:" . _OP_, 3, "webservices");
 			}
-			
+
 			// redirect to index.php no matter what
 			header('Location: index.php');
 			exit();
-			break;
-		
+
 		case "QUERY":
 			if ($u = webservices_validate($h, $u)) {
 				$json = webservices_query($u);
@@ -596,13 +595,13 @@ if (_OP_) {
 			$log_this = TRUE;
 			break;
 
-		default :
+		default:
 			if (_OP_) {
-				
+
 				// output do not require valid login
 				// output must not be empty
 				$ret = webservices_output(_OP_, $_REQUEST, $returns);
-				
+
 				if ($ret['modified'] && $ret['param']['content']) {
 					ob_end_clean();
 					if ($ret['param']['content-type'] && $ret['param']['charset']) {
@@ -612,7 +611,7 @@ if (_OP_) {
 				}
 				exit();
 			} else {
-				
+
 				// default error return
 				$json['status'] = 'ERR';
 				$json['error'] = '102';
