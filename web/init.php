@@ -132,13 +132,17 @@ define('_SYSTEM_SENDER_ID_', '@admin');
 include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 
 // sanitize user inputs
-foreach ($_GET as $key => $val) {
+foreach ( $_GET as $key => $val ) {
 	$val = core_sanitize_inputs($val);
 	$_GET[$key] = core_addslashes($val);
 }
-foreach ($_POST as $key => $val) {
+foreach ( $_POST as $key => $val ) {
 	$val = core_sanitize_inputs($val);
 	$_POST[$key] = core_addslashes($val);
+}
+foreach ( $_COOKIE as $key => $val ) {
+	$val = core_sanitize_inputs($val);
+	$_COOKIE[$key] = core_addslashes($val);
 }
 
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
@@ -157,7 +161,7 @@ define('_PLUGIN_', core_sanitize_query($_REQUEST['plugin']));
 
 // enable anti-CSRF for anything but webservices
 if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
-	
+
 	// print_r($_POST); print_r($_SESSION);
 	if ($_POST) {
 		if (!core_csrf_validate()) {
@@ -176,7 +180,7 @@ if ($_POST['X-CSRF-Token']) {
 
 	// fixme anton - clean last posts
 	$c_last_post = array();
-	foreach ($_POST as $key => $val) {
+	foreach ( $_POST as $key => $val ) {
 		$val = str_replace('{{', '', $val);
 		$val = str_replace('}}', '', $val);
 		$val = str_replace('|', '', $val);
@@ -184,13 +188,13 @@ if ($_POST['X-CSRF-Token']) {
 		$val = str_replace('..', '', $val);
 		$c_last_post[$key] = $val;
 	}
-	
+
 	$_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $c_last_post;
 }
 
 // connect to database
 if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_))) {
-	
+
 	// _log('Fail to connect to database', 4, 'init');
 	ob_end_clean();
 	die(_('FATAL ERROR') . ' : ' . _('Fail to connect to database'));
@@ -201,10 +205,10 @@ dba_query('SET NAMES utf8');
 
 // get main config from registry and load it to $core_config['main']
 $result = registry_search(1, 'core', 'main_config');
-foreach ($result['core']['main_config'] as $key => $val) {
-	$ {
+foreach ( $result['core']['main_config'] as $key => $val ) {
+	${
 		$key
-	} = $val;
+		} = $val;
 	$core_config['main'][$key] = $val;
 }
 
@@ -235,7 +239,7 @@ $core_config['plugins']['category'] = array(
 	'feature',
 	'gateway',
 	'themes',
-	'language' 
+	'language'
 );
 
 // max sms text length
@@ -249,11 +253,11 @@ $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_c
 
 // reserved important keywords
 $core_config['reserved_keywords'] = array(
-	'BC' 
+	'BC'
 );
 
 if (auth_isvalid()) {
-	
+
 	// load user's data from user's DB table
 	$user_config = user_getdatabyusername($_SESSION['username']);
 	$user_config['opt']['sms_footer_length'] = (strlen($footer) > 0 ? strlen($footer) + 1 : 0);
@@ -263,11 +267,11 @@ if (auth_isvalid()) {
 	$user_config['opt']['max_sms_length_unicode'] = $core_config['main']['max_sms_length_unicode'] - $user_config['opt']['sms_footer_length'];
 	$user_config['opt']['gravatar'] = 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user_config['email'])));
 	if (!$core_config['daemon_process']) {
-		
+
 		// save login session information
 		user_session_set();
 	}
-	
+
 	// special setting to credit unicode SMS the same as normal SMS length
 	// for example: 2 unicode SMS (140 chars length) will be deducted as 1 credit just like a normal SMS (160 chars length)
 	$result = registry_search($user_config['uid'], 'core', 'user_config', 'enable_credit_unicode');
@@ -319,7 +323,7 @@ if (function_exists('bindtextdomain')) {
 }
 
 if (auth_isvalid()) {
-	
+
 	// set user lang
 	core_setuserlang($_SESSION['username']);
 } else {
