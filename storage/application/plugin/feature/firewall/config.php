@@ -1,7 +1,7 @@
 <?php
 defined('_SECURE_') or die('Forbidden');
 
-$plugin_config['firewall']['login_attempt_limit'] = 3;
+$plugin_config['firewall']['login_attempt_limit'] = 10;
 
 if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['settings'];
