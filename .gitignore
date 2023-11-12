@@ -31,6 +31,7 @@ web/lib/composer/*
 storage/composer/vendor/*
 storage/application/config.php
 storage/custom/application/configs/config.php
+config.php
 
 install.conf
 install.conf.backup
