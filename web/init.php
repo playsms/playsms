@@ -297,7 +297,7 @@ if (!empty($_POST)) {
 		$c_last_post[$key] = $val;
 	}
 
-	$_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_ . _INC_))] = $c_last_post;
+	$_SESSION['tmp']['last_post'][md5(trim(_APP_ . _INC_ . _ROUTE_))] = $c_last_post;
 }
 
 // connect to database
