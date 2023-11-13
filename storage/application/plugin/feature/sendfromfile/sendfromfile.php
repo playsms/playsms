@@ -22,6 +22,8 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
+@set_time_limit(0);
+
 switch (_OP_) {
 	case 'list':
 		$content = _dialog() . '<h2 class=page-header-title>' . _('Send from file') . '</h2><p />';
