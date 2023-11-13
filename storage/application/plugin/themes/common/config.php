@@ -45,7 +45,6 @@ $icon_config = array(
 	'user_add' => "<span class='playsms-icon fas fa-user-plus' alt='" . _('Add') . "' title='" . _('Add') . "'></span>",
 	'user_group' => "<span class='playsms-icon fas fa-users' alt='" . _('Group') . "' title='" . _('Group') . "'></span>",
 	'group' => "<span class='playsms-icon fas fa-object-group' alt='" . _('Group') . "' title='" . _('Group') . "'></span>",
-	'move' => "<span class='playsms-icon fa fas fa-arrows' alt='" . _('Move') . "' title='" . _('Move') . "'></span>",
 	'go' => "<span class='playsms-icon fas fa-tasks' alt='" . _('Go') . "' title='" . _('Go') . "'></span>",
 	'online' => "<span class='playsms-icon fas fa-toggle-on' alt='" . _('Online') . "' title='" . _('Online') . "'></span>",
 	'offline' => "<span class='playsms-icon fas fa-toggle-off' alt='" . _('Offline') . "' title='" . _('Offline') . "'></span>",
