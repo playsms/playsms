@@ -39,7 +39,6 @@ switch (_OP_) {
 			'name' => 'playsmslog',
 			'vars' => array(
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'LOG_FILE' => $core_config['apps_path']['logs'] . '/playsms.log',
 				'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'),
 				'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'),
 				'PLAYSMSD_IS_RUNNING' => $playsmsd_is_running,
