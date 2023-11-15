@@ -19,74 +19,66 @@
 
 defined('_SECURE_') or die('Forbidden');
 
+// export row limit
+$report_export_limit = 10000;
+
+// page reports
+$menutab = $core_config['menutab']['reports'];
+
 if (auth_isadmin()) {
-	$menutab = $core_config['menutab']['reports'];
-	
 	$menu_config[$menutab][] = array(
 		'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox',
-		_('All inbox') ,
-		3
+		_('Inbox messages'),
+		1
 	);
 	$menu_config[$menutab][] = array(
-		'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming',
-		_('All feature messages') ,
+		'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming&sandbox=1',
+		_('Sandbox'),
 		4
 	);
 	$menu_config[$menutab][] = array(
-		'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing',
-		_('All sent messages') ,
-		4
-	);
-	$menu_config[$menutab][] = array(
-		'index.php?app=main&inc=feature_report&route=sandbox&op=sandbox',
-		_('Sandbox') ,
-		5
-	);
-	$menu_config[$menutab][] = array(
-		"index.php?app=main&inc=feature_report&route=admin",
-		_('Report all users') ,
+		'index.php?app=main&inc=feature_report&route=admin',
+		_('Report all users'),
 		10
 	);
 	$menu_config[$menutab][] = array(
-		"index.php?app=main&inc=feature_report&route=online",
-		_('Report whose online') ,
+		'index.php?app=main&inc=feature_report&route=online',
+		_('Report whose online'),
 		10
 	);
 	$menu_config[$menutab][] = array(
-		"index.php?app=main&inc=feature_report&route=banned",
-		_('Report banned users') ,
+		'index.php?app=main&inc=feature_report&route=banned',
+		_('Report banned users'),
 		10
 	);
 }
 
+$menu_config[$menutab][] = array(
+	'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming',
+	_('Feature messages'),
+	2
+);
+$menu_config[$menutab][] = array(
+	'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing',
+	_('Sent messages'),
+	3
+);
+$menu_config[$menutab][] = array(
+	'index.php?app=main&inc=feature_report&route=user',
+	_('My report'),
+	5
+);
+$menu_config[$menutab][] = array(
+	'index.php?app=main&inc=feature_report&route=credit&op=credit_list',
+	_('My credit transactions'),
+	5
+);
+
+// if not admin then put in my account
 $menutab = $core_config['menutab']['my_account'];
 
 $menu_config[$menutab][] = array(
-	'index.php?app=main&inc=feature_report&route=user_inbox&op=user_inbox',
-	_('Inbox') ,
+	'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox&user_inbox=1',
+	_('My inbox'),
 	1
-);
-
-$menutab = $core_config['menutab']['reports'];
-
-$menu_config[$menutab][] = array(
-	'index.php?app=main&inc=feature_report&route=user_incoming&op=user_incoming',
-	_('My feature messages'),
-	1
-);
-$menu_config[$menutab][] = array(
-	'index.php?app=main&inc=feature_report&route=user_outgoing&op=user_outgoing',
-	_('My sent messages'),
-	1
-);
-
-$menu_config[$menutab][] = array(
-	"index.php?app=main&inc=feature_report&route=user",
-	_('My report'),
-	2
-);
-$menu_config[$menutab][] = array(
-	"index.php?app=main&inc=feature_report&route=credit&op=credit_list",
-	_('My credit transactions'),
-	2
 );
