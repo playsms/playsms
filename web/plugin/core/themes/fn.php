@@ -117,11 +117,16 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	return $nav_pages;
 }
 
+/**
+ * @param int $count Row counts
+ * @param string $url Form URL
+ * @return array|bool Array(form, limit, offset, top, nav, page, url) or FALSE
+ */
 function themes_nav($count, $url = '') {
 	$ret = FALSE;
 	
-	$lines_per_page = 20;
-	$max_nav = 5;
+	$lines_per_page = 50;
+	$max_nav = 10;
 	$num = ceil($count / $lines_per_page);
 	$nav = (_NAV_ ? _NAV_ : 1);
 	$page = (_PAGE_ ? _PAGE_ : 1);

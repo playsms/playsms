@@ -291,24 +291,24 @@ function user_add($data = array(), $forced = FALSE, $send_email = TRUE) {
 		}
 		
 		// ACL exception for admins
-		$data['acl_id'] = ((int) $data['acl_id'] ? (int) $data['acl_id'] : $core_config['main']['default_acl']);
+		$data['acl_id'] = ((int) $data['acl_id'] ? (int) $data['acl_id'] : (int) $core_config['main']['default_acl']);
 		if ($data['status'] == 2) {
 			$data['acl_id'] = 0;
 		}
 		
 		// default parent_id
-		$data['parent_uid'] = ((int) $data['parent_uid'] ? (int) $data['parent_uid'] : $core_config['main']['default_parent']);
+		$data['parent_uid'] = ((int) $data['parent_uid'] ? (int) $data['parent_uid'] : (int) $core_config['main']['default_parent']);
 		if ($parent_status = user_getfieldbyuid($data['parent_uid'], 'status')) {
 			// logic for parent_uid, parent uid by default is 0
 			if ($data['status'] == 4) {
 				if (!(($parent_status == 2) || ($parent_status == 3))) {
-					$data['parent_uid'] = $core_config['main']['default_parent'];
+					$data['parent_uid'] = (int) $core_config['main']['default_parent'];
 				}
 			} else {
-				$data['parent_uid'] = $core_config['main']['default_parent'];
+				$data['parent_uid'] = (int) $core_config['main']['default_parent'];
 			}
 		} else {
-			$data['parent_uid'] = $core_config['main']['default_parent'];
+			$data['parent_uid'] = (int) $core_config['main']['default_parent'];
 		}
 		
 		$data['username'] = core_sanitize_username($data['username']);
