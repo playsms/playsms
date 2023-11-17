@@ -34,9 +34,11 @@ function keyword_isavail($keyword, $sms_receiver = '') {
 	$reserved = false;
 	
 	$keyword = trim(strtoupper($keyword));
-	for ($i = 0; $i < count($core_config['reserved_keywords']); $i++) {
-		if ($keyword == trim(strtoupper($core_config['reserved_keywords'][$i]))) {
-			$reserved = true;
+	if (isset($core_config['reserved_keywords']) && is_array($core_config['reserved_keywords'])) {
+		for ($i = 0; $i < count($core_config['reserved_keywords']); $i++) {
+			if ($keyword == trim(strtoupper($core_config['reserved_keywords'][$i]))) {
+				$reserved = true;
+			}
 		}
 	}
 	

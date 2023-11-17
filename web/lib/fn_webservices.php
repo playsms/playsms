@@ -89,6 +89,8 @@ function webservices_validate_admin($h, $u) {
 function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $nofooter = FALSE, $footer = '', $from = '', $schedule = '') {
 	$ret = '';
 	if ($c_username && $to && $msg) {
+		// $to is array
+		$to = is_array($to) ? $to : [$to];
 		
 		// send SMS, note that we can't let user to define SMSC for now
 		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, '', $nofooter, $footer, $from, $schedule);
@@ -512,18 +514,20 @@ function webservices_output($operation, $requests, $returns) {
 	);
 	
 	// plugin feature
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-		if ($ret_intercept = core_hook($core_config['plugins']['list']['feature'][$c], 'webservices_output', array(
-			$operation,
-			$requests,
-			$returns 
-		))) {
-			if ($ret_intercept['modified']) {
-				$returns['modified'] = TRUE;
-				$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
-				$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
-				$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
-				$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
+	if (isset($core_config['plugins']['list']['feature']) && is_array($core_config['plugins']['list']['feature'])) {
+		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+			if ($ret_intercept = core_hook($core_config['plugins']['list']['feature'][$c], 'webservices_output', array(
+				$operation,
+				$requests,
+				$returns 
+			))) {
+				if ($ret_intercept['modified']) {
+					$returns['modified'] = TRUE;
+					$returns['param']['operation'] = ($ret_intercept['param']['operation'] ? $ret_intercept['param']['operation'] : $returns['param']['operation']);
+					$returns['param']['content'] = ($ret_intercept['param']['content'] ? $ret_intercept['param']['content'] : $returns['param']['content']);
+					$returns['param']['content-type'] = ($ret_intercept['param']['content-type'] ? $ret_intercept['param']['content-type'] : $returns['param']['content-type']);
+					$returns['param']['charset'] = ($ret_intercept['param']['charset'] ? $ret_intercept['param']['charset'] : $returns['param']['charset']);
+				}
 			}
 		}
 	}

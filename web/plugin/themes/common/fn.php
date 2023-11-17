@@ -69,6 +69,7 @@ function common_hook_themes_submenu($content = '') {
 function common_hook_themes_buildmenu($menu_config) {
 	global $core_config, $user_config, $icon_config;
 	
+	$m = [];
 	$main_menu = "";
 	foreach ($menu_config as $menu_title => $array_menu) {
 		foreach ($array_menu as $sub_menu) {

@@ -239,9 +239,13 @@ function core_call_hook($function_name = '', $arguments = array())
 		$function_name = $f[1]['function'];
 		$arguments = $f[1]['args'];
 	}
-	for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-		if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
-			break;
+	if (isset($core_config['plugins']['list']['feature']) && is_array($core_config['plugins']['list']['feature'])) {
+		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+			if (isset($core_config['plugins']['list']['feature'][$c])) {
+				if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
+					break;
+				}
+			}
 		}
 	}
 	return $ret;
