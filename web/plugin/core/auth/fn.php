@@ -166,8 +166,10 @@ function auth_validate_token($token) {
 function auth_isvalid() {
 	if ($_SESSION['sid'] && $_SESSION['uid'] && $_SESSION['valid']) {
 		$hash = user_session_get('', $_SESSION['sid']);
-		if ($_SESSION['sid'] == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
-			return acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
+		if (is_array($hash) && isset($hash[key($hash)]['sid']) && isset($hash[key($hash)]['uid'])) {
+			if ($_SESSION['sid'] == $hash[key($hash)]['sid'] && $_SESSION['uid'] == $hash[key($hash)]['uid']) {
+				return acl_checkurl($_SERVER['QUERY_STRING'], $_SESSION['uid']);
+			}	
 		}
 	}
 	
@@ -180,7 +182,7 @@ function auth_isvalid() {
  * @return boolean TRUE if valid and visitor has admin access level
  */
 function auth_isadmin() {
-	if ($_SESSION['status'] == 2) {
+	if ((int) $_SESSION['status'] === 2) {
 		if (auth_isvalid()) {
 			return TRUE;
 		}
@@ -194,7 +196,7 @@ function auth_isadmin() {
  * @return boolean TRUE if valid and visitor has user access level
  */
 function auth_isuser() {
-	if ($_SESSION['status'] == 3) {
+	if ((int) $_SESSION['status'] === 3) {
 		if (auth_isvalid()) {
 			return TRUE;
 		}
@@ -208,7 +210,7 @@ function auth_isuser() {
  * @return boolean TRUE if valid and visitor has subuser access level
  */
 function auth_issubuser() {
-	if ($_SESSION['status'] == 4) {
+	if ((int) $_SESSION['status'] === 4) {
 		if (auth_isvalid()) {
 			return TRUE;
 		}
@@ -224,7 +226,7 @@ function auth_issubuser() {
  * @return boolean TRUE if valid and visitor has certain user status
  */
 function auth_isstatus($status) {
-	if ($_SESSION['status'] == (int) $status) {
+	if ((int) $_SESSION['status'] && (int) $_SESSION['status'] === (int) $status) {
 		if (auth_isvalid()) {
 			return TRUE;
 		}
@@ -271,6 +273,9 @@ function auth_block() {
 function auth_session_setup($uid) {
 	global $core_config;
 	
+	// regenerate new session ID
+	session_regenerate_id(TRUE);
+
 	$c_user = user_getdatabyuid($uid);
 	if ($c_user['username']) {
 		// set session
@@ -288,6 +293,36 @@ function auth_session_setup($uid) {
 			user_session_set($c_user['uid']);
 		}
 	}
+}
+
+/**
+ * Destroy user session
+ */
+function auth_session_destroy()
+{
+	$login_sid = $_SESSION['sid'];
+	$uid = $_SESSION['uid'];
+
+	user_session_remove($uid);
+
+	$_SESSION = array();
+
+	if (ini_get('session.use_cookies')) {
+		$params = session_get_cookie_params();
+		setcookie(
+			session_name(),
+			'',
+			time() - 42000,
+			$params['path'],
+			$params['domain'],
+			$params['secure'],
+			$params['httponly']
+		);
+	}
+
+	session_destroy();
+
+	_log("session destroyed uid:" . $uid . " hash:" . $login_sid, 2, "auth_session_destroy");
 }
 
 function auth_login_as($uid) {

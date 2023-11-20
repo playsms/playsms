@@ -708,13 +708,17 @@ function user_session_remove($uid = '', $sid = '', $hash = '') {
 		}
 	} else if ($sid) {
 		$hash = user_session_get('', $sid);
-		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
-			return TRUE;
+		if (is_array($hash)) {
+			if (registry_remove(1, 'auth', 'login_session', key($hash))) {
+				return TRUE;
+			}
 		}
 	} else if ($uid) {
 		$hash = user_session_get($uid);
-		if (registry_remove(1, 'auth', 'login_session', key($hash))) {
-			$ret = TRUE;
+		if (is_array($hash)) {
+			if (registry_remove(1, 'auth', 'login_session', key($hash))) {
+				$ret = TRUE;
+			}	
 		}
 	}
 	return $ret;
