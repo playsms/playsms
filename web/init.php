@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
- if (is_file('config.php')) {
+if (is_file('config.php')) {
 	require 'config.php';
 } else {
 	die(_('FATAL ERROR') . ' : ' . _('Fail to load application config file'));
@@ -35,23 +35,53 @@ if (!defined('_PHP_VER_')) {
 }
 
 // $DAEMON_PROCESS is special variable passed by daemon script
-$core_config['daemon_process'] = $DAEMON_PROCESS;
+$core_config['daemon_process'] = isset($DAEMON_PROCESS) && $DAEMON_PROCESS ? true : false;
 
 // do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
+	ini_set('session.cookie_lifetime', 0);
+	ini_set('session.cookie_samesite', 'Strict');
+	ini_set('session.cache_limiter', 'nocache');
+	ini_set('session.use_trans_sid', FALSE);
+	ini_set('session.use_strict_mode', TRUE);
+	ini_set('session.use_cookies', TRUE);
+	ini_set('session.use_only_cookies', TRUE);
+	ini_set('session.cookie_httponly', TRUE);
+
+	// set only when using HTTPS
+	$session_cookie_secure = 0;
+	if (isset($_SERVER['HTTPS'])) {
+		if (strtolower($_SERVER['HTTPS']) === 'on' || $_SERVER['HTTPS'] == '1') {
+			ini_set('session.cookie_secure', TRUE);
+			$session_cookie_secure = 1;
+		}
+	}
+
+	session_start([
+		'cookie_lifetime' => 0,
+		'cookie_samesite' => 'Strict',
+		'cache_limiter' => 'nocache',
+		'use_trans_sid' => 0,
+		'use_strict_mode' => 1,
+		'use_cookies' => 1,
+		'cookie_httponly' => 1,
+		'cookie_secure' => $session_cookie_secure,
+	]);
+
 	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
 		header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 	} else {
 		header('Pragma: no-cache');
 	}
+
 	header('X-Frame-Options: SAMEORIGIN');
-	@session_start();
 }
 
 // output buffering starts even from daemon script
 ob_start();
 
 // DB config defines
+$core_config['db'] = [];
 define('_DB_TYPE_', $core_config['db']['type']);
 define('_DB_HOST_', $core_config['db']['host']);
 define('_DB_PORT_', $core_config['db']['port']);
@@ -67,6 +97,7 @@ $core_config['db']['pref'] = 'playsms';
 define('_DB_PREF_', $core_config['db']['pref']);
 
 // SMTP config defines
+$core_config['smtp'] = [];
 define('_SMTP_RELM_', $core_config['smtp']['relm']);
 define('_SMTP_USER_', $core_config['smtp']['user']);
 define('_SMTP_PASS_', $core_config['smtp']['pass']);
