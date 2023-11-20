@@ -26,12 +26,19 @@ if (!auth_isvalid()) {
 $is_admin = auth_isadmin() ? true : false;
 
 // admin force to be user instead for my account page
+$is_user_inbox = 0;
 if ($is_admin && isset($_REQUEST['user_inbox']) && (int) $_REQUEST['user_inbox'] === 1) {
 	$is_admin = false;
+	$is_user_inbox = 1;
 }
 
 // base URL
 $base_url = 'index.php?app=main&inc=feature_report&route=all_inbox';
+
+// if user inbox
+if ($is_user_inbox) {
+	$base_url .= '&user_inbox=1';
+}
 
 // just in case it will take a very long time, we don't want to display blank or 500 error
 @set_time_limit(0);
