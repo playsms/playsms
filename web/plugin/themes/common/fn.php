@@ -4,8 +4,10 @@ defined('_SECURE_') or die('Forbidden');
 function common_hook_themes_apply($content) {
 	global $core_config, $user_config;
 	
+	$user_config['language_module'] = isset($user_config['language_module']) ? $user_config['language_module'] : '';
 	$themes_lang = strtolower(substr($user_config['language_module'], 0, 2));
 	
+	$_REQUEST['_themes_layout_'] = isset($_REQUEST['_themes_layout_']) ? $_REQUEST['_themes_layout_'] : '';
 	if ($themes_layout = trim($_REQUEST['_themes_layout_'])) {
 		$themes_layout = 'themes_layout_' . $themes_layout;
 	} else {

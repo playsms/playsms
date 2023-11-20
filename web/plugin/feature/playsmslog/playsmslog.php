@@ -28,7 +28,7 @@ switch (_OP_) {
 		
 		// get playsmsd status
 		$json = shell_exec($plugin_config['playsmslog']['playsmsd']['bin'] . ' ' . $plugin_config['playsmslog']['playsmsd']['conf'] . ' check_json');
-		$playsmsd = json_decode($json);
+		$playsmsd = json_decode(!is_array($json) ? (string) $json : '');
 		if ($playsmsd->IS_RUNNING) {
 			$playsmsd_is_running = '<span class=status_enabled title="' . _('playSMS daemon is running') . '"></span>';
 		} else {

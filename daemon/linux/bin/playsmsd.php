@@ -279,7 +279,7 @@ $PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/plays
 $DAEMON_SLEEP = ($ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1);
 
 // set PHP error reporting level
-$ERROR_REPORTING = isset($ini['ERROR_REPORTING']) ? (int) $ini['ERROR_REPORTING'] : E_ALL ^ (E_NOTICE | E_WARNING);
+$ERROR_REPORTING = isset($ini['ERROR_REPORTING']) ? (int) $ini['ERROR_REPORTING'] : E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT & ~E_DEPRECATED;
 
 error_reporting($ERROR_REPORTING);
 

@@ -20,7 +20,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 function registry_update($uid, $registry_group, $registry_family, $items) {
-	$ret = false;
+	$ret = [];
 	$db_table = _DB_PREF_.'_tblRegistry';
 	if (is_array($items)) {
 		foreach ($items as $key => $val) {
@@ -39,7 +39,7 @@ function registry_update($uid, $registry_group, $registry_family, $items) {
 }
 
 function registry_search($uid, $registry_group, $registry_family = '', $registry_key = '') {
-	$ret = array();
+	$ret = [];
 	$db_table = _DB_PREF_.'_tblRegistry';
 	if ($registry_group && $registry_family && $registry_key) {
 		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $registry_key);

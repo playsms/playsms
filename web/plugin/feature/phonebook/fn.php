@@ -354,7 +354,7 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 	}
 	
 	// safety net
-	if (count($item) == 0) {
+	if (is_array($item) && count($item) === 0) {
 		$item[] = array(
 			'id' => $keyword,
 			'text' => $keyword 

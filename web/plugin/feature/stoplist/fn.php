@@ -132,7 +132,7 @@ function stoplist_hook_blacklist_mobile_get($uid) {
  *        single mobile number
  * @return boolean TRUE when found and FALSE if not found
  */
-function stoplist_hook_blacklist_mobile_isexists($uid = 0, $mobile) {
+function stoplist_hook_blacklist_mobile_isexists($uid, $mobile) {
 	$ret = FALSE;
 	
 	$conditions = array(

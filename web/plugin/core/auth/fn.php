@@ -310,8 +310,12 @@ function auth_login_return() {
 }
 
 function auth_login_as_check() {
-	if (count($_SESSION['tmp']['login_as']) > 0) {
-		return TRUE;
+	if (isset($_SESSION['tmp']['login_as'])) {
+		if (count($_SESSION['tmp']['login_as']) > 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	} else {
 		return FALSE;
 	}

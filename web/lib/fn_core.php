@@ -177,7 +177,7 @@ if (!function_exists('_')) {
 
 function core_sanitize_query($var)
 {
-	$var = str_replace("/", "", $var);
+	$var = str_replace("/", "", (string) $var);
 	$var = str_replace("|", "", $var);
 	$var = str_replace("\\", "", $var);
 	$var = str_replace("\"", "", $var);
@@ -189,7 +189,7 @@ function core_sanitize_query($var)
 
 function core_sanitize_path($var)
 {
-	$var = str_replace("|", "", $var);
+	$var = str_replace("|", "", (string) $var);
 	$var = str_replace("..", "", $var);
 	$var = strip_tags($var);
 	return $var;
@@ -388,7 +388,7 @@ function core_display_text($text, $len = 0)
 
 	if (is_array($text)) {
 		foreach ( $text as $item ) {
-			$ret[] = core_display_text((string) $item, $len);
+			$ret[] = core_display_text($item, $len);
 		}
 	} else {
 		$text = $hp->purify($text);
@@ -894,8 +894,11 @@ function core_smslen($text, $encoding = "")
  *
  * This function returns an xml format of an array
  * Usage: core_array_to_xml(ARRAY, SimpleXMLElement OBJECT)
+ * @param array $arr
+ * @param SimpleXMLElement $xml
+ * @return SimpleXMLElement
  */
-function core_array_to_xml($arr = array(), SimpleXMLElement $xml)
+function core_array_to_xml($arr, SimpleXMLElement $xml)
 {
 	foreach ( $arr as $k => $v ) {
 		if (is_numeric($k)) {

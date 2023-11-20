@@ -49,9 +49,9 @@ function pluginmanager_list($plugin_category) {
 			$subdir_tab[$z]['version'] .= trim(file_get_contents($core_config['apps_path']['plug'] . "/" . $plugin_category . "/" . $f . "/docs/VERSION"));
 			$subdir_tab[$z]['date'] .= date($core_config['datetime']['format'], filemtime($upload_path . $f));
 			if (pluginmanager_get_status($plugin_category, $fn)) {
-				$subdir_tab[$z][status] .= '<span class=status_enabled />';
+				$subdir_tab[$z]['status'] .= '<span class=status_enabled />';
 			} else {
-				$subdir_tab[$z][status] .= '<span class=status_disabled />';
+				$subdir_tab[$z]['status'] .= '<span class=status_disabled />';
 			}
 			$z++;
 		}

@@ -31,7 +31,8 @@ $core_config['smtp']['port'] = '25';
 // on production level you should turn off PHP error reporting (set to 0), by default it's on
 //error_reporting(0);
 //error_reporting(E_ALL ^ (E_NOTICE | E_WARNING | E_DEPRECATED));
-error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT);
+//error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT);
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT & ~E_DEPRECATED);
 
 // logs directories
 $core_config['apps_path']['logs'] = '#PATHLOG#';
