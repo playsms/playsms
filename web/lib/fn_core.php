@@ -139,9 +139,7 @@ function core_sanitize_inputs($data)
 /**
  * Set the language for the user, if it's no defined just leave it with the default
  *
- * @param string $var_username
- *        Username
- * @return boolean TRUE if valid
+ * @param string $var_username Username
  */
 function core_setuserlang($username = "")
 {
@@ -1352,7 +1350,6 @@ if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
 	include_once _APPS_PATH_LIBS_ . '/composer/vendor/autoload.php';
 } else {
 	die(_('FATAL ERROR') . ' : ' . _('Unable to find composer files') . ' ' . _('Please run composer.phar update'));
-	exit();
 }
 
 /**
