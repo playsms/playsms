@@ -52,12 +52,14 @@ switch (_OP_) {
 		// message template
 		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
 		$c_templates = sendsms_get_template();
-		for ($i = 0; $i < count($c_templates); $i++) {
-			$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
-			$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
-		}
-		if ($c_templates[0]) {
-			$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick=\"SetSmsTemplate();\">$option_values</select></div>";
+		if (is_array($c_templates)) {
+			for ($i = 0; $i < count($c_templates); $i++) {
+				$option_values .= "<option value=\"" . $c_templates[$i]['text'] . "\" title=\"" . $c_templates[$i]['text'] . "\">" . $c_templates[$i]['title'] . "</option>";
+				$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . $c_templates[$i]['text'] . "\">";
+			}
+			if ($c_templates[0]) {
+				$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick=\"SetSmsTemplate();\">$option_values</select></div>";
+			}
 		}
 		
 		$layout = ($_REQUEST['popup'] == 1 ? 'sendsms_popup' : 'sendsms');
