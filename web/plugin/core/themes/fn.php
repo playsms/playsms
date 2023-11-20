@@ -450,12 +450,17 @@ function themes_dialog($content = array(), $title = '') {
 	$ret = '';
 	
 	foreach ($contents as $type => $data) {
-		$message = '';
+		$dialog_message = '';
 		$continue = FALSE;
 		
-		foreach ($data as $text) {
-			if (trim($text)) {
-				$message .= '<div class=playsms-dialog-text>' . trim($text) . '</div>';
+		foreach ( $data as $texts ) {
+			if (is_array($texts) && count($texts) > 0) {
+				foreach ( $texts as $text ) {
+					$dialog_message .= trim($text) ? core_display_html(trim($text)) . '<br />' : '';
+				}
+				$continue = TRUE;
+			} elseif (trim($texts)) {
+				$dialog_message = core_display_html(trim($texts));
 				$continue = TRUE;
 			}
 		}
@@ -481,7 +486,7 @@ function themes_dialog($content = array(), $title = '') {
 					BootstrapDialog.show({
 						type: BootstrapDialog.TYPE_" . $dialog_type . ",
 						title: '" . $dialog_title . "',
-						message: '" . $message . "',
+						message: '" . $dialog_message . "',
 						closable: true,
 						draggable: true
 					})
