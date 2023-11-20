@@ -118,8 +118,8 @@ foreach ($rows as $row) {
 		'num_rows_delivered' => $row['num_rows_delivered'],
 		'num_rows_failed' => $row['num_rows_failed'],
 		'num_rows_deleted' => $row['num_rows_deleted'],
-		'c_billing' => $c_billing,
-		'c_credit' => $c_credit 
+		'c_billing' => core_display_credit($c_billing),
+		'c_credit' => core_display_credit($c_credit) 
 	);
 	
 	// Totals
