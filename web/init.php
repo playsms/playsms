@@ -34,8 +34,20 @@ if (!defined('_PHP_VER_')) {
 	define('_PHP_VER_', ($version[0] * 10000 + $version[1] * 100 + $version[2]));
 }
 
+// saves remote IP address from alternate source or server's REMOTE_ADDR
+if (isset($core_config['remote_addr']) && !is_array($core_config['remote_addr']) && $c_remote_addr = trim($core_config['remote_addr'])) {
+	define('_REMOTE_ADDR_', $c_remote_addr);
+	unset($c_remote_addr);
+} else {
+	define('_REMOTE_ADDR_', $_SERVER['REMOTE_ADDR']);
+}
+
 // $DAEMON_PROCESS is special variable passed by daemon script
-$core_config['daemon_process'] = isset($DAEMON_PROCESS) && $DAEMON_PROCESS ? true : false;
+if (isset($DAEMON_PROCESS) && $DAEMON_PROCESS) {
+	$core_config['daemon_process'] = true;
+} else {
+	$core_config['daemon_process'] = false;
+}
 
 // do these when this script wasn't called from daemon script
 if (!$core_config['daemon_process']) {
@@ -81,7 +93,6 @@ if (!$core_config['daemon_process']) {
 ob_start();
 
 // DB config defines
-$core_config['db'] = [];
 define('_DB_TYPE_', $core_config['db']['type']);
 define('_DB_HOST_', $core_config['db']['host']);
 define('_DB_PORT_', $core_config['db']['port']);
@@ -97,7 +108,6 @@ $core_config['db']['pref'] = 'playsms';
 define('_DB_PREF_', $core_config['db']['pref']);
 
 // SMTP config defines
-$core_config['smtp'] = [];
 define('_SMTP_RELM_', $core_config['smtp']['relm']);
 define('_SMTP_USER_', $core_config['smtp']['user']);
 define('_SMTP_PASS_', $core_config['smtp']['pass']);
@@ -228,7 +238,7 @@ if ($_POST['X-CSRF-Token']) {
 }
 
 // connect to database
-if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_))) {
+if (!($DBA_PDO = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_PORT_, true))) {
 
 	// _log('Fail to connect to database', 4, 'init');
 	ob_end_clean();
@@ -236,14 +246,12 @@ if (!($dba_object = dba_connect(_DB_USER_, _DB_PASS_, _DB_NAME_, _DB_HOST_, _DB_
 }
 
 // set charset to UTF-8
-dba_query('SET NAMES utf8');
+dba_query("SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'");
 
 // get main config from registry and load it to $core_config['main']
 $result = registry_search(1, 'core', 'main_config');
 foreach ( $result['core']['main_config'] as $key => $val ) {
-	${
-		$key
-		} = $val;
+	${$key} = $val;
 	$core_config['main'][$key] = $val;
 }
 
