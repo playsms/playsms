@@ -9,6 +9,7 @@
 		"playsms/tpl": "1.*",
 		"playsms/webservices": "1.*",
 		"gregwar/captcha": "1.*",
-		"ezyang/htmlpurifier": "4.*"
+		"ezyang/htmlpurifier": "4.*",
+		"phpmailer/phpmailer": "~6.1"
 	}
 }

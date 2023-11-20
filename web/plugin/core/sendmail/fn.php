@@ -19,31 +19,37 @@
 
 defined('_SECURE_') or die('Forbidden');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 /**
  * Send email service.
  *
  * Parameters are as follows:
  *	$data = array(
  * 		'mail_from_name'	=> '',
- *		'mail_from'		=> '',
+ *		'mail_from'			=> '',
  *		'mail_reply_name'	=> '',
  *		'mail_reply'		=> '',
  *		'mail_error_name'	=> '',
  *		'mail_error'		=> '',
  *		'mail_to_name'		=> '',
- *		'mail_to'		=> '',
+ *		'mail_to'			=> '',
  *		'mail_cc_name'		=> '',
- *		'mail_cc'		=> '',
+ *		'mail_cc'			=> '',
  *		'mail_bcc_name'		=> '',
- *		'mail_bcc'		=> '',
+ *		'mail_bcc'			=> '',
  *		'mail_subject'		=> '',
- *		'mail_body'		=> '',
+ *		'mail_body'			=> '',
+ *		'mail_body_text'	=> '',
  *		'mail_charset'		=> '',
- *		'smtp_relm'		=> '',
- *		'smtp_user'		=> '',
- *		'smtp_pass'		=> '',
- *		'smtp_host'		=> '',
- *		'smtp_port'		=> '',
+ *		'smtp_relm'			=> '',
+ *		'smtp_user'			=> '',
+ *		'smtp_pass'			=> '',
+ *		'smtp_host'			=> '',
+ *		'smtp_port'			=> '',
+ *		'smtp_secure'		=> '',
  *		'smtp_debug'		=> '',
  *		'smtp_direct'		=> '',
  *		'attachment_data'	=> '',
@@ -54,9 +60,10 @@ defined('_SECURE_') or die('Forbidden');
  * @param array
  * @return boolean
  */
-function sendmail($data = array()) {
+function sendmail($data = array())
+{
 	global $core_config;
-	
+
 	if (is_array($data)) {
 		$mail_from_name = $data['mail_from_name'];
 		$mail_from = $data['mail_from'];
@@ -72,106 +79,86 @@ function sendmail($data = array()) {
 		$mail_bcc = $data['mail_bcc'];
 		$mail_subject = $data['mail_subject'];
 		$mail_body = $data['mail_body'];
+		$mail_body_alternative = $data['mail_body_alternative'];
+		$mail_body_format = strtolower($data['mail_body_format']); // plain, html, default html
 		$mail_charset = $data['mail_charset'];
 		$smtp_relm = $data['smtp_relm'];
 		$smtp_user = $data['smtp_user'];
 		$smtp_pass = $data['smtp_pass'];
 		$smtp_host = $data['smtp_host'];
-		$smtp_port = $data['smtp_port'];
-		$smtp_debug = $data['smtp_debug'];
+		$smtp_port = (int) $data['smtp_port'];
+		$smtp_secure = strtolower($data['smtp_secure']); // no, tls, ssl, default no
+		$smtp_debug = (boolean) $data['smtp_debug']; // true, false, default false
 		$smtp_direct = $data['smtp_direct'];
 		$attachment_data = $data['attachment_data'];
 		$attachment_name = $data['attachment_name'];
 		$attachment_type = $data['attachment_type'];
-	}
-	
-	_log("start from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
-	if (!class_exists(email_message_class)) {
-		include_once $core_config['apps_path']['plug'] . "/core/sendmail/lib/external/mimemessage/email_message.php";
-	}
-	if (!class_exists(smtp_message_class)) {
-		include_once $core_config['apps_path']['plug'] . "/core/sendmail/lib/external/mimemessage/smtp_message.php";
-	}
-	if (!class_exists(smtp_class)) {
-		include_once $core_config['apps_path']['plug'] . "/core/sendmail/lib/external/mimemessage/smtp/smtp.php";
-	}
-	
-	$from_name = $mail_from_name;
-	$from_address = $mail_from;
-	$reply_name = $mail_reply_name;
-	$reply_address = $mail_reply;
-	$error_delivery_name = $mail_error_name;
-	$error_delivery_address = $mail_error;
-	$to_name = $mail_to_name;
-	$to_address = $mail_to;
-	$cc_name = $mail_cc_name;
-	$cc_address = $mail_cc;
-	$bcc_name = $mail_bcc_name;
-	$bcc_address = $mail_bcc;
-	$subject = $mail_subject;
-	$text_message = $mail_body;
-	
-	$email_message = new smtp_message_class;
-	$email_message->localhost = 'localhost';
-	$email_message->smtp_realm = ($smtp_relm ? $smtp_relm : _SMTP_RELM_);
-	$email_message->smtp_user = ($smtp_user ? $smtp_user : _SMTP_USER_);
-	$email_message->smtp_password = ($smtp_pass ? $smtp_pass : _SMTP_PASS_);
-	$email_message->smtp_host = ($smtp_host ? $smtp_host : _SMTP_HOST_);
-	$email_message->smtp_port = ($smtp_port ? $smtp_port : _SMTP_PORT_);
-	$email_message->smtp_debug = ($smtp_debug ? 1 : 0);
-	$email_message->smtp_direct_delivery = ($smtp_direct ? 1 : 0);
-	
-	// default charset sets to UTF-8 (emmanuel)
-	$email_message->default_charset = "UTF-8";
-	
-	$email_message->SetEncodedEmailHeader("From", $from_address, $from_name);
-	$email_message->SetEncodedEmailHeader("To", $to_address, $to_name);
-	if ($cc_address) {
-		$email_message->SetEncodedEmailHeader("Cc", $cc_address, $cc_name);
-	}
-	if ($bcc_address) {
-		$email_message->SetEncodedEmailHeader("Bcc", $bcc_address, $bcc_name);
-	}
-	if ($reply_address) {
-		$email_message->SetEncodedEmailHeader("Reply-To", $reply_address, $reply_name);
-	}
-	if ($error_delivery_address) {
-		$email_message->SetEncodedEmailHeader("Errors-To", $error_delivery_address, $error_delivery_name);
-	}
-	$email_message->SetEncodedHeader("Subject", $subject);
-	$email_message->AddQuotedPrintableTextPart($email_message->WrapText($text_message));
-	
-	/*
-	 *  Set the Return-Path header to define the envelope sender address to which bounced messages are delivered.
-	 *  If you are using Windows, you need to use the smtp_message_class to set the return-path address.
-	*/
-	if (defined("PHP_OS") && strcmp(substr(PHP_OS, 0, 3) , "WIN") && $error_delivery_address) {
-		$email_message->SetHeader("Return-Path", $error_delivery_address);
-	}
-	
-	if ($attachment_data && $attachment_name && $attachment_type) {
-		$file_attachment = array(
-			'Data' => $attachment_data,
-			'Name' => $attachment_name,
-			'Content-Type' => $attachment_type,
-			'Disposition' => 'attachment'
-		);
-		$email_message->AddFilePart($file_attachment);
-	}
-	
-	/*
-	 *  The message is now ready to be assembled and sent.
-	 *  Notice that most of the functions used before this point may fail due to
-	 *  programming errors in your script. You may safely ignore any errors until
-	 *  the message is sent to not bloat your scripts with too much error checking.
-	*/
-	$error = $email_message->Send();
-	
-	if (strcmp($error, "")) {
-		_log("end with error:" . $error, 2, "sendmail");
-		return false;
 	} else {
-		_log("end from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
+		_log("error no data", 2, "sendmail");
+
+		return false;
+	}
+
+	_log("start from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
+
+	// Instantiation and passing `true` enables exceptions
+	$mail = new PHPMailer(true);
+
+	try {
+		// Server settings
+		$mail->SMTPDebug = ($smtp_debug ? SMTP::DEBUG_CONNECTION : SMTP::DEBUG_SERVER); // Enable verbose debug output
+		$mail->isSMTP(); // Send using SMTP
+		$mail->Host = ($smtp_host ? $smtp_host : _SMTP_HOST_); // Set the SMTP server to send through
+		$mail->Port = ($smtp_port ? $smtp_port : _SMTP_PORT_); // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+		if ($smtp_user) {
+			$mail->SMTPAuth = true; // Enable SMTP authentication
+			$mail->Username = ($smtp_user ? $smtp_user : _SMTP_USER_); // SMTP username
+			$mail->Password = ($smtp_pass ? $smtp_pass : _SMTP_PASS_); // SMTP password
+		}
+
+		if ($smtp_secure == 'tls') {
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
+		} else if ($smtp_secure == 'ssl') {
+			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Enable SSL encryption
+		}
+
+		// Recipients
+		$mail->setFrom($mail_from, $mail_from_name);
+		$mail->addAddress($mail_to, $mail_to_name); // Add a recipient
+		if ($mail_reply) {
+			$mail->addReplyTo($mail_reply, $mail_reply_name);
+
+		}
+		if ($mail_cc) {
+			$mail->addCC($mail_cc, $mail_cc_name);
+		}
+		if ($mail_bcc) {
+			$mail->addBCC($mail_bcc, $mail_bcc_name);
+		}
+
+		// Content
+		$mail->Subject = $mail_subject;
+		$mail->Body = $mail_body;
+
+		if ($mail_body_format == 'plain') {
+			$mail->isHTML(false);
+		} else {
+			$mail->isHTML(true);
+			if ($mail_body_alternative) {
+				$mail->AltBody = $mail_body_alternative;
+			}
+		}
+
+		// Send it
+		$mail->send();
+
+		_log("sent from:" . $mail_from . " to:" . $mail_to . " subject:" . $mail_subject, 2, "sendmail");
+
 		return true;
+	} catch (Exception $e) {
+		_log("end with error:" . $mail->ErrorInfo, 2, "sendmail");
+
+		return false;
 	}
 }
