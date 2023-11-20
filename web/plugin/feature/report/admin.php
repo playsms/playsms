@@ -32,6 +32,7 @@ $tpl = array(
 		'Sent' => _('Sent'),
 		'Delivered' => _('Delivered'),
 		'Failed' => _('Failed'),
+		'Deleted' => _('Deleted'),
 		'Billing' => _('Billing'),
 		'Credit' => _('Credit') 
 	) 
@@ -47,7 +48,7 @@ $map_values = array(
 $l = 0;
 
 // USER LIST RESTRIVAL
-$rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed', array(
+$rows = dba_search(_DB_PREF_ . '_tblUser', 'username, uid, credit, status, 0 as num_rows_pending, 0 as num_rows_sent, 0 as num_rows_delivered, 0 as num_rows_failed, 0 as num_rows_deleted', array(
 	'flag_deleted' => 0 
 ), '', array(
 	'ORDER BY' => 'status' 
@@ -74,9 +75,9 @@ for ($i = 0; $i < count($iset); $i++) {
 	 * update values of pending, sent, delivered, failed and deleted messages. might be better to update the billing and credit from the last mysql query as well to avoid any incorrect values because of delays between the first and the second query on busy or overloaded systems
 	 */
 	if ($iset[$i]['flag_deleted'] == 0) {
-		$rows[$array_key][$map_values[$iset[$i]['p_status']]] += $iset[$i]['count'];
+		$rows[$array_key][$map_values[$iset[$i]['p_status']]] += (int) $iset[$i]['count'];
 	} else {
-		$rows[$array_key]['num_rows_deleted'] += $iset[$i]['count'];
+		$rows[$array_key]['num_rows_deleted'] += (int) $iset[$i]['count'];
 	}
 }
 
@@ -87,11 +88,18 @@ foreach ($rows as $row) {
 	$c_status = $row['status'];
 	
 	// BILLING
-	$c_billing = 0;
-	$c_data = billing_getdata_by_uid($c_uid);
-	foreach ($c_data as $a) {
-		$c_billing += $a['count'] * $a['rate'];
-	}
+	//$c_billing = 0;
+	//$c_data = billing_getdata_by_uid($c_uid);
+	//foreach ($c_data as $a) {
+	//	$c_billing += $a['count'] * $a['rate'];
+	//}
+
+	// BILLING
+	$db_query = "SELECT SUM(charge) as billing FROM " . _DB_PREF_ . "_tblBilling WHERE uid='" . (int) $c_uid . "'";
+	$db_result = dba_query($db_query);
+	$db_row = dba_fetch_array($db_result);
+	$c_billing = isset($db_row['billing']) ? (float) $db_row['billing'] : (float) 0;
+
 	
 	$sum_billing += $c_billing;
 	$sum_credit += $c_credit;
@@ -109,8 +117,9 @@ foreach ($rows as $row) {
 		'num_rows_sent' => $row['num_rows_sent'],
 		'num_rows_delivered' => $row['num_rows_delivered'],
 		'num_rows_failed' => $row['num_rows_failed'],
-		'c_billing' => $c_billing,
-		'c_credit' => $c_credit 
+		'num_rows_deleted' => $row['num_rows_deleted'],
+		'c_billing' => core_display_credit($c_billing),
+		'c_credit' => core_display_credit($c_credit) 
 	);
 	
 	// Totals
@@ -118,9 +127,10 @@ foreach ($rows as $row) {
 	$sum_num_rows_delivered += $row['num_rows_delivered'];
 	$sum_num_rows_sent += $row['num_rows_sent'];
 	$sum_num_rows_failed += $row['num_rows_failed'];
+	$sum_num_rows_deleted += $row['num_rows_deleted'];
 }
 
-$sum_total = ($sum_num_rows_pending + $sum_num_rows_delivered + $sum_num_rows_sent + $sum_num_rows_failed);
+$sum_total = ($sum_num_rows_pending + $sum_num_rows_delivered + $sum_num_rows_sent + $sum_num_rows_failed + $sum_num_rows_deleted);
 
 $tpl['vars']['Total'] = _('Total');
 $tpl['vars']['sum_total'] = $sum_total;
@@ -128,7 +138,8 @@ $tpl['vars']['sum_num_rows_pending'] = $sum_num_rows_pending;
 $tpl['vars']['sum_num_rows_sent'] = $sum_num_rows_sent;
 $tpl['vars']['sum_num_rows_delivered'] = $sum_num_rows_delivered;
 $tpl['vars']['sum_num_rows_failed'] = $sum_num_rows_failed;
-$tpl['vars']['sum_billing'] = $sum_billing;
+$tpl['vars']['sum_num_rows_deleted'] = $sum_num_rows_deleted;
+$tpl['vars']['sum_billing'] = core_display_credit($sum_billing);
 $tpl['vars']['sum_credit'] = core_display_credit($sum_credit);
 
 _p(tpl_apply($tpl));

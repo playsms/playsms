@@ -60,7 +60,7 @@ function incoming_post_rules_get() {
 
 	// sandbox forward to users
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to');
-	$post_rules['forward_to'] = array_unique(unserialize($data['feature']['incoming']['sandbox_forward_to']));
+	$post_rules['forward_to'] = array_unique((array) unserialize($data['feature']['incoming']['sandbox_forward_to']));
 	
 	// sandbox forward to url
 	$data = registry_search(1, 'feature', 'incoming', 'sandbox_forward_to_url');

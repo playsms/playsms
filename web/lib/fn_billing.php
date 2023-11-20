@@ -21,12 +21,14 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Post billing statement
- * @param integer $smslog_id
+ * @param int $smslog_id
  * @param float $rate
  * @param float $credit
- * @return boolean TRUE if posted
+ * @param int $uid
+ * @param int $parent_uid
+ * @return bool TRUE if posted
  */
-function billing_post($smslog_id,$rate,$count,$charge) {
+function billing_post($smslog_id,$rate,$count,$charge,$uid,$parent_uid) {
 	$ret = core_call_hook();
 	return $ret;
 }

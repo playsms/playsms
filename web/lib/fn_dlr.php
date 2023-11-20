@@ -83,12 +83,14 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 		// _log("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
 		$ok = true;
 		if ($p_status > 0) {
-			for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-				core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', array(
-					$smslog_id,
-					$uid,
-					$p_status 
-				));
+			if (isset($core_config['plugins']['list']['feature']) && is_array($core_config['plugins']['list']['feature'])) {
+				for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
+					core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', array(
+						$smslog_id,
+						$uid,
+						$p_status 
+					));
+				}
 			}
 		}
 	}

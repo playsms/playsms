@@ -38,6 +38,9 @@ if (file_exists($c_fn1)) {
 }
 
 // load list of plugins
+if (!isset($core_config['plugins']['category']) || !is_array($core_config['plugins']['category'])) {
+	$core_config['plugins']['category'] = [];
+}
 for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
 	if ($pc = $core_config['plugins']['category'][$i]) {
 		// get plugins
@@ -69,6 +72,9 @@ for ($i=0;$i<count($core_config['plugins']['category']);$i++) {
 $dir = $core_config['apps_path']['plug'].'/';
 $pcs = array('themes', 'language', 'gateway', 'feature');
 foreach ($pcs as $pc) {
+	if (!isset($core_config['plugins']['list'][$pc]) && !is_array($core_config['plugins']['list'][$pc])) {
+		$core_config['plugins']['list'][$pc] = [];
+	}
 	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
 		$pl = $core_config['plugins']['list'][$pc][$i];
 		$pl_dir = $dir.$pc.'/'.$pl;
@@ -83,6 +89,9 @@ foreach ($pcs as $pc) {
 $dir = $core_config['apps_path']['plug'].'/';
 $pcs = array('feature', 'gateway');
 foreach ($pcs as $pc) {
+	if (!isset($core_config['plugins']['list'][$pc]) && !is_array($core_config['plugins']['list'][$pc])) {
+		$core_config['plugins']['list'][$pc] = [];
+	}
 	for ($i=0;$i<count($core_config['plugins']['list'][$pc]);$i++) {
 		$pl = $core_config['plugins']['list'][$pc][$i];
 		$pl_dir = $dir.$pc.'/'.$pl;

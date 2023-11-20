@@ -93,13 +93,15 @@ function acl_getname($acl_id) {
 }
 
 function acl_getid($acl_name) {
-	$conditions = array(
-		'name' => trim(strtoupper($acl_name)),
-		'flag_deleted' => 0 
-	);
-	$list = dba_search(_DB_PREF_ . '_tblACL', 'id', $conditions);
-	$ret = ((int) $list[0]['id'] ? (int) $list[0]['id'] : 0);
-	
+	$ret = 0;
+	if (!is_array($acl_name) && $acl_name) {
+		$conditions = array(
+			'name' => trim(strtoupper($acl_name)),
+			'flag_deleted' => 0 
+		);
+		$list = dba_search(_DB_PREF_ . '_tblACL', 'id', $conditions);
+		$ret = ((int) $list[0]['id'] ? (int) $list[0]['id'] : 0);
+	}	
 	return $ret;
 }
 
@@ -120,6 +122,7 @@ function acl_geturl($acl_id) {
 		'flag_deleted' => 0 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'url', $conditions);
+	$list[0]['url'] = isset($list[0]['url']) ? $list[0]['url'] : '';
 	$urls = explode(',', $list[0]['url']);
 	foreach ($urls as $key => $val) {
 		if (trim($val)) {
@@ -136,6 +139,7 @@ function acl_isexists($acl_id) {
 		'flag_deleted' => 0 
 	);
 	$list = dba_search(_DB_PREF_ . '_tblACL', 'name', $conditions);
+	$list[0]['name'] = isset($list[0]['name']) ? $list[0]['name'] : '';
 	$ret = (trim($list[0]['name']) ? TRUE : FALSE);
 	
 	return $ret;

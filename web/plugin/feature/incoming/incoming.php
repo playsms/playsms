@@ -195,7 +195,7 @@ switch (_OP_) {
 		$items['sandbox_prefix'] = $post_rules['insert_prefix'];
 		
 		// sandbox forward to users
-		$post_rules['forward_to'] = serialize(array_unique($_REQUEST['uids']));
+		$post_rules['forward_to'] = serialize(array_unique((array) $_REQUEST['uids']));
 		$items['sandbox_forward_to'] = $post_rules['forward_to'];
 		
 		// sandbox forward to url

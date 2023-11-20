@@ -191,15 +191,15 @@ function simplerate_hook_rate_deduct($smslog_id) {
 		$p_dst = $db_row['p_dst'];
 		$p_msg = $db_row['p_msg'];
 		$p_footer = $db_row['p_footer'];
-		$uid = $db_row['uid'];
-		$parent_uid = $db_row['parent_uid'];
-		$unicode = $db_row['unicode'];
+		$uid = (int) $db_row['uid'];
+		$parent_uid = (int) $db_row['parent_uid'];
+		$unicode = (int) $db_row['unicode'];
 		if ($p_dst && $p_msg && $uid) {
 
 			// get charge
 			list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($p_msg.$p_footer), $unicode, $p_dst);
 
-			if (billing_post($smslog_id, $rate, $count, $charge)) {
+			if (billing_post($smslog_id, $rate, $count, $charge, $uid, $parent_uid)) {
 				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 				
 				return TRUE;
@@ -212,7 +212,7 @@ function simplerate_hook_rate_deduct($smslog_id) {
 			_log("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 		}
 	} else {
-		_log("rate deduct failed due to missing data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
+		_log("rate deduct failed due to missing data smslog_id:" . $smslog_id, 3, "simplerate_hook_rate_deduct");
 	}
 
 	return FALSE;

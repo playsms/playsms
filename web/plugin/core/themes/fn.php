@@ -117,11 +117,16 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	return $nav_pages;
 }
 
+/**
+ * @param int $count Row counts
+ * @param string $url Form URL
+ * @return array Array(form, limit, offset, top, nav, page, url)
+ */
 function themes_nav($count, $url = '') {
-	$ret = FALSE;
+	$ret = [];
 	
-	$lines_per_page = 20;
-	$max_nav = 5;
+	$lines_per_page = 50;
+	$max_nav = 10;
 	$num = ceil($count / $lines_per_page);
 	$nav = (_NAV_ ? _NAV_ : 1);
 	$page = (_PAGE_ ? _PAGE_ : 1);
@@ -352,9 +357,9 @@ function themes_select($name, $options = array(), $selected = '', $tag_params = 
 		}
 	}
 	
-	$css_id = (trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name));
-	$placeholder = ($tag_params['placeholder'] ? $tag_params['placeholder'] : _('Please select'));
-	$width = ($tag_params['width'] ? $tag_params['width'] : 'resolve');
+	$css_id = trim($css_id) ? trim($css_id) : 'playsms-select-' . core_sanitize_alphanumeric($name);
+	$placeholder = isset($tag_params['placeholder']) ? $tag_params['placeholder'] : _('Please select');
+	$width = isset($tag_params['width']) ? $tag_params['width'] : 'resolve';
 	
 	$js = '
 			<script language="javascript" type="text/javascript">
@@ -617,10 +622,15 @@ function themes_select_users_multi($select_field_name, $selected_value = array()
 	return $ret;
 }
 
-function themes_select_account_level_single($status = 2, $select_field_name, $selected_value = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function themes_select_account_level_single($status, $select_field_name, $selected_value = '', $tag_params = array(), $css_id = '', $css_class = '') {
 	global $user_config;
 	
 	$ret = '';
+	$status = empty($status) ? 2 : (int) $status;
+	$admins = [];
+	$users = [];
+	$subusers = [];
+	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_select_account_level_single', array(
 			$status,
@@ -728,8 +738,9 @@ function themes_select_account_level_single($status = 2, $select_field_name, $se
 	}
 }
 
-function themes_select_account_level_multi($status = 2, $select_field_name, $selected_value = array(), $tag_params = array(), $css_id = '', $css_class = '') {
-	$ret = '';
+function themes_select_account_level_multi($status, $select_field_name, $selected_value = array(), $tag_params = array(), $css_id = '', $css_class = '') {
+	$ret = '';	
+	$status = empty($status) ? 2 : (int) $status;
 	
 	if (core_themes_get()) {
 		$ret = core_hook(core_themes_get(), 'themes_select_account_level_multi', array(

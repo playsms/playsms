@@ -45,12 +45,14 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = '', $smslog_id = '', $p_da
 		$message_id = 0;
 		
 		$lines = @file($fn);
-		for ($c = 0; $c < count($lines); $c++) {
-			$c_line = $lines[$c];
-			if (preg_match('/^Message_id: /', $c_line)) {
-				$message_id = trim(str_replace('Message_id: ', '', trim($c_line)));
-				if ($message_id) {
-					break;
+		if (isset($lines) && is_array($lines)) {
+			for ($c = 0; $c < count($lines); $c++) {
+				$c_line = $lines[$c];
+				if (preg_match('/^Message_id: /', $c_line)) {
+					$message_id = trim(str_replace('Message_id: ', '', trim($c_line)));
+					if ($message_id) {
+						break;
+					}
 				}
 			}
 		}
@@ -138,22 +140,24 @@ function smstools_hook_getsmsinbox() {
 		
 		$lines = @file($fn);
 		$start = 0;
-		for ($c = 0; $c < count($lines); $c++) {
-			$c_line = $lines[$c];
-			if (preg_match('/^From: /', $c_line)) {
-				$sms_sender = '+' . trim(str_replace('From: ', '', trim($c_line)));
-				$found_sender = TRUE;
-			} else if (preg_match('/^Received: /', $c_line)) {
-				$sms_datetime = '20' . trim(str_replace('Received: ', '', trim($c_line)));
-				$found_datetime = TRUE;
-			} else if (preg_match('/^Modem: /', $c_line)) {
-				if ($smsc = trim(str_replace('Modem: ', '', trim($c_line)))) {
-					$c_plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-					$sms_receiver = $c_plugin_config['smstools']['sms_receiver'];
+		if (isset($lines) && is_array($lines)) {
+			for ($c = 0; $c < count($lines); $c++) {
+				$c_line = $lines[$c];
+				if (preg_match('/^From: /', $c_line)) {
+					$sms_sender = '+' . trim(str_replace('From: ', '', trim($c_line)));
+					$found_sender = TRUE;
+				} else if (preg_match('/^Received: /', $c_line)) {
+					$sms_datetime = '20' . trim(str_replace('Received: ', '', trim($c_line)));
+					$found_datetime = TRUE;
+				} else if (preg_match('/^Modem: /', $c_line)) {
+					if ($smsc = trim(str_replace('Modem: ', '', trim($c_line)))) {
+						$c_plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+						$sms_receiver = $c_plugin_config['smstools']['sms_receiver'];
+					}
+				} else if ($c_line == "\n") {
+					$start = $c + 1;
+					break;
 				}
-			} else if ($c_line == "\n") {
-				$start = $c + 1;
-				break;
 			}
 		}
 		

@@ -119,7 +119,7 @@ function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver =
 	return $ret_final;
 }
 
-function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver = "", $feature, $status, $uid, $smsc = '') {
+function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $feature, $status, $uid, $smsc = '') {
 	global $core_config;
 	$ret = array();
 	$ret_final = array();

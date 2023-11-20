@@ -26,11 +26,17 @@ if (!auth_isvalid()) {
 $c_uid = $user_config['uid'];
 
 // BILLING
-$billing = 0;
-$data = billing_getdata_by_uid($c_uid);
-foreach ($data as $a) {
-	$billing += $a['count'] * $a['rate'];
-}
+//$billing = 0;
+//$data = billing_getdata_by_uid($c_uid);
+//foreach ($data as $a) {
+//	$billing += $a['count'] * $a['rate'];
+//}
+
+// BILLING
+$db_query = "SELECT SUM(charge) as billing FROM " . _DB_PREF_ . "_tblBilling WHERE uid='" . (int) $c_uid . "'";
+$db_result = dba_query($db_query);
+$db_row = dba_fetch_array($db_result);
+$billing = isset($db_row['billing']) ? (float) $db_row['billing'] : (float) 0;
 
 // CREDIT
 $credit = rate_getusercredit($user_config['username']);
@@ -44,7 +50,7 @@ $map_values = array(
 );
 
 // populate array with the values from the mysql query
-$db_query = "SELECT flag_deleted, p_status, COUNT(*) AS count from " . _DB_PREF_ . "_tblSMSOutgoing where uid ='$c_uid' group by flag_deleted, p_status";
+$db_query = "SELECT flag_deleted, p_status, COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='" . (int) $c_uid . "' GROUP BY flag_deleted, p_status";
 $db_result = dba_query($db_query);
 for ($set = array(); $row = dba_fetch_array($db_result); $set[] = $row) {}
 
@@ -66,19 +72,19 @@ $tpl = array(
 		'num_rows_delivered' => 0,
 		'num_rows_failed' => 0,
 		'num_rows_deleted' => 0,
-		'billing' => $billing,
-		'credit' => $credit 
+		'billing' => core_display_credit($billing),
+		'credit' => core_display_credit($credit) 
 	) 
 );
 
 // update tpl array with values from the set array
-
 for ($i = 0; $i < count($set); $i++) {
 	$c = 0;
-	if ($set[$i]['flag_deleted'] == 0) {
-		$tpl['vars'][$map_values[$set[$i]['p_status']]] += $set[$i]['count'];
+	if ((int) $set[$i]['flag_deleted'] === 0) {
+		$tpl['vars'][$map_values[$set[$i]['p_status']]] += (int) $set[$i]['count'];
 	} else {
-		$tpl['vars']['num_rows_deleted'] += $set[$i]['count'];
+		$tpl['vars']['num_rows_deleted'] += (int) $set[$i]['count'];
 	}
 }
+
 _p(tpl_apply($tpl));

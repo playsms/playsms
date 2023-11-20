@@ -6,11 +6,11 @@
 		"vendor-dir": "web/lib/composer/vendor"
 	},
 	"require": {
-		"playsms/tpl": "1.0.*",
-		"playsms/webservices": "1.0.*",
-		"gregwar/captcha": "1.0.*",
-		"ezyang/htmlpurifier": "4.6.*",
-		"pear/pear-core-minimal": "1.10.*",
+		"playsms/tpl": "1.*",
+		"playsms/webservices": "1.*",
+		"gregwar/captcha": "1.*",
+		"ezyang/htmlpurifier": "4.*",
+		"pear/pear-core-minimal": "1.*",
 		"pear/db": "dev-trunk"
 	}
 }

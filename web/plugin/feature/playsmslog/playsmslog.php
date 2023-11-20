@@ -28,7 +28,7 @@ switch (_OP_) {
 		
 		// get playsmsd status
 		$json = shell_exec($plugin_config['playsmslog']['playsmsd']['bin'] . ' ' . $plugin_config['playsmslog']['playsmsd']['conf'] . ' check_json');
-		$playsmsd = json_decode($json);
+		$playsmsd = json_decode(!is_array($json) ? (string) $json : '');
 		if ($playsmsd->IS_RUNNING) {
 			$playsmsd_is_running = '<span class=status_enabled title="' . _('playSMS daemon is running') . '"></span>';
 		} else {
@@ -39,7 +39,6 @@ switch (_OP_) {
 			'name' => 'playsmslog',
 			'vars' => array(
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
-				'LOG_FILE' => $core_config['apps_path']['logs'] . '/playsms.log',
 				'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'),
 				'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'),
 				'PLAYSMSD_IS_RUNNING' => $playsmsd_is_running,

@@ -128,6 +128,7 @@ function playnet_hook_webservices_output($operation, $requests, $returns) {
 	
 	switch ($go) {
 		case 'get_outgoing':
+			$rows = [];
 			$conditions = array(
 				'flag' => 1,
 				'smsc' => $smsc 

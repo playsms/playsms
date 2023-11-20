@@ -9,8 +9,9 @@
 			<th width=10%>{{ Sent }}</th>
 			<th width=10%>{{ Delivered }}</th>
 			<th width=10%>{{ Failed }}</th>
-			<th width=20%>{{ Billing }}</th>
-			<th width=20%>{{ Credit }}</th>
+			<th width=10%>{{ Deleted }}</th>
+			<th width=15%>{{ Billing }}</th>
+			<th width=15%>{{ Credit }}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,6 +22,7 @@
 				<td>{{ data.num_rows_sent }}</td>
 				<td>{{ data.num_rows_delivered }}</td>
 				<td>{{ data.num_rows_failed }}</td>
+				<td>{{ data.num_rows_deleted }}</td>
 				<td>{{ data.c_billing }}</td>
 				<td>{{ data.c_credit }}</td>
 			</tr>
@@ -33,6 +35,7 @@
 				<th>{{ sum_num_rows_sent }}</th>
 				<th>{{ sum_num_rows_delivered }}</th>
 				<th>{{ sum_num_rows_failed }}</th>
+				<th>{{ sum_num_rows_deleted }}</th>
 				<th>{{ sum_billing }}</th>
 				<th>{{ sum_credit }}</th>
 			</tr>

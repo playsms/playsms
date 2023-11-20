@@ -190,7 +190,7 @@ function sendsms_queue_create($sms_sender, $sms_footer, $sms_msg, $uid, $gpid = 
 	$dt = core_get_datetime();
 	$sms_schedule = (trim($sms_schedule) ? core_adjust_datetime($sms_schedule) : $dt);
 	$queue_code = md5(uniqid($uid . $gpid, true));
-	_log("saving queue_code:" . $queue_code . " src:" . $sms_sender . " scheduled:" . core_display_datetime($sms_schedule), 2, "sendsms_queue_create");
+	//_log("saving queue_code:" . $queue_code . " src:" . $sms_sender . " scheduled:" . core_display_datetime($sms_schedule), 3, "sendsms_queue_create");
 	
 	// message entering this proc already stripslashed, we need to addslashes it before saving to db
 	$sms_sender = addslashes($sms_sender);
@@ -216,7 +216,7 @@ function sendsms_queue_push($queue_code, $sms_to) {
 	$queue_id = $db_row['id'];
 	if ($queue_id) {
 		$db_query = "INSERT INTO " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst (queue_id,dst) VALUES ('$queue_id','$sms_to')";
-		_log("saving queue_code:" . $queue_code . " dst:" . $sms_to, 2, "sendsms_queue_push");
+		//_log("saving queue_code:" . $queue_code . " dst:" . $sms_to, 3, "sendsms_queue_push");
 		if ($smslog_id = @dba_insert_id($db_query)) {
 			_log("saved queue_code:" . $queue_code . " smslog_id:" . $smslog_id, 2, "sendsms_queue_push");
 			$ret = $smslog_id;

@@ -1069,6 +1069,8 @@ DROP TABLE IF EXISTS `playsms_tblBilling`;
 CREATE TABLE `playsms_tblBilling` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `c_timestamp` bigint(20) NOT NULL DEFAULT '0',
+  `parent_uid` int(11) NOT NULL DEFAULT '0',
+  `uid` int(11) NOT NULL DEFAULT '0',
   `post_datetime` varchar(20) NOT NULL DEFAULT '0000-00-00 00:00:00',
   `smslog_id` int(11) NOT NULL DEFAULT '0',
   `rate` decimal(13,3) NOT NULL DEFAULT '0.000',
@@ -1226,7 +1228,7 @@ CREATE TABLE `playsms_tblRegistry` (
 
 LOCK TABLES `playsms_tblRegistry` WRITE;
 /*!40000 ALTER TABLE `playsms_tblRegistry` DISABLE KEYS */;
-INSERT INTO `playsms_tblRegistry` VALUES (0,1,1,'core','config','playsms_version','1.4.6'),(1404003471,2,1,'core','main_config','web_title','playSMS'),(1404003471,3,1,'core','main_config','email_service','noreply@playsms.org'),(1404003471,4,1,'core','main_config','email_footer','Powered by playSMS'),(1404003471,5,1,'core','main_config','main_website_name','playSMS'),(1404003471,6,1,'core','main_config','main_website_url','http://www.playsms.org'),(1404003471,7,1,'core','main_config','gateway_number','1234'),(1404003471,8,1,'core','main_config','gateway_timezone','+0700'),(1404003471,9,1,'core','main_config','default_rate','0'),(1404003471,10,1,'core','main_config','gateway_module','dev'),(1404003471,11,1,'core','main_config','themes_module','default'),(1404003471,12,1,'core','main_config','language_module','en_US'),(1404003471,13,1,'core','main_config','sms_max_count','3'),(1404003471,14,1,'core','main_config','default_credit','0'),(1404003471,15,1,'core','main_config','enable_register','0'),(1404003471,16,1,'core','main_config','enable_forgot','1'),(0,17,1,'core','main_config','allow_custom_sender','0'),(0,18,1,'core','main_config','allow_custom_footer','0'),(1404030329,19,1,'auth','login_session','81b576f23d180b087995eb4c1bf5a3ec','{\"ip\":\"127.0.0.1\",\"last_update\":\"2014-06-29 15:25:29\",\"http_user_agent\":\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36\",\"sid\":\"ko3kn1romdhqu5a1rrssbnph84\",\"uid\":\"1\"}'),(1404003471,20,1,'core','main_config','default_user_status','3'),(1404003471,21,1,'core','main_config','enable_logo','1'),(1404003472,22,1,'core','main_config','logo_url','plugin/themes/common/images/playSMS_logo_full.png'),(1404003472,23,1,'core','main_config','logo_replace_title','1'),(1404003472,24,1,'core','main_config','layout_footer','Application footer here. Go to main configuration or manage site to edit this footer.'),(1404003472,25,1,'core','main_config','buy_credit_page_title','Buy credit'),(1404003472,26,1,'core','main_config','buy_credit_page_content','Go to main configuration or manage site to edit this page'),(1404003472,27,1,'core','main_config','information_title','Information'),(1404003472,28,1,'core','main_config','information_content','Go to main configuration or manage site to edit this page');
+INSERT INTO `playsms_tblRegistry` VALUES (0,1,1,'core','config','playsms_version','1.4.7'),(1404003471,2,1,'core','main_config','web_title','playSMS'),(1404003471,3,1,'core','main_config','email_service','noreply@playsms.org'),(1404003471,4,1,'core','main_config','email_footer','Powered by playSMS'),(1404003471,5,1,'core','main_config','main_website_name','playSMS'),(1404003471,6,1,'core','main_config','main_website_url','http://www.playsms.org'),(1404003471,7,1,'core','main_config','gateway_number','1234'),(1404003471,8,1,'core','main_config','gateway_timezone','+0700'),(1404003471,9,1,'core','main_config','default_rate','0'),(1404003471,10,1,'core','main_config','gateway_module','dev'),(1404003471,11,1,'core','main_config','themes_module','default'),(1404003471,12,1,'core','main_config','language_module','en_US'),(1404003471,13,1,'core','main_config','sms_max_count','3'),(1404003471,14,1,'core','main_config','default_credit','0'),(1404003471,15,1,'core','main_config','enable_register','0'),(1404003471,16,1,'core','main_config','enable_forgot','1'),(0,17,1,'core','main_config','allow_custom_sender','0'),(0,18,1,'core','main_config','allow_custom_footer','0'),(1404030329,19,1,'auth','login_session','81b576f23d180b087995eb4c1bf5a3ec','{\"ip\":\"127.0.0.1\",\"last_update\":\"2014-06-29 15:25:29\",\"http_user_agent\":\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36\",\"sid\":\"ko3kn1romdhqu5a1rrssbnph84\",\"uid\":\"1\"}'),(1404003471,20,1,'core','main_config','default_user_status','3'),(1404003471,21,1,'core','main_config','enable_logo','1'),(1404003472,22,1,'core','main_config','logo_url','plugin/themes/common/images/playSMS_logo_full.png'),(1404003472,23,1,'core','main_config','logo_replace_title','1'),(1404003472,24,1,'core','main_config','layout_footer','Application footer here. Go to main configuration or manage site to edit this footer.'),(1404003472,25,1,'core','main_config','buy_credit_page_title','Buy credit'),(1404003472,26,1,'core','main_config','buy_credit_page_content','Go to main configuration or manage site to edit this page'),(1404003472,27,1,'core','main_config','information_title','Information'),(1404003472,28,1,'core','main_config','information_content','Go to main configuration or manage site to edit this page');
 /*!40000 ALTER TABLE `playsms_tblRegistry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1354,7 +1356,6 @@ CREATE TABLE `playsms_tblSMSOutgoing_queue_dst` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `queue_id` int(11) NOT NULL DEFAULT '0',
   `chunk` int(11) NOT NULL DEFAULT '0',
-  `smslog_id` int(11) NOT NULL DEFAULT '0',
   `flag` int(11) NOT NULL DEFAULT '0',
   `dst` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
@@ -1384,7 +1385,8 @@ CREATE TABLE `playsms_tblUser` (
   `status` int(11) NOT NULL DEFAULT '0',
   `acl_id` int(11) NOT NULL DEFAULT '0',
   `username` varchar(100) NOT NULL DEFAULT '',
-  `password` varchar(32) NOT NULL DEFAULT '',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `salt` varchar(255) NOT NULL DEFAULT '',
   `token` varchar(32) NOT NULL DEFAULT '',
   `enable_webservices` int(11) NOT NULL DEFAULT '0',
   `webservices_ip` varchar(100) NOT NULL DEFAULT '',
@@ -1423,7 +1425,7 @@ CREATE TABLE `playsms_tblUser` (
 
 LOCK TABLES `playsms_tblUser` WRITE;
 /*!40000 ALTER TABLE `playsms_tblUser` DISABLE KEYS */;
-INSERT INTO `playsms_tblUser` VALUES (0,0,1,2,0,'admin','21232f297a57a5a743894a0e4a801fc3','',0,'127.0.0.1, 192.168.*.*','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin','','','',82,'',0.000,0.000,'','en_US',0,1,1,'',1,0,0,0,'','',0);
+INSERT INTO `playsms_tblUser` VALUES (0,0,1,2,0,'admin','21232f297a57a5a743894a0e4a801fc3','','',0,'127.0.0.1, 192.168.*.*','Administrator','+62000000000','noreply@playsms.org','playSMS','@admin','','','',82,'',0.000,0.000,'','en_US',0,1,1,'',1,0,0,0,'','',0);
 /*!40000 ALTER TABLE `playsms_tblUser` ENABLE KEYS */;
 UNLOCK TABLES;
 
