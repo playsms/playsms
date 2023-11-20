@@ -22,7 +22,7 @@
 // playsmsd [<PLAYSMSD_CONF>] <COMMAND> <LOOP_FLAG> <CMD_PARAM>
 set_time_limit(0);
 
-error_reporting(0);
+//error_reporting(0);
 
 // functions
 
@@ -221,33 +221,36 @@ function playsmsd_log($debug_file = '') {
 
 $PLAYSMSD_CONF = '';
 $argument = $argv;
+$argument[1] = isset($argument[1]) && $argument[1] ? $argument[1] : '';
+$argument[2] = isset($argument[2]) && $argument[2] ? $argument[2] : '';
 
-// check if 1st argv is playsmsd.conf path and command in 2nd argv is not empty
-if (file_exists($argument[1]) && $argument[2]) {
-	$p = pathinfo($argument[1]);
-	if ($p['extension'] == 'conf') {
-		$PLAYSMSD_CONF = $argument[1];
-		array_shift($argument);
-	}
+// check if 1st argv is playsmsd.conf path
+if (file_exists($argument[1])) {
+	$PLAYSMSD_CONF = $argument[1];
+	array_shift($argument);
 }
 
 $ini = array();
+$ini_files = array();
 
-$ini_files = array(
-	$PLAYSMSD_CONF,
-	'./playsmsd.conf',
-	'~/playsmsd.conf',
-	'~/etc/playsmsd.conf',
-	'/etc/playsmsd.conf',
-	'/usr/local/etc/playsmsd.conf',
-	'/usr/bin/playsmsd.conf',
-	'/usr/local/bin/playsmsd.conf' 
-);
+if ($PLAYSMSD_CONF) {
+	$ini_files = array($PLAYSMSD_CONF);
+} else {
+	$ini_files = array(
+		'./playsmsd.conf',
+		'~/playsmsd.conf',
+		'~/etc/playsmsd.conf',
+		'/etc/playsmsd.conf',
+		'/usr/local/etc/playsmsd.conf',
+		'/usr/bin/playsmsd.conf',
+		'/usr/local/bin/playsmsd.conf' 
+	);
+}
 
 $continue = FALSE;
 foreach ($ini_files as $PLAYSMSD_CONF) {
 	if ($PLAYSMSD_CONF && file_exists($PLAYSMSD_CONF)) {
-		$ini = @parse_ini_file($PLAYSMSD_CONF);
+		$ini = parse_ini_file($PLAYSMSD_CONF);
 		if ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'] && $ini['PLAYSMS_LOG']) {
 			$continue = TRUE;
 			break;
@@ -276,7 +279,7 @@ $PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/plays
 $DAEMON_SLEEP = ($ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1);
 
 // set PHP error reporting level
-$ERROR_REPORTING = (isset($ini['ERROR_REPORTING']) ? $ini['ERROR_REPORTING'] : 'E_ALL ^ (E_NOTICE | E_WARNING)');
+$ERROR_REPORTING = isset($ini['ERROR_REPORTING']) ? (int) $ini['ERROR_REPORTING'] : E_ALL ^ (E_NOTICE | E_WARNING);
 
 error_reporting($ERROR_REPORTING);
 
