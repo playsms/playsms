@@ -351,7 +351,7 @@ switch (_OP_) {
 			</div>
 			<div class=actions_box>
 				<div class=pull-left>
-					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=all_inbox&op=actions&go=export&count=' . $count) . "\">" . $icon_config['export'] . "</a>
+					<a href=\"" . _u('index.php?app=main&inc=feature_report&route=all_inbox&op=actions&go=export&search_count=' . $count) . $query_search . "\">" . $icon_config['export'] . "</a>
 				</div>
 				<div align=center>" . $nav['form'] . "</div>
 			</div>
