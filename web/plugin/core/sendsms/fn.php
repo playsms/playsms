@@ -625,27 +625,29 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 		}
 	}
 	
-	// remove duplicates destinations
-	$array_sms_to = array_unique($array_sms_to, SORT_STRING);
-	
-	$sms_queued = 0;
 	$sms_failed = 0;
+	$sms_count = 0;
 	
 	// sendsms
 	if (is_array($array_sms_to) && $array_sms_to[0]) {
+		// remove duplicates destinations
+		$array_sms_to = array_unique($array_sms_to, SORT_STRING);
+	
 		list($ok, $to, $smslog_id, $queue, $counts, $error_strings) = sendsms($user_config['username'], $array_sms_to, $message, $sms_type, $unicode, $smsc, $nofooter, $sms_footer, $sms_sender, $sms_schedule);
-	}
 	
-	// fixme anton - IMs doesn't count
-	// count SMSes only
-	for ($i = 0; $i < count($ok); $i++) {
-		if ($ok[$i]) {
-			$sms_count += $counts[$i];
-		} else {
-			$sms_failed += $counts[$i];
+		// fixme anton - IMs doesn't count
+		// count SMSes only
+		if (is_array($ok)) {
+			for ($i = 0; $i < count($ok); $i++) {
+				if ($ok[$i]) {
+					$sms_count += $counts[$i];
+				} else {
+					$sms_failed += $counts[$i];
+				}
+			}	
 		}
-	}
-	
+	}	
+
 	// sendsms_im
 	if (is_array($array_username) && $array_username[0]) {
 		$im_sender = '@' . $user_config['username'];
