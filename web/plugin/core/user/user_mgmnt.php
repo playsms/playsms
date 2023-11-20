@@ -74,8 +74,8 @@ switch (_OP_) {
 		$nav = themes_nav($count, "index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=" . $view);
 		$extras = array(
 			'ORDER BY' => 'register_datetime DESC, username',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset']
+			'LIMIT' => (int) $nav['limit'],
+			'OFFSET' => (int) $nav['offset']
 		);
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 		if ($err = TRUE) {
