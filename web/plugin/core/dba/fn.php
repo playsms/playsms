@@ -276,7 +276,7 @@ function dba_build($db_table, $fields = [], $conditions = [], $keywords = [], $e
 			$q_keywords .= "OR " . $key . " LIKE ? ";
 			$db_argv[] = $val;
 		}
-		if ($q_keywords = trim(str_replace("(OR", "(", $q_keywords))) {
+		if ($q_keywords = trim(substr($q_keywords, 3))) {
 			$q_keywords = "AND (" . $q_keywords . ")";
 		}
 	}
