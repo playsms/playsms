@@ -316,12 +316,8 @@ function phonebook_hook_webservices_output($operation, $requests, $returns) {
 	if (!auth_isvalid()) {
 		return FALSE;
 	}
-	
-	if ($returns['modified'] && $returns['param']['operation'] == 'phonebook') {
-		$item = json_decode($returns['param']['content'], TRUE);
-	} else {
-		$item = array();
-	}
+
+	$item = array();
 	
 	if ($keyword && $user_config['uid']) {
 		if (substr($keyword, 0, 1) == '@') {
