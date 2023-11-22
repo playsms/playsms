@@ -33,14 +33,14 @@ switch (_OP_) {
 			'uid' => 'user_username2uid' 
 		));
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_ . '_featureStoplist', '', $keywords);
+		$count = dba_count(_DB_PREF_ . '_featureStoplist', [], $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'uid',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'LIMIT' => (int) $nav['limit'],
+			'OFFSET' => (int) $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_featureStoplist', '*', '', $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_featureStoplist', '*', [], $keywords, $extras);
 		
 		$content = _dialog() . "
 			<h2>" . _('Manage stoplist') . "</h2>
@@ -149,7 +149,6 @@ switch (_OP_) {
 		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 		header("Location: " . _u($ref));
 		exit();
-		break;
 	
 	case "stoplist_add":
 		$content = _dialog() . "
@@ -183,5 +182,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_stoplist&op=stoplist_add'));
 		exit();
-		break;
 }
