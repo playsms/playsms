@@ -94,8 +94,8 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
 	}
 	$url = $url . $search_url;
 	$nav_pages = '';
-	if ($theme) {
-		$nav_pages = core_hook($theme, 'themes_navbar', array(
+	if (core_themes_get()) {
+		$nav_pages = core_hook(core_themes_get(), 'themes_navbar', array(
 			$num,
 			$nav,
 			$max_nav,
@@ -122,25 +122,27 @@ function themes_navbar($num, $nav, $max_nav, $url, $page) {
  * @param string $url Form URL
  * @return array Array(form, limit, offset, top, nav, page, url)
  */
-function themes_nav($count, $url = '') {
+function themes_nav($count, $url = '')
+{
 	$ret = [];
-	
+
 	$lines_per_page = 50;
 	$max_nav = 10;
 	$num = ceil($count / $lines_per_page);
 	$nav = (_NAV_ ? _NAV_ : 1);
 	$page = (_PAGE_ ? _PAGE_ : 1);
 	$url = (trim($url) ? trim($url) : $_SERVER['REQUEST_URI']);
-	if ($ret['form'] = themes_navbar($num, $nav, $max_nav, $url, $page)) {
-		$ret['limit'] = (int) $lines_per_page;
-		$ret['offset'] = (int) (($page - 1) * $lines_per_page);
-		$ret['top'] = (int) (($count - ($lines_per_page * ($page - 1))) + 1);
-		$ret['nav'] = (int) $nav;
-		$ret['page'] = (int) $page;
-		$ret['url'] = $url;
-	}
+
+	$ret['form'] = themes_navbar($num, $nav, $max_nav, $url, $page);
+	$ret['limit'] = (int) $lines_per_page;
+	$ret['offset'] = (int) (($page - 1) * $lines_per_page);
+	$ret['top'] = (int) (($count - ($lines_per_page * ($page - 1))) + 1);
+	$ret['nav'] = (int) $nav;
+	$ret['page'] = (int) $page;
+	$ret['url'] = $url;
+
 	$_SESSION['tmp']['themes_nav'] = $ret;
-	
+
 	return $ret;
 }
 
