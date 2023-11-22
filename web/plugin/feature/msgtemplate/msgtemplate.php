@@ -2,12 +2,12 @@
 defined('_SECURE_') or die('Forbidden');
 if(!auth_isvalid()){auth_block();};
 
-$gpid = $_REQUEST['gpid'];
-$pid = $_REQUEST['pid'];
-$tid = $_REQUEST['tid'];
+$gpid = (int) $_REQUEST['gpid'];
+$pid = (int) $_REQUEST['pid'];
+$tid = (int) $_REQUEST['tid'];
 
 if ($tid = $_REQUEST['tid']) {
-	if (! ($tid = dba_valid(_DB_PREF_.'_featureMsgtemplate', 'tid', $tid))) {
+	if (! (dba_valid(_DB_PREF_.'_featureMsgtemplate', 'tid', $tid))) {
 		auth_block();
 	}
 }
