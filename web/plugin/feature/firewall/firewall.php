@@ -30,14 +30,14 @@ switch (_OP_) {
 		$base_url = 'index.php?app=main&inc=feature_firewall&op=firewall_list';
 		$search = themes_search($search_category, $base_url);
 		$keywords = $search['dba_keywords'];
-		$count = dba_count(_DB_PREF_ . '_featureFirewall', '', $keywords);
+		$count = dba_count(_DB_PREF_ . '_featureFirewall', [], $keywords);
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'uid',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'LIMIT' => (int) $nav['limit'],
+			'OFFSET' => (int) $nav['offset'] 
 		);
-		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', '', $keywords, $extras);
+		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', [], $keywords, $extras);
 		
 		$content = _dialog() . "
 			<h2>" . _('Manage firewall') . "</h2>
@@ -146,7 +146,6 @@ switch (_OP_) {
 		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 		header("Location: " . _u($ref));
 		exit();
-		break;
 	
 	case "firewall_add":
 		$content = _dialog() . "
@@ -184,5 +183,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_firewall&op=firewall_add'));
 		exit();
-		break;
 }

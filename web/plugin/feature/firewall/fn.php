@@ -22,7 +22,7 @@ defined('_SECURE_') or die('Forbidden');
  * Get ip_address by id
  *
  * @param string $id
- * @return ip_address
+ * @return string ip_address
  */
 function firewall_getip($id) {
 	$condition = array(
