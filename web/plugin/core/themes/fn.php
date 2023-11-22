@@ -132,11 +132,11 @@ function themes_nav($count, $url = '') {
 	$page = (_PAGE_ ? _PAGE_ : 1);
 	$url = (trim($url) ? trim($url) : $_SERVER['REQUEST_URI']);
 	if ($ret['form'] = themes_navbar($num, $nav, $max_nav, $url, $page)) {
-		$ret['limit'] = $lines_per_page;
-		$ret['offset'] = ($page - 1) * $lines_per_page;
-		$ret['top'] = ($count - ($lines_per_page * ($page - 1))) + 1;
-		$ret['nav'] = $nav;
-		$ret['page'] = $page;
+		$ret['limit'] = (int) $lines_per_page;
+		$ret['offset'] = (int) (($page - 1) * $lines_per_page);
+		$ret['top'] = (int) (($count - ($lines_per_page * ($page - 1))) + 1);
+		$ret['nav'] = (int) $nav;
+		$ret['page'] = (int) $page;
 		$ret['url'] = $url;
 	}
 	$_SESSION['tmp']['themes_nav'] = $ret;
