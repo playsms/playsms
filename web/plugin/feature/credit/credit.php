@@ -48,8 +48,8 @@ switch (_OP_) {
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'id DESC',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'LIMIT' => (int) $nav['limit'],
+			'OFFSET' => (int) $nav['offset'] 
 		);
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
 		
@@ -246,7 +246,6 @@ switch (_OP_) {
 				$_SESSION['dialog']['info'][] = _('Selected transactions has been deleted');
 				header("Location: " . _u($ref));
 				exit();
-				break;
 			
 			case "add":
 				$continue = FALSE;
@@ -270,19 +269,18 @@ switch (_OP_) {
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['dialog']['info'][] .= _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							} else {
-								$_SESSION['dialog']['info'][] .= _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
-						} else {
-							$_SESSION['dialog']['info'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
+						} else {							
+							$_SESSION['dialog']['info'][] = _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
 				
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_add'));
 				exit();
-				break;
 			
 			case "reduce":
 				$continue = FALSE;
@@ -306,19 +304,18 @@ switch (_OP_) {
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['dialog']['info'][] .= _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							} else {
-								$_SESSION['dialog']['info'][] .= _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
 							}
 						} else {
-							$_SESSION['dialog']['info'][] .= _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
+							$_SESSION['dialog']['info'][] = _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
 				
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_reduce'));
 				exit();
-				break;
 		}
 		break;
 }

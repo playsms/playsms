@@ -41,6 +41,8 @@ function acl_getall() {
 
 function acl_getallbyuid($uid) {
 	global $core_config;
+
+	$ret = [];
 	
 	$acl_id = acl_getidbyuid($uid);
 	$acl_name = acl_getname($acl_id);

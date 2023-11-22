@@ -40,8 +40,8 @@ switch (_OP_) {
 		$nav = themes_nav($count, $search['url']);
 		$extras = array(
 			'ORDER BY' => 'id DESC',
-			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
+			'LIMIT' => (int) $nav['limit'],
+			'OFFSET' => (int) $nav['offset'] 
 		);
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
 		

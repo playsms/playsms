@@ -42,7 +42,7 @@ function credit_getbalance($uid) {
  *
  * @param integer $uid
  *        User ID
- * @param decimal $amount
+ * @param float|int $amount
  *        Credit amount to add (positive value)
  * @return boolean TRUE on success
  */
@@ -56,7 +56,7 @@ function credit_add($uid, $amount) {
  *
  * @param integer $uid
  *        User ID
- * @param decimal $amount
+ * @param float|int $amount
  *        Credit amount to reduce (positive value)
  * @return boolean TRUE on success
  */
@@ -76,6 +76,9 @@ function credit_html_select_user() {
 	if (auth_isadmin()) {
 		$admins = user_getallwithstatus(2);
 		$users = user_getallwithstatus(3);
+	} else {
+		$admins = [];
+		$users = [];
 	}
 	$subusers = user_getsubuserbyuid($user_config['uid']);
 	
