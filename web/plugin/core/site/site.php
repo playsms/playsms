@@ -59,20 +59,18 @@ switch (_OP_) {
 		
 		// get themes options
 		$options['themes_module'] = _options($core_config['plugins']['list']['themes'], $site_config['themes_module']);
-		
+
 		// get language options
-		$lang_list = '';
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
-			$language = $core_config['plugins']['list']['language'][$i];
-			$c_language_title = $plugin_config[$language]['title'];
-			if ($c_language_title) {
-				$lang_list[$c_language_title] = $language;
+		$lang_list = [];
+		if (isset($core_config['plugins']['list']['language']) && is_array($core_config['plugins']['list']['language']) && $languages = $core_config['plugins']['list']['language']) {
+			foreach ( $languages as $language ) {
+				if (isset($plugin_config[$language]['title']) && $plugin_config[$language]['title'] && $c_language_title = $plugin_config[$language]['title']) {
+					$lang_list[$c_language_title] = $language;
+				}
 			}
 		}
-		if (is_array($lang_list)) {
-			$options['language_module'] = _options($lang_list, $site_config['language_module']);
-		}
-		
+		$options['language_module'] = _options($lang_list, $site_config['language_module']);
+
 		$tpl = array(
 			'name' => 'site',
 			'vars' => array(

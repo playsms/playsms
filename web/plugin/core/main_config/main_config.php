@@ -99,17 +99,15 @@ switch (_OP_) {
 		$option_themes_module = _options($core_config['plugins']['list']['themes'], $main_themes);
 
 		// get language options
-		$lang_list = array();
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
-			$language = $core_config['plugins']['list']['language'][$i];
-			$c_language_title = $plugin_config[$language]['title'];
-			if ($c_language_title) {
-				$lang_list[$c_language_title] = $language;
+		$lang_list = [];
+		if (isset($core_config['plugins']['list']['language']) && is_array($core_config['plugins']['list']['language']) && $languages = $core_config['plugins']['list']['language']) {
+			foreach ( $languages as $language ) {
+				if (isset($plugin_config[$language]['title']) && $plugin_config[$language]['title'] && $c_language_title = $plugin_config[$language]['title']) {
+					$lang_list[$c_language_title] = $language;
+				}
 			}
 		}
-		if (is_array($lang_list)) {
-			$option_language_module = _options($lang_list, $main_config['language_module']);
-		}
+		$option_language_module = _options($lang_list, $main_config['language_module']);
 
 		// select plus_sign_remove
 		$option_plus_sign_remove = _options(
