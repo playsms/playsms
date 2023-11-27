@@ -656,72 +656,44 @@ function core_sanitize_footer($text)
 
 /**
  * Function: core_net_match()
- * ref: http://stackoverflow.com/a/10422605 (Volomike)
+ * ref: https://github.com/mlocati/ip-lib
  *
  * This function returns a boolean value.
  * Usage: core_net_match("IP RANGE", "IP ADDRESS")
+ * 
+ * @param string $network Network
+ * @param string $ip IP to be checked within network
+ * @return bool
  */
 function core_net_match($network, $ip)
 {
 	$network = trim($network);
 	$ip = trim($ip);
 
-	if ($network && $ip && $ip === $network) {
+	if ($network && $ip && class_exists('\IPLib\Factory')) {
 
-		return TRUE;
-	}
-
-	$network = str_replace(' ', '', $network);
-
-	if (strpos($network, '*') !== FALSE) {
-		if (strpos($network, '/') !== FALSE) {
-			$asParts = explode('/', $network);
-			$network = @$asParts[0];
+		// don't match with network that starts with asterisk or 0
+		// to prevent matches with *.*.*.* or 0.0.0.0
+		if (preg_match('/^[\*0]/', $network)) {
+			return false;
 		}
-		$nCount = substr_count($network, '*');
-		$network = str_replace('*', '0', $network);
-		if ($nCount == 1) {
-			$network .= '/24';
-		} else if ($nCount == 2) {
-			$network .= '/16';
-		} else if ($nCount == 3) {
-			$network .= '/8';
-		} else if ($nCount > 3) {
 
-			// if *.*.*.*, then all, so matched
+		try {
+			$address = \IPLib\Factory::parseAddressString($ip);
+			$range = \IPLib\Factory::parseRangeString($network);
 
-			return TRUE;
-		}
-	}
-
-	$d = strpos($network, '-');
-	if ($d === FALSE) {
-		$ip_arr = explode('/', $network);
-		if ($ip_arr[1]) {
-			if (!preg_match("@\d*\.\d*\.\d*\.\d*@", $ip_arr[0], $matches)) {
-				$ip_arr[0] .= ".0";
+			if (is_object($address) && is_object($range) && $address->matches($range)) {
+				return true;
+			} else {
+				return false;
 			}
-			$network_long = ip2long($ip_arr[0]);
-			$x = ip2long($ip_arr[1]);
-			$mask = long2ip($x) == $ip_arr[1] ? $x : (0xffffffff << (32 - $ip_arr[1]));
-			$ip_long = ip2long($ip);
+		} catch (Exception $e) {
+			_log('exception network:' . $network . ' ip:' . $ip . ' error:' . $e->getMessage(), 2, 'core_net_match');
 
-			return ($ip_long & $mask) == ($network_long & $mask);
-		} else if ($ip == $ip_arr[0]) {
-
-			return TRUE;
-		} else {
-
-			return FALSE;
+			return false;
 		}
 	} else {
-		$from = trim(ip2long(substr($network, 0, $d)));
-		$to = trim(ip2long(substr($network, $d + 1)));
-		$ip = ip2long($ip);
-
-		$return = (($ip >= $from and $ip <= $to) ? TRUE : FALSE);
-
-		return $return;
+		return false;
 	}
 }
 
