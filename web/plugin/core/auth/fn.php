@@ -215,7 +215,14 @@ function auth_validate_token($token)
 		$nets = explode(',', $webservices_ip);
 		if (is_array($nets) && $nets) {
 			foreach ( $nets as $net ) {
-				if ($net = trim($net) && core_net_match($net, _REMOTE_ADDR_)) {
+				$net = trim($net);
+				if (!$net) {
+					_log('invalid network u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
+
+					return FALSE;
+				}
+
+				if (core_net_match($net, _REMOTE_ADDR_)) {
 
 					// IP allowed, but user banned
 					if (user_banned_get($uid)) {
