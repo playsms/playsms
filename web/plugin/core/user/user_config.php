@@ -263,7 +263,7 @@ switch (_OP_) {
 				'datetime_timezone' => $datetime_timezone,
 				'local_length' => $local_length,
 				'replace_zero' => $replace_zero,
-				'credit' => $credit,
+				'credit' => core_display_credit($credit),
 				'option_enable_credit_unicode' => $option_enable_credit_unicode 
 			) 
 		);

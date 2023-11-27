@@ -269,9 +269,9 @@ switch (_OP_) {
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['dialog']['info'][] = _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . core_display_credit($amount) . ')';
 							} else {
-								$_SESSION['dialog']['info'][] = _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . core_display_credit($amount) . ')';
 							}
 						} else {							
 							$_SESSION['dialog']['info'][] = _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
@@ -304,9 +304,9 @@ switch (_OP_) {
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
 								$current_balance = credit_getbalance($uid);
-								$_SESSION['dialog']['info'][] = _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Credit has been reduced') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . core_display_credit($amount) . ')';
 							} else {
-								$_SESSION['dialog']['info'][] = _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . $amount . ')';
+								$_SESSION['dialog']['info'][] = _('Fail to reduce credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . core_display_credit($amount) . ')';
 							}
 						} else {
 							$_SESSION['dialog']['info'][] = _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';

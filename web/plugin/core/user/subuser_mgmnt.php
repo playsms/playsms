@@ -124,7 +124,7 @@ switch (_OP_) {
 					<td>" . $banned_icon . "" . $list[$i]['username'] . " </td>
 					<td>" . $list[$i]['name'] . "</td>
 					<td>" . $list[$i]['mobile'] . "</td>	
-					<td>" . rate_getusercredit($list[$i]['username']) . "</td>
+					<td>" . core_display_credit(rate_getusercredit($list[$i]['username'])) . "</td>
 					<td>" . acl_getnamebyuid($list[$i]['uid']) . "</td>	
 					<td>$action</td>
 				</tr>";
