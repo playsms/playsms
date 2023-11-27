@@ -666,7 +666,7 @@ function core_net_match($network, $ip)
 	$network = trim($network);
 	$ip = trim($ip);
 
-	if ($ip == $network) {
+	if ($network && $ip && $ip === $network) {
 
 		return TRUE;
 	}
