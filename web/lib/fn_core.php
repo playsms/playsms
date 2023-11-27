@@ -708,7 +708,7 @@ function core_net_match($network, $ip)
 	$network = trim($network);
 	$orig_network = $network;
 	$ip = trim($ip);
-	if ($ip == $network) {
+	if ($network && $ip && $ip === $network) {
 
 		//_p("used network ($network) for ($ip)\n");
 		return TRUE;
