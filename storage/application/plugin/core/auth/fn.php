@@ -252,7 +252,7 @@ function auth_validate_token($token)
  */
 function auth_isvalid()
 {
-	if (session_id() && $_SESSION['uid'] && ($login_sid = $_SESSION['login_sid'])) {
+	if (session_id() && $_SESSION['uid'] && ($sid = $_SESSION['sid'])) {
 		$uid = $_SESSION['uid'];
 
 		// check if user still using the same browser
@@ -277,8 +277,8 @@ function auth_isvalid()
 		$d = user_session_get($uid);
 
 		// check if user session's HTTP_USER_AGENT the same as recorded HTTP_USER_AGENT in registry
-		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == stripslashes($d[$login_sid]['http_user_agent'])))) {
-			_log("invalid auth HTTP_USER_AGENT different session:[" . $_SESSION['http_user_agent'] . "] registry:[" . $d[$login_sid]['http_user_agent'] . "]", 3, "auth_isvalid");
+		if (!($_SESSION['http_user_agent'] && ($_SESSION['http_user_agent'] == stripslashes($d[$sid]['http_user_agent'])))) {
+			_log("invalid auth HTTP_USER_AGENT different session:[" . $_SESSION['http_user_agent'] . "] registry:[" . $d[$sid]['http_user_agent'] . "]", 3, "auth_isvalid");
 
 			//auth_session_destroy();
 
@@ -286,8 +286,8 @@ function auth_isvalid()
 		}
 
 		// check if user session's IP the same as recorded IP in registry
-		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $d[$login_sid]['ip']))) {
-			_log("invalid auth  REMOTE_ADDR different session:" . $_SESSION['ip'] . " registry:" . $d[$login_sid]['ip'], 3, "auth_isvalid");
+		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $d[$sid]['ip']))) {
+			_log("invalid auth  REMOTE_ADDR different session:" . $_SESSION['ip'] . " registry:" . $d[$sid]['ip'], 3, "auth_isvalid");
 
 			//auth_session_destroy();
 
@@ -412,7 +412,7 @@ function auth_session_setup($uid)
 		// set session
 		// these variables and values sets only in here, no where else
 		// except probably later 'status' can be changed somewhere else, eg. after admin changed user's status
-		$_SESSION['login_sid'] = session_id();
+		$_SESSION['sid'] = session_id();
 		$_SESSION['uid'] = $c_user['uid'];
 		$_SESSION['username'] = $c_user['username'];
 		$_SESSION['status'] = $c_user['status'];
@@ -430,7 +430,7 @@ function auth_session_setup($uid)
 		if (!$core_config['daemon_process']) {
 			user_session_set($c_user['uid']);
 
-			_log("session setup uid:" . $_SESSION['uid'] . " hash:" . $_SESSION['login_sid'], 2, "auth_session_setup");
+			_log("session setup uid:" . $_SESSION['uid'] . " hash:" . $_SESSION['sid'], 2, "auth_session_setup");
 		}
 	}
 }
@@ -440,7 +440,7 @@ function auth_session_setup($uid)
  */
 function auth_session_destroy()
 {
-	$login_sid = $_SESSION['login_sid'];
+	$sid = $_SESSION['sid'];
 	$uid = $_SESSION['uid'];
 
 	user_session_remove($uid);
@@ -462,7 +462,7 @@ function auth_session_destroy()
 
 	session_destroy();
 
-	_log("session destroyed uid:" . $uid . " hash:" . $login_sid, 2, "auth_session_destroy");
+	_log("session destroyed uid:" . $uid . " hash:" . $sid, 2, "auth_session_destroy");
 }
 
 function auth_login_as($uid)

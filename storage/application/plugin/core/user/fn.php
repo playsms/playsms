@@ -701,7 +701,7 @@ function user_session_set($uid = '')
 	if (!$core_config['daemon_process']) {
 		$uid = ($uid ? $uid : $_SESSION['uid']);
 
-		if ($uid && ($login_sid = $_SESSION['login_sid'])) {
+		if ($uid && ($sid = $_SESSION['sid'])) {
 			$json = array(
 				'ip' => _REMOTE_ADDR_,
 				'last_update' => $_SESSION['last_update'],
@@ -714,10 +714,10 @@ function user_session_set($uid = '')
 				'username' => $_SESSION['username'],
 			);
 			registry_update(1, 'auth', 'login_session', [
-				$login_sid => json_encode($json),
+				$sid => json_encode($json),
 			]);
 
-			_log("login session saved in registry uid:" . $uid . " hash:" . $login_sid, 2, "user_session_set");
+			_log("login session saved in registry uid:" . $uid . " hash:" . $sid, 2, "user_session_set");
 		}
 	}
 }
@@ -735,9 +735,9 @@ function user_session_update($uid = '', $data = array())
 	if (!$core_config['daemon_process']) {
 		$uid = ($uid ? $uid : $user_config['uid']);
 
-		if ($uid && ($login_sid = $_SESSION['login_sid'])) {
+		if ($uid && ($sid = $_SESSION['sid'])) {
 			$d = user_session_get($uid);
-			if (isset($d[$login_sid]) && ($d = $d[$login_sid])) {
+			if (isset($d[$sid]) && ($d = $d[$sid])) {
 
 				foreach ( $d as $key => $val ) {
 					if (isset($d[$key]) && isset($data[$key])) {
@@ -746,14 +746,14 @@ function user_session_update($uid = '', $data = array())
 				}
 
 				registry_update(1, 'auth', 'login_session', [
-					$login_sid => json_encode($d),
+					$sid => json_encode($d),
 				]);
 
 				// debug
-				//_log("login session updated in registry uid:" . $uid . " hash:" . $login_sid . " data:" . json_encode($data), 2, "user_session_update");
+				//_log("login session updated in registry uid:" . $uid . " hash:" . $sid . " data:" . json_encode($data), 2, "user_session_update");
 			} else {
 				// debug
-				//_log("fail to update login session in registry uid:" . $uid . " hash:" . $login_sid . " data:" . json_encode($data), 2, "user_session_update");
+				//_log("fail to update login session in registry uid:" . $uid . " hash:" . $sid . " data:" . json_encode($data), 2, "user_session_update");
 			}
 		}
 	}
@@ -772,29 +772,29 @@ function user_session_get($uid = '')
 
 	$ret = array();
 
-	if ($uid && ($login_sid = $_SESSION['login_sid'])) {
-		$h = registry_search(1, 'auth', 'login_session', $login_sid);
-		$d = core_object_to_array(json_decode($h['auth']['login_session'][$login_sid]));
+	if ($uid && ($sid = $_SESSION['sid'])) {
+		$h = registry_search(1, 'auth', 'login_session', $sid);
+		$d = core_object_to_array(json_decode($h['auth']['login_session'][$sid]));
 		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['uid']) {
 
 			// fixme anton - https://www.exploit-database.net/?id=92909
 			$d['http_user_agent'] = core_sanitize_string($d['http_user_agent']);
 
-			return [$login_sid => $d];
+			return [$sid => $d];
 		}
 	}
-	unset($login_sid);
+	unset($sid);
 
 	$h = registry_search(1, 'auth', 'login_session');
 	$hashes = $h['auth']['login_session'];
-	foreach ( $hashes as $login_sid => $data ) {
+	foreach ( $hashes as $sid => $data ) {
 		$d = core_object_to_array(json_decode($data));
 		if ($d['ip'] && $d['last_update'] && $d['http_user_agent'] && $d['uid']) {
 
 			// fixme anton - https://www.exploit-database.net/?id=92909
 			$d['http_user_agent'] = core_sanitize_string($d['http_user_agent']);
 
-			$ret[$login_sid] = $d;
+			$ret[$sid] = $d;
 		}
 	}
 
