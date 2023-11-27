@@ -35,8 +35,18 @@
 						<td><input type=text class=form-control placeholder="{{ Username or email }}" name=username value='{{ $lastpost['username'] }}' maxlength=100></td>
 					</tr>
 					<tr>
-						<td><input type=password class=form-control placeholder="{{ Password }}" name=password maxlength=100></td>
+						<td><input type=password class=form-control placeholder="{{ Password }}" name=password maxlength=50></td>
 					</tr>
+
+					<if.enable_captcha>
+					<tr>
+						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100></td>
+					</tr>
+					<tr>
+						<td><p class=well>{{ Captcha }} {{ HINT_CAPTCHA }}<br /><img src="{{ CAPTCHA_IMAGE }}"></p></td>
+					</tr>
+					</if.enable_captcha>
+
 					<tr>
 						<td><input type=submit class=button value='{{ Login }}'></td>
 					</tr>

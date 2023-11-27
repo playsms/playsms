@@ -43,12 +43,16 @@
 					<tr>
 						<td><input type=text class=form-control placeholder="{{ Email }}" name=email value='{{ $lastpost['email'] }}' maxlength=100></td>
 					</tr>
+
+					<if.enable_captcha>
 					<tr>
 						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100></td>
 					</tr>
 					<tr>
 						<td><p class=well>{{ Captcha }} {{ HINT_CAPTCHA }}<br /><img src="{{ CAPTCHA_IMAGE }}"></p></td>
 					</tr>
+					</if.enable_captcha>
+					
 					<tr>
 						<td><input type=submit class=button value='{{ Submit }}'></td>
 					</tr>

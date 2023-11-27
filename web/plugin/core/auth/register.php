@@ -19,89 +19,129 @@
 defined('_SECURE_') or die('Forbidden');
 
 use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
+
+if (auth_isvalid()) {
+	header("Location: " . _u($core_config['http_path']['base']));
+	exit();
+}
 
 if (_OP_ == 'register') {
-	
-	$ok = FALSE;
-	
-	if (!auth_isvalid()) {
-		if ($_REQUEST['captcha'] && $_SESSION['tmp']['captcha'] && ($_REQUEST['captcha'] == $_SESSION['tmp']['captcha'])) {
-			$data = array();
-			$data['name'] = $_REQUEST['name'];
-			$data['username'] = $_REQUEST['username'];
-			$data['mobile'] = $_REQUEST['mobile'];
-			$data['email'] = $_REQUEST['email'];
-			
-			// force non-admin, status=3 is user and status=4 is subuser
-			$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
-			
-			// set parent for subuser
-			$parent_uid = ((int) $site_config['uid'] ? (int) $site_config['uid'] : 0);
-			if ($parent_uid) {
-				// regardless of default user status if register form site config then user status become subuser and parent is site config owner
-				$data['parent_uid'] = $parent_uid;
-				$data['status'] = 4;
-			} else {
-				$data['parent_uid'] = ($data['status'] == 4 ? $core_config['main']['default_parent'] : 0);
+
+	// verify captcha
+	if ($auth_captcha_form_register) {
+		$session_captcha_phrase = strtolower($_SESSION['tmp']['captcha']['phrase']);
+		$session_captcha_time = (int) $_SESSION['tmp']['captcha']['time'];
+		unset($_SESSION['tmp']['captcha']);
+
+		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == $session_captcha_phrase)) {
+
+			// captcha timeout 15 minutes
+			if (time() > ($session_captcha_time + (15 * 60))) {
+				_log("fail to verify captcha due to timeout u:" . $username_or_email . " ip:" . _REMOTE_ADDR_, 2, "auth register");
+
+				$_SESSION['dialog']['danger'][] = _('Captcha was expired, please try again');
+
+				header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
+				exit();
 			}
-			
-			$ret = user_add($data, FALSE, FALSE);
-			$ok = ($ret['status'] ? TRUE : FALSE);
-			if ($ok) {
-				
-				// injected variable
-				$reg_data = $ret['data'];
-				
-				// send email
-				$tpl = array(
-					'name' => 'auth_register_email',
-					'vars' => array(
-						'Name' => _('Name'),
-						'Username' => _('Username'),
-						'Password' => _('Password'),
-						'Mobile' => _('Mobile'),
-						'Credit' => _('Credit'),
-						'Email' => _('Email') 
-					),
-					'injects' => array(
-						'core_config',
-						'reg_data' 
-					) 
-				);
-				$email_body = tpl_apply($tpl);
-				$email_subject = _('New account registration');
-				
-				$mail_data = array(
-					'mail_from_name' => $core_config['main']['web_title'],
-					'mail_from' => $core_config['main']['email_service'],
-					'mail_to' => $ret['data']['email'],
-					'mail_subject' => $email_subject,
-					'mail_body' => $email_body 
-				);
-				if (sendmail($mail_data)) {
-					$_SESSION['dialog']['info'][] = _('Account has been added and password has been emailed') . " (" . _('username') . ": " . $ret['data']['username'] . ")";
-				} else {
-					$_SESSION['dialog']['info'][] = _('Account has been added but failed to send email') . " (" . _('username') . ": " . $ret['data']['username'] . ")";
-				}
-			} else {
-				$_SESSION['dialog']['danger'][] = $ret['error_string'];
-			}
+
 		} else {
+			_log("fail to verify captcha ip:" . _REMOTE_ADDR_, 2, "register");
+
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
+
+			header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
+			exit();
 		}
 	}
-	
-	if ($ok) {
-		header("Location: " . _u($core_config['http_path']['base']));
+
+	$data = array();
+	$data['name'] = trim($_REQUEST['name']);
+	$data['username'] = trim($_REQUEST['username']);
+	$data['email'] = trim($_REQUEST['email']);
+	$data['mobile'] = trim($_REQUEST['mobile']);
+
+	if ($core_config['main']['enable_register']) {
+		if (!($data['name'] && $data['username'] && $data['email'])) {
+			_log("incomplete registration data name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . _REMOTE_ADDR_, 2, "auth register");
+
+			$_SESSION['dialog']['danger'][] = _('Incomplete registration data');
+
+			header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
+			exit();
+		}
 	} else {
-		header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
+		_log("attempted to register an account while disabled name:" . $data['name'] . " u:" . $data['username'] . " email:" . $data['email'] . " mobile:" . $data['mobile'] . " ip:" . _REMOTE_ADDR_, 2, "auth register");
+
+		$_SESSION['dialog']['danger'][] = _('Register an account is disabled');
+
+		header("Location: " . _u($core_config['http_path']['base']));
+		exit();
 	}
+
+	// force non-admin, status=3 is user and status=4 is subuser
+	$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
+
+	// set parent for subuser
+	$parent_uid = ((int) $site_config['uid'] ? (int) $site_config['uid'] : 0);
+	if ($parent_uid) {
+		// regardless of default user status if register form site config then user status become subuser and parent is site config owner
+		$data['parent_uid'] = $parent_uid;
+		$data['status'] = 4;
+	} else {
+		$data['parent_uid'] = ($data['status'] == 4 ? $core_config['main']['default_parent'] : 0);
+	}
+
+	$ret = user_add($data, FALSE, FALSE);
+	$ok = ($ret['status'] ? TRUE : FALSE);
+	if ($ok) {
+
+		// injected variable
+		$reg_data = $ret['data'];
+
+		// send email
+		$tpl = array(
+			'name' => 'auth_register_email',
+			'vars' => array(
+				'Name' => _('Name'),
+				'Username' => _('Username'),
+				'Password' => _('Password'),
+				'Mobile' => _('Mobile'),
+				'Credit' => _('Credit'),
+				'Email' => _('Email')
+			),
+			'injects' => array(
+				'core_config',
+				'reg_data'
+			)
+		);
+		$email_body = tpl_apply($tpl);
+		$email_subject = _('New account registration');
+
+		$mail_data = array(
+			'mail_from_name' => $core_config['main']['web_title'],
+			'mail_from' => $core_config['main']['email_service'],
+			'mail_to' => $ret['data']['email'],
+			'mail_subject' => $email_subject,
+			'mail_body' => $email_body
+		);
+		if (sendmail($mail_data)) {
+			$_SESSION['dialog']['info'][] = _('Account has been added and password has been emailed');
+		} else {
+			$_SESSION['dialog']['info'][] = _('Account has been added but failed to send email');
+		}
+	} else {
+		$_SESSION['dialog']['danger'][] = $ret['error_string'];
+	}
+
+	header("Location: " . _u('index.php?app=main&inc=core_auth&route=register'));
 	exit();
 } else {
-	
+
 	$enable_logo = FALSE;
 	$show_web_title = TRUE;
-	
+
 	if ($core_config['main']['enable_logo'] && $core_config['main']['logo_url']) {
 		$enable_logo = TRUE;
 		if ($core_config['main']['logo_replace_title']) {
@@ -115,12 +155,20 @@ if (_OP_ == 'register') {
 		'mobile' => _lastpost('mobile'),
 		'email' => _lastpost('email')
 	);
-	
-	// captcha
-	$captcha = new CaptchaBuilder();
-	$captcha->build();
-	$_SESSION['tmp']['captcha'] = $captcha->getPhrase();
-	
+
+	// prepare captcha phrase and set the time
+	$captcha_image = '';
+	if ($auth_captcha_form_register) {
+		$phraseBuilder = new PhraseBuilder($auth_captcha_length, $auth_captcha_seed);
+		$captcha = new CaptchaBuilder(null, $phraseBuilder);
+		$captcha->build($auth_captcha_width, $auth_captcha_height);
+		$_SESSION['tmp']['captcha'] = [
+			'phrase' => $captcha->getPhrase(),
+			'time' => time(),
+		];
+		$captcha_image = $captcha->inline();
+	}
+
 	$tpl = array(
 		'name' => 'auth_register',
 		'vars' => array(
@@ -130,7 +178,7 @@ if (_OP_ == 'register') {
 			'URL_ACTION' => _u('index.php?app=main&inc=core_auth&route=register&op=register'),
 			'URL_FORGOT' => _u('index.php?app=main&inc=core_auth&route=forgot'),
 			'URL_LOGIN' => _u('index.php?app=main&inc=core_auth&route=login'),
-			'CAPTCHA_IMAGE' => $captcha->inline(),
+			'CAPTCHA_IMAGE' => $captcha_image,
 			'HINT_CAPTCHA' => _hint(_('Read and type the captcha phrase on verify captcha field. If you cannot read them please contact administrator.')),
 			'Name' => _('Name'),
 			'Username' => _('Username'),
@@ -141,17 +189,18 @@ if (_OP_ == 'register') {
 			'Submit' => _('Submit'),
 			'Recover password' => _('Recover password'),
 			'Verify captcha' => _('Verify captcha'),
-			'logo_url' => $core_config['main']['logo_url'] 
+			'logo_url' => $core_config['main']['logo_url']
 		),
 		'ifs' => array(
+			'enable_captcha' => $auth_captcha_form_register,
 			'enable_forgot' => $core_config['main']['enable_forgot'],
 			'enable_logo' => $enable_logo,
-			'show_web_title' => $show_web_title 
+			'show_web_title' => $show_web_title
 		),
 		'injects' => array(
 			'lastpost'
 		)
 	);
-	
+
 	_p(tpl_apply($tpl));
 }

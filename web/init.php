@@ -80,6 +80,16 @@ if (!$core_config['daemon_process']) {
 		'cookie_secure' => $session_cookie_secure,
 	]);
 
+	if (!isset($_SESSION['last_update'])) {
+		$_SESSION['last_update'] = time();
+	}
+
+	// regenerate session ID every 20 minutes
+	if (time() >= ($_SESSION['last_update'] + (20 * 60))) {
+		session_regenerate_id(TRUE);
+		$_SESSION['last_update'] = time();
+	}
+
 	if (trim($_SERVER['SERVER_PROTOCOL']) == 'HTTP/1.1') {
 		header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 	} else {
