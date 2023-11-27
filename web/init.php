@@ -119,12 +119,12 @@ if (!defined('_PHP_VER_')) {
 }
 
 // saves remote IP address from alternate source or server's REMOTE_ADDR
-if ($c_remote_addr = trim($core_config['remote_addr'])) {
+if (isset($core_config['remote_addr']) && !is_array($core_config['remote_addr']) && $c_remote_addr = trim($core_config['remote_addr'])) {
 	define('_REMOTE_ADDR_', $c_remote_addr);
+	unset($c_remote_addr);
 } else {
 	define('_REMOTE_ADDR_', $_SERVER['REMOTE_ADDR']);
 }
-unset($c_remote_addr);
 
 // (bool) $DAEMON_PROCESS is special variable passed by daemon script
 if (isset($DAEMON_PROCESS) && $DAEMON_PROCESS) {
