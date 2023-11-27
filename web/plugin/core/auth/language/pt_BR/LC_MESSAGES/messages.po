@@ -11,6 +11,9 @@ msgstr "A conta foi adicionada e a senha foi enviada para o e-mail"
 msgid "Account has been added but failed to send email"
 msgstr "A conta foi criada, mas houve falha ao enviar email"
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr "Crédito"
 
@@ -20,14 +23,12 @@ msgstr "E-mail"
 msgid "Fail to recover password"
 msgstr "Falha ao recuperar senha"
 
-msgid "Fail to save temporary password"
-msgstr "Falha ao salvar senha temporária"
-
-msgid "Fail to send email"
-msgstr "Falha ao enviar email"
-
 msgid "Home"
 msgstr "Início"
+
+#, fuzzy
+msgid "Incomplete registration data"
+msgstr "Registrar nova conta"
 
 msgid "Invalid username or password"
 msgstr "Usuário ou senha inválidos"
@@ -46,9 +47,6 @@ msgstr "Registrar nova conta"
 
 msgid "Password"
 msgstr "Senha"
-
-msgid "Password has been emailed"
-msgstr "A senha foi enviada para o e-mail"
 
 msgid "Password recovery"
 msgstr "Recuperação de senha"
@@ -72,8 +70,15 @@ msgstr "Recuperação de senha desabilitado"
 msgid "Register an account"
 msgstr "Registrar uma conta"
 
+#, fuzzy
+msgid "Register an account is disabled"
+msgstr "Registrar uma conta"
+
 msgid "Submit"
 msgstr "Enviar"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
@@ -99,6 +104,3 @@ msgstr "Você não tem acesso à essa página"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Você ou alguém solicitou a recuperação de senha"
-
-msgid "username"
-msgstr "Nome de usuário"

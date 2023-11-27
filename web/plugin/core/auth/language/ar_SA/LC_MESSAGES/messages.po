@@ -21,6 +21,9 @@ msgstr "تم إرسال كلمة المرور إلى البريد الالكتر
 msgid "Account has been added but failed to send email"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
@@ -30,14 +33,11 @@ msgstr "البريد الالكتروني"
 msgid "Fail to recover password"
 msgstr "فشل استعادة كلمة المرور"
 
-msgid "Fail to save temporary password"
-msgstr "فشل حفظ كلمة المرور المؤقتة"
-
-msgid "Fail to send email"
-msgstr "فشل إرسال البريد الالكتروني"
-
 msgid "Home"
 msgstr "الرئيسة"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Invalid username or password"
 msgstr "اسم المستخدم أو كلمة المرور غير صحيحين"
@@ -56,9 +56,6 @@ msgstr ""
 
 msgid "Password"
 msgstr "كلمة المرور"
-
-msgid "Password has been emailed"
-msgstr "تم إرسال كلمة المرور إلى البريد الالكتروني"
 
 msgid "Password recovery"
 msgstr "استعادة كلمة المرور"
@@ -80,8 +77,15 @@ msgstr "تم تعطيل استعادة كلمة المرور"
 msgid "Register an account"
 msgstr "إنشاء حساب"
 
+#, fuzzy
+msgid "Register an account is disabled"
+msgstr "إنشاء حساب"
+
 msgid "Submit"
 msgstr "أرسل"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
@@ -108,7 +112,3 @@ msgstr "لايوجد لديك صلاحية للوصول إلى هذه الصفح
 
 msgid "You or someone else have requested a password recovery"
 msgstr "لقد طلبت أنت أو شخص ما استعادة كلمة المرور."
-
-#, fuzzy
-msgid "username"
-msgstr "اسم المستخدم"

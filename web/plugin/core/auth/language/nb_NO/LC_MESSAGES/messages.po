@@ -15,6 +15,9 @@ msgstr "Passord har blitt tilsendt på mail"
 msgid "Account has been added but failed to send email"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
@@ -24,14 +27,11 @@ msgstr "Email"
 msgid "Fail to recover password"
 msgstr "Feil ved gjenoppretting av passord"
 
-msgid "Fail to save temporary password"
-msgstr "Feil ved lagring av midlertidig passord"
-
-msgid "Fail to send email"
-msgstr "Feil ved sending av email"
-
 msgid "Home"
 msgstr "Hjem"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Invalid username or password"
 msgstr "Ugyldig brukernavn eller passord"
@@ -50,9 +50,6 @@ msgstr ""
 
 msgid "Password"
 msgstr "Passord"
-
-msgid "Password has been emailed"
-msgstr "Passord har blitt tilsendt på mail"
 
 msgid "Password recovery"
 msgstr "Passordgjenoppretting"
@@ -76,8 +73,15 @@ msgstr "Gjennoppretning av passord er deaktivert"
 msgid "Register an account"
 msgstr "Registrer konto"
 
+#, fuzzy
+msgid "Register an account is disabled"
+msgstr "Registrer konto"
+
 msgid "Submit"
 msgstr "Send"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
@@ -105,7 +109,3 @@ msgstr "Du har ikke tilgang til denne siden"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Du, eller en annen, har sendt forespørsel om passordgjenoppretting"
-
-#, fuzzy
-msgid "username"
-msgstr "Brukernavn"

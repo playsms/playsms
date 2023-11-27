@@ -19,6 +19,9 @@ msgstr "Пароль отправлен по почте"
 msgid "Account has been added but failed to send email"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
@@ -28,15 +31,11 @@ msgstr "Email"
 msgid "Fail to recover password"
 msgstr "Не удалось восстановить пароль"
 
-#, fuzzy
-msgid "Fail to save temporary password"
-msgstr "Не удалось восстановить пароль"
-
-msgid "Fail to send email"
-msgstr "Не удалось отправить письмо"
-
 msgid "Home"
 msgstr "Главная"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Invalid username or password"
 msgstr "Неправильное имя пользователя или пароль"
@@ -55,9 +54,6 @@ msgstr ""
 
 msgid "Password"
 msgstr "Пароль"
-
-msgid "Password has been emailed"
-msgstr "Пароль отправлен по почте"
 
 msgid "Password recovery"
 msgstr "Восстановление пароля"
@@ -81,8 +77,15 @@ msgstr "Восстановление пароля отключено"
 msgid "Register an account"
 msgstr "Регистрация пользователя"
 
+#, fuzzy
+msgid "Register an account is disabled"
+msgstr "Регистрация пользователя"
+
 msgid "Submit"
 msgstr "Принять"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
@@ -108,7 +111,3 @@ msgstr "У Вас нет доступа к этой странице"
 
 msgid "You or someone else have requested a password recovery"
 msgstr "Вы или кто-то другой запросил восстановление пароля"
-
-#, fuzzy
-msgid "username"
-msgstr "Имя пользователя"

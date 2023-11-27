@@ -12,6 +12,9 @@ msgstr "Le mot de passe a été envoyé par e-mail"
 msgid "Account has been added but failed to send email"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
@@ -21,15 +24,11 @@ msgstr "Email"
 msgid "Fail to recover password"
 msgstr "Échec de la récupération du mot de passe"
 
-#, fuzzy
-msgid "Fail to save temporary password"
-msgstr "Échec de la récupération du mot de passe"
-
-msgid "Fail to send email"
-msgstr "Échec de l'envoi de l'email"
-
 msgid "Home"
 msgstr "Accueil"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Invalid username or password"
 msgstr "Nom d'utilisateur ou mot de passe erroné"
@@ -48,9 +47,6 @@ msgstr ""
 
 msgid "Password"
 msgstr "Mot de passe"
-
-msgid "Password has been emailed"
-msgstr "Le mot de passe a été envoyé par e-mail"
 
 msgid "Password recovery"
 msgstr "Récupération du mot de passe"
@@ -74,8 +70,15 @@ msgstr "Récupération du mot de passe désactivée"
 msgid "Register an account"
 msgstr "Inscrire un nouveau compte"
 
+#, fuzzy
+msgid "Register an account is disabled"
+msgstr "Inscrire un nouveau compte"
+
 msgid "Submit"
 msgstr "Envoyer"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid ""
 "This temporary password will be removed once you have logged in successfully"
@@ -104,7 +107,3 @@ msgstr "Vous n'avez pas accès à cette page"
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 "Vous ou quelqu'un d'autre avez demandé une récupération du mot de passe"
-
-#, fuzzy
-msgid "username"
-msgstr "Nom d'utilisateur"

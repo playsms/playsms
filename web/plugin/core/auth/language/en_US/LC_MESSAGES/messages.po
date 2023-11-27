@@ -11,6 +11,9 @@ msgstr ""
 msgid "Account has been added but failed to send email"
 msgstr ""
 
+msgid "Captcha was expired, please try again"
+msgstr ""
+
 msgid "Credit"
 msgstr ""
 
@@ -20,13 +23,10 @@ msgstr ""
 msgid "Fail to recover password"
 msgstr ""
 
-msgid "Fail to save temporary password"
-msgstr ""
-
-msgid "Fail to send email"
-msgstr ""
-
 msgid "Home"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Invalid username or password"
@@ -45,9 +45,6 @@ msgid "New account registration"
 msgstr ""
 
 msgid "Password"
-msgstr ""
-
-msgid "Password has been emailed"
 msgstr ""
 
 msgid "Password recovery"
@@ -70,7 +67,13 @@ msgstr ""
 msgid "Register an account"
 msgstr ""
 
+msgid "Register an account is disabled"
+msgstr ""
+
 msgid "Submit"
+msgstr ""
+
+msgid "Temporary password has been emailed. You must login immediately."
 msgstr ""
 
 msgid ""
@@ -96,7 +99,4 @@ msgid "You have no access to this page"
 msgstr ""
 
 msgid "You or someone else have requested a password recovery"
-msgstr ""
-
-msgid "username"
 msgstr ""
