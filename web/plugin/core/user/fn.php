@@ -717,7 +717,7 @@ function user_session_set($uid = '')
 				$sid => json_encode($json),
 			]);
 
-			_log("login session saved in registry uid:" . $uid . " hash:" . $sid, 2, "user_session_set");
+			//_log("login session saved in registry uid:" . $uid . " hash:" . $sid, 2, "user_session_set");
 		}
 	}
 }
