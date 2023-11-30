@@ -5,9 +5,6 @@ if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['reports'];
 	$menu_config[$menutab][] = array(
 		"index.php?app=main&inc=feature_playsmslog&op=playsmslog_list",
-		_('View log') 
+		_('View log')
 	);
 }
-
-$plugin_config['playsmslog']['playsmsd']['bin'] = '/usr/local/bin/playsmsd';
-$plugin_config['playsmslog']['playsmsd']['conf'] = '/etc/playsmsd.conf';
