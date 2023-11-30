@@ -24,20 +24,29 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "playsmslog_list":
-	case "playsmslog_log":
-
 		$playsmsd = [];
+		$is_running = false;
 
-		$list = registry_search(0, 'core', 'playsmsd', 'data');
-		if (isset($list['core']['playsmsd']['data'])) {
-			$playsmsd = json_decode($list['core']['playsmsd']['data'], true);
+		$list = registry_search(0, 'core', 'playsmsd', 'last_update');
+		if (isset($list['core']['playsmsd']['last_update']) && $last_update = (int) $list['core']['playsmsd']['last_update']) {
+			if (time() - $last_update > 30) {
+				$is_running = false;
+			} else {
+				$list = registry_search(0, 'core', 'playsmsd', 'data');
+				if (isset($list['core']['playsmsd']['data']) && $json = $list['core']['playsmsd']['data']) {
+					$playsmsd = json_decode($json, true);
+					if (isset($playsmsd['IS_RUNNING']) && $playsmsd['IS_RUNNING']) {
+						$is_running = true;
+					}
+				}
+			}
 		}
 
 		// get playsmsd status
-		if (isset($playsmsd['IS_RUNNING']) && $playsmsd['IS_RUNNING']) {
-			$playsmsd_is_running = '<span class=status_enabled title="' . _('playSMS daemon is running') . '"></span>';
+		if ($is_running) {
+			$is_running_label = '<span class=status_enabled title="' . _('playSMS daemon is running') . '"></span>';
 		} else {
-			$playsmsd_is_running = '<span class=status_disabled title="' . _('playSMS daemon is NOT running') . '"></span>';
+			$is_running_label = '<span class=status_disabled title="' . _('playSMS daemon is NOT running') . '"></span>';
 		}
 
 		$tpl = array(
@@ -46,7 +55,7 @@ switch (_OP_) {
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'),
 				'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'),
-				'PLAYSMSD_IS_RUNNING' => $playsmsd_is_running,
+				'PLAYSMSD_IS_RUNNING' => $is_running_label,
 				'LOG' => playsmslog_view(),
 				'Daemon status' => _('playSMS daemon status'),
 				'View log' => _('View log')
@@ -54,12 +63,11 @@ switch (_OP_) {
 		);
 
 		$content = tpl_apply($tpl);
-		if (_OP_ == 'playsmslog_log') {
-			ob_clean();
-			_p(playsmslog_view());
-			exit();
-		} else {
-			_p($content);
-		}
+		_p($content);
 		break;
+
+	case "playsmslog_log":
+		ob_clean();
+		_p(playsmslog_view());
+		exit();
 }
