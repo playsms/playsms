@@ -412,10 +412,22 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 	}
 
 	// save playsmsd data in database for other plugins such as playsmslog
-	if ($continue) {
-		registry_update(0, 'core', 'playsmsd', [
-			'data' => playsmsd_check(true, false)
-		]);
+	if ($continue && $json = playsmsd_check(true, false)) {
+		$json_array = json_decode($json, true);
+		if (isset($json_array['IS_RUNNING']) && (bool) $json_array['IS_RUNNING'] ? true : false) {
+			$items = [
+				'time_start' => time(),
+				'last_update' => time(),
+				'data' => $json
+			];
+		} else {
+			$items = [
+				'last_update' => time(),
+				'data' => $json
+			];
+
+		}
+		registry_update(0, 'core', 'playsmsd', $items);
 	}
 
 	if ($continue && $COMMAND == 'version') {
@@ -467,6 +479,11 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		while ($DAEMON_LOOPING) {
 
 			//echo $COMMAND . " start time:" . time() . "" . PHP_EOL;
+
+			// update last_update data
+			registry_update(0, 'core', 'playsmsd', [
+				'last_update' => time()
+			]);
 
 
 			// re-include init.php on every 'while' to get the most updated configurations
