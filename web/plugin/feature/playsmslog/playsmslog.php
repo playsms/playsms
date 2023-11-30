@@ -25,16 +25,21 @@ if (!auth_isadmin()) {
 switch (_OP_) {
 	case "playsmslog_list":
 	case "playsmslog_log":
-		
+
+		$playsmsd = [];
+
+		$list = registry_search(0, 'core', 'playsmsd', 'data');
+		if (isset($list['core']['playsmsd']['data'])) {
+			$playsmsd = json_decode($list['core']['playsmsd']['data'], true);
+		}
+
 		// get playsmsd status
-		$json = shell_exec($plugin_config['playsmslog']['playsmsd']['bin'] . ' ' . $plugin_config['playsmslog']['playsmsd']['conf'] . ' check_json');
-		$playsmsd = json_decode(!is_array($json) ? (string) $json : '');
-		if ($playsmsd->IS_RUNNING) {
+		if (isset($playsmsd['IS_RUNNING']) && $playsmsd['IS_RUNNING']) {
 			$playsmsd_is_running = '<span class=status_enabled title="' . _('playSMS daemon is running') . '"></span>';
 		} else {
 			$playsmsd_is_running = '<span class=status_disabled title="' . _('playSMS daemon is NOT running') . '"></span>';
 		}
-		
+
 		$tpl = array(
 			'name' => 'playsmslog',
 			'vars' => array(
@@ -44,10 +49,10 @@ switch (_OP_) {
 				'PLAYSMSD_IS_RUNNING' => $playsmsd_is_running,
 				'LOG' => playsmslog_view(),
 				'Daemon status' => _('playSMS daemon status'),
-				'View log' => _('View log') 
-			) 
+				'View log' => _('View log')
+			)
 		);
-		
+
 		$content = tpl_apply($tpl);
 		if (_OP_ == 'playsmslog_log') {
 			ob_clean();
