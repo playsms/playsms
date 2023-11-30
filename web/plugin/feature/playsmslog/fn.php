@@ -18,8 +18,20 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function playsmslog_view($nline = 1000) {
+function playsmslog_view($nline = 1000)
+{
 	global $core_config;
-	$content = @shell_exec('tail -n ' . $nline . ' ' . $core_config['apps_path']['logs'] . '/playsms.log');
+
+	$content = '';
+
+	$nline = (int) $nline > 1000 ? 1000 : (int) $nline;
+	$nline = (int) $nline < 10 ? 10 : (int) $nline;
+
+	$log_file = $core_config['apps_path']['logs'] . '/playsms.log';
+
+	if (is_file($log_file)) {
+		$content = shell_exec('tail -n ' . $nline . ' ' . $log_file);
+	}
+
 	return $content;
 }
