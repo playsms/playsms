@@ -294,6 +294,9 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 			$db_result2 = dba_query($db_query2);
 			while ($db_row2 = dba_fetch_array($db_result2)) {
 				
+				// queue_dst ID is SMS Log ID
+				$c_smslog_id = $db_row2['id'];
+				
 				// make sure the queue is still there
 				// if the queue_code with flag=3 is not exists then break, stop sendqueue
 				if (!dba_isexists(_DB_PREF_ . "_tblSMSOutgoing_queue", array(
@@ -302,11 +305,21 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 				), 'AND')) {
 					break;
 				}
+
+				// make sure smslog_id does not exists in tblSMSOutgoing
+				if (dba_isexists(_DB_PREF_ . "_tblSMSOutgoing", array(
+					'smslog_id' => $c_smslog_id
+				))) {
+					// flag as done
+					$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET flag='1' WHERE id='" . $c_smslog_id . "'";
+					dba_affected_rows($db_query3);
+					
+					_log("skipped due to sms has been processed but encountered error queue_code:" . $c_queue_code . " to:" . $c_dst . " flag:" . $c_flag . " smslog_id:" . $c_smslog_id, 2, "sendsmsd");
+					
+					break;
+				}
 				
 				$counter++;
-				
-				// queue_dst ID is SMS Log ID
-				$c_smslog_id = $db_row2['id'];
 				
 				$c_dst = $db_row2['dst'];
 				$c_flag = 2;
@@ -322,8 +335,11 @@ function sendsmsd($single_queue = '', $chunk = 0) {
 					sendsms_throttle_count(0, $c_sms_size);
 				}
 				_log("result queue_code:" . $c_queue_code . " to:" . $c_dst . " flag:" . $c_flag . " smslog_id:" . $c_smslog_id, 2, "sendsmsd");
+				
+				// flag as done
 				$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET flag='$c_flag' WHERE id='$c_smslog_id'";
-				$db_result3 = dba_query($db_query3);
+				dba_affected_rows($db_query3);
+				
 				$ok[] = $c_ok;
 				$to[] = $c_dst;
 				$smslog_id[] = $c_smslog_id;
@@ -510,7 +526,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	_log("saving smslog_id:" . $smslog_id . " u:" . $uid . " parent_uid:" . $parent_uid . " g:" . $gpid . " gw:" . $gateway . " smsc:" . $smsc . " s:" . $sms_sender . " d:" . $sms_to . " type:" . $sms_type . " unicode:" . $unicode . " status:" . $p_status, 2, "sendsms");
 	
 	// continue to gateway only when save to db is true
-	if ($id = @dba_insert_id($db_query)) {
+	if ($id = dba_insert_id($db_query)) {
 		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "sendsms_process");
 		if ($p_status == 0) {
 			_log("final smslog_id:" . $smslog_id . " gw:" . $gateway . " smsc:" . $smsc . " message:" . $sms_msg . $sms_footer . " len:" . core_smslen($sms_msg . $sms_footer), 3, "sendsms");
