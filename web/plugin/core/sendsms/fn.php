@@ -448,14 +448,14 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	if (!$smsc) {
 		$smsc = core_smsc_get();
 
-		_log('using default SMSC smsc:[' . $smsc . ']', 2, "recvsms_process");
+		_log('using default SMSC smsc:[' . $smsc . ']', 2, "sendsms_process");
 	}
 	
 	// set no gateway if no default gateway selected
 	if (!$smsc) {
 		$smsc = 'blocked';
 
-		_log('default SMSC setting is empty set SMSC to blocked', 2, "recvsms_process");
+		_log('default SMSC setting is empty set SMSC to blocked', 2, "sendsms_process");
 	}
 	
 	// get gateway
@@ -469,7 +469,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$smsc = 'blocked';
 		$gateway = 'blocked';
 
-		_log('SMS blocked unknown SMSC found smsc:[' . $smsc . ']', 2, "recvsms_process");
+		_log('SMS blocked unknown SMSC found smsc:[' . $smsc . ']', 2, "sendsms_process");
 	}
 	
 	// a hack to remove \r from \r\n
