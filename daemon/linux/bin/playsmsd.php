@@ -513,66 +513,55 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 
 				case 'sendsmsd':
 
-					// init step
+					// init phase
 					// $core_config['sendsmsd_queue'] = number of simultaneous queues
 					// $core_config['sendsmsd_chunk'] = number of chunk per queue
-					$c_list = array();
-					$list = dba_search(
-						_DB_PREF_ . '_tblSMSOutgoing_queue',
-						'id, queue_code',
-						array(
-							'flag' => '0'
-						)
-					);
-					foreach ( $list as $db_row ) {
-						$c_datetime_scheduled = strtotime($db_row['datetime_scheduled']);
-						if ($c_datetime_scheduled <= strtotime(core_get_datetime())) {
-							$c_list[] = $db_row;
-						}
-					}
 
-					$list = array();
-					$sendsmsd_queue_count = (int) $core_config['sendsmsd_queue'];
-					if ($sendsmsd_queue_count > 0) {
-						for ($i = 0; $i < $sendsmsd_queue_count; $i++) {
-							if ($c_list[$i]) {
-								$list[] = $c_list[$i];
-							}
-						}
-					} else {
-						$list = $c_list;
-					}
-
-					foreach ( $list as $db_row ) {
+					// select id and queue_code from table queue
+					// where the queue hasn't been processed yet and it's already scheduled to run
+					// but limit the search up to the number of sendsmsd_queue
+					$db_query = "
+						SELECT id, queue_code FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue 
+						WHERE flag=0 AND datetime_scheduled<=? 
+						LIMIT " . (int) $core_config['sendsmsd_queue'];
+					$db_result = dba_query($db_query, [core_get_datetime()]);
+					while ($db_row = dba_fetch_array($db_result)) {
 						// $db_row['queue_code'] = queue code
 						// $db_row['queue_count'] = number of entries in a queue
 						// $db_row['sms_count'] = number of SMS in an entry
 						$num = 0;
-						$db_query2 = "SELECT id FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "'";
-						$db_result2 = dba_query($db_query2);
+
+						// look for destinations from table queue dst based on queue_id
+						// and give them chunk number
+						$db_query2 = "SELECT id FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id=?";
+						$db_result2 = dba_query($db_query2, [$db_row['id']]);
 						while ($db_row2 = dba_fetch_array($db_result2)) {
 							$num++;
-							if ($chunk = floor($num / $core_config['sendsmsd_chunk_size'])) {
-								$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET chunk='" . $chunk . "' WHERE id='" . $db_row2['id'] . "'";
-								$db_result3 = dba_query($db_query3);
+							if ((int) $core_config['sendsmsd_chunk_size'] > 0 && $chunk = floor($num / (int) $core_config['sendsmsd_chunk_size'])) {
+								$db_query3 = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst SET chunk=? WHERE id=?";
+								dba_affected_rows($db_query3, [$chunk, $db_row2['id']]);
 							}
 						}
 
 						if ($num > 0) {
 							// destination found, update queue to process step
-							sendsms_queue_update(
-								$db_row['queue_code'],
-								array(
-									'flag' => 3
+							if (
+								!sendsms_queue_update(
+									$db_row['queue_code'],
+									array(
+										'flag' => 3
+									)
 								)
-							);
+							) {
+								_log('fail to update queue for processing queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
+							}
 						} else {
-							// no destination found, something's not right with the queue, mark it as done (flag 1)
+							// no destination found, something's not right with the queue, mark it as done and failed (flag 2)
 							if (
 								sendsms_queue_update(
 									$db_row['queue_code'],
 									array(
-										'flag' => 1
+										'flag' => 2
 									)
 								)
 							) {
@@ -583,30 +572,29 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 						}
 					}
 
-					// process step
+					// process phase
 					$queue = array();
 
-					$list = dba_search(_DB_PREF_ . '_tblSMSOutgoing_queue', 'id, queue_code', array(
-						'flag' => '3'
-					), [], $extras);
-					foreach ( $list as $db_row ) {
-						// get chunks
-						$c_chunk_found = 0;
-						$db_query2 = "SELECT chunk FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id='" . $db_row['id'] . "' AND flag='0' GROUP BY chunk LIMIT " . $core_config['sendsmsd_chunk'];
-						$db_result2 = dba_query($db_query2);
+					// look for queues that ready for processing
+					$db_query = "SELECT id, queue_code FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag=3";
+					$db_result = dba_query($db_query);
+					while ($db_row = dba_fetch_array($db_result)) {
+						// get chunks and prepare queue list in $queue
+						$db_query2 = "SELECT chunk FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue_dst WHERE queue_id=? AND flag=0 GROUP BY chunk LIMIT " . (int) $core_config['sendsmsd_chunk'];
+						$db_result2 = dba_query($db_query2, [$db_row['id']]);
 						while ($db_row2 = dba_fetch_array($db_result2)) {
-							$c_chunk = (int) $db_row2['chunk'];
-							$queue[] = 'Q_' . $db_row['queue_code'] . '_' . $c_chunk;
-							$c_chunk_found++;
+							if ($db_row['queue_code']) {
+								$queue[] = 'Q_' . $db_row['queue_code'] . '_' . (int) $c_chunk;
+							}
 						}
 
-						if ($c_chunk_found < 1) {
-							// no chunk found, something's not right with the queue, mark it as done (flag 1)
+						if (count($queue) < 1) {
+							// no chunk found, something's not right with the queue, mark it as done and failed (flag 2)
 							if (
 								sendsms_queue_update(
 									$db_row['queue_code'],
 									array(
-										'flag' => 1
+										'flag' => 2
 									)
 								)
 							) {
@@ -617,12 +605,12 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 						}
 					}
 
-					// execute step
+					// execute phase
 					$queue = array_unique($queue);
-					if (count($queue) > 0) {
+					if (is_array($queue) && $queue && count($queue) > 0) {
 						foreach ( $queue as $q ) {
-							$is_sending = (playsmsd_pid_get($q) ? true : false);
-							if (!$is_sending) {
+							// if found queue and it's not currently running, then run it
+							if ($q && !(playsmsd_pid_get($q) ? true : false)) {
 								$RUN_THIS = "nohup $PLAYSMSD_COMMAND sendqueue once $q >/dev/null 2>&1 &";
 								echo $COMMAND . " execute: " . $RUN_THIS . "" . PHP_EOL;
 								shell_exec($RUN_THIS);
