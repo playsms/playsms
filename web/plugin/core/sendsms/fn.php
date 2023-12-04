@@ -225,13 +225,22 @@ function sendsms_queue_push($queue_code, $sms_to) {
 	return $ret;
 }
 
-function sendsms_queue_update($queue_code, $updates) {
+/**
+ * Update queue status
+ * @param string $queue_code queue code
+ * @param array $updates update values
+ * @return bool TRUE if queue status changed
+ */
+function sendsms_queue_update($queue_code, $updates)
+{
 	$ret = false;
+
 	if (is_array($updates)) {
-		$ret = dba_update(_DB_PREF_ . '_tblSMSOutgoing_queue', $updates, array(
-			'queue_code' => $queue_code 
-		));
+		if (dba_update(_DB_PREF_ . '_tblSMSOutgoing_queue', $updates, ['queue_code' => $queue_code])) {
+			$ret = true;
+		}
 	}
+
 	return $ret;
 }
 
