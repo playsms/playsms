@@ -516,6 +516,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					// init phase
 					// $core_config['sendsmsd_queue'] = number of simultaneous queues
 					// $core_config['sendsmsd_chunk'] = number of chunk per queue
+					// $core_config['sendsmsd_chunk_size'] = max number of sms per chunk
 
 					// select id and queue_code from table queue
 					// where the queue hasn't been processed yet and it's already scheduled to run
@@ -584,7 +585,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 						$db_result2 = dba_query($db_query2, [$db_row['id']]);
 						while ($db_row2 = dba_fetch_array($db_result2)) {
 							if ($db_row['queue_code']) {
-								$queue[] = 'Q_' . $db_row['queue_code'] . '_' . (int) $c_chunk;
+								$queue[] = 'Q_' . $db_row['queue_code'] . '_' . (int) $db_row2['chunk'];
 							}
 						}
 
