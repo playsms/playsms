@@ -553,7 +553,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			))) {
 				
 				// fixme anton - deduct user's credit as soon as gateway returns true
-				rate_deduct($smslog_id);
+				billing_deduct($smslog_id);
 				$ok = true;
 			} else {
 				_log("fail no hook for sendsms", 2, "sendsms_process");

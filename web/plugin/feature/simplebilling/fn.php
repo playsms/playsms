@@ -53,11 +53,13 @@ function simplebilling_hook_billing_finalize($smslog_id) {
 
 function simplebilling_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 	//_log("checking smslog_id:".$smslog_id, 2, "simplebilling setsmsdeliverystatus");
-	if (($p_status == 1) || ($p_status == 3)) {
-		$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status='0' AND smslog_id='$smslog_id'";
-		$db_result = dba_query($db_query);
-		if (dba_fetch_array($db_result)) {
-			billing_finalize($smslog_id);
+	$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status=0 AND smslog_id=? LIMIT 1";
+	$db_result = dba_query($db_query, [$smslog_id]);
+	if (dba_fetch_array($db_result)) {
+		if (($p_status == 1) || ($p_status == 3)) {
+			simplebilling_hook_billing_finalize($smslog_id);
+		} else if ($p_status == 2) {
+			simplebilling_hook_billing_refund($smslog_id);
 		}
 	}
 }
@@ -113,4 +115,62 @@ function simplebilling_hook_billing_getdata_by_uid($uid) {
 		);
 	}
 	return $ret;
+}
+
+function simplebilling_hook_billing_deduct($smslog_id) {
+	global $core_config;
+
+	_log("enter smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_deduct");
+	$db_query = "SELECT p_dst,p_footer,p_msg,uid,parent_uid,unicode FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$p_dst = $db_row['p_dst'];
+		$p_msg = $db_row['p_msg'];
+		$p_footer = $db_row['p_footer'];
+		$uid = (int) $db_row['uid'];
+		$parent_uid = (int) $db_row['parent_uid'];
+		$unicode = (int) $db_row['unicode'];
+		if ($p_dst && $p_msg && $uid) {
+
+			// get charge
+			list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($p_msg.$p_footer), $unicode, $p_dst);
+
+			if (simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge, $uid, $parent_uid)) {
+				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_deduct");
+				
+				return TRUE;
+			} else {
+				_log("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_deduct");
+
+				return FALSE;
+			}
+		} else {
+			_log("rate deduct failed due to empty data uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_deduct");
+		}
+	} else {
+		_log("rate deduct failed due to missing data smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_deduct");
+	}
+
+	return FALSE;
+}
+
+function simplebilling_hook_billing_refund($smslog_id) {
+	global $core_config;
+
+	_log("start smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_refund");
+	$db_query = "SELECT p_dst,p_msg,uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='2' AND smslog_id='$smslog_id'";
+	$db_result = dba_query($db_query);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$p_dst = $db_row['p_dst'];
+		$p_msg = $db_row['p_msg'];
+		$uid = $db_row['uid'];
+		if ($p_dst && $p_msg && $uid) {
+			if (simplebilling_hook_billing_rollback($smslog_id)) {
+				
+				return TRUE;
+			}
+		}
+	}
+
+	return FALSE;
 }

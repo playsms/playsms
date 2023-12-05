@@ -18,51 +18,51 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function dlr($smslog_id, $uid, $p_status) {
+function dlr($smslog_id, $uid, $p_status)
+{
 	global $core_config;
 	if ($core_config['isdlrd']) {
 		$c_isdlrd = 1;
-		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => time(),
-			'flag_processed' => 1,
-			'smslog_id' => $smslog_id,
-			'p_status' => $p_status,
-			'uid' => $uid 
-		));
+		$ret = dba_add(
+			_DB_PREF_ . '_tblDLR',
+			[
+				'c_timestamp' => time(),
+				'flag_processed' => 1,
+				'smslog_id' => $smslog_id,
+				'p_status' => $p_status,
+				'uid' => $uid
+			]
+		);
 	} else {
 		$c_isdlrd = 0;
-		$ret = dba_add(_DB_PREF_ . '_tblDLR', array(
-			'c_timestamp' => time(),
-			'flag_processed' => 2,
-			'smslog_id' => $smslog_id,
-			'p_status' => $p_status,
-			'uid' => $uid 
-		));
+		$ret = dba_add(
+			_DB_PREF_ . '_tblDLR',
+			[
+				'c_timestamp' => time(),
+				'flag_processed' => 2,
+				'smslog_id' => $smslog_id,
+				'p_status' => $p_status,
+				'uid' => $uid
+			]
+		);
 		setsmsdeliverystatus($smslog_id, $uid, $p_status);
 	}
 	_log("isdlrd:" . $c_isdlrd . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr");
 	return $ret;
 }
 
-function dlrd() {
+function dlrd()
+{
 	global $core_config;
-	$core_config['dlrd_limit'] = ((int) $core_config['dlrd_limit'] ? (int) $core_config['dlrd_limit'] : 200);
-	$list = dba_search(_DB_PREF_ . '_tblDLR', '*', array(
-		'flag_processed' => 1 
-	), '', array(
-		'LIMIT' => $core_config['dlrd_limit'] 
-	));
-	$j = 0;
-	for ($j = 0; $j < count($list); $j++) {
-		if ($id = $list[$j]['id']) {
-			$smslog_id = $list[$j]['smslog_id'];
-			$p_status = $list[$j]['p_status'];
-			$uid = $list[$j]['uid'];
-			if (dba_update(_DB_PREF_ . '_tblDLR', array(
-				'flag_processed' => 2 
-			), array(
-				'id' => $id 
-			))) {
+	$c_dlrd_limit = (int) $core_config['dlrd_limit'] > 0 ? (int) $core_config['dlrd_limit'] : 1000;
+	$db_query = "SELECT id, smslog_id, p_status, uid FROM " . _DB_PREF_ . "_tblDLR WHERE flag_processed=1 LIMIT " . $c_dlrd_limit;
+	$db_result = dba_query($db_query);
+	while ($db_row = dba_fetch_array($db_result)) {
+		if ($id = $db_row['id']) {
+			$smslog_id = $db_row['smslog_id'];
+			$p_status = $db_row['p_status'];
+			$uid = $db_row['uid'];
+			if (dba_update(_DB_PREF_ . '_tblDLR', ['flag_processed' => 2], ['id' => $id])) {
 				_log("id:" . $id . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlrd");
 				setsmsdeliverystatus($smslog_id, $uid, $p_status);
 			}
@@ -70,7 +70,8 @@ function dlrd() {
 	}
 }
 
-function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
+function setsmsdeliverystatus($smslog_id, $uid, $p_status)
+{
 	global $core_config;
 	// $p_status = 0 --> pending
 	// $p_status = 1 --> sent
@@ -78,18 +79,22 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 	// $p_status = 3 --> delivered
 	// _log("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "setsmsdeliverystatus");
 	$ok = false;
-	$db_query = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing SET c_timestamp='" . time() . "',p_update='" . core_get_datetime() . "',p_status='$p_status' WHERE smslog_id='$smslog_id' AND uid='$uid'";
-	if ($aff_id = @dba_affected_rows($db_query)) {
+	$db_query = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing SET c_timestamp=?,p_update=?,p_status=? WHERE smslog_id=? AND uid=?";
+	if (dba_affected_rows($db_query, [time(), core_get_datetime(), $p_status, $smslog_id, $uid])) {
 		// _log("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
 		$ok = true;
 		if ($p_status > 0) {
 			if (isset($core_config['plugins']['list']['feature']) && is_array($core_config['plugins']['list']['feature'])) {
 				for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-					core_hook($core_config['plugins']['list']['feature'][$c], 'setsmsdeliverystatus', array(
-						$smslog_id,
-						$uid,
-						$p_status 
-					));
+					core_hook(
+						$core_config['plugins']['list']['feature'][$c],
+						'setsmsdeliverystatus',
+						[
+							$smslog_id,
+							$uid,
+							$p_status
+						]
+					);
 				}
 			}
 		}
@@ -97,26 +102,29 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 	return $ok;
 }
 
-function getsmsstatus() {
+function getsmsstatus()
+{
+	global $core_config;
+	$c_dlrd_limit = (int) $core_config['dlrd_limit'] > 0 ? (int) $core_config['dlrd_limit'] : 1000;
 	$smscs = gateway_getall_smsc_names();
-	foreach ($smscs as $smsc) {
+	foreach ( $smscs as $smsc ) {
 		$smsc_data = gateway_get_smscbyname($smsc);
 		$gateway = $smsc_data['gateway'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status='0' AND p_smsc='$smsc' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT uid, smslog_id, p_datetime, p_update, p_gpid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE p_status=0 AND flag_deleted=0 AND p_smsc=? LIMIT " . $c_dlrd_limit;
+		$db_result = dba_query($db_query, [$smsc]);
 		while ($db_row = dba_fetch_array($db_result)) {
 			$uid = $db_row['uid'];
 			$smslog_id = $db_row['smslog_id'];
 			$p_datetime = $db_row['p_datetime'];
 			$p_update = $db_row['p_update'];
 			$gpid = $db_row['p_gpid'];
-			core_hook($gateway, 'getsmsstatus', array(
+			core_hook($gateway, 'getsmsstatus', [
 				$gpid,
 				$uid,
 				$smslog_id,
 				$p_datetime,
-				$p_update 
-			));
+				$p_update
+			]);
 		}
 	}
 }

@@ -72,3 +72,21 @@ function billing_getdata_by_uid($uid) {
 	$ret = core_call_hook();
 	return $ret;
 }
+
+/**
+ * Deduct user's credit for certain SMS log ID
+ * @param int $smslog_id SMS log ID
+ * @return bool
+ */
+function billing_deduct($smslog_id) {
+	return core_call_hook();
+}
+
+/**
+ * Refund user's credit for certain SMS log ID
+ * @param int $smslog_id SMS log ID
+ * @return bool
+ */
+function billing_refund($smslog_id) {
+	return core_call_hook();
+}
