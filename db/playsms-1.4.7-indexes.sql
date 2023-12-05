@@ -3,6 +3,7 @@
 -- INDEXES
 
 ALTER TABLE playsms_tblUser ADD INDEX username (username);
+ALTER TABLE playsms_tblBilling ADD INDEX smslog_id (smslog_id);
 ALTER TABLE playsms_tblBilling ADD INDEX uid (uid);
 ALTER TABLE playsms_tblDLR ADD INDEX smslog_id (smslog_id);
 ALTER TABLE playsms_tblDLR ADD INDEX uid (uid);
