@@ -18,38 +18,50 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function simplerate_getdst($id) {
+function simplerate_getdst($id)
+{
+	$dst = '';
+
 	if ($id) {
 		$db_query = "SELECT dst FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$dst = $db_row['dst'];
 	}
+
 	return $dst;
 }
 
-function simplerate_getprefix($id) {
+function simplerate_getprefix($id)
+{
+	$prefix = '';
+
 	if ($id) {
 		$db_query = "SELECT prefix FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$prefix = $db_row['prefix'];
 	}
+
 	return $prefix;
 }
 
-function simplerate_getbyid($id) {
+function simplerate_getbyid($id)
+{
 	if ($id) {
 		$db_query = "SELECT rate FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$id'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
 		$rate = $db_row['rate'];
 	}
+
 	$rate = (($rate > 0) ? $rate : 0);
+
 	return $rate;
 }
 
-function simplerate_getadhoccredit($uid) {
+function simplerate_getadhoccredit($uid)
+{
 	$balance = 0;
 
 	if ($c_uid = (int) $uid) {
@@ -62,7 +74,8 @@ function simplerate_getadhoccredit($uid) {
 	return $balance;
 }
 
-function simplerate_setadhoccredit($uid, $balance) {
+function simplerate_setadhoccredit($uid, $balance)
+{
 	$balance = (float) $balance;
 
 	if ($c_uid = (int) $uid) {
@@ -72,8 +85,10 @@ function simplerate_setadhoccredit($uid, $balance) {
 }
 
 // -----------------------------------------------------------------------------------------
-function simplerate_hook_rate_getbyprefix($sms_to) {
+function simplerate_hook_rate_getbyprefix($sms_to)
+{
 	global $core_config;
+
 	$found = FALSE;
 	$default_rate = ($core_config['main']['default_rate'] > 0 ? $core_config['main']['default_rate'] : 0);
 	$rate = $default_rate;
@@ -90,16 +105,20 @@ function simplerate_hook_rate_getbyprefix($sms_to) {
 			break;
 		}
 	}
+
 	if ($found) {
 		_log("found rate id:" . $db_row['id'] . " prefix:" . $db_row['prefix'] . " rate:" . $rate . " description:" . $db_row['dst'] . " to:" . $sms_to, 3, "simplerate_hook_rate_getbyprefix");
 	} else {
 		_log("rate not found to:" . $sms_to . " default_rate:" . $default_rate, 3, "simplerate_hook_rate_getbyprefix");
 	}
+
 	$rate = (($rate > 0) ? $rate : 0);
+
 	return $rate;
 }
 
-function simplerate_hook_rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
+function simplerate_hook_rate_getcharges($uid, $sms_len, $unicode, $sms_to)
+{
 	global $user_config;
 
 	// default length per SMS
@@ -133,7 +152,8 @@ function simplerate_hook_rate_getcharges($uid, $sms_len, $unicode, $sms_to) {
 	);
 }
 
-function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
+function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to)
+{
 	global $core_config;
 
 	$uid = user_username2uid($username);
@@ -142,7 +162,7 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 	// sender's
 	$adhoc_credit = simplerate_getadhoccredit($uid);
 	$adhoc_balance = $adhoc_credit - $charge;
-	
+
 	// parent's when sender is a subuser
 	if ($parent_uid = user_getparentbyuid($uid)) {
 		$adhoc_credit_parent = simplerate_getadhoccredit($parent_uid);
@@ -151,17 +171,17 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 
 	if ($parent_uid) {
 		if (($adhoc_balance_parent >= 0) && ($adhoc_balance >= 0)) {
-			
+
 			// update adhoc_credit immediately, parent's too
 			simplerate_setadhoccredit($uid, $adhoc_balance);
 			simplerate_setadhoccredit($parent_uid, $adhoc_balance_parent);
-			
+
 			_log("allowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance . " adhoc_balance_parent:" . $adhoc_balance_parent, 2, "simplerate_hook_rate_cansend");
-			
+
 			return TRUE;
 		} else {
 			_log("disallowed subuser uid:" . $uid . " parent_uid:" . $parent_uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance . " adhoc_balance_parent:" . $adhoc_balance_parent, 2, "simplerate_hook_rate_cansend");
-			
+
 			return FALSE;
 		}
 	} else {
@@ -169,13 +189,13 @@ function simplerate_hook_rate_cansend($username, $sms_len, $unicode, $sms_to) {
 
 			// update adhoc_credit immediately
 			simplerate_setadhoccredit($uid, $adhoc_balance);
-			
+
 			_log("allowed user uid:" . $uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance, 2, "simplerate_hook_rate_cansend");
-			
+
 			return TRUE;
 		} else {
 			_log("disallowed user uid:" . $uid . " sms_to:" . $sms_to . " adhoc_credit:" . $adhoc_credit . " count:" . $count . " rate:" . $rate . " charge:" . $charge . " adhoc_balance:" . $adhoc_balance, 2, "simplerate_hook_rate_cansend");
-			
+
 			return FALSE;
 		}
 	}

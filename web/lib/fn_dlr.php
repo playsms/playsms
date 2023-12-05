@@ -21,6 +21,7 @@ defined('_SECURE_') or die('Forbidden');
 function dlr($smslog_id, $uid, $p_status)
 {
 	global $core_config;
+
 	if ($core_config['isdlrd']) {
 		$c_isdlrd = 1;
 		$ret = dba_add(
@@ -47,13 +48,16 @@ function dlr($smslog_id, $uid, $p_status)
 		);
 		setsmsdeliverystatus($smslog_id, $uid, $p_status);
 	}
+
 	_log("isdlrd:" . $c_isdlrd . " smslog_id:" . $smslog_id . " p_status:" . $p_status . " uid:" . $uid, 3, "dlr");
+
 	return $ret;
 }
 
 function dlrd()
 {
 	global $core_config;
+
 	$c_dlrd_limit = (int) $core_config['dlrd_limit'] > 0 ? (int) $core_config['dlrd_limit'] : 1000;
 	$db_query = "SELECT id, smslog_id, p_status, uid FROM " . _DB_PREF_ . "_tblDLR WHERE flag_processed=1 LIMIT " . $c_dlrd_limit;
 	$db_result = dba_query($db_query);
@@ -73,6 +77,7 @@ function dlrd()
 function setsmsdeliverystatus($smslog_id, $uid, $p_status)
 {
 	global $core_config;
+
 	// $p_status = 0 --> pending
 	// $p_status = 1 --> sent
 	// $p_status = 2 --> failed
@@ -99,12 +104,14 @@ function setsmsdeliverystatus($smslog_id, $uid, $p_status)
 			}
 		}
 	}
+
 	return $ok;
 }
 
 function getsmsstatus()
 {
 	global $core_config;
+
 	$c_dlrd_limit = (int) $core_config['dlrd_limit'] > 0 ? (int) $core_config['dlrd_limit'] : 1000;
 	$smscs = gateway_getall_smsc_names();
 	foreach ( $smscs as $smsc ) {

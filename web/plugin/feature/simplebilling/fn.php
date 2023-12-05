@@ -1,11 +1,30 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
-function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge, $uid, $parent_uid) {
+function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge, $uid, $parent_uid)
+{
 	$ok = false;
-	$rate = ( isset($rate) ? $rate : 0 );
-	$count = ( isset($count) ? $count : 0 );
-	$charge = ( isset($charge) ? $charge : 0 );
+	$rate = (isset($rate) ? (float) $rate : 0);
+	$count = (isset($count) ? (int) $count : 0);
+	$charge = (isset($charge) ? (float) $charge : 0);
+
 	//_log("saving parent_uid:" . $parent_uid . " uid:" . $uid . " smslog_id:" . $smslog_id . " rate:" . $rate . " count:" . $count . " charge:" . $charge, 3, "simplebilling_hook_billing_post");
 	$db_query = "INSERT INTO " . _DB_PREF_ . "_tblBilling (parent_uid,uid,post_datetime,smslog_id,rate,count,charge,status) VALUES ('" . $parent_uid . "','" . $uid . "','" . core_get_datetime() . "','$smslog_id','$rate','$count','$charge','0')";
 	if ($smslog_id && ($id = dba_insert_id($db_query))) {
@@ -14,12 +33,15 @@ function simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge, $ui
 	} else {
 		_log("fail to save smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_post");
 	}
+
 	return $ok;
 }
 
-function simplebilling_hook_billing_rollback($smslog_id) {
+function simplebilling_hook_billing_rollback($smslog_id)
+{
 	$ok = false;
-	_log("checking smslog_id:" . $smslog_id, 3, "simplebilling rollback");
+
+	//_log("checking smslog_id:" . $smslog_id, 3, "simplebilling rollback");
 	$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE smslog_id='$smslog_id'";
 	$db_result = dba_query($db_query);
 	if ($smslog_id && ($db_row = dba_fetch_array($db_result))) {
@@ -35,11 +57,14 @@ function simplebilling_hook_billing_rollback($smslog_id) {
 	} else {
 		_log("fail to check smslog_id:" . $smslog_id, 3, "simplebilling rollback");
 	}
+
 	return $ok;
 }
 
-function simplebilling_hook_billing_finalize($smslog_id) {
+function simplebilling_hook_billing_finalize($smslog_id)
+{
 	$ok = false;
+
 	//_log("saving smslog_id:" . $smslog_id, 2, "simplebilling finalize");
 	$db_query = "UPDATE " . _DB_PREF_ . "_tblBilling SET status='1' WHERE smslog_id='$smslog_id'";
 	if (dba_affected_rows($db_query)) {
@@ -48,10 +73,12 @@ function simplebilling_hook_billing_finalize($smslog_id) {
 	} else {
 		_log("fail to save smslog_id:" . $smslog_id, 3, "simplebilling finalize");
 	}
+
 	return $ok;
 }
 
-function simplebilling_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
+function simplebilling_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status)
+{
 	//_log("checking smslog_id:".$smslog_id, 2, "simplebilling setsmsdeliverystatus");
 	$db_query = "SELECT id FROM " . _DB_PREF_ . "_tblBilling WHERE status=0 AND smslog_id=? LIMIT 1";
 	$db_result = dba_query($db_query, [$smslog_id]);
@@ -64,8 +91,10 @@ function simplebilling_hook_setsmsdeliverystatus($smslog_id, $uid, $p_status) {
 	}
 }
 
-function simplebilling_hook_billing_getdata($smslog_id) {
+function simplebilling_hook_billing_getdata($smslog_id)
+{
 	$ret = array();
+
 	//_log("smslog_id:".$smslog_id, 2, "simplebilling getdata");
 	$db_query = "SELECT id,post_datetime,rate,credit,count,charge,status FROM " . _DB_PREF_ . "_tblBilling WHERE smslog_id='" . (int) $smslog_id . "'";
 	$db_result = dba_query($db_query);
@@ -85,14 +114,17 @@ function simplebilling_hook_billing_getdata($smslog_id) {
 			'rate' => (float) $rate,
 			'credit' => (float) $credit,
 			'count' => (int) $count,
-			'charge' => (float) $charge 
+			'charge' => (float) $charge
 		);
 	}
+
 	return $ret;
 }
 
-function simplebilling_hook_billing_getdata_by_uid($uid) {
+function simplebilling_hook_billing_getdata_by_uid($uid)
+{
 	$ret = array();
+
 	// _log("uid:".$uid, 2, "simplebilling summary");
 	$db_query = "SELECT id,smslog_id,post_datetime,rate,credit,count,charge FROM " . _DB_PREF_ . "_tblBilling WHERE uid='" . (int) $uid . "'";
 	$db_result = dba_query($db_query);
@@ -111,13 +143,15 @@ function simplebilling_hook_billing_getdata_by_uid($uid) {
 			'rate' => (float) $rate,
 			'credit' => (float) $credit,
 			'count' => (int) $count,
-			'charge' => (float) $charge 
+			'charge' => (float) $charge
 		);
 	}
+
 	return $ret;
 }
 
-function simplebilling_hook_billing_deduct($smslog_id) {
+function simplebilling_hook_billing_deduct($smslog_id)
+{
 	global $core_config;
 
 	_log("enter smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_deduct");
@@ -133,11 +167,11 @@ function simplebilling_hook_billing_deduct($smslog_id) {
 		if ($p_dst && $p_msg && $uid) {
 
 			// get charge
-			list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($p_msg.$p_footer), $unicode, $p_dst);
+			list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($p_msg . $p_footer), $unicode, $p_dst);
 
 			if (simplebilling_hook_billing_post($smslog_id, $rate, $count, $charge, $uid, $parent_uid)) {
 				_log("deduct successful uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_deduct");
-				
+
 				return TRUE;
 			} else {
 				_log("deduct failed uid:" . $uid . " parent_uid:" . $parent_uid . " smslog_id:" . $smslog_id, 3, "simplebilling_hook_billing_deduct");
@@ -154,7 +188,8 @@ function simplebilling_hook_billing_deduct($smslog_id) {
 	return FALSE;
 }
 
-function simplebilling_hook_billing_refund($smslog_id) {
+function simplebilling_hook_billing_refund($smslog_id)
+{
 	global $core_config;
 
 	_log("start smslog_id:" . $smslog_id, 2, "simplebilling_hook_billing_refund");
@@ -166,7 +201,7 @@ function simplebilling_hook_billing_refund($smslog_id) {
 		$uid = $db_row['uid'];
 		if ($p_dst && $p_msg && $uid) {
 			if (simplebilling_hook_billing_rollback($smslog_id)) {
-				
+
 				return TRUE;
 			}
 		}
