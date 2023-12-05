@@ -762,11 +762,11 @@ function user_session_update($uid = '', $data = array())
 /**
  * Get user's login session information
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @return array login sessions
  */
-function user_session_get($uid = '')
+function user_session_get($uid = 0)
 {
 	global $user_config;
 
@@ -804,13 +804,13 @@ function user_session_get($uid = '')
 /**
  * Remove user's login session information
  *
- * @param integer $uid
+ * @param int $uid
  *        User ID
  * @param string $hash
  *        Registry hash
- * @return boolean
+ * @return bool
  */
-function user_session_remove($uid = '', $hash = '')
+function user_session_remove($uid = 0, $hash = '')
 {
 	global $user_config;
 

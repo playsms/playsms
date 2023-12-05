@@ -26,7 +26,7 @@ if (!auth_isadmin()) {
 // if kick action
 if (_OP_ == 'kick') {
 	if ($hash = $_GET['hash']) {
-		user_session_remove('', '', $hash);
+		user_session_remove('', $hash);
 		header('Location: ' . _u('index.php?app=main&inc=feature_report&route=online'));
 		exit();
 	}
@@ -44,6 +44,7 @@ $tpl = array(
 		'Current IP address' => _('Current IP address') ,
 		'User agent' => _('User agent') ,
 		'Action' => 'Action',
+		'HINT_LAST_UPDATE' => _hint(_('Server time')),
 	)
 );
 

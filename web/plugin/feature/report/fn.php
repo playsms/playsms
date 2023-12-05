@@ -127,7 +127,7 @@ function report_count_deleted($uid = 0) {
  * @return array Whose online data
  */
 function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALSE) {
-	global $icon_config;
+	global $core_config, $icon_config;
 	
 	$ret = array();
 	
@@ -148,7 +148,9 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 		
 		$is_idle = FALSE;
 		$is_online = FALSE;
-		$c_idle = (int) (strtotime(core_get_datetime()) - strtotime($val['last_update']));
+
+		// last_update is saved in $_SESSION and was set to time()
+		$c_idle = time() - (int) $val['last_update'];
 		
 		// last update more than 15 minutes will be considered as idle
 		if ($c_idle > 15 * 60) {
@@ -177,7 +179,7 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 			'sid' => $val['sid'],
 			'hash' => $key,
 			'login_status' => $c_login_status,
-			'last_update' => core_display_datetime($val['last_update']),
+			'last_update' => date($core_config['datetime']['format'], $val['last_update']),
 			'action_link' => _a('index.php?app=main&inc=feature_report&route=online&op=kick&hash=' . $key, $icon_config['delete']) 
 		);
 	}
@@ -293,7 +295,7 @@ function report_banned_subuser() {
 }
 
 /**
- * Remove login sessions older than 1 hour idle
+ * Remove idle login sessions older than 1 hour
  */
 function report_hook_playsmsd() {
 	global $plugin_config;
@@ -303,15 +305,14 @@ function report_hook_playsmsd() {
 		return;
 	}
 	
-	// login session older than 1 hour will be removed
+	// idle login session older than 1 hour will be removed
 	$users = report_whoseonline(0, FALSE, TRUE);
 	foreach ($users as $user) {
 		foreach ($user as $hash) {
-			user_session_remove('', '', $hash['hash']);
+			user_session_remove($hash['uid'], $hash['hash']);
 			_log('login session removed uid:' . $hash['uid'] . ' hash:' . $hash['hash'], 3, 'report_hook_playsmsd');
 		}
 	}
-	$plugin_config['report']['last_tick'] = $plugin_config['report']['current_tick'];
 }
 
 /**
