@@ -17,17 +17,8 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "تم إلغاء حظر الحساب"
 
-msgid "All feature messages"
-msgstr "كافة الرسائل"
-
-msgid "All inbox"
-msgstr "مجموعة الوارد"
-
 msgid "All reports"
 msgstr "كافة التقارير"
-
-msgid "All sent messages"
-msgstr "كافة الرسائل المرسلة"
 
 msgid "Amount"
 msgstr "القيمة"
@@ -44,8 +35,12 @@ msgstr "قائمة المستخدمين المحظورين"
 msgid "Billing"
 msgstr "الفوترة"
 
-msgid "Content"
-msgstr "المحتوى"
+msgid "Charge"
+msgstr ""
+
+#, fuzzy
+msgid "Count"
+msgstr "العدد"
 
 msgid "Credit"
 msgstr "الرصيد"
@@ -59,8 +54,15 @@ msgstr "تم الحذف"
 msgid "Delivered"
 msgstr "تم التسليم"
 
+msgid "Download"
+msgstr ""
+
 msgid "Email"
 msgstr "البريد الالكتروني"
+
+#, php-format
+msgid "Export %s records as CSV"
+msgstr ""
 
 msgid "Failed"
 msgstr "فشل"
@@ -68,17 +70,30 @@ msgstr "فشل"
 msgid "Feature"
 msgstr "الميزات"
 
-msgid "Footer"
-msgstr "التذييل"
+#, fuzzy
+msgid "Feature messages"
+msgstr "رسائلي الخاصة"
+
+#, php-format
+msgid "Found %s records"
+msgstr ""
 
 msgid "From"
 msgstr "من"
 
+#, fuzzy
+msgid "From date/time"
+msgstr "وقت وتاريخ الحظر"
+
 msgid "Gateway"
 msgstr "بوابة الإرسال"
 
-msgid "Inbox"
-msgstr "صندوق الوارد"
+msgid "Handled"
+msgstr ""
+
+#, fuzzy
+msgid "Inbox messages"
+msgstr "رسائلي المرسلة"
 
 msgid "Keyword"
 msgstr "الكلمات المفتاحية"
@@ -86,15 +101,11 @@ msgstr "الكلمات المفتاحية"
 msgid "Last update"
 msgstr "آخر تحديث"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
 msgstr "قائمة الحوالات"
 
 #, php-format
-msgid "List of queue %s"
+msgid "Maximum records for export is %s"
 msgstr ""
 
 msgid "Message"
@@ -103,17 +114,21 @@ msgstr "الرسالة"
 msgid "My credit transactions"
 msgstr "قائمة الحوالات"
 
-msgid "My feature messages"
-msgstr "رسائلي الخاصة"
+#, fuzzy
+msgid "My inbox"
+msgstr "مجموعة الوارد"
 
 msgid "My report"
 msgstr "تقاريري"
 
-msgid "My sent messages"
-msgstr "رسائلي المرسلة"
-
 msgid "Pending"
 msgstr "قيد الإرسال"
+
+msgid "Rate"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "Report"
 msgstr "التقرير"
@@ -130,17 +145,40 @@ msgstr "تقرير الأعضاء النشطين"
 msgid "SMSC"
 msgstr "مركز الرسائل"
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "Sandbox"
 msgstr "الصندوق الرملي"
 
-msgid "Selected incoming message has been deleted"
+msgid "Search"
+msgstr ""
+
+#, fuzzy
+msgid "Search message"
+msgstr "رسائلي الخاصة"
+
+#, fuzzy
+msgid "Selected feature messages has been deleted"
+msgstr "تم حذف الرسائل الصادرة المحددة "
+
+#, fuzzy
+msgid "Selected inbox messages has been deleted"
 msgstr "تم حذف الرسال الواردة المحددة "
 
-msgid "Selected outgoing message has been deleted"
-msgstr "تم حذف الرسائل الصادرة المحددة "
+#, fuzzy
+msgid "Selected sent messages has been deleted"
+msgstr "تم حذف الرسال الواردة المحددة "
+
+msgid "Sender"
+msgstr ""
 
 msgid "Sent"
 msgstr "تم الإرسال"
+
+#, fuzzy
+msgid "Sent messages"
+msgstr "رسائلي المرسلة"
 
 msgid "Status"
 msgstr "الحالة"
@@ -151,6 +189,10 @@ msgstr "الوقت"
 msgid "To"
 msgstr "إلى"
 
+#, fuzzy
+msgid "To date/time"
+msgstr "وقت وتاريخ الحظر"
+
 msgid "Total"
 msgstr "المجموع"
 
@@ -160,11 +202,18 @@ msgstr "وقت الحوالة"
 msgid "Unable to unban account"
 msgstr "غير قادر على إلغاء حظر الحساب"
 
+msgid "Unhandled"
+msgstr ""
+
 msgid "User"
 msgstr "المستخدم"
 
 msgid "User agent"
 msgstr "متصفح المستخدم"
+
+#, fuzzy
+msgid "Username"
+msgstr "اسم المستخدم"
 
 msgid "Whose online"
 msgstr "المتصلون"
@@ -180,7 +229,3 @@ msgstr "التعرفة"
 
 msgid "username"
 msgstr "اسم المستخدم"
-
-#, php-format
-msgid "view all %d"
-msgstr ""

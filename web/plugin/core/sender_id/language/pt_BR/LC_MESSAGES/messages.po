@@ -35,6 +35,9 @@ msgstr "Gerenciar ID do remetente"
 msgid "Only when the sender ID is approved"
 msgstr "Somente quando o ID do remetente for aprovado"
 
+msgid "Save"
+msgstr ""
+
 msgid "Sender ID"
 msgstr "ID do remetente"
 

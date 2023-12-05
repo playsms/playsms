@@ -3,8 +3,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Impossible de trouver PHP PEAR-DB"
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
+msgid "Exception"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "ERREUR FATALE"
+
+msgid "Fail to connect to database"
+msgstr ""

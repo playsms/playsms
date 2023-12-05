@@ -42,6 +42,9 @@ msgstr "Gerir identificação de envio"
 msgid "Only when the sender ID is approved"
 msgstr "Só quando a ID de remetente é aprovado"
 
+msgid "Save"
+msgstr ""
+
 msgid "Sender ID"
 msgstr "Identificação de envio"
 

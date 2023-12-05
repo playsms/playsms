@@ -62,6 +62,10 @@ msgstr "Enviar des de fitxer"
 msgid "Send from file has been cancelled"
 msgstr "L'enviament del fitxer s'ha cancel·lat"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "S'han trobat entrades correctes en el fitxer"
+
 msgid "Upload file"
 msgstr "Pujar fitxer"
 

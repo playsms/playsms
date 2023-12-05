@@ -15,17 +15,8 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "Konto er ikke længere bandlyst"
 
-msgid "All feature messages"
-msgstr "Alle feature beskeder"
-
-msgid "All inbox"
-msgstr "Alle indbakker"
-
 msgid "All reports"
 msgstr "Alle rapporter"
-
-msgid "All sent messages"
-msgstr "Alle sendte beskeder"
 
 msgid "Amount"
 msgstr "Beløb"
@@ -42,8 +33,12 @@ msgstr "Listen over bandlyste brugere"
 msgid "Billing"
 msgstr "Afregning"
 
-msgid "Content"
-msgstr "Indhold"
+msgid "Charge"
+msgstr ""
+
+#, fuzzy
+msgid "Count"
+msgstr "antal"
 
 msgid "Credit"
 msgstr "Kredit"
@@ -57,8 +52,15 @@ msgstr "Slettet"
 msgid "Delivered"
 msgstr "Leveret"
 
+msgid "Download"
+msgstr ""
+
 msgid "Email"
 msgstr "E-mail"
+
+#, php-format
+msgid "Export %s records as CSV"
+msgstr ""
 
 msgid "Failed"
 msgstr "Mislykket"
@@ -66,17 +68,30 @@ msgstr "Mislykket"
 msgid "Feature"
 msgstr "Funktion"
 
-msgid "Footer"
-msgstr "Bundtekst"
+#, fuzzy
+msgid "Feature messages"
+msgstr "Mine feature beskeder"
+
+#, php-format
+msgid "Found %s records"
+msgstr ""
 
 msgid "From"
 msgstr "Fra"
 
+#, fuzzy
+msgid "From date/time"
+msgstr "Bandlyst dato/tid"
+
 msgid "Gateway"
 msgstr "Gateway"
 
-msgid "Inbox"
-msgstr "Indbakke"
+msgid "Handled"
+msgstr ""
+
+#, fuzzy
+msgid "Inbox messages"
+msgstr "Mine sendte beskeder"
 
 msgid "Keyword"
 msgstr "Nøgleord"
@@ -84,16 +99,12 @@ msgstr "Nøgleord"
 msgid "Last update"
 msgstr "Sidst opdateret"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr "Vis alle beskeder fra %s"
-
 msgid "List of my credit transactions"
 msgstr "Liste over mine kredit transaktioner"
 
 #, php-format
-msgid "List of queue %s"
-msgstr "Liste over køen %s"
+msgid "Maximum records for export is %s"
+msgstr ""
 
 msgid "Message"
 msgstr "Besked"
@@ -101,17 +112,21 @@ msgstr "Besked"
 msgid "My credit transactions"
 msgstr "Mine kredit transaktioner"
 
-msgid "My feature messages"
-msgstr "Mine feature beskeder"
+#, fuzzy
+msgid "My inbox"
+msgstr "Alle indbakker"
 
 msgid "My report"
 msgstr "Min rapport"
 
-msgid "My sent messages"
-msgstr "Mine sendte beskeder"
-
 msgid "Pending"
 msgstr "Afventer"
+
+msgid "Rate"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "Report"
 msgstr "Rapport"
@@ -128,17 +143,40 @@ msgstr "Rapport hvem er online"
 msgid "SMSC"
 msgstr "SMSC"
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "Sandbox"
 msgstr "Sandbox"
 
-msgid "Selected incoming message has been deleted"
+msgid "Search"
+msgstr ""
+
+#, fuzzy
+msgid "Search message"
+msgstr "Mine feature beskeder"
+
+#, fuzzy
+msgid "Selected feature messages has been deleted"
+msgstr "Valgte udgående besked er blevet slettet"
+
+#, fuzzy
+msgid "Selected inbox messages has been deleted"
 msgstr "Valgte indkommende besked er blevet slettet"
 
-msgid "Selected outgoing message has been deleted"
-msgstr "Valgte udgående besked er blevet slettet"
+#, fuzzy
+msgid "Selected sent messages has been deleted"
+msgstr "Valgte indkommende besked er blevet slettet"
+
+msgid "Sender"
+msgstr ""
 
 msgid "Sent"
 msgstr "Sendt"
+
+#, fuzzy
+msgid "Sent messages"
+msgstr "Mine sendte beskeder"
 
 msgid "Status"
 msgstr "Status"
@@ -149,6 +187,10 @@ msgstr "Tid"
 msgid "To"
 msgstr "Til"
 
+#, fuzzy
+msgid "To date/time"
+msgstr "Bandlyst dato/tid"
+
 msgid "Total"
 msgstr "Total"
 
@@ -158,11 +200,18 @@ msgstr "Transaktion dato-tid"
 msgid "Unable to unban account"
 msgstr "Kunne ikke fjerne bandlysning af konto"
 
+msgid "Unhandled"
+msgstr ""
+
 msgid "User"
 msgstr "Bruger"
 
 msgid "User agent"
 msgstr "Brugeragent"
+
+#, fuzzy
+msgid "Username"
+msgstr "brugernavn"
 
 msgid "Whose online"
 msgstr "Hvem er online"
@@ -178,7 +227,3 @@ msgstr "frekvens"
 
 msgid "username"
 msgstr "brugernavn"
-
-#, php-format
-msgid "view all %d"
-msgstr "se alle %d"

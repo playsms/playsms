@@ -14,17 +14,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
-msgid "Action"
-msgstr "Acció"
-
 msgid "Add contact"
 msgstr "Afegir contacte"
 
 msgid "Add group"
 msgstr "Afegir grup"
 
+msgid "All users"
+msgstr ""
+
 msgid "Anyone"
 msgstr "Qualsevol"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "CSV file format"
 msgstr ""
@@ -161,6 +164,9 @@ msgstr "Error esborrant grup"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "No es pot esborrar el grup fins que sigui buit"
+
+msgid "User"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Heu d'omplir tots els camps"

@@ -44,6 +44,9 @@ msgstr "إدارة اسم المرسل"
 msgid "Only when the sender ID is approved"
 msgstr "فقط عند المصادقة على اسم المرسل"
 
+msgid "Save"
+msgstr ""
+
 msgid "Sender ID"
 msgstr "اسم المرسل"
 

@@ -43,6 +43,9 @@ msgstr ""
 msgid "Send from file has been cancelled"
 msgstr ""
 
+msgid "Unable to open uploaded CSV file"
+msgstr ""
+
 msgid "Upload file"
 msgstr ""
 

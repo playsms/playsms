@@ -15,17 +15,8 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "Foi removido o banir da conta"
 
-msgid "All feature messages"
-msgstr "Todas as mensagens das características"
-
-msgid "All inbox"
-msgstr "Todas as Caixas de entrada"
-
 msgid "All reports"
 msgstr "Todos os relatórios"
-
-msgid "All sent messages"
-msgstr "Todas as mensagens enviadas"
 
 msgid "Amount"
 msgstr "Montante"
@@ -42,8 +33,12 @@ msgstr "Lista de utilizadores banidos"
 msgid "Billing"
 msgstr "Faturação"
 
-msgid "Content"
-msgstr "Conteúdo"
+msgid "Charge"
+msgstr ""
+
+#, fuzzy
+msgid "Count"
+msgstr "Contador"
 
 msgid "Credit"
 msgstr "Créditos"
@@ -57,7 +52,14 @@ msgstr "Eliminado"
 msgid "Delivered"
 msgstr "Entregue"
 
+msgid "Download"
+msgstr ""
+
 msgid "Email"
+msgstr ""
+
+#, php-format
+msgid "Export %s records as CSV"
 msgstr ""
 
 msgid "Failed"
@@ -66,17 +68,30 @@ msgstr "Falhou"
 msgid "Feature"
 msgstr "Funcionadas"
 
-msgid "Footer"
-msgstr "Rodapé"
+#, fuzzy
+msgid "Feature messages"
+msgstr "Minhas mensagens das características"
+
+#, php-format
+msgid "Found %s records"
+msgstr ""
 
 msgid "From"
 msgstr "De"
 
+#, fuzzy
+msgid "From date/time"
+msgstr "Banido Data e Hora"
+
 msgid "Gateway"
 msgstr ""
 
-msgid "Inbox"
-msgstr "Caixa de Entrada"
+msgid "Handled"
+msgstr ""
+
+#, fuzzy
+msgid "Inbox messages"
+msgstr "Minhas mensagens enviadas"
 
 msgid "Keyword"
 msgstr "palavra-chave"
@@ -84,15 +99,11 @@ msgstr "palavra-chave"
 msgid "Last update"
 msgstr "Última atualização"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
 msgstr "Lista da minhas Transações de crédito"
 
 #, php-format
-msgid "List of queue %s"
+msgid "Maximum records for export is %s"
 msgstr ""
 
 msgid "Message"
@@ -101,17 +112,21 @@ msgstr "Mensagem"
 msgid "My credit transactions"
 msgstr "Transações dos meus créditos"
 
-msgid "My feature messages"
-msgstr "Minhas mensagens das características"
+#, fuzzy
+msgid "My inbox"
+msgstr "Todas as Caixas de entrada"
 
 msgid "My report"
 msgstr "Meu Relatorio"
 
-msgid "My sent messages"
-msgstr "Minhas mensagens enviadas"
-
 msgid "Pending"
 msgstr "Pendente"
+
+msgid "Rate"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "Report"
 msgstr "Relatório"
@@ -128,17 +143,40 @@ msgstr "Relatórios utilizadores online"
 msgid "SMSC"
 msgstr ""
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "Sandbox"
 msgstr ""
 
-msgid "Selected incoming message has been deleted"
+msgid "Search"
+msgstr ""
+
+#, fuzzy
+msgid "Search message"
+msgstr "Minhas mensagens das características"
+
+#, fuzzy
+msgid "Selected feature messages has been deleted"
+msgstr "Mensagens enviadas selecionadas foram apagadas"
+
+#, fuzzy
+msgid "Selected inbox messages has been deleted"
 msgstr "Mensagens recebidas selecionadas foram apagadas"
 
-msgid "Selected outgoing message has been deleted"
-msgstr "Mensagens enviadas selecionadas foram apagadas"
+#, fuzzy
+msgid "Selected sent messages has been deleted"
+msgstr "Mensagens recebidas selecionadas foram apagadas"
+
+msgid "Sender"
+msgstr ""
 
 msgid "Sent"
 msgstr "Enviado"
+
+#, fuzzy
+msgid "Sent messages"
+msgstr "Minhas mensagens enviadas"
 
 msgid "Status"
 msgstr "Estado"
@@ -149,6 +187,10 @@ msgstr "Tempo"
 msgid "To"
 msgstr "Para"
 
+#, fuzzy
+msgid "To date/time"
+msgstr "Banido Data e Hora"
+
 msgid "Total"
 msgstr ""
 
@@ -158,11 +200,18 @@ msgstr "Data e hora da Transação"
 msgid "Unable to unban account"
 msgstr "Não é possível remover ban da conta"
 
+msgid "Unhandled"
+msgstr ""
+
 msgid "User"
 msgstr "Utilizador"
 
 msgid "User agent"
 msgstr "Agente do utilizador"
+
+#, fuzzy
+msgid "Username"
+msgstr "Nome de Utilizador"
 
 msgid "Whose online"
 msgstr "Quem está online"
@@ -178,7 +227,3 @@ msgstr "Taxa"
 
 msgid "username"
 msgstr "Nome de Utilizador"
-
-#, php-format
-msgid "view all %d"
-msgstr ""

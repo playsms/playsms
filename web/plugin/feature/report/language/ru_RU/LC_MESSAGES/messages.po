@@ -14,19 +14,8 @@ msgstr ""
 msgid "Account has been unbanned"
 msgstr "Пользователь разблокирован"
 
-#, fuzzy
-msgid "All feature messages"
-msgstr "Все исходящие сообщения"
-
-msgid "All inbox"
-msgstr "Все входящие"
-
 msgid "All reports"
 msgstr "Все отчёты"
-
-#, fuzzy
-msgid "All sent messages"
-msgstr "Все принятые сообщения"
 
 msgid "Amount"
 msgstr "Количество"
@@ -43,8 +32,12 @@ msgstr "Список заблокированных пользователей"
 msgid "Billing"
 msgstr "Потрачено"
 
-msgid "Content"
-msgstr "Текст"
+msgid "Charge"
+msgstr ""
+
+#, fuzzy
+msgid "Count"
+msgstr "количество"
 
 msgid "Credit"
 msgstr "Баланс"
@@ -58,8 +51,15 @@ msgstr "Удалено"
 msgid "Delivered"
 msgstr "Доставлено"
 
+msgid "Download"
+msgstr ""
+
 msgid "Email"
 msgstr "Email"
+
+#, php-format
+msgid "Export %s records as CSV"
+msgstr ""
 
 msgid "Failed"
 msgstr "Ошибок"
@@ -67,17 +67,30 @@ msgstr "Ошибок"
 msgid "Feature"
 msgstr "Функции"
 
-msgid "Footer"
-msgstr "Подпись"
+#, fuzzy
+msgid "Feature messages"
+msgstr "Все исходящие сообщения"
+
+#, php-format
+msgid "Found %s records"
+msgstr ""
 
 msgid "From"
 msgstr "От"
 
+#, fuzzy
+msgid "From date/time"
+msgstr "Время блокировки"
+
 msgid "Gateway"
 msgstr ""
 
-msgid "Inbox"
-msgstr "Входящие"
+msgid "Handled"
+msgstr ""
+
+#, fuzzy
+msgid "Inbox messages"
+msgstr "Сообщение"
 
 msgid "Keyword"
 msgstr "Ключевое слово"
@@ -85,15 +98,11 @@ msgstr "Ключевое слово"
 msgid "Last update"
 msgstr "Последнее обновление"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
 msgstr "Список моих переводов"
 
 #, php-format
-msgid "List of queue %s"
+msgid "Maximum records for export is %s"
 msgstr ""
 
 msgid "Message"
@@ -102,18 +111,21 @@ msgstr "Сообщение"
 msgid "My credit transactions"
 msgstr "Мои переводы"
 
-msgid "My feature messages"
-msgstr ""
+#, fuzzy
+msgid "My inbox"
+msgstr "Все входящие"
 
 msgid "My report"
 msgstr "Мой отчёт"
 
-#, fuzzy
-msgid "My sent messages"
-msgstr "Сообщение"
-
 msgid "Pending"
 msgstr "Ожидает"
+
+msgid "Rate"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "Report"
 msgstr "Отчёт"
@@ -130,17 +142,40 @@ msgstr "Пользователи в системе"
 msgid "SMSC"
 msgstr "SMSC"
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "Sandbox"
 msgstr "Необработанные"
 
-msgid "Selected incoming message has been deleted"
+msgid "Search"
+msgstr ""
+
+#, fuzzy
+msgid "Search message"
+msgstr "Все исходящие сообщения"
+
+#, fuzzy
+msgid "Selected feature messages has been deleted"
+msgstr "Выбранное исходящее сообщение было удалено"
+
+#, fuzzy
+msgid "Selected inbox messages has been deleted"
 msgstr "Выбранное входящее сообщение было удалено"
 
-msgid "Selected outgoing message has been deleted"
-msgstr "Выбранное исходящее сообщение было удалено"
+#, fuzzy
+msgid "Selected sent messages has been deleted"
+msgstr "Выбранное входящее сообщение было удалено"
+
+msgid "Sender"
+msgstr ""
 
 msgid "Sent"
 msgstr "Отправлено"
+
+#, fuzzy
+msgid "Sent messages"
+msgstr "Сообщение"
 
 msgid "Status"
 msgstr "Состояние"
@@ -151,6 +186,10 @@ msgstr "Время"
 msgid "To"
 msgstr "Получатель"
 
+#, fuzzy
+msgid "To date/time"
+msgstr "Время блокировки"
+
 msgid "Total"
 msgstr "Всего"
 
@@ -160,11 +199,18 @@ msgstr "Время транзакции"
 msgid "Unable to unban account"
 msgstr "Не удалось разблокировать пользователя"
 
+msgid "Unhandled"
+msgstr ""
+
 msgid "User"
 msgstr "Пользователь"
 
 msgid "User agent"
 msgstr "User agent пользователя"
+
+#, fuzzy
+msgid "Username"
+msgstr "имя пользователя"
 
 msgid "Whose online"
 msgstr "Пользователи в системе"
@@ -180,7 +226,3 @@ msgstr "цена"
 
 msgid "username"
 msgstr "имя пользователя"
-
-#, php-format
-msgid "view all %d"
-msgstr ""

@@ -11,8 +11,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Não foi encontrado PHP PEAR-DB"
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
+msgid "Exception"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "Erro Fatal"
+
+msgid "Fail to connect to database"
+msgstr ""

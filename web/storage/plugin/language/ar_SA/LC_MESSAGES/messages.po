@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PlaySMS\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Yahia Farajallah <admin@barqsms.com>\n"
 "Language-Team: Yahia Farajallah <admin@barqsms.com>\n"
@@ -58,9 +59,8 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-#, fuzzy
 msgid "API username"
-msgstr "هل تود بالتأكيد المستخدم؟"
+msgstr ""
 
 msgid "Access Control List"
 msgstr "قائمة تحكم الوصول"
@@ -121,7 +121,7 @@ msgid "Account with this mobile already exists"
 msgstr "يوجد حساب بنفس رقم الجوال"
 
 msgid "Action"
-msgstr "إجراءات"
+msgstr "الإجراء"
 
 msgid "Active language"
 msgstr "اللغة الافتراضية"
@@ -237,12 +237,6 @@ msgstr "المدراء"
 msgid "All"
 msgstr "الكل"
 
-msgid "All feature messages"
-msgstr "كافة الرسائل"
-
-msgid "All inbox"
-msgstr "مجموعة الوارد"
-
 msgid "All mandatory fields must be filled"
 msgstr ""
 
@@ -251,9 +245,6 @@ msgstr "تم حذف كافة الرسائل في الطابور"
 
 msgid "All reports"
 msgstr "كافة التقارير"
-
-msgid "All sent messages"
-msgstr "كافة الرسائل المرسلة"
 
 msgid "All users"
 msgstr "كافة الأعضاء"
@@ -371,6 +362,9 @@ msgstr "هل تود بالتأكيد حذف سيناريو الرد التلقا
 msgid "Are you sure you want to delete this answer ?"
 msgstr "هل تود بالتأكيد حذف هذه الإجابة؟"
 
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "هل تود بالتأكيد حذف هذه المجموعة؟"
 
@@ -452,8 +446,8 @@ msgstr "إلغاء الإرسال من ملف"
 msgid "Cannot change status when user have subusers"
 msgstr "لايمكن تعديل الحالة عند وجود مستخمين فرعيين للحساب"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "لايمكن العثور على PHP PEAR-DB"
+msgid "Captcha was expired, please try again"
+msgstr ""
 
 msgid "Catch-all"
 msgstr "التقاط الكل"
@@ -468,6 +462,9 @@ msgid "Catch-all list"
 msgstr "قائمة التقاط الكل"
 
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
@@ -571,6 +568,12 @@ msgstr ""
 
 msgid "Daily"
 msgstr "يوميًا"
+
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
 
 msgid "Date"
 msgstr "التاريخ"
@@ -702,6 +705,9 @@ msgstr ""
 
 msgid "Domain"
 msgstr "عنوان الموقع"
+
+msgid "Download"
+msgstr ""
 
 msgid "Download SMSSync app for Android from"
 msgstr "تنزيل تطبيق SMSSync  للأندرويد من"
@@ -852,6 +858,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "رابط الرسالة المخصصة"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "حصري"
 
@@ -860,6 +869,10 @@ msgstr "تنفيذ"
 
 msgid "Export"
 msgstr "تصدير"
+
+#, php-format
+msgid "Export %s records as CSV"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "خطأ فادح!"
@@ -920,6 +933,9 @@ msgstr "فشل إضافة وجهة جديدة"
 
 msgid "Fail to add route"
 msgstr "اضف مسار"
+
+msgid "Fail to connect to database"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr "فشل الحذف"
@@ -1044,14 +1060,8 @@ msgstr "فشل حفظ التعرفة"
 msgid "Fail to save route"
 msgstr "فشل حفظ المسار"
 
-msgid "Fail to save temporary password"
-msgstr "فشل حفظ كلمة المرور المؤقتة"
-
 msgid "Fail to send SMS"
 msgstr "فشل الإرسال"
-
-msgid "Fail to send email"
-msgstr "فشل إرسال البريد الالكتروني"
 
 msgid "Fail to send message to all destinations"
 msgstr "فشل الإرسال لكافة الأرقام"
@@ -1076,6 +1086,10 @@ msgstr "فشل"
 
 msgid "Feature"
 msgstr "الميزات"
+
+#, fuzzy
+msgid "Feature messages"
+msgstr "رسائلي الخاصة"
 
 msgid "Features"
 msgstr "الميزات"
@@ -1103,9 +1117,6 @@ msgstr "ضع 0 لتعطيل الحد"
 
 msgid "Flash message"
 msgstr "رسالة فلاش"
-
-msgid "Footer"
-msgstr "التذييل"
 
 msgid "For example a short code"
 msgstr "على سبيل المثال: رقم مختصر"
@@ -1135,6 +1146,10 @@ msgstr "التوجيه للبريد الالكتروني"
 msgid "Forwarded email footer"
 msgstr "تذييل رسائل البريد"
 
+#, php-format
+msgid "Found %s records"
+msgstr ""
+
 msgid "Found invalid entries in uploaded file"
 msgstr "إدخالات غير صالحة في الملف المحمَّل"
 
@@ -1143,6 +1158,10 @@ msgstr "الإدخالات الصالحة في الملف المحمَّل"
 
 msgid "From"
 msgstr "من"
+
+#, fuzzy
+msgid "From date/time"
+msgstr "وقت وتاريخ الحظر"
 
 msgid "Full name"
 msgstr "الاسم"
@@ -1242,6 +1261,9 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Handled"
+msgstr ""
+
 msgid "Home"
 msgstr "الرئيسة"
 
@@ -1275,13 +1297,17 @@ msgstr "استيراد الإدخالات في الأعلى؟"
 msgid "Import confirmation"
 msgstr "تأكيد الاستيراد"
 
-msgid "Inbox"
-msgstr "صندوق الوارد"
+#, fuzzy
+msgid "Inbox messages"
+msgstr "رسائلي المرسلة"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "تم حفظ مسار الرسالة الواردة"
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Infobip API URL"
@@ -1390,16 +1416,8 @@ msgstr "قائمة الوجهات"
 msgid "List of gateways and SMSCs"
 msgstr "قائمة البوابات ومراكز الرسائل"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
 msgstr "قائمة الحوالات"
-
-#, php-format
-msgid "List of queue %s"
-msgstr ""
 
 msgid "List of subusers"
 msgstr "المستخدمون الفرعيون"
@@ -1482,9 +1500,8 @@ msgstr "المستخدمون الفرعيون"
 msgid "Manage ACL"
 msgstr "إدارة ACL"
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr " إدارة الموقع"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "إدارة التعرفة"
@@ -1510,9 +1527,8 @@ msgstr "إدارة الرصيد"
 msgid "Manage custom"
 msgstr "إدارة الرسائل المخصصة"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr " إدارة الموقع"
+msgstr ""
 
 msgid "Manage email to SMS"
 msgstr "إدارة توجيه البريد للرسائل القصيرة"
@@ -1520,36 +1536,29 @@ msgstr "إدارة توجيه البريد للرسائل القصيرة"
 msgid "Manage firewall"
 msgstr "إدارة الجدار الناري"
 
-#, fuzzy
 msgid "Manage gammu"
-msgstr "المستخدم"
+msgstr ""
 
 msgid "Manage gateway and SMSC"
 msgstr "إدارة البوابات ومراكز الرسائل"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "إدارة اسم المرسل"
+msgstr ""
 
-#, fuzzy
 msgid "Manage infobip"
-msgstr " إدارة الموقع"
+msgstr ""
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr " إدارة الموقع"
+msgstr ""
 
-#, fuzzy
 msgid "Manage kannel"
-msgstr "إدارة حساب"
+msgstr ""
 
-#, fuzzy
 msgid "Manage nexmo"
-msgstr " إدارة الموقع"
+msgstr ""
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "إدارة حساب"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "إدارة الإضافات"
@@ -1569,9 +1578,8 @@ msgstr "إدارة اسم المرسل"
 msgid "Manage site"
 msgstr " إدارة الموقع"
 
-#, fuzzy
 msgid "Manage smstools"
-msgstr " إدارة الموقع"
+msgstr ""
 
 msgid "Manage stoplist"
 msgstr "المستخدمون الفرعيون"
@@ -1588,13 +1596,11 @@ msgstr "إدارة المزامنة"
 msgid "Manage template"
 msgstr "قالب الرسائل"
 
-#, fuzzy
 msgid "Manage twilio"
-msgstr "إدارة البوابات ومراكز الرسائل"
+msgstr ""
 
-#, fuzzy
 msgid "Manage uplink"
-msgstr "المستخدم"
+msgstr ""
 
 msgid "Mandatory fields must not be empty"
 msgstr "يجب ملء الحقول الأساسية"
@@ -1616,6 +1622,10 @@ msgstr "الحد الأقصى 30 حرف رقمي"
 
 msgid "Maximum SMS count"
 msgstr "العدد الأقصى لمقاطع الرسالة"
+
+#, php-format
+msgid "Maximum records for export is %s"
+msgstr ""
 
 msgid "Maximum username length"
 msgstr "الحد الأقصى لطول اسم المستخدم"
@@ -1711,9 +1721,8 @@ msgstr "تم حظر عناوين آي بي"
 msgid "Mobile numbers have been deleted"
 msgstr "تم حذف عناوين آي بي"
 
-#, fuzzy
 msgid "Module sender ID"
-msgstr "إدارة اسم المرسل"
+msgstr ""
 
 msgid "Module timezone"
 msgstr ""
@@ -1748,14 +1757,12 @@ msgstr "قائمة الحوالات"
 msgid "My email to SMS"
 msgstr "بريدي الموجه للرسائل القصيرة"
 
-msgid "My feature messages"
-msgstr "رسائلي الخاصة"
+#, fuzzy
+msgid "My inbox"
+msgstr "مجموعة الوارد"
 
 msgid "My report"
 msgstr "تقاريري"
-
-msgid "My sent messages"
-msgstr "رسائلي المرسلة"
 
 msgid "Name"
 msgstr "الاسم"
@@ -1886,9 +1893,6 @@ msgstr "كلمة المرور"
 
 msgid "Password does not match"
 msgstr "كلمة المرور غير متطابقة"
-
-msgid "Password has been emailed"
-msgstr "تم إرسال كلمة المرور إلى البريد الالكتروني"
 
 msgid "Password recovery"
 msgstr "استعادة كلمة المرور"
@@ -2056,6 +2060,10 @@ msgid "Refresh"
 msgstr "تحديث"
 
 msgid "Register an account"
+msgstr "إنشاء حساب"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "إنشاء حساب"
 
 msgid "Registered"
@@ -2405,6 +2413,9 @@ msgstr "تم الحذف "
 msgid "SMSC name"
 msgstr "الاسم"
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "SMSCs"
 msgstr "مراكز الرسائل"
 
@@ -2444,6 +2455,10 @@ msgstr "الرسائل المجدولة"
 msgid "Search"
 msgstr "بحث"
 
+#, fuzzy
+msgid "Search message"
+msgstr "رسائلي الخاصة"
+
 msgid "Secret key"
 msgstr "المفتاح السري"
 
@@ -2471,10 +2486,15 @@ msgstr "تم حذف المحدد"
 msgid "Selected contact moved to new group"
 msgstr "تم نقل جهات الاتصال المحددة لمجموعة جديدة"
 
+#, fuzzy
+msgid "Selected feature messages has been deleted"
+msgstr "تم حذف الرسائل الصادرة المحددة "
+
 msgid "Selected group has been deleted"
 msgstr "تم حذف المحدد"
 
-msgid "Selected incoming message has been deleted"
+#, fuzzy
+msgid "Selected inbox messages has been deleted"
 msgstr "تم حذف الرسال الواردة المحددة "
 
 msgid "Selected members"
@@ -2483,8 +2503,9 @@ msgstr "الأعضاء المحددون"
 msgid "Selected message template has been deleted"
 msgstr "تم حذف قوالب الرسائل المحددة "
 
-msgid "Selected outgoing message has been deleted"
-msgstr "تم حذف الرسائل الصادرة المحددة "
+#, fuzzy
+msgid "Selected sent messages has been deleted"
+msgstr "تم حذف الرسال الواردة المحددة "
 
 msgid "Selected transactions has been deleted"
 msgstr "الحوالات المحددة تم حذفها"
@@ -2493,7 +2514,7 @@ msgid "Selected users"
 msgstr "المستخدمون المحددون"
 
 msgid "Send"
-msgstr " إرسال"
+msgstr "إرسال"
 
 msgid "Send SMS from remote using local username"
 msgstr ""
@@ -2578,6 +2599,10 @@ msgstr "مرسلون أرسلوا مرة واحدة"
 
 msgid "Sent"
 msgstr "تم الإرسال"
+
+#, fuzzy
+msgid "Sent messages"
+msgstr "رسائلي المرسلة"
 
 msgid "Separate by comma for multiple destinations"
 msgstr "اضافة فاصلة للقيم المتعددة"
@@ -2664,6 +2689,9 @@ msgstr "التسميات"
 msgid "Template installation path"
 msgstr "مسار تنصيب القالب"
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid "The domain is already configured by other user"
 msgstr "عنوان الموقع تم استخدامة من قبل مستخدم آخر"
 
@@ -2695,6 +2723,10 @@ msgstr "العنوان"
 
 msgid "To"
 msgstr "إلى"
+
+#, fuzzy
+msgid "To date/time"
+msgstr "وقت وتاريخ الحظر"
 
 msgid "Total"
 msgstr "المجموع"
@@ -2754,6 +2786,10 @@ msgstr ""
 msgid "Unable to login"
 msgstr "غير قادر على تسجيل الدخول"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "الإدخالات الصالحة في الملف المحمَّل"
+
 msgid "Unable to process subuser addition"
 msgstr "غير قادر على إضافة مستخدم فرعي"
 
@@ -2771,6 +2807,9 @@ msgstr "غير قادر على إلغاء حظر المستخدم الفرعي"
 
 msgid "Unban"
 msgstr "غير قادر على إلغاء حظر الحساب"
+
+msgid "Unhandled"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "رسالة يونيكود"
@@ -3174,10 +3213,6 @@ msgstr "اسم المستخدم"
 
 msgid "valid entries"
 msgstr "الإدخالات الصالحة"
-
-#, php-format
-msgid "view all %d"
-msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
 msgstr "سيتم استبدالها بوقت وتاريخ الرسالة"

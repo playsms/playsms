@@ -50,6 +50,10 @@ msgstr "Kirim dari file"
 msgid "Send from file has been cancelled"
 msgstr "Kirim dari file telah dibatalkan"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Ditemukan entri yang valid dalam file yang diunggah"
+
 msgid "Upload file"
 msgstr "Unggah file"
 

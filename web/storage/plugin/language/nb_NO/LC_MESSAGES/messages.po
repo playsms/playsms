@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Last-Translator: Robin Karlsen <robikar91@gmail.com>\n"
 "Language-Team: \n"
 "Language: nb_NO\n"
@@ -51,9 +53,8 @@ msgstr ""
 msgid "API secret"
 msgstr "API-hemmelighet"
 
-#, fuzzy
 msgid "API username"
-msgstr "Slett bruker"
+msgstr ""
 
 msgid "Access Control List"
 msgstr "Adgangskontroll-liste"
@@ -233,12 +234,6 @@ msgstr "Administratorer"
 msgid "All"
 msgstr "Alle"
 
-msgid "All feature messages"
-msgstr "Alle feature meldinger"
-
-msgid "All inbox"
-msgstr "Alle innbokser"
-
 msgid "All mandatory fields must be filled"
 msgstr ""
 
@@ -247,9 +242,6 @@ msgstr "Alle køer har blitt fjernet"
 
 msgid "All reports"
 msgstr "Alle rapporter"
-
-msgid "All sent messages"
-msgstr "Alle sendte beskjeder"
 
 msgid "All users"
 msgstr "Alle brukere"
@@ -371,6 +363,9 @@ msgstr "Er du sikker på at du vil dette SMS-autosvar scenarioet?"
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Er du sikker på at du vil slette dette svaret?"
 
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Er du sikker på at du vil slette denne bruker-innboksen?"
 
@@ -405,7 +400,7 @@ msgid "Back"
 msgstr "Tilbake"
 
 msgid "Ban"
-msgstr "Bannlys"
+msgstr "Ban"
 
 msgid "Ban date/time"
 msgstr "Bannlyst dato/tid"
@@ -426,7 +421,7 @@ msgid "Blocked mobile"
 msgstr "Blokkert mobil"
 
 msgid "Buy"
-msgstr "Kjp"
+msgstr "Kjøp"
 
 msgid "Buy credit page"
 msgstr "Kjøp kreditt-side"
@@ -452,8 +447,8 @@ msgstr "Avbryt send fra fil"
 msgid "Cannot change status when user have subusers"
 msgstr "Kan ikke endre status når bruker har underbrukere"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Kan ikke finne PHP PEAR-DB"
+msgid "Captcha was expired, please try again"
+msgstr ""
 
 msgid "Catch-all"
 msgstr "Catch-all"
@@ -469,6 +464,9 @@ msgstr "Catch-all liste"
 
 msgid "Changes have been made"
 msgstr "Endringer har blitt gjort"
+
+msgid "Charge"
+msgstr ""
 
 msgid "Check email sender"
 msgstr "Sjekk emailsenderen"
@@ -572,6 +570,12 @@ msgstr ""
 
 msgid "Daily"
 msgstr "Daglig"
+
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
 
 msgid "Date"
 msgstr "Dato"
@@ -705,6 +709,9 @@ msgstr ""
 msgid "Domain"
 msgstr "Domene"
 
+msgid "Download"
+msgstr ""
+
 msgid "Download SMSSync app for Android from"
 msgstr "Last ned SMSSync app til Android fra"
 
@@ -778,7 +785,7 @@ msgid "Effective SMS sender ID"
 msgstr "Effektivt SMS senderID"
 
 msgid "Eg: +0700 for Jakarta/Bangkok timezone"
-msgstr "F.eks: +0700 for Jakarta/Bangkok tidssone"
+msgstr "F.eks: +07000 for Jakarta/Bankkok tidssone"
 
 msgid "Email"
 msgstr "Email"
@@ -821,7 +828,7 @@ msgid "Enable SMS Sync"
 msgstr "Aktiverer SMS Sync"
 
 msgid "Enable credit unicode SMS as normal SMS"
-msgstr "Aktiver kreditering av unicode-SMS som normal SMS"
+msgstr "Aktiver kreditering av unicode SMS som normal SMS"
 
 msgid "Enable fetch new emails"
 msgstr "Aktiver hentning av nye emails"
@@ -854,6 +861,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "Tilpasset SMS-URL"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "Eksklusiv"
 
@@ -862,6 +872,10 @@ msgstr "Kjør"
 
 msgid "Export"
 msgstr "Eksporter"
+
+#, php-format
+msgid "Export %s records as CSV"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "FATAL FEIL"
@@ -922,6 +936,9 @@ msgstr "Kunne ikke legg til ny destinasjon"
 
 msgid "Fail to add route"
 msgstr "Kunne ikke legge til rute"
+
+msgid "Fail to connect to database"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr "Feil ved sletting av ACL"
@@ -1046,14 +1063,8 @@ msgstr "Kunne ikke lagre takst"
 msgid "Fail to save route"
 msgstr "Kunne ikke lagre rute"
 
-msgid "Fail to save temporary password"
-msgstr "Feil ved lagring av midlertidig passord"
-
 msgid "Fail to send SMS"
 msgstr "Kunne ikke sende SMS"
-
-msgid "Fail to send email"
-msgstr "Feil ved sending av email"
 
 msgid "Fail to send message to all destinations"
 msgstr "Kunne ikke sende melding til alle destinasjoner"
@@ -1078,6 +1089,10 @@ msgstr "Mislykket"
 
 msgid "Feature"
 msgstr "Funksjon"
+
+#, fuzzy
+msgid "Feature messages"
+msgstr "Mine feature-meldinger"
 
 msgid "Features"
 msgstr "Funksjoner"
@@ -1106,14 +1121,11 @@ msgstr "Utfyll med null for å deaktivere begrensning"
 msgid "Flash message"
 msgstr "Flash-melding"
 
-msgid "Footer"
-msgstr "Bunntekst"
-
 msgid "For example a short code"
 msgstr "En kort kode for eksempel"
 
 msgid "Format YYYY-MM-DD hh:mm"
-msgstr "Format: ÅÅÅÅ-MM-DD tt:mm"
+msgstr "Format ÅÅÅÅ-MM-DD tt:mm"
 
 msgid "Forward"
 msgstr "Videresend"
@@ -1137,6 +1149,10 @@ msgstr "Videresend til email"
 msgid "Forwarded email footer"
 msgstr "Videresendt email-footer"
 
+#, php-format
+msgid "Found %s records"
+msgstr ""
+
 msgid "Found invalid entries in uploaded file"
 msgstr "Fant ugyldige oppføringer i opplastet fil"
 
@@ -1145,6 +1161,10 @@ msgstr "Fant gyldige oppføringer i opplastet fil"
 
 msgid "From"
 msgstr "Fra"
+
+#, fuzzy
+msgid "From date/time"
+msgstr "Bannlyst dato/tid"
 
 msgid "Full name"
 msgstr "Fullt navn"
@@ -1171,7 +1191,7 @@ msgid "Generic send SMS URL"
 msgstr ""
 
 msgid "Go"
-msgstr "Kjr"
+msgstr "Gå"
 
 msgid "Go to main configuration or manage site to edit this page"
 msgstr ""
@@ -1246,6 +1266,9 @@ msgstr "HTTP Kannel admin passord"
 msgid "HTTP Kannel admin port"
 msgstr "HTTP Kannel admin port"
 
+msgid "Handled"
+msgstr ""
+
 msgid "Home"
 msgstr "Hjem"
 
@@ -1265,7 +1288,7 @@ msgid "IP addresses have been deleted"
 msgstr "IP-adresser har blitt slettet"
 
 msgid "Idle"
-msgstr "Idle"
+msgstr "Inaktiv"
 
 msgid "Import"
 msgstr "Importer"
@@ -1279,14 +1302,18 @@ msgstr "Importer telefonboksinnføringene over?"
 msgid "Import confirmation"
 msgstr "Bekreft import"
 
-msgid "Inbox"
-msgstr "Innboks"
+#, fuzzy
+msgid "Inbox messages"
+msgstr "Mine sendte meldinger"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "Endringer for innkommende SMS-rute har blitt lagret"
 
 msgid "Incoming SMS time is in local time"
 msgstr "Innkommende SMS-tid er i lokal tid"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Infobip API URL"
 msgstr "Infobip API URl"
@@ -1345,8 +1372,9 @@ msgstr "Kannel admin passord"
 msgid "Kannel admin port"
 msgstr "Kannel admin port"
 
+#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Kannel admin host"
 
 msgid "Kannel specific"
 msgstr "Kannel spesifikt"
@@ -1396,16 +1424,8 @@ msgstr "Liste over destinasjoner"
 msgid "List of gateways and SMSCs"
 msgstr "Liste over gateway og SMSCer"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr "Vis alle meldinger fra %s"
-
 msgid "List of my credit transactions"
 msgstr "Liste over mine kreditt-transaksjoner"
-
-#, php-format
-msgid "List of queue %s"
-msgstr "Liste over køen %s"
 
 msgid "List of subusers"
 msgstr "Liste av underbrukere"
@@ -1432,7 +1452,7 @@ msgid "Login"
 msgstr "Login"
 
 msgid "Login as"
-msgstr "Logg inn som"
+msgstr "Logget som"
 
 msgid "Login information"
 msgstr "Logininformasjon"
@@ -1482,7 +1502,7 @@ msgid "Make return as reply"
 msgstr "Gjør returverdi til svar"
 
 msgid "Manage"
-msgstr "Hndter"
+msgstr "Håndter"
 
 msgid "Manage ACL"
 msgstr "Håndter ACL"
@@ -1529,27 +1549,23 @@ msgstr "Håndter gammu"
 msgid "Manage gateway and SMSC"
 msgstr "Håndter gateway og SMSC"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "Håndter sender-ID"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Håndter infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Håndter nettsted"
+msgstr ""
 
-#, fuzzy
 msgid "Manage kannel"
-msgstr "Håndter konto"
+msgstr ""
 
 msgid "Manage nexmo"
 msgstr "Håndter nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Håndter konto"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "Håndter plugin"
@@ -1594,7 +1610,7 @@ msgid "Manage uplink"
 msgstr "Håndter uplink"
 
 msgid "Mandatory fields must not be empty"
-msgstr "Påkrevde felt kan ikke være tomme"
+msgstr "Påkrevde felter kan ikke være tomme"
 
 msgid "Master URL"
 msgstr "Master URL"
@@ -1613,6 +1629,10 @@ msgstr "Maks. 30 alfanummeriske tegn"
 
 msgid "Maximum SMS count"
 msgstr "Maksimum antall SMS"
+
+#, php-format
+msgid "Maximum records for export is %s"
+msgstr ""
 
 msgid "Maximum username length"
 msgstr "Maksimum lengde på brukernavn"
@@ -1744,14 +1764,12 @@ msgstr "Mine kreditt-transaksjoner"
 msgid "My email to SMS"
 msgstr "Min email til SMS"
 
-msgid "My feature messages"
-msgstr "Mine feature-meldinger"
+#, fuzzy
+msgid "My inbox"
+msgstr "Alle innbokser"
 
 msgid "My report"
 msgstr "Min rapport"
-
-msgid "My sent messages"
-msgstr "Mine sendte meldinger"
 
 msgid "Name"
 msgstr "Navn"
@@ -1832,7 +1850,7 @@ msgid "Once"
 msgstr "Én gang"
 
 msgid "Online"
-msgstr "Plogget"
+msgstr "Pålogget"
 
 msgid "Only when the sender ID is approved"
 msgstr "Kun når avsenderID-en er godkjent"
@@ -1882,9 +1900,6 @@ msgstr "Passord"
 
 msgid "Password does not match"
 msgstr "Passord stemmer ikke overens"
-
-msgid "Password has been emailed"
-msgstr "Passord har blitt tilsendt på mail"
 
 msgid "Password recovery"
 msgstr "Passordgjenoppretting"
@@ -2058,6 +2073,10 @@ msgstr "Oppdater"
 msgid "Register an account"
 msgstr "Registrer konto"
 
+#, fuzzy
+msgid "Register an account is disabled"
+msgstr "Registrer konto"
+
 msgid "Registered"
 msgstr "Registrert"
 
@@ -2122,7 +2141,7 @@ msgid "Reports"
 msgstr "Rapporter"
 
 msgid "Resend"
-msgstr "Send p nytt"
+msgstr "Send igjen"
 
 msgid "Restart Kannel"
 msgstr "Restart Kanneø"
@@ -2414,6 +2433,9 @@ msgstr ""
 msgid "SMSC name"
 msgstr "SMSC-navn"
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "SMSCs"
 msgstr "SMSCer"
 
@@ -2430,7 +2452,7 @@ msgid "Scan incoming SMS for @username"
 msgstr "Søk i innkomende SMS for @brukernavn"
 
 msgid "Schedule"
-msgstr "Tidsskjema"
+msgstr "Tidsplan"
 
 msgid "Schedule ID"
 msgstr "TidsplanID"
@@ -2452,6 +2474,10 @@ msgstr "Planlagt melding"
 
 msgid "Search"
 msgstr "Søk"
+
+#, fuzzy
+msgid "Search message"
+msgstr "Mine feature-meldinger"
 
 msgid "Secret key"
 msgstr "Hemmelig nøkkel"
@@ -2480,10 +2506,15 @@ msgstr "Valgt gruppe har blitt slettet"
 msgid "Selected contact moved to new group"
 msgstr "Valgt kontakt er flyttet til ny gruppe"
 
+#, fuzzy
+msgid "Selected feature messages has been deleted"
+msgstr "Valgt utgående melding har blitt slettet"
+
 msgid "Selected group has been deleted"
 msgstr "Valgt gruppe har blitt slettet"
 
-msgid "Selected incoming message has been deleted"
+#, fuzzy
+msgid "Selected inbox messages has been deleted"
 msgstr "Valgt innkommende melding har blitt slettet"
 
 msgid "Selected members"
@@ -2492,8 +2523,9 @@ msgstr "Valgte medlemmer"
 msgid "Selected message template has been deleted"
 msgstr "Valgt meldingsmal har blitt slettet"
 
-msgid "Selected outgoing message has been deleted"
-msgstr "Valgt utgående melding har blitt slettet"
+#, fuzzy
+msgid "Selected sent messages has been deleted"
+msgstr "Valgt innkommende melding har blitt slettet"
 
 msgid "Selected transactions has been deleted"
 msgstr "Valgte transaksjoner har blitt slettet"
@@ -2588,6 +2620,10 @@ msgstr "Sender sendte én gang"
 msgid "Sent"
 msgstr "Sendt"
 
+#, fuzzy
+msgid "Sent messages"
+msgstr "Mine sendte meldinger"
+
 msgid "Separate by comma for multiple destinations"
 msgstr "Separer med komme for flere destinasjoner"
 
@@ -2645,7 +2681,7 @@ msgid "Status"
 msgstr "Status"
 
 msgid "Submit"
-msgstr "Send"
+msgstr "Innsend"
 
 msgid "Subscribe duration"
 msgstr "Abonnement varighet"
@@ -2676,6 +2712,9 @@ msgstr "Tags"
 
 msgid "Template installation path"
 msgstr "Template installasjonssti"
+
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
 
 msgid "The domain is already configured by other user"
 msgstr ""
@@ -2710,6 +2749,10 @@ msgstr "Tittel"
 msgid "To"
 msgstr "Til"
 
+#, fuzzy
+msgid "To date/time"
+msgstr "Bannlyst dato/tid"
+
 msgid "Total"
 msgstr "Total"
 
@@ -2726,7 +2769,7 @@ msgid "Total valid SMS"
 msgstr "Totalt antall gyldige SMS"
 
 msgid "Transaction datetime"
-msgstr "Transaksjon dato-tid"
+msgstr "Transaksjon data-tid"
 
 msgid "Try to disable SMS footer on master"
 msgstr "Prøv å deaktivere SMS footer på master"
@@ -2769,23 +2812,31 @@ msgstr ""
 msgid "Unable to login"
 msgstr "Kan ikke logge ut"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Fant gyldige oppføringer i opplastet fil"
+
 msgid "Unable to process subuser addition"
 msgstr "Kan ikke behandle underbruker-tilføyelse"
 
 msgid "Unable to process user addition"
 msgstr "Kan ikke behandle bruker-tilføyelse"
 
+#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Gateway-modul konfigurasjoner har blitt lagret"
 
 msgid "Unable to unban account"
-msgstr "Kan ikke fjerne bannlysning fra konto"
+msgstr "Kunne ikke fjerne bannlysning av konto"
 
 msgid "Unable to unban subuser"
 msgstr "Kan ikke fjerne bannlysning fra underbruker"
 
 msgid "Unban"
-msgstr "Fjern bannlysning"
+msgstr "Fjern ban"
+
+msgid "Unhandled"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "Unicode-melding"
@@ -2802,8 +2853,9 @@ msgstr "Ukjent svar-format"
 msgid "Unlimited"
 msgstr "Ubegrenset"
 
+#, fuzzy
 msgid "Update status"
-msgstr ""
+msgstr "Kannel status"
 
 msgid "Upload file"
 msgstr "Opplast fil"
@@ -2857,7 +2909,7 @@ msgid "User is not on banned users list"
 msgstr "Bruker er ikke på bannlyste brukere listen"
 
 msgid "User preference"
-msgstr "Brukerpreferanser"
+msgstr "Brukerinnstillinger"
 
 msgid "Username"
 msgstr "Brukernavn"
@@ -2982,7 +3034,7 @@ msgid "You must fill all fields"
 msgstr "Du må utfylle alle felter"
 
 msgid "You must fill all mandatory fields"
-msgstr "Du må fylle ut alle krevde felt"
+msgstr "Du må utfylle alle påkrevde felter"
 
 msgid "You must fill all required fields"
 msgstr "Du må fylle ut all påkrevde felt"
@@ -3171,7 +3223,7 @@ msgid "rate"
 msgstr "frekvens"
 
 msgid "return"
-msgstr "tilbake"
+msgstr "Tilbake"
 
 msgid "title"
 msgstr "tittel"
@@ -3190,10 +3242,6 @@ msgstr "brukernavn"
 
 msgid "valid entries"
 msgstr "gyldige oppføringer"
-
-#, php-format
-msgid "view all %d"
-msgstr "se alle %d"
 
 msgid "will be replaced by SMS incoming date/time"
 msgstr "vil bli erstattet med SMS innkommende dato/tid"

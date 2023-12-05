@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,9 +51,8 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-#, fuzzy
 msgid "API username"
-msgstr "删除"
+msgstr ""
 
 msgid "Access Control List"
 msgstr ""
@@ -226,12 +227,6 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "All feature messages"
-msgstr ""
-
-msgid "All inbox"
-msgstr ""
-
 msgid "All mandatory fields must be filled"
 msgstr ""
 
@@ -240,10 +235,6 @@ msgstr ""
 
 msgid "All reports"
 msgstr ""
-
-#, fuzzy
-msgid "All sent messages"
-msgstr "发送为非代码信息"
 
 msgid "All users"
 msgstr ""
@@ -362,6 +353,9 @@ msgstr "确定删除此条短信自动回复情景 ?"
 msgid "Are you sure you want to delete this answer ?"
 msgstr "确定删除这条答案 ?"
 
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr ""
 
@@ -443,7 +437,7 @@ msgstr ""
 msgid "Cannot change status when user have subusers"
 msgstr ""
 
-msgid "Cannot find PHP PEAR-DB"
+msgid "Captcha was expired, please try again"
 msgstr ""
 
 msgid "Catch-all"
@@ -459,6 +453,9 @@ msgid "Catch-all list"
 msgstr ""
 
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
@@ -565,6 +562,12 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -655,8 +658,9 @@ msgstr ""
 msgid "Delete member"
 msgstr ""
 
+#, fuzzy
 msgid "Delete user"
-msgstr ""
+msgstr "删除"
 
 #, fuzzy
 msgid "Deleted"
@@ -691,6 +695,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Download SMSSync app for Android from"
@@ -844,6 +851,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "短信字定义链接"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr ""
 
@@ -851,6 +861,10 @@ msgid "Exec"
 msgstr "执行"
 
 msgid "Export"
+msgstr ""
+
+#, php-format
+msgid "Export %s records as CSV"
 msgstr ""
 
 msgid "FATAL ERROR"
@@ -916,6 +930,9 @@ msgstr ""
 #, fuzzy
 msgid "Fail to add route"
 msgstr "保存等级失败"
+
+msgid "Fail to connect to database"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1046,14 +1063,8 @@ msgstr "保存等级失败"
 msgid "Fail to save route"
 msgstr "保存等级失败"
 
-msgid "Fail to save temporary password"
-msgstr ""
-
 msgid "Fail to send SMS"
 msgstr "发送短信失败"
-
-msgid "Fail to send email"
-msgstr ""
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1081,6 +1092,10 @@ msgstr ""
 msgid "Feature"
 msgstr "特征"
 
+#, fuzzy
+msgid "Feature messages"
+msgstr "发送为非代码信息"
+
 msgid "Features"
 msgstr ""
 
@@ -1106,9 +1121,6 @@ msgid "Fill with zero to disable limit"
 msgstr ""
 
 msgid "Flash message"
-msgstr ""
-
-msgid "Footer"
 msgstr ""
 
 msgid "For example a short code"
@@ -1138,6 +1150,10 @@ msgstr "发送到电子邮件"
 msgid "Forwarded email footer"
 msgstr ""
 
+#, php-format
+msgid "Found %s records"
+msgstr ""
+
 msgid "Found invalid entries in uploaded file"
 msgstr ""
 
@@ -1147,14 +1163,18 @@ msgstr ""
 msgid "From"
 msgstr ""
 
+msgid "From date/time"
+msgstr ""
+
 msgid "Full name"
 msgstr ""
 
 msgid "Gateway"
 msgstr ""
 
+#, fuzzy
 msgid "Gateway host"
-msgstr ""
+msgstr "网关名"
 
 msgid "Gateway module configurations has been saved"
 msgstr "网关模块的配置已保存"
@@ -1162,8 +1182,9 @@ msgstr "网关模块的配置已保存"
 msgid "Gateway name"
 msgstr "网关名"
 
+#, fuzzy
 msgid "Gateway port"
-msgstr ""
+msgstr "网关名"
 
 msgid "Gateways"
 msgstr ""
@@ -1244,6 +1265,9 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Handled"
+msgstr ""
+
 msgid "Home"
 msgstr "主页"
 
@@ -1278,13 +1302,17 @@ msgstr ""
 msgid "Import confirmation"
 msgstr ""
 
-msgid "Inbox"
-msgstr ""
+#, fuzzy
+msgid "Inbox messages"
+msgstr "发送为非代码信息"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Infobip API URL"
@@ -1363,9 +1391,8 @@ msgstr ""
 msgid "Keyword separator"
 msgstr ""
 
-#, fuzzy
 msgid "Keywords"
-msgstr "关键字"
+msgstr ""
 
 msgid "Languages"
 msgstr ""
@@ -1394,15 +1421,7 @@ msgstr ""
 msgid "List of gateways and SMSCs"
 msgstr ""
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
-msgstr ""
-
-#, php-format
-msgid "List of queue %s"
 msgstr ""
 
 msgid "List of subusers"
@@ -1484,9 +1503,8 @@ msgstr "管理"
 msgid "Manage ACL"
 msgstr ""
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "管理短信等级"
@@ -1499,7 +1517,7 @@ msgstr "管理自动回复"
 
 #, fuzzy
 msgid "Manage blocked"
-msgstr "管理用户"
+msgstr "管理dev"
 
 msgid "Manage board"
 msgstr "管理面板"
@@ -1528,27 +1546,23 @@ msgstr "管理监务"
 msgid "Manage gateway and SMSC"
 msgstr ""
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "短信发件人"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "管理 infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Manage kannel"
 msgstr "管理kannel"
 
-#, fuzzy
 msgid "Manage nexmo"
-msgstr "管理用户"
+msgstr ""
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr ""
@@ -1586,9 +1600,8 @@ msgstr ""
 msgid "Manage template"
 msgstr "管理模板"
 
-#, fuzzy
 msgid "Manage twilio"
-msgstr "管理用户"
+msgstr ""
 
 msgid "Manage uplink"
 msgstr "管理uplink"
@@ -1612,6 +1625,10 @@ msgid "Max. 30 alphanumeric characters"
 msgstr ""
 
 msgid "Maximum SMS count"
+msgstr ""
+
+#, php-format
+msgid "Maximum records for export is %s"
 msgstr ""
 
 msgid "Maximum username length"
@@ -1638,9 +1655,8 @@ msgstr ""
 msgid "Member list for keyword"
 msgstr "会员列表关键字"
 
-#, fuzzy
 msgid "Members"
-msgstr "浏览人数"
+msgstr ""
 
 msgid "Message"
 msgstr "信息"
@@ -1748,15 +1764,12 @@ msgstr ""
 msgid "My email to SMS"
 msgstr ""
 
-msgid "My feature messages"
-msgstr ""
+#, fuzzy
+msgid "My inbox"
+msgstr "群"
 
 msgid "My report"
 msgstr ""
-
-#, fuzzy
-msgid "My sent messages"
-msgstr "发送为非代码信息"
 
 msgid "Name"
 msgstr ""
@@ -1884,9 +1897,6 @@ msgid "Password"
 msgstr "密码"
 
 msgid "Password does not match"
-msgstr ""
-
-msgid "Password has been emailed"
 msgstr ""
 
 msgid "Password recovery"
@@ -2053,6 +2063,9 @@ msgid "Refresh"
 msgstr ""
 
 msgid "Register an account"
+msgstr ""
+
+msgid "Register an account is disabled"
 msgstr ""
 
 msgid "Registered"
@@ -2411,6 +2424,9 @@ msgstr ""
 msgid "SMSC name"
 msgstr ""
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "SMSCs"
 msgstr ""
 
@@ -2450,6 +2466,10 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#, fuzzy
+msgid "Search message"
+msgstr "发送为非代码信息"
+
 msgid "Secret key"
 msgstr ""
 
@@ -2477,10 +2497,13 @@ msgstr ""
 msgid "Selected contact moved to new group"
 msgstr ""
 
+msgid "Selected feature messages has been deleted"
+msgstr ""
+
 msgid "Selected group has been deleted"
 msgstr ""
 
-msgid "Selected incoming message has been deleted"
+msgid "Selected inbox messages has been deleted"
 msgstr ""
 
 msgid "Selected members"
@@ -2489,7 +2512,7 @@ msgstr ""
 msgid "Selected message template has been deleted"
 msgstr ""
 
-msgid "Selected outgoing message has been deleted"
+msgid "Selected sent messages has been deleted"
 msgstr ""
 
 msgid "Selected transactions has been deleted"
@@ -2585,6 +2608,10 @@ msgstr ""
 msgid "Sent"
 msgstr ""
 
+#, fuzzy
+msgid "Sent messages"
+msgstr "发送为非代码信息"
+
 msgid "Separate by comma for multiple destinations"
 msgstr ""
 
@@ -2673,6 +2700,9 @@ msgstr ""
 msgid "Template installation path"
 msgstr "模板安装路径"
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid "The domain is already configured by other user"
 msgstr ""
 
@@ -2702,6 +2732,9 @@ msgid "Title"
 msgstr "标题"
 
 msgid "To"
+msgstr ""
+
+msgid "To date/time"
 msgstr ""
 
 msgid "Total"
@@ -2760,14 +2793,18 @@ msgstr ""
 msgid "Unable to login"
 msgstr ""
 
+msgid "Unable to open uploaded CSV file"
+msgstr ""
+
 msgid "Unable to process subuser addition"
 msgstr ""
 
 msgid "Unable to process user addition"
 msgstr ""
 
+#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "网关模块的配置已保存"
 
 msgid "Unable to unban account"
 msgstr ""
@@ -2776,6 +2813,9 @@ msgid "Unable to unban subuser"
 msgstr ""
 
 msgid "Unban"
+msgstr ""
+
+msgid "Unhandled"
 msgstr ""
 
 msgid "Unicode message"
@@ -2848,8 +2888,9 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, fuzzy
 msgid "User preference"
-msgstr ""
+msgstr "偏好"
 
 msgid "Username"
 msgstr "用户名"
@@ -2974,8 +3015,9 @@ msgstr "你必须填满全部空白"
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"
 
+#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "你必须填满全部空白"
 
 msgid "You must fill all required fields"
 msgstr ""
@@ -2992,8 +3034,9 @@ msgstr ""
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
+#, fuzzy
 msgid "Your DLR URL is"
-msgstr ""
+msgstr "你的回调链接是"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "你的短信已在队列中"
@@ -3185,10 +3228,6 @@ msgid "username"
 msgstr ""
 
 msgid "valid entries"
-msgstr ""
-
-#, php-format
-msgid "view all %d"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"

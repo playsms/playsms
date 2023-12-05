@@ -50,6 +50,10 @@ msgstr "Sende SMS aus Datei"
 msgid "Send from file has been cancelled"
 msgstr "Sende aus Datei wurde abgebrochen"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Gültige Einträge in hochgeladener Datei gefunden"
+
 msgid "Upload file"
 msgstr "Datei hochladen"
 

@@ -41,6 +41,9 @@ msgstr "Управление именами отправителей"
 msgid "Only when the sender ID is approved"
 msgstr "Только для утверждённых имён отправителей"
 
+msgid "Save"
+msgstr ""
+
 msgid "Sender ID"
 msgstr "Имя отправителя"
 

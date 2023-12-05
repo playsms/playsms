@@ -59,6 +59,10 @@ msgstr "إرسال من ملف"
 msgid "Send from file has been cancelled"
 msgstr "تم إلغاء الإرسال من ملف"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "الإدخالات الصالحة في الملف المحمَّل"
+
 msgid "Upload file"
 msgstr "تحميل الملف "
 

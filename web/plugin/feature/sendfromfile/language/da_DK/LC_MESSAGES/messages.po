@@ -57,6 +57,10 @@ msgstr "Send fra fil"
 msgid "Send from file has been cancelled"
 msgstr "Send fra fil er blevet anulleret"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Fandt gyldige emner i den uploadede fil"
+
 msgid "Upload file"
 msgstr "Upload fil"
 

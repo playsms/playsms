@@ -1,16 +1,7 @@
 msgid "Account has been unbanned"
 msgstr ""
 
-msgid "All feature messages"
-msgstr ""
-
-msgid "All inbox"
-msgstr ""
-
 msgid "All reports"
-msgstr ""
-
-msgid "All sent messages"
 msgstr ""
 
 msgid "Amount"
@@ -28,7 +19,10 @@ msgstr ""
 msgid "Billing"
 msgstr ""
 
-msgid "Content"
+msgid "Charge"
+msgstr ""
+
+msgid "Count"
 msgstr ""
 
 msgid "Credit"
@@ -43,7 +37,14 @@ msgstr ""
 msgid "Delivered"
 msgstr ""
 
+msgid "Download"
+msgstr ""
+
 msgid "Email"
+msgstr ""
+
+#, php-format
+msgid "Export %s records as CSV"
 msgstr ""
 
 msgid "Failed"
@@ -52,16 +53,26 @@ msgstr ""
 msgid "Feature"
 msgstr ""
 
-msgid "Footer"
+msgid "Feature messages"
+msgstr ""
+
+#, php-format
+msgid "Found %s records"
 msgstr ""
 
 msgid "From"
 msgstr ""
 
+msgid "From date/time"
+msgstr ""
+
 msgid "Gateway"
 msgstr ""
 
-msgid "Inbox"
+msgid "Handled"
+msgstr ""
+
+msgid "Inbox messages"
 msgstr ""
 
 msgid "Keyword"
@@ -70,15 +81,11 @@ msgstr ""
 msgid "Last update"
 msgstr ""
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
 msgstr ""
 
 #, php-format
-msgid "List of queue %s"
+msgid "Maximum records for export is %s"
 msgstr ""
 
 msgid "Message"
@@ -87,16 +94,19 @@ msgstr ""
 msgid "My credit transactions"
 msgstr ""
 
-msgid "My feature messages"
+msgid "My inbox"
 msgstr ""
 
 msgid "My report"
 msgstr ""
 
-msgid "My sent messages"
+msgid "Pending"
 msgstr ""
 
-msgid "Pending"
+msgid "Rate"
+msgstr ""
+
+msgid "Receiver"
 msgstr ""
 
 msgid "Report"
@@ -114,16 +124,34 @@ msgstr ""
 msgid "SMSC"
 msgstr ""
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "Sandbox"
 msgstr ""
 
-msgid "Selected incoming message has been deleted"
+msgid "Search"
 msgstr ""
 
-msgid "Selected outgoing message has been deleted"
+msgid "Search message"
+msgstr ""
+
+msgid "Selected feature messages has been deleted"
+msgstr ""
+
+msgid "Selected inbox messages has been deleted"
+msgstr ""
+
+msgid "Selected sent messages has been deleted"
+msgstr ""
+
+msgid "Sender"
 msgstr ""
 
 msgid "Sent"
+msgstr ""
+
+msgid "Sent messages"
 msgstr ""
 
 msgid "Status"
@@ -135,6 +163,9 @@ msgstr ""
 msgid "To"
 msgstr ""
 
+msgid "To date/time"
+msgstr ""
+
 msgid "Total"
 msgstr ""
 
@@ -144,10 +175,16 @@ msgstr ""
 msgid "Unable to unban account"
 msgstr ""
 
+msgid "Unhandled"
+msgstr ""
+
 msgid "User"
 msgstr ""
 
 msgid "User agent"
+msgstr ""
+
+msgid "Username"
 msgstr ""
 
 msgid "Whose online"
@@ -163,8 +200,4 @@ msgid "rate"
 msgstr ""
 
 msgid "username"
-msgstr ""
-
-#, php-format
-msgid "view all %d"
 msgstr ""

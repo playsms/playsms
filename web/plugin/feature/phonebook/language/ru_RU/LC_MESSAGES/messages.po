@@ -11,17 +11,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Action"
-msgstr "Действие"
-
 msgid "Add contact"
 msgstr "Добавить контакт"
 
 msgid "Add group"
 msgstr "Добавить групу"
 
+msgid "All users"
+msgstr ""
+
 msgid "Anyone"
 msgstr "Кому угодно"
+
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
 
 msgid "CSV file format"
 msgstr ""
@@ -159,6 +162,9 @@ msgstr "Не удалось удалить группу"
 
 msgid "Unable to delete group until the group is empty"
 msgstr "Невозможно удалить группу, пока она не пуста"
+
+msgid "User"
+msgstr ""
 
 msgid "You must fill all field"
 msgstr "Необходимо заполнить все поля"

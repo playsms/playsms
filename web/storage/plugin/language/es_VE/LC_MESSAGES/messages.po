@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-10 22:21+0700\n"
 "Language: es_VE\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,9 +51,8 @@ msgstr ""
 msgid "API secret"
 msgstr ""
 
-#, fuzzy
 msgid "API username"
-msgstr "Borrar"
+msgstr ""
 
 msgid "Access Control List"
 msgstr ""
@@ -226,12 +227,6 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "All feature messages"
-msgstr ""
-
-msgid "All inbox"
-msgstr ""
-
 msgid "All mandatory fields must be filled"
 msgstr ""
 
@@ -241,13 +236,8 @@ msgstr ""
 msgid "All reports"
 msgstr ""
 
-#, fuzzy
-msgid "All sent messages"
-msgstr "Enviar en Unicode"
-
-#, fuzzy
 msgid "All users"
-msgstr "Borrar"
+msgstr ""
 
 msgid "Allow users to select SMS footer while on Send SMS page"
 msgstr ""
@@ -366,6 +356,9 @@ msgstr "Está Ud. seguro de querer borrar este SMS de auto-respuesta ?"
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Está Ud. seguro ed querer borrar esta respuesta ?"
 
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr ""
 
@@ -447,7 +440,7 @@ msgstr ""
 msgid "Cannot change status when user have subusers"
 msgstr ""
 
-msgid "Cannot find PHP PEAR-DB"
+msgid "Captcha was expired, please try again"
 msgstr ""
 
 msgid "Catch-all"
@@ -463,6 +456,9 @@ msgid "Catch-all list"
 msgstr ""
 
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
@@ -570,6 +566,12 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -661,8 +663,9 @@ msgstr ""
 msgid "Delete member"
 msgstr "Borrar"
 
+#, fuzzy
 msgid "Delete user"
-msgstr ""
+msgstr "Borrar"
 
 #, fuzzy
 msgid "Deleted"
@@ -697,6 +700,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Download SMSSync app for Android from"
@@ -850,6 +856,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "URL personalizado de SMS"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr ""
 
@@ -857,6 +866,10 @@ msgid "Exec"
 msgstr "Ejecutar"
 
 msgid "Export"
+msgstr ""
+
+#, php-format
+msgid "Export %s records as CSV"
 msgstr ""
 
 msgid "FATAL ERROR"
@@ -925,6 +938,9 @@ msgstr ""
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Fallo al eliminar la tarifa"
+
+msgid "Fail to connect to database"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1056,14 +1072,8 @@ msgstr "Fallo al eliminar la tarifa"
 msgid "Fail to save route"
 msgstr "Fallo al eliminar la tarifa"
 
-msgid "Fail to save temporary password"
-msgstr ""
-
 msgid "Fail to send SMS"
 msgstr "No es posible enviar el SMS"
-
-msgid "Fail to send email"
-msgstr ""
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1091,6 +1101,10 @@ msgstr ""
 msgid "Feature"
 msgstr "Servicio"
 
+#, fuzzy
+msgid "Feature messages"
+msgstr "Enviar en Unicode"
+
 msgid "Features"
 msgstr ""
 
@@ -1116,9 +1130,6 @@ msgid "Fill with zero to disable limit"
 msgstr ""
 
 msgid "Flash message"
-msgstr ""
-
-msgid "Footer"
 msgstr ""
 
 msgid "For example a short code"
@@ -1148,6 +1159,10 @@ msgstr "Reenviar a un correo electrónico"
 msgid "Forwarded email footer"
 msgstr ""
 
+#, php-format
+msgid "Found %s records"
+msgstr ""
+
 msgid "Found invalid entries in uploaded file"
 msgstr ""
 
@@ -1155,6 +1170,9 @@ msgid "Found valid entries in uploaded file"
 msgstr ""
 
 msgid "From"
+msgstr ""
+
+msgid "From date/time"
 msgstr ""
 
 msgid "Full name"
@@ -1255,6 +1273,9 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Handled"
+msgstr ""
+
 msgid "Home"
 msgstr "Principal"
 
@@ -1289,13 +1310,17 @@ msgstr ""
 msgid "Import confirmation"
 msgstr ""
 
-msgid "Inbox"
-msgstr ""
+#, fuzzy
+msgid "Inbox messages"
+msgstr "Enviar en Unicode"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Infobip API URL"
@@ -1405,15 +1430,7 @@ msgstr ""
 msgid "List of gateways and SMSCs"
 msgstr ""
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
-msgstr ""
-
-#, php-format
-msgid "List of queue %s"
 msgstr ""
 
 msgid "List of subusers"
@@ -1495,9 +1512,8 @@ msgstr "Administrar"
 msgid "Manage ACL"
 msgstr ""
 
-#, fuzzy
 msgid "Manage OpenVox"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Manage SMS rate"
 msgstr "Administración de tarifas deSMS"
@@ -1508,9 +1524,8 @@ msgstr ""
 msgid "Manage autoreply"
 msgstr "Administrar auto-respuesta"
 
-#, fuzzy
 msgid "Manage blocked"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Manage board"
 msgstr "Administrar pizarra"
@@ -1524,9 +1539,8 @@ msgstr ""
 msgid "Manage custom"
 msgstr "Administración personalizada de URL"
 
-#, fuzzy
 msgid "Manage dev"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Manage email to SMS"
 msgstr ""
@@ -1540,28 +1554,23 @@ msgstr "Manage gammu"
 msgid "Manage gateway and SMSC"
 msgstr ""
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "ID Remitente del SMS"
+msgstr ""
 
-#, fuzzy
 msgid "Manage infobip"
-msgstr "Administrar usuario"
+msgstr ""
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Manage kannel"
 msgstr "Administrar Kannel"
 
-#, fuzzy
 msgid "Manage nexmo"
-msgstr "Administrar usuario"
+msgstr ""
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr ""
@@ -1599,9 +1608,8 @@ msgstr ""
 msgid "Manage template"
 msgstr "Manage template"
 
-#, fuzzy
 msgid "Manage twilio"
-msgstr "Administrar usuario"
+msgstr ""
 
 msgid "Manage uplink"
 msgstr "Manage uplink"
@@ -1625,6 +1633,10 @@ msgid "Max. 30 alphanumeric characters"
 msgstr ""
 
 msgid "Maximum SMS count"
+msgstr ""
+
+#, php-format
+msgid "Maximum records for export is %s"
 msgstr ""
 
 msgid "Maximum username length"
@@ -1761,15 +1773,12 @@ msgstr ""
 msgid "My email to SMS"
 msgstr ""
 
-msgid "My feature messages"
-msgstr ""
+#, fuzzy
+msgid "My inbox"
+msgstr "Grupo"
 
 msgid "My report"
 msgstr ""
-
-#, fuzzy
-msgid "My sent messages"
-msgstr "Enviar en Unicode"
 
 msgid "Name"
 msgstr ""
@@ -1897,9 +1906,6 @@ msgid "Password"
 msgstr "Contraseña"
 
 msgid "Password does not match"
-msgstr ""
-
-msgid "Password has been emailed"
 msgstr ""
 
 msgid "Password recovery"
@@ -2066,6 +2072,9 @@ msgid "Refresh"
 msgstr ""
 
 msgid "Register an account"
+msgstr ""
+
+msgid "Register an account is disabled"
 msgstr ""
 
 msgid "Registered"
@@ -2429,6 +2438,9 @@ msgstr ""
 msgid "SMSC name"
 msgstr ""
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "SMSCs"
 msgstr ""
 
@@ -2468,6 +2480,10 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#, fuzzy
+msgid "Search message"
+msgstr "Enviar en Unicode"
+
 msgid "Secret key"
 msgstr ""
 
@@ -2495,10 +2511,13 @@ msgstr ""
 msgid "Selected contact moved to new group"
 msgstr ""
 
+msgid "Selected feature messages has been deleted"
+msgstr ""
+
 msgid "Selected group has been deleted"
 msgstr ""
 
-msgid "Selected incoming message has been deleted"
+msgid "Selected inbox messages has been deleted"
 msgstr ""
 
 msgid "Selected members"
@@ -2507,7 +2526,7 @@ msgstr ""
 msgid "Selected message template has been deleted"
 msgstr ""
 
-msgid "Selected outgoing message has been deleted"
+msgid "Selected sent messages has been deleted"
 msgstr ""
 
 msgid "Selected transactions has been deleted"
@@ -2604,6 +2623,10 @@ msgstr ""
 msgid "Sent"
 msgstr ""
 
+#, fuzzy
+msgid "Sent messages"
+msgstr "Enviar en Unicode"
+
 msgid "Separate by comma for multiple destinations"
 msgstr ""
 
@@ -2692,6 +2715,9 @@ msgstr ""
 msgid "Template installation path"
 msgstr ""
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid "The domain is already configured by other user"
 msgstr ""
 
@@ -2721,6 +2747,9 @@ msgid "Title"
 msgstr "Título"
 
 msgid "To"
+msgstr ""
+
+msgid "To date/time"
 msgstr ""
 
 msgid "Total"
@@ -2779,6 +2808,10 @@ msgstr ""
 msgid "Unable to login"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Idioma activo"
+
 msgid "Unable to process subuser addition"
 msgstr ""
 
@@ -2795,6 +2828,9 @@ msgid "Unable to unban subuser"
 msgstr ""
 
 msgid "Unban"
+msgstr ""
+
+msgid "Unhandled"
 msgstr ""
 
 msgid "Unicode message"
@@ -2867,8 +2903,9 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, fuzzy
 msgid "User preference"
-msgstr ""
+msgstr "Preferencias"
 
 msgid "Username"
 msgstr "Usuario"
@@ -2993,8 +3030,9 @@ msgstr "Ud. debe rellenar todos los campos"
 msgid "You must fill all fields"
 msgstr "Ud. debe rellenar todos los campos"
 
+#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "Ud. debe rellenar todos los campos"
 
 msgid "You must fill all required fields"
 msgstr ""
@@ -3204,10 +3242,6 @@ msgid "username"
 msgstr ""
 
 msgid "valid entries"
-msgstr ""
-
-#, php-format
-msgid "view all %d"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"

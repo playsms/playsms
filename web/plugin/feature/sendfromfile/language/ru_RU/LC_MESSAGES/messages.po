@@ -57,6 +57,10 @@ msgstr "Отправка из файла"
 msgid "Send from file has been cancelled"
 msgstr "Отправка из файла была отменена"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Допустимые записи в загруженном файле"
+
 msgid "Upload file"
 msgstr "Загрузить файл"
 

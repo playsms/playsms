@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alexey Dvoryanchikov <gdemoyinternet@ya.ru>\n"
 "Language-Team: \n"
@@ -56,9 +57,8 @@ msgstr ""
 msgid "API secret"
 msgstr "API secret"
 
-#, fuzzy
 msgid "API username"
-msgstr "Удалить пользователя"
+msgstr ""
 
 msgid "Access Control List"
 msgstr ""
@@ -242,13 +242,6 @@ msgstr "Администраторы"
 msgid "All"
 msgstr "Все"
 
-#, fuzzy
-msgid "All feature messages"
-msgstr "Все исходящие сообщения"
-
-msgid "All inbox"
-msgstr "Все входящие"
-
 msgid "All mandatory fields must be filled"
 msgstr ""
 
@@ -258,10 +251,6 @@ msgstr "Очередь удалена"
 
 msgid "All reports"
 msgstr "Все отчёты"
-
-#, fuzzy
-msgid "All sent messages"
-msgstr "Все принятые сообщения"
 
 msgid "All users"
 msgstr "Все пользователи"
@@ -286,7 +275,7 @@ msgid "Always remove plus sign"
 msgstr "Всегда отрезать знак +"
 
 msgid "Amount"
-msgstr "Сумма"
+msgstr "Количество"
 
 msgid "Annually"
 msgstr ""
@@ -382,6 +371,9 @@ msgstr "Вы уверены, что хотите удалить сценарий
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Вы уверены, что хотите удалить этот ответ?"
 
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Вы уверены, что хотите удалить эту группу принятых?"
 
@@ -465,8 +457,8 @@ msgstr ""
 "Невозможно изменить состояние, когда у пользователя есть дочерние "
 "пользователи"
 
-msgid "Cannot find PHP PEAR-DB"
-msgstr "Не удалось найти PHP PEAR-DB"
+msgid "Captcha was expired, please try again"
+msgstr ""
 
 msgid "Catch-all"
 msgstr "Перехватывающие"
@@ -482,6 +474,9 @@ msgstr "Перехватывающие"
 
 msgid "Changes have been made"
 msgstr "Изменения сохранены"
+
+msgid "Charge"
+msgstr ""
 
 msgid "Check email sender"
 msgstr "Проверять отправителя"
@@ -559,7 +554,7 @@ msgid "Created"
 msgstr "Создано"
 
 msgid "Credit"
-msgstr "Средства"
+msgstr "Баланс"
 
 msgid "Credit has been added"
 msgstr "Средства добавлены"
@@ -586,6 +581,12 @@ msgid "DLR mask"
 msgstr ""
 
 msgid "Daily"
+msgstr ""
+
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
 msgstr ""
 
 msgid "Date"
@@ -716,6 +717,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Download SMSSync app for Android from"
@@ -868,6 +872,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "URL адрес"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "Закрытый"
 
@@ -876,6 +883,10 @@ msgstr "Испоняемый файл"
 
 msgid "Export"
 msgstr "Экспорт"
+
+#, php-format
+msgid "Export %s records as CSV"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr "КРИТИЧЕСКАЯ ОШИБКА"
@@ -937,6 +948,9 @@ msgstr ""
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Не удалось сохранить маршрут"
+
+msgid "Fail to connect to database"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1061,15 +1075,8 @@ msgstr "Не удалось сохранить тариф"
 msgid "Fail to save route"
 msgstr "Не удалось сохранить маршрут"
 
-#, fuzzy
-msgid "Fail to save temporary password"
-msgstr "Не удалось восстановить пароль"
-
 msgid "Fail to send SMS"
 msgstr "Не удалось отправитьь сообщение"
-
-msgid "Fail to send email"
-msgstr "Не удалось отправить письмо"
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1094,6 +1101,10 @@ msgstr "Ошибок"
 
 msgid "Feature"
 msgstr "Функции"
+
+#, fuzzy
+msgid "Feature messages"
+msgstr "Все исходящие сообщения"
 
 msgid "Features"
 msgstr "Функции"
@@ -1121,9 +1132,6 @@ msgstr ""
 
 msgid "Flash message"
 msgstr "Всплывающее СМС"
-
-msgid "Footer"
-msgstr "Подпись"
 
 msgid "For example a short code"
 msgstr "Например, короткий номер"
@@ -1153,6 +1161,10 @@ msgstr "Переадресация на email"
 msgid "Forwarded email footer"
 msgstr "Подпись пересылаемого письма"
 
+#, php-format
+msgid "Found %s records"
+msgstr ""
+
 msgid "Found invalid entries in uploaded file"
 msgstr "Недействительные записи в загруженном файле"
 
@@ -1161,6 +1173,10 @@ msgstr "Допустимые записи в загруженном файле"
 
 msgid "From"
 msgstr "От"
+
+#, fuzzy
+msgid "From date/time"
+msgstr "Время блокировки"
 
 msgid "Full name"
 msgstr ""
@@ -1260,6 +1276,9 @@ msgstr "Пароль администратора Kannel"
 msgid "HTTP Kannel admin port"
 msgstr "Порт для администрирования Kannel"
 
+msgid "Handled"
+msgstr ""
+
 msgid "Home"
 msgstr "Главная"
 
@@ -1294,14 +1313,18 @@ msgstr "Импортировать следующие записи?"
 msgid "Import confirmation"
 msgstr "Подтверждение импорта"
 
-msgid "Inbox"
-msgstr "Входящие"
+#, fuzzy
+msgid "Inbox messages"
+msgstr "Сообщение"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "Правила для входящих сообщений были сохранены"
 
 msgid "Incoming SMS time is in local time"
 msgstr "Входящие СМС по местному времени"
+
+msgid "Incomplete registration data"
+msgstr ""
 
 msgid "Infobip API URL"
 msgstr "Infobip API URL"
@@ -1360,8 +1383,9 @@ msgstr "Пароль администратора Kannel"
 msgid "Kannel admin port"
 msgstr "Порт для администрирования Kannel"
 
+#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Cервер администрирования Kannel"
 
 msgid "Kannel specific"
 msgstr "Настройки Kannel"
@@ -1411,16 +1435,8 @@ msgstr ""
 msgid "List of gateways and SMSCs"
 msgstr "Список шлюзов и SMSC"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
 msgstr "Список моих переводов"
-
-#, php-format
-msgid "List of queue %s"
-msgstr ""
 
 msgid "List of subusers"
 msgstr "Список дочерних пользователей"
@@ -1440,8 +1456,9 @@ msgstr ""
 msgid "Local playnet username"
 msgstr ""
 
+#, fuzzy
 msgid "Logged in as"
-msgstr ""
+msgstr "Войти как"
 
 msgid "Login"
 msgstr "Вход"
@@ -1545,16 +1562,14 @@ msgstr "Gammu"
 msgid "Manage gateway and SMSC"
 msgstr "Управление шлюзами и СМС-центрами"
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "Управление именами отправителей"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Manage infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Управление пользователями"
+msgstr ""
 
 msgid "Manage kannel"
 msgstr "Управление Kannel"
@@ -1562,9 +1577,8 @@ msgstr "Управление Kannel"
 msgid "Manage nexmo"
 msgstr "Управление nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Управление пользователями"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr "Управление модулями"
@@ -1630,6 +1644,10 @@ msgstr "Макс. 30 символов"
 msgid "Maximum SMS count"
 msgstr "Максимальное количество сегментов"
 
+#, php-format
+msgid "Maximum records for export is %s"
+msgstr ""
+
 msgid "Maximum username length"
 msgstr ""
 
@@ -1643,7 +1661,7 @@ msgid "Member has been added"
 msgstr "Участник добавлен"
 
 msgid "Member has been deleted"
-msgstr "Подписчик удалён"
+msgstr "Участник удалён"
 
 msgid "Member join datetime"
 msgstr "Дата подписки"
@@ -1655,7 +1673,7 @@ msgid "Member list for keyword"
 msgstr "Подписчики по ключевому слову"
 
 msgid "Members"
-msgstr "Подписчики"
+msgstr "Участники"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -1760,15 +1778,12 @@ msgstr "Мои переводы"
 msgid "My email to SMS"
 msgstr "Настройки Email to SMS"
 
-msgid "My feature messages"
-msgstr ""
+#, fuzzy
+msgid "My inbox"
+msgstr "Все входящие"
 
 msgid "My report"
 msgstr "Мой отчёт"
-
-#, fuzzy
-msgid "My sent messages"
-msgstr "Сообщение"
 
 msgid "Name"
 msgstr "Имя"
@@ -1901,9 +1916,6 @@ msgstr "Пароль"
 
 msgid "Password does not match"
 msgstr "Пароли не совпадают"
-
-msgid "Password has been emailed"
-msgstr "Пароль отправлен по почте"
 
 msgid "Password recovery"
 msgstr "Восстановление пароля"
@@ -2078,6 +2090,10 @@ msgid "Refresh"
 msgstr "Обновить"
 
 msgid "Register an account"
+msgstr "Регистрация пользователя"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "Регистрация пользователя"
 
 msgid "Registered"
@@ -2435,6 +2451,9 @@ msgstr "SMSC удалён"
 msgid "SMSC name"
 msgstr "Имя SMSC"
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "SMSCs"
 msgstr "SMS центры"
 
@@ -2474,6 +2493,10 @@ msgstr ""
 msgid "Search"
 msgstr "Поиск"
 
+#, fuzzy
+msgid "Search message"
+msgstr "Все исходящие сообщения"
+
 msgid "Secret key"
 msgstr "Секретный ключ"
 
@@ -2501,10 +2524,15 @@ msgstr "Выбранные контакты удалены"
 msgid "Selected contact moved to new group"
 msgstr "Выбранные контакты перемещены в новую группу"
 
+#, fuzzy
+msgid "Selected feature messages has been deleted"
+msgstr "Выбранное исходящее сообщение было удалено"
+
 msgid "Selected group has been deleted"
 msgstr "Выбранные группы удалены"
 
-msgid "Selected incoming message has been deleted"
+#, fuzzy
+msgid "Selected inbox messages has been deleted"
 msgstr "Выбранное входящее сообщение было удалено"
 
 msgid "Selected members"
@@ -2513,8 +2541,9 @@ msgstr "Выбранные участники"
 msgid "Selected message template has been deleted"
 msgstr "Выбранные шаблоны удалены"
 
-msgid "Selected outgoing message has been deleted"
-msgstr "Выбранное исходящее сообщение было удалено"
+#, fuzzy
+msgid "Selected sent messages has been deleted"
+msgstr "Выбранное входящее сообщение было удалено"
 
 msgid "Selected transactions has been deleted"
 msgstr "Выбранные транзакции были удалены"
@@ -2609,6 +2638,10 @@ msgstr "Проголосовавших один раз"
 msgid "Sent"
 msgstr "Отправлено"
 
+#, fuzzy
+msgid "Sent messages"
+msgstr "Сообщение"
+
 msgid "Separate by comma for multiple destinations"
 msgstr ""
 
@@ -2695,6 +2728,9 @@ msgstr ""
 msgid "Template installation path"
 msgstr "Установочный путь шаблона"
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid "The domain is already configured by other user"
 msgstr ""
 
@@ -2725,6 +2761,10 @@ msgstr "Название"
 
 msgid "To"
 msgstr "Получатель"
+
+#, fuzzy
+msgid "To date/time"
+msgstr "Время блокировки"
 
 msgid "Total"
 msgstr "Всего"
@@ -2784,23 +2824,31 @@ msgstr ""
 msgid "Unable to login"
 msgstr "Не удалось войти"
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Допустимые записи в загруженном файле"
+
 msgid "Unable to process subuser addition"
 msgstr "Невозможно произвести добавление дочернего пользователя"
 
 msgid "Unable to process user addition"
 msgstr "Невозможно произвести добавление пользователя"
 
+#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Настройки шлюза схранены"
 
 msgid "Unable to unban account"
-msgstr "Невозможно разблокировать пользователя"
+msgstr "Не удалось разблокировать пользователя"
 
 msgid "Unable to unban subuser"
 msgstr "Невозможно разблокировать дочернего пользователя"
 
 msgid "Unban"
 msgstr "Разблокировать"
+
+msgid "Unhandled"
+msgstr ""
 
 msgid "Unicode message"
 msgstr "содержит русские символы"
@@ -2817,8 +2865,9 @@ msgstr "Ответ о неизвестном формате"
 msgid "Unlimited"
 msgstr "Неограниченно"
 
+#, fuzzy
 msgid "Update status"
-msgstr ""
+msgstr "Состояние Kannel"
 
 msgid "Upload file"
 msgstr "Загрузить файл"
@@ -2833,7 +2882,7 @@ msgid "Use SSL"
 msgstr "Использовать SSL"
 
 msgid "User"
-msgstr "Пользователь"
+msgstr "Полльзователь"
 
 msgid "User ID"
 msgstr "ID пользователя"
@@ -2996,7 +3045,7 @@ msgid "You must fill all fields"
 msgstr "Необходимо заполнить все поля"
 
 msgid "You must fill all mandatory fields"
-msgstr "Необходимо заполнить все обязательные поля"
+msgstr "Необходимо заполнить обязательные поля"
 
 msgid "You must fill all required fields"
 msgstr "Необходимо заполнить все требуемые поля"
@@ -3205,10 +3254,6 @@ msgstr "имя пользователя"
 
 msgid "valid entries"
 msgstr "действительные записи"
-
-#, php-format
-msgid "view all %d"
-msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
 msgstr "будет заменён на дату/время входящего СМС"

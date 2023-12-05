@@ -5,16 +5,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Action"
-msgstr ""
-
 msgid "Add contact"
 msgstr "Tambah kontak"
 
 msgid "Add group"
 msgstr "Tambah grup"
 
+msgid "All users"
+msgstr ""
+
 msgid "Anyone"
+msgstr ""
+
+msgid "Are you sure you want to delete this group ?"
 msgstr ""
 
 msgid "CSV file format"
@@ -151,6 +154,9 @@ msgid "Unable to add group"
 msgstr ""
 
 msgid "Unable to delete group until the group is empty"
+msgstr ""
+
+msgid "User"
 msgstr ""
 
 msgid "You must fill all field"

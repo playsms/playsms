@@ -1,5 +1,7 @@
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 17:59+0700\n"
 "Language: id_ID\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,9 +51,8 @@ msgstr ""
 msgid "API secret"
 msgstr "Kata rahasia API"
 
-#, fuzzy
 msgid "API username"
-msgstr "Hapus"
+msgstr ""
 
 msgid "Access Control List"
 msgstr ""
@@ -226,12 +227,6 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "All feature messages"
-msgstr ""
-
-msgid "All inbox"
-msgstr ""
-
 msgid "All mandatory fields must be filled"
 msgstr ""
 
@@ -239,9 +234,6 @@ msgid "All queues have been removed"
 msgstr ""
 
 msgid "All reports"
-msgstr ""
-
-msgid "All sent messages"
 msgstr ""
 
 msgid "All users"
@@ -362,6 +354,9 @@ msgstr "Anda yakin ingin menghapus skenario layanan balas SMS otomatis ini?"
 msgid "Are you sure you want to delete this answer ?"
 msgstr "Anda yakin ingin menghapus jawaban ini?"
 
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr "Apakah anda yakin ingin menghapus grup kotak masuk ini ?"
 
@@ -443,7 +438,7 @@ msgstr "Batal kirim dari file"
 msgid "Cannot change status when user have subusers"
 msgstr ""
 
-msgid "Cannot find PHP PEAR-DB"
+msgid "Captcha was expired, please try again"
 msgstr ""
 
 msgid "Catch-all"
@@ -459,6 +454,9 @@ msgid "Catch-all list"
 msgstr "Daftar kotak tangkap semua"
 
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
@@ -564,6 +562,12 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -654,8 +658,9 @@ msgstr "Hapus grup kotak masuk"
 msgid "Delete member"
 msgstr "Hapus anggota"
 
+#, fuzzy
 msgid "Delete user"
-msgstr ""
+msgstr "Hapus"
 
 msgid "Deleted"
 msgstr ""
@@ -689,6 +694,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Download SMSSync app for Android from"
@@ -841,6 +849,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr "URL SMS kustom"
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr "Eksklusif"
 
@@ -849,6 +860,10 @@ msgstr "Laksanakan"
 
 msgid "Export"
 msgstr "Ekspor"
+
+#, php-format
+msgid "Export %s records as CSV"
+msgstr ""
 
 msgid "FATAL ERROR"
 msgstr ""
@@ -910,6 +925,9 @@ msgstr ""
 #, fuzzy
 msgid "Fail to add route"
 msgstr "Gagal menyimpan tarif"
+
+msgid "Fail to connect to database"
+msgstr ""
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1036,14 +1054,8 @@ msgstr "Gagal menyimpan tarif"
 msgid "Fail to save route"
 msgstr "Gagal menyimpan tarif"
 
-msgid "Fail to save temporary password"
-msgstr ""
-
 msgid "Fail to send SMS"
 msgstr "Gagal mengirim SMS"
-
-msgid "Fail to send email"
-msgstr ""
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1068,6 +1080,9 @@ msgid "Failed"
 msgstr ""
 
 msgid "Feature"
+msgstr ""
+
+msgid "Feature messages"
 msgstr ""
 
 msgid "Features"
@@ -1097,9 +1112,6 @@ msgstr ""
 msgid "Flash message"
 msgstr ""
 
-msgid "Footer"
-msgstr ""
-
 msgid "For example a short code"
 msgstr ""
 
@@ -1127,6 +1139,10 @@ msgstr "Teruskan ke email"
 msgid "Forwarded email footer"
 msgstr ""
 
+#, php-format
+msgid "Found %s records"
+msgstr ""
+
 msgid "Found invalid entries in uploaded file"
 msgstr "Ditemukan entri yang tidak valid dalam file yang diunggah"
 
@@ -1136,14 +1152,18 @@ msgstr "Ditemukan entri yang valid dalam file yang diunggah"
 msgid "From"
 msgstr ""
 
+msgid "From date/time"
+msgstr ""
+
 msgid "Full name"
 msgstr ""
 
 msgid "Gateway"
 msgstr ""
 
+#, fuzzy
 msgid "Gateway host"
-msgstr ""
+msgstr "Nama gateway"
 
 msgid "Gateway module configurations has been saved"
 msgstr "Konfigurasi modul gateway telah disimpan"
@@ -1151,8 +1171,9 @@ msgstr "Konfigurasi modul gateway telah disimpan"
 msgid "Gateway name"
 msgstr "Nama gateway"
 
+#, fuzzy
 msgid "Gateway port"
-msgstr ""
+msgstr "Nama gateway"
 
 msgid "Gateways"
 msgstr ""
@@ -1224,13 +1245,17 @@ msgstr "Nama grup"
 msgid "HTML output"
 msgstr "Keluaran HTML"
 
+#, fuzzy
 msgid "HTTP Kannel admin host"
-msgstr ""
+msgstr "Port admin kannel"
 
 msgid "HTTP Kannel admin password"
 msgstr ""
 
 msgid "HTTP Kannel admin port"
+msgstr ""
+
+msgid "Handled"
 msgstr ""
 
 msgid "Home"
@@ -1267,13 +1292,16 @@ msgstr "Impor isi buku telepon diatas ?"
 msgid "Import confirmation"
 msgstr "Konfirmasi impor"
 
-msgid "Inbox"
+msgid "Inbox messages"
 msgstr ""
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Infobip API URL"
@@ -1324,8 +1352,9 @@ msgstr ""
 msgid "Jasmin will push DLR and incoming SMS to your callback URL"
 msgstr ""
 
+#, fuzzy
 msgid "Kannel admin host"
-msgstr ""
+msgstr "Port admin kannel"
 
 msgid "Kannel admin password"
 msgstr "Password admin kannel"
@@ -1333,8 +1362,9 @@ msgstr "Password admin kannel"
 msgid "Kannel admin port"
 msgstr "Port admin kannel"
 
+#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr ""
+msgstr "Port admin kannel"
 
 msgid "Kannel specific"
 msgstr ""
@@ -1382,15 +1412,7 @@ msgstr ""
 msgid "List of gateways and SMSCs"
 msgstr ""
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
-msgstr ""
-
-#, php-format
-msgid "List of queue %s"
 msgstr ""
 
 msgid "List of subusers"
@@ -1474,7 +1496,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Manage OpenVox"
-msgstr "Pengaturan pengguna"
+msgstr "Pengaturan nexmo"
 
 msgid "Manage SMS rate"
 msgstr "Pengaturan tarif SMS"
@@ -1487,7 +1509,7 @@ msgstr "Pengaturan balas SMS otomatis"
 
 #, fuzzy
 msgid "Manage blocked"
-msgstr "Pengaturan pengguna"
+msgstr "Pengaturan dev"
 
 msgid "Manage board"
 msgstr "Pengaturan papan SMS"
@@ -1516,16 +1538,14 @@ msgstr "Pengaturan gammu"
 msgid "Manage gateway and SMSC"
 msgstr ""
 
-#, fuzzy
 msgid "Manage generic"
-msgstr "ID pengirim SMS"
+msgstr ""
 
 msgid "Manage infobip"
 msgstr "Pengaturan infobip"
 
-#, fuzzy
 msgid "Manage jasmin"
-msgstr "Pengaturan pengguna"
+msgstr ""
 
 msgid "Manage kannel"
 msgstr "Pengaturan kannel"
@@ -1533,9 +1553,8 @@ msgstr "Pengaturan kannel"
 msgid "Manage nexmo"
 msgstr "Pengaturan nexmo"
 
-#, fuzzy
 msgid "Manage playnet"
-msgstr "Akun saya"
+msgstr ""
 
 msgid "Manage plugin"
 msgstr ""
@@ -1599,6 +1618,10 @@ msgid "Max. 30 alphanumeric characters"
 msgstr ""
 
 msgid "Maximum SMS count"
+msgstr ""
+
+#, php-format
+msgid "Maximum records for export is %s"
 msgstr ""
 
 msgid "Maximum username length"
@@ -1722,8 +1745,9 @@ msgstr ""
 msgid "Multiple mobile numbers must be comma-separated"
 msgstr ""
 
+#, fuzzy
 msgid "My account"
-msgstr ""
+msgstr "Akun saya"
 
 msgid "My credit transactions"
 msgstr ""
@@ -1731,13 +1755,10 @@ msgstr ""
 msgid "My email to SMS"
 msgstr ""
 
-msgid "My feature messages"
+msgid "My inbox"
 msgstr ""
 
 msgid "My report"
-msgstr ""
-
-msgid "My sent messages"
 msgstr ""
 
 msgid "Name"
@@ -1867,9 +1888,6 @@ msgid "Password"
 msgstr "Kata sandi"
 
 msgid "Password does not match"
-msgstr ""
-
-msgid "Password has been emailed"
 msgstr ""
 
 msgid "Password recovery"
@@ -2046,6 +2064,9 @@ msgstr ""
 msgid "Register an account"
 msgstr ""
 
+msgid "Register an account is disabled"
+msgstr ""
+
 msgid "Registered"
 msgstr ""
 
@@ -2109,8 +2130,9 @@ msgstr ""
 msgid "Report whose online"
 msgstr ""
 
+#, fuzzy
 msgid "Reports"
-msgstr ""
+msgstr "Ekspor"
 
 msgid "Resend"
 msgstr ""
@@ -2402,6 +2424,9 @@ msgstr ""
 msgid "SMSC name"
 msgstr ""
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "SMSCs"
 msgstr ""
 
@@ -2441,6 +2466,9 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+msgid "Search message"
+msgstr ""
+
 msgid "Secret key"
 msgstr ""
 
@@ -2469,10 +2497,13 @@ msgstr "Kontak terpilih telah dihapus"
 msgid "Selected contact moved to new group"
 msgstr "Kontak terpilih telah dihapus"
 
+msgid "Selected feature messages has been deleted"
+msgstr ""
+
 msgid "Selected group has been deleted"
 msgstr "Grup terpilih telah dihapus"
 
-msgid "Selected incoming message has been deleted"
+msgid "Selected inbox messages has been deleted"
 msgstr ""
 
 msgid "Selected members"
@@ -2481,7 +2512,7 @@ msgstr "Anggota yang dipilih"
 msgid "Selected message template has been deleted"
 msgstr "Template pesan terpilih telah dihapus"
 
-msgid "Selected outgoing message has been deleted"
+msgid "Selected sent messages has been deleted"
 msgstr ""
 
 msgid "Selected transactions has been deleted"
@@ -2577,6 +2608,9 @@ msgstr ""
 msgid "Sent"
 msgstr "Terkirim"
 
+msgid "Sent messages"
+msgstr ""
+
 msgid "Separate by comma for multiple destinations"
 msgstr ""
 
@@ -2665,6 +2699,9 @@ msgstr ""
 msgid "Template installation path"
 msgstr "Jalur instalasi template"
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid "The domain is already configured by other user"
 msgstr ""
 
@@ -2694,6 +2731,9 @@ msgid "Title"
 msgstr "Judul"
 
 msgid "To"
+msgstr ""
+
+msgid "To date/time"
 msgstr ""
 
 msgid "Total"
@@ -2752,14 +2792,19 @@ msgstr ""
 msgid "Unable to login"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "Ditemukan entri yang valid dalam file yang diunggah"
+
 msgid "Unable to process subuser addition"
 msgstr ""
 
 msgid "Unable to process user addition"
 msgstr ""
 
+#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr ""
+msgstr "Konfigurasi modul gateway telah disimpan"
 
 msgid "Unable to unban account"
 msgstr ""
@@ -2768,6 +2813,9 @@ msgid "Unable to unban subuser"
 msgstr ""
 
 msgid "Unban"
+msgstr ""
+
+msgid "Unhandled"
 msgstr ""
 
 msgid "Unicode message"
@@ -2785,8 +2833,9 @@ msgstr "Balasan format SMS tidak dikenal"
 msgid "Unlimited"
 msgstr ""
 
+#, fuzzy
 msgid "Update status"
-msgstr ""
+msgstr "Status kannel"
 
 msgid "Upload file"
 msgstr "Unggah file"
@@ -2839,8 +2888,9 @@ msgstr ""
 msgid "User is not on banned users list"
 msgstr ""
 
+#, fuzzy
 msgid "User preference"
-msgstr ""
+msgstr "Preferensi"
 
 msgid "Username"
 msgstr "Nama pengguna"
@@ -2963,8 +3013,9 @@ msgstr "Anda harus mengisi semua kolom"
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"
 
+#, fuzzy
 msgid "You must fill all mandatory fields"
-msgstr ""
+msgstr "Anda harus mengisi semua kolom"
 
 msgid "You must fill all required fields"
 msgstr ""
@@ -2983,8 +3034,9 @@ msgstr ""
 msgid "You or someone else have requested a password recovery"
 msgstr ""
 
+#, fuzzy
 msgid "Your DLR URL is"
-msgstr ""
+msgstr "URL balasan anda adalah"
 
 msgid "Your SMS has been delivered to queue"
 msgstr "SMS anda telah dikirim ke antrian"
@@ -3001,8 +3053,9 @@ msgstr ""
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
 
+#, fuzzy
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr ""
+msgstr "Callback URL seharusnya dapat diakses oleh Nexmo"
 
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
@@ -3177,10 +3230,6 @@ msgstr ""
 
 msgid "valid entries"
 msgstr "entri valid"
-
-#, php-format
-msgid "view all %d"
-msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
 msgstr "akan digantikan oleh waktu/tanggal SMS masuk"

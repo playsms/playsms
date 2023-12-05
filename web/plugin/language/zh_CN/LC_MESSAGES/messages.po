@@ -231,12 +231,6 @@ msgstr "管理员"
 msgid "All"
 msgstr ""
 
-msgid "All feature messages"
-msgstr ""
-
-msgid "All inbox"
-msgstr ""
-
 msgid "All mandatory fields must be filled"
 msgstr ""
 
@@ -245,10 +239,6 @@ msgstr ""
 
 msgid "All reports"
 msgstr ""
-
-#, fuzzy
-msgid "All sent messages"
-msgstr "发送为非代码信息"
 
 #, fuzzy
 msgid "All users"
@@ -367,6 +357,9 @@ msgstr ""
 msgid "Are you sure you want to delete this answer ?"
 msgstr ""
 
+msgid "Are you sure you want to delete this group ?"
+msgstr ""
+
 msgid "Are you sure you want to delete this group inbox ?"
 msgstr ""
 
@@ -448,7 +441,7 @@ msgstr ""
 msgid "Cannot change status when user have subusers"
 msgstr ""
 
-msgid "Cannot find PHP PEAR-DB"
+msgid "Captcha was expired, please try again"
 msgstr ""
 
 msgid "Catch-all"
@@ -464,6 +457,9 @@ msgid "Catch-all list"
 msgstr ""
 
 msgid "Changes have been made"
+msgstr ""
+
+msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
@@ -569,6 +565,12 @@ msgid "DLR mask"
 msgstr ""
 
 msgid "Daily"
+msgstr ""
+
+msgid "Database prepare statement operation has failed"
+msgstr ""
+
+msgid "Database query execution has failed"
 msgstr ""
 
 msgid "Date"
@@ -702,6 +704,9 @@ msgid "Disallowed URLs"
 msgstr ""
 
 msgid "Domain"
+msgstr ""
+
+msgid "Download"
 msgstr ""
 
 msgid "Download SMSSync app for Android from"
@@ -856,6 +861,9 @@ msgstr ""
 msgid "Example of SMS custom URL"
 msgstr ""
 
+msgid "Exception"
+msgstr ""
+
 msgid "Exclusive"
 msgstr ""
 
@@ -863,6 +871,10 @@ msgid "Exec"
 msgstr ""
 
 msgid "Export"
+msgstr ""
+
+#, php-format
+msgid "Export %s records as CSV"
 msgstr ""
 
 msgid "FATAL ERROR"
@@ -935,6 +947,10 @@ msgstr "发送短信失败"
 #, fuzzy
 msgid "Fail to add route"
 msgstr "发送短信失败"
+
+#, fuzzy
+msgid "Fail to connect to database"
+msgstr "删除短信失败"
 
 msgid "Fail to delete ACL"
 msgstr ""
@@ -1068,15 +1084,8 @@ msgstr "删除短信失败"
 msgid "Fail to save route"
 msgstr "发送短信失败"
 
-msgid "Fail to save temporary password"
-msgstr ""
-
 msgid "Fail to send SMS"
 msgstr ""
-
-#, fuzzy
-msgid "Fail to send email"
-msgstr "发送短信失败"
 
 msgid "Fail to send message to all destinations"
 msgstr ""
@@ -1103,6 +1112,10 @@ msgstr ""
 #, fuzzy
 msgid "Feature"
 msgstr "特征"
+
+#, fuzzy
+msgid "Feature messages"
+msgstr "发送为非代码信息"
 
 #, fuzzy
 msgid "Features"
@@ -1133,9 +1146,6 @@ msgstr ""
 msgid "Flash message"
 msgstr "发送为非代码信息"
 
-msgid "Footer"
-msgstr ""
-
 msgid "For example a short code"
 msgstr ""
 
@@ -1165,6 +1175,10 @@ msgstr "转发邮件页脚"
 msgid "Forwarded email footer"
 msgstr ""
 
+#, php-format
+msgid "Found %s records"
+msgstr ""
+
 msgid "Found invalid entries in uploaded file"
 msgstr ""
 
@@ -1172,6 +1186,9 @@ msgid "Found valid entries in uploaded file"
 msgstr ""
 
 msgid "From"
+msgstr ""
+
+msgid "From date/time"
 msgstr ""
 
 msgid "Full name"
@@ -1274,6 +1291,9 @@ msgstr ""
 msgid "HTTP Kannel admin port"
 msgstr ""
 
+msgid "Handled"
+msgstr ""
+
 msgid "Home"
 msgstr "主页"
 
@@ -1308,13 +1328,17 @@ msgstr ""
 msgid "Import confirmation"
 msgstr "主要构造"
 
-msgid "Inbox"
-msgstr ""
+#, fuzzy
+msgid "Inbox messages"
+msgstr "发送为非代码信息"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr ""
 
 msgid "Incoming SMS time is in local time"
+msgstr ""
+
+msgid "Incomplete registration data"
 msgstr ""
 
 msgid "Infobip API URL"
@@ -1426,15 +1450,7 @@ msgstr ""
 msgid "List of gateways and SMSCs"
 msgstr "管理用户"
 
-#, php-format
-msgid "List of messages from %s"
-msgstr ""
-
 msgid "List of my credit transactions"
-msgstr ""
-
-#, php-format
-msgid "List of queue %s"
 msgstr ""
 
 msgid "List of subusers"
@@ -1676,6 +1692,10 @@ msgstr ""
 msgid "Maximum SMS count"
 msgstr ""
 
+#, php-format
+msgid "Maximum records for export is %s"
+msgstr ""
+
 msgid "Maximum username length"
 msgstr ""
 
@@ -1809,15 +1829,12 @@ msgstr ""
 msgid "My email to SMS"
 msgstr ""
 
-msgid "My feature messages"
-msgstr ""
+#, fuzzy
+msgid "My inbox"
+msgstr "群"
 
 msgid "My report"
 msgstr ""
-
-#, fuzzy
-msgid "My sent messages"
-msgstr "发送为非代码信息"
 
 msgid "Name"
 msgstr ""
@@ -1949,9 +1966,6 @@ msgid "Password"
 msgstr ""
 
 msgid "Password does not match"
-msgstr ""
-
-msgid "Password has been emailed"
 msgstr ""
 
 msgid "Password recovery"
@@ -2119,6 +2133,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Register an account"
+msgstr "管理用户"
+
+#, fuzzy
+msgid "Register an account is disabled"
 msgstr "管理用户"
 
 msgid "Registered"
@@ -2464,6 +2482,9 @@ msgstr ""
 msgid "SMSC name"
 msgstr ""
 
+msgid "SMSC or gateway"
+msgstr ""
+
 msgid "SMSCs"
 msgstr ""
 
@@ -2505,6 +2526,10 @@ msgstr "发送为非代码信息"
 msgid "Search"
 msgstr ""
 
+#, fuzzy
+msgid "Search message"
+msgstr "发送为非代码信息"
+
 msgid "Secret key"
 msgstr ""
 
@@ -2534,10 +2559,13 @@ msgstr ""
 msgid "Selected contact moved to new group"
 msgstr ""
 
+msgid "Selected feature messages has been deleted"
+msgstr ""
+
 msgid "Selected group has been deleted"
 msgstr ""
 
-msgid "Selected incoming message has been deleted"
+msgid "Selected inbox messages has been deleted"
 msgstr ""
 
 msgid "Selected members"
@@ -2546,7 +2574,7 @@ msgstr ""
 msgid "Selected message template has been deleted"
 msgstr ""
 
-msgid "Selected outgoing message has been deleted"
+msgid "Selected sent messages has been deleted"
 msgstr ""
 
 msgid "Selected transactions has been deleted"
@@ -2644,6 +2672,10 @@ msgstr ""
 msgid "Sent"
 msgstr ""
 
+#, fuzzy
+msgid "Sent messages"
+msgstr "发送为非代码信息"
+
 msgid "Separate by comma for multiple destinations"
 msgstr ""
 
@@ -2731,6 +2763,9 @@ msgstr ""
 msgid "Template installation path"
 msgstr ""
 
+msgid "Temporary password has been emailed. You must login immediately."
+msgstr ""
+
 msgid "The domain is already configured by other user"
 msgstr ""
 
@@ -2760,6 +2795,9 @@ msgid "Title"
 msgstr ""
 
 msgid "To"
+msgstr ""
+
+msgid "To date/time"
 msgstr ""
 
 msgid "Total"
@@ -2821,6 +2859,10 @@ msgstr ""
 msgid "Unable to login"
 msgstr ""
 
+#, fuzzy
+msgid "Unable to open uploaded CSV file"
+msgstr "活跃的语言"
+
 msgid "Unable to process subuser addition"
 msgstr ""
 
@@ -2838,6 +2880,9 @@ msgid "Unable to unban subuser"
 msgstr ""
 
 msgid "Unban"
+msgstr ""
+
+msgid "Unhandled"
 msgstr ""
 
 #, fuzzy
@@ -3248,10 +3293,6 @@ msgid "username"
 msgstr ""
 
 msgid "valid entries"
-msgstr ""
-
-#, php-format
-msgid "view all %d"
 msgstr ""
 
 msgid "will be replaced by SMS incoming date/time"
