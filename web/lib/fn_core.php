@@ -717,6 +717,8 @@ function core_net_match($network, $ip)
 		// don't match with network that starts with asterisk or 0
 		// to prevent matches with *.*.*.* or 0.0.0.0
 		if (preg_match('/^[\*0]/', $network)) {
+			_log('match all range is not allowed network:' . $network . ' ip:' . $ip, 2, 'core_net_match');
+
 			return false;
 		}
 
@@ -724,9 +726,25 @@ function core_net_match($network, $ip)
 			$address = \IPLib\Factory::parseAddressString($ip);
 			$range = \IPLib\Factory::parseRangeString($network);
 
-			if (is_object($address) && is_object($range) && $address->matches($range)) {
+			if (!is_object($address)) {
+				_log('invalid remote network:' . $network . ' ip:' . $ip, 3, 'core_net_match');
+
+				return false;
+			}
+
+			if (!is_object($range)) {
+				_log('invalid range network:' . $network . ' ip:' . $ip, 3, 'core_net_match');
+
+				return false;
+			}
+
+			if ($address->matches($range)) {
+				_log('found match remote is in range network:' . $network . ' ip:' . $ip, 3, 'core_net_match');
+
 				return true;
 			} else {
+				_log('match not found remote is not in range network:' . $network . ' ip:' . $ip, 3, 'core_net_match');
+
 				return false;
 			}
 		} catch (Exception $e) {
