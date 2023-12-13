@@ -20,36 +20,37 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Validate webservices token, with or without username
- *
- * @param $h Webservices
- *        token
- * @param $u Username        
- * @return boolean FALSE if invalid, string username if valid
+ * @param string $h Webservices token
+ * @param string $u Username
+ * @return bool FALSE if invalid, string username if valid
  */
-function webservices_validate($h, $u) {
+function webservices_validate($h, $u)
+{
 	global $core_config;
+
 	$ret = false;
-	
+
 	if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
 		$u = user_email2username($u);
 	}
 
 	// fixme anton - sanitize username
 	if (!($u && $u == core_sanitize_username($u))) {
-		
-		return FALSE;
+
+		return false;
 	}
-	
-	if ($c_uid = auth_validate_token($h)) {
-		$c_u = user_uid2username($c_uid);
+
+	if (auth_validate_token($h)) {
 		if ($core_config['webservices_username']) {
-			if ($c_u && $u && ($c_u == $u)) {
-				$ret = $c_u;
+			$token = user_getfieldbyusername($u, 'token');
+			if ($token && $token == $h) {
+				$ret = $u;
 			}
 		} else {
-			$ret = $c_u;
+			$ret = $u;
 		}
 	}
+
 	return $ret;
 }
 
