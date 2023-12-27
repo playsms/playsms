@@ -33,8 +33,10 @@ Install playSMS using install script `install-playsms.sh`
     Note: In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
+    wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.7.tar.gz
+    ls -l 1.4.7.tar.gz
     mkdir -p /home/komodo/src
-    tar -zxf playsms-1.4.7.tar.gz -C /home/komodo/src
+    tar -zxf 1.4.7.tar.gz -C /home/komodo/src
     ls -l /home/komodo/src/
     ```
 
@@ -108,8 +110,10 @@ Install playSMS by following step-by-step:
     In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
+    wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.7.tar.gz
+    ls -l 1.4.7.tar.gz
     mkdir -p /home/komodo/src
-    tar -zxf playsms-1.4.7.tar.gz -C /home/komodo/src
+    tar -zxf 1.4.7.tar.gz -C /home/komodo/src
     ls -l /home/komodo/src/
     ```
 
