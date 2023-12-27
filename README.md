@@ -8,7 +8,7 @@ Official project website:
 
 Official playSMS forum:
 
-* https://forum.playsms.org
+* https://playsms.discourse.group
 
 
 ## Description

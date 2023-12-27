@@ -200,7 +200,7 @@ Install playSMS by following step-by-step:
     /home/komodo/bin/playsmsd start
     ```
 
-10  Configure `crontab` so that `playsmsd` will run automatically on boot and when its down accidentally
+10. Configure `crontab` so that `playsmsd` will run automatically on boot and when its down accidentally
 
     ```bash
     crontab -e
@@ -241,7 +241,13 @@ Note:
   Default admin password : admin
   ```
 
+### Closing
 
-## Gateway Installation
+Further steps usually required to solidify playSMS installation, for example:
 
-Read more information and tutorial in [playSMS documentation](https://help.playsms.org/en).
+- To make sure the web server is HTTPS enabled with correct certificate
+- To make sure that playSMS log files are writable by web server
+- To install and maintain fail2ban and its playSMS jail configuration
+- Other steps to improve security
+
+Discuss them more in https://playsms.discourse.group
