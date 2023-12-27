@@ -85,8 +85,8 @@ Note:
 * Run several checks
 
   ```bash
-  /home/komodo/bin/playsmsd status
-  /home/komodo/bin/playsmsd check
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf status
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf check
   ```
 
 * Stop here and review your installation steps when `playsmsd` is not running
@@ -94,7 +94,7 @@ Note:
 * If all seems to be correctly installed you may try to login from web browser
 
   ```
-  URL                    : http://[your web server IP]/playsms/
+  URL                    : http://[your web server IP]
   Default admin username : admin
   Default admin password : admin
   ```
@@ -227,8 +227,8 @@ Note:
 * Run several checks
 
   ```bash
-  /home/komodo/bin/playsmsd status
-  /home/komodo/bin/playsmsd check
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf status
+  /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf check
   ```
   
 * Stop here and review your installation steps when `playsmsd` is not running
@@ -236,7 +236,7 @@ Note:
 * If all seems to be correctly installed you may try to login from web browser
 
   ```
-  URL                    : http://[your web server IP]/playsms/
+  URL                    : http://[your web server IP]
   Default admin username : admin
   Default admin password : admin
   ```
@@ -247,7 +247,8 @@ Further steps usually required to solidify playSMS installation, for example:
 
 - To make sure the web server is HTTPS enabled with correct certificate
 - To make sure that playSMS log files are writable by web server
+- To add indexes for faster database access
 - To install and maintain fail2ban and its playSMS jail configuration
-- Other steps to improve security
+- Other steps to improve performance and security
 
 Discuss them more in https://playsms.discourse.group
