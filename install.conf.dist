@@ -33,20 +33,20 @@ WEBSERVERGROUP="www-data"
 PATHSRC="$(pwd)"
 
 # Path to playSMS web files
-PATHWEB="/home/playsms/web"
+PATHWEB="/home/komodo/web"
 
 # Path to playSMS additional files
-PATHLIB="/home/playsms/lib"
+PATHLIB="/home/komodo/lib"
 
 # Path to playSMS daemon and other binary files
-PATHBIN="/home/playsms/bin"
+PATHBIN="/home/komodo/bin"
 
 # Path to playSMS log files
-PATHLOG="/home/playsms/log"
+PATHLOG="/home/komodo/log"
 
 # Path to playSMS daemon configuration file
 # note: this example will create playsmsd.conf in /etc
-PATHCONF="/home/playsms/etc"
+PATHCONF="/home/komodo/etc"
 
 
 # END OF INSTALL DATA
