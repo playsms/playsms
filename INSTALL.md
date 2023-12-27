@@ -33,11 +33,12 @@ Install playSMS using install script `install-playsms.sh`
     Note: In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
+    mkdir -p /home/komodo/src
+    cd /home/komodo/src
     wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.7.tar.gz
     ls -l 1.4.7.tar.gz
-    mkdir -p /home/komodo/src
-    tar -zxf 1.4.7.tar.gz -C /home/komodo/src
-    ls -l /home/komodo/src/
+    tar -zxf 1.4.7.tar.gz
+    ls -l playsms-1.4.7
     ```
 
 2.  Copy `install.conf.dist` to `install.conf` and edit `install.conf`
@@ -57,17 +58,17 @@ Install playSMS using install script `install-playsms.sh`
     ./install-playsms.sh
     ```
 
-4.  Configure `rc.local` to get `playsmsd` started on boot
+4.  Configure `crontab` so that `playsmsd` will run automatically on boot and when its down accidentally
 
-    Look for `rc.local` on `/etc`, `/etc/init.d` or `/etc/rc.d/init.d`
+    ```bash
+    crontab -e
+    ```
 
-    When you found it edit that `rc.local` and put:
+    Insert this line to crontab's editor:
 
-    `/home/komodo/bin/playsmsd start`
+    `* * * * * /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf start`
 
-    on the bottom of the file (before exit if theres an exit command).
-
-    This way `playsmsd` will start automatically on boot.
+    Save crontab's editor
 
 Note:
 
@@ -110,11 +111,12 @@ Install playSMS by following step-by-step:
     In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
+    mkdir -p /home/komodo/src
+    cd /home/komodo/src
     wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.7.tar.gz
     ls -l 1.4.7.tar.gz
-    mkdir -p /home/komodo/src
-    tar -zxf 1.4.7.tar.gz -C /home/komodo/src
-    ls -l /home/komodo/src/
+    tar -zxf 1.4.7.tar.gz
+    ls -l playsms-1.4.7
     ```
 
 2.  Run `getcomposer.sh`
@@ -198,17 +200,17 @@ Install playSMS by following step-by-step:
     /home/komodo/bin/playsmsd start
     ```
 
-10. Configure `rc.local` to get `playsmsd` started on boot
+10  Configure `crontab` so that `playsmsd` will run automatically on boot and when its down accidentally
 
-    Look for `rc.local` in `/etc`, `/etc/init.d` or `/etc/rc.d/init.d`
+    ```bash
+    crontab -e
+    ```
 
-    When you found it edit that `rc.local` and put:
+    Insert this line to crontab's editor:
 
-    `/home/komodo/bin/playsmsd start`
+    `* * * * * /home/komodo/bin/playsmsd /home/komodo/etc/playsmsd.conf start`
 
-    on the bottom of the file (before exit if theres an exit command).
-
-    This way `playsmsd` will start automatically on boot.
+    Save crontab's editor
 
 Note:
 
