@@ -129,7 +129,7 @@
 			}
 		});
 
-		$("#{{ SENDSMS_FORM_ID }} select[name='smstemplate']").on('click', function() {
+		$("#{{ SENDSMS_FORM_ID }} select[name='smstemplate']").on('change', function() {
 			SetSmsTemplate('{{ SENDSMS_FORM_ID }}');
 		});
 
