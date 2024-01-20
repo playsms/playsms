@@ -766,9 +766,12 @@ function sendsms($username, $sms_to, $message, $sms_type = 'text', $unicode = 0,
 
 	// default values
 	$sms_type = strtolower(trim($sms_type));
-	if ($sms_type != 'text') {
+	#fixing Issue #659  Forceful sms_type setting to text causing to prevent using flash sms feature #659 
+	#start of the fix #659
+	/*	if ($sms_type != 'text') {
 		$sms_type = 'text';
-	}
+	}*/
+	#end of the fix #659
 	$unicode = ((int) $unicode ? 1 : 0);
 
 	// get user data
