@@ -111,7 +111,7 @@ function sendmail($data = array())
 		$mail->Host = ($smtp_host ? $smtp_host : _SMTP_HOST_); // Set the SMTP server to send through
 		$mail->Port = ($smtp_port ? $smtp_port : _SMTP_PORT_); // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
-		if ($smtp_user) {
+		if ($smtp_user !== '') {
 			$mail->SMTPAuth = true; // Enable SMTP authentication
 			$mail->Username = ($smtp_user ? $smtp_user : _SMTP_USER_); // SMTP username
 			$mail->Password = ($smtp_pass ? $smtp_pass : _SMTP_PASS_); // SMTP password
