@@ -1,2 +1,8 @@
 Version 1.0
 - changelog started
+
+Version 1.1
+- format codes
+- remove error suppression from dba_*()
+- strip tags inputs with core_sanitize_string()
+- strip tags data with core_display_text() before displaying on web and export

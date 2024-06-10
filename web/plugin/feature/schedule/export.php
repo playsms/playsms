@@ -19,13 +19,13 @@
 defined('_SECURE_') or die('Forbidden');
 
 // Schedule ID
-$schedule_id = $_REQUEST['schedule_id'];
+$schedule_id = (int) $_REQUEST['schedule_id'];
 
 // validate, if not exists the block
 $conditions = array(
 	'uid' => $user_config['uid'],
 	'id' => $schedule_id,
-	'flag_deleted' => 0 
+	'flag_deleted' => 0
 );
 if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 	auth_block();
@@ -34,16 +34,16 @@ if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 switch (_OP_) {
 	case "list":
 		$extras = array(
-			'ORDER BY' => 'schedule, name, destination' 
+			'ORDER BY' => 'schedule, name, destination'
 		);
 		$conditions = array(
-			'schedule_id' => $schedule_id 
+			'schedule_id' => $schedule_id
 		);
-		$list = dba_search(_DB_PREF_ . '_featureSchedule_dst', '*', $conditions, '', $extras);
+		$list = dba_search(_DB_PREF_ . '_featureSchedule_dst', '*', $conditions, [], $extras);
 		$data[0] = array(
 			_('Name'),
 			_('Destination'),
-			_('Schedule') 
+			_('Schedule')
 		);
 		for ($i = 0; $i < count($list); $i++) {
 			$j = $i + 1;
@@ -51,9 +51,9 @@ switch (_OP_) {
 				break;
 			}
 			$data[$j] = array(
-				$list[$i]['name'],
-				$list[$i]['destination'],
-				core_display_datetime($list[$i]['schedule']) 
+				core_display_text($list[$i]['name']),
+				core_display_text($list[$i]['destination']),
+				core_display_datetime($list[$i]['schedule'])
 			);
 		}
 		$content = core_csv_format($data);

@@ -24,12 +24,12 @@ if (!auth_isvalid()) {
 
 switch (_OP_) {
 	case "list":
-		$id = $_REQUEST['id'];
+		$id = (int) $_REQUEST['id'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$name = $db_row['name'];
-		$message = $db_row['message'];
+		$name = core_display_text($db_row['name']);
+		$message = core_display_text($db_row['message']);
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
 			$content = _dialog() . "
@@ -60,18 +60,18 @@ switch (_OP_) {
 		}
 		_p($content);
 		break;
-	
+
 	case "edit_yes":
-		$id = $_POST['id'];
-		$name = $_POST['name'];
-		$message = $_POST['message'];
+		$id = (int) $_POST['id'];
+		$name = core_sanitize_string($_POST['name']);
+		$message = core_sanitize_string($_POST['message']);
 		$schedule_rule = (int) $_POST['schedule_rule'];
 		if ($id && $name && $message) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSchedule
 				SET c_timestamp='" . time() . "',name='$name',message='$message', schedule_rule='$schedule_rule'
 				WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
-			if (@dba_affected_rows($db_query)) {
+			if (dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS schedule been saved');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to edit SMS schedule');
@@ -81,5 +81,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=edit&op=list&id=' . $id));
 		exit();
-		break;
 }

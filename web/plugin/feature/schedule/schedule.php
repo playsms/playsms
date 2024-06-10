@@ -51,8 +51,8 @@ switch (_OP_) {
 			$content .= "
 					<tr>
 						<td>" . $db_row['id'] . "</td>
-						<td>" . $db_row['name'] . "</td>
-						<td>" . $db_row['message'] . "</td>
+						<td>" . core_display_text($db_row['name']) . "</td>
+						<td>" . core_display_text($db_row['message']) . "</td>
 						<td>" . $status . "</td>
 						<td>" . $action . "</td>
 					</tr>";
@@ -64,7 +64,7 @@ switch (_OP_) {
 			" . _button('index.php?app=main&inc=feature_schedule&op=add', _('Add SMS schedule'));
 		_p($content);
 		break;
-	
+
 	case "add":
 		$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
@@ -87,10 +87,10 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_schedule&op=list');
 		_p($content);
 		break;
-	
+
 	case "add_yes":
-		$name = $_POST['name'];
-		$message = $_POST['message'];
+		$name = core_sanitize_string($_POST['name']);
+		$message = core_sanitize_string($_POST['message']);
 		$schedule_rule = (int) $_POST['schedule_rule'];
 		if ($name && $message) {
 			// flag_active  : 1 active, 2 inactive, 0 considered inactive
@@ -98,7 +98,7 @@ switch (_OP_) {
 			$db_query = "
 				INSERT INTO " . _DB_PREF_ . "_featureSchedule (c_timestamp,uid,name,message,schedule_rule,flag_active,flag_deleted)
 				VALUES (" . time() . ",'" . $user_config['uid'] . "','$name','$message','$schedule_rule','2','0')";
-			if ($new_uid = @dba_insert_id($db_query)) {
+			if ($new_uid = dba_insert_id($db_query)) {
 				$_SESSION['dialog']['info'][] = _('New SMS schedule been added');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to add new SMS schedule');
@@ -108,18 +108,19 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&op=add'));
 		exit();
-		break;
-	
+
 	case "status":
 		$id = $_REQUEST['id'];
-		if ($id && dba_isexists(_DB_PREF_ . "_featureSchedule", array(
-			'uid' => $user_config['uid'],
-			'id' => $id,
-			'flag_deleted' => '0' 
-		), 'AND')) {
+		if (
+			$id && dba_isexists(_DB_PREF_ . "_featureSchedule", array(
+				'uid' => $user_config['uid'],
+				'id' => $id,
+				'flag_deleted' => '0'
+			), 'AND')
+		) {
 			$status = ($_REQUEST['status'] == 1 ? 1 : 2);
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . time() . "', flag_active='$status' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
-			if (@dba_affected_rows($db_query)) {
+			if (dba_affected_rows($db_query)) {
 				if ($status == 1) {
 					$_SESSION['dialog']['info'][] = _('SMS schedule has been enabled');
 				} else {
@@ -129,16 +130,17 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&op=list'));
 		exit();
-		break;
-	
+
 	case "del":
 		$id = $_REQUEST['id'];
-		if ($id && dba_isexists(_DB_PREF_ . "_featureSchedule", array(
-			'uid' => $user_config['uid'],
-			'id' => $id 
-		), 'AND')) {
+		if (
+			$id && dba_isexists(_DB_PREF_ . "_featureSchedule", array(
+				'uid' => $user_config['uid'],
+				'id' => $id
+			), 'AND')
+		) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureSchedule SET c_timestamp='" . time() . "', flag_active='2', flag_deleted='1' WHERE uid='" . $user_config['uid'] . "' AND id='$id'";
-			if (@dba_affected_rows($db_query)) {
+			if (dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS schedule has been deleted');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to delete SMS schedule');
@@ -148,5 +150,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&op=list'));
 		exit();
-		break;
 }

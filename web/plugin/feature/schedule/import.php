@@ -23,13 +23,13 @@ if (!auth_isvalid()) {
 }
 
 // Schedule ID
-$schedule_id = $_REQUEST['schedule_id'];
+$schedule_id = (int) $_REQUEST['schedule_id'];
 
 // validate, if not exists the block
 $conditions = array(
 	'uid' => $user_config['uid'],
 	'id' => $schedule_id,
-	'flag_deleted' => 0 
+	'flag_deleted' => 0
 );
 if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 	auth_block();
@@ -86,7 +86,7 @@ switch (_OP_) {
 			</tr></thead><tbody>";
 
 		if ($continue && file_exists($fnpb_tmpname)) {
-			
+
 			ini_set('auto_detect_line_endings', TRUE);
 			if (($fp = fopen($fnpb_tmpname, "r")) !== FALSE) {
 				$i = 0;
@@ -103,13 +103,13 @@ switch (_OP_) {
 				$session_import = 'schedule_' . _PID_;
 				$_SESSION['tmp'][$session_import] = array();
 				$i = 0;
-				foreach ($entries as $entry) {
-					
+				foreach ( $entries as $entry ) {
+
 					// fixme anton - https://www.exploit-database.net/?id=92915
 					$entry[0] = core_sanitize_string($entry[0]);
 					$entry[1] = core_sanitize_string($entry[1]);
 					$entry[2] = core_sanitize_string($entry[2]);
-					
+
 					if ($entry[0] && $entry[1] && $entry[2]) {
 						$i++;
 						$content .= "
@@ -125,7 +125,7 @@ switch (_OP_) {
 				}
 			}
 			ini_set('auto_detect_line_endings', FALSE);
-			
+
 			$content .= "
 				</tbody></table>
 				</div>
@@ -148,29 +148,31 @@ switch (_OP_) {
 	case "import_yes":
 		@set_time_limit(0);
 		$num = $_POST['number_of_row'];
-		$session_import = $_POST['session_import'];
+		$session_import = core_sanitize_string($_POST['session_import']);
 		$data = $_SESSION['tmp'][$session_import];
-		foreach ($data as $d) {
-			$name = trim($d[0]);
-			$destination = trim($d[1]);
+		foreach ( $data as $d ) {
+			$name = core_sanitize_string(trim($d[0]));
+			$destination = core_sanitize_string(trim($d[1]));
 			$schedule = trim($d[2]);
 			if ($name && $destination && $schedule) {
 				$schedule = core_adjust_datetime($schedule);
 				// add destiantions, replace existing entry with the same name
-				if (dba_isexists(_DB_PREF_ . '_featureSchedule_dst', array(
-					'schedule_id' => $schedule_id,
-					'name' => $name 
-				), 'AND')) {
+				if (
+					dba_isexists(_DB_PREF_ . '_featureSchedule_dst', array(
+						'schedule_id' => $schedule_id,
+						'name' => $name
+					), 'AND')
+				) {
 					// update
 					$items = array(
 						'c_timestamp' => time(),
 						'schedule' => $schedule,
-						'scheduled' => '0000-00-00 00:00:00' 
+						'scheduled' => '0000-00-00 00:00:00'
 					);
 					$conditions = array(
 						'schedule_id' => $schedule_id,
 						'name' => $name,
-						'destination' => $destination 
+						'destination' => $destination
 					);
 					dba_update(_DB_PREF_ . '_featureSchedule_dst', $items, $conditions);
 				} else {
@@ -180,7 +182,7 @@ switch (_OP_) {
 						'schedule' => $schedule,
 						'scheduled' => '0000-00-00 00:00:00',
 						'name' => $name,
-						'destination' => $destination 
+						'destination' => $destination
 					);
 					dba_add(_DB_PREF_ . '_featureSchedule_dst', $items);
 				}
@@ -189,5 +191,4 @@ switch (_OP_) {
 		$_SESSION['dialog']['info'][] = _('Entries in CSV file have been imported');
 		header("Location: " . _u('index.php?app=main&inc=feature_schedule&route=import&op=list&schedule_id=' . $schedule_id));
 		exit();
-		break;
 }
