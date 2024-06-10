@@ -376,21 +376,21 @@ function core_display_html($data)
 /**
  * Format text for safe display on the web
  *
- * @param $text original
- *        text
- * @param $len length
- *        of text
- * @return string formatted text
+ * @param string|array $text original text
+ * @param int $len length of text
+ * @return string|array formatted text
  */
 function core_display_text($text, $len = 0)
 {
-	$hp = new HTMLPurifier();
-
 	if (is_array($text)) {
+		$ret = [];
 		foreach ( $text as $item ) {
 			$ret[] = core_display_text($item, $len);
 		}
+
+		return $ret;
 	} else {
+		$hp = new HTMLPurifier();
 		$text = $hp->purify($text);
 		$text = strip_tags($text);
 		$text = ($len > 0 ? substr($text, 0, $len) . '..' : $text);
@@ -400,18 +400,15 @@ function core_display_text($text, $len = 0)
 }
 
 /**
- * Format $data for safe display on the web @param $data original $data @return formatted $data
+ * Format $data for safe display on the web
+ * 
+ * @param string|array $data original $data
+ * @param int $len length of text
+ * @return string|array formatted $data
  */
-function core_display_data($data)
+function core_display_data($data, $len = 0)
 {
-	if (is_array($data)) {
-		foreach ( $data as $key => $val ) {
-			$data[$key] = core_display_text($val);
-		}
-	} else {
-		$data = core_display_text($data);
-	}
-	return $data;
+	return core_display_text($data, $len);
 }
 
 /**
