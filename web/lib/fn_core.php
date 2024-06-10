@@ -106,6 +106,7 @@ function core_htmlspecialchars($data)
 function core_sanitize_inputs($data)
 {
 	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Cache.DefinitionImpl', null);
 	$config->set('Attr.EnableID', TRUE);
 	$config->set('HTML.SafeObject', TRUE);
 	$config->set('HTML.SafeEmbed', TRUE);
@@ -327,6 +328,7 @@ function core_str2hex($string)
 function core_display_html($data)
 {
 	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Cache.DefinitionImpl', null);
 	$config->set('Attr.EnableID', TRUE);
 	$config->set('HTML.SafeObject', TRUE);
 	$config->set('HTML.SafeEmbed', TRUE);
