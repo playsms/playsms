@@ -91,7 +91,7 @@ function common_hook_themes_buildmenu($menu_config) {
 			}
 		}
 		
-		if (count($m)) {
+		if (is_array($m) && count($m)) {
 			$main_menu .= "<li class='dropdown'><a href='#' data-toggle='dropdown' class='dropdown-toggle'>" . $menu_title . " <b class='caret'></b></a>";
 			$main_menu .= "<ul class='dropdown-menu'>";
 			
