@@ -301,8 +301,7 @@ function auth_isvalid()
 			return FALSE;
 		}
 
-		// check againts ACL
-		return acl_checkurl($_REQUEST, $uid);
+		return TRUE;
 	}
 
 	return FALSE;

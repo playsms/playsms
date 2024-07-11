@@ -183,72 +183,85 @@ function acl_setbyuid($acl_id, $uid) {
 	return $ret;
 }
 
-function acl_checkurl($url, $uid = 0) {
+/**
+ * @param string $url Current request URI
+ * @param int $uid User ID
+ * @return bool
+ */
+function acl_checkurl($url, $uid = 0)
+{
 	global $user_config, $core_config;
-	
+
+	// allowed if daemon process
+	if ($core_config['daemon_process']) {
+
+		return true;
+	}
+
+	// allowed if admin
+	if (auth_isadmin()) {
+
+		return true;
+	}
+
+	// allowed if part of always allowed URLs
+	$always_allowed = [
+		'app=ws',
+		'app=webservice',
+		'app=webservices',
+		'app=main&inc=core_auth',
+		'app=main&inc=core_welcome',
+	];
+	foreach ( $always_allowed as $always_url ) {
+		$pos = strpos($url, $always_url);
+		if ($pos !== false) {
+
+			return true;
+		}
+	}
+
 	$uid = ((int) $uid ? (int) $uid : $user_config['uid']);
 	$acl_id = acl_getidbyuid($uid);
-	if ($acl_urls = acl_geturl($acl_id)) {
-		if (!$core_config['daemon_process'] && $url && $uid && $acl_id) {
-			$data_acl = acl_getdata($acl_id);
-			if ($data_acl['flag_disallowed']) {
-				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
-				foreach ($acl_urls as $acl_url) {
-					if (substr($acl_url, 0, 1) == '!') {
-						$acl_url = substr($acl_url, 1);
-						$is_exception = TRUE;
-					} else {
-						$is_exception = FALSE;
-					}
-					
-					$pos = strpos($url, $acl_url);
-					if ($pos !== FALSE) {
-						// check whether its an exception or not
-						if ($is_exception) {
-							return TRUE;
-						} else {
-							return FALSE;
-						}
-					}
-				}
-				
-				// no match with disallowed URLs
-				return TRUE;
-			} else {
-				$acl_urls[] = 'app=ws';
-				$acl_urls[] = 'app=webservice';
-				$acl_urls[] = 'app=webservices';
-				$acl_urls[] = 'inc=core_auth';
-				$acl_urls[] = 'inc=core_welcome';
-				sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
-				foreach ($acl_urls as $acl_url) {
-					if (substr($acl_url, 0, 1) == '!') {
-						$acl_url = substr($acl_url, 1);
-						$is_exception = TRUE;
-					} else {
-						$is_exception = FALSE;
-					}
-					
-					$pos = strpos($url, $acl_url);
-					if ($pos !== FALSE) {
-						// check whether its an exception or not
-						if ($is_exception) {
-							return FALSE;
-						} else {
-							return TRUE;
-						}
-					}
-				}
-				
-				// no match with allowed URLs
-				return FALSE;
-			}
-		} else {
-			// fixme anton: this probably should be FALSE, later we will need to fix this
-			return TRUE;
-		}
-	} else {
-		// fixme anton: this probably should be FALSE, later we will need to fix this
-		return TRUE;
+	$data_acl = acl_getdata($acl_id);
+	$acl_urls = acl_geturl($acl_id);
+
+	// disallowed if URL is empty, or User ID not found or data is not complete
+	if (!($url && $uid && $acl_id && is_array($data_acl) && is_array($acl_urls))) {
+
+		return false;
 	}
+
+	// allowed if ACL URL is empty
+	if (empty($acl_urls)) {
+
+		return true;
+	}
+
+	sort($acl_urls, SORT_NATURAL | SORT_FLAG_CASE);
+
+	foreach ( $acl_urls as $acl_url ) {
+
+		// check exception
+		$is_exception = false;
+		if (substr($acl_url, 0, 1) == '!') {
+			$acl_url = substr($acl_url, 1);
+			$is_exception = true;
+		}
+
+		// check if ACL URL is part of URL
+		$pos = strpos($url, $acl_url);
+
+		// its an exception, invert the check result for this ACL URL
+		if ($is_exception) {
+			$pos = !$pos;
+		}
+
+		// the strpos result (after checking with exception) is considered TRUE
+		if ($pos !== false) {
+
+			return $data_acl['flag_disallowed'] ? false : true;
+		}
+	}
+
+	return false;
 }

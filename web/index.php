@@ -24,6 +24,12 @@ include $core_config['apps_path']['libs'] . '/function.php';
 // using _APP_ you can even load another application from playSMS if you need to
 // but the point is to make a single gate into playSMS, that is through index.php
 if (_APP_) {
+
+	// check ACL
+	if (!acl_checkurl($_SERVER['REQUEST_URI'])) {
+		auth_block();
+	}
+
 	switch (_APP_) {
 		case 'menu':
 		case 'main':
