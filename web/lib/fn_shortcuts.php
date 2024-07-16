@@ -210,3 +210,21 @@ function _lastpost($key = '') {
 function _lastpost_empty() {
 	return core_last_post_empty();
 }
+
+/**
+ * Clean input for display as text only
+ * @param string $input
+ * @return string
+ */
+function _t($input) {
+	return core_display_text($input);
+}
+
+/**
+ * Clean input for display as HTML
+ * @param string $input
+ * @return string
+ */
+function _h($input) {
+	return core_display_html($input);
+}
