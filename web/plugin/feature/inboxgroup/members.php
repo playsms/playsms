@@ -7,9 +7,9 @@ switch (_OP_) {
 	case 'members':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = $data['in_receiver'];
-		$keywords = $data['keywords'];
-		$description = $data['description'];
+		$in_receiver = _t($data['in_receiver']);
+		$keywords = _t($data['keywords']);
+		$description = _t($data['description']);
 		$c_members = count(inboxgroup_getmembers($rid));
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
@@ -86,9 +86,9 @@ switch (_OP_) {
 	case 'members_add':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = $data['in_receiver'];
-		$keywords = $data['keywords'];
-		$description = $data['description'];
+		$in_receiver = _t($data['in_receiver']);
+		$keywords = _t($data['keywords']);
+		$description = _t($data['description']);
 		$c_members = count(inboxgroup_getmembers($rid));
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
@@ -147,18 +147,17 @@ switch (_OP_) {
 		break;
 	case 'members_add_submit':
 		$rid = $_REQUEST['rid'];
-		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = $data['in_receiver'];
+		$in_receiver = _t($data['in_receiver']);
 		if ($rid && $in_receiver) {
 			$uids = $_REQUEST['uids'];
 			for ($i=0;$i<count($uids);$i++) {
 				$c_uid = $uids[$i];
 				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_membersadd($rid, $c_uid)) {
-					$_SESSION['dialog']['info'][] .= _('Member has been added')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] = _('Member has been added')." ("._('Username').": ".$c_username.")<br />";
 				} else {
-					$_SESSION['dialog']['info'][] .= _('Fail to add member')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] = _('Fail to add member')." ("._('Username').": ".$c_username.")<br />";
 				}
 			}
 		} else {
@@ -170,9 +169,9 @@ switch (_OP_) {
 	case 'members_delete':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = $data['in_receiver'];
-		$keywords = $data['keywords'];
-		$description = $data['description'];
+		$in_receiver = _t($data['in_receiver']);
+		$keywords = _t($data['keywords']);
+		$description = _t($data['description']);
 		$c_members = count(inboxgroup_getmembers($rid));
 		$c_members = "<a href='"._u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid='.$rid)."'>".$c_members."</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
@@ -232,18 +231,17 @@ switch (_OP_) {
 		break;
 	case 'members_delete_submit':
 		$rid = $_REQUEST['rid'];
-		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = $data['in_receiver'];
+		$in_receiver = _t($data['in_receiver']);
 		if ($rid && $in_receiver) {
 			$uids = $_REQUEST['uids'];
 			for ($i=0;$i<count($uids);$i++) {
 				$c_uid = $uids[$i];
 				$c_username = user_uid2username($c_uid);
 				if (inboxgroup_membersdel($rid, $c_uid)) {
-					$_SESSION['dialog']['info'][] .= _('Member has been deleted')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] = _('Member has been deleted')." ("._('Username').": ".$c_username.")<br />";
 				} else {
-					$_SESSION['dialog']['info'][] .= _('Fail to delete member')." ("._('Username').": ".$c_username.")<br />";
+					$_SESSION['dialog']['info'][] = _('Fail to delete member')." ("._('Username').": ".$c_username.")<br />";
 				}
 			}
 		} else {
