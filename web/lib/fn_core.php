@@ -390,10 +390,13 @@ function core_display_text($text, $len = 0)
 
 		return $ret;
 	} else {
-		$hp = new HTMLPurifier();
+		$config = HTMLPurifier_Config::createDefault();
+		$config->set('Cache.DefinitionImpl', null);
+		$hp = new HTMLPurifier($config);
+
 		$text = $hp->purify($text);
 		$text = strip_tags($text);
-		$text = ($len > 0 ? substr($text, 0, $len) . '..' : $text);
+		$text = $len > 0 ? substr($text, 0, $len) . '..' : $text;
 	}
 
 	return $text;
