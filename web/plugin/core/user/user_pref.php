@@ -22,9 +22,9 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$view = $_REQUEST['view'];
+$view = _t($_REQUEST['view']);
 
-$uname = $_REQUEST['uname'];
+$uname = _t($_REQUEST['uname']);
 
 if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 	$user_edited = $user_config;
@@ -53,13 +53,13 @@ if (auth_isadmin()) {
 	if (!(($user_edited['uid'] == $user_config['uid']) || ($user_edited['uid'] == 1) || ($user_edited['status'] == 2))) {
 		$allow_edit_status = TRUE;
 	}
-	
+
 	$list = user_getsubuserbyuid($user_edited['uid']);
 	if (count($list) > 0) {
 		$show_status_hint = TRUE;
 		$allow_edit_status = FALSE;
 	}
-	
+
 	if ($user_edited['status'] == 4) {
 		$allow_edit_parent = TRUE;
 	}
@@ -67,31 +67,37 @@ if (auth_isadmin()) {
 
 switch (_OP_) {
 	case "user_pref":
-		if ($c_user = dba_search(_DB_PREF_ . '_tblUser', '*', array(
-			'flag_deleted' => 0,
-			'username' => $c_username 
-		))) {
+		if (
+			$c_user = dba_search(
+				_DB_PREF_ . '_tblUser',
+				'*',
+				array(
+					'flag_deleted' => 0,
+					'username' => $c_username
+				)
+			)
+		) {
 			if ($allow_edit_status) {
 				$status = (int) $c_user[0]['status'];
 			}
 			if ($allow_edit_parent) {
 				$parent_uid = (int) $c_user[0]['parent_uid'];
 			}
-			$name = $c_user[0]['name'];
-			$email = $c_user[0]['email'];
-			$mobile = $c_user[0]['mobile'];
-			$address = $c_user[0]['address'];
-			$city = $c_user[0]['city'];
-			$state = $c_user[0]['state'];
-			$country = $c_user[0]['country'];
-			$zipcode = $c_user[0]['zipcode'];
-			$sender = core_sanitize_sender($c_user[0]['sender']);
+			$name = _t($c_user[0]['name']);
+			$email = _t($c_user[0]['email']);
+			$mobile = _t($c_user[0]['mobile']);
+			$address = _t($c_user[0]['address']);
+			$city = _t($c_user[0]['city']);
+			$state = _t($c_user[0]['state']);
+			$country = _t($c_user[0]['country']);
+			$zipcode = _t($c_user[0]['zipcode']);
+			$sender = core_sanitize_sender(_t($c_user[0]['sender']));
 		} else {
 			$_SESSION['dialog']['info'][] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
 			exit();
 		}
-		
+
 		if ($allow_edit_status) {
 			if ($user_edited['status'] == 3) {
 				$selected_users = 'selected';
@@ -104,34 +110,34 @@ switch (_OP_) {
 			";
 			$select_status = '<select name="up_status">' . $option_status . '</select>';
 		}
-		
+
 		// when allowed to edit parents of subusers
 		if ($allow_edit_parent) {
 			// get list of users as parents
 			$default_parent_uid = ($parent_uid && ($parent['uid'] == $user_edited['parent_uid']) ? $parent['uid'] : $core_config['main']['default_parent']);
 			$select_parents = themes_select_account_level_single(3, 'up_parent_uid', $default_parent_uid);
 		}
-		
+
 		// enhance privacy for subusers
 		$show_personal_information = TRUE;
 		$main_config = $core_config['main'];
 		if (!auth_isadmin() && $user_edited['status'] == 4 && $main_config['enhance_privacy_subuser']) {
 			$show_personal_information = FALSE;
 		}
-		
+
 		// get country option
 		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
 		$result = country_search();
 		for ($i = 0; $i < count($result); $i++) {
-			$country_id = $result[$i]['country_id'];
-			$country_name = $result[$i]['country_name'];
+			$country_id = (int) $result[$i]['country_id'];
+			$country_name = _t($result[$i]['country_name']);
 			$selected = "";
 			if ($country_id == $country) {
 				$selected = "selected";
 			}
 			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
 		}
-		
+
 		// admin or users
 		if ($uname && (auth_isadmin() || $is_parent)) {
 			$form_title = _('Manage account');
@@ -145,7 +151,7 @@ switch (_OP_) {
 		} else {
 			$form_title = _('Preferences');
 		}
-		
+
 		$tpl = array(
 			'name' => 'user_pref',
 			'vars' => array(
@@ -184,17 +190,18 @@ switch (_OP_) {
 				'city' => $city,
 				'state' => $state,
 				'option_country' => $option_country,
-				'zipcode' => $zipcode 
+				'zipcode' => $zipcode
 			),
 			'ifs' => array(
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
-				'show_personal_information' => $show_personal_information 
-			) 
+				'show_personal_information' => $show_personal_information
+			)
 		);
 		_p(tpl_apply($tpl));
 		break;
+
 	case "user_pref_save":
 		$continue = TRUE;
 
@@ -207,45 +214,47 @@ switch (_OP_) {
 			'state',
 			'country',
 			'password',
-			'zipcode' 
+			'zipcode'
 		);
-		
+
 		if ($allow_edit_status) {
-			_log('saving username:' . $c_username . ' status:' . $_POST['up_status'], 3, 'user_pref');
+			_log('saving username:' . $c_username . ' status:' . _t($_POST['up_status']), 3, 'user_pref');
 			$fields[] = 'status';
 		}
-		
+
 		if ($allow_edit_parent) {
-			_log('saving username:' . $c_username . ' parent_uid:' . $_POST['up_parent_uid'], 3, 'user_pref');
+			_log('saving username:' . $c_username . ' parent_uid:' . (int) $_POST['up_parent_uid'], 3, 'user_pref');
 			$fields[] = 'parent_uid';
 		}
-		
+
+		$up = [];
 		for ($i = 0; $i < count($fields); $i++) {
 			if ($c_data = trim($_POST['up_' . $fields[$i]])) {
-				$up[$fields[$i]] = $c_data;
+				if ($fields[$i] != 'password') {
+					$up[$fields[$i]] = _t($c_data);
+				}
 			}
 		}
-		
+
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['up_parent_uid']) {
 			$up['parent_uid'] = (int) ($user_edited['status'] == 4 ? $_POST['up_parent_uid'] : $core_config['main']['default_parent']);
 		} else {
 			$up['parent_uid'] = (int) user_getparentbyuid(user_username2uid($c_username));
 		}
-		
+
 		if ($up['password'] && ($up['password'] != $_POST['up_password_conf'])) {
 			$ret['error_string'] = _('Password does not match');
 			$continue = false;
 		}
-		
+
 		if ($continue) {
 			$uid = user_username2uid($c_username);
 			$ret = user_edit($uid, $up);
 		}
 		$_SESSION['dialog']['info'][] = $ret['error_string'];
-		
+
 		_log('saving username:' . $c_username . ' error_string:[' . $ret['error_string'] . ']', 2, 'user_pref');
 		header("Location: " . _u('index.php?app=main&inc=core_user&route=user_pref&op=user_pref' . $url_uname . '&view=' . $view));
 		exit();
-		break;
 }

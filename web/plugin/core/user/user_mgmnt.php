@@ -22,7 +22,10 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-$view = ($_REQUEST['view'] ? $_REQUEST['view'] : 'admin');
+$view = _t($_REQUEST['view'] ? $_REQUEST['view'] : 'admin');
+
+$_REQUEST['uname'] = _t($_REQUEST['uname']);
+$_REQUEST['add_datetime_timezone'] = _t($_REQUEST['add_datetime_timezone']);
 
 switch (_OP_) {
 	case "user_list":
@@ -265,22 +268,22 @@ switch (_OP_) {
 		break;
 
 	case "user_add_yes":
-		$add['email'] = $_POST['add_email'];
-		$add['status'] = $_POST['add_status'];
+		$add['email'] = _t($_POST['add_email']);
+		$add['status'] = _t($_POST['add_status']);
 		$add['acl_id'] = (int) $_POST['add_acl_id'];
-		$add['username'] = $_POST['add_username'];
-		$add['password'] = $_POST['add_password'];
-		$add['mobile'] = $_POST['add_mobile'];
-		$add['name'] = $_POST['add_name'];
-		$add['footer'] = $_POST['add_footer'];
-		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];
-		$add['language_module'] = $_POST['add_language_module'];
+		$add['username'] = _t($_POST['add_username']);
+		$add['password'] = _t($_POST['add_password']);
+		$add['mobile'] = _t($_POST['add_mobile']);
+		$add['name'] = _t($_POST['add_name']);
+		$add['footer'] = _t($_POST['add_footer']);
+		$add['datetime_timezone'] = _t($_POST['add_datetime_timezone']);
+		$add['language_module'] = _t($_POST['add_language_module']);
 
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['add_parent_uid']) {
-			$add['parent_uid'] = ($add['status'] == 4 ? $_POST['add_parent_uid'] : $core_config['main']['default_parent']);
+			$add['parent_uid'] = (int) ($add['status'] == 4 ? $_POST['add_parent_uid'] : $core_config['main']['default_parent']);
 		} else {
-			$add['parent_uid'] = $core_config['main']['default_parent'];
+			$add['parent_uid'] = (int) $core_config['main']['default_parent'];
 		}
 
 		// set credit to 0 by default
