@@ -112,13 +112,14 @@ function notif_update($uid, $id, $fields) {
 		'uid' => $uid,
 		'id' => $id 
 	));
+	$fields_replaced = '';
 	foreach ($result[0] as $key => $val) {
 		$items[$key] = ($fields[$key] ? $fields[$key] : $val);
 		if ($fields[$key]) {
 			$fields_replaced .= $key . ':' . $val . ' ';
 		}
 	}
-	if ($items && trim($replaced)) {
+	if ($items && trim($fields_replaced)) {
 		if (dba_update($db_table, $items, array(
 			'id' => $id 
 		))) {
