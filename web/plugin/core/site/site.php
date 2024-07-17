@@ -30,33 +30,45 @@ if (!(($user_config['status'] == 2) || ($user_config['status'] == 3))) {
 switch (_OP_) {
 	case "site_config":
 		$site_config = site_config_get();
-		
+
 		// enable register yes-no option
 		$selected = ($site_config['enable_register'] ? _('yes') : _('no'));
-		$options['enable_register'] = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $site_config['enable_register']);
-		
+		$options['enable_register'] = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$site_config['enable_register']
+		);
+
 		// enable forgot yes-no option
 		$selected = ($site_config['enable_forgot'] ? _('yes') : _('no'));
-		$options['enable_forgot'] = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $site_config['enable_forgot']);
-		
+		$options['enable_forgot'] = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$site_config['enable_forgot']
+		);
+
 		// enable logo yes-no option
-		$options['enable_logo'] = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $site_config['enable_logo']);
-		
+		$options['enable_logo'] = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$site_config['enable_logo']
+		);
+
 		// enable logo to replace main website title yes-no option
-		$options['logo_replace_title'] = _options(array(
-			_('yes') => 1,
-			_('no') => 0 
-		), $site_config['logo_replace_title']);
-		
+		$options['logo_replace_title'] = _options(
+			array(
+				_('yes') => 1,
+				_('no') => 0
+			),
+			$site_config['logo_replace_title']
+		);
+
 		// get themes options
 		$options['themes_module'] = _options($core_config['plugins']['list']['themes'], $site_config['themes_module']);
 
@@ -100,23 +112,25 @@ switch (_OP_) {
 				'Default language' => _('Default language'),
 				'Default credit upon registration' => _('Default credit upon registration'),
 				'Layout footer' => _('Layout footer'),
-				'Save' => _('Save') 
+				'Save' => _('Save')
 			),
 			'injects' => array(
 				'core_config',
 				'site_config',
-				'options' 
-			) 
+				'options'
+			)
 		);
-		
+
 		_p(tpl_apply($tpl));
 		break;
-	
+
 	case "site_config_save":
-		foreach ($_POST['up'] as $key => $val) {
+		foreach ( $_POST['up'] as $key => $val ) {
 			$up[$key] = $val;
 		}
-		
+
+		$up = site_config_filter($up);
+
 		$site = site_config_getbydomain($up['domain']);
 		if ($up['domain'] && $site[0]['uid'] && $site[0]['uid'] != $user_config['uid']) {
 			$_SESSION['dialog']['info'][] = _('The domain is already configured by other user') . ' (' . _('domain') . ':' . $up['domain'] . ')';
@@ -124,10 +138,9 @@ switch (_OP_) {
 			site_config_set($up);
 			$_SESSION['dialog']['info'][] = _('Site configuration has been saved');
 		}
-		
+
 		_log('site configuration saved. uid:' . $user_config['uid'] . ' domain:' . $up['domain'], 3, 'site');
-		
+
 		header('Location:' . _u('index.php?app=main&inc=core_site&op=site_config'));
 		exit();
-		break;
 }
