@@ -27,56 +27,70 @@ switch (_OP_) {
 
 		// get original main_config
 		$data = registry_search(1, 'core', 'main_config');
-		$main_config = $data['core']['main_config'];
+		$main_config = main_config_filter($data['core']['main_config']);
 
 		// enable register yes-no option
 		$option_enable_register = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['enable_register']);
+			),
+			$main_config['enable_register']
+		);
 
 		// enable forgot yes-no option
 		$option_enable_forgot = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['enable_forgot']);
+			),
+			$main_config['enable_forgot']
+		);
 
 		// disable login as subuser yes-no option
 		$option_disable_login_as = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['disable_login_as']);
+			),
+			$main_config['disable_login_as']
+		);
 
 		// enhance privacy for subusers
 		$option_enhance_privacy_subuser = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['enhance_privacy_subuser']);
+			),
+			$main_config['enhance_privacy_subuser']
+		);
 
 		// enable logo yes-no option
 		$option_enable_logo = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['enable_logo']);
+			),
+			$main_config['enable_logo']
+		);
 
 		// enable logo to replace main website title yes-no option
 		$option_logo_replace_title = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['logo_replace_title']);
+			),
+			$main_config['logo_replace_title']
+		);
 
 		// option default account status on user registration
 		$option_default_user_status = _options(
 			array(
 				_('User') => 3,
 				_('Subuser') => 4
-			), $main_config['default_user_status']);
+			),
+			$main_config['default_user_status']
+		);
 
 		// option default parent upon registration
 		$option_default_parent = themes_select_account_level_single(3, 'edit_default_parent', $main_config['default_parent']);
@@ -114,28 +128,36 @@ switch (_OP_) {
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['plus_sign_remove']);
+			),
+			$main_config['plus_sign_remove']
+		);
 
 		// select plus_sign_add
 		$option_plus_sign_add = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['plus_sign_add']);
+			),
+			$main_config['plus_sign_add']
+		);
 
 		// select enable_credit_unicode
 		$option_enable_credit_unicode = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['enable_credit_unicode']);
+			),
+			$main_config['enable_credit_unicode']
+		);
 
 		// select brute_force_detection
 		$option_brute_force_detection = _options(
 			array(
 				_('yes') => 1,
 				_('no') => 0
-			), $main_config['brute_force_detection']);
+			),
+			$main_config['brute_force_detection']
+		);
 
 		// display
 
@@ -247,12 +269,18 @@ switch (_OP_) {
 
 	case "main_config_save":
 
+		foreach ( $_POST as $key => $val ) {
+			if (substr($key, 0, 5) == 'edit_') {
+				$post[$key] = str_replace('"', '\'', $val);
+			}
+		}
+
+		$post = main_config_filter($post);
+
 		// logo
-
-
-		$enable_logo = $_POST['edit_enable_logo'];
-		$logo_url = trim($_POST['edit_logo_url']);
-		$logo_replace_title = $_POST['edit_logo_replace_title'];
+		$enable_logo = $post['edit_enable_logo'];
+		$logo_url = trim($post['edit_logo_url']);
+		$logo_replace_title = $post['edit_logo_replace_title'];
 
 		if (!$logo_url) {
 			$themes_logo = _APPS_PATH_THEMES_ . '/' . core_themes_get() . '/images/logo.png';
@@ -276,19 +304,13 @@ switch (_OP_) {
 		}
 
 		// allow default account status 3 and 4 only
-		$edit_default_user_status = (int) $_POST['edit_default_user_status'];
+		$edit_default_user_status = (int) $post['edit_default_user_status'];
 		if (!(($edit_default_user_status == 3) || ($edit_default_user_status == 4))) {
 			$edit_default_user_status == 4;
 		}
 
 		// save
 
-
-		foreach ( $_POST as $key => $val ) {
-			if (substr($key, 0, 5) == 'edit_') {
-				$post[$key] = str_replace('"', '\'', $val);
-			}
-		}
 
 		$items = array(
 			'web_title' => $post['edit_web_title'],
