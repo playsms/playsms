@@ -51,8 +51,8 @@ switch (_OP_) {
 				break;
 			}
 			$data[$j] = array(
-				core_display_text($list[$i]['name']),
-				core_display_text($list[$i]['destination']),
+				_t($list[$i]['name']),
+				_t($list[$i]['destination']),
 				core_display_datetime($list[$i]['schedule'])
 			);
 		}

@@ -28,8 +28,8 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$name = core_display_text($db_row['name']);
-		$message = core_display_text($db_row['message']);
+		$name = _t($db_row['name']);
+		$message = _t($db_row['message']);
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
 			$content = _dialog() . "

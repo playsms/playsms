@@ -458,11 +458,11 @@ function themes_dialog($content = array(), $title = '') {
 		foreach ( $data as $texts ) {
 			if (is_array($texts) && count($texts) > 0) {
 				foreach ( $texts as $text ) {
-					$dialog_message .= trim($text) ? core_display_html(trim($text)) . '<br />' : '';
+					$dialog_message .= trim($text) ? _h(trim($text)) . '<br />' : '';
 				}
 				$continue = TRUE;
 			} elseif (trim($texts)) {
-				$dialog_message = core_display_html(trim($texts));
+				$dialog_message = _h(trim($texts));
 				$continue = TRUE;
 			}
 		}

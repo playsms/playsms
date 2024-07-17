@@ -311,7 +311,7 @@ switch (_OP_) {
 			}
 
 			$msg = $db_row['in_msg'];
-			$in_msg = core_display_text($msg);
+			$in_msg = _t($msg);
 			if ($msg && $in_sender) {
 				$reply = _sendsms($in_sender, $msg, $base_url . "&op=all_inbox" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['reply']);
 				$forward = _sendsms('', $msg, $base_url . "&op=all_inbox" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['forward']);

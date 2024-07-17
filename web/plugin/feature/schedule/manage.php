@@ -28,8 +28,8 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$name = core_display_text($db_row['name']);
-		$message = core_display_text($db_row['message']);
+		$name = _t($db_row['name']);
+		$message = _t($db_row['message']);
 		$schedule_rule = $db_row['schedule_rule'];
 		if ($id && $name && $message) {
 			$content = _dialog() . "
@@ -96,12 +96,12 @@ switch (_OP_) {
 				<tbody>";
 			foreach ( $list as $db_row ) {
 				$action = "<a href=\"" . _u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_edit&schedule_id=' . $id . '&id=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>&nbsp;";
-				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to remove this number from SMS schedule ?') . " (" . core_display_text($db_row['name']) . " " . core_display_text($db_row['destination']) . ")','" . _u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_del&schedule_id=' . $id . '&id=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
+				$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to remove this number from SMS schedule ?') . " (" . _t($db_row['name']) . " " . _t($db_row['destination']) . ")','" . _u('index.php?app=main&inc=feature_schedule&route=manage&op=dst_del&schedule_id=' . $id . '&id=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
 				$i++;
 				$content .= "
 					<tr>
-						<td>" . core_display_text($db_row['name']) . "</td>
-						<td>" . core_display_text($db_row['destination']) . "</td>
+						<td>" . _t($db_row['name']) . "</td>
+						<td>" . _t($db_row['destination']) . "</td>
 						<td>" . core_display_datetime($db_row['schedule']) . "</td>
 						<td>" . $action . "</td>
 					</tr>";
@@ -125,8 +125,8 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$schedule_id' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$schedule_name = core_display_text($db_row['name']);
-		$schedule_message = core_display_text($db_row['message']);
+		$schedule_name = _t($db_row['name']);
+		$schedule_message = _t($db_row['message']);
 		if ($schedule_id && $schedule_name && $schedule_message) {
 			$content = _dialog() . "
 				<h2>" . _('Schedule messages') . "</h2>
@@ -166,8 +166,8 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$schedule_id' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$schedule_name = core_display_text($db_row['name']);
-		$schedule_message = core_display_text($db_row['message']);
+		$schedule_name = _t($db_row['name']);
+		$schedule_message = _t($db_row['message']);
 		if ($schedule_id && $schedule_name && $schedule_message) {
 			$name = core_sanitize_string($_POST['name']);
 			$destination = core_sanitize_string($_POST['destination']);
@@ -219,16 +219,16 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$schedule_id' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$schedule_name = core_display_text($db_row['name']);
-		$schedule_message = core_display_text($db_row['message']);
+		$schedule_name = _t($db_row['name']);
+		$schedule_message = _t($db_row['message']);
 		if ($id && $schedule_id && $schedule_name && $schedule_message) {
 			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule_dst WHERE schedule_id='$schedule_id' AND id='$id'";
 			$db_result = dba_query($db_query);
 			$db_row = dba_fetch_array($db_result);
 			$schedule = $db_row['schedule'];
 			$schedule = ($schedule ? core_display_datetime($schedule) : '0000-00-00 00:00:00');
-			$name = core_display_text($db_row['name']);
-			$destination = core_display_text($db_row['destination']);
+			$name = _t($db_row['name']);
+			$destination = _t($db_row['destination']);
 
 			$content = _dialog() . "
 				<h2>" . _('Schedule messages') . "</h2>
@@ -270,8 +270,8 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$schedule_id' AND flag_deleted='0'";
 		$db_result = dba_query($db_query);
 		$db_row = dba_fetch_array($db_result);
-		$schedule_name = core_display_text($db_row['name']);
-		$schedule_message = core_display_text($db_row['message']);
+		$schedule_name = _t($db_row['name']);
+		$schedule_message = _t($db_row['message']);
 		if ($id && $schedule_id && $schedule_name && $schedule_message) {
 			$name = core_sanitize_string($_POST['name']);
 			$destination = core_sanitize_string($_POST['destination']);

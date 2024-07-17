@@ -376,7 +376,7 @@ switch (_OP_) {
 			}
 
 			$msg = $db_row['in_message'];
-			$in_message = core_display_text($msg);
+			$in_message = _t($msg);
 			if ($msg && $in_sender) {
 				$reply = _sendsms($in_sender, $msg, $base_url . "&op=all_incoming" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['reply']);
 				$forward = _sendsms('', $msg, $base_url . "&op=all_incoming" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['forward']);

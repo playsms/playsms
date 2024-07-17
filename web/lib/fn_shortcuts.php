@@ -213,8 +213,8 @@ function _lastpost_empty() {
 
 /**
  * Clean input for display as text only
- * @param string $input
- * @return string
+ * @param string|array $input
+ * @return string|array
  */
 function _t($input) {
 	return core_display_text($input);
@@ -222,8 +222,8 @@ function _t($input) {
 
 /**
  * Clean input for display as HTML
- * @param string $input
- * @return string
+ * @param string|array $input
+ * @return string|array
  */
 function _h($input) {
 	return core_display_html($input);

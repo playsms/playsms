@@ -53,8 +53,8 @@ function schedule_hook_playsmsd()
 		$destinations = dba_search(_DB_PREF_ . '_featureSchedule_dst', '*', $conditions, [], []);
 		foreach ( $destinations as $dst ) {
 			$id = $dst['id'];
-			$name = core_display_text($dst['name']);
-			$schedule_message = core_display_text(str_ireplace('#NAME#', $name, $sch['message']));
+			$name = _t($dst['name']);
+			$schedule_message = _t(str_ireplace('#NAME#', $name, $sch['message']));
 			$destination = $dst['destination'];
 			$schedule = ($dst['schedule'] ? core_display_datetime($dst['schedule']) : '0000-00-00 00:00:00');
 			$scheduled = ($dst['scheduled'] ? core_display_datetime($dst['scheduled']) : '0000-00-00 00:00:00');

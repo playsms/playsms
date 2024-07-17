@@ -354,7 +354,7 @@ switch (_OP_) {
 			$p_charge = $db_row['p_status'] == 2 ? '0.0' : $p_charge;
 
 			$msg = $db_row['p_msg'];
-			$p_msg = core_display_text($msg);
+			$p_msg = _t($msg);
 			if ($msg && $p_dst) {
 				$resend = _sendsms($p_dst, $msg, $base_url . "&op=all_outgoing" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['resend']);
 				$forward = _sendsms('', $msg, $base_url . "&op=all_outgoing" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['forward']);

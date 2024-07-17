@@ -68,7 +68,7 @@ switch (_OP_) {
 			// total number of SMS in queue
 			$c_count = $data[$c]['sms_count'];
 			
-			$c_message = stripslashes(core_display_text($data[$c]['message']));
+			$c_message = stripslashes(_t($data[$c]['message']));
 			$c_action = "<a href=\"javascript: ConfirmURL('" . addslashes(_("Are you sure you want to delete queue")) . " " . $c_queue_code . " ?','" . _u('index.php?app=main&inc=feature_queuelog&op=queuelog_delete&queue=' . $c_queue_code) . "')\">" . $icon_config['delete'] . "</a>";
 			$content .= "
 				<tr>

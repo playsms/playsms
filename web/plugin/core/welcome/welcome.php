@@ -31,7 +31,7 @@ if (file_exists($fn)) {
 	$information_title = ($core_config['main']['information_title'] ? $core_config['main']['information_title'] : _('Welcome information'));
 	$information_content = ($core_config['main']['information_content'] ? $core_config['main']['information_content'] : _('Go to manage site menu to edit this page'));
 	
-	list($information_title, $information_content) = core_display_html(array(
+	list($information_title, $information_content) = _h(array(
 		$information_title,
 		$information_content 
 	));

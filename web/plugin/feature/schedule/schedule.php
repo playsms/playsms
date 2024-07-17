@@ -51,8 +51,8 @@ switch (_OP_) {
 			$content .= "
 					<tr>
 						<td>" . $db_row['id'] . "</td>
-						<td>" . core_display_text($db_row['name']) . "</td>
-						<td>" . core_display_text($db_row['message']) . "</td>
+						<td>" . _t($db_row['name']) . "</td>
+						<td>" . _t($db_row['message']) . "</td>
 						<td>" . $status . "</td>
 						<td>" . $action . "</td>
 					</tr>";
