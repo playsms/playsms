@@ -26,32 +26,39 @@ defined('_SECURE_') or die('Forbidden');
  *
  * @return string
  */
-function _p($content) {
+function _p($content)
+{
 	return core_print($content);
 }
 
 // lib/fn_themes.php
-function _a($url, $title = '', $css_class = '', $css_id = '') {
+function _a($url, $title = '', $css_class = '', $css_id = '')
+{
 	return themes_link($url, $title, $css_class, $css_id);
 }
 
-function _u($url) {
+function _u($url)
+{
 	return themes_url($url);
 }
 
-function _back($url) {
+function _back($url)
+{
 	return themes_button_back($url);
 }
 
-function _button($url, $title, $css_class = '', $css_id = '') {
+function _button($url, $title, $css_class = '', $css_id = '')
+{
 	return themes_button($url, $title, $css_class, $css_id);
 }
 
-function _hint($text) {
+function _hint($text)
+{
 	return themes_hint($text);
 }
 
-function _mandatory($text) {
+function _mandatory($text)
+{
 	return themes_mandatory($text);
 }
 
@@ -65,7 +72,8 @@ function _mandatory($text) {
  *        Selected option
  * @return string Options for select HTML tag
  */
-function _options($options = array(), $selected = '') {
+function _options($options = array(), $selected = '')
+{
 	return themes_select_options($options, $selected);
 }
 
@@ -87,7 +95,8 @@ function _options($options = array(), $selected = '') {
  *        CSS class name
  * @return string Select HTML tag
  */
-function _select($name, $options = array(), $selected = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function _select($name, $options = array(), $selected = '', $tag_params = array(), $css_id = '', $css_class = '')
+{
 	return themes_select($name, $options, $selected, $tag_params, $css_id, $css_class);
 }
 
@@ -111,7 +120,8 @@ function _select($name, $options = array(), $selected = '', $tag_params = array(
  *        CSS class name
  * @return string Select HTML tag
  */
-function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(), $css_id = '', $css_class = '')
+{
 	return themes_select_yesno($name, $selected, $yes, $no, $tag_params, $css_id, $css_class);
 }
 
@@ -126,7 +136,8 @@ function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = array(
  *        Dialog title
  * @return string HTML string of error strings
  */
-function _dialog($content = array(), $title = '') {
+function _dialog($content = array(), $title = '')
+{
 	return themes_dialog($content, $title);
 }
 
@@ -142,7 +153,8 @@ function _dialog($content = array(), $title = '') {
  *        Dialog title
  * @return string HTML string of error strings
  */
-function _err_display($content = array(), $title = '') {
+function _err_display($content = array(), $title = '')
+{
 	return _dialog($content, $title);
 }
 
@@ -164,12 +176,14 @@ function _err_display($content = array(), $title = '') {
  *        CSS class name
  * @return string HTML input tag
  */
-function _input($type = 'text', $name = '', $value = '', $tag_params = array(), $css_id = '', $css_class = '') {
+function _input($type = 'text', $name = '', $value = '', $tag_params = array(), $css_id = '', $css_class = '')
+{
 	return themes_input($type, $name, $value, $tag_params, $css_id, $css_class);
 }
 
 // lib/fn_logger.php
-function _log($log, $level, $label) {
+function _log($log, $level, $label)
+{
 	return logger_print($log, $level, $label);
 }
 
@@ -187,7 +201,8 @@ function _log($log, $level, $label) {
  *        If empty this would be a reply icon
  * @return string Javascript PopupSendsms()
  */
-function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "") {
+function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "")
+{
 	return themes_popup_sendsms($to, $message, $return_url, $button_icon);
 }
 
@@ -198,7 +213,8 @@ function _sendsms($to = "", $message = "", $return_url = "", $button_icon = "") 
  * @param string $key        
  * @return mixed
  */
-function _lastpost($key = '') {
+function _lastpost($key = '')
+{
 	return core_last_post_get($key);
 }
 
@@ -207,24 +223,30 @@ function _lastpost($key = '') {
  *
  * @return boolean TRUE
  */
-function _lastpost_empty() {
+function _lastpost_empty()
+{
 	return core_last_post_empty();
 }
 
 /**
  * Clean input for display as text only
- * @param string|array $input
- * @return string|array
+ * 
+ * @param string|array $data original text
+ * @param int $len length of text
+ * @return string|array safe text
  */
-function _t($input) {
-	return core_display_text($input);
+function _t($input, $len = 0)
+{
+	return core_display_text($input, $len);
 }
 
 /**
  * Clean input for display as HTML
+ * 
  * @param string|array $input
  * @return string|array
  */
-function _h($input) {
+function _h($input)
+{
 	return core_display_html($input);
 }
