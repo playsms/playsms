@@ -129,7 +129,7 @@ switch (_OP_) {
 			$up[$key] = $val;
 		}
 
-		$up = site_config_filter($up);
+		$up['information_content'] = core_safe_html_post('information_content');
 
 		$site = site_config_getbydomain($up['domain']);
 		if ($up['domain'] && $site[0]['uid'] && $site[0]['uid'] != $user_config['uid']) {

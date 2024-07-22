@@ -269,13 +269,8 @@ switch (_OP_) {
 
 	case "main_config_save":
 
-		foreach ( $_POST as $key => $val ) {
-			if (substr($key, 0, 5) == 'edit_') {
-				$post[$key] = str_replace('"', '\'', $val);
-			}
-		}
-
-		$post = main_config_filter($post);
+		$post = $_POST;
+		$post['edit_information_content'] = core_safe_html_post('edit_information_content');
 
 		// logo
 		$enable_logo = $post['edit_enable_logo'];

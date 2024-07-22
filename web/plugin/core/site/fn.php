@@ -86,7 +86,9 @@ function site_config_getbydomain($domain)
 function site_config_filter($site_config = [])
 {
 	foreach ( $site_config as $key => $val ) {
-		if ($key != 'information_content') {
+		if ($key == 'information_content') {
+			$site_config[$key] = _h($val);
+		} else {
 			$site_config[$key] = _t($val);
 		}
 	}

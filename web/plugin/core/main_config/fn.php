@@ -27,7 +27,9 @@ defined('_SECURE_') or die('Forbidden');
 function main_config_filter($main_config = [])
 {
 	foreach ( $main_config as $key => $val ) {
-		if (!($key == 'information_content' || $key == 'edit_information_content')) {
+		if (($key == 'information_content' || $key == 'edit_information_content')) {
+			$main_config[$key] = _h($val);
+		} else {
 			$main_config[$key] = _t($val);
 		}
 	}
