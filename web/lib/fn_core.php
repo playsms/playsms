@@ -19,118 +19,65 @@
 defined('_SECURE_') or die('Forbidden');
 
 /**
- * Protection againts SQL injection especially when magic_quotes_gpc set to "Off"
+ * Replacement for addslashes()
  *
- * @param array $array
- *        $_POST or $_GET
- * @return array
- */
-function core_array_addslashes($array)
-{
-	if (is_array($array)) {
-		foreach ( $array as $key => $value ) {
-			if (!is_array($value)) {
-				$new_arr[$key] = addslashes($value);
-			}
-			if (is_array($value)) {
-				$new_arr[$key] = core_array_addslashes($value);
-			}
-		}
-	}
-	return $new_arr;
-}
-
-/**
- * Protection againts SQL injection especially when magic_quotes_gpc set to "Off"
- *
- * @param mixed $data
- *        simple variable or array of variables
- * @return mixed
+ * @param string|array $data simple variable or array of variables
+ * @return string|array
  */
 function core_addslashes($data)
 {
 	if (is_array($data)) {
-		$data = core_array_addslashes($data);
+		$ret = [];
+		foreach ( $data as $key => $val ) {
+			$ret[$key] = core_addslashes($val);
+		}
 	} else {
 		$data = addslashes($data);
+
+		$ret = $data;
 	}
-	return $data;
+
+	return $ret;
 }
 
 /**
- * Protection againts XSS
+ * Replacement for stripslashes()
  *
- * @param array $array
- *        $_POST or $_GET
- * @return array
+ * @param string|array $data simple variable or array of variables
+ * @return string|array
  */
-function core_array_htmlspecialchars($array)
+function core_stripslashes($data)
 {
-	if (is_array($array)) {
-		foreach ( $array as $key => $value ) {
-			if (!is_array($value)) {
-				$new_arr[$key] = htmlspecialchars($value);
-			}
-			if (is_array($value)) {
-				$new_arr[$key] = core_array_htmlspecialchars($value);
-			}
+	if (is_array($data)) {
+		$ret = [];
+		foreach ( $data as $key => $val ) {
+			$ret[$key] = core_stripslashes($val);
 		}
+	} else {
+		$data = stripslashes($data);
+
+		$ret = $data;
 	}
-	return $new_arr;
+
+	return $ret;
 }
 
 /**
- * Protection againts XSS
+ * Replacement for htmlspecialchars()
  *
- * @param mixed $data
- *        simple variable or array of variables
- * @return mixed
+ * @param string|array $data simple variable or array of variables
+ * @return string|array
  */
 function core_htmlspecialchars($data)
 {
 	if (is_array($data)) {
-		$data = core_array_htmlspecialchars($data);
-	} else {
-		$data = htmlspecialchars($data);
-	}
-	return $data;
-}
-
-/**
- * Display untrusted user input, protection againts XSS using HTMLPurifier()
- *
- * @param mixed $data
- *        untrusted inputs
- * @return mixed
- */
-function core_sanitize_inputs($data)
-{
-	$config = HTMLPurifier_Config::createDefault();
-	$config->set('Cache.DefinitionImpl', null);
-	$config->set('Attr.EnableID', TRUE);
-	$config->set('HTML.SafeObject', TRUE);
-	$config->set('HTML.SafeEmbed', TRUE);
-	$config->set('Output.FlashCompat', TRUE);
-	$config->set('HTML.SafeIframe', TRUE);
-	$config->set('URI.SafeIframeRegexp', '%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%');
-	$config->set('HTML.Allowed', '*[style|class],p,ol,li,ul,b,u,strike,strong,blockquote,em,br,span,div,a[href|title|target|rel],img[src|alt|title|width|height|hspace|vspace],hr,font,pre,table[cellpadding|cellspacing],tr,td,th,tbody,thead,h1,h2,h3,h4,h5,iframe[src|width|height]');
-	$hp = new HTMLPurifier($config);
-
-	if (is_array($data)) {
-		foreach ( $data as $key => $value ) {
-			if (is_array($value)) {
-				$ret[$key] = core_sanitize_inputs($value);
-			} else {
-				$value = stripslashes($value);
-				$value = $hp->purify($value);
-				$value = addslashes($value);
-				$ret[$key] = $value;
-			}
+		$ret = [];
+		foreach ( $data as $key => $val ) {
+			$ret[$key] = core_htmlspecialchars($val);
 		}
 	} else {
-		$data = stripslashes($data);
-		$data = $hp->purify($data);
-		$data = addslashes($data);
+		$data = htmlspecialchars($data);
+
 		$ret = $data;
 	}
 
@@ -319,55 +266,69 @@ function core_str2hex($string)
 }
 
 /**
- * Display untrusted HTML data, protection againts XSS using HTMLPurifier()
+ * Purify input
+ * 
+ * @param string $input input
+ * @param string $type text or HTML
+ * @return string purified input
+ */
+function core_purify($input, $type = 'text')
+{
+	// type of output, text or other
+	$type = strtolower(trim($type));
+
+	// decode HTML special chars
+	$output = htmlspecialchars_decode($input);
+
+	// remove php tags
+	$output = str_ireplace('<?php', '', $output);
+	$output = str_ireplace('<?', '', $output);
+	$output = str_ireplace('?>', '', $output);
+	$output = str_ireplace('`', '', $output);
+
+	// purify it
+	$config = HTMLPurifier_Config::createDefault();
+	$config->set('Cache.DefinitionImpl', null);
+
+	if ($type == 'text') {
+
+		// if type is text then do not allow any HTML tags
+		// for non-text type default purifier config will be used
+		$config->set('HTML.Allowed', null);
+	}
+
+	$hp = new HTMLPurifier($config);
+
+	if ($type == 'text') {
+
+		// if type is text then this might lessen burden for purifier
+		$output = strip_tags($output);
+	}
+
+	$output = $hp->purify($output);
+
+	return $output;
+}
+
+/**
+ * Format input for safe HTML display on the web
  *
- * @param mixed $data
- *        untrusted inputs
- * @return mixed
+ * @param string|array $data HTML input
+ * @return string|array safe HTML
  */
 function core_display_html($data)
 {
-	$config = HTMLPurifier_Config::createDefault();
-	$config->set('Cache.DefinitionImpl', null);
-	$config->set('Attr.EnableID', TRUE);
-	$config->set('HTML.SafeObject', TRUE);
-	$config->set('HTML.SafeEmbed', TRUE);
-	$config->set('Output.FlashCompat', TRUE);
-	$config->set('HTML.SafeIframe', TRUE);
-	$config->set('URI.SafeIframeRegexp', '%^https://(www.youtube.com/embed/|player.vimeo.com/video/)%');
-	$config->set('HTML.Allowed', '*[style|class],p,ol,li,ul,b,u,strike,strong,blockquote,em,br,span,div,a[href|title|target|rel],img[src|alt|title|width|height|hspace|vspace],hr,font,pre,table[cellpadding|cellspacing],tr,td,th,tbody,thead,h1,h2,h3,h4,h5,iframe[src|width|height]');
-	$hp = new HTMLPurifier($config);
-
 	if (is_array($data)) {
-		foreach ( $data as $key => $value ) {
-			if (is_array($value)) {
-				$ret[$key] = core_display_html($value);
-			} else {
-				// decode before str replace to remove php tags
-				$value = htmlspecialchars_decode($value);
-
-				// remove php tags
-				$value = str_ireplace('<?php', '', $value);
-				$value = str_ireplace('<?', '', $value);
-				$value = str_ireplace('?>', '', $value);
-				$value = str_ireplace('`', '', $value);
-
-				// purify html and convert to html special chars
-				$value = $hp->purify($value);
-
-				$ret[$key] = $value;
-			}
+		$ret = [];
+		foreach ( $data as $key => $val ) {
+			$ret[$key] = core_display_html($val);
 		}
 	} else {
-		// same filtering like above
-		$value = htmlspecialchars_decode($data); // here its started with $data, not $value
-		$value = str_ireplace('<?php', '', $value);
-		$value = str_ireplace('<?', '', $value);
-		$value = str_ireplace('?>', '', $value);
-		$value = str_ireplace('`', '', $value);
-		$value = $hp->purify($value);
+		$data = core_stripslashes(trim($data));
 
-		$ret = $value;
+		$data = core_purify($data, 'html');
+
+		$ret = $data;
 	}
 
 	return $ret;
@@ -376,30 +337,51 @@ function core_display_html($data)
 /**
  * Format text for safe display on the web
  *
- * @param string|array $text original text
+ * @param string|array $data original text
  * @param int $len length of text
- * @return string|array formatted text
+ * @return string|array safe text
  */
-function core_display_text($text, $len = 0)
+function core_display_text($data, $len = 0)
 {
-	if (is_array($text)) {
+	if (is_array($data)) {
 		$ret = [];
-		foreach ( $text as $item ) {
-			$ret[] = core_display_text($item, $len);
+		foreach ( $data as $key => $val ) {
+			$ret[$key] = core_display_text($val, $len);
 		}
-
-		return $ret;
 	} else {
-		$config = HTMLPurifier_Config::createDefault();
-		$config->set('Cache.DefinitionImpl', null);
-		$hp = new HTMLPurifier($config);
+		$data = stripslashes(trim($data));
 
-		$text = $hp->purify($text);
-		$text = strip_tags($text);
-		$text = $len > 0 ? substr($text, 0, $len) . '..' : $text;
+		$data = core_purify($data, 'text');
+
+		$data = $len > 0 ? substr($data, 0, $len) . '..' : $data;
+
+		$ret = $data;
 	}
 
-	return $text;
+	return $ret;
+}
+
+/**
+ * Sanitize untrusted user input
+ *
+ * @param string|array $data untrusted user input
+ * @param string $type text or html format
+ * @return string|array safe user input
+ */
+function core_sanitize_inputs($data, $type = 'text')
+{
+	$type = strtolower(trim($type));
+
+	if ($type == 'text') {
+		$data = core_display_text($data);
+	} else {
+		$data = core_display_html($data);
+	}
+
+	// consider input is coming from web, we need to addslashes it
+	$data = core_addslashes($data);
+
+	return $data;
 }
 
 /**
@@ -412,6 +394,41 @@ function core_display_text($text, $len = 0)
 function core_display_data($data, $len = 0)
 {
 	return core_display_text($data, $len);
+}
+
+/**
+ * Fetch $_POST, $_GET, $_COOKIE or $_REQUEST safe HTML value for selected key
+ * 
+ * @param string $key
+ * @return mixed
+ */
+function core_safe_html($key, $type = 'post')
+{
+	$type = strtolower(trim($type));
+
+	switch ($type) {
+		case 'post':
+			return isset($_POST[_SAFE_HTML_KEY_]) && isset($_POST[_SAFE_HTML_KEY_][$key]) ? $_POST[_SAFE_HTML_KEY_][$key] : null;
+		case 'get':
+			return isset($_GET[_SAFE_HTML_KEY_]) && isset($_GET[_SAFE_HTML_KEY_][$key]) ? $_GET[_SAFE_HTML_KEY_][$key] : null;
+		case 'cookie':
+			return isset($_COOKIE[_SAFE_HTML_KEY_]) && isset($_COOKIE[_SAFE_HTML_KEY_][$key]) ? $_COOKIE[_SAFE_HTML_KEY_][$key] : null;
+		case 'request':
+			return isset($_REQUEST[_SAFE_HTML_KEY_]) && isset($_REQUEST[_SAFE_HTML_KEY_][$key]) ? $_REQUEST[_SAFE_HTML_KEY_][$key] : null;
+		default:
+			return null;
+	}
+}
+
+/**
+ * Fetch $_POST safe HTML value for selected key
+ * 
+ * @param string $key
+ * @return mixed
+ */
+function core_safe_html_post($key)
+{
+	return core_safe_html($key, 'post');
 }
 
 /**
@@ -623,6 +640,7 @@ function core_get_random_string($length = 16, $valid_chars = '')
 function core_sanitize_username($username)
 {
 	$username = preg_replace("/[^a-z\d._-]/i", '', $username);
+
 	return $username;
 }
 
@@ -909,6 +927,7 @@ function core_array_to_xml($arr, SimpleXMLElement $xml)
 			$xml->addChild($k, $v);
 		}
 	}
+
 	return $xml;
 }
 
@@ -920,6 +939,7 @@ function core_xml_to_array($xml)
 	$loaded = simplexml_load_string($xml);
 	$json = json_encode($loaded);
 	$var = json_decode($json, TRUE);
+
 	return $var;
 }
 
@@ -933,8 +953,10 @@ function core_object_to_array($data)
 		foreach ( (array) $data as $key => $value ) {
 			$result[$key] = core_object_to_array($value);
 		}
+
 		return $result;
 	}
+
 	return $data;
 }
 
@@ -1109,6 +1131,7 @@ function core_plugin_get_status($uid, $plugin_category, $plugin_name)
 			$ret = TRUE;
 		}
 	}
+
 	return $ret;
 }
 

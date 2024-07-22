@@ -187,22 +187,32 @@ define('_SYSTEM_SENDER_ID_', '@admin');
 include_once _APPS_PATH_LIBS_ . '/fn_core.php';
 
 // sanitize user inputs
-foreach ( $_GET as $key => $val ) {
-	$val = core_sanitize_inputs($val);
-	$_GET[$key] = core_addslashes($val);
+define('_SAFE_HTML_KEY_', '__SAFEHTML__');
+
+$val = $_GET;
+if ($_GET = core_sanitize_inputs($val)) {
+	$_GET[_SAFE_HTML_KEY_] = core_sanitize_inputs($val, 'html');
 }
-foreach ( $_POST as $key => $val ) {
-	$val = core_sanitize_inputs($val);
-	$_POST[$key] = core_addslashes($val);
+unset($val);
+
+$val = $_POST;
+if ($_POST = core_sanitize_inputs($val)) {
+	$_POST[_SAFE_HTML_KEY_] = core_sanitize_inputs($val, 'html');
 }
-foreach ( $_COOKIE as $key => $val ) {
-	$val = core_sanitize_inputs($val);
-	$_COOKIE[$key] = core_addslashes($val);
+unset($val);
+
+$val = $_COOKIE;
+if ($_COOKIE = core_sanitize_inputs($val)) {
+	$_COOKIE[_SAFE_HTML_KEY_] = core_sanitize_inputs($val, 'html');
 }
+unset($val);
 
 // too many codes using $_REQUEST, until we revise them all we use this as a workaround
 $_REQUEST = [];
 $_REQUEST = array_merge($_GET, $_POST);
+if (isset($_REQUEST[_SAFE_HTML_KEY_])) {
+	unset($_REQUEST[_SAFE_HTML_KEY_]);
+}
 
 // global defines
 define('_APP_', core_sanitize_query($_REQUEST['app']));
