@@ -47,16 +47,17 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		_p($content);
 		break;
+
 	case "import":
 
-		// fixme anton - https://www.exploit-database.net/?id=92843
+		// fixme anton - https://www.exploit-db.com/exploits/42003
 		$fnpb_name = core_sanitize_filename($_FILES['fnpb']['name']);
-		if ($fnpb_name == $_FILES['fnpb']['name']) {
+		if ($fnpb_name && $fnpb_name == $_FILES['fnpb']['name']) {
 			$continue = TRUE;
 		} else {
 			$continue = FALSE;
 		}
-		
+
 		$fnpb = $_FILES['fnpb'];
 		$fnpb_tmpname = $_FILES['fnpb']['tmp_name'];
 		$content = "
@@ -84,24 +85,26 @@ switch (_OP_) {
 						break;
 					}
 					if ($i > 0) {
-					
-						// fixme anton - https://www.exploit-database.net/?id=92915
-						$c_contant[0] = core_sanitize_string($c_contact[0]);
+
+						// fixme anton - https://www.exploit-db.com/exploits/42044
+						$c_contact = core_sanitize_inputs($c_contact);
+
+						//$c_contant[0] = core_sanitize_string($c_contact[0]);
 						$c_contant[1] = sendsms_getvalidnumber($c_contact[1]);
 						//$c_contact[2] = core_sanitize_email($c_contact[2]);
-						$c_contact[2] = core_sanitize_inputs($c_contact[2]);
+						//$c_contact[2] = _t($c_contact[2]);
 						$c_gid = phonebook_groupcode2id($uid, $c_contact[3]);
 						if (!$c_gid) {
 							$c_contact[3] = '';
 						}
 						$c_contact[4] = phonebook_tags_clean($c_contact[4]);
-						
+
 						$contacts[$i] = $c_contact;
 					}
 					$i++;
 				}
 				$i = 0;
-				foreach ($contacts as $contact) {
+				foreach ( $contacts as $contact ) {
 					if ($contact[0] && $contact[1]) {
 						$i++;
 						$content .= "
@@ -137,13 +140,17 @@ switch (_OP_) {
 			exit();
 		}
 		break;
+
 	case "import_yes":
 		@set_time_limit(0);
 		$num = $_POST['number_of_row'];
 		$session_import = $_POST['session_import'];
-		$data = $_SESSION['tmp'][$session_import];
+
+		// fixme anton - should not need this due to data in this session should be sanitized already
+		$data = core_sanitize_inputs($_SESSION['tmp'][$session_import]);
+
 		// $i = 0;
-		foreach ($data as $d) {
+		foreach ( $data as $d ) {
 			$name = trim($d[0]);
 			$mobile = trim($d[1]);
 			$email = trim($d[2]);
@@ -164,7 +171,7 @@ switch (_OP_) {
 						'name' => $name,
 						'mobile' => sendsms_getvalidnumber($mobile),
 						'email' => $email,
-						'tags' => $tags 
+						'tags' => $tags
 					);
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						if ($gpid) {
@@ -183,7 +190,7 @@ switch (_OP_) {
 					} else {
 						$items = array(
 							'gpid' => $gpid,
-							'pid' => $c_pid 
+							'pid' => $c_pid
 						);
 						if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
 							_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
@@ -200,5 +207,4 @@ switch (_OP_) {
 		$_SESSION['dialog']['info'][] = _('Contacts have been imported');
 		header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=import&op=list'));
 		exit();
-		break;
 }

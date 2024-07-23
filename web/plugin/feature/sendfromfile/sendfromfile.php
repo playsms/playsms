@@ -51,9 +51,9 @@ switch (_OP_) {
 	case 'upload_confirm':
 		@set_time_limit(0);
 
-		// fixme anton - https://www.exploit-database.net/?id=92843
+		// fixme anton - https://www.exploit-db.com/exploits/42003
 		$filename = core_sanitize_filename($_FILES['fncsv']['name']);
-		if ($filename == $_FILES['fncsv']['name']) {
+		if ($filename && $filename == $_FILES['fncsv']['name']) {
 			$continue = TRUE;
 		} else {
 			$continue = FALSE;
@@ -67,11 +67,16 @@ switch (_OP_) {
 		$item_invalid = [];
 
 		if ($continue && ($fs == filesize($fn)) && file_exists($fn)) {
+
+			ini_set('auto_detect_line_endings', TRUE);
 			if (($fd = fopen($fn, 'r')) !== FALSE) {
 				$sid = md5(uniqid('SID', true));
 				$continue = true;
 				$fc = [];
 				while ((($row = fgetcsv($fd, $fs, ',')) !== FALSE) && $continue) {
+					// fixme anton - https://www.exploit-db.com/exploits/42044
+					$row = core_sanitize_inputs($row);
+
 					$fc[] = $row;
 				}
 				fclose($fd);
@@ -103,7 +108,7 @@ switch (_OP_) {
 					if ($sms_to && $sms_msg && $sms_username && $uid && !$dup) {
 						$all_numbers[] = $sms_to;
 						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
-						$db_query .= "VALUES ('$uid','$sid','" . core_get_datetime() . "','$sms_to','" . addslashes($sms_msg) . "','$sms_username')";
+						$db_query .= "VALUES ('$uid','$sid','" . core_get_datetime() . "','$sms_to','" . $sms_msg . "','$sms_username')";
 						if (dba_insert_id($db_query)) {
 							$valid++;
 						} else {
@@ -221,7 +226,10 @@ switch (_OP_) {
 				if ($username && $message && count($sms_to)) {
 					$type = 'text';
 					$unicode = core_detect_unicode($message);
-					$message = addslashes($message);
+
+					// fixme anton - already addslashed in db, it was written during upload and was added by core_sanitize_inputs()
+					//$message = addslashes($message);
+
 					list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, $type, $unicode);
 				}
 			}

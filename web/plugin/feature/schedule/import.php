@@ -61,11 +61,12 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_schedule&route=manage&op=list&id=' . $schedule_id);
 		_p($content);
 		break;
+
 	case "import":
 
-		// fixme anton - https://www.exploit-database.net/?id=92843
+		// fixme anton - https://www.exploit-db.com/exploits/42003
 		$fnpb_name = core_sanitize_filename($_FILES['fnpb']['name']);
-		if ($fnpb_name == $_FILES['fnpb']['name']) {
+		if ($fnpb_name && $fnpb_name == $_FILES['fnpb']['name']) {
 			$continue = TRUE;
 		} else {
 			$continue = FALSE;
@@ -100,12 +101,15 @@ switch (_OP_) {
 					$i++;
 				}
 				$entries = array_unique($entries);
+
+				// fixme anton - https://www.exploit-db.com/exploits/42044
+				$entries = core_sanitize_inputs($entries);
+
 				$session_import = 'schedule_' . _PID_;
 				$_SESSION['tmp'][$session_import] = array();
 				$i = 0;
 				foreach ( $entries as $entry ) {
 
-					// fixme anton - https://www.exploit-database.net/?id=92915
 					$entry[0] = core_sanitize_string($entry[0]);
 					$entry[1] = core_sanitize_string($entry[1]);
 					$entry[2] = core_sanitize_string($entry[2]);
@@ -145,11 +149,15 @@ switch (_OP_) {
 			exit();
 		}
 		break;
+
 	case "import_yes":
 		@set_time_limit(0);
 		$num = $_POST['number_of_row'];
 		$session_import = core_sanitize_string($_POST['session_import']);
-		$data = $_SESSION['tmp'][$session_import];
+
+		// fixme anton - should not need this due to data in this session should be sanitized already
+		$data = core_sanitize_inputs($_SESSION['tmp'][$session_import]);
+
 		foreach ( $data as $d ) {
 			$name = core_sanitize_string(trim($d[0]));
 			$destination = core_sanitize_string(trim($d[1]));
