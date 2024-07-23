@@ -68,6 +68,10 @@ switch (_OP_) {
 			<tbody>";
 
 		if (isset($list) && is_array($list)) {
+
+			// fixme anton - sanitize before displays
+			$list = _t($list);
+
 			$j = 0;
 			for ($j = 0; $j < count($list); $j++) {
 				$gpid = $list[$j]['id'];

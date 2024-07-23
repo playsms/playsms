@@ -124,6 +124,9 @@ switch (_OP_) {
 				</thead>
 				<tbody>";
 
+		// fixme anton - sanitize before displays
+		$list = _t($list);
+
 		$i = $nav['top'];
 		$j = 0;
 		for ($j = 0; $j < count($list); $j++) {
@@ -244,6 +247,10 @@ switch (_OP_) {
 				'uid' => $uid
 			)
 		);
+
+		// fixme anton - sanitize before displays
+		$list = _t($list);
+
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid=?";
 		$db_result = dba_query($db_query, [$uid]);
 		$list_of_group = array();
@@ -327,6 +334,7 @@ switch (_OP_) {
 				while ($db_row = dba_fetch_array($db_result)) {
 					$list[] = $db_row;
 				}
+
 				$data[0] = array(
 					_('Name'),
 					_('Mobile'),
@@ -334,6 +342,10 @@ switch (_OP_) {
 					_('Group code'),
 					_('Tags')
 				);
+
+				// fixme anton - sanitize before exports
+				$list = _t($list);
+
 				for ($i = 0; $i < count($list); $i++) {
 					$j = $i + 1;
 					$data[$j] = array(
@@ -353,12 +365,9 @@ switch (_OP_) {
 				$gpids = $_POST['gpids'];
 				unset($gpids[0]);
 				$save_to_group = FALSE;
-				$name = str_replace("\'", "", $_POST['name']);
-				$name = str_replace("\"", "", $name);
-				$mobile = str_replace("\'", "", $_POST['mobile']);
-				$mobile = sendsms_getvalidnumber(str_replace("\"", "", $mobile));
-				$email = str_replace("\'", "", $_POST['email']);
-				$email = str_replace("\"", "", $email);
+				$name = $_POST['name'];
+				$mobile = sendsms_getvalidnumber($_POST['mobile']);
+				$email = $_POST['email'];
 				$tags = phonebook_tags_clean($_POST['tags']);
 				if ($mobile && $name) {
 					$list = dba_search(
@@ -410,12 +419,9 @@ switch (_OP_) {
 				$gpids = $_POST['gpids'];
 				unset($gpids[0]);
 				$save_to_group = FALSE;
-				$mobile = str_replace("\'", "", $_POST['mobile']);
-				$mobile = sendsms_getvalidnumber(str_replace("\"", "", $mobile));
-				$name = str_replace("\'", "", $_POST['name']);
-				$name = str_replace("\"", "", $name);
-				$email = str_replace("\'", "", $_POST['email']);
-				$email = str_replace("\"", "", $email);
+				$name = $_POST['name'];
+				$mobile = sendsms_getvalidnumber($_POST['mobile']);
+				$email = $_POST['email'];
 				$tags = phonebook_tags_clean($_POST['tags']);
 				if ($c_pid && $mobile && $name) {
 					$items = array(
