@@ -230,23 +230,38 @@ function _lastpost_empty()
 
 /**
  * Clean input for display as text only
+ * Shortcut to core_display_text()
  * 
  * @param string|array $data original text
  * @param int $len length of text
  * @return string|array safe text
  */
-function _t($input, $len = 0)
+function _t($data, $len = 0)
 {
-	return core_display_text($input, $len);
+	return core_display_text($data, $len);
 }
 
 /**
  * Clean input for display as HTML
+ * Shortcut to core_display_html()
  * 
- * @param string|array $input
+ * @param string|array $data
  * @return string|array
  */
-function _h($input)
+function _h($data)
 {
-	return core_display_html($input);
+	return core_display_html($data);
+}
+
+/**
+ * Clean input for display on web without purification
+ * Assumed that $data already purified by other means
+ * Shortcut to core_display_data()
+ *
+ * @param string|array $data original data
+ * @return string|array safe data
+ */
+function _display($data)
+{
+	return core_display_data($data);
 }
