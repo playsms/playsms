@@ -106,9 +106,10 @@ function _dba_prepare($db_query)
 function _dba_execute($pdo_statement, $db_argv = [])
 {
 	$ret = false;
+
 	try {
 		if (is_array($db_argv) && $db_argv) {
-			$ret = $pdo_statement->execute($db_argv);
+			$ret = $pdo_statement->execute(core_stripslashes($db_argv));
 		} else {
 			$ret = $pdo_statement->execute();
 		}

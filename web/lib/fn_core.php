@@ -107,6 +107,28 @@ function core_htmlspecialchars_decode($data)
 }
 
 /**
+ * Replacement for trim()
+ *
+ * @param string|array $data simple variable or array of variables
+ * @return string|array
+ */
+function core_trim($data)
+{
+	if (is_array($data)) {
+		$ret = [];
+		foreach ( $data as $key => $val ) {
+			$ret[$key] = core_trim($val);
+		}
+	} else {
+		$data = trim($data);
+
+		$ret = $data;
+	}
+
+	return $ret;
+}
+
+/**
  * Set the language for the user, if it's no defined just leave it with the default
  *
  * @param string $var_username Username
@@ -290,95 +312,60 @@ function core_str2hex($string)
 /**
  * Purify input
  * 
- * @param string $input input
+ * @param string|array $data input
  * @param string $type text or HTML
- * @return string purified input
+ * @return string|array purified input
  */
-function core_purify($input, $type = 'text')
+function core_purify($data, $type = 'text')
 {
 	// type of output, text or other
 	$type = strtolower(trim($type));
 
-	// decode HTML special chars
-	$output = htmlspecialchars_decode($input);
-
-	// remove php tags
-	$output = str_ireplace('<?php', '', $output);
-	$output = str_ireplace('<?', '', $output);
-	$output = str_ireplace('?>', '', $output);
-	$output = str_ireplace('`', '', $output);
-
-	// purify it
-	$config = HTMLPurifier_Config::createDefault();
-	$config->set('Cache.DefinitionImpl', null);
-
-	if ($type == 'text') {
-
-		// if type is text then do not allow any HTML tags
-		// for non-text type default purifier config will be used
-		$config->set('HTML.AllowedElements', '');
-		$config->set('HTML.AllowedAttributes', '');
-	}
-
-	$hp = new HTMLPurifier($config);
-
-	$output = $hp->purify($output);
-
-	return $output;
-}
-
-/**
- * Format input for safe HTML display on the web
- *
- * @param string|array $data HTML input
- * @return string|array safe HTML
- */
-function core_display_html($data)
-{
 	if (is_array($data)) {
 		$ret = [];
 		foreach ( $data as $key => $val ) {
-			$ret[$key] = core_display_html($val);
+			$ret[$key] = core_purify($val, $type);
 		}
 	} else {
+
+		// trim
+		$data = trim($data);
+
+		// stripslashes
+		$data = stripslashes($data);
+
+		// decode HTML special chars
 		$data = htmlspecialchars_decode($data);
 
-		$data = core_stripslashes(trim($data));
+		// remove php tags
+		$data = str_ireplace('<?php', '', $data);
+		$data = str_ireplace('<?', '', $data);
+		$data = str_ireplace('?>', '', $data);
+		$data = str_ireplace('`', '', $data);
 
-		$data = core_purify($data, 'html');
+		// purify it
+		$config = HTMLPurifier_Config::createDefault();
 
-		$data = htmlspecialchars($data);
-
-		$ret = $data;
-	}
-
-	return $ret;
-}
-
-/**
- * Format text for safe display on the web
- *
- * @param string|array $data original text
- * @param int $len length of text
- * @return string|array safe text
- */
-function core_display_text($data, $len = 0)
-{
-	if (is_array($data)) {
-		$ret = [];
-		foreach ( $data as $key => $val ) {
-			$ret[$key] = core_display_text($val, $len);
+		$cache_dir = _APPS_PATH_STORAGE_ . '/cache/htmlpurifier';
+		if (file_exists($cache_dir) && is_writable($cache_dir)) {
+			$config->set('Cache.DefinitionImpl', 'Serializer');
+			$config->set('Cache.SerializerPath', $cache_dir);
+		} else {
+			$config->set('Cache.DefinitionImpl', null);
+			$config->set('Cache.SerializerPath', null);
 		}
-	} else {
-		$data = htmlspecialchars_decode($data);
 
-		$data = stripslashes(trim($data));
+		if ($type == 'text') {
 
-		$data = core_purify($data, 'text');
+			// if type is text then do not allow any HTML tags
+			// for non-text type default purifier config will be used
+			$config->set('HTML.AllowedElements', '');
+			$config->set('HTML.AllowedAttributes', '');
+		}
 
-		$data = $len > 0 ? substr($data, 0, $len) . '..' : $data;
+		$hp = new HTMLPurifier($config);
 
-		$data = htmlspecialchars($data);
+		$data = $hp->purify($data);
 
 		$ret = $data;
 	}
@@ -397,32 +384,59 @@ function core_sanitize_inputs($data, $type = 'text')
 {
 	$type = strtolower(trim($type));
 
-	if ($type == 'text') {
-		$data = core_display_text($data);
-	} else {
-		$data = core_display_html($data);
-	}
+	$data = core_purify($data, $type);
 
-	// consider input already sanitized by above function
-	// then revert back htmlspecialchars()
-	$data = core_htmlspecialchars_decode($data);
-
-	// consider input is coming from web, we need to addslashes it
+	// fixme anton - only until every queries using PDO
 	$data = core_addslashes($data);
 
 	return $data;
 }
 
 /**
- * Format $data for safe display on the web
+ * Format input for safe HTML display on the web
+ *
+ * @param string|array $data HTML input
+ * @return string|array safe HTML
+ */
+function core_display_html($data)
+{
+	$data = core_purify($data, 'html');
+
+	return $data;
+}
+
+/**
+ * Format text for safe display on the web
+ *
+ * @param string|array $data original text
+ * @param int $len length of text
+ * @return string|array safe text
+ */
+function core_display_text($data, $len = 0)
+{
+	$data = core_purify($data, 'text');
+
+	$data = $len > 0 ? substr($data, 0, $len - 1) : $data;
+
+	$data = core_htmlspecialchars($data);
+
+	return $data;
+}
+
+/**
+ * Format $data for safe display on the web without purification
+ * Assumed that $data already purified by other means
  * 
  * @param string|array $data original $data
- * @param int $len length of text
  * @return string|array formatted $data
  */
-function core_display_data($data, $len = 0)
+function core_display_data($data)
 {
-	return core_display_text($data, $len);
+	$data = core_stripslashes($data);
+
+	$data = core_htmlspecialchars($data);
+
+	return $data;
 }
 
 /**
