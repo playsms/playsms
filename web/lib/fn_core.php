@@ -85,6 +85,28 @@ function core_htmlspecialchars($data)
 }
 
 /**
+ * Replacement for htmlspecialchars_decode()
+ *
+ * @param string|array $data simple variable or array of variables
+ * @return string|array
+ */
+function core_htmlspecialchars_decode($data)
+{
+	if (is_array($data)) {
+		$ret = [];
+		foreach ( $data as $key => $val ) {
+			$ret[$key] = core_htmlspecialchars_decode($val);
+		}
+	} else {
+		$data = htmlspecialchars_decode($data);
+
+		$ret = $data;
+	}
+
+	return $ret;
+}
+
+/**
  * Set the language for the user, if it's no defined just leave it with the default
  *
  * @param string $var_username Username
@@ -294,16 +316,11 @@ function core_purify($input, $type = 'text')
 
 		// if type is text then do not allow any HTML tags
 		// for non-text type default purifier config will be used
-		$config->set('HTML.Allowed', null);
+		$config->set('HTML.AllowedElements', '');
+		$config->set('HTML.AllowedAttributes', '');
 	}
 
 	$hp = new HTMLPurifier($config);
-
-	if ($type == 'text') {
-
-		// if type is text then this might lessen burden for purifier
-		$output = strip_tags($output);
-	}
 
 	$output = $hp->purify($output);
 
@@ -324,9 +341,13 @@ function core_display_html($data)
 			$ret[$key] = core_display_html($val);
 		}
 	} else {
+		$data = htmlspecialchars_decode($data);
+
 		$data = core_stripslashes(trim($data));
 
 		$data = core_purify($data, 'html');
+
+		$data = htmlspecialchars($data);
 
 		$ret = $data;
 	}
@@ -349,11 +370,15 @@ function core_display_text($data, $len = 0)
 			$ret[$key] = core_display_text($val, $len);
 		}
 	} else {
+		$data = htmlspecialchars_decode($data);
+
 		$data = stripslashes(trim($data));
 
 		$data = core_purify($data, 'text');
 
 		$data = $len > 0 ? substr($data, 0, $len) . '..' : $data;
+
+		$data = htmlspecialchars($data);
 
 		$ret = $data;
 	}
@@ -377,6 +402,10 @@ function core_sanitize_inputs($data, $type = 'text')
 	} else {
 		$data = core_display_html($data);
 	}
+
+	// consider input already sanitized by above function
+	// then revert back htmlspecialchars()
+	$data = core_htmlspecialchars_decode($data);
 
 	// consider input is coming from web, we need to addslashes it
 	$data = core_addslashes($data);
