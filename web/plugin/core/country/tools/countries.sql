@@ -1,206 +1,280 @@
-TRUNCATE playsms_tblCountry;
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('af','Afghanistan','93');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('al','Albania','355');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('dz','Algeria','213');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ad','Andorra','376');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ao','Angola','244');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('aq','Antarctica','672');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ar','Argentina','54');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('am','Armenia','374');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('aw','Aruba','297');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('au','Australia','61');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('at','Austria','43');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('az','Azerbaijan','994');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bh','Bahrain','973');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bd','Bangladesh','880');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('by','Belarus','375');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('be','Belgium','32');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bz','Belize','501');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bj','Benin','229');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bt','Bhutan','975');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bo','Bolivia, Plurinational State Of','591');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ba','Bosnia And Herzegovina','387');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bw','Botswana','267');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('br','Brazil','55');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bn','Brunei Darussalam','673');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bg','Bulgaria','359');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bf','Burkina Faso','226');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mm','Myanmar','95');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bi','Burundi','257');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('kh','Cambodia','855');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cm','Cameroon','237');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ca','Canada','1');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cv','Cape Verde','238');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cf','Central African Republic','236');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('td','Chad','235');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cl','Chile','56');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cn','China','86');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cx','Christmas Island','61');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cc','Cocos (keeling) Islands','61');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('co','Colombia','57');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('km','Comoros','269');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cg','Congo','242');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cd','Congo, The Democratic Republic Of The','243');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ck','Cook Islands','682');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cr','Costa Rica','506');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('hr','Croatia','385');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cu','Cuba','53');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cy','Cyprus','357');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('cz','Czech Republic','420');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('dk','Denmark','45');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('dj','Djibouti','253');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tl','Timor-leste','670');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ec','Ecuador','593');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('eg','Egypt','20');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sv','El Salvador','503');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gq','Equatorial Guinea','240');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('er','Eritrea','291');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ee','Estonia','372');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('et','Ethiopia','251');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('fk','Falkland Islands (malvinas)','500');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('fo','Faroe Islands','298');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('fj','Fiji','679');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('fi','Finland','358');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('fr','France','33');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pf','French Polynesia','689');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ga','Gabon','241');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gm','Gambia','220');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ge','Georgia','995');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('de','Germany','49');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gh','Ghana','233');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gi','Gibraltar','350');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gr','Greece','30');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gl','Greenland','299');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gt','Guatemala','502');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gn','Guinea','224');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gw','Guinea-bissau','245');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gy','Guyana','592');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ht','Haiti','509');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('hn','Honduras','504');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('hk','Hong Kong','852');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('hu','Hungary','36');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('in','India','91');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('id','Indonesia','62');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ir','Iran, Islamic Republic Of','98');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('iq','Iraq','964');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ie','Ireland','353');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('im','Isle Of Man','44');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('il','Israel','972');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('it','Italy','39');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ci','Côte D\'ivoire','225');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('jp','Japan','81');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('jo','Jordan','962');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('kz','Kazakhstan','7');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ke','Kenya','254');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ki','Kiribati','686');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('kw','Kuwait','965');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('kg','Kyrgyzstan','996');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('la','Lao People\'s Democratic Republic','856');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('lv','Latvia','371');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('lb','Lebanon','961');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ls','Lesotho','266');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('lr','Liberia','231');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ly','Libya','218');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('li','Liechtenstein','423');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('lt','Lithuania','370');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('lu','Luxembourg','352');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mo','Macao','853');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mk','Macedonia, The Former Yugoslav Republic Of','389');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mg','Madagascar','261');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mw','Malawi','265');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('my','Malaysia','60');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mv','Maldives','960');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ml','Mali','223');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mt','Malta','356');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mh','Marshall Islands','692');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mr','Mauritania','222');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mu','Mauritius','230');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('yt','Mayotte','262');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mx','Mexico','52');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('fm','Micronesia, Federated States Of','691');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('md','Moldova, Republic Of','373');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mc','Monaco','377');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mn','Mongolia','976');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('me','Montenegro','382');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ma','Morocco','212');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('mz','Mozambique','258');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('na','Namibia','264');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('nr','Nauru','674');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('np','Nepal','977');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('nl','Netherlands','31');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('nc','New Caledonia','687');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('nz','New Zealand','64');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ni','Nicaragua','505');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ne','Niger','227');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ng','Nigeria','234');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('nu','Niue','683');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('kp','Korea, Democratic People\'s Republic Of','850');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('no','Norway','47');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('om','Oman','968');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pk','Pakistan','92');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pw','Palau','680');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pa','Panama','507');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pg','Papua New Guinea','675');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('py','Paraguay','595');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pe','Peru','51');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ph','Philippines','63');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pn','Pitcairn','870');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pl','Poland','48');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pt','Portugal','351');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pr','Puerto Rico','1');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('qa','Qatar','974');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ro','Romania','40');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ru','Russian Federation','7');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('rw','Rwanda','250');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('bl','Saint Barthélemy','590');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ws','Samoa','685');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sm','San Marino','378');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('st','Sao Tome And Principe','239');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sa','Saudi Arabia','966');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sn','Senegal','221');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('rs','Serbia','381');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sc','Seychelles','248');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sl','Sierra Leone','232');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sg','Singapore','65');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sk','Slovakia','421');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('si','Slovenia','386');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sb','Solomon Islands','677');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('so','Somalia','252');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('za','South Africa','27');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('kr','Korea, Republic Of','82');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('es','Spain','34');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('lk','Sri Lanka','94');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sh','Saint Helena, Ascension And Tristan Da Cunha','290');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('pm','Saint Pierre And Miquelon','508');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sd','Sudan','249');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sr','Suriname','597');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sz','Swaziland','268');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('se','Sweden','46');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ch','Switzerland','41');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('sy','Syrian Arab Republic','963');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tw','Taiwan, Province Of China','886');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tj','Tajikistan','992');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tz','Tanzania, United Republic Of','255');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('th','Thailand','66');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tg','Togo','228');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tk','Tokelau','690');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('to','Tonga','676');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tn','Tunisia','216');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tr','Turkey','90');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tm','Turkmenistan','993');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('tv','Tuvalu','688');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ae','United Arab Emirates','971');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ug','Uganda','256');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('gb','United Kingdom','44');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ua','Ukraine','380');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('uy','Uruguay','598');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('us','United States','1');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('uz','Uzbekistan','998');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('vu','Vanuatu','678');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('va','Holy See (vatican City State)','39');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ve','Venezuela, Bolivarian Republic Of','58');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('vn','Viet Nam','84');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('wf','Wallis And Futuna','681');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('ye','Yemen','967');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('zm','Zambia','260');
-INSERT INTO playsms_tblCountry (country_code, country_name, country_prefix) VALUES ('zw','Zimbabwe','263');
+--
+-- Table structure for table `playsms_tblCountry`
+--
+
+DROP TABLE IF EXISTS `playsms_tblCountry`;
+CREATE TABLE `playsms_tblCountry` (
+  `c_timestamp` bigint(20) NOT NULL DEFAULT 0,
+  `country_id` int(11) NOT NULL,
+  `country_name` varchar(200) NOT NULL DEFAULT '',
+  `country_code` varchar(10) NOT NULL DEFAULT '',
+  `country_prefix` varchar(10) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+--
+-- Dumping data for table `playsms_tblCountry`
+--
+
+INSERT INTO `playsms_tblCountry` (`c_timestamp`, `country_id`, `country_name`, `country_code`, `country_prefix`) VALUES
+(0, 1, 'Afghanistan', 'AF', '93'),
+(0, 2, 'Albania', 'AL', '355'),
+(0, 3, 'Algeria', 'DZ', '213'),
+(0, 4, 'American Samoa', 'AS', '1684'),
+(0, 5, 'Andorra', 'AD', '376'),
+(0, 6, 'Angola', 'AO', '244'),
+(0, 7, 'Anguilla', 'AI', '1264'),
+(0, 8, 'Antarctica', 'AQ', '672'),
+(0, 9, 'Antigua and Barbuda', 'AG', '1268'),
+(0, 10, 'Argentina', 'AR', '54'),
+(0, 11, 'Armenia', 'AM', '374'),
+(0, 12, 'Aruba', 'AW', '297'),
+(0, 13, 'Australia', 'AU', '61'),
+(0, 14, 'Austria', 'AT', '43'),
+(0, 15, 'Azerbaijan', 'AZ', '994'),
+(0, 16, 'Bahamas', 'BS', '1242'),
+(0, 17, 'Bahrain', 'BH', '973'),
+(0, 18, 'Bangladesh', 'BD', '880'),
+(0, 19, 'Barbados', 'BB', '1246'),
+(0, 20, 'Belarus', 'BY', '375'),
+(0, 21, 'Belgium', 'BE', '32'),
+(0, 22, 'Belize', 'BZ', '501'),
+(0, 23, 'Benin', 'BJ', '229'),
+(0, 24, 'Bermuda', 'BM', '1441'),
+(0, 25, 'Bhutan', 'BT', '975'),
+(0, 26, 'Bolivia', 'BO', '591'),
+(0, 27, 'Bosnia and Herzegovina', 'BA', '387'),
+(0, 28, 'Botswana', 'BW', '267'),
+(0, 29, 'Brazil', 'BR', '55'),
+(0, 30, 'British Indian Ocean Territory', 'IO', '246'),
+(0, 31, 'British Virgin Islands', 'VG', '1284'),
+(0, 32, 'Brunei', 'BN', '673'),
+(0, 33, 'Bulgaria', 'BG', '359'),
+(0, 34, 'Burkina Faso', 'BF', '226'),
+(0, 35, 'Burundi', 'BI', '257'),
+(0, 36, 'Cambodia', 'KH', '855'),
+(0, 37, 'Cameroon', 'CM', '237'),
+(0, 38, 'Canada', 'CA', '1'),
+(0, 39, 'Cape Verde', 'CV', '238'),
+(0, 40, 'Cayman Islands', 'KY', '1345'),
+(0, 41, 'Central African Republic', 'CF', '236'),
+(0, 42, 'Chad', 'TD', '235'),
+(0, 43, 'Chile', 'CL', '56'),
+(0, 44, 'China', 'CN', '86'),
+(0, 45, 'Christmas Island', 'CX', '61'),
+(0, 46, 'Cocos Islands', 'CC', '61'),
+(0, 47, 'Colombia', 'CO', '57'),
+(0, 48, 'Comoros', 'KM', '269'),
+(0, 49, 'Cook Islands', 'CK', '682'),
+(0, 50, 'Costa Rica', 'CR', '506'),
+(0, 51, 'Croatia', 'HR', '385'),
+(0, 52, 'Cuba', 'CU', '53'),
+(0, 53, 'Curacao', 'CW', '599'),
+(0, 54, 'Cyprus', 'CY', '357'),
+(0, 55, 'Czech Republic', 'CZ', '420'),
+(0, 56, 'Democratic Republic of the Congo', 'CD', '243'),
+(0, 57, 'Denmark', 'DK', '45'),
+(0, 58, 'Djibouti', 'DJ', '253'),
+(0, 59, 'Dominica', 'DM', '1767'),
+(0, 60, 'Dominican Republic', 'DO', '1809'),
+(0, 61, 'East Timor', 'TL', '670'),
+(0, 62, 'Ecuador', 'EC', '593'),
+(0, 63, 'Egypt', 'EG', '20'),
+(0, 64, 'El Salvador', 'SV', '503'),
+(0, 65, 'Equatorial Guinea', 'GQ', '240'),
+(0, 66, 'Eritrea', 'ER', '291'),
+(0, 67, 'Estonia', 'EE', '372'),
+(0, 68, 'Eswatini', 'SZ', '268'),
+(0, 69, 'Ethiopia', 'ET', '251'),
+(0, 70, 'Falkland Islands', 'FK', '500'),
+(0, 71, 'Faroe Islands', 'FO', '298'),
+(0, 72, 'Fiji', 'FJ', '679'),
+(0, 73, 'Finland', 'FI', '358'),
+(0, 74, 'France', 'FR', '33'),
+(0, 75, 'French Polynesia', 'PF', '689'),
+(0, 76, 'Gabon', 'GA', '241'),
+(0, 77, 'Gambia', 'GM', '220'),
+(0, 78, 'Georgia', 'GE', '995'),
+(0, 79, 'Germany', 'DE', '49'),
+(0, 80, 'Ghana', 'GH', '233'),
+(0, 81, 'Gibraltar', 'GI', '350'),
+(0, 82, 'Greece', 'GR', '30'),
+(0, 83, 'Greenland', 'GL', '299'),
+(0, 84, 'Grenada', 'GD', '1473'),
+(0, 85, 'Guam', 'GU', '1671'),
+(0, 86, 'Guatemala', 'GT', '502'),
+(0, 87, 'Guernsey', 'GG', '441481'),
+(0, 88, 'Guinea', 'GN', '224'),
+(0, 89, 'Guinea-Bissau', 'GW', '245'),
+(0, 90, 'Guyana', 'GY', '592'),
+(0, 91, 'Haiti', 'HT', '509'),
+(0, 92, 'Honduras', 'HN', '504'),
+(0, 93, 'Hong Kong', 'HK', '852'),
+(0, 94, 'Hungary', 'HU', '36'),
+(0, 95, 'Iceland', 'IS', '354'),
+(0, 96, 'India', 'IN', '91'),
+(0, 97, 'Indonesia', 'ID', '62'),
+(0, 98, 'Iran', 'IR', '98'),
+(0, 99, 'Iraq', 'IQ', '964'),
+(0, 100, 'Ireland', 'IE', '353'),
+(0, 101, 'Isle of Man', 'IM', '441624'),
+(0, 102, 'Israel', 'IL', '972'),
+(0, 103, 'Italy', 'IT', '39'),
+(0, 104, 'Ivory Coast', 'CI', '225'),
+(0, 105, 'Jamaica', 'JM', '1876'),
+(0, 106, 'Japan', 'JP', '81'),
+(0, 107, 'Jersey', 'JE', '441534'),
+(0, 108, 'Jordan', 'JO', '962'),
+(0, 109, 'Kazakhstan', 'KZ', '7'),
+(0, 110, 'Kenya', 'KE', '254'),
+(0, 111, 'Kiribati', 'KI', '686'),
+(0, 112, 'Kosovo', 'XK', '383'),
+(0, 113, 'Kuwait', 'KW', '965'),
+(0, 114, 'Kyrgyzstan', 'KG', '996'),
+(0, 115, 'Laos', 'LA', '856'),
+(0, 116, 'Latvia', 'LV', '371'),
+(0, 117, 'Lebanon', 'LB', '961'),
+(0, 118, 'Lesotho', 'LS', '266'),
+(0, 119, 'Liberia', 'LR', '231'),
+(0, 120, 'Libya', 'LY', '218'),
+(0, 121, 'Liechtenstein', 'LI', '423'),
+(0, 122, 'Lithuania', 'LT', '370'),
+(0, 123, 'Luxembourg', 'LU', '352'),
+(0, 124, 'Macao', 'MO', '853'),
+(0, 125, 'Macedonia', 'MK', '389'),
+(0, 126, 'Madagascar', 'MG', '261'),
+(0, 127, 'Malawi', 'MW', '265'),
+(0, 128, 'Malaysia', 'MY', '60'),
+(0, 129, 'Maldives', 'MV', '960'),
+(0, 130, 'Mali', 'ML', '223'),
+(0, 131, 'Malta', 'MT', '356'),
+(0, 132, 'Marshall Islands', 'MH', '692'),
+(0, 133, 'Mauritania', 'MR', '222'),
+(0, 134, 'Mauritius', 'MU', '230'),
+(0, 135, 'Mayotte', 'YT', '262'),
+(0, 136, 'Mexico', 'MX', '52'),
+(0, 137, 'Micronesia', 'FM', '691'),
+(0, 138, 'Moldova', 'MD', '373'),
+(0, 139, 'Monaco', 'MC', '377'),
+(0, 140, 'Mongolia', 'MN', '976'),
+(0, 141, 'Montenegro', 'ME', '382'),
+(0, 142, 'Montserrat', 'MS', '1664'),
+(0, 143, 'Morocco', 'MA', '212'),
+(0, 144, 'Mozambique', 'MZ', '258'),
+(0, 145, 'Myanmar', 'MM', '95'),
+(0, 146, 'Namibia', 'NA', '264'),
+(0, 147, 'Nauru', 'NR', '674'),
+(0, 148, 'Nepal', 'NP', '977'),
+(0, 149, 'Netherlands', 'NL', '31'),
+(0, 150, 'Netherlands Antilles', 'AN', '599'),
+(0, 151, 'New Caledonia', 'NC', '687'),
+(0, 152, 'New Zealand', 'NZ', '64'),
+(0, 153, 'Nicaragua', 'NI', '505'),
+(0, 154, 'Niger', 'NE', '227'),
+(0, 155, 'Nigeria', 'NG', '234'),
+(0, 156, 'Niue', 'NU', '683'),
+(0, 157, 'North Korea', 'KP', '850'),
+(0, 158, 'Northern Mariana Islands', 'MP', '1670'),
+(0, 159, 'Norway', 'NO', '47'),
+(0, 160, 'Oman', 'OM', '968'),
+(0, 161, 'Pakistan', 'PK', '92'),
+(0, 162, 'Palau', 'PW', '680'),
+(0, 163, 'Palestine', 'PS', '970'),
+(0, 164, 'Panama', 'PA', '507'),
+(0, 165, 'Papua New Guinea', 'PG', '675'),
+(0, 166, 'Paraguay', 'PY', '595'),
+(0, 167, 'Peru', 'PE', '51'),
+(0, 168, 'Philippines', 'PH', '63'),
+(0, 169, 'Pitcairn', 'PN', '64'),
+(0, 170, 'Poland', 'PL', '48'),
+(0, 171, 'Portugal', 'PT', '351'),
+(0, 172, 'Puerto Rico', 'PR', '1787'),
+(0, 173, 'Qatar', 'QA', '974'),
+(0, 174, 'Republic of the Congo', 'CG', '242'),
+(0, 175, 'Reunion', 'RE', '262'),
+(0, 176, 'Romania', 'RO', '40'),
+(0, 177, 'Russia', 'RU', '7'),
+(0, 178, 'Rwanda', 'RW', '250'),
+(0, 179, 'Saint Barthelemy', 'BL', '590'),
+(0, 180, 'Saint Helena', 'SH', '290'),
+(0, 181, 'Saint Kitts and Nevis', 'KN', '1869'),
+(0, 182, 'Saint Lucia', 'LC', '1758'),
+(0, 183, 'Saint Martin', 'MF', '590'),
+(0, 184, 'Saint Pierre and Miquelon', 'PM', '508'),
+(0, 185, 'Saint Vincent and the Grenadines', 'VC', '1784'),
+(0, 186, 'Samoa', 'WS', '685'),
+(0, 187, 'San Marino', 'SM', '378'),
+(0, 188, 'Sao Tome and Principe', 'ST', '239'),
+(0, 189, 'Saudi Arabia', 'SA', '966'),
+(0, 190, 'Senegal', 'SN', '221'),
+(0, 191, 'Serbia', 'RS', '381'),
+(0, 192, 'Seychelles', 'SC', '248'),
+(0, 193, 'Sierra Leone', 'SL', '232'),
+(0, 194, 'Singapore', 'SG', '65'),
+(0, 195, 'Sint Maarten', 'SX', '1721'),
+(0, 196, 'Slovakia', 'SK', '421'),
+(0, 197, 'Slovenia', 'SI', '386'),
+(0, 198, 'Solomon Islands', 'SB', '677'),
+(0, 199, 'Somalia', 'SO', '252'),
+(0, 200, 'South Africa', 'ZA', '27'),
+(0, 201, 'South Korea', 'KR', '82'),
+(0, 202, 'South Sudan', 'SS', '211'),
+(0, 203, 'Spain', 'ES', '34'),
+(0, 204, 'Sri Lanka', 'LK', '94'),
+(0, 205, 'Sudan', 'SD', '249'),
+(0, 206, 'Suriname', 'SR', '597'),
+(0, 207, 'Svalbard and Jan Mayen', 'SJ', '47'),
+(0, 208, 'Swaziland', 'SZ', '268'),
+(0, 209, 'Sweden', 'SE', '46'),
+(0, 210, 'Switzerland', 'CH', '41'),
+(0, 211, 'Syria', 'SY', '963'),
+(0, 212, 'Taiwan', 'TW', '886'),
+(0, 213, 'Tajikistan', 'TJ', '992'),
+(0, 214, 'Tanzania', 'TZ', '255'),
+(0, 215, 'Thailand', 'TH', '66'),
+(0, 216, 'Togo', 'TG', '228'),
+(0, 217, 'Tokelau', 'TK', '690'),
+(0, 218, 'Tonga', 'TO', '676'),
+(0, 219, 'Trinidad and Tobago', 'TT', '1868'),
+(0, 220, 'Tunisia', 'TN', '216'),
+(0, 221, 'Turkey', 'TR', '90'),
+(0, 222, 'Turkmenistan', 'TM', '993'),
+(0, 223, 'Turks and Caicos Islands', 'TC', '1649'),
+(0, 224, 'Tuvalu', 'TV', '688'),
+(0, 225, 'U.S. Virgin Islands', 'VI', '1340'),
+(0, 226, 'Uganda', 'UG', '256'),
+(0, 227, 'Ukraine', 'UA', '380'),
+(0, 228, 'United Arab Emirates', 'AE', '971'),
+(0, 229, 'United Kingdom', 'GB', '44'),
+(0, 230, 'United States', 'US', '1'),
+(0, 231, 'Uruguay', 'UY', '598'),
+(0, 232, 'Uzbekistan', 'UZ', '998'),
+(0, 233, 'Vanuatu', 'VU', '678'),
+(0, 234, 'Vatican', 'VA', '379'),
+(0, 235, 'Venezuela', 'VE', '58'),
+(0, 236, 'Vietnam', 'VN', '84'),
+(0, 237, 'Wallis and Futuna', 'WF', '681'),
+(0, 238, 'Western Sahara', 'EH', '212'),
+(0, 239, 'Yemen', 'YE', '967'),
+(0, 240, 'Zambia', 'ZM', '260'),
+(0, 241, 'Zimbabwe', 'ZW', '263');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `playsms_tblCountry`
+--
+ALTER TABLE `playsms_tblCountry`
+  ADD PRIMARY KEY (`country_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `playsms_tblCountry`
+--
+ALTER TABLE `playsms_tblCountry`
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
+COMMIT;

@@ -1,208 +1,1451 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<countries>
-  <country code='af' phoneCode='93' name='Afghanistan' />
-  <country code='al' phoneCode='355' name='Albania' />
-  <country code='dz' phoneCode='213' name='Algeria' />
-  <country code='ad' phoneCode='376' name='Andorra' />
-  <country code='ao' phoneCode='244' name='Angola' />
-  <country code='aq' phoneCode='672' name='Antarctica' />
-  <country code='ar' phoneCode='54' name='Argentina' />
-  <country code='am' phoneCode='374' name='Armenia' />
-  <country code='aw' phoneCode='297' name='Aruba' />
-  <country code='au' phoneCode='61' name='Australia' />
-  <country code='at' phoneCode='43' name='Austria' />
-  <country code='az' phoneCode='994' name='Azerbaijan' />
-  <country code='bh' phoneCode='973' name='Bahrain' />
-  <country code='bd' phoneCode='880' name='Bangladesh' />
-  <country code='by' phoneCode='375' name='Belarus' />
-  <country code='be' phoneCode='32' name='Belgium' />
-  <country code='bz' phoneCode='501' name='Belize' />
-  <country code='bj' phoneCode='229' name='Benin' />
-  <country code='bt' phoneCode='975' name='Bhutan' />
-  <country code='bo' phoneCode='591' name='Bolivia, Plurinational State Of' />
-  <country code='ba' phoneCode='387' name='Bosnia And Herzegovina' />
-  <country code='bw' phoneCode='267' name='Botswana' />
-  <country code='br' phoneCode='55' name='Brazil' />
-  <country code='bn' phoneCode='673' name='Brunei Darussalam' />
-  <country code='bg' phoneCode='359' name='Bulgaria' />
-  <country code='bf' phoneCode='226' name='Burkina Faso' />
-  <country code='mm' phoneCode='95' name='Myanmar' />
-  <country code='bi' phoneCode='257' name='Burundi' />
-  <country code='kh' phoneCode='855' name='Cambodia' />
-  <country code='cm' phoneCode='237' name='Cameroon' />
-  <country code='ca' phoneCode='1' name='Canada' />
-  <country code='cv' phoneCode='238' name='Cape Verde' />
-  <country code='cf' phoneCode='236' name='Central African Republic' />
-  <country code='td' phoneCode='235' name='Chad' />
-  <country code='cl' phoneCode='56' name='Chile' />
-  <country code='cn' phoneCode='86' name='China' />
-  <country code='cx' phoneCode='61' name='Christmas Island' />
-  <country code='cc' phoneCode='61' name='Cocos (keeling) Islands' />
-  <country code='co' phoneCode='57' name='Colombia' />
-  <country code='km' phoneCode='269' name='Comoros' />
-  <country code='cg' phoneCode='242' name='Congo' />
-  <country code='cd' phoneCode='243' name='Congo, The Democratic Republic Of The' />
-  <country code='ck' phoneCode='682' name='Cook Islands' />
-  <country code='cr' phoneCode='506' name='Costa Rica' />
-  <country code='hr' phoneCode='385' name='Croatia' />
-  <country code='cu' phoneCode='53' name='Cuba' />
-  <country code='cy' phoneCode='357' name='Cyprus' />
-  <country code='cz' phoneCode='420' name='Czech Republic' />
-  <country code='dk' phoneCode='45' name='Denmark' />
-  <country code='dj' phoneCode='253' name='Djibouti' />
-  <country code='tl' phoneCode='670' name='Timor-leste' />
-  <country code='ec' phoneCode='593' name='Ecuador' />
-  <country code='eg' phoneCode='20' name='Egypt' />
-  <country code='sv' phoneCode='503' name='El Salvador' />
-  <country code='gq' phoneCode='240' name='Equatorial Guinea' />
-  <country code='er' phoneCode='291' name='Eritrea' />
-  <country code='ee' phoneCode='372' name='Estonia' />
-  <country code='et' phoneCode='251' name='Ethiopia' />
-  <country code='fk' phoneCode='500' name='Falkland Islands (malvinas)' />
-  <country code='fo' phoneCode='298' name='Faroe Islands' />
-  <country code='fj' phoneCode='679' name='Fiji' />
-  <country code='fi' phoneCode='358' name='Finland' />
-  <country code='fr' phoneCode='33' name='France' />
-  <country code='pf' phoneCode='689' name='French Polynesia' />
-  <country code='ga' phoneCode='241' name='Gabon' />
-  <country code='gm' phoneCode='220' name='Gambia' />
-  <country code='ge' phoneCode='995' name='Georgia' />
-  <country code='de' phoneCode='49' name='Germany' />
-  <country code='gh' phoneCode='233' name='Ghana' />
-  <country code='gi' phoneCode='350' name='Gibraltar' />
-  <country code='gr' phoneCode='30' name='Greece' />
-  <country code='gl' phoneCode='299' name='Greenland' />
-  <country code='gt' phoneCode='502' name='Guatemala' />
-  <country code='gn' phoneCode='224' name='Guinea' />
-  <country code='gw' phoneCode='245' name='Guinea-bissau' />
-  <country code='gy' phoneCode='592' name='Guyana' />
-  <country code='ht' phoneCode='509' name='Haiti' />
-  <country code='hn' phoneCode='504' name='Honduras' />
-  <country code='hk' phoneCode='852' name='Hong Kong' />
-  <country code='hu' phoneCode='36' name='Hungary' />
-  <country code='in' phoneCode='91' name='India' />
-  <country code='id' phoneCode='62' name='Indonesia' />
-  <country code='ir' phoneCode='98' name='Iran, Islamic Republic Of' />
-  <country code='iq' phoneCode='964' name='Iraq' />
-  <country code='ie' phoneCode='353' name='Ireland' />
-  <country code='im' phoneCode='44' name='Isle Of Man' />
-  <country code='il' phoneCode='972' name='Israel' />
-  <country code='it' phoneCode='39' name='Italy' />
-  <country code='ci' phoneCode='225' name='Côte D&apos;ivoire' />
-  <country code='jp' phoneCode='81' name='Japan' />
-  <country code='jo' phoneCode='962' name='Jordan' />
-  <country code='kz' phoneCode='7' name='Kazakhstan' />
-  <country code='ke' phoneCode='254' name='Kenya' />
-  <country code='ki' phoneCode='686' name='Kiribati' />
-  <country code='kw' phoneCode='965' name='Kuwait' />
-  <country code='kg' phoneCode='996' name='Kyrgyzstan' />
-  <country code='la' phoneCode='856' name='Lao People&apos;s Democratic Republic' />
-  <country code='lv' phoneCode='371' name='Latvia' />
-  <country code='lb' phoneCode='961' name='Lebanon' />
-  <country code='ls' phoneCode='266' name='Lesotho' />
-  <country code='lr' phoneCode='231' name='Liberia' />
-  <country code='ly' phoneCode='218' name='Libya' />
-  <country code='li' phoneCode='423' name='Liechtenstein' />
-  <country code='lt' phoneCode='370' name='Lithuania' />
-  <country code='lu' phoneCode='352' name='Luxembourg' />
-  <country code='mo' phoneCode='853' name='Macao' />
-  <country code='mk' phoneCode='389' name='Macedonia, The Former Yugoslav Republic Of' />
-  <country code='mg' phoneCode='261' name='Madagascar' />
-  <country code='mw' phoneCode='265' name='Malawi' />
-  <country code='my' phoneCode='60' name='Malaysia' />
-  <country code='mv' phoneCode='960' name='Maldives' />
-  <country code='ml' phoneCode='223' name='Mali' />
-  <country code='mt' phoneCode='356' name='Malta' />
-  <country code='mh' phoneCode='692' name='Marshall Islands' />
-  <country code='mr' phoneCode='222' name='Mauritania' />
-  <country code='mu' phoneCode='230' name='Mauritius' />
-  <country code='yt' phoneCode='262' name='Mayotte' />
-  <country code='mx' phoneCode='52' name='Mexico' />
-  <country code='fm' phoneCode='691' name='Micronesia, Federated States Of' />
-  <country code='md' phoneCode='373' name='Moldova, Republic Of' />
-  <country code='mc' phoneCode='377' name='Monaco' />
-  <country code='mn' phoneCode='976' name='Mongolia' />
-  <country code='me' phoneCode='382' name='Montenegro' />
-  <country code='ma' phoneCode='212' name='Morocco' />
-  <country code='mz' phoneCode='258' name='Mozambique' />
-  <country code='na' phoneCode='264' name='Namibia' />
-  <country code='nr' phoneCode='674' name='Nauru' />
-  <country code='np' phoneCode='977' name='Nepal' />
-  <country code='nl' phoneCode='31' name='Netherlands' />
-  <country code='nc' phoneCode='687' name='New Caledonia' />
-  <country code='nz' phoneCode='64' name='New Zealand' />
-  <country code='ni' phoneCode='505' name='Nicaragua' />
-  <country code='ne' phoneCode='227' name='Niger' />
-  <country code='ng' phoneCode='234' name='Nigeria' />
-  <country code='nu' phoneCode='683' name='Niue' />
-  <country code='kp' phoneCode='850' name='Korea, Democratic People&apos;s Republic Of' />
-  <country code='no' phoneCode='47' name='Norway' />
-  <country code='om' phoneCode='968' name='Oman' />
-  <country code='pk' phoneCode='92' name='Pakistan' />
-  <country code='pw' phoneCode='680' name='Palau' />
-  <country code='pa' phoneCode='507' name='Panama' />
-  <country code='pg' phoneCode='675' name='Papua New Guinea' />
-  <country code='py' phoneCode='595' name='Paraguay' />
-  <country code='pe' phoneCode='51' name='Peru' />
-  <country code='ph' phoneCode='63' name='Philippines' />
-  <country code='pn' phoneCode='870' name='Pitcairn' />
-  <country code='pl' phoneCode='48' name='Poland' />
-  <country code='pt' phoneCode='351' name='Portugal' />
-  <country code='pr' phoneCode='1' name='Puerto Rico' />
-  <country code='qa' phoneCode='974' name='Qatar' />
-  <country code='ro' phoneCode='40' name='Romania' />
-  <country code='ru' phoneCode='7' name='Russian Federation' />
-  <country code='rw' phoneCode='250' name='Rwanda' />
-  <country code='bl' phoneCode='590' name='Saint Barthélemy' />
-  <country code='ws' phoneCode='685' name='Samoa' />
-  <country code='sm' phoneCode='378' name='San Marino' />
-  <country code='st' phoneCode='239' name='Sao Tome And Principe' />
-  <country code='sa' phoneCode='966' name='Saudi Arabia' />
-  <country code='sn' phoneCode='221' name='Senegal' />
-  <country code='rs' phoneCode='381' name='Serbia' />
-  <country code='sc' phoneCode='248' name='Seychelles' />
-  <country code='sl' phoneCode='232' name='Sierra Leone' />
-  <country code='sg' phoneCode='65' name='Singapore' />
-  <country code='sk' phoneCode='421' name='Slovakia' />
-  <country code='si' phoneCode='386' name='Slovenia' />
-  <country code='sb' phoneCode='677' name='Solomon Islands' />
-  <country code='so' phoneCode='252' name='Somalia' />
-  <country code='za' phoneCode='27' name='South Africa' />
-  <country code='kr' phoneCode='82' name='Korea, Republic Of' />
-  <country code='es' phoneCode='34' name='Spain' />
-  <country code='lk' phoneCode='94' name='Sri Lanka' />
-  <country code='sh' phoneCode='290' name='Saint Helena, Ascension And Tristan Da Cunha' />
-  <country code='pm' phoneCode='508' name='Saint Pierre And Miquelon' />
-  <country code='sd' phoneCode='249' name='Sudan' />
-  <country code='sr' phoneCode='597' name='Suriname' />
-  <country code='sz' phoneCode='268' name='Swaziland' />
-  <country code='se' phoneCode='46' name='Sweden' />
-  <country code='ch' phoneCode='41' name='Switzerland' />
-  <country code='sy' phoneCode='963' name='Syrian Arab Republic' />
-  <country code='tw' phoneCode='886' name='Taiwan, Province Of China' />
-  <country code='tj' phoneCode='992' name='Tajikistan' />
-  <country code='tz' phoneCode='255' name='Tanzania, United Republic Of' />
-  <country code='th' phoneCode='66' name='Thailand' />
-  <country code='tg' phoneCode='228' name='Togo' />
-  <country code='tk' phoneCode='690' name='Tokelau' />
-  <country code='to' phoneCode='676' name='Tonga' />
-  <country code='tn' phoneCode='216' name='Tunisia' />
-  <country code='tr' phoneCode='90' name='Turkey' />
-  <country code='tm' phoneCode='993' name='Turkmenistan' />
-  <country code='tv' phoneCode='688' name='Tuvalu' />
-  <country code='ae' phoneCode='971' name='United Arab Emirates' />
-  <country code='ug' phoneCode='256' name='Uganda' />
-  <country code='gb' phoneCode='44' name='United Kingdom' />
-  <country code='ua' phoneCode='380' name='Ukraine' />
-  <country code='uy' phoneCode='598' name='Uruguay' />
-  <country code='us' phoneCode='1' name='United States' />
-  <country code='uz' phoneCode='998' name='Uzbekistan' />
-  <country code='vu' phoneCode='678' name='Vanuatu' />
-  <country code='va' phoneCode='39' name='Holy See (vatican City State)' />
-  <country code='ve' phoneCode='58' name='Venezuela, Bolivarian Republic Of' />
-  <country code='vn' phoneCode='84' name='Viet Nam' />
-  <country code='wf' phoneCode='681' name='Wallis And Futuna' />
-  <country code='ye' phoneCode='967' name='Yemen' />
-  <country code='zm' phoneCode='260' name='Zambia' />
-  <country code='zw' phoneCode='263' name='Zimbabwe' />
-</countries>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country_data">
+        <item>
+            <country>Afghanistan</country>
+            <countryCode>93</countryCode>
+            <iso2>AF</iso2>
+            <iso3>AFG</iso3>
+        </item>
+        <item>
+            <country>Albania</country>
+            <countryCode>355</countryCode>
+            <iso2>AL</iso2>
+            <iso3>ALB</iso3>
+        </item>
+        <item>
+            <country>Algeria</country>
+            <countryCode>213</countryCode>
+            <iso2>DZ</iso2>
+            <iso3>DZA</iso3>
+        </item>
+        <item>
+            <country>American Samoa</country>
+            <countryCode>1-684</countryCode>
+            <iso2>AS</iso2>
+            <iso3>ASM</iso3>
+        </item>
+        <item>
+            <country>Andorra</country>
+            <countryCode>376</countryCode>
+            <iso2>AD</iso2>
+            <iso3>AND</iso3>
+        </item>
+        <item>
+            <country>Angola</country>
+            <countryCode>244</countryCode>
+            <iso2>AO</iso2>
+            <iso3>AGO</iso3>
+        </item>
+        <item>
+            <country>Anguilla</country>
+            <countryCode>1-264</countryCode>
+            <iso2>AI</iso2>
+            <iso3>AIA</iso3>
+        </item>
+        <item>
+            <country>Antarctica</country>
+            <countryCode>672</countryCode>
+            <iso2>AQ</iso2>
+            <iso3>ATA</iso3>
+        </item>
+        <item>
+            <country>Antigua and Barbuda</country>
+            <countryCode>1-268</countryCode>
+            <iso2>AG</iso2>
+            <iso3>ATG</iso3>
+        </item>
+        <item>
+            <country>Argentina</country>
+            <countryCode>54</countryCode>
+            <iso2>AR</iso2>
+            <iso3>ARG</iso3>
+        </item>
+        <item>
+            <country>Armenia</country>
+            <countryCode>374</countryCode>
+            <iso2>AM</iso2>
+            <iso3>ARM</iso3>
+        </item>
+        <item>
+            <country>Aruba</country>
+            <countryCode>297</countryCode>
+            <iso2>AW</iso2>
+            <iso3>ABW</iso3>
+        </item>
+        <item>
+            <country>Australia</country>
+            <countryCode>61</countryCode>
+            <iso2>AU</iso2>
+            <iso3>AUS</iso3>
+        </item>
+        <item>
+            <country>Austria</country>
+            <countryCode>43</countryCode>
+            <iso2>AT</iso2>
+            <iso3>AUT</iso3>
+        </item>
+        <item>
+            <country>Azerbaijan</country>
+            <countryCode>994</countryCode>
+            <iso2>AZ</iso2>
+            <iso3>AZE</iso3>
+        </item>
+        <item>
+            <country>Bahamas</country>
+            <countryCode>1-242</countryCode>
+            <iso2>BS</iso2>
+            <iso3>BHS</iso3>
+        </item>
+        <item>
+            <country>Bahrain</country>
+            <countryCode>973</countryCode>
+            <iso2>BH</iso2>
+            <iso3>BHR</iso3>
+        </item>
+        <item>
+            <country>Bangladesh</country>
+            <countryCode>880</countryCode>
+            <iso2>BD</iso2>
+            <iso3>BGD</iso3>
+        </item>
+        <item>
+            <country>Barbados</country>
+            <countryCode>1-246</countryCode>
+            <iso2>BB</iso2>
+            <iso3>BRB</iso3>
+        </item>
+        <item>
+            <country>Belarus</country>
+            <countryCode>375</countryCode>
+            <iso2>BY</iso2>
+            <iso3>BLR</iso3>
+        </item>
+        <item>
+            <country>Belgium</country>
+            <countryCode>32</countryCode>
+            <iso2>BE</iso2>
+            <iso3>BEL</iso3>
+        </item>
+        <item>
+            <country>Belize</country>
+            <countryCode>501</countryCode>
+            <iso2>BZ</iso2>
+            <iso3>BLZ</iso3>
+        </item>
+        <item>
+            <country>Benin</country>
+            <countryCode>229</countryCode>
+            <iso2>BJ</iso2>
+            <iso3>BEN</iso3>
+        </item>
+        <item>
+            <country>Bermuda</country>
+            <countryCode>1-441</countryCode>
+            <iso2>BM</iso2>
+            <iso3>BMU</iso3>
+        </item>
+        <item>
+            <country>Bhutan</country>
+            <countryCode>975</countryCode>
+            <iso2>BT</iso2>
+            <iso3>BTN</iso3>
+        </item>
+        <item>
+            <country>Bolivia</country>
+            <countryCode>591</countryCode>
+            <iso2>BO</iso2>
+            <iso3>BOL</iso3>
+        </item>
+        <item>
+            <country>Bosnia and Herzegovina</country>
+            <countryCode>387</countryCode>
+            <iso2>BA</iso2>
+            <iso3>BIH</iso3>
+        </item>
+        <item>
+            <country>Botswana</country>
+            <countryCode>267</countryCode>
+            <iso2>BW</iso2>
+            <iso3>BWA</iso3>
+        </item>
+        <item>
+            <country>Brazil</country>
+            <countryCode>55</countryCode>
+            <iso2>BR</iso2>
+            <iso3>BRA</iso3>
+        </item>
+        <item>
+            <country>British Indian Ocean Territory</country>
+            <countryCode>246</countryCode>
+            <iso2>IO</iso2>
+            <iso3>IOT</iso3>
+        </item>
+        <item>
+            <country>British Virgin Islands</country>
+            <countryCode>1-284</countryCode>
+            <iso2>VG</iso2>
+            <iso3>VGB</iso3>
+        </item>
+        <item>
+            <country>Brunei</country>
+            <countryCode>673</countryCode>
+            <iso2>BN</iso2>
+            <iso3>BRN</iso3>
+        </item>
+        <item>
+            <country>Bulgaria</country>
+            <countryCode>359</countryCode>
+            <iso2>BG</iso2>
+            <iso3>BGR</iso3>
+        </item>
+        <item>
+            <country>Burkina Faso</country>
+            <countryCode>226</countryCode>
+            <iso2>BF</iso2>
+            <iso3>BFA</iso3>
+        </item>
+        <item>
+            <country>Burundi</country>
+            <countryCode>257</countryCode>
+            <iso2>BI</iso2>
+            <iso3>BDI</iso3>
+        </item>
+        <item>
+            <country>Cambodia</country>
+            <countryCode>855</countryCode>
+            <iso2>KH</iso2>
+            <iso3>KHM</iso3>
+        </item>
+        <item>
+            <country>Cameroon</country>
+            <countryCode>237</countryCode>
+            <iso2>CM</iso2>
+            <iso3>CMR</iso3>
+        </item>
+        <item>
+            <country>Canada</country>
+            <countryCode>1</countryCode>
+            <iso2>CA</iso2>
+            <iso3>CAN</iso3>
+        </item>
+        <item>
+            <country>Cape Verde</country>
+            <countryCode>238</countryCode>
+            <iso2>CV</iso2>
+            <iso3>CPV</iso3>
+        </item>
+        <item>
+            <country>Cayman Islands</country>
+            <countryCode>1-345</countryCode>
+            <iso2>KY</iso2>
+            <iso3>CYM</iso3>
+        </item>
+        <item>
+            <country>Central African Republic</country>
+            <countryCode>236</countryCode>
+            <iso2>CF</iso2>
+            <iso3>CAF</iso3>
+        </item>
+        <item>
+            <country>Chad</country>
+            <countryCode>235</countryCode>
+            <iso2>TD</iso2>
+            <iso3>TCD</iso3>
+        </item>
+        <item>
+            <country>Chile</country>
+            <countryCode>56</countryCode>
+            <iso2>CL</iso2>
+            <iso3>CHL</iso3>
+        </item>
+        <item>
+            <country>China</country>
+            <countryCode>86</countryCode>
+            <iso2>CN</iso2>
+            <iso3>CHN</iso3>
+        </item>
+        <item>
+            <country>Christmas Island</country>
+            <countryCode>61</countryCode>
+            <iso2>CX</iso2>
+            <iso3>CXR</iso3>
+        </item>
+        <item>
+            <country>Cocos Islands</country>
+            <countryCode>61</countryCode>
+            <iso2>CC</iso2>
+            <iso3>CCK</iso3>
+        </item>
+        <item>
+            <country>Colombia</country>
+            <countryCode>57</countryCode>
+            <iso2>CO</iso2>
+            <iso3>COL</iso3>
+        </item>
+        <item>
+            <country>Comoros</country>
+            <countryCode>269</countryCode>
+            <iso2>KM</iso2>
+            <iso3>COM</iso3>
+        </item>
+        <item>
+            <country>Cook Islands</country>
+            <countryCode>682</countryCode>
+            <iso2>CK</iso2>
+            <iso3>COK</iso3>
+        </item>
+        <item>
+            <country>Costa Rica</country>
+            <countryCode>506</countryCode>
+            <iso2>CR</iso2>
+            <iso3>CRI</iso3>
+        </item>
+        <item>
+            <country>Croatia</country>
+            <countryCode>385</countryCode>
+            <iso2>HR</iso2>
+            <iso3>HRV</iso3>
+        </item>
+        <item>
+            <country>Cuba</country>
+            <countryCode>53</countryCode>
+            <iso2>CU</iso2>
+            <iso3>CUB</iso3>
+        </item>
+        <item>
+            <country>Curacao</country>
+            <countryCode>599</countryCode>
+            <iso2>CW</iso2>
+            <iso3>CUW</iso3>
+        </item>
+        <item>
+            <country>Cyprus</country>
+            <countryCode>357</countryCode>
+            <iso2>CY</iso2>
+            <iso3>CYP</iso3>
+        </item>
+        <item>
+            <country>Czech Republic</country>
+            <countryCode>420</countryCode>
+            <iso2>CZ</iso2>
+            <iso3>CZE</iso3>
+        </item>
+        <item>
+            <country>Democratic Republic of the Congo</country>
+            <countryCode>243</countryCode>
+            <iso2>CD</iso2>
+            <iso3>COD</iso3>
+        </item>
+        <item>
+            <country>Denmark</country>
+            <countryCode>45</countryCode>
+            <iso2>DK</iso2>
+            <iso3>DNK</iso3>
+        </item>
+        <item>
+            <country>Djibouti</country>
+            <countryCode>253</countryCode>
+            <iso2>DJ</iso2>
+            <iso3>DJI</iso3>
+        </item>
+        <item>
+            <country>Dominica</country>
+            <countryCode>1-767</countryCode>
+            <iso2>DM</iso2>
+            <iso3>DMA</iso3>
+        </item>
+        <item>
+            <country>Dominican Republic</country>
+            <countryCode>1-809, 1-829, 1-849</countryCode>
+            <iso2>DO</iso2>
+            <iso3>DOM</iso3>
+        </item>
+        <item>
+            <country>East Timor</country>
+            <countryCode>670</countryCode>
+            <iso2>TL</iso2>
+            <iso3>TLS</iso3>
+        </item>
+        <item>
+            <country>Ecuador</country>
+            <countryCode>593</countryCode>
+            <iso2>EC</iso2>
+            <iso3>ECU</iso3>
+        </item>
+        <item>
+            <country>Egypt</country>
+            <countryCode>20</countryCode>
+            <iso2>EG</iso2>
+            <iso3>EGY</iso3>
+        </item>
+        <item>
+            <country>El Salvador</country>
+            <countryCode>503</countryCode>
+            <iso2>SV</iso2>
+            <iso3>SLV</iso3>
+        </item>
+        <item>
+            <country>Equatorial Guinea</country>
+            <countryCode>240</countryCode>
+            <iso2>GQ</iso2>
+            <iso3>GNQ</iso3>
+        </item>
+        <item>
+            <country>Eritrea</country>
+            <countryCode>291</countryCode>
+            <iso2>ER</iso2>
+            <iso3>ERI</iso3>
+        </item>
+        <item>
+            <country>Estonia</country>
+            <countryCode>372</countryCode>
+            <iso2>EE</iso2>
+            <iso3>EST</iso3>
+        </item>
+        <item>
+            <country>Eswatini</country>
+            <countryCode>268</countryCode>
+            <iso2>SZ</iso2>
+            <iso3>SWZ</iso3>
+        </item>
+        <item>
+            <country>Ethiopia</country>
+            <countryCode>251</countryCode>
+            <iso2>ET</iso2>
+            <iso3>ETH</iso3>
+        </item>
+        <item>
+            <country>Falkland Islands</country>
+            <countryCode>500</countryCode>
+            <iso2>FK</iso2>
+            <iso3>FLK</iso3>
+        </item>
+        <item>
+            <country>Faroe Islands</country>
+            <countryCode>298</countryCode>
+            <iso2>FO</iso2>
+            <iso3>FRO</iso3>
+        </item>
+        <item>
+            <country>Fiji</country>
+            <countryCode>679</countryCode>
+            <iso2>FJ</iso2>
+            <iso3>FJI</iso3>
+        </item>
+        <item>
+            <country>Finland</country>
+            <countryCode>358</countryCode>
+            <iso2>FI</iso2>
+            <iso3>FIN</iso3>
+        </item>
+        <item>
+            <country>France</country>
+            <countryCode>33</countryCode>
+            <iso2>FR</iso2>
+            <iso3>FRA</iso3>
+        </item>
+        <item>
+            <country>French Polynesia</country>
+            <countryCode>689</countryCode>
+            <iso2>PF</iso2>
+            <iso3>PYF</iso3>
+        </item>
+        <item>
+            <country>Gabon</country>
+            <countryCode>241</countryCode>
+            <iso2>GA</iso2>
+            <iso3>GAB</iso3>
+        </item>
+        <item>
+            <country>Gambia</country>
+            <countryCode>220</countryCode>
+            <iso2>GM</iso2>
+            <iso3>GMB</iso3>
+        </item>
+        <item>
+            <country>Georgia</country>
+            <countryCode>995</countryCode>
+            <iso2>GE</iso2>
+            <iso3>GEO</iso3>
+        </item>
+        <item>
+            <country>Germany</country>
+            <countryCode>49</countryCode>
+            <iso2>DE</iso2>
+            <iso3>DEU</iso3>
+        </item>
+        <item>
+            <country>Ghana</country>
+            <countryCode>233</countryCode>
+            <iso2>GH</iso2>
+            <iso3>GHA</iso3>
+        </item>
+        <item>
+            <country>Gibraltar</country>
+            <countryCode>350</countryCode>
+            <iso2>GI</iso2>
+            <iso3>GIB</iso3>
+        </item>
+        <item>
+            <country>Greece</country>
+            <countryCode>30</countryCode>
+            <iso2>GR</iso2>
+            <iso3>GRC</iso3>
+        </item>
+        <item>
+            <country>Greenland</country>
+            <countryCode>299</countryCode>
+            <iso2>GL</iso2>
+            <iso3>GRL</iso3>
+        </item>
+        <item>
+            <country>Grenada</country>
+            <countryCode>1-473</countryCode>
+            <iso2>GD</iso2>
+            <iso3>GRD</iso3>
+        </item>
+        <item>
+            <country>Guam</country>
+            <countryCode>1-671</countryCode>
+            <iso2>GU</iso2>
+            <iso3>GUM</iso3>
+        </item>
+        <item>
+            <country>Guatemala</country>
+            <countryCode>502</countryCode>
+            <iso2>GT</iso2>
+            <iso3>GTM</iso3>
+        </item>
+        <item>
+            <country>Guernsey</country>
+            <countryCode>44-1481</countryCode>
+            <iso2>GG</iso2>
+            <iso3>GGY</iso3>
+        </item>
+        <item>
+            <country>Guinea</country>
+            <countryCode>224</countryCode>
+            <iso2>GN</iso2>
+            <iso3>GIN</iso3>
+        </item>
+        <item>
+            <country>Guinea-Bissau</country>
+            <countryCode>245</countryCode>
+            <iso2>GW</iso2>
+            <iso3>GNB</iso3>
+        </item>
+        <item>
+            <country>Guyana</country>
+            <countryCode>592</countryCode>
+            <iso2>GY</iso2>
+            <iso3>GUY</iso3>
+        </item>
+        <item>
+            <country>Haiti</country>
+            <countryCode>509</countryCode>
+            <iso2>HT</iso2>
+            <iso3>HTI</iso3>
+        </item>
+        <item>
+            <country>Honduras</country>
+            <countryCode>504</countryCode>
+            <iso2>HN</iso2>
+            <iso3>HND</iso3>
+        </item>
+        <item>
+            <country>Hong Kong</country>
+            <countryCode>852</countryCode>
+            <iso2>HK</iso2>
+            <iso3>HKG</iso3>
+        </item>
+        <item>
+            <country>Hungary</country>
+            <countryCode>36</countryCode>
+            <iso2>HU</iso2>
+            <iso3>HUN</iso3>
+        </item>
+        <item>
+            <country>Iceland</country>
+            <countryCode>354</countryCode>
+            <iso2>IS</iso2>
+            <iso3>ISL</iso3>
+        </item>
+        <item>
+            <country>India</country>
+            <countryCode>91</countryCode>
+            <iso2>IN</iso2>
+            <iso3>IND</iso3>
+        </item>
+        <item>
+            <country>Indonesia</country>
+            <countryCode>62</countryCode>
+            <iso2>ID</iso2>
+            <iso3>IDN</iso3>
+        </item>
+        <item>
+            <country>Iran</country>
+            <countryCode>98</countryCode>
+            <iso2>IR</iso2>
+            <iso3>IRN</iso3>
+        </item>
+        <item>
+            <country>Iraq</country>
+            <countryCode>964</countryCode>
+            <iso2>IQ</iso2>
+            <iso3>IRQ</iso3>
+        </item>
+        <item>
+            <country>Ireland</country>
+            <countryCode>353</countryCode>
+            <iso2>IE</iso2>
+            <iso3>IRL</iso3>
+        </item>
+        <item>
+            <country>Isle of Man</country>
+            <countryCode>44-1624</countryCode>
+            <iso2>IM</iso2>
+            <iso3>IMN</iso3>
+        </item>
+        <item>
+            <country>Israel</country>
+            <countryCode>972</countryCode>
+            <iso2>IL</iso2>
+            <iso3>ISR</iso3>
+        </item>
+        <item>
+            <country>Italy</country>
+            <countryCode>39</countryCode>
+            <iso2>IT</iso2>
+            <iso3>ITA</iso3>
+        </item>
+        <item>
+            <country>Ivory Coast</country>
+            <countryCode>225</countryCode>
+            <iso2>CI</iso2>
+            <iso3>CIV</iso3>
+        </item>
+        <item>
+            <country>Jamaica</country>
+            <countryCode>1-876</countryCode>
+            <iso2>JM</iso2>
+            <iso3>JAM</iso3>
+        </item>
+        <item>
+            <country>Japan</country>
+            <countryCode>81</countryCode>
+            <iso2>JP</iso2>
+            <iso3>JPN</iso3>
+        </item>
+        <item>
+            <country>Jersey</country>
+            <countryCode>44-1534</countryCode>
+            <iso2>JE</iso2>
+            <iso3>JEY</iso3>
+        </item>
+        <item>
+            <country>Jordan</country>
+            <countryCode>962</countryCode>
+            <iso2>JO</iso2>
+            <iso3>JOR</iso3>
+        </item>
+        <item>
+            <country>Kazakhstan</country>
+            <countryCode>7</countryCode>
+            <iso2>KZ</iso2>
+            <iso3>KAZ</iso3>
+        </item>
+        <item>
+            <country>Kenya</country>
+            <countryCode>254</countryCode>
+            <iso2>KE</iso2>
+            <iso3>KEN</iso3>
+        </item>
+        <item>
+            <country>Kiribati</country>
+            <countryCode>686</countryCode>
+            <iso2>KI</iso2>
+            <iso3>KIR</iso3>
+        </item>
+        <item>
+            <country>Kosovo</country>
+            <countryCode>383</countryCode>
+            <iso2>XK</iso2>
+            <iso3>XKX</iso3>
+        </item>
+        <item>
+            <country>Kuwait</country>
+            <countryCode>965</countryCode>
+            <iso2>KW</iso2>
+            <iso3>KWT</iso3>
+        </item>
+        <item>
+            <country>Kyrgyzstan</country>
+            <countryCode>996</countryCode>
+            <iso2>KG</iso2>
+            <iso3>KGZ</iso3>
+        </item>
+        <item>
+            <country>Laos</country>
+            <countryCode>856</countryCode>
+            <iso2>LA</iso2>
+            <iso3>LAO</iso3>
+        </item>
+        <item>
+            <country>Latvia</country>
+            <countryCode>371</countryCode>
+            <iso2>LV</iso2>
+            <iso3>LVA</iso3>
+        </item>
+        <item>
+            <country>Lebanon</country>
+            <countryCode>961</countryCode>
+            <iso2>LB</iso2>
+            <iso3>LBN</iso3>
+        </item>
+        <item>
+            <country>Lesotho</country>
+            <countryCode>266</countryCode>
+            <iso2>LS</iso2>
+            <iso3>LSO</iso3>
+        </item>
+        <item>
+            <country>Liberia</country>
+            <countryCode>231</countryCode>
+            <iso2>LR</iso2>
+            <iso3>LBR</iso3>
+        </item>
+        <item>
+            <country>Libya</country>
+            <countryCode>218</countryCode>
+            <iso2>LY</iso2>
+            <iso3>LBY</iso3>
+        </item>
+        <item>
+            <country>Liechtenstein</country>
+            <countryCode>423</countryCode>
+            <iso2>LI</iso2>
+            <iso3>LIE</iso3>
+        </item>
+        <item>
+            <country>Lithuania</country>
+            <countryCode>370</countryCode>
+            <iso2>LT</iso2>
+            <iso3>LTU</iso3>
+        </item>
+        <item>
+            <country>Luxembourg</country>
+            <countryCode>352</countryCode>
+            <iso2>LU</iso2>
+            <iso3>LUX</iso3>
+        </item>
+        <item>
+            <country>Macao</country>
+            <countryCode>853</countryCode>
+            <iso2>MO</iso2>
+            <iso3>MAC</iso3>
+        </item>
+        <item>
+            <country>Macedonia</country>
+            <countryCode>389</countryCode>
+            <iso2>MK</iso2>
+            <iso3>MKD</iso3>
+        </item>
+        <item>
+            <country>Madagascar</country>
+            <countryCode>261</countryCode>
+            <iso2>MG</iso2>
+            <iso3>MDG</iso3>
+        </item>
+        <item>
+            <country>Malawi</country>
+            <countryCode>265</countryCode>
+            <iso2>MW</iso2>
+            <iso3>MWI</iso3>
+        </item>
+        <item>
+            <country>Malaysia</country>
+            <countryCode>60</countryCode>
+            <iso2>MY</iso2>
+            <iso3>MYS</iso3>
+        </item>
+        <item>
+            <country>Maldives</country>
+            <countryCode>960</countryCode>
+            <iso2>MV</iso2>
+            <iso3>MDV</iso3>
+        </item>
+        <item>
+            <country>Mali</country>
+            <countryCode>223</countryCode>
+            <iso2>ML</iso2>
+            <iso3>MLI</iso3>
+        </item>
+        <item>
+            <country>Malta</country>
+            <countryCode>356</countryCode>
+            <iso2>MT</iso2>
+            <iso3>MLT</iso3>
+        </item>
+        <item>
+            <country>Marshall Islands</country>
+            <countryCode>692</countryCode>
+            <iso2>MH</iso2>
+            <iso3>MHL</iso3>
+        </item>
+        <item>
+            <country>Mauritania</country>
+            <countryCode>222</countryCode>
+            <iso2>MR</iso2>
+            <iso3>MRT</iso3>
+        </item>
+        <item>
+            <country>Mauritius</country>
+            <countryCode>230</countryCode>
+            <iso2>MU</iso2>
+            <iso3>MUS</iso3>
+        </item>
+        <item>
+            <country>Mayotte</country>
+            <countryCode>262</countryCode>
+            <iso2>YT</iso2>
+            <iso3>MYT</iso3>
+        </item>
+        <item>
+            <country>Mexico</country>
+            <countryCode>52</countryCode>
+            <iso2>MX</iso2>
+            <iso3>MEX</iso3>
+        </item>
+        <item>
+            <country>Micronesia</country>
+            <countryCode>691</countryCode>
+            <iso2>FM</iso2>
+            <iso3>FSM</iso3>
+        </item>
+        <item>
+            <country>Moldova</country>
+            <countryCode>373</countryCode>
+            <iso2>MD</iso2>
+            <iso3>MDA</iso3>
+        </item>
+        <item>
+            <country>Monaco</country>
+            <countryCode>377</countryCode>
+            <iso2>MC</iso2>
+            <iso3>MCO</iso3>
+        </item>
+        <item>
+            <country>Mongolia</country>
+            <countryCode>976</countryCode>
+            <iso2>MN</iso2>
+            <iso3>MNG</iso3>
+        </item>
+        <item>
+            <country>Montenegro</country>
+            <countryCode>382</countryCode>
+            <iso2>ME</iso2>
+            <iso3>MNE</iso3>
+        </item>
+        <item>
+            <country>Montserrat</country>
+            <countryCode>1-664</countryCode>
+            <iso2>MS</iso2>
+            <iso3>MSR</iso3>
+        </item>
+        <item>
+            <country>Morocco</country>
+            <countryCode>212</countryCode>
+            <iso2>MA</iso2>
+            <iso3>MAR</iso3>
+        </item>
+        <item>
+            <country>Mozambique</country>
+            <countryCode>258</countryCode>
+            <iso2>MZ</iso2>
+            <iso3>MOZ</iso3>
+        </item>
+        <item>
+            <country>Myanmar</country>
+            <countryCode>95</countryCode>
+            <iso2>MM</iso2>
+            <iso3>MMR</iso3>
+        </item>
+        <item>
+            <country>Namibia</country>
+            <countryCode>264</countryCode>
+            <iso2>NA</iso2>
+            <iso3>NAM</iso3>
+        </item>
+        <item>
+            <country>Nauru</country>
+            <countryCode>674</countryCode>
+            <iso2>NR</iso2>
+            <iso3>NRU</iso3>
+        </item>
+        <item>
+            <country>Nepal</country>
+            <countryCode>977</countryCode>
+            <iso2>NP</iso2>
+            <iso3>NPL</iso3>
+        </item>
+        <item>
+            <country>Netherlands</country>
+            <countryCode>31</countryCode>
+            <iso2>NL</iso2>
+            <iso3>NLD</iso3>
+        </item>
+        <item>
+            <country>Netherlands Antilles</country>
+            <countryCode>599</countryCode>
+            <iso2>AN</iso2>
+            <iso3>ANT</iso3>
+        </item>
+        <item>
+            <country>New Caledonia</country>
+            <countryCode>687</countryCode>
+            <iso2>NC</iso2>
+            <iso3>NCL</iso3>
+        </item>
+        <item>
+            <country>New Zealand</country>
+            <countryCode>64</countryCode>
+            <iso2>NZ</iso2>
+            <iso3>NZL</iso3>
+        </item>
+        <item>
+            <country>Nicaragua</country>
+            <countryCode>505</countryCode>
+            <iso2>NI</iso2>
+            <iso3>NIC</iso3>
+        </item>
+        <item>
+            <country>Niger</country>
+            <countryCode>227</countryCode>
+            <iso2>NE</iso2>
+            <iso3>NER</iso3>
+        </item>
+        <item>
+            <country>Nigeria</country>
+            <countryCode>234</countryCode>
+            <iso2>NG</iso2>
+            <iso3>NGA</iso3>
+        </item>
+        <item>
+            <country>Niue</country>
+            <countryCode>683</countryCode>
+            <iso2>NU</iso2>
+            <iso3>NIU</iso3>
+        </item>
+        <item>
+            <country>North Korea</country>
+            <countryCode>850</countryCode>
+            <iso2>KP</iso2>
+            <iso3>PRK</iso3>
+        </item>
+        <item>
+            <country>Northern Mariana Islands</country>
+            <countryCode>1-670</countryCode>
+            <iso2>MP</iso2>
+            <iso3>MNP</iso3>
+        </item>
+        <item>
+            <country>Norway</country>
+            <countryCode>47</countryCode>
+            <iso2>NO</iso2>
+            <iso3>NOR</iso3>
+        </item>
+        <item>
+            <country>Oman</country>
+            <countryCode>968</countryCode>
+            <iso2>OM</iso2>
+            <iso3>OMN</iso3>
+        </item>
+        <item>
+            <country>Pakistan</country>
+            <countryCode>92</countryCode>
+            <iso2>PK</iso2>
+            <iso3>PAK</iso3>
+        </item>
+        <item>
+            <country>Palau</country>
+            <countryCode>680</countryCode>
+            <iso2>PW</iso2>
+            <iso3>PLW</iso3>
+        </item>
+        <item>
+            <country>Palestine</country>
+            <countryCode>970</countryCode>
+            <iso2>PS</iso2>
+            <iso3>PSE</iso3>
+        </item>
+        <item>
+            <country>Panama</country>
+            <countryCode>507</countryCode>
+            <iso2>PA</iso2>
+            <iso3>PAN</iso3>
+        </item>
+        <item>
+            <country>Papua New Guinea</country>
+            <countryCode>675</countryCode>
+            <iso2>PG</iso2>
+            <iso3>PNG</iso3>
+        </item>
+        <item>
+            <country>Paraguay</country>
+            <countryCode>595</countryCode>
+            <iso2>PY</iso2>
+            <iso3>PRY</iso3>
+        </item>
+        <item>
+            <country>Peru</country>
+            <countryCode>51</countryCode>
+            <iso2>PE</iso2>
+            <iso3>PER</iso3>
+        </item>
+        <item>
+            <country>Philippines</country>
+            <countryCode>63</countryCode>
+            <iso2>PH</iso2>
+            <iso3>PHL</iso3>
+        </item>
+        <item>
+            <country>Pitcairn</country>
+            <countryCode>64</countryCode>
+            <iso2>PN</iso2>
+            <iso3>PCN</iso3>
+        </item>
+        <item>
+            <country>Poland</country>
+            <countryCode>48</countryCode>
+            <iso2>PL</iso2>
+            <iso3>POL</iso3>
+        </item>
+        <item>
+            <country>Portugal</country>
+            <countryCode>351</countryCode>
+            <iso2>PT</iso2>
+            <iso3>PRT</iso3>
+        </item>
+        <item>
+            <country>Puerto Rico</country>
+            <countryCode>1-787, 1-939</countryCode>
+            <iso2>PR</iso2>
+            <iso3>PRI</iso3>
+        </item>
+        <item>
+            <country>Qatar</country>
+            <countryCode>974</countryCode>
+            <iso2>QA</iso2>
+            <iso3>QAT</iso3>
+        </item>
+        <item>
+            <country>Republic of the Congo</country>
+            <countryCode>242</countryCode>
+            <iso2>CG</iso2>
+            <iso3>COG</iso3>
+        </item>
+        <item>
+            <country>Reunion</country>
+            <countryCode>262</countryCode>
+            <iso2>RE</iso2>
+            <iso3>REU</iso3>
+        </item>
+        <item>
+            <country>Romania</country>
+            <countryCode>40</countryCode>
+            <iso2>RO</iso2>
+            <iso3>ROU</iso3>
+        </item>
+        <item>
+            <country>Russia</country>
+            <countryCode>7</countryCode>
+            <iso2>RU</iso2>
+            <iso3>RUS</iso3>
+        </item>
+        <item>
+            <country>Rwanda</country>
+            <countryCode>250</countryCode>
+            <iso2>RW</iso2>
+            <iso3>RWA</iso3>
+        </item>
+        <item>
+            <country>Saint Barthelemy</country>
+            <countryCode>590</countryCode>
+            <iso2>BL</iso2>
+            <iso3>BLM</iso3>
+        </item>
+        <item>
+            <country>Saint Helena</country>
+            <countryCode>290</countryCode>
+            <iso2>SH</iso2>
+            <iso3>SHN</iso3>
+        </item>
+        <item>
+            <country>Saint Kitts and Nevis</country>
+            <countryCode>1-869</countryCode>
+            <iso2>KN</iso2>
+            <iso3>KNA</iso3>
+        </item>
+        <item>
+            <country>Saint Lucia</country>
+            <countryCode>1-758</countryCode>
+            <iso2>LC</iso2>
+            <iso3>LCA</iso3>
+        </item>
+        <item>
+            <country>Saint Martin</country>
+            <countryCode>590</countryCode>
+            <iso2>MF</iso2>
+            <iso3>MAF</iso3>
+        </item>
+        <item>
+            <country>Saint Pierre and Miquelon</country>
+            <countryCode>508</countryCode>
+            <iso2>PM</iso2>
+            <iso3>SPM</iso3>
+        </item>
+        <item>
+            <country>Saint Vincent and the Grenadines</country>
+            <countryCode>1-784</countryCode>
+            <iso2>VC</iso2>
+            <iso3>VCT</iso3>
+        </item>
+        <item>
+            <country>Samoa</country>
+            <countryCode>685</countryCode>
+            <iso2>WS</iso2>
+            <iso3>WSM</iso3>
+        </item>
+        <item>
+            <country>San Marino</country>
+            <countryCode>378</countryCode>
+            <iso2>SM</iso2>
+            <iso3>SMR</iso3>
+        </item>
+        <item>
+            <country>Sao Tome and Principe</country>
+            <countryCode>239</countryCode>
+            <iso2>ST</iso2>
+            <iso3>STP</iso3>
+        </item>
+        <item>
+            <country>Saudi Arabia</country>
+            <countryCode>966</countryCode>
+            <iso2>SA</iso2>
+            <iso3>SAU</iso3>
+        </item>
+        <item>
+            <country>Senegal</country>
+            <countryCode>221</countryCode>
+            <iso2>SN</iso2>
+            <iso3>SEN</iso3>
+        </item>
+        <item>
+            <country>Serbia</country>
+            <countryCode>381</countryCode>
+            <iso2>RS</iso2>
+            <iso3>SRB</iso3>
+        </item>
+        <item>
+            <country>Seychelles</country>
+            <countryCode>248</countryCode>
+            <iso2>SC</iso2>
+            <iso3>SYC</iso3>
+        </item>
+        <item>
+            <country>Sierra Leone</country>
+            <countryCode>232</countryCode>
+            <iso2>SL</iso2>
+            <iso3>SLE</iso3>
+        </item>
+        <item>
+            <country>Singapore</country>
+            <countryCode>65</countryCode>
+            <iso2>SG</iso2>
+            <iso3>SGP</iso3>
+        </item>
+        <item>
+            <country>Sint Maarten</country>
+            <countryCode>1-721</countryCode>
+            <iso2>SX</iso2>
+            <iso3>SXM</iso3>
+        </item>
+        <item>
+            <country>Slovakia</country>
+            <countryCode>421</countryCode>
+            <iso2>SK</iso2>
+            <iso3>SVK</iso3>
+        </item>
+        <item>
+            <country>Slovenia</country>
+            <countryCode>386</countryCode>
+            <iso2>SI</iso2>
+            <iso3>SVN</iso3>
+        </item>
+        <item>
+            <country>Solomon Islands</country>
+            <countryCode>677</countryCode>
+            <iso2>SB</iso2>
+            <iso3>SLB</iso3>
+        </item>
+        <item>
+            <country>Somalia</country>
+            <countryCode>252</countryCode>
+            <iso2>SO</iso2>
+            <iso3>SOM</iso3>
+        </item>
+        <item>
+            <country>South Africa</country>
+            <countryCode>27</countryCode>
+            <iso2>ZA</iso2>
+            <iso3>ZAF</iso3>
+        </item>
+        <item>
+            <country>South Korea</country>
+            <countryCode>82</countryCode>
+            <iso2>KR</iso2>
+            <iso3>KOR</iso3>
+        </item>
+        <item>
+            <country>South Sudan</country>
+            <countryCode>211</countryCode>
+            <iso2>SS</iso2>
+            <iso3>SSD</iso3>
+        </item>
+        <item>
+            <country>Spain</country>
+            <countryCode>34</countryCode>
+            <iso2>ES</iso2>
+            <iso3>ESP</iso3>
+        </item>
+        <item>
+            <country>Sri Lanka</country>
+            <countryCode>94</countryCode>
+            <iso2>LK</iso2>
+            <iso3>LKA</iso3>
+        </item>
+        <item>
+            <country>Sudan</country>
+            <countryCode>249</countryCode>
+            <iso2>SD</iso2>
+            <iso3>SDN</iso3>
+        </item>
+        <item>
+            <country>Suriname</country>
+            <countryCode>597</countryCode>
+            <iso2>SR</iso2>
+            <iso3>SUR</iso3>
+        </item>
+        <item>
+            <country>Svalbard and Jan Mayen</country>
+            <countryCode>47</countryCode>
+            <iso2>SJ</iso2>
+            <iso3>SJM</iso3>
+        </item>
+        <item>
+            <country>Swaziland</country>
+            <countryCode>268</countryCode>
+            <iso2>SZ</iso2>
+            <iso3>SWZ</iso3>
+        </item>
+        <item>
+            <country>Sweden</country>
+            <countryCode>46</countryCode>
+            <iso2>SE</iso2>
+            <iso3>SWE</iso3>
+        </item>
+        <item>
+            <country>Switzerland</country>
+            <countryCode>41</countryCode>
+            <iso2>CH</iso2>
+            <iso3>CHE</iso3>
+        </item>
+        <item>
+            <country>Syria</country>
+            <countryCode>963</countryCode>
+            <iso2>SY</iso2>
+            <iso3>SYR</iso3>
+        </item>
+        <item>
+            <country>Taiwan</country>
+            <countryCode>886</countryCode>
+            <iso2>TW</iso2>
+            <iso3>TWN</iso3>
+        </item>
+        <item>
+            <country>Tajikistan</country>
+            <countryCode>992</countryCode>
+            <iso2>TJ</iso2>
+            <iso3>TJK</iso3>
+        </item>
+        <item>
+            <country>Tanzania</country>
+            <countryCode>255</countryCode>
+            <iso2>TZ</iso2>
+            <iso3>TZA</iso3>
+        </item>
+        <item>
+            <country>Thailand</country>
+            <countryCode>66</countryCode>
+            <iso2>TH</iso2>
+            <iso3>THA</iso3>
+        </item>
+        <item>
+            <country>Togo</country>
+            <countryCode>228</countryCode>
+            <iso2>TG</iso2>
+            <iso3>TGO</iso3>
+        </item>
+        <item>
+            <country>Tokelau</country>
+            <countryCode>690</countryCode>
+            <iso2>TK</iso2>
+            <iso3>TKL</iso3>
+        </item>
+        <item>
+            <country>Tonga</country>
+            <countryCode>676</countryCode>
+            <iso2>TO</iso2>
+            <iso3>TON</iso3>
+        </item>
+        <item>
+            <country>Trinidad and Tobago</country>
+            <countryCode>1-868</countryCode>
+            <iso2>TT</iso2>
+            <iso3>TTO</iso3>
+        </item>
+        <item>
+            <country>Tunisia</country>
+            <countryCode>216</countryCode>
+            <iso2>TN</iso2>
+            <iso3>TUN</iso3>
+        </item>
+        <item>
+            <country>Turkey</country>
+            <countryCode>90</countryCode>
+            <iso2>TR</iso2>
+            <iso3>TUR</iso3>
+        </item>
+        <item>
+            <country>Turkmenistan</country>
+            <countryCode>993</countryCode>
+            <iso2>TM</iso2>
+            <iso3>TKM</iso3>
+        </item>
+        <item>
+            <country>Turks and Caicos Islands</country>
+            <countryCode>1-649</countryCode>
+            <iso2>TC</iso2>
+            <iso3>TCA</iso3>
+        </item>
+        <item>
+            <country>Tuvalu</country>
+            <countryCode>688</countryCode>
+            <iso2>TV</iso2>
+            <iso3>TUV</iso3>
+        </item>
+        <item>
+            <country>U.S. Virgin Islands</country>
+            <countryCode>1-340</countryCode>
+            <iso2>VI</iso2>
+            <iso3>VIR</iso3>
+        </item>
+        <item>
+            <country>Uganda</country>
+            <countryCode>256</countryCode>
+            <iso2>UG</iso2>
+            <iso3>UGA</iso3>
+        </item>
+        <item>
+            <country>Ukraine</country>
+            <countryCode>380</countryCode>
+            <iso2>UA</iso2>
+            <iso3>UKR</iso3>
+        </item>
+        <item>
+            <country>United Arab Emirates</country>
+            <countryCode>971</countryCode>
+            <iso2>AE</iso2>
+            <iso3>ARE</iso3>
+        </item>
+        <item>
+            <country>United Kingdom</country>
+            <countryCode>44</countryCode>
+            <iso2>GB</iso2>
+            <iso3>GBR</iso3>
+        </item>
+        <item>
+            <country>United States</country>
+            <countryCode>1</countryCode>
+            <iso2>US</iso2>
+            <iso3>USA</iso3>
+        </item>
+        <item>
+            <country>Uruguay</country>
+            <countryCode>598</countryCode>
+            <iso2>UY</iso2>
+            <iso3>URY</iso3>
+        </item>
+        <item>
+            <country>Uzbekistan</country>
+            <countryCode>998</countryCode>
+            <iso2>UZ</iso2>
+            <iso3>UZB</iso3>
+        </item>
+        <item>
+            <country>Vanuatu</country>
+            <countryCode>678</countryCode>
+            <iso2>VU</iso2>
+            <iso3>VUT</iso3>
+        </item>
+        <item>
+            <country>Vatican</country>
+            <countryCode>379</countryCode>
+            <iso2>VA</iso2>
+            <iso3>VAT</iso3>
+        </item>
+        <item>
+            <country>Venezuela</country>
+            <countryCode>58</countryCode>
+            <iso2>VE</iso2>
+            <iso3>VEN</iso3>
+        </item>
+        <item>
+            <country>Vietnam</country>
+            <countryCode>84</countryCode>
+            <iso2>VN</iso2>
+            <iso3>VNM</iso3>
+        </item>
+        <item>
+            <country>Wallis and Futuna</country>
+            <countryCode>681</countryCode>
+            <iso2>WF</iso2>
+            <iso3>WLF</iso3>
+        </item>
+        <item>
+            <country>Western Sahara</country>
+            <countryCode>212</countryCode>
+            <iso2>EH</iso2>
+            <iso3>ESH</iso3>
+        </item>
+        <item>
+            <country>Yemen</country>
+            <countryCode>967</countryCode>
+            <iso2>YE</iso2>
+            <iso3>YEM</iso3>
+        </item>
+        <item>
+            <country>Zambia</country>
+            <countryCode>260</countryCode>
+            <iso2>ZM</iso2>
+            <iso3>ZMB</iso3>
+        </item>
+        <item>
+            <country>Zimbabwe</country>
+            <countryCode>263</countryCode>
+            <iso2>ZW</iso2>
+            <iso3>ZWE</iso3>
+        </item>
+    </string-array>
+</resources>
