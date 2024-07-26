@@ -21,56 +21,56 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Check if IP address deserved to get listed in blacklist, if deserved then blacklist_addip()
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $ip
- *        single IP address
- * @return boolean TRUE on checked (not necessarily added)
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $ip single IP address
+ * @return bool true on checked (not necessarily added)
  */
-function blacklist_checkip($label, $ip) {
+function blacklist_checkip($label, $ip)
+{
 	$ret = core_call_hook();
+
 	return $ret;
 }
 
 /**
  * Reset IP address login attempt counter
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $ip
- *        single IP address
- * @return boolean TRUE on resetted counter
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $ip single IP address
+ * @return bool true on resetted counter
  */
-function blacklist_clearip($label, $ip) {
+function blacklist_clearip($label, $ip)
+{
 	$ret = core_call_hook();
+
 	return $ret;
 }
 
 /**
  * Add IP address to blacklist
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $ip
- *        single IP address
- * @return boolean TRUE on added
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $ip single IP address
+ * @return bool true on added
  */
-function blacklist_addip($label, $ip) {
+function blacklist_addip($label, $ip)
+{
 	$ret = core_call_hook();
+
 	return $ret;
 }
 
 /**
  * Remove IP address from blacklist
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $ip
- *        single IP address
- * @return boolean TRUE on removed
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $ip single IP address
+ * @return bool true on removed
  */
-function blacklist_removeip($label, $ip) {
+function blacklist_removeip($label, $ip)
+{
 	$ret = core_call_hook();
+
 	return $ret;
 }
 
@@ -78,82 +78,80 @@ function blacklist_removeip($label, $ip) {
  * Get IP addresses from blacklist
  *
  * @return array labels and IP addresses
- *         array(array('label' => $label, 'ip_address' => $ip_address))
  */
-function blacklist_getips() {
+function blacklist_getips()
+{
 	$ret = core_call_hook();
+
 	return $ret;
 }
 
 /**
  * Check IP address is exists in blacklist
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $ip
- *        single IP address
- * @return boolean TRUE when found and FALSE if not found
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $ip single IP address
+ * @return bool true when found and false if not found
  */
-function blacklist_ifipexists($label, $ip) {
+function blacklist_ifipexists($label, $ip)
+{
 	$ret = core_call_hook();
+
 	return $ret;
 }
 
 /**
  * Add mobile number to blacklist
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $mobile
- *        single mobile number
- * @return boolean TRUE upon successful addition
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $mobile single mobile number
+ * @return bool true upon successful addition
  */
-function blacklist_mobile_add($label, $mobile) {
+function blacklist_mobile_add($label, $mobile)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
 /**
  * Remove mobile number from blacklist
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $mobile
- *        single mobile number
- * @return boolean TRUE upon successful removal
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $mobile single mobile number
+ * @return bool true upon successful removal
  */
-function blacklist_mobile_remove($label, $mobile) {
+function blacklist_mobile_remove($label, $mobile)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
 /**
  * Check whether or not a mobile number is blacklisted, exists in blacklist
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
- * @param string $mobile
- *        single mobile number
- * @return boolean TRUE if blacklisted, existed in blacklist
+ * @param string $label single label, can be $username or $uid, its up to the implementator
+ * @param string $mobile single mobile number
+ * @return bool true if blacklisted, existed in blacklist
  */
-function blacklist_mobile_isexists($label, $mobile) {
+function blacklist_mobile_isexists($label, $mobile)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
 /**
  * Get list of blacklisted mobile numbers for a label
  *
- * @param string $label
- *        single label, can be $username or $uid, its up to the implementator
+ * @param string $label single label, can be $username or $uid, its up to the implementator
  * @return array blacklisted mobile numbers
  */
-function blacklist_mobile_get($label) {
+function blacklist_mobile_get($label)
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
 
@@ -162,8 +160,9 @@ function blacklist_mobile_get($label) {
  *
  * @return array all blacklisted mobile numbers
  */
-function blacklist_mobile_getall() {
+function blacklist_mobile_getall()
+{
 	$ret = core_call_hook();
-	
+
 	return $ret;
 }
