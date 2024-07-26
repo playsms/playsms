@@ -27,10 +27,15 @@ defined('_SECURE_') or die('Forbidden');
 function main_config_filter($main_config = [])
 {
 	foreach ( $main_config as $key => $val ) {
-		if (($key == 'information_content' || $key == 'edit_information_content')) {
-			$main_config[$key] = _h($val);
-		} else {
-			$main_config[$key] = _t($val);
+		switch ($key) {
+			case 'information_content':
+			case 'edit_information_content':
+			case 'layout_footer':
+			case 'edit_layout_footer':
+				$main_config[$key] = _h($val);
+				break;
+			default:
+				$main_config[$key] = _t($val);
 		}
 	}
 

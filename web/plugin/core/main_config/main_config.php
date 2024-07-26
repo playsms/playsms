@@ -31,64 +31,64 @@ switch (_OP_) {
 
 		// enable register yes-no option
 		$option_enable_register = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['enable_register']
 		);
 
 		// enable forgot yes-no option
 		$option_enable_forgot = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['enable_forgot']
 		);
 
 		// disable login as subuser yes-no option
 		$option_disable_login_as = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['disable_login_as']
 		);
 
 		// enhance privacy for subusers
 		$option_enhance_privacy_subuser = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['enhance_privacy_subuser']
 		);
 
 		// enable logo yes-no option
 		$option_enable_logo = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['enable_logo']
 		);
 
 		// enable logo to replace main website title yes-no option
 		$option_logo_replace_title = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['logo_replace_title']
 		);
 
 		// option default account status on user registration
 		$option_default_user_status = _options(
-			array(
+			[
 				_('User') => 3,
 				_('Subuser') => 4
-			),
+			],
 			$main_config['default_user_status']
 		);
 
@@ -125,46 +125,46 @@ switch (_OP_) {
 
 		// select plus_sign_remove
 		$option_plus_sign_remove = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['plus_sign_remove']
 		);
 
 		// select plus_sign_add
 		$option_plus_sign_add = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['plus_sign_add']
 		);
 
 		// select enable_credit_unicode
 		$option_enable_credit_unicode = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['enable_credit_unicode']
 		);
 
 		// select brute_force_detection
 		$option_brute_force_detection = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$main_config['brute_force_detection']
 		);
 
 		// display
 
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'main_config',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'ACTION_URL' => _u('index.php?app=main&inc=core_main_config&op=main_config_save'),
 				'Main configuration' => _('Main configuration'),
@@ -231,7 +231,7 @@ switch (_OP_) {
 				'main_website_url' => $main_config['main_website_url'],
 				'gateway_number' => $main_config['gateway_number'],
 				'gateway_timezone' => $main_config['gateway_timezone'],
-				'username_length' => ((($main_config['username_length'] >= 3) && (($main_config['username_length'] <= 100))) ? $main_config['username_length'] : 30),
+				'username_length' => $main_config['username_length'] >= 3 && $main_config['username_length'] <= 100 ? $main_config['username_length'] : 30,
 				'default_rate' => $main_config['default_rate'],
 				'sms_max_count' => $main_config['sms_max_count'],
 				'credit_lowest_limit' => (float) $main_config['credit_lowest_limit'],
@@ -259,17 +259,18 @@ switch (_OP_) {
 				'option_plus_sign_add' => $option_plus_sign_add,
 				'option_enable_credit_unicode' => $option_enable_credit_unicode,
 				'option_brute_force_detection' => $option_brute_force_detection
-			),
-			'injects' => array(
+			],
+			'injects' => [
 				'core_config'
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case "main_config_save":
 
 		$post = $_POST;
+		$post['edit_layout_footer'] = core_safe_html_post('edit_layout_footer');
 		$post['edit_information_content'] = core_safe_html_post('edit_information_content');
 
 		// logo
@@ -284,7 +285,7 @@ switch (_OP_) {
 			$default_logo = _APPS_PATH_THEMES_ . '/common/images/logo.png';
 			$default_logo_url = _HTTP_PATH_THEMES_ . '/common/images/logo.png';
 
-			$logo_url = (file_exists($themes_logo) ? $themes_logo_url : $default_logo_url);
+			$logo_url = file_exists($themes_logo) ? $themes_logo_url : $default_logo_url;
 
 			// force to disable logo when neither themes_logo or default_logo exists
 			if (!file_exists($default_logo)) {
@@ -306,8 +307,7 @@ switch (_OP_) {
 
 		// save
 
-
-		$items = array(
+		$items = [
 			'web_title' => $post['edit_web_title'],
 			'email_service' => $post['edit_email_service'],
 			'email_footer' => $post['edit_email_footer'],
@@ -315,7 +315,7 @@ switch (_OP_) {
 			'main_website_url' => $post['edit_main_website_url'],
 			'gateway_number' => core_sanitize_sender($post['edit_gateway_number']),
 			'gateway_timezone' => $post['edit_gateway_timezone'],
-			'username_length' => ((((int) $post['edit_username_length'] >= 3) && ((int) $post['edit_username_length'] <= 100)) ? (int) $post['edit_username_length'] : 30),
+			'username_length' => (int) $post['edit_username_length'] >= 3 && (int) $post['edit_username_length'] <= 100 ? (int) $post['edit_username_length'] : 30,
 			'default_rate' => (float) $post['edit_default_rate'],
 			'gateway_module' => ($post['edit_gateway_module'] ? $post['edit_gateway_module'] : 'dev'),
 			'themes_module' => ($post['edit_themes_module'] ? $post['edit_themes_module'] : 'default'),
@@ -340,10 +340,10 @@ switch (_OP_) {
 			'enable_logo' => (int) $enable_logo,
 			'logo_url' => $logo_url,
 			'logo_replace_title' => (int) $logo_replace_title,
-			'layout_footer' => ($post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.')),
-			'information_title' => ($post['edit_information_title'] ? $post['edit_information_title'] : _('Information')),
-			'information_content' => ($post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page'))
-		);
+			'layout_footer' => $post['edit_layout_footer'] ? $post['edit_layout_footer'] : _('Application footer here. Go to main configuration or manage site to edit this footer.'),
+			'information_title' => $post['edit_information_title'] ? $post['edit_information_title'] : _('Information'),
+			'information_content' => $post['edit_information_content'] ? $post['edit_information_content'] : _('Go to main configuration or manage site to edit this page'),
+		];
 
 		$result = registry_update(1, 'core', 'main_config', $items);
 
