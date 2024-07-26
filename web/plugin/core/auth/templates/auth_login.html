@@ -40,10 +40,10 @@
 
 					<if.enable_captcha>
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100></td>
+						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100> {{ HINT_CAPTCHA }}</td>
 					</tr>
 					<tr>
-						<td><p class=well>{{ Captcha }} {{ HINT_CAPTCHA }}<br /><img src="{{ CAPTCHA_IMAGE }}"></p></td>
+						<td><p class=well><img src="{{ CAPTCHA_IMAGE }}"></p></td>
 					</tr>
 					</if.enable_captcha>
 

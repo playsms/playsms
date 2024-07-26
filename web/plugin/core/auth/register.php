@@ -30,11 +30,11 @@ if (_OP_ == 'register') {
 
 	// verify captcha
 	if ($auth_captcha_form_register) {
-		$session_captcha_phrase = strtolower($_SESSION['tmp']['captcha']['phrase']);
+		$session_captcha_phrase = $_SESSION['tmp']['captcha']['phrase'];
 		$session_captcha_time = (int) $_SESSION['tmp']['captcha']['time'];
 		unset($_SESSION['tmp']['captcha']);
 
-		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == $session_captcha_phrase)) {
+		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == strtolower($session_captcha_phrase))) {
 
 			// captcha timeout 15 minutes
 			if (time() > ($session_captcha_time + (15 * 60))) {
@@ -56,11 +56,12 @@ if (_OP_ == 'register') {
 		}
 	}
 
-	$data = array();
-	$data['name'] = trim($_REQUEST['name']);
-	$data['username'] = trim($_REQUEST['username']);
-	$data['email'] = trim($_REQUEST['email']);
-	$data['mobile'] = trim($_REQUEST['mobile']);
+	$data = [
+		'name' => trim($_REQUEST['name']),
+		'username' => trim($_REQUEST['username']),
+		'email' => trim($_REQUEST['email']),
+		'mobile' => trim($_REQUEST['mobile']),
+	];
 
 	if ($core_config['main']['enable_register']) {
 		if (!($data['name'] && $data['username'] && $data['email'])) {
@@ -81,41 +82,41 @@ if (_OP_ == 'register') {
 	}
 
 	// force non-admin, status=3 is user and status=4 is subuser
-	$data['status'] = ($core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4);
+	$data['status'] = $core_config['main']['default_user_status'] == 3 ? $core_config['main']['default_user_status'] : 4;
 
 	// set parent for subuser
-	$parent_uid = ((int) $site_config['uid'] ? (int) $site_config['uid'] : 0);
+	$parent_uid = (int) $site_config['uid'] ? (int) $site_config['uid'] : 0;
 	if ($parent_uid) {
 		// regardless of default user status if register form site config then user status become subuser and parent is site config owner
 		$data['parent_uid'] = $parent_uid;
 		$data['status'] = 4;
 	} else {
-		$data['parent_uid'] = ($data['status'] == 4 ? $core_config['main']['default_parent'] : 0);
+		$data['parent_uid'] = $data['status'] == 4 ? $core_config['main']['default_parent'] : 0;
 	}
 
-	$ret = user_add($data, FALSE, FALSE);
-	$ok = ($ret['status'] ? TRUE : FALSE);
+	$ret = user_add($data, false, false);
+	$ok = $ret['status'] ? true : false;
 	if ($ok) {
 
 		// injected variable
 		$reg_data = $ret['data'];
 
 		// send email
-		$tpl = array(
+		$tpl = [
 			'name' => 'auth_register_email',
-			'vars' => array(
+			'vars' => [
 				'Name' => _('Name'),
 				'Username' => _('Username'),
 				'Password' => _('Password'),
 				'Mobile' => _('Mobile'),
 				'Credit' => _('Credit'),
 				'Email' => _('Email')
-			),
-			'injects' => array(
+			],
+			'injects' => [
 				'core_config',
 				'reg_data'
-			)
-		);
+			]
+		];
 		$email_body = tpl_apply($tpl);
 		$email_subject = _('New account registration');
 
@@ -139,22 +140,22 @@ if (_OP_ == 'register') {
 	exit();
 } else {
 
-	$enable_logo = FALSE;
-	$show_web_title = TRUE;
+	$enable_logo = false;
+	$show_web_title = true;
 
 	if ($core_config['main']['enable_logo'] && $core_config['main']['logo_url']) {
-		$enable_logo = TRUE;
+		$enable_logo = true;
 		if ($core_config['main']['logo_replace_title']) {
-			$show_web_title = FALSE;
+			$show_web_title = false;
 		}
 	}
 
-	$lastpost = array(
+	$lastpost = [
 		'name' => _lastpost('name'),
 		'username' => _lastpost('username'),
 		'mobile' => _lastpost('mobile'),
 		'email' => _lastpost('email')
-	);
+	];
 
 	// prepare captcha phrase and set the time
 	$captcha_image = '';

@@ -21,27 +21,40 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Validate username and password
  *
- * @param string $username
- *        Username
- * @param string $password
- *        Password
- * @return boolean TRUE when validated or boolean FALSE when validation failed
+ * @param string $username username
+ * @param string $password password
+ * @return bool true when validated
  */
 function auth_validate_login($username, $password)
 {
+	// username not found
+	if (!trim($username)) {
+		_log('invalid username not found u:' . $username . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
 
-	// fixme anton - sanitize username
-	if (!($username && $username == core_sanitize_username($username))) {
-		_log('invalid username u:' . $username . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+		return false;
+	}
 
-		return FALSE;
+	// sanitized username
+	$sanitized_username = core_sanitize_username($username);
+	if ($sanitized_username != $username) {
+		_log('username contains invalid characters u:' . $username . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+
+		return false;
+	}
+	$username = $sanitized_username;
+
+	// password is too short
+	if (strlen(trim($password)) <= 4) {
+		_log('invalid password is too short u:' . $username . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+
+		return false;
 	}
 
 	// get uid
 	if (!($uid = user_username2uid($username))) {
 		_log('cannot find uid from username u:' . $username . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
 
-		return FALSE;
+		return false;
 	}
 
 	// log attempts	
@@ -50,13 +63,13 @@ function auth_validate_login($username, $password)
 	// check if user's IP blacklist
 	if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
 		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
-		return FALSE;
+		return false;
 	}
 
 	// check if user banned
 	if (user_banned_get($uid)) {
 		_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
-		return FALSE;
+		return false;
 	}
 
 	// get user's password and salt, but after using password_hash() salt is not inuse actually
@@ -107,7 +120,7 @@ function auth_validate_login($username, $password)
 			// in this part playSMS will convert md5 password to bcrypt hash if password matched
 
 			// not verified, visitor's is not user forgotten password, maybe an old account using old formattted password
-			if ($password && $res_password && (($res_password === md5($password)) || ($res_password === md5($password . $res_salt)))) {
+			if ($password && $res_password && ($res_password === md5($password) || $res_password === md5($password . $res_salt))) {
 
 				// password matched with old md5 password, convert it to bcrypt hash
 				if ($new_password = password_hash($password, PASSWORD_BCRYPT)) {
@@ -149,11 +162,9 @@ function auth_validate_login($username, $password)
 /**
  * Validate email and password
  *
- * @param string $email
- *        Username
- * @param string $password
- *        Password
- * @return boolean TRUE when validated or boolean FALSE when validation failed
+ * @param string $email email
+ * @param string $password password
+ * @return bool true when validated
  */
 function auth_validate_email($email, $password)
 {
@@ -171,9 +182,8 @@ function auth_validate_email($email, $password)
 /**
  * Validate token
  *
- * @param string $token
- *        Token
- * @return string User ID when validated or boolean FALSE when validation failed
+ * @param string $token token
+ * @return bool true when validated
  */
 function auth_validate_token($token)
 {
@@ -188,7 +198,7 @@ function auth_validate_token($token)
 	if (_APP_ == 'main' || _APP_ == 'menu') {
 
 		// log attempts if using token from web, not webservices
-		_log('login attempt token:' . $token . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_token');
+		_log('invalid usage token:' . $token . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_token');
 
 		// it used to be ok, but now token can only be used in webservices
 		return false;
@@ -201,6 +211,9 @@ function auth_validate_token($token)
 	$username = trim($db_row['username']);
 	$enable_webservices = (bool) $db_row['enable_webservices'];
 	$webservices_ip = trim($db_row['webservices_ip']);
+
+	// log attempts	- commented, too noisy for webservices
+	//_log('login attempt token:' . $token . ' username:' . $username . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_login');
 
 	// check blacklist
 	if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
@@ -219,7 +232,7 @@ function auth_validate_token($token)
 				if (!$net) {
 					_log('invalid network u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
 
-					return FALSE;
+					return false;
 				}
 
 				if (core_net_match($net, _REMOTE_ADDR_)) {
@@ -228,11 +241,7 @@ function auth_validate_token($token)
 					if (user_banned_get($uid)) {
 						_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
 
-						return FALSE;
-					}
-
-					if (_APP_ == 'main' || _APP_ == 'menu') {
-						_log('valid login u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_ . ' net:' . $net, 2, 'auth_validate_token');
+						return false;
 					}
 
 					// remove IP on successful login
@@ -255,7 +264,7 @@ function auth_validate_token($token)
 /**
  * Check if visitor has been validated
  *
- * @return boolean TRUE if valid
+ * @return bool true if valid
  */
 function auth_isvalid()
 {
@@ -268,7 +277,7 @@ function auth_isvalid()
 
 			//auth_session_destroy();
 
-			return FALSE;
+			return false;
 		}
 
 		// check if user still browsing from the same IP address
@@ -277,7 +286,7 @@ function auth_isvalid()
 
 			//auth_session_destroy();
 
-			return FALSE;
+			return false;
 		}
 
 		// get registry
@@ -289,7 +298,7 @@ function auth_isvalid()
 
 			//auth_session_destroy();
 
-			return FALSE;
+			return false;
 		}
 
 		// check if user session's IP the same as recorded IP in registry
@@ -298,96 +307,102 @@ function auth_isvalid()
 
 			//auth_session_destroy();
 
-			return FALSE;
+			return false;
 		}
 
-		return TRUE;
+		return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 /**
  * Check if visitor has admin access level
  *
- * @return boolean TRUE if valid and visitor has admin access level
+ * @return bool true if valid and visitor has admin access level
  */
 function auth_isadmin()
 {
 	if ($_SESSION['status'] == 2) {
 		if (auth_isvalid()) {
-			return TRUE;
+			return true;
 		}
 	}
-	return FALSE;
+
+	return false;
 }
 
 /**
  * Check if visitor has user access level
  *
- * @return boolean TRUE if valid and visitor has user access level
+ * @return bool true if valid and visitor has user access level
  */
 function auth_isuser()
 {
 	if ($_SESSION['status'] == 3) {
 		if (auth_isvalid()) {
-			return TRUE;
+			return true;
 		}
 	}
-	return FALSE;
+
+	return false;
 }
 
 /**
  * Check if visitor has subuser access level
  *
- * @return boolean TRUE if valid and visitor has subuser access level
+ * @return bool true if valid and visitor has subuser access level
  */
 function auth_issubuser()
 {
 	if ($_SESSION['status'] == 4) {
 		if (auth_isvalid()) {
-			return TRUE;
+			return true;
 		}
 	}
-	return FALSE;
+
+	return false;
 }
 
 /**
  * Check if visitor has certain user status
  *
- * @param string $status
- *        Account status
- * @return boolean TRUE if valid and visitor has certain user status
+ * @param int|string $status Account status
+ * @return bool true if valid and visitor has certain user status
  */
 function auth_isstatus($status)
 {
-	if ($_SESSION['status'] == (int) $status) {
+	$status = (int) $status;
+	if ($status && $_SESSION['status'] == $status) {
 		if (auth_isvalid()) {
-			return TRUE;
+			return true;
 		}
 	}
-	return FALSE;
+
+	return false;
 }
 
 /**
  * Check if visitor has certain ACL
  *
- * @param string $acl
- *        Access Control List
- * @return boolean TRUE if valid and visitor has certain ACL
+ * @param string $acl Access Control List
+ * @return bool true if valid and visitor has certain ACL
  */
 function auth_isacl($acl)
 {
 	if (auth_isadmin()) {
-		return TRUE;
+
+		return true;
 	} else {
 		$user_acl_id = user_getfieldbyuid($_SESSION['uid'], 'acl_id');
 		$user_acl_name = acl_getname($user_acl_id);
 		if ($acl && $user_acl_name && strtoupper($acl) == strtoupper($user_acl_name)) {
-			return TRUE;
+
+			return true;
 		}
 	}
-	return FALSE;
+
+	return false;
 }
 
 /**
@@ -402,15 +417,19 @@ function auth_block()
 /**
  * Setup and renew user session
  *
- * @param string $uid
- *        User ID
+ * @param int|string $uid User ID
  */
 function auth_session_setup($uid)
 {
 	global $core_config;
 
 	// regenerate new session ID
-	session_regenerate_id(TRUE);
+	session_regenerate_id(true);
+
+	if (!($uid = (int) $uid)) {
+
+		return;
+	}
 
 	$c_user = user_getdatabyuid($uid);
 	if ($c_user['uid'] && $c_user['username'] && $c_user['status']) {
@@ -419,9 +438,9 @@ function auth_session_setup($uid)
 		// these variables and values sets only in here, no where else
 		// except probably later 'status' can be changed somewhere else, eg. after admin changed user's status
 		$_SESSION['sid'] = session_id();
-		$_SESSION['uid'] = $c_user['uid'];
+		$_SESSION['uid'] = (int) $c_user['uid'];
 		$_SESSION['username'] = $c_user['username'];
-		$_SESSION['status'] = $c_user['status'];
+		$_SESSION['status'] = (int) $c_user['status'];
 		$_SESSION['ip'] = _REMOTE_ADDR_;
 		$_SESSION['http_user_agent'] = core_sanitize_string($_SERVER['HTTP_USER_AGENT']);
 		$_SESSION['last_update'] = time();
@@ -429,10 +448,10 @@ function auth_session_setup($uid)
 
 		// make sure this is empty if currently not inuse
 		if (!is_array($_SESSION['tmp']['login_as'])) {
-			$_SESSION['tmp']['login_as'] = array();
+			$_SESSION['tmp']['login_as'] = [];
 		}
 
-		// save session in registry
+		// save session in registry - only if not running from daemon
 		if (!$core_config['daemon_process']) {
 			user_session_set($c_user['uid']);
 
@@ -473,7 +492,6 @@ function auth_session_destroy()
 
 function auth_login_as($uid)
 {
-
 	// save current login
 	array_unshift($_SESSION['tmp']['login_as'], $_SESSION['uid']);
 
@@ -483,21 +501,21 @@ function auth_login_as($uid)
 
 function auth_login_return()
 {
-
 	// get previous login
 	$previous_login = $_SESSION['tmp']['login_as'][0];
 	array_shift($_SESSION['tmp']['login_as']);
 
 	// return to previous session
 	auth_session_setup($previous_login);
-
 }
 
 function auth_login_as_check()
 {
 	if (isset($_SESSION['tmp']['login_as']) && is_array($_SESSION['tmp']['login_as']) && count($_SESSION['tmp']['login_as']) > 0) {
-		return TRUE;
+
+		return true;
 	} else {
-		return FALSE;
+
+		return false;
 	}
 }

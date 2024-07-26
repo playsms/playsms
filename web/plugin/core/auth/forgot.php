@@ -72,23 +72,22 @@ if (_OP_ == 'forgot') {
 						1,
 						'auth',
 						'tmp_password',
-						array(
+						[
 							$username => $tmp_password_hashed
-						)
+						]
 					)
 				) {
-
 					// send email
 					$tpl = array(
 						'name' => 'auth_forgot_email',
-						'vars' => array(
+						'vars' => [
 							'INFO1' => _('You or someone else have requested a password recovery'),
 							'INFO2' => _('This temporary password will be removed once you have logged in successfully'),
 							'Username' => _('Username'),
 							'Password' => _('Password'),
 							'username' => $username,
 							'temporary_password' => $tmp_password_plain
-						),
+						],
 						'injects' => array(
 							'core_config'
 						)
@@ -139,14 +138,13 @@ if (_OP_ == 'forgot') {
 	header("Location: " . _u('index.php?app=main&inc=core_auth&route=forgot'));
 	exit();
 } else {
-
-	$enable_logo = FALSE;
-	$show_web_title = TRUE;
+	$enable_logo = false;
+	$show_web_title = true;
 
 	if ($core_config['main']['enable_logo'] && $core_config['main']['logo_url']) {
-		$enable_logo = TRUE;
+		$enable_logo = true;
 		if ($core_config['main']['logo_replace_title']) {
-			$show_web_title = FALSE;
+			$show_web_title = false;
 		}
 	}
 

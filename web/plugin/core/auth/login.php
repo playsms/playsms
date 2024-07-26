@@ -28,11 +28,11 @@ if (_OP_ == 'login') {
 
 	// verify captcha
 	if ($auth_captcha_form_login) {
-		$session_captcha_phrase = strtolower($_SESSION['tmp']['captcha']['phrase']);
+		$session_captcha_phrase = $_SESSION['tmp']['captcha']['phrase'];
 		$session_captcha_time = (int) $_SESSION['tmp']['captcha']['time'];
 		unset($_SESSION['tmp']['captcha']);
 
-		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == $session_captcha_phrase)) {
+		if ($_REQUEST['captcha'] && $session_captcha_phrase && (strtolower($_REQUEST['captcha']) == strtolower($session_captcha_phrase))) {
 
 			// captcha timeout 15 minutes
 			if (time() > ($session_captcha_time + (15 * 60))) {
@@ -56,23 +56,21 @@ if (_OP_ == 'login') {
 
 	if ($username_or_email && $password) {
 		$username = '';
-		$validated = FALSE;
+		$continue = false;
 
 		if (preg_match('/^(.+)@(.+)\.(.+)$/', $username_or_email)) {
 			if (auth_validate_email($username_or_email, $password)) {
 				$username = user_email2username($username_or_email);
-				$validated = TRUE;
+				$continue = true;
 			}
 		} else {
 			if (auth_validate_login($username_or_email, $password)) {
 				$username = $username_or_email;
-				$validated = TRUE;
+				$continue = true;
 			}
 		}
 
-		if ($validated) {
-			$uid = user_username2uid($username);
-
+		if ($username && $continue && $uid = user_username2uid($username)) {
 			// setup new session after successful login
 			auth_session_setup($uid);
 
@@ -94,13 +92,13 @@ if (_OP_ == 'login') {
 	exit();
 } else {
 
-	$enable_logo = FALSE;
-	$show_web_title = TRUE;
+	$enable_logo = false;
+	$show_web_title = true;
 
 	if ($core_config['main']['enable_logo'] && $core_config['main']['logo_url']) {
-		$enable_logo = TRUE;
+		$enable_logo = true;
 		if ($core_config['main']['logo_replace_title']) {
-			$show_web_title = FALSE;
+			$show_web_title = false;
 		}
 	}
 
