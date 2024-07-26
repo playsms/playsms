@@ -23,66 +23,66 @@ if (!auth_isadmin()) {
 }
 
 switch (_OP_) {
-	case 'add_smsc' :
+	case 'add_smsc':
 		$c_gateway = $_REQUEST['gateway'];
-		
-		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
-		foreach ($dv as $key => $val ) {
+
+		$dv = $plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : [];
+		foreach ( $dv as $key => $val ) {
 			$dynamic_variables[] = array(
 				'key' => $key,
-				'title' => $val 
+				'title' => $val
 			);
 		}
-		
-		$tpl = array(
+
+		$tpl = [
 			'name' => 'gateway_add_smsc',
-			'vars' => array(
+			'vars' => [
 				'FORM_TITLE' => _('Add SMSC'),
 				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=add_smsc_save',
 				'GATEWAY' => $c_gateway,
 				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'Gateway' => _('Gateway'),
 				'SMSC name' => _mandatory(_('SMSC name')),
-				'Save' => _('Save') 
-			),
-			'loops' => array(
-				'dynamic_variables' => $dynamic_variables 
-			) 
-		);
+				'Save' => _('Save')
+			],
+			'loops' => [
+				'dynamic_variables' => $dynamic_variables
+			],
+		];
 		$content = tpl_apply($tpl);
 		break;
-	
-	case 'add_smsc_save' :
+
+	case 'add_smsc_save':
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
-		
+
 		// do not add dev and blocked
-		$continue = FALSE;
+		$continue = false;
 		if (!(($c_gateway == 'dev') || ($c_gateway == 'blocked'))) {
-			$continue = TRUE;
+			$continue = true;
 		}
-		
+
 		$c_name = core_sanitize_alphanumeric(strtolower($_REQUEST['name']));
 		if (!$c_name) {
 			$c_name = time();
 		}
-		
+
 		$smsc = gateway_get_smscbyname($c_name);
 
 		if ($smsc['name']) {
 			$_SESSION['dialog']['info'][] = _('SMSC already exists');
 		} else {
-			
+
 			if ($c_name && $c_gateway) {
-				$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
-				$dynamic_variables = array();
-				foreach ($dv as $key => $val ) {
+				$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : []);
+				$dynamic_variables = [];
+				foreach ( $dv as $key => $val ) {
 					$dynamic_variables[$key] = $_REQUEST[$key];
 				}
 				$items = array(
 					'created' => core_get_datetime(),
 					'name' => $c_name,
 					'gateway' => $c_gateway,
-					'data' => json_encode($dynamic_variables) 
+					'data' => json_encode($dynamic_variables)
 				);
 				$db_table = _DB_PREF_ . '_tblGateway';
 				if ($new_id = dba_add($db_table, $items)) {
@@ -96,32 +96,31 @@ switch (_OP_) {
 				exit();
 			}
 		}
-		
+
 		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=add_smsc&gateway=' . $c_gateway));
 		exit();
-		break;
-	
-	case 'edit_smsc' :
+
+	case 'edit_smsc':
 		$c_id = $_REQUEST['id'];
-		
+
 		$smsc = gateway_get_smscbyid($c_id);
-		
+
 		$c_name = $smsc['name'];
 		$c_gateway = gateway_valid_name($smsc['gateway']);
 		$c_data = json_decode($smsc['data']);
-		
-		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
-		foreach ($dv as $key => $val ) {
+
+		$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : []);
+		foreach ( $dv as $key => $val ) {
 			$dynamic_variables[] = array(
 				'key' => $key,
 				'title' => $val,
-				'value' => $c_data->$key 
+				'value' => $c_data->$key
 			);
 		}
-		
-		$tpl = array(
+
+		$tpl = [
 			'name' => 'gateway_edit_smsc',
-			'vars' => array(
+			'vars' => [
 				'FORM_TITLE' => _('Edit SMSC'),
 				'ACTION_URL' => 'index.php?app=main&inc=core_gateway&op=edit_smsc_save',
 				'ID' => $c_id,
@@ -130,39 +129,39 @@ switch (_OP_) {
 				'BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'Gateway' => _('Gateway'),
 				'SMSC name' => _('SMSC name'),
-				'Save' => _('Save') 
-			),
-			'loops' => array(
-				'dynamic_variables' => $dynamic_variables 
-			) 
-		);
+				'Save' => _('Save')
+			],
+			'loops' => [
+				'dynamic_variables' => $dynamic_variables
+			],
+		];
 		$content = tpl_apply($tpl);
 		break;
-	
-	case 'edit_smsc_save' :
+
+	case 'edit_smsc_save':
 		$c_id = (int) $_REQUEST['id'];
 		$smsc = gateway_get_smscbyid($c_id);
-		
+
 		// do not edit dev and blocked
-		$continue = FALSE;
+		$continue = false;
 		if (!(($smsc['gateway'] == 'dev') || ($smsc['gateway'] == 'blocked'))) {
-			$continue = TRUE;
+			$continue = true;
 		}
-		
+
 		$c_gateway = gateway_valid_name($_REQUEST['gateway']);
-		
+
 		if ($continue && $c_id && $c_gateway && ($c_gateway == $smsc['gateway'])) {
-			$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : array());
-			$dynamic_variables = array();
-			foreach ($dv as $key => $val ) {
+			$dv = ($plugin_config[$c_gateway]['_smsc_config_'] ? $plugin_config[$c_gateway]['_smsc_config_'] : []);
+			$dynamic_variables = [];
+			foreach ( $dv as $key => $val ) {
 				$dynamic_variables[$key] = $_REQUEST[$key];
 			}
 			$items = array(
 				'last_update' => core_get_datetime(),
-				'data' => json_encode($dynamic_variables) 
+				'data' => json_encode($dynamic_variables)
 			);
 			$condition = array(
-				'id' => $c_id 
+				'id' => $c_id
 			);
 			$db_table = _DB_PREF_ . '_tblGateway';
 			if ($new_id = dba_update($db_table, $items, $condition)) {
@@ -175,16 +174,15 @@ switch (_OP_) {
 			header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 			exit();
 		}
-		
+
 		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=edit_smsc&id=' . $c_id));
 		exit();
-		break;
-	
-	case 'del_smsc' :
+
+	case 'del_smsc':
 		if ($c_id = $_REQUEST['id']) {
 			$db_table = _DB_PREF_ . '_tblGateway';
 			$condition = array(
-				'id' => $c_id 
+				'id' => $c_id
 			);
 			if (dba_remove($db_table, $condition)) {
 				$_SESSION['dialog']['info'][] = _('SMSC has been removed');
@@ -196,9 +194,8 @@ switch (_OP_) {
 		}
 		header('Location: ' . _u('index.php?app=main&inc=core_gateway&op=gateway_list'));
 		exit();
-		break;
-	
-	default :
+
+	default:
 		$content = "
 			<h3>" . _('List of gateways and SMSCs') . "</h3>
 			<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
