@@ -22,7 +22,7 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-$id = $_REQUEST['id'];
+$id = (int) $_REQUEST['id'];
 $acl_name = acl_getname($id);
 
 switch (_OP_) {
@@ -31,21 +31,21 @@ switch (_OP_) {
 			_('Registered') => 'register_datetime',
 			_('Username') => 'username',
 			_('Name') => 'name',
-			_('Mobile') => 'mobile' 
+			_('Mobile') => 'mobile'
 		);
 		$search = themes_search($search_var, '');
-		$conditions = array(
+		$conditions = [
 			'flag_deleted' => 0,
-			'acl_id' => $id 
-		);
+			'acl_id' => $id
+		];
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=main&inc=core_acl&route=view&op=user_list&id=" . $id);
-		$extras = array(
+		$extras = [
 			'ORDER BY' => 'register_datetime DESC, username',
 			'LIMIT' => $nav['limit'],
-			'OFFSET' => $nav['offset'] 
-		);
+			'OFFSET' => $nav['offset']
+		];
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
 
 		$content .= _dialog() . "
@@ -59,7 +59,7 @@ switch (_OP_) {
 				</tr>
 				<tr>
 					<td>" . _('ACL name') . "</td>
-					<td>" . $acl_name . "</td>
+					<td>" . _display($acl_name) . "</td>
 				</tr>
 			</table>			
 			<h4>" . _('List of accounts') . "</h4>
@@ -75,10 +75,11 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
-		for ($i = 0; $i < count($list); $i++) {
-			
+		$c_count = count($list);
+		for ($i = 0; $i < $c_count; $i++) {
+
 			$action = "";
-			
+
 			if ($list[$i]['uid'] != '1' || $list[$i]['uid'] != $user_config['uid']) {
 				if (user_banned_get($list[$i]['uid'])) {
 					// unban
@@ -88,7 +89,9 @@ switch (_OP_) {
 					$banned_icon = '';
 				}
 			}
-			
+
+			$list[$i] = _display($list[$i]);
+
 			$j--;
 			$content .= "
 				<tr>
