@@ -26,28 +26,6 @@ $_REQUEST['uid'] = (int) $_REQUEST['uid'];
 $_REQUEST['id'] = (int) $_REQUEST['id'];
 $_REQUEST['default'] = (int) $_REQUEST['default'];
 $_REQUEST['approved'] = (int) $_REQUEST['approved'];
-$_REQUEST['description'] = _t($_REQUEST['description']);
-
-// check permission when $uid supplied
-if ($_REQUEST['uid']) {
-	if (!auth_isadmin() && $user_config['uid'] != $_REQUEST['uid']) {
-		auth_block();
-	}
-	$uid = $_REQUEST['uid'];
-}
-
-// check permission when $id supplied
-if ($_REQUEST['id']) {
-	$search = array(
-		'id' => $_REQUEST['id'],
-		'registry_family' => 'sender_id'
-	);
-	$data_sender_id = registry_search_record($search);
-	if (!auth_isadmin() && $user_config['uid'] != $data_sender_id[0]['uid']) {
-		auth_block();
-	}
-	$uid = $data_sender_id[0]['uid'];
-}
 
 // check permission if _OP_ == toggle_status
 if (_OP_ == 'toggle_status') {
@@ -56,52 +34,76 @@ if (_OP_ == 'toggle_status') {
 	}
 }
 
-// default uid
-if (!$uid) {
-	$uid = $user_config['uid'];
+// check permission when $uid supplied
+if (!auth_isadmin() && $_REQUEST['uid'] && $_REQUEST['uid'] != $user_config['uid']) {
+	auth_block();
+}
+
+// after above check define uid if uid supplied
+$uid = $_REQUEST['uid'] ? $_REQUEST['uid'] : $user_config['uid'];
+
+// check permission when $id supplied
+if ($_REQUEST['id']) {
+	$search = [
+		'id' => $_REQUEST['id'],
+		'registry_family' => 'sender_id'
+	];
+	$data_sender_id = registry_search_record($search);
+	$data_sender_id[0]['uid'] = isset($data_sender_id[0]['uid']) ? $data_sender_id[0]['uid'] : 0;
+
+	// invalid id
+	if (!(isset($data_sender_id[0]['uid']) && $data_sender_id[0]['uid'])) {
+		auth_block();
+	}
+
+	// id not owned by currently logged in user
+	if (!auth_isadmin() && $data_sender_id[0]['uid'] != $user_config['uid']) {
+		auth_block();
+	}
+
+	// after above checks define/override uid from supplied id
+	$uid = $data_sender_id[0]['uid'];
 }
 
 // sender ID
-$c_sender_id = $_REQUEST['sender_id'];
-if ($c_sender_id) {
-	$c_sender_id = core_sanitize_sender($c_sender_id);
-}
+$c_sender_id = isset($_REQUEST['sender_id']) && $_REQUEST['sender_id'] ? $_REQUEST['sender_id'] : core_sanitize_sender($c_sender_id);
 
 // sender ID description
 $c_sender_id_description = trim($_REQUEST['description']) ? trim($_REQUEST['description']) : $c_sender_id;
 
 switch (_OP_) {
 	case 'sender_id_list':
-		$search_category = array(
+		$search_category = [
 			_('Username') => 'uid',
 			_('Sender ID') => 'registry_key'
-		);
-		$keyword_converter = array(
+		];
+		$keyword_converter = [
 			'uid' => 'user_username2uid'
-		);
+		];
 		$base_url = 'index.php?app=main&inc=core_sender_id&op=sender_id_list';
 		$search = themes_search($search_category, $base_url, $keyword_converter);
-		$conditions = array(
-			'uid' => $user_config['uid'],
+		$conditions = [
+			'uid' => $uid,
 			'registry_family' => 'sender_id'
-		);
+		];
 		if (auth_isadmin()) {
 			unset($conditions['uid']);
 		}
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblRegistry', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
+		$extras = [
 			'ORDER BY' => 'uid',
 			'LIMIT' => (int) $nav['limit'],
 			'OFFSET' => (int) $nav['offset']
-		);
+		];
 		$list = dba_search(_DB_PREF_ . '_tblRegistry', '*', $conditions, $keywords, $extras);
 
-		$sender_id_list = array();
+		$sender_id_list = [];
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		$c_count = is_array($list) ? count($list) : 0;
+		for ($j = 0; $j < $c_count; $j++) {
 			$username = (auth_isadmin() ? user_uid2username($list[$j]['uid']) : '');
 			$status = (($list[$j]['registry_value'] == 1) ? "<span class=status_enabled></span>" : "<span class=status_disabled></span>");
 			$toggle_status = ((auth_isadmin()) ? "<a href='" . _u('index.php?app=main&inc=core_sender_id&op=toggle_status&id=' . $list[$j]['id']) . "'>" . $status . "</a>" : $status);
@@ -109,19 +111,19 @@ switch (_OP_) {
 				<a href='" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_edit&id=' . $list[$j]['id']) . "'>" . $icon_config['edit'] . "</a>
 				<a href=\"javascript: ConfirmURL('" . addslashes(_('Are you sure you want to delete sender ID') . ' ? (' . _('Sender ID') . ': ' . $list[$j]['registry_key'] . ')') . "','" . _u('index.php?app=main&inc=core_sender_id&op=sender_id_delete&id=' . $list[$j]['id']) . "')\">" . $icon_config['delete'] . "</a>
 			";
-			$sender_id_list[] = array(
+			$sender_id_list[] = [
 				'username' => $username,
-				'sender_id' => core_sanitize_sender($list[$j]['registry_key']),
-				'sender_id_description' => sender_id_description($list[$j]['uid'], $list[$j]['registry_key']),
+				'sender_id' => _display(core_sanitize_sender($list[$j]['registry_key'])),
+				'sender_id_description' => _display(sender_id_description($list[$j]['uid'], $list[$j]['registry_key'])),
 				'lastupdate' => core_display_datetime(core_convert_datetime($list[$j]['c_timestamp'])),
 				'status' => $toggle_status,
 				'action' => $action
-			);
+			];
 		}
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'sender_id',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'SEARCH_FORM' => $search['form'],
 				'NAV_FORM' => $nav['form'],
@@ -131,18 +133,19 @@ switch (_OP_) {
 				'HINT_STATUS' => _hint(_('Click the status button to enable or disable status')),
 				'Sender ID' => _('Sender ID'),
 				'Username' => _('Username'),
+				'Description' => _('Description'),
 				'Last update' => _('Last update')
-			),
-			'ifs' => array(
+			],
+			'ifs' => [
 				'isadmin' => auth_isadmin()
-			),
-			'loops' => array(
+			],
+			'loops' => [
 				'sender_id_list' => $sender_id_list
-			),
-			'injects' => array(
+			],
+			'injects' => [
 				'icon_config'
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
@@ -161,9 +164,9 @@ switch (_OP_) {
 		}
 		$select_default = _yesno('default', 0);
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'sender_id_add',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => _('Manage sender ID'),
 				'FORM_SUBTITLE' => _('Add sender ID'),
@@ -178,18 +181,18 @@ switch (_OP_) {
 				'Approve sender ID' => _('Approve sender ID'),
 				'Set as default' => _('Set as default'),
 				'Save' => _('Save')
-			),
-			'ifs' => array(
+			],
+			'ifs' => [
 				'isadmin' => auth_isadmin()
-			),
-			'injects' => array(
+			],
+			'injects' => [
 				'select_default',
 				'select_approve',
 				'select_users',
 				'icon_config',
 				'core_config'
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
@@ -221,6 +224,8 @@ switch (_OP_) {
 		$items['sender_id'] = $data_sender_id[0]['registry_key'];
 		$items['description'] = sender_id_description($uid, $data_sender_id[0]['registry_key']);
 
+		$items = _display($items);
+
 		if (auth_isadmin()) {
 			$select_approve = _yesno('approved', $data_sender_id[0]['registry_value']);
 			$select_users = user_getfieldbyuid($uid, 'name') . ' (' . user_uid2username($uid) . ')';
@@ -228,9 +233,9 @@ switch (_OP_) {
 		$default_sender_id = sender_id_default_get($uid);
 		$select_default = _yesno('default', (strtoupper($data_sender_id[0]['registry_key']) == strtoupper($default_sender_id) ? 1 : 0));
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'sender_id_add',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'FORM_TITLE' => _('Manage sender ID'),
 				'FORM_SUBTITLE' => _('Edit sender ID'),
@@ -245,19 +250,19 @@ switch (_OP_) {
 				'Approve sender ID' => _('Approve sender ID'),
 				'Set as default' => _('Set as default'),
 				'Save' => _('Save')
-			),
-			'ifs' => array(
+			],
+			'ifs' => [
 				'isadmin' => auth_isadmin()
-			),
-			'injects' => array(
+			],
+			'injects' => [
 				'select_default',
 				'select_approve',
 				'select_users',
 				'items',
 				'icon_config',
 				'core_config'
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
@@ -272,10 +277,10 @@ switch (_OP_) {
 		exit();
 
 	case "toggle_status":
-		$search = array(
+		$search = [
 			'id' => $_REQUEST['id'],
 			'registry_family' => 'sender_id'
-		);
+		];
 		foreach ( registry_search_record($search) as $row ) {
 			$status = ($row['registry_value'] == 0) ? 1 : 0;
 			$items[$row['registry_key']] = $status;
@@ -292,7 +297,7 @@ switch (_OP_) {
 		$search = themes_search_session();
 		$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 
-		$uid = ((auth_isadmin() && $data_sender_id[0]['uid']) ? $data_sender_id[0]['uid'] : $user_config['uid']);
+		$uid = auth_isadmin() && $data_sender_id[0]['uid'] ? $data_sender_id[0]['uid'] : $user_config['uid'];
 
 		registry_remove($uid, 'features', 'sender_id', $data_sender_id[0]['registry_key']);
 		registry_remove($uid, 'features', 'sender_id_description', $data_sender_id[0]['registry_key']);
