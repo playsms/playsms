@@ -20,6 +20,7 @@ defined('_SECURE_') or die('Forbidden');
 
 /**
  * Update registry
+ *
  * @param int $uid
  * @param string $registry_group
  * @param string $registry_family
@@ -32,8 +33,16 @@ function registry_update($uid, $registry_group, $registry_family, $items)
 
 	if (is_array($items)) {
 		foreach ( $items as $key => $val ) {
-			$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $key);
-			$values = array('c_timestamp' => strtotime(core_get_datetime()), 'registry_value' => $val);
+			$conditions = [
+				'uid' => $uid,
+				'registry_group' => $registry_group,
+				'registry_family' => $registry_family,
+				'registry_key' => $key
+			];
+			$values = [
+				'c_timestamp' => strtotime(core_get_datetime()),
+				'registry_value' => $val
+			];
 			if (dba_count(_DB_PREF_ . '_tblRegistry', $conditions)) {
 				$ret[$key] = dba_update(_DB_PREF_ . '_tblRegistry', $values, $conditions) ? true : false;
 			} else {
@@ -47,6 +56,7 @@ function registry_update($uid, $registry_group, $registry_family, $items)
 
 /**
  * Search in registry
+ *
  * @param int $uid
  * @param string $registry_group
  * @param string $registry_family optional registry family
@@ -58,17 +68,29 @@ function registry_search($uid, $registry_group, $registry_family = '', $registry
 	$ret = [];
 
 	if ($registry_group && $registry_family && $registry_key) {
-		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $registry_key);
+		$conditions = [
+			'uid' => $uid,
+			'registry_group' => $registry_group,
+			'registry_family' => $registry_family,
+			'registry_key' => $registry_key
+		];
 		$list = dba_search(_DB_PREF_ . '_tblRegistry', 'registry_value', $conditions);
 		$ret[$registry_group][$registry_family][$registry_key] = $list[0]['registry_value'];
 	} else if ($registry_group && $registry_family) {
-		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family);
+		$conditions = [
+			'uid' => $uid,
+			'registry_group' => $registry_group,
+			'registry_family' => $registry_family
+		];
 		$list = dba_search(_DB_PREF_ . '_tblRegistry', 'registry_key, registry_value', $conditions);
 		foreach ( $list as $db_row ) {
 			$ret[$registry_group][$registry_family][$db_row['registry_key']] = $db_row['registry_value'];
 		}
 	} else if ($registry_group) {
-		$conditions = array('uid' => $uid, 'registry_group' => $registry_group);
+		$conditions = [
+			'uid' => $uid,
+			'registry_group' => $registry_group
+		];
 		$list = dba_search(_DB_PREF_ . '_tblRegistry', 'registry_family, registry_key, registry_value', $conditions);
 		foreach ( $list as $db_row ) {
 			$ret[$registry_group][$db_row['registry_family']][$db_row['registry_key']] = $db_row['registry_value'];
@@ -80,6 +102,7 @@ function registry_search($uid, $registry_group, $registry_family = '', $registry
 
 /**
  * Remove from registry
+ *
  * @param int $uid
  * @param string $registry_group
  * @param string $registry_family optional registry family
@@ -91,13 +114,25 @@ function registry_remove($uid, $registry_group, $registry_family = '', $registry
 	$ret = false;
 
 	if ($registry_group && $registry_family && $registry_key) {
-		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family, 'registry_key' => $registry_key);
+		$conditions = [
+			'uid' => $uid,
+			'registry_group' => $registry_group,
+			'registry_family' => $registry_family,
+			'registry_key' => $registry_key
+		];
 		$ret = dba_remove(_DB_PREF_ . '_tblRegistry', $conditions) ? true : false;
 	} else if ($registry_group && $registry_family) {
-		$conditions = array('uid' => $uid, 'registry_group' => $registry_group, 'registry_family' => $registry_family);
+		$conditions = [
+			'uid' => $uid,
+			'registry_group' => $registry_group,
+			'registry_family' => $registry_family
+		];
 		$ret = dba_remove(_DB_PREF_ . '_tblRegistry', $conditions) ? true : false;
 	} else if ($registry_group) {
-		$conditions = array('uid' => $uid, 'registry_group' => $registry_group);
+		$conditions = [
+			'uid' => $uid,
+			'registry_group' => $registry_group
+		];
 		$ret = dba_remove(_DB_PREF_ . '_tblRegistry', $conditions) ? true : false;
 	}
 
@@ -106,6 +141,7 @@ function registry_remove($uid, $registry_group, $registry_family = '', $registry
 
 /**
  * Search directly in registry database
+ *
  * @param array $search search specific pair of key value
  * @param array $keywords search key with patterned value
  * @param array $extras extra database SQL
