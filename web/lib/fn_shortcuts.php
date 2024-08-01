@@ -265,3 +265,15 @@ function _display($data)
 {
 	return core_display_data($data);
 }
+
+/**
+ * shortcut to core_hash(), a hash() replacement
+ * 
+ * @param string $string text
+ * @param string $algo selected hashing algorithm. see: https://www.php.net/manual/en/function.hash-algos.php
+ * @return null|string hashed text
+ */
+function _hash($string, $algo = 'sha256')
+{
+	return core_hash($string, $algo);
+}
