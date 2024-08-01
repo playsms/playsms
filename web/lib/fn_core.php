@@ -129,94 +129,68 @@ function core_trim($data)
 }
 
 /**
- * Set the language for the user, if it's no defined just leave it with the default
+ * Set the language for the user
  *
- * @param string $var_username Username
+ * @param string $username username
  */
-function core_setuserlang($username = "")
+function core_setuserlang($username = '')
 {
 	global $core_config;
-	$c_lang_module = core_lang_get();
-	$db_query = "SELECT language_module FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username='$username'";
-	$db_result = dba_query($db_query);
+
+	$db_query = "SELECT language_module FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted='0' AND username=?";
+	$db_result = dba_query($db_query, [$username]);
 	$db_row = dba_fetch_array($db_result);
-	if (trim($db_row['language_module'])) {
-		$c_lang_module = $db_row['language_module'];
-	}
+	$lang = isset($db_row['language_module']) && trim($db_row['language_module']) ? trim($db_row['language_module']) : core_lang_get();
+
+	// alphanumeric and underscore only
+	$lang = preg_replace('/[\W]+/', '', $lang);
+
 	if (defined('LC_MESSAGES')) {
 
 		// linux
-		setlocale(LC_MESSAGES, $c_lang_module, $c_lang_module . '.utf8', $c_lang_module . '.utf-8', $c_lang_module . '.UTF8', $c_lang_module . '.UTF-8');
+		setlocale(LC_MESSAGES, $lang, $lang . '.utf8', $lang . '.utf-8', $lang . '.UTF8', $lang . '.UTF-8');
 	} else {
 
 		// windows
-		putenv('LC_ALL={' . $c_lang_module . '}');
+		putenv('LC_ALL={' . $lang . '}');
 	}
-}
-
-// fixme anton
-// enforced to declare function _() for gettext replacement if no PHP gettext extension found
-// it is also possible to completely remove gettext and change multi-lang with translation array
-if (!function_exists('_')) {
-
-	function _($text)
-	{
-		return $text;
-	}
-}
-
-function core_sanitize_query($var)
-{
-	$var = str_replace("/", "", (string) $var);
-	$var = str_replace("|", "", $var);
-	$var = str_replace("\\", "", $var);
-	$var = str_replace("\"", "", $var);
-	$var = str_replace('\'', "", $var);
-	$var = str_replace("..", "", $var);
-	$var = strip_tags($var);
-	return $var;
-}
-
-function core_sanitize_path($var)
-{
-	$var = str_replace("|", "", (string) $var);
-	$var = str_replace("..", "", $var);
-	$var = strip_tags($var);
-	return $var;
 }
 
 /**
- * Sanitize filenames
+ * Run hook function if exists
+ * 
+ * @param string $plugin plugin
+ * @param string $function function
+ * @param array $param function arguments
+ * @return mixed
  */
-function core_sanitize_filename($string)
+function core_hook($plugin, $function, $param = [])
 {
-	$string = trim(preg_replace('/[^\p{L}\p{N}\s._-]+/u', '', $string));
+	$fn = $plugin . '_hook_' . $function;
+	if ($plugin && $function && function_exists($fn)) {
 
-	return $string;
-}
-
-
-function core_hook($c_plugin, $c_function, $c_param = array())
-{
-	$c_fn = $c_plugin . '_hook_' . $c_function;
-	if ($c_plugin && $c_function && function_exists($c_fn)) {
-		return call_user_func_array($c_fn, $c_param);
+		return call_user_func_array($fn, $param);
 	}
+
+	return null;
 }
 
 /**
- * Call function that hook caller function
+ * Call function that hook caller function.
+ * Caller function must be feature plugin.
  *
  * @global array $core_config
- * @param string $function_name        
- * @param array $arguments        
- * @return string|int|bool|array
+ * @param string $function        
+ * @param array $param        
+ * @return mixed
  */
-function core_call_hook($function_name = '', $arguments = array())
+function core_call_hook($function = '', $param = [])
 {
 	global $core_config;
-	$ret = NULL;
-	if (!$function_name) {
+
+	$ret = null;
+
+	if (!$function) {
 		if (_PHP_VER_ >= 50400) {
 			$f = debug_backtrace(0, 2);
 
@@ -226,23 +200,30 @@ function core_call_hook($function_name = '', $arguments = array())
 
 			// PHP prior to 5.4.0
 		}
-		$function_name = $f[1]['function'];
-		$arguments = $f[1]['args'];
+		$function = $f[1]['function'];
+		$param = $f[1]['args'];
 	}
+
 	if (isset($core_config['plugins']['list']['feature']) && is_array($core_config['plugins']['list']['feature'])) {
-		for ($c = 0; $c < count($core_config['plugins']['list']['feature']); $c++) {
-			if (isset($core_config['plugins']['list']['feature'][$c])) {
-				if ($ret = core_hook($core_config['plugins']['list']['feature'][$c], $function_name, $arguments)) {
-					break;
-				}
+		foreach ( $core_config['plugins']['list']['feature'] as $plugin ) {
+			if ($plugin && $ret = core_hook($plugin, $function, $param)) {
+
+				break;
 			}
 		}
 	}
+
 	return $ret;
 }
 
+/**
+ * Call playsmsd hook
+ * 
+ * @return void
+ */
 function playsmsd()
 {
+	$gateways = [];
 
 	// plugin feature
 	core_call_hook();
@@ -253,19 +234,27 @@ function playsmsd()
 		$smsc_data = gateway_get_smscbyname($smsc);
 		$gateways[] = $smsc_data['gateway'];
 	}
-	if (is_array($gateways)) {
-		$gateways = array_unique($gateways);
-		foreach ( $gateways as $gateway ) {
-			core_hook($gateway, 'playsmsd');
-		}
+	$gateways = array_unique($gateways);
+	foreach ( $gateways as $gateway ) {
+		core_hook($gateway, 'playsmsd');
 	}
 
 	// plugin themes
 	core_hook(core_themes_get(), 'playsmsd');
 }
 
+/**
+ * Call playsmsd_once hook
+ * 
+ * @param mixed $param
+ * @return void
+ */
 function playsmsd_once($param)
 {
+	$gateways = [];
+
+	$param = isset($param) ? $param : [];
+	$param = is_array($param) ? $param : [$param];
 
 	// plugin feature
 	core_call_hook();
@@ -276,36 +265,30 @@ function playsmsd_once($param)
 		$smsc_data = gateway_get_smscbyname($smsc);
 		$gateways[] = $smsc_data['gateway'];
 	}
-	if (is_array($gateways)) {
-		$gateways = array_unique($gateways);
-		foreach ( $gateways as $gateway ) {
-			core_hook(
-				$gateway,
-				'playsmsd_once',
-				array(
-					$param
-				)
-			);
-		}
+	$gateways = array_unique($gateways);
+	foreach ( $gateways as $gateway ) {
+		core_hook($gateway, 'playsmsd_once', $param);
 	}
 
 	// plugin themes
-	core_hook(
-		core_themes_get(),
-		'playsmsd_once',
-		array(
-			$param
-		)
-	);
+	core_hook(core_themes_get(), 'playsmsd_once', $param);
 }
 
+/**
+ * String to hex string
+ * 
+ * @param string $string
+ * @return string
+ */
 function core_str2hex($string)
 {
 	$hex = '';
-	$len = strlen($string);
+
+	$len = strlen(trim($string));
 	for ($i = 0; $i < $len; $i++) {
 		$hex .= str_pad(dechex(ord($string[$i])), 2, 0, STR_PAD_LEFT);
 	}
+
 	return $hex;
 }
 
@@ -329,7 +312,7 @@ function core_purify($data, $type = 'text')
 	} else {
 
 		// trim
-		$data = trim($data);
+		$data = trim((string) $data);
 
 		// stripslashes
 		$data = stripslashes($data);
@@ -346,6 +329,7 @@ function core_purify($data, $type = 'text')
 		// purify it
 		$config = HTMLPurifier_Config::createDefault();
 
+		// if folder exists and writable then setup cache
 		$cache_dir = _APPS_PATH_STORAGE_ . '/cache/htmlpurifier';
 		if (file_exists($cache_dir) && is_writable($cache_dir)) {
 			$config->set('Cache.DefinitionImpl', 'Serializer');
@@ -531,28 +515,30 @@ function core_get_time()
 /**
  * Get timezone
  *
- * @param $username username
- *        or empty for default timezone
+ * @param $username username or empty for default timezone
  * @return string timezone
  */
 function core_get_timezone($username = '')
 {
 	global $core_config;
+
 	$ret = '';
+
 	if ($username) {
 		$list = dba_search(
 			_DB_PREF_ . '_tblUser',
 			'datetime_timezone',
-			array(
+			[
 				'flag_deleted' => 0,
 				'username' => $username
-			)
+			]
 		);
 		$ret = $list[0]['datetime_timezone'];
 	}
 	if (!$ret) {
 		$ret = $core_config['main']['gateway_timezone'];
 	}
+
 	return $ret;
 }
 
@@ -560,7 +546,7 @@ function core_get_timezone($username = '')
  * Calculate timezone string into number of seconds offset
  *
  * @param $tz timezone        
- * @return string offset in number of seconds
+ * @return int offset in number of seconds
  */
 function core_datetime_offset($tz = 0)
 {
@@ -568,7 +554,8 @@ function core_datetime_offset($tz = 0)
 	$m = $n % 100;
 	$h = ($n - $m) / 100;
 	$num = ($h * 3600) + ($m * 60);
-	return ($num ? $num : 0);
+
+	return (int) $num >= 0 ? (int) $num : 0;
 }
 
 /**
@@ -648,74 +635,161 @@ function core_adjust_datetime($time, $tz = 0)
 /**
  * Format float to proper credit format
  *
- * @param float $float
+ * @param float $credit credit
  * @return string
  */
-function core_display_credit($float)
+function core_display_credit($credit)
 {
-	$credit = number_format((float) $float, 2, '.', '');
+	$credit = number_format((float) $credit, 2, '.', '');
 
 	return $credit;
 }
 
 /**
- * Generates a new string, for example a new password
+ * Generate new random string
+ * 
+ * @param int $length length of string, default 16, min. 4
+ * @param string $chars string of valid characters, min. 10 chars
+ * @return string
  */
-function core_get_random_string($length = 16, $valid_chars = '')
+function core_get_random_string($length = 16, $chars = '')
 {
-	$valid_chars = str_replace(' ', '', $valid_chars);
-	if (!$valid_chars) {
-		$valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()1234567890";
+	$result = '';
+
+	$default_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()';
+
+	$chars = preg_replace('/\s+/', '', trim($chars));
+	$chars = strlen($chars) >= 10 ? $chars : $default_chars;
+
+	$char_len = strlen($chars);
+
+	$length = (int) $length >= 4 ? (int) $length : 4;
+
+	for ($i = 0; $i < $length; $i++) {
+		if (function_exists('random_int')) {
+			$index = random_int(0, $char_len - 1);
+		} else {
+			$index = mt_rand(0, $char_len - 1);
+		}
+
+		$result .= $chars[$index];
 	}
 
-	$valid_char_len = strlen($valid_chars);
-	$result = "";
-	for ($i = 0; $i < $length; $i++) {
-		$index = mt_rand(0, $valid_char_len - 1);
-		$result .= $valid_chars[$index];
-	}
 	return $result;
 }
 
 /**
- * Sanitize username
+ * hash() replacement
+ * 
+ * @param string $string text
+ * @param string $algo selected hashing algorithm. see: https://www.php.net/manual/en/function.hash-algos.php
+ * @return null|string hashed text
  */
-function core_sanitize_username($username)
+function core_hash($string, $algo = 'sha256')
 {
-	$username = preg_replace("/[^a-z\d._-]/i", '', $username);
+	$algo = trim($algo) ? trim($algo) : 'sha256';
 
-	return $username;
+	if ($algo == 'md5' || $algo == 'sha1' || $algo == 'sha256') {
+
+		return hash($algo, $string);
+	}
+
+	foreach ( hash_algos() as $supported_algo ) {
+		if ($algo && $algo == $supported_algo) {
+
+			return hash($algo, $string);
+		}
+	}
+
+	return null;
 }
 
 /**
- * Sanitize to alpha-numeric only
+ * Sanitize file/folder path
+ * 
+ * @param string $string
+ * @return string
+ */
+function core_sanitize_path($string)
+{
+	$string = trim($string);
+
+	$string = str_replace("|", "", $string);
+	$string = str_replace(">", "", $string);
+	$string = str_replace("<", "", $string);
+	$string = str_replace("..", "", $string);
+
+	return $string;
+}
+
+/**
+ * Sanitize file/folder name
+ * 
+ * @param string $string file/folder name
+ * @return string
+ */
+function core_sanitize_filename($string)
+{
+	$string = core_sanitize_path($string);
+
+	$string = trim(preg_replace('/[^\p{L}\p{N}\s\.\-_]+/u', '', $string));
+
+	return $string;
+}
+
+/**
+ * Sanitize username
+ * 
+ * @param string $string username
+ * @return string
+ */
+function core_sanitize_username($string)
+{
+	$string = strtolower(trim($string));
+
+	$string = preg_replace("/[^a-z\d\-\._]/i", '', $string);
+
+	return $string;
+}
+
+/**
+ * Sanitize to alphanumeric text
+ * 
+ * @param string $string text
+ * @return string alphanumeric text
  */
 function core_sanitize_alphanumeric($string)
 {
-	// $text = preg_replace("/[^A-Za-z0-9]/", '', $text);
-	$string = trim(preg_replace('/[^\p{L}\p{N}]+/u', '', $string));
+	$string = trim($string);
+
+	$string = preg_replace('/[^\p{L}\p{N}]+/u', '', $string);
 
 	return $string;
 }
 
 /**
- * Sanitize to alpha only
+ * Sanitize to alpha text
+ * 
+ * @param string $string text
+ * @return string alpha text
  */
 function core_sanitize_alpha($string)
 {
-	// $text = preg_replace("/[^A-Za-z]/", '', $text);
-	$string = trim(preg_replace('/[^\p{L}]+/u', '', $string));
+	$string = trim($string);
+
+	$string = preg_replace('/[^\p{L}]+/u', '', trim($string));
 
 	return $string;
 }
 
 /**
- * Sanitize to numeric only
+ * Sanitize to numeric text
  */
 function core_sanitize_numeric($string)
 {
-	// $text = preg_replace("/[^0-9]/", '', $text);
-	$string = trim(preg_replace('/[^\p{N}]+/u', '', $string));
+	$string = trim($string);
+
+	$string = preg_replace('/[^\p{N}]+/u', '', trim($string));
 
 	return $string;
 }
@@ -725,21 +799,31 @@ function core_sanitize_numeric($string)
  */
 function core_sanitize_string($string)
 {
-	$string = trim(strip_tags($string));
+	$string = trim($string);
+
+	$string = stripslashes($string);
+	$string = htmlspecialchars_decode($string);
+	$string = strip_tags($string);
 
 	return $string;
 }
 
 /**
  * Sanitize SMS sender
+ * 
+ * @param string $string sender ID
+ * @return string
  */
 function core_sanitize_sender($string)
 {
-	// $string = core_sanitize_alphanumeric($string);
-	// allows alphanumeric, space, dash, underscore
-	$string = trim(preg_replace('/[^\p{L}\p{N}]\s-_+/u', '', $string));
+	$string = trim($string);
+
+	// allows alphanumeric, space, plus, dash, underscore
+	$string = preg_replace('/[^\p{L}\p{N}\s\+\-_]+/u', '', $string);
 	$string = substr($string, 0, 16);
-	if (preg_match('/[^\p{L}\p{N}]\s-_+/u', $string) == TRUE) {
+
+	// check if contains alpha
+	if (preg_match('/^\p{L}+$/u', $string)) {
 		$string = substr($string, 0, 11);
 	}
 
@@ -747,23 +831,42 @@ function core_sanitize_sender($string)
 }
 
 /**
- * Sanitize SMS footer
+ * Sanitize mobile phone number
+ * 
+ * @param string $string mobile phone number
+ * @return string
  */
-function core_sanitize_footer($text)
+function core_sanitize_mobile($string)
 {
-	$text = str_replace('"', "'", $text);
-	if (strlen($text) > 30) {
-		$text = substr($text, 0, 30);
-	}
+	$string = trim($string);
 
-	return $text;
+	$string = preg_replace('/[^\d\+]+/', '', $string);
+	$string = substr($string, 0, 15);
+
+	return $string;
+}
+
+/**
+ * Sanitize SMS footer
+ * 
+ * @param string $string SMS footer text
+ * @return string
+ */
+function core_sanitize_footer($string)
+{
+	$string = trim($string);
+
+	$string = preg_replace('/[^\p{L}\p{N}\s\+\-_@]+/u', '', $string);
+	$string = substr($string, 0, 30);
+
+	return $string;
 }
 
 /**
  * Function: core_net_match()
  * ref: https://github.com/mlocati/ip-lib
  *
- * This function returns a boolean value.
+ * This function returns a bool value.
  * Usage: core_net_match("IP RANGE", "IP ADDRESS")
  * 
  * @param string $network Network
@@ -816,6 +919,7 @@ function core_net_match($network, $ip)
 			return false;
 		}
 	} else {
+
 		return false;
 	}
 }
@@ -893,25 +997,26 @@ function core_string_to_gsm($string)
 
 	// '
 	$converted = strtr($string, $dict);
+
 	return $converted;
 }
 
 /**
  * Function: core_detect_unicode()
- * This function returns an boolean indicating if string needs to be converted to utf
+ * This function returns an bool indicating if string needs to be converted to utf
  * to be send as an SMS
  *
- * @param $text string
- *        to check
+ * @param $text string to check
  * @return int unicode
  */
 function core_detect_unicode($text)
 {
 	$unicode = 0;
+
 	$textgsm = core_string_to_gsm($text);
 
 	$match = preg_match_all('/([\\xC0-\\xDF].)|([\\xE0-\\xEF]..)|([\\xF0-\\xFF]...)/m', $textgsm, $matches);
-	if ($match !== FALSE) {
+	if ($match !== false) {
 		if ($match == 0) {
 			$unicode = 0;
 		} else {
@@ -921,6 +1026,7 @@ function core_detect_unicode($text)
 
 		//TODO broken regexp in this case, warn user
 	}
+
 	return $unicode;
 }
 
@@ -929,18 +1035,19 @@ function core_detect_unicode($text)
  *
  * @param string $text        
  * @param string $encoding        
- * @return integer Length of text
+ * @return int length of text
  */
-function core_smslen($text, $encoding = "")
+function core_smslen($text, $encoding = '')
 {
 	if (function_exists('mb_strlen') && core_detect_unicode($text)) {
 		if ($encoding = trim($encoding)) {
 			$len = mb_strlen($text, $encoding);
 		} else {
-			$len = mb_strlen($text, "UTF-8");
+			$len = mb_strlen($text, 'UTF-8');
 		}
 	} else if (core_detect_unicode($text)) {
-		$len = strlen(utf8_decode($text));
+		// $len = strlen(utf8_decode($text)); -- deprecated in PHP 8.2
+		$len = strlen(mb_convert_encoding($text, 'ISO-8859-1', 'UTF-8'));
 	} else {
 		$len = strlen($text);
 	}
@@ -981,7 +1088,7 @@ function core_xml_to_array($xml)
 {
 	$loaded = simplexml_load_string($xml);
 	$json = json_encode($loaded);
-	$var = json_decode($json, TRUE);
+	$var = json_decode($json, true);
 
 	return $var;
 }
@@ -992,7 +1099,7 @@ function core_xml_to_array($xml)
 function core_object_to_array($data)
 {
 	if (is_object($data)) {
-		$result = array();
+		$result = [];
 		foreach ( (array) $data as $key => $value ) {
 			$result[$key] = core_object_to_array($value);
 		}
@@ -1041,8 +1148,8 @@ function core_csv_format($item)
  */
 function core_download($content, $fn = '', $content_type = '', $charset = '', $content_encoding = '', $convert_encoding_to = '')
 {
-	$fn = ($fn ? $fn : 'download.txt');
-	$content_type = (trim($content_type) ? strtolower(trim($content_type)) : 'text/plain');
+	$fn = trim($fn) ? trim($fn) : 'download.txt';
+	$content_type = trim($content_type) ? strtolower(trim($content_type)) : 'text/plain';
 	$charset = strtolower(trim($charset));
 
 	ob_end_clean();
@@ -1083,6 +1190,7 @@ function core_smsc_get()
 
 	$ret = core_call_hook();
 	if (!$ret) {
+
 		return $core_config['main']['gateway_module'];
 	}
 
@@ -1104,6 +1212,7 @@ function core_gateway_get()
 		$smsc = core_smsc_get();
 		$smsc_data = gateway_get_smscbyname($smsc);
 		$gateway = $smsc_data['gateway'];
+
 		return $gateway;
 	}
 
@@ -1122,7 +1231,7 @@ function core_lang_get()
 
 	$ret = core_call_hook();
 	if (!$ret) {
-		return ($user_config['language_module'] ? $user_config['language_module'] : $core_config['main']['language_module']);
+		return $user_config['language_module'] ? $user_config['language_module'] : $core_config['main']['language_module'];
 	}
 
 	return $ret;
@@ -1149,14 +1258,14 @@ function core_themes_get()
 /**
  * Get status of plugin, loaded or not
  *
- * @param integer $uid        
+ * @param int $uid        
  * @param string $plugin_category        
  * @param string $plugin_name        
- * @return boolean
+ * @return bool
  */
 function core_plugin_get_status($uid, $plugin_category, $plugin_name)
 {
-	$ret = FALSE;
+	$ret = false;
 
 	// check config.php and fn.php
 	$plugin_category = core_sanitize_path($plugin_category);
@@ -1171,7 +1280,7 @@ function core_plugin_get_status($uid, $plugin_category, $plugin_name)
 		// $status = 1 for disabled
 		// $status = 2 for enabled
 		if ($status == 2) {
-			$ret = TRUE;
+			$ret = true;
 		}
 	}
 
@@ -1181,27 +1290,29 @@ function core_plugin_get_status($uid, $plugin_category, $plugin_name)
 /**
  * Set status of plugin
  *
- * @param integer $uid        
+ * @param int $uid        
  * @param string $plugin_category        
  * @param string $plugin_name        
- * @param boolean $plugin_status        
- * @return boolean
+ * @param bool $plugin_status        
+ * @return bool
  */
 function core_plugin_set_status($uid, $plugin_category, $plugin_name, $plugin_status)
 {
-	$ret = FALSE;
+	$ret = false;
+
 	$status = core_plugin_get_status($uid, $plugin_category, $plugin_name);
 	if ((($status == 2) && $plugin_status) || ($status == 1 && (!$plugin_status))) {
-		$ret = TRUE;
+		$ret = true;
 	} else {
 		$plugin_status = ($plugin_status ? 2 : 1);
 		$items = array(
 			'enabled' => $plugin_status
 		);
 		if (registry_update($uid, $plugin_category, $plugin_name, $items)) {
-			$ret = TRUE;
+			$ret = true;
 		}
 	}
+
 	return $ret;
 }
 
@@ -1212,8 +1323,9 @@ function core_plugin_set_status($uid, $plugin_category, $plugin_name, $plugin_st
  */
 function core_csrf_set()
 {
-	$ret = array();
-	$csrf_token = md5(_PID_ . time());
+	$ret = [];
+
+	$csrf_token = _hash(core_get_random_string());
 	if ($_SESSION['X-CSRF-Token'] = $csrf_token) {
 		$ret['value'] = $csrf_token;
 		$ret['form'] = '<input type="hidden" name="X-CSRF-Token" value="' . $csrf_token . '">';
@@ -1230,8 +1342,10 @@ function core_csrf_set()
  */
 function core_csrf_set_token()
 {
-	$csrf_token = md5(_PID_ . time());
-	if ($_SESSION['X-CSRF-Token'] = $csrf_token) {
+	$ret = '';
+
+	$csrf_token = _hash(core_get_random_string());
+	if ($csrf_token && $_SESSION['X-CSRF-Token'] = $csrf_token) {
 		$ret = $csrf_token;
 	}
 
@@ -1246,7 +1360,8 @@ function core_csrf_set_token()
  */
 function core_csrf_get()
 {
-	$ret = array();
+	$ret = [];
+
 	if ($csrf_token = $_SESSION['X-CSRF-Token']) {
 		$ret['value'] = $csrf_token;
 		$ret['form'] = '<input type="hidden" name="X-CSRF-Token" value="' . $csrf_token . '">';
@@ -1263,6 +1378,8 @@ function core_csrf_get()
  */
 function core_csrf_get_token()
 {
+	$ret = '';
+
 	if ($csrf_token = $_SESSION['X-CSRF-Token']) {
 		$ret = $csrf_token;
 	}
@@ -1274,7 +1391,7 @@ function core_csrf_get_token()
 /**
  * Validate CSRF token
  *
- * @return boolean
+ * @return bool
  */
 function core_csrf_validate()
 {
@@ -1283,9 +1400,11 @@ function core_csrf_validate()
 
 	//_log('token:'.$token.' submitted_token:'.$submitted_token, 3, 'core_csrf_validate');
 	if ($token && $submitted_token && ($token == $submitted_token)) {
-		return TRUE;
+
+		return true;
 	} else {
-		return FALSE;
+
+		return false;
 	}
 }
 
@@ -1298,8 +1417,10 @@ function core_get_version()
 {
 	$version = registry_search(1, 'core', 'config', 'playsms_version');
 	if ($version = $version['core']['config']['playsms_version']) {
+
 		return $version;
 	} else {
+
 		return '';
 	}
 }
@@ -1309,12 +1430,15 @@ function core_get_version()
  *
  * @return string
  */
-function core_print($content)
+function core_print($string)
 {
 	global $core_config;
-	echo $content;
 
-	return $content;
+	$string = trim($string);
+
+	echo $string;
+
+	return $string;
 }
 
 /**
@@ -1329,9 +1453,9 @@ function core_print($content)
  * ...
  * ...
  *
- * @param integer $period
+ * @param int $period
  *        Period between last event and now (in second)
- * @return boolean TRUE for period passed
+ * @return bool true for period passed
  */
 function core_playsmsd_timer($period = 60)
 {
@@ -1344,11 +1468,11 @@ function core_playsmsd_timer($period = 60)
 	if (($now + 1) < $next) {
 
 		// it is not the time yet
-		return FALSE;
+		return false;
 	} else {
 
 		// its passed the timer period
-		return TRUE;
+		return true;
 	}
 }
 
@@ -1401,13 +1525,26 @@ function core_last_post_get($key = '')
 /**
  * Empty last submitted $_POST data
  *
- * @return boolean TRUE
+ * @return bool true
  */
 function core_last_post_empty()
 {
-	$_SESSION['tmp']['last_post'] = array();
+	$_SESSION['tmp']['last_post'] = [];
 
-	return TRUE;
+	return true;
+}
+
+// --------------------------------------------------------------------------------------------
+
+// fixme anton
+// enforced to declare function _() for gettext replacement if no PHP gettext extension found
+// it is also possible to completely remove gettext and change multi-lang with translation array
+if (!function_exists('_')) {
+
+	function _($text)
+	{
+		return $text;
+	}
 }
 
 /**
@@ -1424,38 +1561,31 @@ if (file_exists(_APPS_PATH_LIBS_ . '/composer/vendor/autoload.php')) {
  */
 
 $pc = 'core';
+$core_dir = _APPS_PATH_PLUG_ . '/' . $pc . '/';
 
-$dir = _APPS_PATH_PLUG_ . '/' . $pc . '/';
 unset($core_config['plugins']['list'][$pc]);
 unset($tmp_core_config['plugins']['list'][$pc]);
-$fd = opendir($dir);
-$pc_names = array();
-while (false !== ($pl_name = readdir($fd))) {
+
+$core_config['plugins']['list'][$pc] = [];
+$fd = opendir($core_dir);
+while (false !== ($plugin = readdir($fd))) {
 
 	// plugin's dir prefixed with dot or underscore will not be loaded
-	if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_") {
-		$pc_names[] = $pl_name;
+	if (!(substr($plugin, 0, 1) == "." || substr($plugin, 0, 1) == "_")) {
+		if (file_exists($core_dir . $plugin . '/config.php') && file_exists($core_dir . $plugin . '/fn.php')) {
+			$core_config['plugins']['list'][$pc][] = $plugin;
+		}
 	}
 }
 closedir();
+sort($core_config['plugins']['list'][$pc]);
 
-sort($pc_names);
-for ($j = 0; $j < count($pc_names); $j++) {
-	if (is_dir($dir . $pc_names[$j])) {
-		$core_config['plugins']['list'][$pc][] = $pc_names[$j];
-	}
-}
+foreach ( $core_config['plugins']['list'][$pc] as $plugin ) {
+	// config.php
+	include $core_dir . $plugin . '/config.php';
 
-foreach ( $core_config['plugins']['list'][$pc] as $pl ) {
-	$c_fn1 = $dir . '/' . $pl . '/config.php';
-	$c_fn2 = $dir . '/' . $pl . '/fn.php';
-	if (file_exists($c_fn1) && file_exists($c_fn2)) {
-		// config.php
-		include $c_fn1;
-
-		// fn.php
-		include_once $c_fn2;
-	}
+	// fn.php
+	include_once $core_dir . $plugin . '/fn.php';
 }
 
 // load shortcuts
