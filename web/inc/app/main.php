@@ -24,13 +24,17 @@ $continue = TRUE;
 // load plugin
 if ($continue && _INC_) {
 	$p = explode('_', _INC_, 2);
-	$plugin_category = $p[0];
-	$plugin_name = $p[1];
-	$plugin_dir = _APPS_PATH_PLUG_.'/'.$plugin_category.'/'.$plugin_name;
-	$file_name = ( _ROUTE_ ? _ROUTE_.'.php' : $plugin_name.'.php' );
-	$plugin_file = $plugin_dir.'/'.$file_name;
-	if (file_exists($plugin_file)) {
-		include_once $plugin_file;
+
+	$plugin_category = isset($p[0]) ? trim($p[0]) : '';
+	$plugin_name = isset($p[1]) ? trim($p[1]) : '';
+
+	if ($plugin_category && $plugin_name) {
+		$plugin_dir = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name;
+		$file_name = _ROUTE_ ? _ROUTE_ . '.php' : $plugin_name . '.php';
+		$plugin_file = $plugin_dir . '/' . $file_name;
+		if (file_exists($plugin_file)) {
+			include_once $plugin_file;
+		}
 	}
 }
 
