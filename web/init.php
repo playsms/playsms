@@ -217,14 +217,14 @@ if (!$core_config['daemon_process']) {
 }
 
 // global defines
-define('_APP_', core_sanitize_query($_REQUEST['app']));
-define('_INC_', core_sanitize_query($_REQUEST['inc']));
-define('_OP_', core_sanitize_query($_REQUEST['op']));
-define('_ROUTE_', core_sanitize_query($_REQUEST['route']));
-define('_PAGE_', core_sanitize_query($_REQUEST['page']));
-define('_NAV_', core_sanitize_query($_REQUEST['nav']));
-define('_CAT_', core_sanitize_query($_REQUEST['cat']));
-define('_PLUGIN_', core_sanitize_query($_REQUEST['plugin']));
+define('_APP_', core_sanitize_filename($_REQUEST['app']));
+define('_INC_', core_sanitize_filename($_REQUEST['inc']));
+define('_OP_', core_sanitize_filename($_REQUEST['op']));
+define('_ROUTE_', core_sanitize_filename($_REQUEST['route']));
+define('_PAGE_', core_sanitize_filename($_REQUEST['page']));
+define('_NAV_', core_sanitize_filename($_REQUEST['nav']));
+define('_CAT_', core_sanitize_filename($_REQUEST['cat']));
+define('_PLUGIN_', core_sanitize_filename($_REQUEST['plugin']));
 
 // enable anti-CSRF for anything but webservices
 if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['ignore_csrf']))) {
@@ -246,7 +246,7 @@ if (!((_APP_ == 'ws') || (_APP_ == 'webservices') || ($core_config['init']['igno
 if ($_POST['X-CSRF-Token']) {
 
 	// fixme anton - clean last posts
-	$c_last_post = array();
+	$c_last_post = [];
 	foreach ( $_POST as $key => $val ) {
 		$val = str_replace('{{', '', $val);
 		$val = str_replace('}}', '', $val);
@@ -298,7 +298,6 @@ $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 
 // --- playSMS Specifics --- //
 
-
 // plugins category
 $core_config['plugins']['category'] = array(
 	'feature',
@@ -317,9 +316,9 @@ $core_config['main']['max_sms_length'] = $core_config['main']['sms_max_count'] *
 $core_config['main']['max_sms_length_unicode'] = $core_config['main']['sms_max_count'] * $core_config['main']['per_sms_length_unicode'];
 
 // reserved important keywords
-$core_config['reserved_keywords'] = array(
+$core_config['reserved_keywords'] = [
 	'BC'
-);
+];
 
 if (auth_isvalid()) {
 
@@ -348,7 +347,7 @@ if (auth_isvalid()) {
 }
 
 // override main config with site config for branding purposes distinguished by domain name
-$site_config = array();
+$site_config = [];
 if ((!$core_config['daemon_process']) && $_SERVER['HTTP_HOST']) {
 	$s = site_config_getbydomain($_SERVER['HTTP_HOST']);
 	if ((int) $s[0]['uid']) {
