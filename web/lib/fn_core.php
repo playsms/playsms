@@ -129,6 +129,32 @@ function core_trim($data)
 }
 
 /**
+ * Replacement for hash()
+ * 
+ * @param string $string text
+ * @param string $algo selected hashing algorithm. see: https://www.php.net/manual/en/function.hash-algos.php
+ * @return null|string hashed text
+ */
+function core_hash($string, $algo = 'sha256')
+{
+	$algo = trim($algo) ? strtolower(trim($algo)) : 'sha256';
+
+	if ($algo == 'md5' || $algo == 'sha1' || $algo == 'sha256') {
+
+		return hash($algo, $string);
+	}
+
+	foreach ( hash_algos() as $supported_algo ) {
+		if ($algo && $algo == $supported_algo) {
+
+			return hash($algo, $string);
+		}
+	}
+
+	return null;
+}
+
+/**
  * Set the language for the user
  *
  * @param string $username username
@@ -358,25 +384,6 @@ function core_purify($data, $type = 'text')
 }
 
 /**
- * Sanitize untrusted user input
- *
- * @param string|array $data untrusted user input
- * @param string $type text or html format
- * @return string|array safe user input
- */
-function core_sanitize_inputs($data, $type = 'text')
-{
-	$type = strtolower(trim($type));
-
-	$data = core_purify($data, $type);
-
-	// fixme anton - only until every queries using PDO
-	$data = core_addslashes($data);
-
-	return $data;
-}
-
-/**
  * Format input for safe HTML display on the web
  *
  * @param string|array $data HTML input
@@ -568,6 +575,7 @@ function core_datetime_offset($tz = 0)
 function core_display_datetime($time, $tz = 0)
 {
 	global $core_config, $user_config;
+
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
@@ -584,6 +592,7 @@ function core_display_datetime($time, $tz = 0)
 		$ret = $time + $off;
 		$ret = date($core_config['datetime']['format'], $ret);
 	}
+
 	return $ret;
 }
 
@@ -613,6 +622,7 @@ function core_format_datetime($text)
 function core_adjust_datetime($time, $tz = 0)
 {
 	global $core_config, $user_config;
+
 	$time = trim($time);
 	$ret = $time;
 	if ($time && ($time != '0000-00-00 00:00:00')) {
@@ -629,6 +639,7 @@ function core_adjust_datetime($time, $tz = 0)
 		$ret = $time - $off;
 		$ret = date($core_config['datetime']['format'], $ret);
 	}
+
 	return $ret;
 }
 
@@ -640,9 +651,7 @@ function core_adjust_datetime($time, $tz = 0)
  */
 function core_display_credit($credit)
 {
-	$credit = number_format((float) $credit, 2, '.', '');
-
-	return $credit;
+	return number_format((float) $credit, 2, '.', '');
 }
 
 /**
@@ -679,29 +688,48 @@ function core_get_random_string($length = 16, $chars = '')
 }
 
 /**
- * hash() replacement
+ * Generate random hex string
  * 
- * @param string $string text
  * @param string $algo selected hashing algorithm. see: https://www.php.net/manual/en/function.hash-algos.php
- * @return null|string hashed text
+ * @return string
  */
-function core_hash($string, $algo = 'sha256')
+function core_random($algo = 'sha256')
 {
-	$algo = trim($algo) ? trim($algo) : 'sha256';
+	$result = '';
 
-	if ($algo == 'md5' || $algo == 'sha1' || $algo == 'sha256') {
+	$algo = trim($algo) ? strtolower(trim($algo)) : 'sha256';
+	$len = 32;
 
-		return hash($algo, $string);
+	if (function_exists('random_bytes')) {
+		$result = bin2hex(random_bytes($len));
+	} else if (function_exists('openssl_random_pseudo_bytes')) {
+		$result = bin2hex(openssl_random_pseudo_bytes($len));
+	} else {
+		$result = core_get_random_string($len);
 	}
 
-	foreach ( hash_algos() as $supported_algo ) {
-		if ($algo && $algo == $supported_algo) {
+	$result = core_hash($result, $algo);
 
-			return hash($algo, $string);
-		}
-	}
+	return $result;
+}
 
-	return null;
+/**
+ * Sanitize untrusted user input from web
+ *
+ * @param string|array $data untrusted user input
+ * @param string $type text or html format
+ * @return string|array safe user input
+ */
+function core_sanitize_inputs($data, $type = 'text')
+{
+	$type = strtolower(trim($type));
+
+	$data = core_purify($data, $type);
+
+	// fixme anton - only until every queries using PDO
+	$data = core_addslashes($data);
+
+	return $data;
 }
 
 /**
@@ -1480,23 +1508,22 @@ function core_playsmsd_timer($period = 60)
  * Get mobile format for matching purposes
  *
  * @param string $mobile        
- * @return mixed
+ * @return string
  */
 function core_mobile_matcher_format($mobile)
 {
 	// sanitize for mobile numbers only
-	$c_mobile = sendsms_getvalidnumber($mobile);
+	$mobile = core_sanitize_mobile($mobile);
 
-	if (strlen($c_mobile) >= 6) {
+	if (strlen($mobile) >= 6) {
 		// remove +
-		$c_mobile = str_replace('+', '', $c_mobile);
+		$mobile = str_replace('+', '', $mobile);
 
 		// remove first 3 digits if phone number length more than 7
-		if (strlen($c_mobile) > 7) {
-			$c_mobile = substr($c_mobile, 3);
+		if (strlen($mobile) > 7) {
+			$mobile = substr($mobile, 3);
 		}
 
-		$mobile = $c_mobile;
 	}
 
 	return $mobile;
