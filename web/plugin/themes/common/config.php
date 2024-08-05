@@ -1,9 +1,27 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
+
 
 // common action icons
 
-$icon_config = array(
+$icon_config = [
 	'add' => "<span class='playsms-icon glyphicon glyphicon-plus' alt='" . _('Add') . "' title='" . _('Add') . "'></span>",
 	'edit' => "<span class='playsms-icon glyphicon glyphicon-cog' alt='" . _('Edit') . "' title='" . _('Edit') . "'></span>",
 	'delete' => "<span class='playsms-icon glyphicon glyphicon-trash' alt='" . _('Delete') . "' title='" . _('Delete') . "'></span>",
@@ -30,110 +48,112 @@ $icon_config = array(
 	'reduce' => "<span class='playsms-icon glyphicon glyphicon-minus' alt='" . _('Reduce') . "' title='" . _('Reduce') . "'></span>",
 	'buy' => "<span class='playsms-icon glyphicon glyphicon-credit-card' alt='" . _('Buy') . "' title='" . _('Buy') . "'></span>",
 	'login_as' => "<span class='playsms-icon glyphicon glyphicon-adjust' alt='" . _('Login as') . "' title='" . _('Login as') . "'></span>",
-);
+];
 
 // menu structure
 
 // menu tabs
-$core_config['menutab'] = array(
-	'home' => _('Home') ,
-	'my_account' => _('My account') ,
-	'reports' => _('Reports') ,
-	'features' => _('Features') ,
-	'settings' => _('Settings') ,
-);
+$core_config['menutab'] = [
+	'home' => _('Home'),
+	'my_account' => _('My account'),
+	'reports' => _('Reports'),
+	'features' => _('Features'),
+	'settings' => _('Settings'),
+];
 
 // my account tab
 $menutab = $core_config['menutab']['my_account'];
-$menu_config[$menutab] = array(
-	array(
+$menu_config[$menutab] = [
+	[
 		'index.php?app=main&inc=core_sendsms&op=sendsms',
-		_('Compose message') ,
+		_('Compose message'),
 		1
-	) ,
-);
+	],
+];
+
 // divider
-$menu_config[$menutab][] = array(
+$menu_config[$menutab][] = [
 	'#',
 	'-',
 	99
-);
-$menu_config[$menutab][] = array(
+];
+
+$menu_config[$menutab][] = [
 	'index.php?app=main&inc=core_user&route=user_config&op=user_config',
-	_('User configuration') ,
+	_('User configuration'),
 	99
-);
-$menu_config[$menutab][] = array(
+];
+$menu_config[$menutab][] = [
 	'index.php?app=main&inc=core_user&route=user_pref&op=user_pref',
-	_('Preferences') ,
+	_('Preferences'),
 	99
-);
+];
 
 // settings tab
 if (auth_isadmin()) {
-	
+
 	// admin settings
 	$menutab = $core_config['menutab']['settings'];
 
-	$menu_config[$menutab][] = array(
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list',
-		_('Manage account') ,
+		_('Manage account'),
 		3
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_acl&op=acl_list',
-		_('Manage ACL') ,
+		_('Manage ACL'),
 		3
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
-		_('Manage subuser') ,
+		_('Manage subuser'),
 		3
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_sender_id&op=sender_id_list',
-		_('Manage sender ID') ,
+		_('Manage sender ID'),
 		3
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_main_config&op=main_config',
-		_('Main configuration') ,
+		_('Main configuration'),
 		3
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_gateway&op=gateway_list',
-		_('Manage gateway and SMSC') ,
+		_('Manage gateway and SMSC'),
 		3
-	);
+	];
 } else if ($user_config['status'] == 3) {
-	
+
 	// user menus
 	$menutab = $core_config['menutab']['settings'];
-	
-	$menu_config[$menutab][] = array(
+
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_user&route=subuser_mgmnt&op=subuser_list',
-		_('Manage subuser') ,
+		_('Manage subuser'),
 		3
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_sender_id&op=sender_id_list',
-		_('Manage sender ID') ,
+		_('Manage sender ID'),
 		3
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_site&op=site_config',
-		_('Manage site') ,
+		_('Manage site'),
 		3
-	);
+	];
 } else if ($user_config['status'] == 4) {
 
 	// subuser menus
 	$menutab = $core_config['menutab']['settings'];
-	
-	$menu_config[$menutab][] = array(
+
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=core_sender_id&op=sender_id_list',
-		_('Manage sender ID') ,
+		_('Manage sender ID'),
 		3
-	);
-	
+	];
+
 }
