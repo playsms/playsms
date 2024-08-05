@@ -21,133 +21,108 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Actual template apply
  *
- * @param string $fn
- *        Template filename
- * @param array $tpl
- *        Template data
- * @param array $injected
- *        Injected variable names
- * @return string Manipulated content
+ * @param string $fn template filename
+ * @param array $tpl template data
+ * @param array $injected injected variable names
+ * @return string manipulated content
  */
-function _tpl_apply($fn, $tpl, $injected = array()) {
+function _tpl_apply($fn, $tpl, $injected = [])
+{
 	$t = new \Playsms\Tpl();
-	
-	$t->setConfig(array(
+
+	$t->setConfig([
 		'echo' => '_p',
-		'dir_cache' => _APPS_PATH_STORAGE_ . '/plugin/core/tpl' 
-	));
-	
+		'dir_cache' => _APPS_PATH_STORAGE_ . '/plugin/core/tpl'
+	]);
+
 	$t->setTemplate($fn);
 
-	if ($tpl['vars']) {
+	if (isset($tpl['vars']) && $tpl['vars']) {
 		$t->setVars($tpl['vars']);
 	}
 
-	if ($tpl['ifs']) {
+	if (isset($tpl['ifs']) && $tpl['ifs']) {
 		$t->setIfs($tpl['ifs']);
 	}
 
-	if ($tpl['loops']) {
+	if (isset($tpl['loops']) && $tpl['loops']) {
 		$t->setLoops($tpl['loops']);
 	}
 
 	$t->setInjects($injected);
 	$t->compile();
-	
-	return $t->getCompiled();
-}
 
-/**
- * Sanitize template name
- *
- * @param string $name
- *        Template name
- * @return string Sanitized template name
- */
-function _tpl_sanitize_name($name) {
-	$name = str_replace('..', '', $name);
-	$name = str_replace('|', '', $name);
-	$name = str_replace('"', '', $name);
-	$name = str_replace("'", '', $name);
-	$name = str_replace("\\", '/', $name);
-	
-	return $name;
+	return $t->getCompiled();
 }
 
 /**
  * Apply template
  *
- * @param array $tpl
- *        Template array
- * @param array $injected
- *        Injected variable names
- * @return string Manipulated content
+ * @param array $tpl template array
+ * @param array $injected injected variable names
+ * @return string manipulated content
  */
-function tpl_apply($tpl, $injected = array()) {
+function tpl_apply($tpl, $injected = [])
+{
 	$content = '';
-	$continue = FALSE;
-	
-	if (is_array($tpl)) {
-		if ($tpl_name = _tpl_sanitize_name($tpl['name'])) {
-			$continue = TRUE;
-		}
+
+	if (!(is_array($tpl) && isset($tpl['name']) && $tpl['name'] && $tpl_name = core_sanitize_filename($tpl['name']))) {
+
+		return $content;
 	}
-	
-	if ($continue) {
-		
-		// inject anti-CSRF hidden field
-		$tpl['vars']['CSRF_FORM'] = _CSRF_FORM_;
-		
-		// inject global variables
-		if (is_array($tpl['injects']) && !$injected) {
-			$injected = $tpl['injects'];
-		}
-		
-		// 1. check from active plugin
-		$c_inc = explode('_', _INC_);
-		$plugin_category = $c_inc[0];
-		$plugin_name = str_replace($plugin_category . '_', '', _INC_);
+
+	// inject anti-CSRF hidden field
+	$tpl['vars']['CSRF_FORM'] = _CSRF_FORM_;
+
+	// inject global variables
+	if (is_array($tpl['injects']) && isset($tpl['injects']) && $tpl['injects'] && !$injected) {
+		$injected = $tpl['injects'];
+	}
+
+	// 1. check from active plugin based on current inc= query string
+	$c_inc = explode('_', _INC_);
+	$plugin_category = $c_inc[0];
+	$plugin_name = str_replace($plugin_category . '_', '', _INC_);
+	$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
+	if (file_exists($fn)) {
+		$content = _tpl_apply($fn, $tpl, $injected);
+
+		return $content;
+	}
+
+	// 2. search all possible location on active plugin based on template name
+	$c_plugin_name = explode('_', $tpl_name);
+	$plugin_name = $c_plugin_name[0];
+	$c_plugin_category = [
+		'core',
+		'feature',
+		'gateway'
+	];
+	foreach ( $c_plugin_category as $plugin_category ) {
 		$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
 		if (file_exists($fn)) {
 			$content = _tpl_apply($fn, $tpl, $injected);
-			
-			return $content;
-		}
-		
-		// 2. search all possible location on active plugin
-		$c_plugin_name = explode('_', $tpl_name);
-		$plugin_name = $c_plugin_name[0];
-		$c_plugin_category = array(
-			'core',
-			'feature',
-			'gateway' 
-		);
-		foreach ($c_plugin_category as $plugin_category) {
-			$fn = _APPS_PATH_PLUG_ . '/' . $plugin_category . '/' . $plugin_name . '/templates/' . $tpl_name . '.html';
-			if (file_exists($fn)) {
-				$content = _tpl_apply($fn, $tpl, $injected);
-				
-				return $content;
-			}
-		}
-		
-		// 3. check from active template
-		$themes = core_themes_get();
-		$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
-		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl, $injected);
-			
-			return $content;
-		}
-		
-		// 4. check from common place on themes
-		$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
-		if (file_exists($fn)) {
-			$content = _tpl_apply($fn, $tpl, $injected);
-			
+
 			return $content;
 		}
 	}
-	
+
+	// 3. check from active themes
+	$themes = core_themes_get();
+	$fn = _APPS_PATH_THEMES_ . '/' . $themes . '/templates/' . $tpl_name . '.html';
+	if (file_exists($fn)) {
+		$content = _tpl_apply($fn, $tpl, $injected);
+
+		return $content;
+	}
+
+	// 4. check from common place on themes
+	$fn = _APPS_PATH_TPL_ . '/' . $tpl_name . '.html';
+	if (file_exists($fn)) {
+		$content = _tpl_apply($fn, $tpl, $injected);
+
+		return $content;
+	}
+
 	return $content;
 }
