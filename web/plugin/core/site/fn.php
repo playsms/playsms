@@ -21,14 +21,14 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Get site configuration
  *
- * @param integer $uid User ID
+ * @param int $uid User ID
  * @return array Site configuration
  */
 function site_config_get($uid = 0)
 {
 	global $user_config, $plugin_config;
 
-	$c_uid = ((int) $uid ? (int) $uid : $user_config['uid']);
+	$c_uid = (int) $uid ? (int) $uid : $user_config['uid'];
 
 	$reg = registry_search($c_uid, 'core', 'site_config');
 	$plugin_config['site']['site_config'] = $reg['core']['site_config'];
@@ -61,16 +61,16 @@ function site_config_set($config)
  */
 function site_config_getbydomain($domain)
 {
-	$list = array();
+	$list = [];
 
 	if ($domain) {
 		$list = registry_search_record(
-			array(
+			[
 				'registry_group' => 'core',
 				'registry_family' => 'site_config',
 				'registry_key' => 'domain',
 				'registry_value' => $domain
-			)
+			]
 		);
 	}
 

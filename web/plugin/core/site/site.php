@@ -34,38 +34,38 @@ switch (_OP_) {
 		// enable register yes-no option
 		$selected = ($site_config['enable_register'] ? _('yes') : _('no'));
 		$options['enable_register'] = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$site_config['enable_register']
 		);
 
 		// enable forgot yes-no option
 		$selected = ($site_config['enable_forgot'] ? _('yes') : _('no'));
 		$options['enable_forgot'] = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$site_config['enable_forgot']
 		);
 
 		// enable logo yes-no option
 		$options['enable_logo'] = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$site_config['enable_logo']
 		);
 
 		// enable logo to replace main website title yes-no option
 		$options['logo_replace_title'] = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$site_config['logo_replace_title']
 		);
 
@@ -83,9 +83,9 @@ switch (_OP_) {
 		}
 		$options['language_module'] = _options($lang_list, $site_config['language_module']);
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'site',
-			'vars' => array(
+			'vars' => [
 				'ACTION_URL' => _u('index.php?app=main&inc=core_site&op=site_config_save'),
 				'HINT_ENABLE_LOGO' => _hint(_('Logo by default will be displayed at login, register and forgot password page')),
 				'HINT_DOMAIN' => _hint('Put your domain name here and then set your domain DNS A record to this server IP address'),
@@ -113,13 +113,13 @@ switch (_OP_) {
 				'Default credit upon registration' => _('Default credit upon registration'),
 				'Layout footer' => _('Layout footer'),
 				'Save' => _('Save')
-			),
-			'injects' => array(
+			],
+			'injects' => [
 				'core_config',
 				'site_config',
 				'options'
-			)
-		);
+			],
+		];
 
 		_p(tpl_apply($tpl));
 		break;
