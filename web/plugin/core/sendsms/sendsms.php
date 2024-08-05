@@ -22,33 +22,24 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$_REQUEST['to'] = _t($_REQUEST['to']);
-$_REQUEST['message'] = _t($_REQUEST['message']);
-$_REQUEST['popup'] = (int) $_REQUEST['popup'];
-$_REQUEST['sms_sender'] = _t($_REQUEST['sms_sender']);
-$_REQUEST['sms_footer'] = _t($_REQUEST['sms_footer']);
-$_REQUEST['sms_schedule'] = _t($_REQUEST['sms_schedule']);
-$_REQUEST['msg_flash'] = _t($_REQUEST['msg_flash']);
-$_REQUEST['msg_unicode'] = _t($_REQUEST['msg_unicode']);
-$_REQUEST['p_num_text'] = _t($_REQUEST['p_num_text']);
-
 switch (_OP_) {
 	case "sendsms":
 
 		// get $to and $message from session or query string
-		$to = stripslashes($_REQUEST['to']);
-		$message = (stripslashes($_REQUEST['message']) ? stripslashes($_REQUEST['message']) : trim(stripslashes($_SESSION['tmp']['message'])));
+		$to = $_REQUEST['to'];
+		$message = $_REQUEST['message'] ? $_REQUEST['message'] : $_SESSION['tmp']['message'];
+		$message = _display($message);
 
 		// sender ID
 		$sms_from = sendsms_get_sender($user_config['username']);
-		$ismatched = FALSE;
+		$ismatched = false;
 		foreach ( sender_id_getall($user_config['username']) as $sender_id ) {
 			$selected = '';
 			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
-				$ismatched = TRUE;
+				$ismatched = true;
 			}
-			$option_values .= "<option value=\"" . $sender_id . "\" title=\"" . $sender_id . "\" " . $selected . ">" . $sender_id . "</option>";
+			$option_values .= "<option value='" . $sender_id . "' title='" . $sender_id . "' " . $selected . ">" . $sender_id . "</option>";
 		}
 		$sms_sender_id = "<select name=sms_sender style='width: 100%'>" . $option_values . "</select>";
 
@@ -60,25 +51,29 @@ switch (_OP_) {
 		$sms_footer = _t($user_config['footer']);
 
 		// message template
-		$option_values = "<option value=\"\" default>--" . _('Please select template') . "--</option>";
+		$option_values = "<option value='' default>--" . _('Please select template') . "--</option>";
 		$c_templates = sendsms_get_template();
-		if (is_array($c_templates)) {
-			for ($i = 0; $i < count($c_templates); $i++) {
-				$option_values .= "<option value=\"" . _t($c_templates[$i]['text']) . "\" title=\"" . _t($c_templates[$i]['text']) . "\">" . _t($c_templates[$i]['title']) . "</option>";
-				$input_values .= "<input type=\"hidden\" name=\"content_" . $i . "\" value=\"" . _t($c_templates[$i]['text']) . "\">";
+
+		// fixme anton - sanitize before displays
+		$c_templates = _display($c_templates);
+
+		if (is_array($c_templates) && $c_count = count($c_templates)) {
+			for ($i = 0; $i < $c_count; $i++) {
+				$option_values .= "<option value='" . $c_templates[$i]['text'] . "' title='" . $c_templates[$i]['text'] . "'>" . $c_templates[$i]['title'] . "</option>";
+				$input_values .= "<input type='hidden' name='content_" . $i . "' value='" . $c_templates[$i]['text'] . "'>";
 			}
 			if ($c_templates[0]) {
-				$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick=\"SetSmsTemplate();\">$option_values</select></div>";
+				$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick='SetSmsTemplate();'>$option_values</select></div>";
 			}
 		}
 
-		$layout = ($_REQUEST['popup'] == 1 ? 'sendsms_popup' : 'sendsms');
+		$layout = (int) $_REQUEST['popup'] === 1 ? 'sendsms_popup' : 'sendsms';
 
 		// build form
 		unset($tpl);
-		$tpl = array(
+		$tpl = [
 			'name' => $layout,
-			'vars' => array(
+			'vars' => [
 				'Compose message' => _('Compose message'),
 				'Sender ID' => _('Sender ID'),
 				'Message footer' => _('Message footer'),
@@ -113,28 +108,29 @@ switch (_OP_) {
 				'lang' => substr($user_config['language_module'], 0, 2),
 				'chars' => _('chars'),
 				'SMS' => _('SMS')
-			),
-			'ifs' => array(
+			],
+			'ifs' => [
 				'calendar' => file_exists($core_config['apps_path']['themes'] . '/common/jscss/bootstrap-datetimepicker/bootstrap-datetimepicker.' . substr($user_config['language_module'], 0, 2) . '.js')
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case "sendsms_yes":
 
 		// popup related
-		$return_url = trim(htmlspecialchars_decode($_REQUEST['return_url']));
+		$return_url = _HTTP_PATH_BASE_ . '/' . stripslashes(htmlspecialchars_decode(urldecode($_REQUEST['return_url'])));
+
 		if ($_REQUEST['submit'] == _('Cancel')) {
 			header("Location: " . $return_url);
 			exit();
 		}
 
 		// sender ID
-		$sms_sender = trim($_REQUEST['sms_sender']);
+		$sms_sender = $_REQUEST['sms_sender'];
 
 		// SMS footer
-		$sms_footer = trim($_REQUEST['sms_footer']);
+		$sms_footer = $_REQUEST['sms_footer'];
 
 		// nofooter option
 		$nofooter = true;
@@ -143,21 +139,15 @@ switch (_OP_) {
 		}
 
 		// schedule option
-		$sms_schedule = trim($_REQUEST['sms_schedule']);
+		$sms_schedule = $_REQUEST['sms_schedule'];
 
 		// type of SMS, text or flash
 		$msg_flash = $_REQUEST['msg_flash'];
-		$sms_type = "text";
-		if ($msg_flash == "on") {
-			$sms_type = "flash";
-		}
+		$sms_type = $msg_flash == "on" ? "flash" : "text";
 
 		// unicode or not
 		$msg_unicode = $_REQUEST['msg_unicode'];
-		$unicode = "0";
-		if ($msg_unicode == "on") {
-			$unicode = "1";
-		}
+		$unicode = $msg_unicode == "on" ? 1 : 0;
 
 		// SMS message
 		$message = $_REQUEST['message'];
@@ -166,7 +156,7 @@ switch (_OP_) {
 		$_SESSION['tmp']['message'] = $message;
 
 		// destination numbers
-		if ($sms_to = trim($_REQUEST['p_num_text'])) {
+		if ($sms_to = $_REQUEST['p_num_text']) {
 			$sms_to = explode(',', $sms_to);
 		}
 
