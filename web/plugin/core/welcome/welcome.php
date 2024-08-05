@@ -31,16 +31,16 @@ if (file_exists($fn)) {
 	$information_title = ($core_config['main']['information_title'] ? $core_config['main']['information_title'] : _('Welcome information'));
 	$information_content = ($core_config['main']['information_content'] ? $core_config['main']['information_content'] : _('Go to manage site menu to edit this page'));
 
-	$tpl = array(
+	$tpl = [
 		'name' => 'welcome',
-		'vars' => array(
+		'vars' => [
 			'INFORMATION_TITLE' => _t($information_title),
 			'INFORMATION_CONTENT' => _h($information_content)
-		),
-		'injects' => array(
+		],
+		'injects' => [
 			'user_config'
-		)
-	);
+		],
+	];
 	$tpl['vars'][$doc . '_ACTIVE'] = 'class=active';
 	_p(tpl_apply($tpl));
 }
