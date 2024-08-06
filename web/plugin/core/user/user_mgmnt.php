@@ -22,44 +22,41 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-$view = _t($_REQUEST['view'] ? $_REQUEST['view'] : 'admin');
-
-$_REQUEST['uname'] = _t($_REQUEST['uname']);
-$_REQUEST['add_datetime_timezone'] = _t($_REQUEST['add_datetime_timezone']);
+$view = $_REQUEST['view'] ? $_REQUEST['view'] : 'admin';
 
 switch (_OP_) {
 	case "user_list":
 		if ($view == 'admin') {
-			$conditions = array(
+			$conditions = [
 				'flag_deleted' => 0,
 				'status' => 2
-			);
+			];
 			$form_sub_title = "<h3>" . _('List of administrators') . "</h3>";
 			$disabled_on_admin = 'disabled';
 		} else if ($view == 'users') {
-			$conditions = array(
+			$conditions = [
 				'flag_deleted' => 0,
 				'status' => 3
-			);
+			];
 			$form_sub_title = "<h3>" . _('List of users') . "</h3>";
 			$disabled_on_users = 'disabled';
 		} else if ($view == 'subusers') {
-			$conditions = array(
+			$conditions = [
 				'flag_deleted' => 0,
 				'status' => 4
-			);
+			];
 			$form_sub_title = "<h3>" . _('List of subusers') . "</h3>";
 			$disabled_on_subusers = 'disabled';
 			$parent_column_title = "<th width='12%'>" . _('Parent') . "</th>";
 		}
 
-		$search_var = array(
+		$search_var = [
 			_('Registered') => 'register_datetime',
 			_('Username') => 'username',
 			_('Name') => 'name',
 			_('Mobile') => 'mobile',
 			_('ACL') => 'acl_id'
-		);
+		];
 		if ($view == 'subusers') {
 			$search_var[_('Parent account')] = 'parent_uid';
 		}
@@ -67,23 +64,21 @@ switch (_OP_) {
 		$search = themes_search(
 			$search_var,
 			'',
-			array(
+			[
 				'parent_uid' => 'user_username2uid',
 				'acl_id' => 'acl_getid'
-			)
+			]
 		);
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_tblUser', $conditions, $keywords);
 		$nav = themes_nav($count, "index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=" . $view);
-		$extras = array(
+		$extras = [
 			'ORDER BY' => 'register_datetime DESC, username',
 			'LIMIT' => (int) $nav['limit'],
 			'OFFSET' => (int) $nav['offset']
-		);
+		];
 		$list = dba_search(_DB_PREF_ . '_tblUser', '*', $conditions, $keywords, $extras);
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
+		$content = _dialog();
 		$content .= "
 			<h2>" . _('Manage account') . "</h2>
 			<input type='button' " . $disabled_on_admin . " value='" . _('Administrators') . "' onClick=\"javascript:linkto('" . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=admin') . "')\" class=\"button\" />
@@ -112,7 +107,9 @@ switch (_OP_) {
 			</tr></thead>
 			<tbody>";
 		$j = $nav['top'];
-		for ($i = 0; $i < count($list); $i++) {
+		$list = _display($list);
+		$c_count = count($list);
+		for ($i = 0; $i < $c_count; $i++) {
 
 			$action = "";
 
@@ -149,7 +146,8 @@ switch (_OP_) {
 
 			// subuser shows parent column
 			if ($list[$i]['status'] == 4) {
-				$isadmin = (user_getfieldbyuid($list[$i]['parent_uid'], 'status') == 2 ? $icon_config['admin'] : '');
+				$parent_user_data = user_getfieldbyuid($list[$i]['parent_uid'], 'status');
+				$isadmin = $parent_user_data['status'] == 2 ? $icon_config['admin'] : '';
 				$parent_column_row = "<td>" . user_uid2username($list[$i]['parent_uid']) . " " . $isadmin . "</td>";
 			}
 
@@ -174,9 +172,6 @@ switch (_OP_) {
 		break;
 
 	case "user_add":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
 		$add_datetime_timezone = $_REQUEST['add_datetime_timezone'];
 		$add_datetime_timezone = ($add_datetime_timezone ? $add_datetime_timezone : core_get_timezone());
 
@@ -219,6 +214,7 @@ switch (_OP_) {
 		// get access control list
 		$option_acl = _select('add_acl_id', array_flip(acl_getall()));
 
+		$content = _dialog();
 		$content .= "
 		<h2>" . _('Manage account') . "</h2>
 		<h3>" . _('Add account') . "</h3>
@@ -268,16 +264,16 @@ switch (_OP_) {
 		break;
 
 	case "user_add_yes":
-		$add['email'] = _t($_POST['add_email']);
-		$add['status'] = _t($_POST['add_status']);
+		$add['email'] = $_POST['add_email'];
+		$add['status'] = $_POST['add_status'];
 		$add['acl_id'] = (int) $_POST['add_acl_id'];
-		$add['username'] = _t($_POST['add_username']);
-		$add['password'] = _t($_POST['add_password']);
-		$add['mobile'] = _t($_POST['add_mobile']);
-		$add['name'] = _t($_POST['add_name']);
-		$add['footer'] = _t($_POST['add_footer']);
-		$add['datetime_timezone'] = _t($_POST['add_datetime_timezone']);
-		$add['language_module'] = _t($_POST['add_language_module']);
+		$add['username'] = $_POST['add_username'];
+		$add['password'] = $_POST['add_password'];
+		$add['mobile'] = $_POST['add_mobile'];
+		$add['name'] = $_POST['add_name'];
+		$add['footer'] = $_POST['add_footer'];
+		$add['datetime_timezone'] = $_POST['add_datetime_timezone'];
+		$add['language_module'] = $_POST['add_language_module'];
 
 		// subuser's parent uid, by default its uid=1
 		if ($_POST['add_parent_uid']) {

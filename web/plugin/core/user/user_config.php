@@ -22,9 +22,9 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$view = _t($_REQUEST['view']);
+$view = $_REQUEST['view'];
 
-$uname = _t($_REQUEST['uname']);
+$uname = $_REQUEST['uname'];
 
 if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 	$user_edited = $user_config;
@@ -52,23 +52,23 @@ switch (_OP_) {
 			$c_user = dba_search(
 				_DB_PREF_ . '_tblUser',
 				'*',
-				array(
+				[
 					'flag_deleted' => 0,
 					'uid' => $c_uid
-				)
+				]
 			)
 		) {
-			$token = _t($c_user[0]['token']);
-			$webservices_ip = _t($c_user[0]['webservices_ip']);
-			$enable_webservices = _t($c_user[0]['enable_webservices']);
+			$token = $c_user[0]['token'];
+			$webservices_ip = $c_user[0]['webservices_ip'];
+			$enable_webservices = $c_user[0]['enable_webservices'];
 			$sender = core_sanitize_sender($c_user[0]['sender']);
 			$footer = core_sanitize_footer($c_user[0]['footer']);
 			$datetime_timezone = core_get_timezone($c_username);
-			$fwd_to_inbox = _t($c_user[0]['fwd_to_inbox']);
-			$fwd_to_email = _t($c_user[0]['fwd_to_email']);
-			$fwd_to_mobile = _t($c_user[0]['fwd_to_mobile']);
+			$fwd_to_inbox = $c_user[0]['fwd_to_inbox'];
+			$fwd_to_email = $c_user[0]['fwd_to_email'];
+			$fwd_to_mobile = $c_user[0]['fwd_to_mobile'];
 			$local_length = (int) $c_user[0]['local_length'];
-			$replace_zero = _t($c_user[0]['replace_zero']);
+			$replace_zero = $c_user[0]['replace_zero'];
 			$acl_id = (int) $c_user[0]['acl_id'];
 			$credit = rate_getusercredit($c_username);
 		} else {
@@ -133,8 +133,11 @@ switch (_OP_) {
 		$option_fwd_to_mobile .= "<option value='0' " . $selected_0 . ">" . _('no') . "</option>";
 
 		// get language options
-		$lang_list = array();
-		for ($i = 0; $i < count($core_config['plugins']['list']['language']); $i++) {
+		$lang_list = [];
+		$c_count = is_array($core_config['plugins']['list']['language']) && isset($core_config['plugins']['list']['language'])
+			? count($core_config['plugins']['list']['language'])
+			: 0;
+		for ($i = 0; $i < $c_count; $i++) {
 			$language = $core_config['plugins']['list']['language'][$i];
 			$c_language_title = $plugin_config[$language]['title'];
 			if ($c_language_title) {
@@ -190,9 +193,9 @@ switch (_OP_) {
 			'text',
 			'',
 			acl_getname($acl_id),
-			array(
+			[
 				'readonly'
-			)
+			]
 		);
 		if (auth_isadmin()) {
 			$option_acl = _select('up_acl_id', $c_option_acl, $acl_id);
@@ -210,10 +213,10 @@ switch (_OP_) {
 
 		// credit unicodes messages as single message
 		$option_enable_credit_unicode = _options(
-			array(
+			[
 				_('yes') => 1,
 				_('no') => 0
-			),
+			],
 			$data['core']['user_config']['enable_credit_unicode']
 		);
 		if (auth_isadmin()) {
@@ -222,9 +225,9 @@ switch (_OP_) {
 			$option_enable_credit_unicode = $user_config['opt']['enable_credit_unicode'] ? _('yes') : _('no');
 		}
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'user_config',
-			'vars' => array(
+			'vars' => [
 				'Application options' => _('Application options'),
 				'Username' => _('Username'),
 				'Access Control List' => _('Access Control List'),
@@ -280,13 +283,13 @@ switch (_OP_) {
 				'replace_zero' => $replace_zero,
 				'credit' => core_display_credit($credit),
 				'option_enable_credit_unicode' => $option_enable_credit_unicode
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case "user_config_save":
-		$fields = array(
+		$fields = [
 			'footer',
 			'datetime_timezone',
 			'language_module',
@@ -300,12 +303,12 @@ switch (_OP_) {
 			'webservices_ip',
 			'sender',
 			'acl_id'
-		);
+		];
 
-		$up = array();
+		$up = [];
 		foreach ( $fields as $field ) {
 			if (strlen($_POST['up_' . $field])) {
-				$up[$field] = trim(_t($_POST['up_' . $field]));
+				$up[$field] = $_POST['up_' . $field];
 			}
 		}
 		$ret = user_edit_conf($c_uid, $up);

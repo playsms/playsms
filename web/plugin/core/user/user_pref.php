@@ -22,9 +22,9 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$view = _t($_REQUEST['view']);
+$view = $_REQUEST['view'];
 
-$uname = _t($_REQUEST['uname']);
+$uname = $_REQUEST['uname'];
 
 if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 	$user_edited = $user_config;
@@ -38,30 +38,30 @@ if ((!$uname) || ($uname && $uname == $user_config['username'])) {
 	$c_username = $uname;
 	$url_uname = '&uname=' . $uname;
 	if ($user_edited['parent_uid'] == $user_config['uid']) {
-		$is_parent = TRUE;
+		$is_parent = true;
 	} else {
 		auth_block();
 	}
 }
 
-$show_status_hint = FALSE;
-$allow_edit_status = FALSE;
-$allow_edit_parent = FALSE;
+$show_status_hint = false;
+$allow_edit_status = false;
+$allow_edit_parent = false;
 
 if (auth_isadmin()) {
 	// if edited user IS NOT currently logged in admin or admin with user ID 1 (username: admin) or status is admin
 	if (!(($user_edited['uid'] == $user_config['uid']) || ($user_edited['uid'] == 1) || ($user_edited['status'] == 2))) {
-		$allow_edit_status = TRUE;
+		$allow_edit_status = true;
 	}
 
 	$list = user_getsubuserbyuid($user_edited['uid']);
 	if (count($list) > 0) {
-		$show_status_hint = TRUE;
-		$allow_edit_status = FALSE;
+		$show_status_hint = true;
+		$allow_edit_status = false;
 	}
 
 	if ($user_edited['status'] == 4) {
-		$allow_edit_parent = TRUE;
+		$allow_edit_parent = true;
 	}
 }
 
@@ -71,10 +71,10 @@ switch (_OP_) {
 			$c_user = dba_search(
 				_DB_PREF_ . '_tblUser',
 				'*',
-				array(
+				[
 					'flag_deleted' => 0,
 					'username' => $c_username
-				)
+				]
 			)
 		) {
 			if ($allow_edit_status) {
@@ -83,15 +83,15 @@ switch (_OP_) {
 			if ($allow_edit_parent) {
 				$parent_uid = (int) $c_user[0]['parent_uid'];
 			}
-			$name = _t($c_user[0]['name']);
-			$email = _t($c_user[0]['email']);
-			$mobile = _t($c_user[0]['mobile']);
-			$address = _t($c_user[0]['address']);
-			$city = _t($c_user[0]['city']);
-			$state = _t($c_user[0]['state']);
-			$country = _t($c_user[0]['country']);
-			$zipcode = _t($c_user[0]['zipcode']);
-			$sender = core_sanitize_sender(_t($c_user[0]['sender']));
+			$name = $c_user[0]['name'];
+			$email = $c_user[0]['email'];
+			$mobile = $c_user[0]['mobile'];
+			$address = $c_user[0]['address'];
+			$city = $c_user[0]['city'];
+			$state = $c_user[0]['state'];
+			$country = $c_user[0]['country'];
+			$zipcode = $c_user[0]['zipcode'];
+			$sender = core_sanitize_sender($c_user[0]['sender']);
 		} else {
 			$_SESSION['dialog']['info'][] = _('User does not exist') . ' (' . _('username') . ': ' . $uname . ')';
 			header("Location: " . _u('index.php?app=main&inc=core_user&route=user_mgmnt&op=user_list&view=' . $view));
@@ -119,23 +119,23 @@ switch (_OP_) {
 		}
 
 		// enhance privacy for subusers
-		$show_personal_information = TRUE;
+		$show_personal_information = true;
 		$main_config = $core_config['main'];
 		if (!auth_isadmin() && $user_edited['status'] == 4 && $main_config['enhance_privacy_subuser']) {
-			$show_personal_information = FALSE;
+			$show_personal_information = false;
 		}
 
 		// get country option
-		$option_country = "<option value=\"0\">--" . _('Please select') . "--</option>\n";
+		$option_country = "<option value='0'>--" . _('Please select') . "--</option>\n";
 		$result = country_search();
 		for ($i = 0; $i < count($result); $i++) {
 			$country_id = (int) $result[$i]['country_id'];
-			$country_name = _t($result[$i]['country_name']);
+			$country_name = $result[$i]['country_name'];
 			$selected = "";
 			if ($country_id == $country) {
 				$selected = "selected";
 			}
-			$option_country .= "<option value=\"$country_id\" $selected>$country_name</option>\n";
+			$option_country .= "<option value='" . $country_id . "' " . $selected . ">" . $country_name . "</option>\n";
 		}
 
 		// admin or users
@@ -152,9 +152,9 @@ switch (_OP_) {
 			$form_title = _('Preferences');
 		}
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'user_pref',
-			'vars' => array(
+			'vars' => [
 				'Account status' => _('Account status'),
 				'Parent account' => _('Parent account') . " (" . _('for subuser only') . ")",
 				'Login information' => _('Login information'),
@@ -191,21 +191,19 @@ switch (_OP_) {
 				'state' => $state,
 				'option_country' => $option_country,
 				'zipcode' => $zipcode
-			),
-			'ifs' => array(
+			],
+			'ifs' => [
 				'edit_status' => $allow_edit_status,
 				'edit_parent' => $allow_edit_parent,
 				'edit_status_hint' => $show_status_hint,
 				'show_personal_information' => $show_personal_information
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case "user_pref_save":
-		$continue = TRUE;
-
-		$fields = array(
+		$fields = [
 			'name',
 			'email',
 			'mobile',
@@ -215,10 +213,10 @@ switch (_OP_) {
 			'country',
 			'password',
 			'zipcode'
-		);
+		];
 
 		if ($allow_edit_status) {
-			_log('saving username:' . $c_username . ' status:' . _t($_POST['up_status']), 3, 'user_pref');
+			_log('saving username:' . $c_username . ' status:' . $_POST['up_status'], 3, 'user_pref');
 			$fields[] = 'status';
 		}
 
@@ -228,11 +226,9 @@ switch (_OP_) {
 		}
 
 		$up = [];
-		for ($i = 0; $i < count($fields); $i++) {
-			if ($c_data = trim($_POST['up_' . $fields[$i]])) {
-				if ($fields[$i] != 'password') {
-					$up[$fields[$i]] = _t($c_data);
-				}
+		foreach ( $fields as $field ) {
+			if ($c_data = trim($_POST['up_' . $field])) {
+				$up[$field] = $c_data;
 			}
 		}
 
