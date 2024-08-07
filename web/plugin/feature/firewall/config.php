@@ -20,11 +20,11 @@ defined('_SECURE_') or die('Forbidden');
 
 if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['settings'];
-	$menu_config[$menutab][] = array(
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=feature_firewall&op=firewall_list',
 		_('Manage firewall'),
 		3
-	);
+	];
 }
 
 $plugin_config['firewall']['login_attempt_limit'] = 3;
