@@ -28,7 +28,6 @@ function user_getallwithstatus($status)
 {
 	$ret = [];
 
-	$status = (int) $status;
 	if ($status >= 2 && $status <= 4) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND status=?";
 		$db_result = dba_query($db_query, [$status]);
@@ -52,7 +51,7 @@ function user_getdatabyuid($uid)
 
 	$ret = [];
 
-	if ($uid = (int) $uid) {
+	if ($uid) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND uid=?";
 		$db_result = dba_query($db_query, [$uid]);
 		if ($db_row = dba_fetch_array($db_result)) {
@@ -98,14 +97,16 @@ function user_getdatabyusername($username)
  * 
  * @param int $uid user ID
  * @param string $field specific field
- * @return array
+ * @return string
  */
 function user_getfieldbyuid($uid, $field)
 {
-	$ret = [];
+	$ret = '';
 
-	$field = core_sanitize_alphanumeric($field);
-	if ($uid = (int) $uid && $field) {
+	// sanitize non-alphanumerics or underscores
+	$field = trim(preg_replace('/[^\p{L}\p{N}_]+/u', '', $field));
+
+	if ($uid && $field) {
 		$db_query = "SELECT $field FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND uid=?";
 		$db_result = dba_query($db_query, [$uid]);
 		if ($db_row = dba_fetch_array($db_result)) {
@@ -121,11 +122,11 @@ function user_getfieldbyuid($uid, $field)
  * 
  * @param string $username username
  * @param string $field specific field
- * @return array
+ * @return string
  */
 function user_getfieldbyusername($username, $field)
 {
-	$ret = [];
+	$ret = '';
 
 	if ($username = trim($username) && $uid = user_username2uid($username)) {
 		$ret = user_getfieldbyuid($uid, $field);
@@ -144,7 +145,7 @@ function user_uid2username($uid)
 {
 	$ret = null;
 
-	if ($uid = (int) $uid) {
+	if ($uid) {
 		$db_query = "SELECT username FROM " . _DB_PREF_ . "_tblUser WHERE flag_deleted=0 AND uid=?";
 		$db_result = dba_query($db_query, [$uid]);
 		if ($db_row = dba_fetch_array($db_result)) {
@@ -870,7 +871,7 @@ function user_session_set($uid = 0)
 	global $core_config, $user_config;
 
 	if (!$core_config['daemon_process']) {
-		$uid = (int) $uid ? (int) $uid : $_SESSION['uid'];
+		$uid = $uid ? $uid : $_SESSION['uid'];
 
 		if ($uid && $sid = $_SESSION['sid']) {
 			$json = [
@@ -904,7 +905,7 @@ function user_session_update($uid = 0, $data = [])
 	global $core_config, $user_config;
 
 	if (!$core_config['daemon_process']) {
-		$uid = (int) $uid ? (int) $uid : $user_config['uid'];
+		$uid = $uid ? $uid : $user_config['uid'];
 
 		if ($uid && $sid = $_SESSION['sid']) {
 			$d = user_session_get($uid);
@@ -1013,7 +1014,7 @@ function user_banned_add($uid)
 	global $user_config;
 
 	// account admin and currently logged in user/admin cannot be ban
-	if ($uid = (int) $uid && ($uid == 1 || $uid == $user_config['uid'])) {
+	if ($uid == 1 || $uid == $user_config['uid']) {
 		_log('unable to ban uid:' . $uid, 2, 'user_banned_add');
 
 		return false;
@@ -1047,7 +1048,6 @@ function user_banned_add($uid)
  */
 function user_banned_remove($uid)
 {
-	$uid = (int) $uid;
 	if (registry_remove(1, 'auth', 'banned_users', $uid)) {
 		_log('unbanned uid:' . $uid, 2, 'user_banned_remove');
 
@@ -1066,7 +1066,6 @@ function user_banned_remove($uid)
  */
 function user_banned_get($uid)
 {
-	$uid = (int) $uid;
 	$list = registry_search(1, 'auth', 'banned_users', $uid);
 	if ($list['auth']['banned_users'][$uid]) {
 
@@ -1121,7 +1120,7 @@ function user_banned_list()
  */
 function user_setdatabyuid($uid, $data)
 {
-	if ($uid = (int) $uid && is_array($data)) {
+	if (is_array($data)) {
 		$conditions = [
 			'flag_deleted' => 0,
 			'uid' => $uid
@@ -1144,8 +1143,6 @@ function user_setdatabyuid($uid, $data)
  */
 function user_setparentbyuid($uid, $parent_uid)
 {
-	$uid = (int) $uid;
-	$parent_uid = (int) $parent_uid;
 	if ($uid && $parent_uid) {
 		$parent_status = user_getfieldbyuid($parent_uid, 'status');
 		if ($parent_status == 3) {
@@ -1175,7 +1172,6 @@ function user_setparentbyuid($uid, $parent_uid)
  */
 function user_getparentbyuid($uid)
 {
-	$uid = (int) $uid;
 	if ($uid) {
 		$conditions = [
 			'flag_deleted' => 0,
@@ -1202,7 +1198,6 @@ function user_getparentbyuid($uid)
  */
 function user_getsubuserbyuid($uid)
 {
-	$uid = (int) $uid;
 	if ($uid) {
 		$parent_status = user_getfieldbyuid($uid, 'status');
 		if (($parent_status == 2) || ($parent_status == 3)) {
