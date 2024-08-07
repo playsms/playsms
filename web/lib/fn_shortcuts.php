@@ -182,9 +182,9 @@ function _input($type = 'text', $name = '', $value = '', $tag_params = array(), 
 }
 
 // lib/fn_logger.php
-function _log($log, $level, $label)
+function _log($log, $level, $label, $quiet = false)
 {
-	return logger_print($log, $level, $label);
+	return logger_print($log, $level, $label, $quiet);
 }
 
 /**

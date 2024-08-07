@@ -19,9 +19,14 @@
 
 defined('_SECURE_') or die('Forbidden');
 
-function logger_print($log, $level = '', $label = '')
+function logger_print($log, $level = '', $label = '', $quiet = false)
 {
 	global $core_config, $user_config;
+
+	if ($quiet) {
+
+		return;
+	}
 
 	$remote = _REMOTE_ADDR_ ? _REMOTE_ADDR_ : '-';
 	$host = trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-';
@@ -33,7 +38,7 @@ function logger_print($log, $level = '', $label = '')
 	}
 
 	// default level is 2
-	$level = ((int) $level > 0 ? (int) $level : 2);
+	$level = (int) $level > 0 ? (int) $level : 2;
 
 	// label should not have spaces, replace single space with double _
 	$label = str_replace(' ', '__', $label);
