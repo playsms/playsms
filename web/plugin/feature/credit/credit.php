@@ -18,41 +18,39 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isuser()) {
-	if (!auth_isadmin()) {
-		auth_block();
-	}
+if (!(auth_isuser() || auth_isadmin())) {
+	auth_block();
 }
 
 switch (_OP_) {
 	case "credit_list":
 		$db_table = $plugin_config['credit']['db_table'];
-		$search_category = array(
+		$search_category = [
 			_('Username') => 'username',
-			_('Transaction datetime') => 'create_datetime' 
-		);
+			_('Transaction datetime') => 'create_datetime'
+		];
 		$base_url = 'index.php?app=main&inc=feature_credit&op=credit_list';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array(
-			'flag_deleted' => 0 
-		);
-		
+		$conditions = [
+			'flag_deleted' => 0
+		];
+
 		// only if users
 		if ($user_config['status'] == 3) {
 			$conditions['parent_uid'] = $user_config['uid'];
 			$conditions['status'] = 4;
 		}
-		
+
 		$keywords = $search['dba_keywords'];
 		$count = dba_count($db_table, $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
+		$extras = [
 			'ORDER BY' => 'id DESC',
 			'LIMIT' => (int) $nav['limit'],
-			'OFFSET' => (int) $nav['offset'] 
-		);
+			'OFFSET' => (int) $nav['offset']
+		];
 		$list = dba_search($db_table, '*', $conditions, $keywords, $extras);
-		
+
 		$content = _dialog() . "
 			<h2>" . _('Manage credit') . "</h2>
 			<h3>" . _('List of transactions') . "</h3>
@@ -81,10 +79,10 @@ switch (_OP_) {
 			</tr>
 			</thead>
 			<tbody>";
-		
+
 		$j = 0;
-		foreach ($list as $row) {
-			$row = core_display_data($row);
+		$list = _display($list);
+		foreach ( $list as $row ) {
 			$content .= "
 				<tr>
 					<td>" . $row['username'] . "</td>
@@ -97,21 +95,20 @@ switch (_OP_) {
 				</tr>";
 			$j++;
 		}
-		
+
 		$content .= "
 			</tbody>
 			</table>
 			</div>
 			<div class=pull-right>" . $nav['form'] . "</div>
 			</form>";
-		
+
 		_p($content);
 		break;
-	
+
 	case "credit_add":
-		
 		$select_user = credit_html_select_user();
-		
+
 		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
@@ -142,14 +139,13 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Add credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-		
+
 		_p($content);
 		break;
-	
+
 	case "credit_reduce":
-		
 		$select_user = credit_html_select_user();
-		
+
 		$content = _dialog() . "
 			<script language=\"javascript\" type=\"text/javascript\">
 				$(document).ready(function() {
@@ -180,10 +176,10 @@ switch (_OP_) {
 			<p><input type='submit' class='button' value='" . _('Reduce credit') . "'>
 			</form>
 			" . _back('index.php?app=main&inc=feature_credit&op=credit_list');
-		
+
 		_p($content);
 		break;
-	
+
 	case "actions":
 		$db_table = $plugin_config['credit']['db_table'];
 		$nav = themes_nav_session();
@@ -191,115 +187,119 @@ switch (_OP_) {
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'export':
-				$conditions = array(
-					'flag_deleted' => 0 
-				);
-				
+				$conditions = [
+					'flag_deleted' => 0
+				];
+
 				// only if users
 				if ($user_config['status'] == 3) {
 					$conditions['parent_uid'] = $user_config['uid'];
 					$conditions['status'] = 4;
 				}
-				
+
 				$list = dba_search($db_table, '*', $conditions, $search['dba_keywords']);
-				$data[0] = array(
+				$data[0] = [
 					_('User'),
 					_('Transaction datetime'),
-					_('Amount') 
-				);
-				for ($i = 0; $i < count($list); $i++) {
+					_('Amount')
+				];
+				$c_count = count($list);
+				for ($i = 0; $i < $c_count; $i++) {
 					$j = $i + 1;
-					$data[$j] = array(
+					$data[$j] = [
 						$list[$i]['username'],
 						core_display_datetime($list[$i]['create_datetime']),
-						$list[$i]['amount'] 
-					);
+						$list[$i]['amount']
+					];
 				}
 				$content = core_csv_format($data);
 				$fn = 'credit-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
-			
+
 			case 'delete':
 				for ($i = 0; $i < $nav['limit']; $i++) {
 					$checkid = $_POST['checkid' . $i];
 					$itemid = $_POST['itemid' . $i];
 					if (($checkid == "on") && $itemid) {
-						$up = array(
+						$up = [
 							'c_timestamp' => time(),
 							'delete_datetime' => core_get_datetime(),
-							'flag_deleted' => '1' 
-						);
-						
+							'flag_deleted' => '1'
+						];
+
 						// only if users
 						if ($user_config['status'] == 3) {
 							$up['parent_uid'] = $user_config['uid'];
 							$up['status'] = 4;
 						}
-						
-						dba_update($db_table, $up, array(
-							'id' => $itemid 
-						));
+
+						dba_update(
+							$db_table,
+							$up,
+							[
+								'id' => $itemid
+							]
+						);
 					}
 				}
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				$_SESSION['dialog']['info'][] = _('Selected transactions has been deleted');
 				header("Location: " . _u($ref));
 				exit();
-			
+
 			case "add":
-				$continue = FALSE;
-				
+				$continue = false;
+
 				$uids = $_POST['uids'];
-				
+
 				if (is_array($uids)) {
-					foreach ($uids as $uid) {
+					foreach ( $uids as $uid ) {
 						if ($user_config['status'] == 3) {
 							$parent_uid = user_getparentbyuid($uid);
 							if ($parent_uid == $user_config['uid']) {
-								$continue = TRUE;
+								$continue = true;
 							}
 						}
-						
+
 						if (auth_isadmin()) {
-							$continue = TRUE;
+							$continue = true;
 						}
-						
+
 						$amount = abs($_POST['amount']);
 						if ($continue && ($amount > 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
-								$current_balance = credit_getbalance($uid);
 								$_SESSION['dialog']['info'][] = _('Credit has been added') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . core_display_credit($amount) . ')';
 							} else {
 								$_SESSION['dialog']['info'][] = _('Fail to add credit') . ' (' . _('user') . ':' . $username . ' ' . _('amount') . ':' . core_display_credit($amount) . ')';
 							}
-						} else {							
+						} else {
 							$_SESSION['dialog']['info'][] = _('Wrong amount or user does not exist') . ' (' . _('User ID') . ':' . $uid . ')';
 						}
 					}
 				}
-				
+
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_add'));
 				exit();
-			
+
 			case "reduce":
-				$continue = FALSE;
-				
+				$continue = false;
+
 				$uids = $_POST['uids'];
-				
+
 				if (is_array($uids)) {
-					foreach ($uids as $uid) {
+					foreach ( $uids as $uid ) {
 						if ($user_config['status'] == 3) {
 							$parent_uid = user_getparentbyuid($uid);
 							if ($parent_uid == $user_config['uid']) {
-								$continue = TRUE;
+								$continue = true;
 							}
 						}
-						
+
 						if (auth_isadmin()) {
-							$continue = TRUE;
+							$continue = true;
 						}
-						
+
 						$amount = -1 * abs($_POST['amount']);
 						if ($continue && ($amount < 0) && ($username = user_uid2username($uid))) {
 							if (credit_add($uid, $amount)) {
@@ -313,7 +313,7 @@ switch (_OP_) {
 						}
 					}
 				}
-				
+
 				header("Location: " . _u('index.php?app=main&inc=feature_credit&op=credit_reduce'));
 				exit();
 		}
