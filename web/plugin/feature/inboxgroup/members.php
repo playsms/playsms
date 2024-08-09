@@ -27,9 +27,10 @@ switch (_OP_) {
 	case 'members':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
-		$keywords = _t($data['keywords']);
-		$description = _t($data['description']);
+		$data = _display($data);
+		$in_receiver = $data['in_receiver'];
+		$keywords = $data['keywords'];
+		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
 		$c_members = "<a href='" . _u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=' . $rid) . "'>" . $c_members . "</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
@@ -69,9 +70,11 @@ switch (_OP_) {
 			<tbody>";
 		$members = inboxgroup_getmembers($rid);
 		$j = 0;
-		for ($i = 0; $i < count($members); $i++) {
+		$c_count = is_array($members) ? count($members) : 0;
+		for ($i = 0; $i < $c_count; $i++) {
 			$c_uid = $members[$i]['uid'];
 			$c_user = user_getdatabyuid($c_uid);
+			$c_user = _display($c_user);
 			if ($c_username = $c_user['username']) {
 				$c_name = $c_user['name'];
 				$c_mobile = $c_user['mobile'];
@@ -107,9 +110,10 @@ switch (_OP_) {
 	case 'members_add':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
-		$keywords = _t($data['keywords']);
-		$description = _t($data['description']);
+		$data = _display($data);
+		$in_receiver = $data['in_receiver'];
+		$keywords = $data['keywords'];
+		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
 		$c_members = "<a href='" . _u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=' . $rid) . "'>" . $c_members . "</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
@@ -129,12 +133,16 @@ switch (_OP_) {
 		$list_of_users = '';
 		// get admins
 		$users = user_getallwithstatus(2);
-		for ($i = 0; $i < count($users); $i++) {
+		$users = _display($users);
+		$c_count = is_array($users) ? count($users) : 0;
+		for ($i = 0; $i < $c_count; $i++) {
 			$list_of_users .= "<option value='" . $users[$i]['uid'] . "'>" . $users[$i]['name'] . " " . $users[$i]['mobile'] . "</option>";
 		}
 		// get users
 		$users = user_getallwithstatus(3);
-		for ($i = 0; $i < count($users); $i++) {
+		$users = _display($users);
+		$c_count = is_array($users) ? count($users) : 0;
+		for ($i = 0; $i < $c_count; $i++) {
 			$list_of_users .= "<option value='" . $users[$i]['uid'] . "'>" . $users[$i]['name'] . " " . $users[$i]['mobile'] . "</option>";
 		}
 		$content .= "
@@ -170,7 +178,7 @@ switch (_OP_) {
 	case 'members_add_submit':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
+		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			$uids = $_REQUEST['uids'];
 			for ($i = 0; $i < count($uids); $i++) {
@@ -191,9 +199,10 @@ switch (_OP_) {
 	case 'members_delete':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
-		$keywords = _t($data['keywords']);
-		$description = _t($data['description']);
+		$data = _display($data);
+		$in_receiver = $data['in_receiver'];
+		$keywords = $data['keywords'];
+		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
 		$c_members = "<a href='" . _u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=' . $rid) . "'>" . $c_members . "</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
@@ -213,7 +222,9 @@ switch (_OP_) {
 		$list_of_members = '';
 		// get members
 		$users = inboxgroup_getmembers($rid);
-		for ($i = 0; $i < count($users); $i++) {
+		$users = _display($users);
+		$c_count = is_array($users) ? count($users) : 0;
+		for ($i = 0; $i < $c_count; $i++) {
 			$c_uid = $users[$i]['uid'];
 			$c_user = user_getdatabyuid($c_uid);
 			if ($c_username = $c_user['username']) {
@@ -255,7 +266,7 @@ switch (_OP_) {
 	case 'members_delete_submit':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
+		$in_receiver = $data['in_receiver'];
 		if ($rid && $in_receiver) {
 			$uids = $_REQUEST['uids'];
 			for ($i = 0; $i < count($uids); $i++) {

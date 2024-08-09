@@ -25,9 +25,8 @@ if (!auth_isadmin()) {
 // main
 switch (_OP_) {
 	case 'list':
-		unset($tpl);
-		$tpl = array(
-			'vars' => array(
+		$tpl = [
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'Group inbox' => _('Group inbox'),
 				'Add group inbox' => _button('index.php?app=main&inc=feature_inboxgroup&op=add', _('Add group inbox')),
@@ -37,10 +36,11 @@ switch (_OP_) {
 				'Catch-all' => _('Catch-all'),
 				'Status' => _('Status'),
 				'Action' => _('Action')
-			)
-		);
+			],
+		];
 		$data = inboxgroup_getdataall();
-		for ($i = 0; $i < count($data); $i++) {
+		$c_count = is_array($data) ? count($data) : 0;
+		for ($i = 0; $i < $c_count; $i++) {
 			$c_rid = $data[$i]['id'];
 			$c_members = count(inboxgroup_getmembers($c_rid));
 			$c_members = "<a href='" . _u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=' . $c_rid) . "'>" . $c_members . "</a>";
@@ -51,8 +51,8 @@ switch (_OP_) {
 			$c_action .= "<a href='" . _u('index.php?app=main&inc=feature_inboxgroup&op=del&rid=' . $c_rid) . "'>" . $icon_config['delete'] . "</a> ";
 			$tpl['loops']['data'][] = array(
 				'tr_class' => $tr_class,
-				'in_receiver' => _t($data[$i]['in_receiver']),
-				'keywords' => str_replace(',', ', ', _t($data[$i]['keywords'])),
+				'in_receiver' => _display($data[$i]['in_receiver']),
+				'keywords' => str_replace(',', ', ', _display($data[$i]['keywords'])),
 				'members' => $c_members,
 				'catchall' => $c_catchall,
 				'status' => $c_status,
@@ -65,10 +65,9 @@ switch (_OP_) {
 		break;
 
 	case 'add':
-		unset($tpl);
-		$tpl = array(
+		$tpl = [
 			'name' => 'inboxgroup_add',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'Group inbox' => _('Group inbox'),
 				'Add group inbox' => _('Add group inbox'),
@@ -79,15 +78,15 @@ switch (_OP_) {
 				'HINT_RECEIVER_NUMBER' => _hint(_('For example a short code')),
 				'Save' => _('Save'),
 				'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case 'add_submit':
-		$in_receiver = _t($_REQUEST['in_receiver']);
-		$keywords = _t($_REQUEST['keywords']);
-		$description = _t($_REQUEST['description']);
+		$in_receiver = $_REQUEST['in_receiver'];
+		$keywords = $_REQUEST['keywords'];
+		$description = $_REQUEST['description'];
 		if ($in_receiver && $keywords && $description) {
 			if (inboxgroup_dataadd($in_receiver, $keywords, $description)) {
 				$_SESSION['dialog']['info'][] = _('Group inbox has been added') . " (" . _('Number') . ": " . $in_receiver . ")";
@@ -103,18 +102,18 @@ switch (_OP_) {
 	case 'edit':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
-		$keywords = _t($data['keywords']);
-		$description = _t($data['description']);
+		$data = _display($data);
+		$in_receiver = $data['in_receiver'];
+		$keywords = $data['keywords'];
+		$description = $data['description'];
 		$selected_1 = $data['exclusive'] ? 'selected' : '';
 		if (!$selected_1) {
 			$selected_0 = 'selected';
 		}
 		$option_exclusive = "<option value='1' " . $selected_1 . ">" . _('yes') . "</option><option value='0' " . $selected_0 . ">" . _('no') . "</option>";
-		unset($tpl);
-		$tpl = array(
+		$tpl = [
 			'name' => 'inboxgroup_edit',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'Group inbox' => _('Group inbox'),
 				'Edit group inbox' => _('Edit group inbox'),
@@ -131,20 +130,18 @@ switch (_OP_) {
 				'HINT_EXCLUSIVE' => _hint(_('Restrict sender to regular members or catch-all members only')),
 				'Save' => _('Save'),
 				'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case 'edit_submit':
 		$rid = $_REQUEST['rid'];
-		$keywords = _t($_REQUEST['keywords']);
-		$description = _t($_REQUEST['description']);
-		$exclusive = _t($_REQUEST['exclusive']);
-
+		$keywords = $_REQUEST['keywords'];
+		$description = $_REQUEST['description'];
+		$exclusive = $_REQUEST['exclusive'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
-
+		$in_receiver = _display($data['in_receiver']);
 		if ($rid && $in_receiver && $keywords && $description) {
 			if (inboxgroup_dataedit($rid, $keywords, $description, $exclusive)) {
 				$_SESSION['dialog']['info'][] = _('Group inbox has been edited') . " (" . _('Number') . ": " . $in_receiver . ")";
@@ -160,18 +157,18 @@ switch (_OP_) {
 	case 'del':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
-		$keywords = _t($data['keywords']);
-		$description = _t($data['description']);
+		$data = _display($data);
+		$in_receiver = $data['in_receiver'];
+		$keywords = $data['keywords'];
+		$description = $data['description'];
 		$c_members = count(inboxgroup_getmembers($rid));
 		$c_members = "<a href='" . _u('index.php?app=main&inc=feature_inboxgroup&route=members&op=members&rid=' . $rid) . "'>" . $c_members . "</a>";
 		$c_catchall = count(inboxgroup_getcatchall($rid));
 		$c_catchall = "<a href='" . _u('index.php?app=main&inc=feature_inboxgroup&route=catchall&op=catchall&rid=' . $rid) . "'>" . $c_catchall . "</a>";
 		$c_status = $data['status'] ? "<span class=status_enabled />" : "<span class=status_disabled />";
-		unset($tpl);
-		$tpl = array(
+		$tpl = [
 			'name' => 'inboxgroup_del',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'Group inbox' => _('Group inbox'),
 				'Delete group inbox' => _('Delete group inbox'),
@@ -191,15 +188,15 @@ switch (_OP_) {
 				'ARE_YOU_SURE' => _('Are you sure you want to delete this group inbox ?'),
 				'Yes' => _('Yes'),
 				'BACK' => _back('index.php?app=main&inc=feature_inboxgroup&op=list')
-			)
-		);
+			],
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case 'del_submit':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = $data['in_receiver'];
+		$in_receiver = _display($data['in_receiver']);
 		if ($rid && $in_receiver) {
 			if (inboxgroup_datadel($rid)) {
 				$_SESSION['dialog']['info'][] = _('Group inbox has been deleted') . " (" . _('Number') . ": " . $in_receiver . ")";
@@ -215,7 +212,7 @@ switch (_OP_) {
 	case 'enable':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
+		$in_receiver = _display($data['in_receiver']);
 		if ($rid && $in_receiver) {
 			if (inboxgroup_dataenable($rid)) {
 				$_SESSION['dialog']['info'][] = _('Group inbox has been enabled') . " (" . _('Number') . ": " . $in_receiver . ")";
@@ -231,7 +228,7 @@ switch (_OP_) {
 	case 'disable':
 		$rid = $_REQUEST['rid'];
 		$data = inboxgroup_getdatabyid($rid);
-		$in_receiver = _t($data['in_receiver']);
+		$in_receiver = _display($data['in_receiver']);
 		if ($rid && $in_receiver) {
 			if (inboxgroup_datadisable($rid)) {
 				$_SESSION['dialog']['info'][] = _('Group inbox has been disabled') . " (" . _('Number') . ": " . $in_receiver . ")";
