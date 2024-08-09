@@ -181,7 +181,7 @@ switch (_OP_) {
 			$_SESSION['dialog']['danger'][] = _('You must select receiver and your message should not be empty');
 		}
 
-		if ($return_url) {
+		if ($_REQUEST['return_url']) {
 			header("Location: " . $return_url);
 		} else {
 			header("Location: " . _u('index.php?app=main&inc=core_sendsms&op=sendsms'));
