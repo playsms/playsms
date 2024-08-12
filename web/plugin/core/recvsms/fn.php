@@ -106,7 +106,7 @@ function recvsmsd()
 	}
 }
 
-function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver = '', $smsc = '')
+function recvsms_process_before($sms_datetime, $sms_sender, $message, $sms_receiver = '', $smsc = '')
 {
 	global $core_config;
 
@@ -122,7 +122,7 @@ function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver =
 	foreach ( $core_config['plugins']['list']['feature'] as $c_feature ) {
 		$ret = core_hook(
 			$c_feature,
-			'recvsms_intercept',
+			'recvsms_process_before',
 			[
 				$sms_datetime,
 				$sms_sender,
@@ -157,7 +157,7 @@ function recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver =
 	return $ret_final;
 }
 
-function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $feature, $status, $uid, $smsc = '')
+function recvsms_process_after($sms_datetime, $sms_sender, $message, $sms_receiver, $feature, $status, $uid, $smsc = '')
 {
 	global $core_config;
 
@@ -173,7 +173,7 @@ function recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_rece
 	foreach ( $core_config['plugins']['list']['feature'] as $c_feature ) {
 		$ret = core_hook(
 			$c_feature,
-			'recvsms_intercept_after',
+			'recvsms_process_after',
 			[
 				$sms_datetime,
 				$sms_sender,
@@ -227,7 +227,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	}
 
 	// incoming sms will be handled by plugins first
-	$ret_intercept = recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
+	$ret_intercept = recvsms_process_before($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 	if ($ret_intercept['modified']) {
 		$sms_datetime = isset($ret_intercept['param']['sms_datetime']) ? $ret_intercept['param']['sms_datetime'] : $sms_datetime;
 		$sms_sender = isset($ret_intercept['param']['sms_sender']) ? $ret_intercept['param']['sms_sender'] : $sms_sender;
@@ -323,7 +323,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 		$target_keyword = '';
 		$message = $raw_message;
 
-		// from recvsms_intercept(), force status as 'handled'
+		// from recvsms_process_before(), force status as 'handled'
 		if ($ret_intercept['hooked']) {
 			$c_status = 1;
 			if ($ret_intercept['uid']) {
@@ -337,7 +337,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 
 	// incoming sms intercept after
 	unset($ret_intercept);
-	$ret_intercept = recvsms_intercept_after($sms_datetime, $sms_sender, $message, $sms_receiver, $c_feature, $c_status, $c_uid, $smsc);
+	$ret_intercept = recvsms_process_after($sms_datetime, $sms_sender, $message, $sms_receiver, $c_feature, $c_status, $c_uid, $smsc);
 	if ($ret_intercept['modified']) {
 		$sms_datetime = isset($ret_intercept['param']['sms_datetime']) ? $ret_intercept['param']['sms_datetime'] : $sms_datetime;
 		$sms_sender = isset($ret_intercept['param']['sms_sender']) ? $ret_intercept['param']['sms_sender'] : $sms_sender;
