@@ -1,24 +1,24 @@
 <script language="javascript" type="text/javascript">
-	$(document).ready(function() {
-		$("#mailsms-protocol").change(function(){
+	$(document).ready(function () {
+		$("#mailsms-protocol").change(function () {
 			change_port();
 		});
-		$("#mailsms-ssl").change(function(e){
-			if(e.target.value==0) {
-				$("#mailsms-novalidate-cert").attr('disabled',true);
+		$("#mailsms-ssl").change(function (e) {
+			if (e.target.value == 0) {
+				$("#mailsms-novalidate-cert").attr('disabled', true);
 				$("#mailsms-novalidate-cert").val(0);
-			}else{
-				$("#mailsms-novalidate-cert").attr('disabled',false);
+			} else {
+				$("#mailsms-novalidate-cert").attr('disabled', false);
 			}
 			change_port();
 		});
-		if($("input[name='port']").val()==""){
-			var port = ($("#mailsms-ssl").val()==1)?'{{ PORT_DEFAULT_SSL }}':'{{ PORT_DEFAULT }}';
+		if ($("input[name='port']").val() == "") {
+			var port = ($("#mailsms-ssl").val() == 1) ? '{{ PORT_DEFAULT_SSL }}' : '{{ PORT_DEFAULT }}';
 			$("input[name='port']").val(port);
 		}
 	});
-	function change_port(){
-		switch($("select[name='protocol']").val()){
+	function change_port() {
+		switch ($("select[name='protocol']").val()) {
 			case 'imap':
 				var nossl = '143';
 				break;
@@ -29,7 +29,7 @@
 				var nossl = '119';
 				break;
 		}
-		var port = ($("#mailsms-ssl").val()==1)?'993':nossl;
+		var port = ($("#mailsms-ssl").val() == 1) ? '993' : nossl;
 		$("input[name='port']").val(port);
 	}
 </script>
@@ -41,7 +41,8 @@
 		<tbody>
 			<tr>
 				<td class=label-sizer>{{ Email to SMS address }}</td>
-				<td><input type="text" maxlength="250" name="email" value="{{ $items_global['features']['mailsms']['email'] }}" required></td>
+				<td><input type="text" maxlength="250" name="email"
+						value="{{ $items_global['features']['mailsms']['email'] }}" required></td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Enable fetch new emails }}</td>
@@ -49,7 +50,9 @@
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ New emails fetch interval }}</td>
-				<td><input type="text" name="fetch_interval" value="{{ $items_global['features']['mailsms']['fetch_interval'] }}"> {{ HINT_FETCH_INTERVAL }}</td>
+				<td><input type="text" name="fetch_interval"
+						value="{{ $items_global['features']['mailsms']['fetch_interval'] }}"> {{ HINT_FETCH_INTERVAL }}
+				</td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Check email sender }}</td>
@@ -65,7 +68,8 @@
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ No validate cert option }}</td>
-				<td><select id="mailsms-novalidate-cert" name="novalidate_cert">{{ $option_novalidate_cert }}</select></td>
+				<td><select id="mailsms-novalidate-cert" name="novalidate_cert">{{ $option_novalidate_cert }}</select>
+				</td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Mail server address }}</td>
@@ -77,7 +81,8 @@
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Mailbox username }}</td>
-				<td><input type="text" name="username" value="{{ $items_global['features']['mailsms']['username'] }}"></td>
+				<td><input type="text" name="username" value="{{ $items_global['features']['mailsms']['username'] }}">
+				</td>
 			</tr>
 			<tr>
 				<td class=label-sizer>{{ Mailbox password }}</td>
