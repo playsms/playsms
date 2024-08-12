@@ -891,6 +891,21 @@ function core_sanitize_footer($string)
 }
 
 /**
+ * Sanitize SMS keyword
+ * 
+ * @param string $string SMS keyword
+ * @return string
+ */
+function core_sanitize_keyword($string)
+{
+	$string = strtoupper(trim($string));
+
+	$string = preg_replace('/[^\p{L}\p{N}\.\-_@]+/u', '', $string);
+
+	return $string;
+}
+
+/**
  * Function: core_net_match()
  * ref: https://github.com/mlocati/ip-lib
  *
