@@ -143,28 +143,28 @@ function dba_query($db_query, $db_argv = [])
 /**
  * Fetch results as array indexed by column name
  * @param PDOStatement $db_result PDO statement from dba_query()
- * @return array|bool Array result or FALSE
+ * @return array Array result
  */
 function dba_fetch_array($db_result)
 {
 	if ($db_result) {
 		return $db_result->fetch(PDO::FETCH_ASSOC);
 	} else {
-		return false;
+		return [];
 	}
 }
 
 /**
  * Fetch results as array indexed by column number
  * @param PDOStatement $db_result PDO statement from dba_query()
- * @return array|bool Array result or FALSE
+ * @return array Array result
  */
 function dba_fetch_row($db_result)
 {
 	if ($db_result) {
 		return $db_result->fetch(PDO::FETCH_NUM);
 	} else {
-		return false;
+		return [];
 	}
 }
 
