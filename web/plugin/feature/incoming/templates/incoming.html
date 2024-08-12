@@ -10,57 +10,65 @@
 	<div class=tab-content>
 		<div id='tabs-pre-rules' class='tab-pane fade in active'>
 			<h4>{{ Pre rules }} {{ HINT_PRE_RULES }}</h4>
-			<br />
-			<loop.form_pre_rules>
-			<div class="form-group">
-				<label for="{{ form_pre_rules.id }}">{{ form_pre_rules.label }}</label>
-				{{ form_pre_rules.input }}
-				<p class="help-block">{{ form_pre_rules.help }}</p>
-			</div>
-			</loop.form_pre_rules>
-			<p><input type=submit class=button value='{{ Save }}'></p>
+			<table class=playsms-table>
+				<tbody>
+					<loop.form_pre_rules>
+						<tr>
+							<td class="label-sizer">{{ form_pre_rules.label }}</td>
+							<td>{{ form_pre_rules.input }} <p class="help-block">{{ form_pre_rules.help }}</p>
+							</td>
+						</tr>
+					</loop.form_pre_rules>
+				</tbody>
+			</table>
 		</div>
 		<div id='tabs-post-rules' class='tab-pane fade'>
 			<h4>{{ Post rules }} {{ HINT_POST_RULES }}</h4>
-			<br />
-			<loop.form_post_rules>
-			<div class="form-group">
-				<label for="{{ form_post_rules.id }}">{{ form_post_rules.label }}</label>
-				{{ form_post_rules.input }}
-				<p class="help-block">{{ form_post_rules.help }}</p>
-			</div>
-			</loop.form_post_rules>
-			<p><input type=submit class=button value='{{ Save }}'></p>
+			<table class=playsms-table>
+				<tbody>
+					<loop.form_post_rules>
+						<tr>
+							<td class="label-sizer">{{ form_post_rules.label }}</td>
+							<td>{{ form_post_rules.input }} <p class="help-block">{{ form_post_rules.help }}</p>
+							</td>
+						</tr>
+					</loop.form_post_rules>
+				</tbody>
+			</table>
 		</div>
 		<div id='tabs-settings' class='tab-pane fade'>
 			<h4>{{ Settings }}</h4>
-			<br />
-			<loop.form_settings>
-			<div class="form-group">
-				<label for="{{ form_settings.id }}">{{ form_settings.label }}</label>
-				{{ form_settings.input }}
-				<p class="help-block">{{ form_settings.help }}</p>
-			</div>
-			</loop.form_settings>
-			<p><input type=submit class=button value='{{ Save }}'></p>
+			<table class=playsms-table>
+				<tbody>
+					<loop.form_settings>
+						<tr>
+							<td class="label-sizer">{{ form_settings.label }}</td>
+							<td>{{ form_settings.input }} <p class="help-block">{{ form_settings.help }}</p>
+							</td>
+						</tr>
+					</loop.form_settings>
+				</tbody>
+			</table>
 		</div>
 	</div>
+	<p><input type=submit class=button value='{{ Save }}'></p>
 </form>
-<script type="text/javascript" src="{{ $core_config['http_path']['plug'] }}/themes/common/jscss/jquery.cookie.js"></script>
+<script type="text/javascript"
+	src="{{ $core_config['http_path']['plug'] }}/themes/common/jscss/jquery.cookie.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-		//save the latest tab using a cookie:
-		$.cookie('incoming_last_tab', $(e.target).attr('href'));
+	$(document).ready(function () {
+		$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+			//save the latest tab using a cookie:
+			$.cookie('incoming_last_tab', $(e.target).attr('href'));
+		});
+
+		//activate latest tab, if it exists:
+		var lastTab = $.cookie('incoming_last_tab');
+		if (lastTab) {
+			$('ul.nav-tabs').children().removeClass('active');
+			$('a[href=' + lastTab + ']').parents('li:first').addClass('active');
+			$('div.tab-content').children().removeClass('in active');
+			$(lastTab).addClass('in active');
+		}
 	});
-	
-	//activate latest tab, if it exists:
-	var lastTab = $.cookie('incoming_last_tab');
-	if (lastTab) {
-		$('ul.nav-tabs').children().removeClass('active');
-		$('a[href='+ lastTab +']').parents('li:first').addClass('active');
-		$('div.tab-content').children().removeClass('in active');
-		$(lastTab).addClass('in active');
-	}
-});
 </script>
