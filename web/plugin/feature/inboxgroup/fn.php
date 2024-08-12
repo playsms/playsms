@@ -49,7 +49,7 @@ function inboxgroup_hook_keyword_isavail($keyword)
  *         'hooked',	// true if SMS intercepted
  *     ]
  */
-function inboxgroup_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver)
+function inboxgroup_hook_recvsms_process_before($sms_datetime, $sms_sender, $message, $sms_receiver)
 {
 	$ret = [];
 

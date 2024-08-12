@@ -185,7 +185,7 @@ function sms_subscribe_handle($list, $sms_datetime, $sms_sender, $subscribe_keyw
 /*
  * intercept incoming sms and look for keyword BC followed by subscribe keyword this feature will do BC but for subscribe keyword sms format: BC <sms_subscribe_keyword> <message> #<sms_subscribe_keyword> <message> @param $sms_datetime incoming SMS date/time @param $sms_sender incoming SMS sender @message incoming SMS message before intercepted @param $sms_receiver receiver number that is receiving incoming SMS @return array $ret
  */
-function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $message, $sms_receiver) {
+function sms_subscribe_hook_recvsms_process_before($sms_datetime, $sms_sender, $message, $sms_receiver) {
 	$msg = explode(" ", $message);
 	$bc = strtoupper($msg[0]);
 	$keyword = '';
@@ -205,7 +205,7 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 	$message = trim($message);
 	$hooked = false;
 	if ($keyword && $message) {
-		_log("recvsms_intercept k:" . $keyword . " m:" . $message, 1, "sms_subscribe");
+		_log("recvsms_process_before k:" . $keyword . " m:" . $message, 1, "sms_subscribe");
 		
 		// if not available then the keyword is exists
 		if (!sms_subscribe_hook_keyword_isavail($keyword)) {
@@ -219,7 +219,7 @@ function sms_subscribe_hook_recvsms_intercept($sms_datetime, $sms_sender, $messa
 				if ($list[0]['subscribe_id']) {
 					$forward_param = ($list[0]['forward_param'] ? $list[0]['forward_param'] : 'BC');
 					$sms_datetime = core_display_datetime($sms_datetime);
-					_log("recvsms_intercept dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " uid:" . $c_uid . " username:" . $c_username . " bc:" . $bc . " keyword:" . $keyword . " message:" . $message . " fwd:" . $forward_param, 3, "sms_subscribe");
+					_log("recvsms_process_before dt:" . $sms_datetime . " s:" . $sms_sender . " r:" . $sms_receiver . " uid:" . $c_uid . " username:" . $c_username . " bc:" . $bc . " keyword:" . $keyword . " message:" . $message . " fwd:" . $forward_param, 3, "sms_subscribe");
 					$hooked = true;
 				}
 			}
