@@ -18,14 +18,24 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-if (!auth_isvalid()) {
-	auth_block();
-}
-
-/*
- * intercept sendsms and replace certain word templates in $sms_msg @param $sms_sender sender number @param $sms_footer sender signiture/footer @param $sms_to destination number @param $sms_msg SMS message @param $uid User ID @param $gpid Group phonebook ID @param $sms_type Type of SMS @param $unicode Whether or not a unicode message @param $smsc Gateway @return array $ret
+/**
+ * intercept sendsms and replace certain word templates in $sms_msg
+ * 
+ * @param $sms_sender sender number
+ * @param $sms_footer sender signiture/footer
+ * @param $sms_to destination number
+ * @param $sms_msg SMS message
+ * @param $uid User ID
+ * @param $gpid Group phonebook ID
+ * @param $sms_type Type of SMS
+ * @param $unicode Whether or not a unicode message
+ * @param $smsc Gateway
+ * @return array modified parameters
+ *     [
+ *         param => sms_msg,	// modified SMS message
+ *     ]
  */
-function msgtemplate_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc)
+function msgtemplate_hook_sendsms_process_before($sms_sender, $sms_footer, $sms_to, $sms_msg, $uid, $gpid, $sms_type, $unicode, $queue_code, $smsc)
 {
 	// parameters modified
 	$ret['modified'] = true;
@@ -37,7 +47,7 @@ function msgtemplate_hook_sendsms_intercept($sms_sender, $sms_footer, $sms_to, $
 	$ret['param']['sms_msg'] = $text;
 
 	// log it
-	// _log("to:" . $sms_to . " msg:" . $sms_msg . " replacedby:" . $ret['param']['sms_msg'], 3, "msgtemplate");
+	_log("to:" . $sms_to . " msg:" . $sms_msg . " replacedby:" . $ret['param']['sms_msg'], 3, "msgtemplate");
 
 	return $ret;
 }
