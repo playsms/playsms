@@ -37,7 +37,7 @@ switch (_OP_) {
 			$items['features']['mailsms_user']['enable']
 		);
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'mailsms_user',
 			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
@@ -54,14 +54,14 @@ switch (_OP_) {
 				'items_global',
 				'items'
 			],
-		);
+		];
 		_p(tpl_apply($tpl));
 		break;
 
 	case "mailsms_user_save":
 		$continue = false;
 
-		$pin = core_sanitize_alphanumeric(substr(trim($_REQUEST['pin']), 0, 40));
+		$pin = core_sanitize_alphanumeric(substr(trim($_REQUEST['pin']), 0, 255));
 		if ($pin) {
 			$continue = true;
 		} else {
