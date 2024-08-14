@@ -24,10 +24,9 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "outgoing_list":
-		unset($tpl);
-		$tpl = array(
+		$tpl = [
 			'name' => 'outgoing_list',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'Route outgoing SMS' => _('Route outgoing SMS'),
 				'Add route' => _button('index.php?app=main&inc=feature_outgoing&op=outgoing_add', _('Add route')),
@@ -36,44 +35,47 @@ switch (_OP_) {
 				'SMSC' => _('SMSC'),
 				'Destination name' => _('Destination name'),
 				'Action' => _('Action'),
-				'option' 
-			) 
-		);
-		
-		$extras = array(
-			'ORDER BY' => 'username, smsc, prefix' 
-		);
-		$data = outgoing_getdata($extras);
-		foreach ($data as $row) {
-			$c_rid = $row['id'];
+				'option'
+			],
+		];
+
+		$db_query = "
+			SELECT A.*, B.username 
+			FROM " . _DB_PREF_ . "_featureOutgoing AS A LEFT JOIN " . _DB_PREF_ . "_tblUser AS B 
+			ON B.flag_deleted='0' AND A.uid=B.uid ORDER BY username, smsc, prefix";
+		$db_result = dba_query($db_query);
+		while ($db_row = dba_fetch_array($db_result)) {
+			$db_row = _display($db_row);
+			$c_rid = $db_row['id'];
 			$c_action = "<a href='" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $c_rid) . "'>" . $icon_config['edit'] . "</a> ";
 			$c_action .= "<a href='javascript: ConfirmURL(\"" . _('Are you sure ?') . "\", \"" . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_del&rid=' . $c_rid) . "\")'>" . $icon_config['delete'] . "</a> ";
-			$tpl['loops']['data'][] = array(
+			$tpl['loops']['data'][] = [
 				'tr_class' => $tr_class,
-				'username' => ($row['username'] ? $row['username'] : '*'),
-				'prefix' => outgoing_display_prefix($row['prefix']),
-				'smsc' => ($row['smsc'] ? $row['smsc'] : _('blocked')),
-				'dst' => $row['dst'],
-				'action' => $c_action 
-			);
+				'username' => $db_row['username'] ? $db_row['username'] : '*',
+				'prefix' => outgoing_prefix_format($db_row['prefix']),
+				'smsc' => $db_row['smsc'] ? $db_row['smsc'] : _('blocked'),
+				'dst' => $db_row['dst'],
+				'action' => $c_action,
+			];
 		}
-		
+
 		$content = tpl_apply($tpl);
 		_p($content);
 		break;
+
 	case "outgoing_del":
 		$rid = $_REQUEST['rid'];
 		$dst = outgoing_getdst($rid);
 		$prefix = outgoing_getprefix($rid);
-		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureOutgoing WHERE id='$rid'";
-		if (@dba_affected_rows($db_query)) {
+		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureOutgoing WHERE id=?";
+		if (dba_affected_rows($db_query, [$rid])) {
 			$_SESSION['dialog']['info'][] = _('Route has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Fail to delete route') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_list'));
 		exit();
-		break;
+
 	case "outgoing_edit":
 		$rid = $_REQUEST['rid'];
 		$uid = outgoing_getuid($rid);
@@ -84,10 +86,10 @@ switch (_OP_) {
 		$select_smsc = "<select name=up_smsc>";
 		unset($smsc_list);
 		$list = gateway_getall_smsc();
-		foreach ($list as $c_smsc) {
+		foreach ( $list as $c_smsc ) {
 			$smsc_list[] = $c_smsc['name'];
 		}
-		foreach ($smsc_list as $smsc_name) {
+		foreach ( $smsc_list as $smsc_name ) {
 			$selected = $smsc_name == $smsc ? "selected" : "";
 			$select_smsc .= "<option " . $selected . ">" . $smsc_name . "</option>";
 		}
@@ -117,9 +119,10 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_outgoing&op=outgoing_list');
 		_p($content);
 		break;
+
 	case "outgoing_edit_save":
 		$rid = $_POST['rid'];
-		
+
 		$up_uid = $_REQUEST['up_uid'];
 		if ($up_uid) {
 			$up_username = user_uid2username($up_uid);
@@ -128,42 +131,33 @@ switch (_OP_) {
 			}
 		}
 		$up_dst = $_POST['up_dst'];
-		
+
 		// sanitize prefixes
-		$up_prefix = $_POST['up_prefix'];
-		$prefixes = explode(',', $up_prefix);
-		$up_prefix = '';
-		foreach ($prefixes as $c_prefix) {
-			$c_prefix = core_sanitize_numeric($c_prefix);
-			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
-				$up_prefix .= '[' . $c_prefix . '],';
-			}
-		}
-		$up_prefix = rtrim(trim($up_prefix), ',');
-		
+		$up_prefix = outgoing_prefix_format($_POST['up_prefix']);
+
 		$up_smsc = ($_POST['up_smsc'] ? $_POST['up_smsc'] : 'blocked');
 		if ($rid && $up_dst) {
 			$db_query = "UPDATE " . _DB_PREF_ . "_featureOutgoing SET c_timestamp='" . time() . "',uid='$up_uid',dst='$up_dst',prefix='$up_prefix',smsc='$up_smsc' WHERE id='$rid'";
 			if (@dba_affected_rows($db_query)) {
-				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . outgoing_display_prefix($up_prefix) . ")";
+				$_SESSION['dialog']['info'][] = _('Route has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . $up_prefix . ")";
 			} else {
-				$_SESSION['dialog']['danger'][] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . outgoing_display_prefix($up_prefix) . ")";
+				$_SESSION['dialog']['danger'][] = _('Fail to save route') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": " . $up_prefix . ")";
 			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('You must fill all mandatory fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_edit&rid=' . $rid));
 		exit();
-		break;
+
 	case "outgoing_add":
 		$select_users = themes_select_users_single('add_uid');
 		$select_smsc = "<select name=add_smsc>";
 		unset($smsc_list);
 		$list = gateway_getall_smsc();
-		foreach ($list as $c_smsc) {
+		foreach ( $list as $c_smsc ) {
 			$smsc_list[] = $c_smsc['name'];
 		}
-		foreach ($smsc_list as $smsc_name) {
+		foreach ( $smsc_list as $smsc_name ) {
 			$select_smsc .= "<option>" . $smsc_name . "</option>";
 		}
 		$select_smsc .= "</select>";
@@ -191,6 +185,7 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_outgoing&op=outgoing_list');
 		_p($content);
 		break;
+
 	case "outgoing_add_yes":
 		$add_uid = $_REQUEST['add_uid'];
 		if ($add_uid) {
@@ -199,35 +194,25 @@ switch (_OP_) {
 				$add_uid = 0;
 			}
 		}
-		
+
 		$add_dst = $_POST['add_dst'];
-		
+
 		// sanitize prefixes
-		$add_prefix = $_POST['add_prefix'];
-		$prefixes = explode(',', $add_prefix);
-		$add_prefix = '';
-		foreach ($prefixes as $c_prefix) {
-			$c_prefix = core_sanitize_numeric($c_prefix);
-			if ($c_prefix = (string) substr($c_prefix, 0, 8)) {
-				$add_prefix .= '[' . $c_prefix . '],';
-			}
-		}
-		$add_prefix = rtrim(trim($add_prefix), ',');
-		
+		$add_prefix = outgoing_prefix_format($_POST['add_prefix']);
+
 		$add_smsc = ($_POST['add_smsc'] ? $_POST['add_smsc'] : 'blocked');
 		if ($add_dst) {
 			$db_query = "
 					INSERT INTO " . _DB_PREF_ . "_featureOutgoing (uid,dst,prefix,smsc)
 					VALUES ('$add_uid','$add_dst','$add_prefix','$add_smsc')";
 			if ($new_uid = @dba_insert_id($db_query)) {
-				$_SESSION['dialog']['info'][] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . outgoing_display_prefix($add_prefix) . ")";
+				$_SESSION['dialog']['info'][] = _('Route has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . $add_prefix . ")";
 			} else {
-				$_SESSION['dialog']['danger'][] = _('Fail to add route') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . outgoing_display_prefix($add_prefix) . ")";
+				$_SESSION['dialog']['danger'][] = _('Fail to add route') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": " . $add_prefix . ")";
 			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_outgoing&op=outgoing_add'));
 		exit();
-		break;
 }
