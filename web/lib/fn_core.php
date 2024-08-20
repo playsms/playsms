@@ -812,6 +812,9 @@ function core_sanitize_alpha($string)
 
 /**
  * Sanitize to numeric text
+ * 
+ * @param string $string text
+ * @return string numeric text
  */
 function core_sanitize_numeric($string)
 {
@@ -824,6 +827,9 @@ function core_sanitize_numeric($string)
 
 /**
  * Sanitize HTML and PHP tags
+ * 
+ * @param string $string text
+ * @return string text without HTML and PHP tags
  */
 function core_sanitize_string($string)
 {
@@ -832,6 +838,7 @@ function core_sanitize_string($string)
 	$string = stripslashes($string);
 	$string = htmlspecialchars_decode($string);
 	$string = strip_tags($string);
+	$string = preg_replace('/[^\p{L}\p{N}\s\.\-\[\]():=,_@#]+/u', '', $string);
 
 	return $string;
 }
@@ -1164,17 +1171,31 @@ function core_csv_format($item)
 {
 	$ret = '';
 
+	if (!is_array($item)) {
+
+		return $ret;
+	}
+
 	foreach ( $item as $row ) {
 
 		$entry = '';
 		foreach ( $row as $field ) {
-
-			$field = str_replace('"', "'", $field);
-			$entry .= '"' . $field . '",';
+			if (strstr($field, '"')) {	// field value contains double-quote ?
+				if (strstr($field, ',')) {	// ok, check if it also contains comma
+					$field = str_replace('"', "'", $field); // ok, replace double-quote with single-quote
+					$entry .= '"' . $field . '",'; // quote it and add comma delimeter at the end
+				} else {
+					$entry .= $field . ','; // ok, no comma, then no need to quote it just add comma delimeter at the end
+				}
+			} else {
+				$entry .= '"' . $field . '",'; // quote it and add comma delimeter at the end
+			}
 		}
-		$entry = substr($entry, 0, -1);
+		$entry = preg_replace('/,$/', '', $entry); // we have comma at the end, remove it
 
-		$ret .= $entry . "\n";
+		if ($entry) {
+			$ret .= $entry . PHP_EOL;
+		}
 	}
 
 	return $ret;
