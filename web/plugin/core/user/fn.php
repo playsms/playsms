@@ -1230,10 +1230,12 @@ function user_search($keywords = '', $fields = '', $extras = '', $exact = false)
 
 	if (!is_array($keywords)) {
 		$keywords = explode(',', $keywords);
+		$keywords = core_trim($keywords);
 	}
 
 	if (!is_array($fields)) {
 		$fields = explode(',', $fields);
+		$fields = core_trim($fields);
 	}
 
 	$search = '';
@@ -1250,7 +1252,8 @@ function user_search($keywords = '', $fields = '', $extras = '', $exact = false)
 		}
 	}
 	if ($search) {
-		$search = substr($search, 0, -4);
+		$search = preg_replace('/\sOR\s$/i', '', $search);
+		$search = trim($search);
 	}
 
 	if (is_array($extras)) {
