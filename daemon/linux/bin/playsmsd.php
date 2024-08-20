@@ -30,8 +30,7 @@ set_time_limit(0);
 /**
  * Get pid for certain playsmsd process
  *
- * @param string $process
- *        process name
+ * @param string $process process name
  * @return int PID
  */
 function playsmsd_pid_get($process)
@@ -181,7 +180,7 @@ function playsmsd_check($json = false, $echo = true)
 
 	$ret = '';
 
-	$data = array(
+	$data = [
 		'PLAYSMSD_CONF' => $PLAYSMSD_CONF,
 		'PLAYSMS_PATH' => $PLAYSMS_INSTALL_PATH,
 		'PLAYSMS_LIB' => $PLAYSMS_LIB_PATH,
@@ -191,7 +190,7 @@ function playsmsd_check($json = false, $echo = true)
 		'ERROR_REPORTING' => $ERROR_REPORTING,
 		'IS_RUNNING' => playsmsd_isrunning(),
 		'PIDS' => playsmsd_pids()
-	);
+	];
 
 	if ($json) {
 		$ret = json_encode($data);
@@ -251,20 +250,23 @@ $PLAYSMSD_CONF = '';
 $argument = $argv;
 $argument[1] = isset($argument[1]) && $argument[1] ? $argument[1] : '';
 $argument[2] = isset($argument[2]) && $argument[2] ? $argument[2] : '';
+$argument[3] = isset($argument[3]) && $argument[3] ? $argument[3] : '';
 
 // check if 1st argv is playsmsd.conf path
-if (file_exists($argument[1])) {
+if ($argument[1] && file_exists($argument[1])) {
 	$PLAYSMSD_CONF = $argument[1];
 	array_shift($argument);
 }
 
-$ini = array();
-$ini_files = array();
+$ini = [];
+$ini_files = [];
 
 if ($PLAYSMSD_CONF) {
-	$ini_files = array($PLAYSMSD_CONF);
+	$ini_files = [
+		$PLAYSMSD_CONF
+	];
 } else {
-	$ini_files = array(
+	$ini_files = [
 		'./playsmsd.conf',
 		'~/playsmsd.conf',
 		'~/etc/playsmsd.conf',
@@ -272,7 +274,7 @@ if ($PLAYSMSD_CONF) {
 		'/usr/local/etc/playsmsd.conf',
 		'/usr/bin/playsmsd.conf',
 		'/usr/local/bin/playsmsd.conf'
-	);
+	];
 }
 
 $continue = false;
@@ -292,19 +294,19 @@ if (!$continue) {
 }
 
 // playSMS installation location
-$PLAYSMS_INSTALL_PATH = ($ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/var/www/playsms');
+$PLAYSMS_INSTALL_PATH = $ini['PLAYSMS_PATH'] ? $ini['PLAYSMS_PATH'] : '/var/www/playsms';
 
 // playSMS lib location
-$PLAYSMS_LIB_PATH = ($ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/var/lib/playsms');
+$PLAYSMS_LIB_PATH = $ini['PLAYSMS_LIB'] ? $ini['PLAYSMS_LIB'] : '/var/lib/playsms';
 
 // playSMS daemon location
-$PLAYSMS_DAEMON_PATH = ($ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin');
+$PLAYSMS_DAEMON_PATH = $ini['PLAYSMS_BIN'] ? $ini['PLAYSMS_BIN'] : '/usr/local/bin';
 
 // playSMS log location
-$PLAYSMS_LOG_PATH = ($ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/playsms');
+$PLAYSMS_LOG_PATH = $ini['PLAYSMS_LOG'] ? $ini['PLAYSMS_LOG'] : '/var/log/playsms';
 
 // set default DAEMON_SLEEP at 1 second
-$DAEMON_SLEEP = ($ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1);
+$DAEMON_SLEEP = $ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1;
 
 // set PHP error reporting level
 $ERROR_REPORTING = isset($ini['ERROR_REPORTING']) ? (int) $ini['ERROR_REPORTING'] : E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT & ~E_DEPRECATED;
@@ -317,7 +319,7 @@ $core_config['daemon'] = $ini;
 $COMMAND = strtolower($argument[1]);
 
 // Loop flag: loop => execute in a loop, once => execute only once
-$LOOP_FLAG = (strtolower($argument[2]) ? strtolower($argument[2]) : 'loop');
+$LOOP_FLAG = strtolower($argument[2]) ? strtolower($argument[2]) : 'loop';
 
 // Service parameters
 $CMD_PARAM = $argument[3];
@@ -449,8 +451,8 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 		if ($COMMAND == 'sendqueue') {
 			if ($CMD_PARAM) {
 				$param = explode('_', $CMD_PARAM);
-				if (($param[0] == 'Q') && ($queue = $param[1])) {
-					$chunk = ((int) $param[2] ? (int) $param[2] : 0);
+				if ($param[0] == 'Q' && $queue = $param[1]) {
+					$chunk = (int) $param[2] ? (int) $param[2] : 0;
 					sendsmsd($queue, $chunk);
 				}
 			}
@@ -481,9 +483,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 			//echo $COMMAND . " start time:" . time() . "" . PHP_EOL;
 
 			// update last_update data
-			registry_update(0, 'core', 'playsmsd', [
-				'last_update' => time()
-			]);
+			registry_update(0, 'core', 'playsmsd', ['last_update' => time()]);
 
 
 			// re-include init.php on every 'while' to get the most updated configurations
@@ -546,26 +546,12 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 
 						if ($num > 0) {
 							// destination found, update queue to process step
-							if (
-								!sendsms_queue_update(
-									$db_row['queue_code'],
-									array(
-										'flag' => 3
-									)
-								)
-							) {
+							if (!sendsms_queue_update($db_row['queue_code'], ['flag' => 3])) {
 								_log('fail to update queue for processing queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
 							}
 						} else {
 							// no destination found, something's not right with the queue, mark it as done and failed (flag 2)
-							if (
-								sendsms_queue_update(
-									$db_row['queue_code'],
-									array(
-										'flag' => 2
-									)
-								)
-							) {
+							if (sendsms_queue_update($db_row['queue_code'], ['flag' => 2])) {
 								_log('enforce init finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
 							} else {
 								_log('fail to enforce init finish queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
@@ -574,7 +560,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 					}
 
 					// process phase
-					$queue = array();
+					$queue = [];
 
 					// look for queues that ready for processing
 					$db_query = "SELECT id, queue_code FROM " . _DB_PREF_ . "_tblSMSOutgoing_queue WHERE flag=3";
@@ -591,14 +577,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 
 						if (count($queue) < 1) {
 							// no chunk found, something's not right with the queue, mark it as done and failed (flag 2)
-							if (
-								sendsms_queue_update(
-									$db_row['queue_code'],
-									array(
-										'flag' => 2
-									)
-								)
-							) {
+							if (sendsms_queue_update($db_row['queue_code'], ['flag' => 2])) {
 								_log('enforce finish process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
 							} else {
 								_log('fail to enforce finish process queue:' . $db_row['queue_code'], 2, 'playsmsd sendsmsd');
@@ -608,7 +587,7 @@ if (file_exists($PLAYSMS_INSTALL_PATH)) {
 
 					// execute phase
 					$queue = array_unique($queue);
-					if (is_array($queue) && $queue && count($queue) > 0) {
+					if (count($queue) > 0) {
 						foreach ( $queue as $q ) {
 							// if found queue and it's not currently running, then run it
 							if ($q && !(playsmsd_pid_get($q) ? true : false)) {
