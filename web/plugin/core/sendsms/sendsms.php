@@ -35,6 +35,8 @@ switch (_OP_) {
 		$ismatched = false;
 		foreach ( sender_id_getall($user_config['username']) as $sender_id ) {
 			$selected = '';
+			$sms_from = _display($sms_from);
+			$sender_id = _display($sender_id);
 			if (strtoupper($sms_from) == strtoupper($sender_id)) {
 				$selected = 'selected';
 				$ismatched = true;
@@ -48,7 +50,7 @@ switch (_OP_) {
 		}
 
 		// SMS footer
-		$sms_footer = _t($user_config['footer']);
+		$sms_footer = _t($user_config['footer'], 30);
 
 		// message template
 		$option_values = "<option value='' default>--" . _('Please select template') . "--</option>";
