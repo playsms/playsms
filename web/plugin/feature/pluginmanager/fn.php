@@ -18,49 +18,65 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-function pluginmanager_get_status($plugin_category, $name) {
+function _pluginmanager_get_status($plugin_category, $name)
+{
+	$ret = false;
+
 	if ($plugin_category == "themes") {
-		if (core_themes_get() == $name) {
-			$ret = TRUE;
-		} else {
-			$ret = FALSE;
-		}
+		$ret = core_themes_get() == $name ? true : false;
 	} else if ($plugin_category == "language") {
-		if (core_lang_get() == $name) {
-			$ret = TRUE;
-		} else {
-			$ret = FALSE;
-		}
+		$ret = core_lang_get() == $name ? true : false;
 	} else {
-		$ret = TRUE;
+		$ret = true;
 	}
+
 	return $ret;
 }
 
-function pluginmanager_list($plugin_category) {
+function _pluginmanager_list($plugin_category)
+{
 	global $core_config;
+
+	$list = [];
+
 	$upload_path = $core_config['apps_path']['plug'] . "/" . $plugin_category . "/";
+	if (!is_dir($upload_path)) {
+
+		return $list;
+	}
+
+	$plugins = [];
 	$dir = opendir($upload_path);
-	$z = 0;
-	while ($fn = readdir($dir)) {
-		$template = preg_match('/^_/', $fn, $match);
-		if (is_dir($upload_path . $fn) && $f != "." && $f != ".." && $template != true && $fn != 'common') {
-			$subdir_tab[$z]['name'] .= $fn;
-			$subdir_tab[$z]['version'] .= trim(file_get_contents($core_config['apps_path']['plug'] . "/" . $plugin_category . "/" . $f . "/docs/VERSION"));
-			$subdir_tab[$z]['date'] .= date($core_config['datetime']['format'], filemtime($upload_path . $f));
-			if (pluginmanager_get_status($plugin_category, $fn)) {
-				$subdir_tab[$z]['status'] .= '<span class=status_enabled />';
-			} else {
-				$subdir_tab[$z]['status'] .= '<span class=status_disabled />';
-			}
-			$z++;
+	while ($plugin = readdir($dir)) {
+		if (!(preg_match('/^_/', $plugin, $match) || $plugin == "." || $plugin == "..")) {
+			$plugins[] = $plugin;
 		}
 	}
-	return $subdir_tab;
+	sort($plugins);
+	$i = 0;
+	foreach ( $plugins as $plugin ) {
+		if (is_dir($upload_path . $plugin) && $plugin != 'common') {
+			$list[$i]['name'] = $plugin;
+			$list[$i]['version'] = trim(file_get_contents($core_config['apps_path']['plug'] . "/" . $plugin_category . "/" . $plugin . "/docs/VERSION"));
+			$list[$i]['date'] = date($core_config['datetime']['format'], filemtime($upload_path . $plugin));
+			if (_pluginmanager_get_status($plugin_category, $plugin)) {
+				$list[$i]['status'] .= '<span class=status_enabled />';
+			} else {
+				$list[$i]['status'] .= '<span class=status_disabled />';
+			}
+			$i++;
+		}
+	}
+
+	return $list;
 }
 
-function pluginmanager_display($plugin_category) {
+function pluginmanager_display($plugin_category)
+{
 	global $core_config;
+
+	$plugin_category = core_sanitize_filename($plugin_category);
+
 	$content = "
 		<div class=table-responsive>
 		<table class=playsms-table-list id='pluginmanager_view'>
@@ -73,26 +89,35 @@ function pluginmanager_display($plugin_category) {
 				<th width=10%>" . _('Status') . "</th>
 			</tr></thead>
 			<tbody>";
-	$subdir_tab = pluginmanager_list($plugin_category);
-	for($l = 0; $l < sizeof($subdir_tab); $l++) {
-		unset($plugin_info);
-		$xml_file = $core_config['apps_path']['plug'] . "/" . $plugin_category . "/" . $subdir_tab[$l]['name'] . "/docs/info.xml";
-		if ($fc = file_get_contents($xml_file)) {
-			$plugin_info = core_xml_to_array($fc);
-			$plugin_info['status'] = $subdir_tab[$l]['status'];
-		}
-		if ($plugin_info['name']) {
-			$content .= "
-				<tr>
-					<td>" . $plugin_info['name'] . "</td>
-					<td>" . $plugin_info['description'] . "</td>
-					<td>" . $plugin_info['release'] . "</td>
-					<td>" . $plugin_info['author'] . "</td>
-					<td>" . $plugin_info['date'] . "</td>
-					<td>" . $plugin_info['status'] . "</td>
-				</tr>";
+	$plugins = [];
+	$list = _pluginmanager_list($plugin_category);
+	$c_count = sizeof($list);
+	for ($l = 0; $l < $c_count; $l++) {
+		unset($plugin);
+		$xml_file = $core_config['apps_path']['plug'] . "/" . $plugin_category . "/" . $list[$l]['name'] . "/docs/info.xml";
+		if (is_file($xml_file)) {
+			if ($fc = file_get_contents($xml_file)) {
+				$plugin = core_xml_to_array($fc);
+				$plugin['status'] = $list[$l]['status'];
+			}
+			if ($plugin['name']) {
+				$plugins[] = $plugin;
+			}
 		}
 	}
+	foreach ( $plugins as $plugin ) {
+		$content .= "
+			<tr>
+				<td>" . $plugin['name'] . "</td>
+				<td>" . $plugin['description'] . "</td>
+				<td>" . $plugin['release'] . "</td>
+				<td>" . $plugin['author'] . "</td>
+				<td>" . $plugin['date'] . "</td>
+				<td>" . $plugin['status'] . "</td>
+			</tr>";
+
+	}
 	$content .= "</tbody></table></div>";
+
 	return $content;
 }

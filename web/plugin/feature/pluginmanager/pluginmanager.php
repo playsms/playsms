@@ -22,7 +22,7 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-$content .= "
+$content = "
 	<h2>" . _('Manage plugin') . "</h2>
 	<ul class='nav nav-tabs nav-justified' id='playsms-tab'>
 		<li class=active><a href='#tabs-core' data-toggle=tab>" . _('Core') . "</a></li>
@@ -50,22 +50,21 @@ $content .= "
 	</div>
 	<script type=\"text/javascript\" src=\"" . $core_config['http_path']['plug'] . "/themes/common/jscss/jquery.cookie.js\"></script>
 	<script type=\"text/javascript\">
-	$(document).ready(function() {
-		$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
-			//save the latest tab using a cookie:
-			$.cookie('pluginmanager_last_tab', $(e.target).attr('href'));
+		$(document).ready(function() {
+			$('a[data-toggle=\"tab\"]').on('shown.bs.tab', function(e){
+				//save the latest tab using a cookie:
+				$.cookie('pluginmanager_last_tab', $(e.target).attr('href'));
+			});
+
+			//activate latest tab, if it exists:
+			var lastTab = $.cookie('pluginmanager_last_tab');
+			if (lastTab) {
+				$('ul.nav-tabs').children().removeClass('active');
+				$('a[href='+ lastTab +']').parents('li:first').addClass('active');
+				$('div.tab-content').children().removeClass('in active');
+				$(lastTab).addClass('in active');
+			}
 		});
-	
-		//activate latest tab, if it exists:
-		var lastTab = $.cookie('pluginmanager_last_tab');
-		if (lastTab) {
-			$('ul.nav-tabs').children().removeClass('active');
-			$('a[href='+ lastTab +']').parents('li:first').addClass('active');
-			$('div.tab-content').children().removeClass('in active');
-			$(lastTab).addClass('in active');
-		}
-	});
-	</script>
-	";
+	</script>";
 
 _p($content);
