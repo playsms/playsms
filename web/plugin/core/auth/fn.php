@@ -470,7 +470,7 @@ function auth_session_destroy()
 
 	user_session_remove($uid);
 
-	$_SESSION = array();
+	$_SESSION = [];
 
 	if (ini_get('session.use_cookies')) {
 		$params = session_get_cookie_params();

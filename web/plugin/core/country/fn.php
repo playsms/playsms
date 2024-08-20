@@ -88,7 +88,7 @@ function country_remove($id) {
  * @param array $data Updated data
  * @return boolean
  */
-function country_update($id, $data = array()) {
+function country_update($id, $data = []) {
 	$ret = FALSE;
 	$replaced = '';
 	

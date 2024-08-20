@@ -60,7 +60,7 @@ use PHPMailer\PHPMailer\Exception;
  * @param array
  * @return boolean
  */
-function sendmail($data = array())
+function sendmail($data = [])
 {
 	global $core_config;
 

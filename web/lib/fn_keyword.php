@@ -84,7 +84,7 @@ function keyword_isexists($keyword, $sms_receiver = '') {
 function keyword_getall() {
 	global $core_config;
 	
-	$ret = array();
+	$ret = [];
 	foreach ($core_config['plugins']['list']['feature'] as $plugin) {
 		list($keyword, $sms_receiver) = core_hook($plugin, 'keyword_getall');
 		$ret[$plugin][] = array(

@@ -667,7 +667,7 @@ function webservices_stoplist($c_username, $from)
 	}
 }
 
-function webservices_account_add($data = array())
+function webservices_account_add($data = [])
 {
 	$ret = user_add($data, TRUE);
 	if ($ret['status']) {
@@ -753,7 +753,7 @@ function webservices_account_unban($uid)
 	return $json;
 }
 
-function webservices_account_pref($uid, $data = array())
+function webservices_account_pref($uid, $data = [])
 {
 	if (!$data['name']) {
 		$data['name'] = user_getfieldbyuid($uid, 'name');
@@ -775,7 +775,7 @@ function webservices_account_pref($uid, $data = array())
 	return $json;
 }
 
-function webservices_account_conf($uid, $data = array())
+function webservices_account_conf($uid, $data = [])
 {
 	$ret = user_edit_conf($uid, $data);
 	if ($ret['status']) {

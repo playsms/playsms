@@ -50,7 +50,7 @@ for ($i = 0; $i < $c_count; $i++) {
 		unset($core_config['plugins']['list'][$pc]);
 		unset($tmp_core_config['plugins']['list'][$pc]);
 		$fd = opendir($dir);
-		$pc_names = array();
+		$pc_names = [];
 		while (false !== ($pl_name = readdir($fd))) {
 			// plugin's dir prefixed with dot or underscore will not be loaded
 			if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_") {
