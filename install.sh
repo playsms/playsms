@@ -10,6 +10,19 @@ if [ "$USERID" = "0" ]; then
 	exit 1
 fi
 
+
+bypass=false
+
+while getopts ":y" opt; do
+  case $opt in
+    y)
+      bypass=true
+      ;;
+    \?)
+      ;;
+  esac
+done
+
 INSTALLCONF="./install.conf"
 
 if [ -n "$1" ]; then
@@ -49,20 +62,46 @@ fi
 
 
 clear
-echo
-echo "playSMS Install Script"
-echo
-echo "==================================================================="
-echo "WARNING:"
-echo "- This install script WILL NOT backup currently installed playSMS"
-echo "- This install script WILL NOT upgrade currently installed playSMS"
-echo "- This install script WILL REMOVE your current playSMS database"
-echo "- This install script is compatible ONLY with playSMS version 1.4.4"
-echo "- This install script designed to work only on Linux OS"
-echo "- Please BACKUP before proceeding"
-echo "==================================================================="
-echo
 
+if ! $bypass; then
+	echo
+	echo "playSMS Install Script"
+	echo
+	echo "==================================================================="
+	echo "WARNING:"
+	echo "- This install script WILL NOT backup currently installed playSMS"
+	echo "- This install script WILL NOT upgrade currently installed playSMS"
+	echo "- This install script WILL REMOVE your current playSMS database"
+	echo "- This install script is compatible ONLY with playSMS version 1.4.4"
+	echo "- This install script designed to work only on Linux OS"
+	echo "- Please BACKUP before proceeding"
+	echo "==================================================================="
+	echo
+else 
+	echo
+	echo "playSMS Install Script"
+	echo
+	echo "==================================================================="
+	echo "WARNING:"
+	echo "- This install script is AUTOMATED and will ignore all user input"
+	echo "- if you dont understand what you are doing please click [Control+C] to abort"
+	echo "- You have 3 seconds to cancel before any changes will be made"
+	echo "==================================================================="
+	echo
+	sleep 1
+	echo "- 3s"
+	sleep 1
+	echo "- 2s"
+	sleep 1
+	echo "- 1s"
+	sleep 1
+	echo
+	echo "==================================================================="
+	echo "- Installation started -"
+	echo "==================================================================="
+	echo
+
+fi
 PLAYSMSSRCVER=$(cat $PATHSRC/VERSION.txt)
 
 echo "INSTALL DATA:"
@@ -88,19 +127,21 @@ echo "==================================================================="
 echo
 echo "Please read and confirm INSTALL DATA above"
 echo
-confirm=
-while [ -z $confirm ]
-do
-	echo "When you're ready press [y/Y] or press [Control+C] to cancel"
-	read -p "> " confirm
-	if [[ $confirm == 'y' ]]; then
-		break
-	fi
-	if [[ $confirm == 'Y' ]]; then
-		break
-	fi
+if ! $bypass; then
 	confirm=
-done
+	while [ -z $confirm ]
+	do
+		echo "When you're ready press [y/Y] or press [Control+C] to cancel"
+		read -p "> " confirm
+		if [[ $confirm == 'y' ]]; then
+			break
+		fi
+		if [[ $confirm == 'Y' ]]; then
+			break
+		fi
+		confirm=
+	done
+fi
 echo
 echo "==================================================================="
 echo
@@ -133,44 +174,49 @@ echo
 if [ -f "$PATHBIN/playsmsd" ]; then
 	echo "WARNING: playSMS daemon found installed on $PATHBIN"
 	echo
-	confirm=
-	while [ -z $confirm ]
-	do
-		echo "To continue and replace $PATHBIN/playsmsd press [y/Y] or press [Control+C] to cancel"
-		read -p "> " confirm
-		if [[ $confirm == 'y' ]]; then
-			break
-		fi
-		if [[ $confirm == 'Y' ]]; then
-			break
-		fi
+	if ! $bypass; then
 		confirm=
-	done
+		while [ -z $confirm ]
+		do
+			echo "To continue and replace $PATHBIN/playsmsd press [y/Y] or press [Control+C] to cancel"
+			read -p "> " confirm
+			if [[ $confirm == 'y' ]]; then
+				break
+			fi
+			if [[ $confirm == 'Y' ]]; then
+				break
+			fi
+			confirm=
+		done
+	fi
 	echo
 fi
 sleep 1
 
 echo "Checking database..."
 echo
-FOUND_DATABASE=`mysql -u$DBUSER -p$DBPASS -h$DBHOST --skip-column-names --batch -e "SHOW DATABASES LIKE '$DBNAME'" | wc -l`
+FOUND_DATABASE="1"
+# FOUND_DATABASE=`mysql -u$DBUSER -p$DBPASS -h$DBHOST --skip-column-names --batch -e "SHOW DATABASES LIKE '$DBNAME'" | wc -l`
 if [ "$FOUND_DATABASE" == "1" ]; then
 	echo "Found database '$DBNAME'"
 	echo
 	echo "This install script will empty database '$DBNAME'"
 	echo
+	if ! $bypass; then
 	confirm=
-	while [ -z $confirm ]
-	do
-		echo "To continue emptying database '$DBNAME' press [y/Y] or press [Control+C] to cancel"
-		read -p "> " confirm
-		if [[ $confirm == 'y' ]]; then
-			break
-		fi
-		if [[ $confirm == 'Y' ]]; then
-			break
-		fi
-		confirm=
-	done
+		while [ -z $confirm ]
+		do
+			echo "To continue emptying database '$DBNAME' press [y/Y] or press [Control+C] to cancel"
+			read -p "> " confirm
+			if [[ $confirm == 'y' ]]; then
+				break
+			fi
+			if [[ $confirm == 'Y' ]]; then
+				break
+			fi
+			confirm=
+		done
+	fi
 	echo
 else
 	echo "ERROR: database '$DBNAME' not found or user have no permission to access '$DBNAME'"
@@ -192,19 +238,25 @@ echo "Are you sure ?"
 echo
 echo "Please read and check again the INSTALL DATA above"
 echo
-confirm=
-while [ -z $confirm ]
-do
-	echo "When you're ready press [y/Y] or press [Control+C] to cancel"
-	read -p "> " confirm
-	if [[ $confirm == 'y' ]]; then
-		break
-	fi
-	if [[ $confirm == 'Y' ]]; then
-		break
-	fi
+
+
+if ! $bypass; then
 	confirm=
-done
+	while [ -z $confirm ]
+	do
+		echo "When you're ready press [y/Y] or press [Control+C] to cancel"
+		read -p "> " confirm
+		if [[ $confirm == 'y' ]]; then
+			break
+		fi
+		if [[ $confirm == 'Y' ]]; then
+			break
+		fi
+		confirm=
+	done
+fi
+
+echo "done"
 echo
 echo "==================================================================="
 echo
