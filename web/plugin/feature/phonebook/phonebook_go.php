@@ -22,7 +22,7 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$items = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : array();
+$items = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : [];
 
 switch (_OP_) {
 	case 'delete':
@@ -50,8 +50,8 @@ switch (_OP_) {
 
 $gpid = 0;
 $ops = explode('_', _OP_);
-if (($ops[0] == 'move') && $ops[1]) {
-	$gpid = $ops[1];
+if (isset($ops[0]) && $ops[0] == 'move' && isset($ops[1]) && $ops[1]) {
+	$gpid = (int) $ops[1];
 }
 
 if ($gpid && (dba_valid(_DB_PREF_ . '_featurePhonebook_group', 'id', $gpid))) {
@@ -60,20 +60,20 @@ if ($gpid && (dba_valid(_DB_PREF_ . '_featurePhonebook_group', 'id', $gpid))) {
 			if (
 				dba_remove(
 					_DB_PREF_ . '_featurePhonebook_group_contacts',
-					array(
+					[
 						'pid' => $item
-					)
+					]
 				) or dba_isavail(
 					_DB_PREF_ . '_featurePhonebook_group_contacts',
-					array(
+					[
 						'pid' => $item
-					)
+					]
 				)
 			) {
-				$data = array(
+				$data = [
 					'pid' => $item,
 					'gpid' => $gpid
-				);
+				];
 				if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $data)) {
 					$_SESSION['dialog']['info'][] = _('Selected contact moved to new group');
 				}

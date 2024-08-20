@@ -30,17 +30,17 @@ switch (_OP_) {
 		);
 		$base_url = 'index.php?app=main&inc=feature_phonebook&route=group&op=list';
 		$search = themes_search($search_category, $base_url);
-		$conditions = array(
+		$conditions = [
 			'uid' => $user_config['uid']
-		);
+		];
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featurePhonebook_group', $conditions, $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
+		$extras = [
 			'ORDER BY' => 'name',
 			'LIMIT' => (int) $nav['limit'],
 			'OFFSET' => (int) $nav['offset']
-		);
+		];
 		$fields = 'id, name, code, flag_sender';
 		$list = dba_search(_DB_PREF_ . '_featurePhonebook_group', $fields, $conditions, $keywords, $extras);
 
@@ -68,12 +68,11 @@ switch (_OP_) {
 			<tbody>";
 
 		if (isset($list) && is_array($list)) {
-
-			// fixme anton - sanitize before displays
-			$list = _t($list);
+			$list = _display($list);
 
 			$j = 0;
-			for ($j = 0; $j < count($list); $j++) {
+			$c_count = count($list);
+			for ($j = 0; $j < $c_count; $j++) {
 				$gpid = $list[$j]['id'];
 				$name = $list[$j]['name'];
 				$code = $list[$j]['code'];
@@ -100,6 +99,7 @@ switch (_OP_) {
 
 		_p($content);
 		break;
+
 	case "add":
 		$option_flag_sender = "
 			<option value='0'>" . _('User') . "</option>
@@ -132,8 +132,9 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
 		_p($content);
 		break;
+
 	case "edit":
-		$gpid = $_REQUEST['gpid'];
+		$gpid = (int) $_REQUEST['gpid'];
 		$group = phonebook_getgroupbyid($gpid);
 		${'selected_' . $group['flag_sender']} = 'selected';
 		$option_flag_sender = "
@@ -151,7 +152,7 @@ switch (_OP_) {
 			<tbody>
 			<tr>
 				<td class=playsms-label-sizer>" . _('Group name') . "</td>
-				<td><input type=text name=group_name value=\"" . phonebook_groupid2name($user_config['uid'], $gpid) . "\"></td>
+				<td><input type=text name=group_name value=\"" . _display(phonebook_groupid2name($user_config['uid'], $gpid)) . "\"></td>
 			</tr>
 			<tr>
 				<td>" . _('Group code') . "</td>
@@ -168,6 +169,7 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_phonebook&route=group&op=list');
 		_p($content);
 		break;
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -178,18 +180,18 @@ switch (_OP_) {
 					if (
 						!dba_count(
 							_DB_PREF_ . '_featurePhonebook_group_contacts',
-							array(
+							[
 								'gpid' => $gpid
-							)
+							]
 						)
 					) {
 						if (
 							dba_remove(
 								_DB_PREF_ . '_featurePhonebook_group',
-								array(
+								[
 									'uid' => $user_config['uid'],
 									'id' => $gpid
-								)
+								]
 							)
 						) {
 							$_SESSION['dialog']['info'][] = _('Selected group has been deleted');
@@ -203,16 +205,15 @@ switch (_OP_) {
 				$ref = $nav['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
 				header("Location: " . _u($ref));
 				exit();
+
 			case 'add':
 				$group_name = $_POST['group_name'];
-				$group_code = strtoupper(trim($_POST['group_code']));
-				// fixme anton
-				$group_code = phonebook_code_clean($group_code);
+				$group_code = strtoupper(phonebook_code_clean($_POST['group_code']));
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($group_name && $group_code) {
 					$ret = phonebook_group_add($uid, $group_name, $group_code, $flag_sender);
-					if ($ret == TRUE) {
+					if ($ret) {
 						$_SESSION['dialog']['info'][] = _('Group code has been added') . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 						_lastpost_empty();
 					} else if ($ret === 0) {
@@ -225,17 +226,16 @@ switch (_OP_) {
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&route=group&op=add'));
 				exit();
+
 			case 'edit':
 				$gpid = $_POST['gpid'];
 				$group_name = $_POST['group_name'];
-				$group_code = strtoupper(trim($_POST['group_code']));
-				// fixme anton
-				$group_code = phonebook_code_clean($group_code);
+				$group_code = strtoupper(phonebook_code_clean($_POST['group_code']));
 				$flag_sender = (int) $_POST['flag_sender'];
 				$uid = $user_config['uid'];
 				if ($gpid && $group_name && $group_code) {
-					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid='$uid' AND code='$group_code' AND NOT id='$gpid'";
-					$db_result = dba_query($db_query);
+					$db_query = "SELECT code FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid=? AND code=? AND NOT id=?";
+					$db_result = dba_query($db_query, [$uid, $group_code, $gpid]);
 					if ($db_row = dba_fetch_array($db_result)) {
 						$_SESSION['dialog']['danger'][] = _('No changes have been made');
 					} else {
@@ -243,8 +243,8 @@ switch (_OP_) {
 
 						// check whether or not theres a group code with the same name and flag_sender <> 0
 						if ($flag_sender > 0) {
-							$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code='$group_code' AND flag_sender<>0 AND NOT id='$gpid'";
-							$db_result = dba_query($db_query);
+							$db_query = "SELECT flag_sender FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE code=? AND flag_sender<>0 AND NOT id=?";
+							$db_result = dba_query($db_query, [$group_code, $gpid]);
 							if ($db_row = dba_fetch_array($db_result)) {
 								$flag_sender = 0;
 								$string_group_edit = _('Group has been edited but unable to set broadcast from members or anyone');
@@ -252,8 +252,8 @@ switch (_OP_) {
 						}
 
 						// update data
-						$db_query = "UPDATE " . _DB_PREF_ . "_featurePhonebook_group SET c_timestamp='" . time() . "',name='$group_name',code='$group_code',flag_sender='$flag_sender' WHERE uid='$uid' AND id='$gpid'";
-						$db_result = dba_query($db_query);
+						$db_query = "UPDATE " . _DB_PREF_ . "_featurePhonebook_group SET c_timestamp='" . time() . "',name=?,code=?,flag_sender=? WHERE uid=? AND id=?";
+						$db_result = dba_query($db_query, [$group_name, $group_code, $flag_sender, $uid, $gpid]);
 
 						$_SESSION['dialog']['info'][] = $string_group_edit . " (" . _('group') . ": $group_name, " . _('code') . ": $group_code)";
 					}

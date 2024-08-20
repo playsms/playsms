@@ -41,7 +41,7 @@ switch (_OP_) {
 			$db_argv[] = $val;
 		}
 		if ($keywords_sql) {
-			$keywords_sql = substr($keywords_sql, 3); // remove first OR
+			$keywords_sql = preg_replace('/^\sOR\s/i', '', $keywords_sql, 1); // remove first " OR "
 			$keywords_sql .= " AND "; // adds trailing AND for next condition
 		}
 
@@ -124,17 +124,16 @@ switch (_OP_) {
 				</thead>
 				<tbody>";
 
-		// fixme anton - sanitize before displays
-		$list = _t($list);
-
 		$i = $nav['top'];
 		$j = 0;
-		for ($j = 0; $j < count($list); $j++) {
+		$list = _display($list);
+		$c_count = count($list);
+		for ($j = 0; $j < $c_count; $j++) {
 			$pid = $list[$j]['pid'];
 			$name = $list[$j]['name'];
 			$mobile = $list[$j]['mobile'];
 			$email = $list[$j]['email'];
-			$tags = $list[$j]['tags'];
+			$tags = phonebook_tags_clean($list[$j]['tags']);
 
 			$db_query = "
 				SELECT B.id AS id, B.uid AS uid, B.code AS code, B.flag_sender AS flag_sender 
@@ -202,12 +201,13 @@ switch (_OP_) {
 
 		_p($content);
 		break;
+
 	case "phonebook_add":
 		$phone = trim(urlencode($_REQUEST['phone']));
 		$uid = $user_config['uid'];
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid=?";
 		$db_result = dba_query($db_query, [$uid]);
-		$list_of_group = array();
+		$list_of_group = [];
 		while ($db_row = dba_fetch_array($db_result)) {
 			$list_of_group[] = '<input type=hidden name=gpids[' . $db_row['id'] . '] value=0>
 				<label><input type=checkbox name=gpids[' . $db_row['id'] . '] value=1> ' . $db_row['name'] . ' - ' . _('code') . ': ' . $db_row['code'] . '</label>';
@@ -236,30 +236,21 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		_p($content);
 		break;
+
 	case "phonebook_edit":
 		$uid = $user_config['uid'];
 		$pid = $_REQUEST['pid'];
-		$list = dba_search(
-			_DB_PREF_ . '_featurePhonebook',
-			'*',
-			array(
-				'id' => $pid,
-				'uid' => $uid
-			)
-		);
-
-		// fixme anton - sanitize before displays
-		$list = _t($list);
+		$list = dba_search(_DB_PREF_ . '_featurePhonebook', '*', ['id' => $pid, 'uid' => $uid]);
 
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePhonebook_group WHERE uid=?";
 		$db_result = dba_query($db_query, [$uid]);
-		$list_of_group = array();
+		$list_of_group = [];
 		while ($db_row = dba_fetch_array($db_result)) {
 			$checked = '';
-			$conditions = array(
+			$conditions = [
 				'gpid' => $db_row['id'],
 				'pid' => $pid
-			);
+			];
 			if (dba_isexists(_DB_PREF_ . '_featurePhonebook_group_contacts', $conditions, 'AND')) {
 				$checked = ' checked';
 			}
@@ -271,6 +262,7 @@ switch (_OP_) {
 		} else {
 			$list_of_group = _('No group');
 		}
+		$list = _display($list);
 		$content = _dialog() . "
 			<h2 class=page-header-title>" . _('Phonebook') . "</h2>
 			<h3 class=page-header-subtitle>" . _('Edit contact') . "</h3>
@@ -283,7 +275,7 @@ switch (_OP_) {
 			<tr><td>" . _mandatory(_('Name')) . "</td><td><input type=text name=name value=\"" . $list[0]['name'] . "\"></td></tr>
 			<tr><td>" . _mandatory(_('Mobile')) . "</td><td><input type=text name=mobile maxlength=20 value=\"" . $list[0]['mobile'] . "\"></td></tr>
 			<tr><td>" . _('Email') . "</td><td><input type=text name=email value=\"" . $list[0]['email'] . "\"></td></tr>
-			<tr><td>" . _('Tags') . "</td><td><input type=text name=tags value=\"" . $list[0]['tags'] . "\"> " . _hint(_('Multiple entries separated by comma')) . "</td></tr>
+			<tr><td>" . _('Tags') . "</td><td><input type=text name=tags value=\"" . phonebook_tags_clean($list[0]['tags']) . "\"> " . _hint(_('Multiple entries separated by comma')) . "</td></tr>
 			</tbody>
 			</table>
 			<p><input type=submit class=button value=\"" . _('Save') . "\"></p>
@@ -291,6 +283,7 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_phonebook&op=phonebook_list');
 		_p($content);
 		break;
+
 	case "actions":
 		$nav = themes_nav_session();
 		$search = themes_search_session();
@@ -305,7 +298,7 @@ switch (_OP_) {
 					$db_argv[] = $val;
 				}
 				if ($keywords_sql) {
-					$keywords_sql = substr($keywords_sql, 3); // remove first OR
+					$keywords_sql = preg_replace('/^\sOR\s/i', '', $keywords_sql, 1); // remove first " OR "
 					$keywords_sql .= " AND "; // adds trailing AND for next condition
 				}
 				$db_query = "
@@ -335,58 +328,50 @@ switch (_OP_) {
 					$list[] = $db_row;
 				}
 
-				$data[0] = array(
+				$data[0] = [
 					_('Name'),
 					_('Mobile'),
 					_('Email'),
 					_('Group code'),
 					_('Tags')
-				);
+				];
 
-				// fixme anton - sanitize before exports
-				$list = _t($list);
-
-				for ($i = 0; $i < count($list); $i++) {
+				$c_count = count($list);
+				for ($i = 0; $i < $c_count; $i++) {
 					$j = $i + 1;
-					$data[$j] = array(
+					$data[$j] = [
 						$list[$i]['name'],
-						sendsms_getvalidnumber($list[$i]['mobile']),
+						core_sanitize_mobile($list[$i]['mobile']),
 						$list[$i]['email'],
 						$list[$i]['code'],
 						phonebook_tags_clean($list[$i]['tags'])
-					);
+					];
 				}
 				$content = core_csv_format($data);
 				$fn = 'phonebook-' . $core_config['datetime']['now_stamp'] . '.csv';
 				core_download($content, $fn, 'text/csv');
 				break;
+
 			case 'add':
 				$uid = $user_config['uid'];
 				$gpids = $_POST['gpids'];
 				unset($gpids[0]);
-				$save_to_group = FALSE;
+				$save_to_group = false;
 				$name = $_POST['name'];
-				$mobile = sendsms_getvalidnumber($_POST['mobile']);
+				$mobile = core_sanitize_mobile($_POST['mobile']);
 				$email = $_POST['email'];
 				$tags = phonebook_tags_clean($_POST['tags']);
 				if ($mobile && $name) {
-					$list = dba_search(
-						_DB_PREF_ . '_featurePhonebook',
-						'id',
-						array(
-							'uid' => $uid,
-							'mobile' => $mobile
-						)
-					);
+					$list = dba_search(_DB_PREF_ . '_featurePhonebook', 'id', ['uid' => $uid, 'mobile' => $mobile]);
 					// fixme anton - temporary - contacts not unique
 					$save_to_group = false;
-					$items = array(
+					$items = [
 						'uid' => $uid,
 						'name' => $name,
 						'mobile' => $mobile,
 						'email' => $email,
 						'tags' => $tags
-					);
+					];
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						$save_to_group = true;
 					} else {
@@ -394,10 +379,10 @@ switch (_OP_) {
 					}
 					foreach ( $gpids as $gpid => $add ) {
 						if ($save_to_group && $add) {
-							$items = array(
+							$items = [
 								'gpid' => $gpid,
 								'pid' => $c_pid
-							);
+							];
 							if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 								if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
 									_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
@@ -413,27 +398,28 @@ switch (_OP_) {
 				}
 				header("Location: " . _u('index.php?app=main&inc=feature_phonebook&op=phonebook_add'));
 				exit();
+
 			case 'edit':
 				$uid = $user_config['uid'];
 				$c_pid = $_POST['pid'];
 				$gpids = $_POST['gpids'];
 				unset($gpids[0]);
-				$save_to_group = FALSE;
+				$save_to_group = false;
 				$name = $_POST['name'];
-				$mobile = sendsms_getvalidnumber($_POST['mobile']);
+				$mobile = core_sanitize_mobile($_POST['mobile']);
 				$email = $_POST['email'];
 				$tags = phonebook_tags_clean($_POST['tags']);
 				if ($c_pid && $mobile && $name) {
-					$items = array(
+					$items = [
 						'name' => $name,
 						'mobile' => $mobile,
 						'email' => $email,
 						'tags' => $tags
-					);
-					$conditions = array(
+					];
+					$conditions = [
 						'id' => $c_pid,
 						'uid' => $uid
-					);
+					];
 					dba_update(_DB_PREF_ . '_featurePhonebook', $items, $conditions, 'AND');
 					_log('contact edited pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
 				} else {
@@ -443,10 +429,10 @@ switch (_OP_) {
 				}
 				foreach ( $gpids as $gpid => $add ) {
 					if ($add) {
-						$items = array(
+						$items = [
 							'gpid' => $gpid,
 							'pid' => $c_pid
-						);
+						];
 						if (dba_isavail(_DB_PREF_ . '_featurePhonebook_group_contacts', $items, 'AND')) {
 							if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
 								_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_edit');
@@ -457,10 +443,10 @@ switch (_OP_) {
 					} else {
 						dba_remove(
 							_DB_PREF_ . '_featurePhonebook_group_contacts',
-							array(
+							[
 								'gpid' => $gpid,
 								'pid' => $c_pid
-							)
+							]
 						);
 					}
 				}

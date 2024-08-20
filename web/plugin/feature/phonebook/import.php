@@ -53,9 +53,9 @@ switch (_OP_) {
 		// fixme anton - https://www.exploit-db.com/exploits/42003
 		$fnpb_name = core_sanitize_filename($_FILES['fnpb']['name']);
 		if ($fnpb_name && $fnpb_name == $_FILES['fnpb']['name']) {
-			$continue = TRUE;
+			$continue = true;
 		} else {
-			$continue = FALSE;
+			$continue = false;
 		}
 
 		$fnpb = $_FILES['fnpb'];
@@ -77,8 +77,8 @@ switch (_OP_) {
 		if ($continue && file_exists($fnpb_tmpname)) {
 			$session_import = 'phonebook_' . _PID_;
 			unset($_SESSION['tmp'][$session_import]);
-			ini_set('auto_detect_line_endings', TRUE);
-			if (($fp = fopen($fnpb_tmpname, "r")) !== FALSE) {
+			ini_set('auto_detect_line_endings', true);
+			if (($fp = fopen($fnpb_tmpname, "r")) !== false) {
 				$i = 0;
 				while ($c_contact = fgetcsv($fp, 1000, ',', '"', '\\')) {
 					if ($i > $phonebook_row_limit) {
@@ -90,9 +90,8 @@ switch (_OP_) {
 						$c_contact = core_sanitize_inputs($c_contact);
 
 						//$c_contant[0] = core_sanitize_string($c_contact[0]);
-						$c_contant[1] = sendsms_getvalidnumber($c_contact[1]);
+						$c_contant[1] = core_sanitize_mobile($c_contact[1]);
 						//$c_contact[2] = core_sanitize_email($c_contact[2]);
-						//$c_contact[2] = _t($c_contact[2]);
 						$c_gid = phonebook_groupcode2id($uid, $c_contact[3]);
 						if (!$c_gid) {
 							$c_contact[3] = '';
@@ -121,7 +120,7 @@ switch (_OP_) {
 					}
 				}
 			}
-			ini_set('auto_detect_line_endings', FALSE);
+			ini_set('auto_detect_line_endings', false);
 			$content .= "
 				</tbody></table>
 				</div>
@@ -161,21 +160,21 @@ switch (_OP_) {
 			if ($name && $mobile) {
 				// fixme anton - temporary - contacts not unique
 				// if ($c_pid = phonebook_number2id($uid, $mobile)) {
-				if (FALSE) {
+				if (false) {
 					if ($gpid) {
-						$save_to_group = TRUE;
+						$save_to_group = true;
 					}
 				} else {
-					$items = array(
+					$items = [
 						'uid' => $uid,
 						'name' => $name,
-						'mobile' => sendsms_getvalidnumber($mobile),
+						'mobile' => core_sanitize_mobile($mobile),
 						'email' => $email,
 						'tags' => $tags
-					);
+					];
 					if ($c_pid = dba_add(_DB_PREF_ . '_featurePhonebook', $items)) {
 						if ($gpid) {
-							$save_to_group = TRUE;
+							$save_to_group = true;
 						} else {
 							_log('contact added pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 						}
@@ -184,14 +183,14 @@ switch (_OP_) {
 					}
 				}
 				if ($save_to_group && $gpid) {
-					$db_query = "SELECT id FROM " . _DB_PREF_ . "_featurePhonebook_group_contacts WHERE gpid='" . $gpid . "' AND pid='" . $c_pid . "' LIMIT 1";
-					if (dba_num_rows($db_query) > 0) {
+					$db_query = "SELECT id FROM " . _DB_PREF_ . "_featurePhonebook_group_contacts WHERE gpid=? AND pid=? LIMIT 1";
+					if (dba_num_rows($db_query, [$gpid, $c_pid]) > 0) {
 						_log('contact already in the group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 					} else {
-						$items = array(
+						$items = [
 							'gpid' => $gpid,
 							'pid' => $c_pid
-						);
+						];
 						if (dba_add(_DB_PREF_ . '_featurePhonebook_group_contacts', $items)) {
 							_log('contact added to group gpid:' . $gpid . ' pid:' . $c_pid . ' m:' . $mobile . ' n:' . $name . ' e:' . $email, 3, 'phonebook_add');
 						} else {
