@@ -49,9 +49,9 @@ switch (_OP_) {
 			$is_running_label = '<span class=status_disabled title="' . _('playSMS daemon is NOT running') . '"></span>';
 		}
 
-		$tpl = array(
+		$tpl = [
 			'name' => 'playsmslog',
-			'vars' => array(
+			'vars' => [
 				'HTTP_PATH_THEMES' => _HTTP_PATH_THEMES_,
 				'REFRESH_BUTTON' => _button('#', _('Refresh'), '', 'playsmslog_refresh'),
 				'REFRESH_URL' => _u('index.php?app=main&inc=feature_playsmslog&op=playsmslog_log'),
@@ -59,8 +59,8 @@ switch (_OP_) {
 				'LOG' => playsmslog_view(),
 				'Daemon status' => _('playSMS daemon status'),
 				'View log' => _('View log')
-			)
-		);
+			],
+		];
 
 		$content = tpl_apply($tpl);
 		_p($content);

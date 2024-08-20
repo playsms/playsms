@@ -12,20 +12,20 @@
 
 <script language='javascript' type='text/javascript'>
 
-var textarea = document.getElementById('playsmslog_view');
-textarea.scrollTop = textarea.scrollHeight;
+	var textarea = document.getElementById('playsmslog_view');
+	textarea.scrollTop = textarea.scrollHeight;
 
-$(document).ready(function(){
-	$("#playsmslog_refresh").click(function () {
-		$("#playsmslog_view").load("{{ REFRESH_URL }}");
-		var textarea = document.getElementById('playsmslog_view');
-		textarea.scrollTop = textarea.scrollHeight;
+	$(document).ready(function () {
+		$("#playsmslog_refresh").click(function () {
+			$("#playsmslog_view").load("{{ REFRESH_URL }}");
+			var textarea = document.getElementById('playsmslog_view');
+			textarea.scrollTop = textarea.scrollHeight;
+		});
+		setInterval(function () {
+			$("#playsmslog_view").load("{{ REFRESH_URL }}");
+			var textarea = document.getElementById('playsmslog_view');
+			textarea.scrollTop = textarea.scrollHeight;
+		}, 300000);
 	});
-	setInterval(function() {
-		$("#playsmslog_view").load("{{ REFRESH_URL }}");
-		var textarea = document.getElementById('playsmslog_view');
-		textarea.scrollTop = textarea.scrollHeight;
-	}, 300000);
-});
 
 </script>

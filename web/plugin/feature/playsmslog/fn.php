@@ -18,6 +18,12 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
+/**
+ * View content of log file
+ * 
+ * @param int $nline show this number of line
+ * @return string
+ */
 function playsmslog_view($nline = 1000)
 {
 	global $core_config;
