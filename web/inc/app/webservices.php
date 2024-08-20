@@ -120,7 +120,7 @@ if (_OP_) {
 		
 		case "ACCOUNTADD":
 			if ($u = webservices_validate_admin($h, $u)) {
-				$data = array();
+				$data = [];
 				foreach ($_REQUEST as $key => $value) {
 					switch ($key) {
 						case 'data_status':
@@ -250,7 +250,7 @@ if (_OP_) {
 					'password',
 					'zipcode' 
 				);
-				$data = array();
+				$data = [];
 				foreach ($fields as $field) {
 					if ($c_data = trim($_REQUEST['data_' . $field])) {
 						$data[$field] = $c_data;
@@ -283,7 +283,7 @@ if (_OP_) {
 					'replace_zero',
 					'sender' 
 				);
-				$data = array();
+				$data = [];
 				foreach ($fields as $field) {
 					if (strlen(trim($_REQUEST['data_' . $field]))) {
 						$data[$field] = trim($_REQUEST['data_' . $field]);
@@ -458,7 +458,7 @@ if (_OP_) {
 			break;
 		
 		case "GET_TOKEN":
-			$user = array();
+			$user = [];
 			
 			if (preg_match('/^(.+)@(.+)\.(.+)$/', $u)) {
 				if (auth_validate_email($u, $p)) {
