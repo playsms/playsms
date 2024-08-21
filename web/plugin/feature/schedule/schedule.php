@@ -51,8 +51,8 @@ switch (_OP_) {
 			$content .= "
 					<tr>
 						<td>" . $db_row['id'] . "</td>
-						<td>" . _t($db_row['name']) . "</td>
-						<td>" . _t($db_row['message']) . "</td>
+						<td>" . $db_row['name'] . "</td>
+						<td>" . $db_row['message'] . "</td>
 						<td>" . $status . "</td>
 						<td>" . $action . "</td>
 					</tr>";
@@ -89,8 +89,8 @@ switch (_OP_) {
 		break;
 
 	case "add_yes":
-		$name = core_sanitize_string($_POST['name']);
-		$message = core_sanitize_string($_POST['message']);
+		$name = $_POST['name'];
+		$message = $_POST['message'];
 		$schedule_rule = (int) $_POST['schedule_rule'];
 		if ($name && $message) {
 			// flag_active  : 1 active, 2 inactive, 0 considered inactive

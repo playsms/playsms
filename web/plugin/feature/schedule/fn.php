@@ -36,10 +36,10 @@ function schedule_hook_playsmsd()
 	$current_timestamp = strtotime($current_datetime);
 
 	// collect active schedules
-	$conditions = array(
+	$conditions = [
 		'flag_active' => 1,
 		'flag_deleted' => 0
-	);
+	];
 	$schedules = dba_search(_DB_PREF_ . '_featureSchedule', '*', $conditions);
 	foreach ( $schedules as $sch ) {
 		$schedule_id = $sch['id'];
@@ -47,17 +47,17 @@ function schedule_hook_playsmsd()
 		$schedule_rule = (int) $sch['schedule_rule'];
 
 		// collect destinations
-		$conditions = array(
+		$conditions = [
 			'schedule_id' => $schedule_id
-		);
+		];
 		$destinations = dba_search(_DB_PREF_ . '_featureSchedule_dst', '*', $conditions, [], []);
 		foreach ( $destinations as $dst ) {
 			$id = $dst['id'];
-			$name = _t($dst['name']);
-			$schedule_message = _t(str_ireplace('#NAME#', $name, $sch['message']));
+			$name = $dst['name'];
+			$schedule_message = str_ireplace('#NAME#', $name, $sch['message']);
 			$destination = $dst['destination'];
-			$schedule = ($dst['schedule'] ? core_display_datetime($dst['schedule']) : '0000-00-00 00:00:00');
-			$scheduled = ($dst['scheduled'] ? core_display_datetime($dst['scheduled']) : '0000-00-00 00:00:00');
+			$schedule = $dst['schedule'] ? core_display_datetime($dst['schedule']) : '0000-00-00 00:00:00';
+			$scheduled = $dst['scheduled'] ? core_display_datetime($dst['scheduled']) : '0000-00-00 00:00:00';
 			if (!$scheduled || $scheduled == '0000-00-00 00:00:00') {
 				$scheduled = $schedule;
 			}
@@ -66,11 +66,11 @@ function schedule_hook_playsmsd()
 			//_log('uid:' . $uid . ' schedule_id:' . $schedule_id . ' id:' . $id . ' rule:' . $schedule_rule . ' current:[' . $current_datetime . '] schedule:[' . $schedule . '] scheduled:[' . $scheduled . ']', 2, 'schedule_hook_playsmsd');			
 
 
-			$continue = FALSE;
+			$continue = false;
 
 			if ($current_timestamp >= $scheduled_timestamp) {
 				switch ($schedule_rule) {
-					// once
+					// Once
 					case 0:
 						//$scheduled = '2038-01-19 10:14:07';
 						$scheduled = '2030-01-19 10:14:07';
@@ -78,7 +78,7 @@ function schedule_hook_playsmsd()
 						$scheduled_timestamp = strtotime($current_datetime);
 						$scheduled_display = $current_datetime;
 
-						$continue = TRUE;
+						$continue = true;
 						break;
 
 					// Annually
@@ -93,7 +93,7 @@ function schedule_hook_playsmsd()
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
 
-						$continue = TRUE;
+						$continue = true;
 						break;
 
 					// Monthly
@@ -108,7 +108,7 @@ function schedule_hook_playsmsd()
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
 
-						$continue = TRUE;
+						$continue = true;
 						break;
 
 					// Weekly
@@ -124,7 +124,7 @@ function schedule_hook_playsmsd()
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
 
-						$continue = TRUE;
+						$continue = true;
 						break;
 
 					// Daily
@@ -139,17 +139,17 @@ function schedule_hook_playsmsd()
 						$scheduled_timestamp = strtotime($scheduled);
 						$scheduled_display = core_display_datetime($scheduled);
 
-						$continue = TRUE;
+						$continue = true;
 						break;
 				}
 			}
 
 			if ($continue) {
 				// set scheduled to next time
-				$items = array(
+				$items = [
 					'c_timestamp' => time(),
 					'scheduled' => $scheduled
-				);
+				];
 				$conditions = array(
 					'schedule_id' => $schedule_id,
 					'id' => $id
@@ -159,8 +159,11 @@ function schedule_hook_playsmsd()
 					$interval = $current_timestamp - $scheduled_timestamp;
 					if ($interval <= 3600) {
 						_log('sendsms uid:' . $uid . ' schedule_id:' . $schedule_id . ' id:' . $id . ' rule:' . $schedule_rule . ' schedule:[' . $schedule . '] scheduled:[' . $scheduled_display . ']', 2, 'schedule_hook_playsmsd');
-						$username = user_uid2username($uid);
-						sendsms_helper($username, $destination, $schedule_message, 'text');
+						if ($username = user_uid2username($uid)) {
+							sendsms_helper($username, $destination, $schedule_message, 'text');
+						} else {
+							_log('sendsms failed username not found uid:' . $uid . ' schedule_id:' . $schedule_id . ' id:' . $id . ' rule:' . $schedule_rule . ' schedule:[' . $schedule . '] scheduled:[' . $scheduled_display . ']', 2, 'schedule_hook_playsmsd');
+						}
 					} else {
 						_log('expired uid:' . $uid . ' schedule_id:' . $schedule_id . ' id:' . $id . ' rule:' . $schedule_rule . ' schedule:[' . $schedule . '] scheduled:[' . $scheduled_display . '] interval:' . $interval, 2, 'schedule_hook_playsmsd');
 					}

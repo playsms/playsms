@@ -26,11 +26,11 @@ if (!auth_isvalid()) {
 $schedule_id = (int) $_REQUEST['schedule_id'];
 
 // validate, if not exists the block
-$conditions = array(
+$conditions = [
 	'uid' => $user_config['uid'],
 	'id' => $schedule_id,
 	'flag_deleted' => 0
-);
+];
 if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 	auth_block();
 }
@@ -67,9 +67,9 @@ switch (_OP_) {
 		// fixme anton - https://www.exploit-db.com/exploits/42003
 		$fnpb_name = core_sanitize_filename($_FILES['fnpb']['name']);
 		if ($fnpb_name && $fnpb_name == $_FILES['fnpb']['name']) {
-			$continue = TRUE;
+			$continue = true;
 		} else {
-			$continue = FALSE;
+			$continue = false;
 		}
 
 		$fnpb = $_FILES['fnpb'];
@@ -88,8 +88,8 @@ switch (_OP_) {
 
 		if ($continue && file_exists($fnpb_tmpname)) {
 
-			ini_set('auto_detect_line_endings', TRUE);
-			if (($fp = fopen($fnpb_tmpname, "r")) !== FALSE) {
+			ini_set('auto_detect_line_endings', true);
+			if (($fp = fopen($fnpb_tmpname, "r")) !== false) {
 				$i = 0;
 				while ($c_entry = fgetcsv($fp, 1000, ',', '"', '\\')) {
 					if ($i > $plugin_config['schedule']['import_row_limit']) {
@@ -105,15 +105,13 @@ switch (_OP_) {
 				// fixme anton - https://www.exploit-db.com/exploits/42044
 				$entries = core_sanitize_inputs($entries);
 
+				// sanitize to display on web
+				$entries = _display($entries);
+
 				$session_import = 'schedule_' . _PID_;
-				$_SESSION['tmp'][$session_import] = array();
+				$_SESSION['tmp'][$session_import] = [];
 				$i = 0;
 				foreach ( $entries as $entry ) {
-
-					$entry[0] = core_sanitize_string($entry[0]);
-					$entry[1] = core_sanitize_string($entry[1]);
-					$entry[2] = core_sanitize_string($entry[2]);
-
 					if ($entry[0] && $entry[1] && $entry[2]) {
 						$i++;
 						$content .= "
@@ -128,7 +126,7 @@ switch (_OP_) {
 					}
 				}
 			}
-			ini_set('auto_detect_line_endings', FALSE);
+			ini_set('auto_detect_line_endings', false);
 
 			$content .= "
 				</tbody></table>
@@ -153,15 +151,15 @@ switch (_OP_) {
 	case "import_yes":
 		@set_time_limit(0);
 		$num = $_POST['number_of_row'];
-		$session_import = core_sanitize_string($_POST['session_import']);
+		$session_import = $_POST['session_import'];
 
 		// fixme anton - should not need this due to data in this session should be sanitized already
 		$data = core_sanitize_inputs($_SESSION['tmp'][$session_import]);
 
 		foreach ( $data as $d ) {
-			$name = core_sanitize_string(trim($d[0]));
-			$destination = core_sanitize_string(trim($d[1]));
-			$schedule = trim($d[2]);
+			$name = $d[0];
+			$destination = $d[1];
+			$schedule = $d[2];
 			if ($name && $destination && $schedule) {
 				$schedule = core_adjust_datetime($schedule);
 				// add destiantions, replace existing entry with the same name

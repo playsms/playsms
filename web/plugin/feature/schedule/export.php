@@ -22,39 +22,40 @@ defined('_SECURE_') or die('Forbidden');
 $schedule_id = (int) $_REQUEST['schedule_id'];
 
 // validate, if not exists the block
-$conditions = array(
+$conditions = [
 	'uid' => $user_config['uid'],
 	'id' => $schedule_id,
 	'flag_deleted' => 0
-);
+];
 if (!dba_isexists(_DB_PREF_ . '_featureSchedule', $conditions)) {
 	auth_block();
 }
 
 switch (_OP_) {
 	case "list":
-		$extras = array(
+		$extras = [
 			'ORDER BY' => 'schedule, name, destination'
-		);
-		$conditions = array(
+		];
+		$conditions = [
 			'schedule_id' => $schedule_id
-		);
+		];
 		$list = dba_search(_DB_PREF_ . '_featureSchedule_dst', '*', $conditions, [], $extras);
-		$data[0] = array(
+		$data[0] = [
 			_('Name'),
 			_('Destination'),
 			_('Schedule')
-		);
-		for ($i = 0; $i < count($list); $i++) {
+		];
+		$c_count = count($list);
+		for ($i = 0; $i < $c_count; $i++) {
 			$j = $i + 1;
 			if ($j > $plugin_config['schedule']['export_row_limit']) {
 				break;
 			}
-			$data[$j] = array(
-				_t($list[$i]['name']),
-				_t($list[$i]['destination']),
+			$data[$j] = [
+				$list[$i]['name'],
+				$list[$i]['destination'],
 				core_display_datetime($list[$i]['schedule'])
-			);
+			];
 		}
 		$content = core_csv_format($data);
 		$fn = 'schedule-' . str_pad($schedule_id, 5, "0", STR_PAD_LEFT) . '-' . $core_config['datetime']['now_stamp'] . '.csv';

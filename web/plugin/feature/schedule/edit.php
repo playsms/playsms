@@ -25,14 +25,17 @@ if (!auth_isvalid()) {
 switch (_OP_) {
 	case "list":
 		$id = (int) $_REQUEST['id'];
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSchedule WHERE uid=? AND id=? AND flag_deleted='0'";
+		$db_result = dba_query($db_query, [$user_config['uid'], $id]);
 		$db_row = dba_fetch_array($db_result);
-		$name = _t($db_row['name']);
-		$message = _t($db_row['message']);
+		$db_row = _display($db_row);
+		$name = $db_row['name'];
+		$message = $db_row['message'];
 		$schedule_rule = $db_row['schedule_rule'];
-		if ($id && $name && $message) {
-			$content = _dialog() . "
+		if (!($id && $name && $message)) {
+			auth_block();
+		}
+		$content = _dialog() . "
 			<h2>" . _('Schedule messages') . "</h2>
 			<h3>" . _('Edit schedule') . "</h3>
 			<form action=index.php?app=main&inc=feature_schedule&route=edit&op=edit_yes method=post>
@@ -55,23 +58,20 @@ switch (_OP_) {
 			<p><input type=submit class=button value=\"" . _('Save') . "\">
 			</form>
 			" . _back('index.php?app=main&inc=feature_schedule&op=list');
-		} else {
-			auth_block();
-		}
 		_p($content);
 		break;
 
 	case "edit_yes":
 		$id = (int) $_POST['id'];
-		$name = core_sanitize_string($_POST['name']);
-		$message = core_sanitize_string($_POST['message']);
+		$name = $_POST['name'];
+		$message = $_POST['message'];
 		$schedule_rule = (int) $_POST['schedule_rule'];
 		if ($id && $name && $message) {
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featureSchedule
-				SET c_timestamp='" . time() . "',name='$name',message='$message', schedule_rule='$schedule_rule'
-				WHERE uid='" . $user_config['uid'] . "' AND id='$id' AND flag_deleted='0'";
-			if (dba_affected_rows($db_query)) {
+				SET c_timestamp=?,name=?,message=?,schedule_rule=?
+				WHERE uid=? AND id=? AND flag_deleted='0'";
+			if (dba_affected_rows($db_query, [time(), $name, $message, $schedule_rule, $user_config['uid'], $id])) {
 				$_SESSION['dialog']['info'][] = _('SMS schedule been saved');
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to edit SMS schedule');
