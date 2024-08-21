@@ -646,7 +646,7 @@ function core_adjust_datetime($time, $tz = 0)
 /**
  * Format float to proper credit format
  *
- * @param float $credit credit
+ * @param float|int|string $credit credit
  * @return string
  */
 function core_display_credit($credit)
