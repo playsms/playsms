@@ -1,45 +1,47 @@
 <h2>{{ Report }}</h2>
 <h3>{{ All reports }}</h3>
 <div class=table-responsive>
-<table class=playsms-table-list>
-	<thead>
-		<tr>
-			<th width=20%>{{ User }}</th>
-			<th width=10%>{{ Pending }}</th>
-			<th width=10%>{{ Sent }}</th>
-			<th width=10%>{{ Delivered }}</th>
-			<th width=10%>{{ Failed }}</th>
-			<th width=10%>{{ Deleted }}</th>
-			<th width=15%>{{ Billing }}</th>
-			<th width=15%>{{ Credit }}</th>
-		</tr>
-	</thead>
-	<tbody>
-		<loop.data>
-			<tr class={{ data.tr_class }}>
-				<td>{{ data.c_username }} {{ data.c_isadmin }}</td>
-				<td>{{ data.num_rows_pending }}</td>
-				<td>{{ data.num_rows_sent }}</td>
-				<td>{{ data.num_rows_delivered }}</td>
-				<td>{{ data.num_rows_failed }}</td>
-				<td>{{ data.num_rows_deleted }}</td>
-				<td>{{ data.c_billing }}</td>
-				<td>{{ data.c_credit }}</td>
-			</tr>
-		</loop.data>
-
+	<table class=playsms-table-list>
 		<thead>
 			<tr>
-				<th>{{ Total }}: {{ sum_total }}</td>
-				<th>{{ sum_num_rows_pending }}</th>
-				<th>{{ sum_num_rows_sent }}</th>
-				<th>{{ sum_num_rows_delivered }}</th>
-				<th>{{ sum_num_rows_failed }}</th>
-				<th>{{ sum_num_rows_deleted }}</th>
-				<th>{{ sum_billing }}</th>
-				<th>{{ sum_credit }}</th>
+				<th width=13%>{{ User }}</th>
+				<th width=13%>{{ Parent }}</th>
+				<th width=10%>{{ Pending }}</th>
+				<th width=10%>{{ Sent }}</th>
+				<th width=10%>{{ Delivered }}</th>
+				<th width=10%>{{ Failed }}</th>
+				<th width=10%>{{ Deleted }}</th>
+				<th width=12%>{{ Billing }}</th>
+				<th width=12%>{{ Credit }}</th>
 			</tr>
 		</thead>
-	</tbody>
-</table>
+		<tbody>
+			<loop.data>
+				<tr class={{ data.tr_class }}>
+					<td>{{ data.c_username }} {{ data.c_isadmin }}</td>
+					<td>{{ data.c_parent }}</td>
+					<td>{{ data.num_rows_pending }}</td>
+					<td>{{ data.num_rows_sent }}</td>
+					<td>{{ data.num_rows_delivered }}</td>
+					<td>{{ data.num_rows_failed }}</td>
+					<td>{{ data.num_rows_deleted }}</td>
+					<td>{{ data.c_billing }}</td>
+					<td>{{ data.c_credit }}</td>
+				</tr>
+			</loop.data>
+
+			<thead>
+				<tr>
+					<th colspan="2">{{ Total }}: {{ sum_total }}</td>
+					<th>{{ sum_num_rows_pending }}</th>
+					<th>{{ sum_num_rows_sent }}</th>
+					<th>{{ sum_num_rows_delivered }}</th>
+					<th>{{ sum_num_rows_failed }}</th>
+					<th>{{ sum_num_rows_deleted }}</th>
+					<th>{{ sum_billing }}</th>
+					<th>{{ sum_credit }}</th>
+				</tr>
+			</thead>
+		</tbody>
+	</table>
 </div>
