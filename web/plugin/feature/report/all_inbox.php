@@ -57,7 +57,7 @@ switch (_OP_) {
 				if ($exists) {
 					$sql_messages .= " OR ";
 				}
-				$sql_messages .= "in_msg LIKE '%" . trim($keyword) . "%'";
+				$sql_messages .= "in_msg LIKE '%" . core_sanitize_string($keyword) . "%'";
 				$exists = true;
 			}
 			$sql_messages .= ")";
@@ -73,7 +73,7 @@ switch (_OP_) {
 				if ($exists) {
 					$sql_from .= " OR ";
 				}
-				$sql_from .= "in_sender LIKE '%" . trim($from) . "%'";
+				$sql_from .= "in_sender LIKE '%" . core_sanitize_string($from) . "%'";
 				$exists = true;
 			}
 			$sql_from .= ")";
@@ -89,7 +89,7 @@ switch (_OP_) {
 				if ($exists) {
 					$sql_to .= " OR ";
 				}
-				$sql_to .= "username LIKE '%" . $to . "%'";
+				$sql_to .= "username LIKE '%" . core_sanitize_string($to) . "%'";
 				$exists = true;
 			}
 			$sql_to .= ")";
@@ -145,30 +145,30 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 				<tr>
 					<td>" . _('Search message') . "</td>
-					<td><input type='text' name='search_messages' value='" . $_REQUEST['search_messages'] . "'> " . _hint('Seperate by comma for multiple search') . "</td>
+					<td><input type='text' name='search_messages' value='" . _display($_REQUEST['search_messages']) . "'> " . _hint('Seperate by comma for multiple search') . "</td>
 				</tr>
 				<tr>
 					<td>" . _('From') . "</td>
-					<td><input type='text' name='search_from' value='" . $_REQUEST['search_from'] . "'> " . _hint('Seperate by comma for multiple sender') . "</td>
+					<td><input type='text' name='search_from' value='" . _display($_REQUEST['search_from']) . "'> " . _hint('Seperate by comma for multiple sender') . "</td>
 				</tr>";
 		if ($is_admin) {
 			$search_form .= "
 				<tr>
 					<td>" . _('To') . "</td>
-					<td><input type='text' name='search_to' value='" . $_REQUEST['search_to'] . "'> " . _hint('Seperate by comma for multiple receiver') . "</td>
+					<td><input type='text' name='search_to' value='" . _display($_REQUEST['search_to']) . "'> " . _hint('Seperate by comma for multiple receiver') . "</td>
 				</tr>";
 		}
 		$search_form .= "
 				<tr>
 					<td>" . _('From date/time') . "</td>
 					<td>
-						<input type='text' id='search_frdt' name='search_frdt' value='" . $_REQUEST['search_frdt'] . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
+						<input type='text' id='search_frdt' name='search_frdt' value='" . _display($_REQUEST['search_frdt']) . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
 					</td>
 				</tr>
 				<tr>
 					<td>" . _('To date/time') . "</td>
 					<td>
-						<input type='text' id='search_todt' name='search_todt' value='" . $_REQUEST['search_todt'] . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
+						<input type='text' id='search_todt' name='search_todt' value='" . _display($_REQUEST['search_todt']) . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
 					</td>
 				</tr>
 				<tr>
@@ -197,12 +197,12 @@ switch (_OP_) {
 		$_SESSION['tmp']['report']['sql_search'] = $sql_search;
 
 		// prepare search query
-		$query_search = "&search_message=" . $_REQUEST['search_messages'];
-		$query_search .= "&search_from=" . $_REQUEST['search_from'];
-		$query_search .= "&search_frdt=" . $_REQUEST['search_frdt'];
-		$query_search .= "&search_todt=" . $_REQUEST['search_todt'];
+		$query_search = "&search_message=" . urlencode($_REQUEST['search_messages']);
+		$query_search .= "&search_from=" . urlencode($_REQUEST['search_from']);
+		$query_search .= "&search_frdt=" . urlencode($_REQUEST['search_frdt']);
+		$query_search .= "&search_todt=" . urlencode($_REQUEST['search_todt']);
 		if ($is_admin) {
-			$query_search .= "&search_to=" . $_REQUEST['search_to'];
+			$query_search .= "&search_to=" . urlencode($_REQUEST['search_to']);
 		}
 
 		// save search query in session for nav
@@ -298,7 +298,7 @@ switch (_OP_) {
 		// iterate content
 		$j = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$db_row = core_display_data($db_row);
+			$db_row = _display($db_row);
 			$in_id = $db_row['in_id'];
 			$in_uid = $db_row['in_uid'];
 			$in_sender = $db_row['in_sender'];
@@ -311,7 +311,7 @@ switch (_OP_) {
 			}
 
 			$msg = $db_row['in_msg'];
-			$in_msg = _t($msg);
+			$in_msg = $msg;
 			if ($msg && $in_sender) {
 				$reply = _sendsms($in_sender, $msg, $base_url . "&op=all_inbox" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['reply']);
 				$forward = _sendsms('', $msg, $base_url . "&op=all_inbox" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['forward']);

@@ -45,7 +45,7 @@ switch (_OP_) {
 				if ($exists) {
 					$sql_messages .= " OR ";
 				}
-				$sql_messages .= "p_msg LIKE '%" . trim($keyword) . "%'";
+				$sql_messages .= "p_msg LIKE '%" . core_sanitize_string($keyword) . "%'";
 				$exists = true;
 			}
 			$sql_messages .= ")";
@@ -61,7 +61,7 @@ switch (_OP_) {
 				if ($exists) {
 					$sql_from .= " OR ";
 				}
-				$sql_from .= "p_src LIKE '%" . trim($from) . "%'";
+				$sql_from .= "p_src LIKE '%" . core_sanitize_string($from) . "%'";
 				$exists = true;
 			}
 			$sql_from .= ")";
@@ -77,7 +77,7 @@ switch (_OP_) {
 				if ($exists) {
 					$sql_to .= " OR ";
 				}
-				$sql_to .= "p_dst LIKE '%" . trim($to) . "%'";
+				$sql_to .= "p_dst LIKE '%" . core_sanitize_string($to) . "%'";
 				$exists = true;
 			}
 			$sql_to .= ")";
@@ -93,7 +93,7 @@ switch (_OP_) {
 				if ($exists) {
 					$sql_smsc_gw .= " OR ";
 				}
-				$sql_smsc_gw .= "p_smsc LIKE '%" . trim($smsc_gw) . "%' OR p_gateway='%" . trim($smsc_gw) . "%'";
+				$sql_smsc_gw .= "p_smsc LIKE '%" . core_sanitize_string($smsc_gw) . "%' OR p_gateway='%" . core_sanitize_string($smsc_gw) . "%'";
 				$exists = true;
 			}
 			$sql_smsc_gw .= ")";
@@ -106,15 +106,19 @@ switch (_OP_) {
 			$sql_username = "AND (";
 			$exists = false;
 			foreach ( $usernames as $username ) {
-				if ($exists) {
-					$sql_to .= " OR ";
-				}
-				if ($username && $uid = user_username2uid(trim($username))) {
+				if ($username && $uid = user_username2uid(core_sanitize_username($username))) {
+					if ($exists) {
+						$sql_to .= " OR ";
+					}
 					$sql_username .= "uid='" . $uid . "'";
+					$exists = true;
 				}
-				$exists = true;
 			}
 			$sql_username .= ")";
+			if (!$exists) {
+				$sql_username = '';
+				$_REQUEST['search_username'] = '';
+			}
 		}
 
 		// search date/time
@@ -167,37 +171,37 @@ switch (_OP_) {
 			<table class=playsms-table-list>
 				<tr>
 					<td>" . _('Search message') . "</td>
-					<td><input type='text' name='search_messages' value='" . $_REQUEST['search_messages'] . "'> " . _hint('Seperate by comma for multiple search') . "</td>
+					<td><input type='text' name='search_messages' value='" . _display($_REQUEST['search_messages']) . "'> " . _hint('Seperate by comma for multiple search') . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Sender') . "</td>
-					<td><input type='text' name='search_from' value='" . $_REQUEST['search_from'] . "'> " . _hint('Seperate by comma for multiple sender') . "</td>
+					<td><input type='text' name='search_from' value='" . _display($_REQUEST['search_from']) . "'> " . _hint('Seperate by comma for multiple sender') . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Receiver') . "</td>
-					<td><input type='text' name='search_to' value='" . $_REQUEST['search_to'] . "'> " . _hint('Seperate by comma for multiple receiver') . "</td>
+					<td><input type='text' name='search_to' value='" . _display($_REQUEST['search_to']) . "'> " . _hint('Seperate by comma for multiple receiver') . "</td>
 				</tr>
 				<tr>
 					<td>" . _('From date/time') . "</td>
 					<td>
-						<input type='text' id='search_frdt' name='search_frdt' value='" . $_REQUEST['search_frdt'] . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
+						<input type='text' id='search_frdt' name='search_frdt' value='" . _display($_REQUEST['search_frdt']) . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
 					</td>
 				</tr>
 				<tr>
 					<td>" . _('To date/time') . "</td>
 					<td>
-						<input type='text' id='search_todt' name='search_todt' value='" . $_REQUEST['search_todt'] . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
+						<input type='text' id='search_todt' name='search_todt' value='" . _display($_REQUEST['search_todt']) . "'> " . _hint('Format: YYYY-MM-DD hh:mm:ss') . "
 					</td>
 				</tr>";
 		if ($is_admin) {
 			$search_form .= "
 				<tr>
 					<td>" . _('SMSC or gateway') . "</td>
-					<td><input type='text' name='search_smsc_gw' value='" . $_REQUEST['search_smsc_gw'] . "'> " . _hint('Seperate by comma for multiple SMSC or gateway') . "</td>
+					<td><input type='text' name='search_smsc_gw' value='" . _display($_REQUEST['search_smsc_gw']) . "'> " . _hint('Seperate by comma for multiple SMSC or gateway') . "</td>
 				</tr>
 				<tr>
 					<td>" . _('Username') . "</td>
-					<td><input type='text' name='search_username' value='" . $_REQUEST['search_username'] . "'> " . _hint('Seperate by comma for multiple username') . "</td>
+					<td><input type='text' name='search_username' value='" . _display($_REQUEST['search_username']) . "'> " . _hint('Seperate by comma for multiple username') . "</td>
 				</tr>";
 		}
 		$search_form .= "
@@ -227,14 +231,14 @@ switch (_OP_) {
 		$_SESSION['tmp']['report']['sql_search'] = $sql_search;
 
 		// prepare search query
-		$query_search = "&search_messages=" . $_REQUEST['search_messages'];
-		$query_search .= "&search_from=" . $_REQUEST['search_from'];
-		$query_search .= "&search_to=" . $_REQUEST['search_to'];
-		$query_search .= "&search_frdt=" . $_REQUEST['search_frdt'];
-		$query_search .= "&search_todt=" . $_REQUEST['search_todt'];
+		$query_search = "&search_messages=" . urlencode($_REQUEST['search_messages']);
+		$query_search .= "&search_from=" . urlencode($_REQUEST['search_from']);
+		$query_search .= "&search_to=" . urlencode($_REQUEST['search_to']);
+		$query_search .= "&search_frdt=" . urlencode($_REQUEST['search_frdt']);
+		$query_search .= "&search_todt=" . urlencode($_REQUEST['search_todt']);
 		if ($is_admin) {
-			$query_search .= "&search_smsc_gw=" . $_REQUEST['search_smsc_gw'];
-			$query_search .= "&search_username=" . $_REQUEST['search_username'];
+			$query_search .= "&search_smsc_gw=" . urlencode($_REQUEST['search_smsc_gw']);
+			$query_search .= "&search_username=" . urlencode($_REQUEST['search_username']);
 		}
 
 		// save search query in session for nav
@@ -311,7 +315,7 @@ switch (_OP_) {
 		// iterate content
 		$j = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$db_row = core_display_data($db_row);
+			$db_row = _display($db_row);
 			$smslog_id = $db_row['smslog_id'];
 			$p_uid = $db_row['uid'];
 			$p_dst = $db_row['p_dst'];
@@ -354,7 +358,7 @@ switch (_OP_) {
 			$p_charge = $db_row['p_status'] == 2 ? '0.0' : $p_charge;
 
 			$msg = $db_row['p_msg'];
-			$p_msg = _t($msg);
+			$p_msg = $msg;
 			if ($msg && $p_dst) {
 				$resend = _sendsms($p_dst, $msg, $base_url . "&op=all_outgoing" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['resend']);
 				$forward = _sendsms('', $msg, $base_url . "&op=all_outgoing" . '&page=' . $nav['page'] . '&nav=' . $nav['nav'] . $query_search, $icon_config['forward']);
@@ -487,7 +491,7 @@ switch (_OP_) {
 				while ($db_row = dba_fetch_array($db_result)) {
 					// get billing info
 					$billing = billing_getdata($db_row['smslog_id']);
-					$p_count = ($billing['count'] ? $billing['count'] : '0');
+					$p_count = $billing['count'] ? $billing['count'] : '0';
 					$p_rate = core_display_credit($billing['rate'] ? $billing['rate'] : '0.0');
 					$p_charge = core_display_credit($billing['charge'] ? $billing['charge'] : '0.0');
 					$p_charge = $db_row['p_status'] == 2 ? '0.0' : $p_charge;
