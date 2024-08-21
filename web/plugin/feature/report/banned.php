@@ -21,9 +21,10 @@ defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
+;
 
-$uid = $_REQUEST['uid'];
+$uid = (int) $_REQUEST['uid'];
 
 // if ban/unban action
 if (_OP_ == 'unban') {
@@ -38,59 +39,59 @@ if (_OP_ == 'unban') {
 
 // display whose online
 
-$tpl = array(
+$tpl = [
 	'name' => 'report_banned',
-	'vars' => array(
-		'Report' => _('Report') ,
-		'Banned users list' => _('Banned users list') ,
+	'vars' => [
+		'Report' => _('Report'),
+		'Banned users list' => _('Banned users list'),
 		'DIALOG_DISPLAY' => _dialog(),
-		'User' => _('User') ,
-		'Email' => _('Email') ,
-		'Ban date/time' => _('Ban date/time') ,
+		'User' => _('User'),
+		'Email' => _('Email'),
+		'Ban date/time' => _('Ban date/time'),
 		'Action' => 'Action',
-	)
-);
+	],
+];
 
 // display admin users
 
 $users = report_banned_admin();
-foreach ($users as $user) {
-	$tpl['loops']['data'][] = array(
+foreach ( $users as $user ) {
+	$tpl['loops']['data'][] = [
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
 		'isadmin' => $user['icon_isadmin'],
 		'email' => $user['email'],
 		'bantime' => $user['bantime'],
 		'action' => $user['action_link'],
-	);
+	];
 }
 
 // display users
 
 $users = report_banned_user();
-foreach ($users as $user) {
-	$tpl['loops']['data'][] = array(
+foreach ( $users as $user ) {
+	$tpl['loops']['data'][] = [
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
 		'isadmin' => $user['icon_isadmin'],
 		'email' => $user['email'],
 		'bantime' => $user['bantime'],
 		'action' => $user['action_link'],
-	);
+	];
 }
 
 // display users
 
 $users = report_banned_subuser();
-foreach ($users as $user) {
-	$tpl['loops']['data'][] = array(
+foreach ( $users as $user ) {
+	$tpl['loops']['data'][] = [
 		'tr_class' => $tr_class,
 		'username' => $user['username'],
 		'isadmin' => $user['icon_isadmin'],
 		'email' => $user['email'],
 		'bantime' => $user['bantime'],
 		'action' => $user['action_link'],
-	);
+	];
 }
 
 _p(tpl_apply($tpl));

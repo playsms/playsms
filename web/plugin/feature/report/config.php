@@ -26,59 +26,59 @@ $report_export_limit = 10000;
 $menutab = $core_config['menutab']['reports'];
 
 if (auth_isadmin()) {
-	$menu_config[$menutab][] = array(
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox',
 		_('Inbox messages'),
 		1
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming&sandbox=1',
 		_('Sandbox'),
 		4
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=feature_report&route=admin',
 		_('Report all users'),
 		10
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=feature_report&route=online',
 		_('Report whose online'),
 		10
-	);
-	$menu_config[$menutab][] = array(
+	];
+	$menu_config[$menutab][] = [
 		'index.php?app=main&inc=feature_report&route=banned',
 		_('Report banned users'),
 		10
-	);
+	];
 }
 
-$menu_config[$menutab][] = array(
+$menu_config[$menutab][] = [
 	'index.php?app=main&inc=feature_report&route=all_incoming&op=all_incoming',
 	_('Feature messages'),
 	2
-);
-$menu_config[$menutab][] = array(
+];
+$menu_config[$menutab][] = [
 	'index.php?app=main&inc=feature_report&route=all_outgoing&op=all_outgoing',
 	_('Sent messages'),
 	3
-);
-$menu_config[$menutab][] = array(
+];
+$menu_config[$menutab][] = [
 	'index.php?app=main&inc=feature_report&route=user',
 	_('My report'),
 	5
-);
-$menu_config[$menutab][] = array(
+];
+$menu_config[$menutab][] = [
 	'index.php?app=main&inc=feature_report&route=credit&op=credit_list',
 	_('My credit transactions'),
 	5
-);
+];
 
 // if not admin then put in my account
 $menutab = $core_config['menutab']['my_account'];
 
-$menu_config[$menutab][] = array(
+$menu_config[$menutab][] = [
 	'index.php?app=main&inc=feature_report&route=all_inbox&op=all_inbox&user_inbox=1',
 	_('My inbox'),
 	1
-);
+];

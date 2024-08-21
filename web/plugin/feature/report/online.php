@@ -21,7 +21,8 @@ defined('_SECURE_') or die('Forbidden');
 
 if (!auth_isadmin()) {
 	auth_block();
-};
+}
+;
 
 // if kick action
 if (_OP_ == 'kick') {
@@ -34,26 +35,26 @@ if (_OP_ == 'kick') {
 
 // display whose online
 
-$tpl = array(
+$tpl = [
 	'name' => 'report_online',
-	'vars' => array(
-		'Report' => _('Report') ,
-		'Whose online' => _('Whose online') ,
-		'User' => _('User') ,
-		'Last update' => _('Last update') ,
-		'Current IP address' => _('Current IP address') ,
-		'User agent' => _('User agent') ,
+	'vars' => [
+		'Report' => _('Report'),
+		'Whose online' => _('Whose online'),
+		'User' => _('User'),
+		'Last update' => _('Last update'),
+		'Current IP address' => _('Current IP address'),
+		'User agent' => _('User agent'),
 		'Action' => 'Action',
 		'HINT_LAST_UPDATE' => _hint(_('Server time')),
-	)
-);
+	],
+];
 
 // display admin users
 
 $users = report_whoseonline_admin();
-foreach ($users as $user) {
-	foreach ($user as $hash) {
-		$tpl['loops']['data'][] = array(
+foreach ( $users as $user ) {
+	foreach ( $user as $hash ) {
+		$tpl['loops']['data'][] = [
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
 			'c_isadmin' => $hash['icon_isadmin'],
@@ -62,16 +63,16 @@ foreach ($users as $user) {
 			'user_agent' => $hash['http_user_agent'],
 			'login_status' => $hash['login_status'],
 			'action' => $hash['action_link'],
-		);
+		];
 	}
 }
 
 // display users
 
 $users = report_whoseonline_user();
-foreach ($users as $user) {
-	foreach ($user as $hash) {
-		$tpl['loops']['data'][] = array(
+foreach ( $users as $user ) {
+	foreach ( $user as $hash ) {
+		$tpl['loops']['data'][] = [
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
 			'c_isadmin' => $hash['icon_isadmin'],
@@ -80,16 +81,16 @@ foreach ($users as $user) {
 			'user_agent' => $hash['http_user_agent'],
 			'login_status' => $hash['login_status'],
 			'action' => $hash['action_link'],
-		);
+		];
 	}
 }
 
 // display subusers
 
 $users = report_whoseonline_subuser();
-foreach ($users as $user) {
-	foreach ($user as $hash) {
-		$tpl['loops']['data'][] = array(
+foreach ( $users as $user ) {
+	foreach ( $user as $hash ) {
+		$tpl['loops']['data'][] = [
 			'tr_class' => $tr_class,
 			'c_username' => $hash['username'],
 			'c_isadmin' => $hash['icon_isadmin'],
@@ -98,7 +99,7 @@ foreach ($users as $user) {
 			'user_agent' => $hash['http_user_agent'],
 			'login_status' => $hash['login_status'],
 			'action' => $hash['action_link'],
-		);
+		];
 	}
 }
 

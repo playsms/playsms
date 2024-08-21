@@ -42,22 +42,17 @@ $billing = isset($db_row['billing']) ? (float) $db_row['billing'] : (float) 0;
 $credit = rate_getusercredit($user_config['username']);
 
 // p_status values mapped to tpl array elements
-$map_values = array(
+$map_values = [
 	'0' => 'num_rows_pending',
 	'1' => 'num_rows_sent',
 	'2' => 'num_rows_failed',
-	'3' => 'num_rows_delivered' 
-);
-
-// populate array with the values from the mysql query
-$db_query = "SELECT flag_deleted, p_status, COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='" . (int) $c_uid . "' GROUP BY flag_deleted, p_status";
-$db_result = dba_query($db_query);
-for ($set = array(); $row = dba_fetch_array($db_result); $set[] = $row) {}
+	'3' => 'num_rows_delivered'
+];
 
 // define tpl before updating it with array set values
-$tpl = array(
+$tpl = [
 	'name' => 'report_user',
-	'vars' => array(
+	'vars' => [
 		'Report' => _('Report'),
 		'My report' => _('My report'),
 		'Pending' => _('Pending'),
@@ -73,17 +68,19 @@ $tpl = array(
 		'num_rows_failed' => 0,
 		'num_rows_deleted' => 0,
 		'billing' => core_display_credit($billing),
-		'credit' => core_display_credit($credit) 
-	) 
-);
+		'credit' => core_display_credit($credit)
+	],
+];
 
-// update tpl array with values from the set array
-for ($i = 0; $i < count($set); $i++) {
-	$c = 0;
-	if ((int) $set[$i]['flag_deleted'] === 0) {
-		$tpl['vars'][$map_values[$set[$i]['p_status']]] += (int) $set[$i]['count'];
+// populate array with the values from the mysql query
+$db_query = "SELECT flag_deleted, p_status, COUNT(*) AS count FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE uid='" . (int) $c_uid . "' GROUP BY flag_deleted, p_status";
+$db_result = dba_query($db_query);
+while ($db_row = dba_fetch_array($db_result)) {
+	// update tpl array with values from the set array
+	if ((int) $db_row['flag_deleted'] !== 0) {
+		$tpl['vars']['num_rows_deleted'] += (int) $db_row['count'];
 	} else {
-		$tpl['vars']['num_rows_deleted'] += (int) $set[$i]['count'];
+		$tpl['vars'][$map_values[$db_row['p_status']]] += (int) $db_row['count'];
 	}
 }
 

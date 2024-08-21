@@ -129,7 +129,7 @@ function report_count_deleted($uid = 0) {
 function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALSE) {
 	global $core_config, $icon_config;
 	
-	$ret = array();
+	$ret = [];
 	
 	$hashes = user_session_get();
 	foreach ($hashes as $key => $val) {
@@ -237,7 +237,7 @@ function report_whoseonline_subuser($online_only = FALSE, $idle_only = FALSE) {
  */
 function report_banned_list($status = 0) {
 	global $icon_config;
-	$ret = array();
+	$ret = [];
 	
 	$users = user_banned_list();
 	foreach ($users as $user) {
