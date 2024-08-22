@@ -48,15 +48,16 @@ switch (_OP_) {
 			</table>";
 		_p($content);
 		break;
+
 	case 'upload_confirm':
 		@set_time_limit(0);
 
 		// fixme anton - https://www.exploit-db.com/exploits/42003
 		$filename = core_sanitize_filename($_FILES['fncsv']['name']);
 		if ($filename && $filename == $_FILES['fncsv']['name']) {
-			$continue = TRUE;
+			$continue = true;
 		} else {
-			$continue = FALSE;
+			$continue = false;
 		}
 
 		$fn = $_FILES['fncsv']['tmp_name'];
@@ -66,14 +67,15 @@ switch (_OP_) {
 		$invalid = 0;
 		$item_invalid = [];
 
-		if ($continue && ($fs == filesize($fn)) && file_exists($fn)) {
+		if ($continue && file_exists($fn) && $fs == filesize($fn)) {
 
-			ini_set('auto_detect_line_endings', TRUE);
-			if (($fd = fopen($fn, 'r')) !== FALSE) {
-				$sid = md5(uniqid('SID', true));
+			ini_set('auto_detect_line_endings', true);
+			if (($fd = fopen($fn, 'r')) !== false) {
+				//$sid = md5(uniqid('SID', true));
+				$sid = core_random();
 				$continue = true;
 				$fc = [];
-				while ((($row = fgetcsv($fd, $fs, ',')) !== FALSE) && $continue) {
+				while ((($row = fgetcsv($fd, $fs, ',')) !== false) && $continue) {
 					// fixme anton - https://www.exploit-db.com/exploits/42044
 					$row = core_sanitize_inputs($row);
 
@@ -103,13 +105,12 @@ switch (_OP_) {
 					}
 
 					// check dups
-					$dup = (in_array($sms_to, $all_numbers) ? TRUE : FALSE);
+					$dup = in_array($sms_to, $all_numbers) ? true : false;
 
 					if ($sms_to && $sms_msg && $sms_username && $uid && !$dup) {
 						$all_numbers[] = $sms_to;
-						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) ";
-						$db_query .= "VALUES ('$uid','$sid','" . core_get_datetime() . "','$sms_to','" . $sms_msg . "','$sms_username')";
-						if (dba_insert_id($db_query)) {
+						$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSendfromfile (uid,sid,sms_datetime,sms_to,sms_msg,sms_username) VALUES (?,?,?,?,?,?)";
+						if (dba_insert_id($db_query, [$uid, $sid, core_get_datetime(), $sms_to, $sms_msg, $sms_username])) {
 							$valid++;
 						} else {
 							$item_invalid[$invalid] = $data;
@@ -124,7 +125,6 @@ switch (_OP_) {
 						break;
 					}
 				}
-
 				unset($fc);
 			} else {
 				$_SESSION['dialog']['danger'][] = _('Unable to open uploaded CSV file');
@@ -186,9 +186,12 @@ switch (_OP_) {
 
 	case 'upload_cancel':
 		if ($sid = $_REQUEST['sid']) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
-			dba_query($db_query);
-			$_SESSION['dialog']['danger'][] = _('Send from file has been cancelled');
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid=?";
+			if (dba_affected_rows($db_query, [$sid])) {
+				$_SESSION['dialog']['danger'][] = _('Send from file has been cancelled');
+			} else {
+				$_SESSION['dialog']['danger'][] = _('Unknown error unable to delete upload session');
+			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Invalid session ID');
 		}
@@ -198,20 +201,15 @@ switch (_OP_) {
 	case 'upload_process':
 		@set_time_limit(0);
 		if ($sid = $_REQUEST['sid']) {
-			$db_query = "SELECT count(*) as count FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
-			$db_result = dba_query($db_query);
-			$db_row = dba_fetch_array($db_result);
-			$count = (int) $db_row['count'];
 
-			$data = array();
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
-			$db_result = dba_query($db_query);
-			$i = 0;
+			$data = [];
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid=?";
+			$db_result = dba_query($db_query, [$sid]);
 			while ($db_row = dba_fetch_array($db_result)) {
 				$c_sms_to = $db_row['sms_to'];
 				$c_username = $db_row['sms_username'];
 				$c_sms_msg = $db_row['sms_msg'];
-				$c_hash = md5($c_username . $c_sms_msg);
+				$c_hash = sha1($c_username . $c_sms_msg);
 				if ($c_sms_to && $c_username && $c_sms_msg) {
 					$data[$c_hash]['username'] = $c_username;
 					$data[$c_hash]['message'] = $c_sms_msg;
@@ -221,7 +219,7 @@ switch (_OP_) {
 			foreach ( $data as $hash => $item ) {
 				$username = $item['username'];
 				$message = $item['message'];
-				$sms_to = $item['sms_to'];
+				$sms_to = is_array($item['sms_to']) ? $item['sms_to'] : [];
 				_log('hash:' . $hash . ' u:' . $username . ' m:[' . $message . '] to_count:' . count($sms_to), 3, 'sendfromfile upload_process');
 				if ($username && $message && count($sms_to)) {
 					$type = 'text';
@@ -233,9 +231,12 @@ switch (_OP_) {
 					list($ok, $to, $smslog_id, $queue) = sendsms_helper($username, $sms_to, $message, $type, $unicode);
 				}
 			}
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid='$sid'";
-			dba_query($db_query);
-			$_SESSION['dialog']['info'][] = _('SMS has been sent to valid numbers in uploaded file');
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSendfromfile WHERE sid=?";
+			if (dba_affected_rows($db_query, [$sid])) {
+				$_SESSION['dialog']['info'][] = _('SMS has been sent to valid numbers in uploaded file');
+			} else {
+				$_SESSION['dialog']['danger'][] = _('Unknown error unable to delete upload session');
+			}
 		} else {
 			$_SESSION['dialog']['danger'][] = _('Invalid session ID');
 		}
