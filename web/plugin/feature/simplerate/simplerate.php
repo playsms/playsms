@@ -40,6 +40,7 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSimplerate ORDER BY dst";
 		$db_result = dba_query($db_query);
 		while ($db_row = dba_fetch_array($db_result)) {
+			$db_row = _display($db_row);
 			$action = "<a href=\"" . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_edit&rateid=' . $db_row['id']) . "\">" . $icon_config['edit'] . "</a>";
 			$action .= "<a href=\"javascript: ConfirmURL('" . _('Are you sure you want to delete rate ?') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")','" . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_del&rateid=' . $db_row['id']) . "')\">" . $icon_config['delete'] . "</a>";
 			$i++;
@@ -57,22 +58,23 @@ switch (_OP_) {
 			" . _button('index.php?app=main&inc=feature_simplerate&op=simplerate_add', _('Add rate'));
 		_p($content);
 		break;
+
 	case "simplerate_del":
 		$rateid = $_REQUEST['rateid'];
-		$dst = simplerate_getdst($rateid);
-		$prefix = simplerate_getprefix($rateid);
+		$dst = core_sanitize_string(simplerate_getdst($rateid));
+		$prefix = core_sanitize_numeric(simplerate_getprefix($rateid));
 		$_SESSION['dialog']['info'][] = _('Fail to delete rate') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
-		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSimplerate WHERE id='$rateid'";
-		if (@dba_affected_rows($db_query)) {
+		$db_query = "DELETE FROM " . _DB_PREF_ . "_featureSimplerate WHERE id=?";
+		if (dba_affected_rows($db_query, [$rateid])) {
 			$_SESSION['dialog']['info'][] = _('Rate has been deleted') . " (" . _('destination') . ": $dst, " . _('prefix') . ": $prefix)";
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_list'));
 		exit();
-		break;
+
 	case "simplerate_edit":
 		$rateid = $_REQUEST['rateid'];
-		$dst = simplerate_getdst($rateid);
-		$prefix = simplerate_getprefix($rateid);
+		$dst = core_sanitize_string(simplerate_getdst($rateid));
+		$prefix = core_sanitize_numeric(simplerate_getprefix($rateid));
 		$rate = simplerate_getbyid($rateid);
 		$content = _dialog() . "
 			<h2>" . _('Manage SMS rate') . "</h2>
@@ -96,16 +98,17 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_simplerate&op=simplerate_list');
 		_p($content);
 		break;
+
 	case "simplerate_edit_save":
-		$rateid = $_POST['rateid'];
-		$up_dst = $_POST['up_dst'];
+		$rateid = (int) $_POST['rateid'];
+		$up_dst = core_sanitize_string($_POST['up_dst']);
 		$up_prefix = $_POST['up_prefix'];
-		$up_prefix = preg_replace('/[^0-9.]*/', '', $up_prefix);
-		$up_rate = $_POST['up_rate'];
+		$up_prefix = core_sanitize_numeric($up_prefix);
+		$up_rate = (float) $_POST['up_rate'];
 		$_SESSION['dialog']['info'][] = _('No changes made!');
-		if ($rateid && $up_dst && ($up_prefix >= 0) && ($up_rate >= 0)) {
-			$db_query = "UPDATE " . _DB_PREF_ . "_featureSimplerate SET c_timestamp='" . time() . "',dst='$up_dst',prefix='$up_prefix',rate='$up_rate' WHERE id='$rateid'";
-			if (@dba_affected_rows($db_query)) {
+		if ($rateid && $up_dst && $up_prefix >= 0 && $up_rate >= 0) {
+			$db_query = "UPDATE " . _DB_PREF_ . "_featureSimplerate SET c_timestamp='" . time() . "',dst=?,prefix=?,rate=? WHERE id=?";
+			if (dba_affected_rows($db_query, [$up_dst, $up_prefix, $up_rate, $rateid])) {
 				$_SESSION['dialog']['info'][] = _('Rate has been saved') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
 			} else {
 				$_SESSION['dialog']['info'][] = _('Fail to save rate') . " (" . _('destination') . ": $up_dst, " . _('prefix') . ": $up_prefix)";
@@ -115,7 +118,7 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_edit&rateid=' . $rateid));
 		exit();
-		break;
+
 	case "simplerate_add":
 		$content = _dialog() . "
 			<h2>" . _('Manage SMS rate') . "</h2>
@@ -124,13 +127,13 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"$add_dst\"></td>
+				<td class=label-sizer>" . _('Destination') . "</td><td><input type='text' maxlength='30' name='add_dst' value=\"\"></td>
 			</tr>
 			<tr>
-				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"$add_prefix\"></td>
+				<td>" . _('Prefix') . "</td><td><input type='text' maxlength=10 name='add_prefix' value=\"\"></td>
 			</tr>
 			<tr>
-				<td>" . _('Rate') . "</td><td><input type='text' maxlength=14 name='add_rate' value=\"$add_rate\"></td>
+				<td>" . _('Rate') . "</td><td><input type='text' maxlength=14 name='add_rate' value=\"\"></td>
 			</tr>
 			</table>
 			<input type='submit' class='button' value='" . _('Save') . "'>
@@ -138,21 +141,21 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_simplerate&op=simplerate_list');
 		_p($content);
 		break;
+
 	case "simplerate_add_yes":
-		$add_dst = $_POST['add_dst'];
+		$add_dst = core_sanitize_string($_POST['add_dst']);
 		$add_prefix = $_POST['add_prefix'];
-		$add_prefix = preg_replace('/[^0-9.]*/', '', $add_prefix);
-		$add_rate = $_POST['add_rate'];
-		if ($add_dst && ($add_prefix >= 0) && ($add_rate >= 0)) {
-			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSimplerate WHERE prefix='$add_prefix'";
-			$db_result = dba_query($db_query);
+		$add_prefix = core_sanitize_numeric($add_prefix);
+		$add_rate = (float) $_POST['add_rate'];
+		if ($add_dst && $add_prefix >= 0 && $add_rate >= 0) {
+			$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureSimplerate WHERE prefix=?";
+			$db_result = dba_query($db_query, [$add_prefix]);
 			if ($db_row = dba_fetch_array($db_result)) {
+				$db_row = _display($db_row);
 				$_SESSION['dialog']['info'][] = _('Rate already exists') . " (" . _('destination') . ": " . $db_row['dst'] . ", " . _('prefix') . ": " . $db_row['prefix'] . ")";
 			} else {
-				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featureSimplerate (dst,prefix,rate)
-					VALUES ('$add_dst','$add_prefix','$add_rate')";
-				if ($new_uid = @dba_insert_id($db_query)) {
+				$db_query = "INSERT INTO " . _DB_PREF_ . "_featureSimplerate (dst,prefix,rate) VALUES (?,?,?)";
+				if (dba_insert_id($db_query, [$add_dst, $add_prefix, $add_rate])) {
 					$_SESSION['dialog']['info'][] = _('Rate has been added') . " (" . _('destination') . ": $add_dst, " . _('prefix') . ": $add_prefix)";
 				}
 			}
@@ -161,5 +164,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_simplerate&op=simplerate_add'));
 		exit();
-		break;
 }
