@@ -8,6 +8,19 @@ if [ -n "$1" ]; then
 	fi
 fi
 
+bypass=false
+
+while getopts ":y" opt; do
+  case $opt in
+    y)
+      bypass=true
+      ;;
+    \?)
+      ;;
+  esac
+done
+
+
 if [ ! -e "$INSTALLCONF" ]; then
 	echo
 	echo "ERROR: unable to find install.conf"
@@ -39,18 +52,43 @@ fi
 
 
 clear
-echo
-echo "playSMS Install Script for Ubuntu (Debian based)"
-echo
-echo "=================================================================="
-echo "WARNING:"
-echo "- This install script WILL NOT upgrade currently installed playSMS"
-echo "- This install script WILL REMOVE your current playSMS database"
-echo "- This install script is compatible ONLY with playSMS version 1.4"
-echo "- Please BACKUP before proceeding"
-echo "=================================================================="
-echo
+if ! $bypass; then
+    echo
+    echo "playSMS Install Script for Ubuntu (Debian based)"
+    echo
+    echo "=================================================================="
+    echo "WARNING:"
+    echo "- This install script WILL NOT upgrade currently installed playSMS"
+    echo "- This install script WILL REMOVE your current playSMS database"
+    echo "- This install script is compatible ONLY with playSMS version 1.4"
+    echo "- Please BACKUP before proceeding"
+    echo "=================================================================="
+    echo
+else 
+	echo
+	echo "playSMS Install Script"
+	echo
+	echo "==================================================================="
+	echo "WARNING:"
+	echo "- This install script is AUTOMATED and will ignore all user input"
+	echo "- if you dont understand what you are doing please click [Control+C] to abort"
+	echo "- You have 3 seconds to cancel before any changes will be made"
+	echo "==================================================================="
+	echo
+	sleep 1
+	echo "- 3s"
+	sleep 1
+	echo "- 2s"
+	sleep 1
+	echo "- 1s"
+	sleep 1
+	echo
+	echo "==================================================================="
+	echo "- Installation started -"
+	echo "==================================================================="
+	echo
 
+fi
 USERID=$(id -u)
 if [ "$USERID" = "0" ]; then
 	echo "You ARE running this installation script as root"
@@ -60,18 +98,20 @@ if [ "$USERID" = "0" ]; then
 	echo
 	echo "Proceed ?"
 	echo
-	confirm=
-	while [ -z $confirm ]
-	do
-		read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
-		if [[ $confirm == 'y' ]]; then
-			break
-		fi
-		if [[ $confirm == 'Y' ]]; then
-			break
-		fi
-		confirm=
-	done
+    if ! $bypass; then
+        confirm=
+        while [ -z $confirm ]
+        do
+            read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+            if [[ $confirm == 'y' ]]; then
+                break
+            fi
+            if [[ $confirm == 'Y' ]]; then
+                break
+            fi
+            confirm=
+        done
+    fi
 	echo
 	echo "=================================================================="
 	echo
@@ -84,18 +124,20 @@ else
 	echo
 	echo "Proceed ?"
 	echo
-	confirm=
-	while [ -z $confirm ]
-	do
-		read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
-		if [[ $confirm == 'y' ]]; then
-			break
-		fi
-		if [[ $confirm == 'Y' ]]; then
-			break
-		fi
-		confirm=
-	done
+    if ! $bypass; then
+        confirm=
+        while [ -z $confirm ]
+        do
+            read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+            if [[ $confirm == 'y' ]]; then
+                break
+            fi
+            if [[ $confirm == 'Y' ]]; then
+                break
+            fi
+            confirm=
+        done
+    fi
 	echo
 	echo "=================================================================="
 	echo
@@ -127,18 +169,20 @@ echo "=================================================================="
 echo
 echo "Please read and confirm INSTALL DATA above"
 echo
-confirm=
-while [ -z $confirm ]
-do
-	read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
-	if [[ $confirm == 'y' ]]; then
-		break
-	fi
-	if [[ $confirm == 'Y' ]]; then
-		break
-	fi
-	confirm=
-done
+if ! $bypass; then
+    confirm=
+    while [ -z $confirm ]
+    do
+        read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+        if [[ $confirm == 'y' ]]; then
+            break
+        fi
+        if [[ $confirm == 'Y' ]]; then
+            break
+        fi
+        confirm=
+    done
+fi
 echo
 echo "=================================================================="
 echo
@@ -149,18 +193,20 @@ echo "Are you sure ?"
 echo
 echo "Please read and check again the INSTALL DATA above"
 echo
-confirm=
-while [ -z $confirm ]
-do
-	read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
-	if [[ $confirm == 'y' ]]; then
-		break
-	fi
-	if [[ $confirm == 'Y' ]]; then
-		break
-	fi
-	confirm=
-done
+if ! $bypass; then
+    confirm=
+    while [ -z $confirm ]
+    do
+        read -p "When you're ready press [y/Y] or press [Control+C] to cancel " confirm
+        if [[ $confirm == 'y' ]]; then
+            break
+        fi
+        if [[ $confirm == 'Y' ]]; then
+            break
+        fi
+        confirm=
+    done
+fi
 echo
 echo "=================================================================="
 echo
