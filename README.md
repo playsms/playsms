@@ -90,6 +90,10 @@ Please read [INSTALL](INSTALL.md "playSMS installation document") and then [FAQ]
 
 ## Contributors
 
-Information about code contributors can be found in this URL:
+Information about code contributors can be found here:
 
-* https://github.com/antonraharja/playSMS/graphs/contributors
+* https://github.com/playsms/playsms/graphs/contributors
+
+Information about security contributors and reporters, and how to report them, can be found here:
+
+* https://github.com/playsms/playsms/security/policy
