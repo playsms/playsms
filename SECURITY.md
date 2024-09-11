@@ -8,8 +8,6 @@
 | 1.4.6   | :white_check_mark: |
 | 1.4.5   | :white_check_mark: |
 | 1.4.3   | :white_check_mark: |
-| 1.4.2   | :white_check_mark: |
-| 1.4     | :white_check_mark: |
 
 ## Contributors and Reporters
 
