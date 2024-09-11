@@ -93,7 +93,13 @@ switch (_OP_) {
 	case "sms_autoreply_manage":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id=?";
 		$db_result = dba_query($db_query, [$autoreply_id]);
-		$db_row = dba_fetch_array($db_result);
+		if (!$db_row) {
+			$_SESSION['dialog']['danger'][] = _('Unknown error cannot find the data in database');
+			header("Location: " . _u('index.php?app=main&inc=feature_sms_autoreply&op=sms_autoreply_list'));
+			exit();
+		}
+		$db_row = _display($db_row);
+
 		$manage_autoreply_keyword = $db_row['autoreply_keyword'];
 		$owner_uid = $db_row['uid'];
 		$content = _dialog() . "

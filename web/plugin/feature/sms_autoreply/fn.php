@@ -21,8 +21,8 @@ defined('_SECURE_') or die('Forbidden');
 /**
  * Implementations of hook keyword_isavail()
  *
- * @param $keyword keyword_isavail() will insert keyword for checking to the hook here
- * @return bool true if keyword is available
+ * @param string $keyword SMS keyword
+ * @return bool true if keyword is available, false if already registered in database
  */
 function sms_autoreply_hook_keyword_isavail($keyword)
 {
@@ -38,11 +38,11 @@ function sms_autoreply_hook_keyword_isavail($keyword)
 /**
  * Implementations of hook recvsms_process()
  *
- * @param $sms_datetime date and time when incoming sms inserted to playsms
- * @param $sms_sender sender on incoming sms
- * @param $autoreply_keyword check if keyword is for sms_autoreply
- * @param $autoreply_param get parameters from incoming sms
- * @param $sms_receiver receiver number that is receiving incoming sms
+ * @param string $sms_datetime date and time when incoming sms inserted to playsms
+ * @param string $sms_sender sender on incoming sms
+ * @param string $autoreply_keyword check if keyword is for sms_autoreply
+ * @param string $autoreply_param get parameters from incoming sms
+ * @param string $sms_receiver receiver number that is receiving incoming sms
  * @return array array of keyword owner uid and status
  */
 function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autoreply_keyword, $autoreply_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
@@ -55,10 +55,8 @@ function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autorep
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword=?";
 	$db_result = dba_query($db_query, [$autoreply_keyword]);
 	if ($db_row = dba_fetch_array($db_result)) {
-		$uid = $db_row['uid'];
-		$autoreply_id = $db_row['autoreply_id'];
 		$smsc = gateway_decide_smsc($smsc, $db_row['smsc']);
-		if (sms_autoreply_handle($uid, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_id, $autoreply_keyword, $autoreply_param, $smsc, $raw_message)) {
+		if (sms_autoreply_handle($db_row, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_keyword, $autoreply_param, $smsc, $raw_message)) {
 			$status = true;
 		}
 	}
@@ -70,20 +68,19 @@ function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autorep
 }
 
 /**
- * Handle autoreply
+ * Handle incoming SMS to this plugin
  * 
- * @param int $uid
+ * @param array $list
  * @param string $sms_datetime
  * @param string $sms_sender
  * @param string $sms_receiver
- * @param int $autoreply_id
  * @param string $autoreply_keyword
  * @param string $autoreply_param
  * @param string $smsc
  * @param string $raw_message
  * @return bool
  */
-function sms_autoreply_handle($uid, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_id, $autoreply_keyword, $autoreply_param = '', $smsc = '', $raw_message = '')
+function sms_autoreply_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_keyword, $autoreply_param = '', $smsc = '', $raw_message = '')
 {
 	$ret = false;
 
@@ -92,7 +89,7 @@ function sms_autoreply_handle($uid, $sms_datetime, $sms_sender, $sms_receiver, $
 	$request = $autoreply_keyword . " " . $autoreply_param;
 	$param = preg_split('/[\s]+/', $request);
 	$autoreply_scenario_param_list = "";
-	$db_argv = [$autoreply_id];
+	$db_argv = [$list['autoreply_id']];
 	for ($i = 1; $i < 7; $i++) {
 		if (isset($param[$i]) && $param[$i]) {
 			$autoreply_scenario_param_list .= "autoreply_scenario_param" . $i . "=? AND ";
@@ -109,7 +106,7 @@ function sms_autoreply_handle($uid, $sms_datetime, $sms_sender, $sms_receiver, $
 	$db_row = dba_fetch_array($db_result);
 	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result']) {
 		$ret = false;
-		$c_username = user_uid2username($uid);
+		$c_username = user_uid2username($list['uid']);
 		$unicode = core_detect_unicode($autoreply_scenario_result);
 		$autoreply_scenario_result = addslashes($autoreply_scenario_result);
 		list($ret, $to, $smslog_id, $queue) = sendsms_helper($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode, $smsc);
