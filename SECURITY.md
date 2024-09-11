@@ -20,7 +20,7 @@
 
 ## Reporting a Vulnerability
 
-Please email me at araharja@protonmail.com for any security information regarding playSMS.
+Please email me at araharja@pm.me for any security information regarding playSMS.
 
 I will add old and new security contributors and reporters in this file.
 
