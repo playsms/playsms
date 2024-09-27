@@ -44,8 +44,10 @@ function playsmsd_pid_get($process)
 			<<<'EOSH'
 ps -eo pid,command | grep -F %s | grep -F %s | grep -vF grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '
 EOSH
-			, escapeshellarg($PLAYSMSD_CONF)
-			, escapeshellarg($process)
+			,
+			escapeshellarg($PLAYSMSD_CONF)
+			,
+			escapeshellarg($process)
 		)));
 	}
 
@@ -357,7 +359,7 @@ switch ($COMMAND) {
 			// stop playsmsd child scripts
 			playsmsd_stop_childs();
 
-		// restart if specified
+			// restart if specified
 		} while ($LOOP_FLAG === 'loop' && sleep(2) == 0);
 
 		// treat any stopped subprocess as an error 
