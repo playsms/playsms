@@ -3,8 +3,8 @@
 	<name>sms_board</name>
 	<alias>SMS Board</alias>
 	<description>SMS Board</description>
-	<release>1.0</release>
-	<date>2010-09-25</date>
+	<release>1.1</release>
+	<date>2024-09-30</date>
 	<author>Anton Raharja</author>
 	<language_file>1</language_file>
 	<sql_file>0</sql_file>

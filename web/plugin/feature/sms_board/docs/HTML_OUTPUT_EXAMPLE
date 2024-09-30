@@ -38,19 +38,19 @@ body {
 <body>
 <div class=sms_board_view>
 
-<div class=sms_board_row>
+<div class=sms_board_row id=sms_board_row_1>
 	<div class=sender>0812345xxxx</div>
 	<div class=datetime>2013-08-08 20:37:53</div>
 	<div class=message>third message here</div>
 </div>
 
-<div class=sms_board_row>
+<div class=sms_board_row id=sms_board_row_2>
 	<div class=sender>+62987654xxxx</div>
 	<div class=datetime>2013-08-08 20:35:13</div>
 	<div class=message>this is 2nd message</div>
 </div>
 
-<div class=sms_board_row>
+<div class=sms_board_row id=sms_board_row_3>
 	<div class=sender>+62987654xxxx</div>
 	<div class=datetime>2013-08-08 20:35:06</div>
 	<div class=message>hello first message</div>

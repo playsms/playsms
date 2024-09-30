@@ -16,25 +16,31 @@
  * You should have received a copy of the GNU General Public License
  * along with playSMS.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 defined('_SECURE_') or die('Forbidden');
 
-$board_id = $_REQUEST['board_id'];
+if (!auth_isvalid()) {
+	auth_block();
+}
+
+$board_id = (int) $_REQUEST['board_id'];
+
+if ($board_id && !sms_board_check_id($board_id)) {
+	auth_block();
+}
 
 switch (_OP_) {
 	case 'list':
 		$conditions['board_id'] = $board_id;
 		$list = dba_search(_DB_PREF_ . '_featureBoard', '*', $conditions);
-		$board_keyword = $list[0]['board_keyword'];
+		$board_keyword = trim($list[0]['board_keyword']);
 
 		$output_serialize = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=serialize";
 		$output_json = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=json";
 		$output_xml = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=xml";
 		$output_rss091 = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=feed&format=rss0.91";
-		$output_rss10 = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=feed&format=1.0";
-		$output_rss20 = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=feed&format=2.0";
+		$output_rss10 = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=feed&format=rss1.0";
+		$output_rss20 = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=feed&format=rss2.0";
 		$output_atom = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=feed&format=atom";
-		$output_mbox = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=feed&format=mbox";
 		$output_html = $core_config['http_path']['base'] . "/index.php?app=webservices&op=sms_board&keyword=" . urlencode($board_keyword) . "&type=html";
 
 		$content = "
@@ -48,7 +54,6 @@ switch (_OP_) {
 				<tr><td>" . _('RSS 1.0 output') . "</td><td><a href=\"" . _u($output_rss10) . "\" target=_blank>" . _u($output_rss10) . "</a></td></tr>
 				<tr><td>" . _('RSS 2.0 output') . "</td><td><a href=\"" . _u($output_rss20) . "\" target=_blank>" . _u($output_rss20) . "</a></td></tr>
 				<tr><td>" . _('RSS ATOM output') . "</td><td><a href=\"" . _u($output_atom) . "\" target=_blank>" . _u($output_atom) . "</a></td></tr>
-				<tr><td>" . _('MBOX output') . "</td><td><a href=\"" . _u($output_mbox) . "\" target=_blank>" . _u($output_mbox) . "</a></td></tr>
 				<tr><td>" . _('HTML output') . "</td><td><a href=\"" . _u($output_html) . "\" target=_blank>" . _u($output_html) . "</a></td></tr>
 			</table>
 			" . _back('index.php?app=main&inc=feature_sms_board&op=sms_board_list');

@@ -11,6 +11,11 @@
 		"gregwar/captcha": "^1",
 		"ezyang/htmlpurifier": "^4",
 		"phpmailer/phpmailer": "^6",
-		"mlocati/ip-lib": "^1"
+		"mlocati/ip-lib": "^1",
+<<<<<<< HEAD
+		"openpsa/universalfeedcreator": "^1.9"
+=======
+		"ext-gd": "*"
+>>>>>>> 3320fcde110325e3b14a95673dfb60a1ed9dc2dc
 	}
 }
