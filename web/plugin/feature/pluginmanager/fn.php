@@ -22,12 +22,14 @@ function _pluginmanager_get_status($plugin_category, $name)
 {
 	$ret = false;
 
-	if ($plugin_category == "themes") {
-		$ret = core_themes_get() == $name ? true : false;
-	} else if ($plugin_category == "language") {
-		$ret = core_lang_get() == $name ? true : false;
-	} else {
-		$ret = true;
+	if ($name[0] != '.') {
+		if ($plugin_category == "themes") {
+			$ret = core_themes_get() == $name;
+		} else if ($plugin_category == "language") {
+			$ret = core_lang_get() == $name;
+		} else {
+			$ret = true;
+		}
 	}
 
 	return $ret;
