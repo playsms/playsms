@@ -115,3 +115,14 @@ function sms_autoreply_handle($list, $sms_datetime, $sms_sender, $sms_receiver, 
 
 	return $ret;
 }
+
+/**
+ * Check for valid ID
+ * 
+ * @param int $id
+ * @return bool
+ */
+function sms_autoreply_check_id($id)
+{
+	return core_check_id($id, _DB_PREF_ . '_featureAutoreply', 'autoreply_id');
+}

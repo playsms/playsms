@@ -24,18 +24,8 @@ if (!auth_isvalid()) {
 
 $autoreply_id = (int) $_REQUEST['autoreply_id'];
 
-if ($autoreply_id) {
-	$db_table = _DB_PREF_ . '_featureAutoreply';
-	$conditions = [
-		'autoreply_id' => $autoreply_id
-	];
-	if (!auth_isadmin()) {
-		$conditions['uid'] = $user_config['uid'];
-	}
-	$list = dba_search($db_table, 'autoreply_id', $conditions);
-	if ((int) $list[0]['autoreply_id'] !== $autoreply_id) {
-		auth_block();
-	}
+if ($autoreply_id && !sms_autoreply_check_id($autoreply_id)) {
+	auth_block();
 }
 
 switch (_OP_) {

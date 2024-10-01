@@ -351,26 +351,7 @@ function sms_board_hook_webservices_output($operation, $requests, $returns)
  * @param int $id
  * @return bool
  */
-function sms_board_check_id($id = 0)
+function sms_board_check_id($id)
 {
-	global $user_config;
-
-	$id = (int) $id;
-
-	if ($id > 0) {
-		$db_table = _DB_PREF_ . '_featureBoard';
-		$conditions = [
-			'board_id' => $id
-		];
-		if (!auth_isadmin()) {
-			$conditions['uid'] = $user_config['uid'];
-		}
-		$list = dba_search($db_table, 'board_id', $conditions);
-		if ((int) $list[0]['board_id'] === $id) {
-
-			return true;
-		}
-	}
-
-	return false;
+	return core_check_id($id, _DB_PREF_ . '_featureBoard', 'board_id');
 }

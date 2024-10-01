@@ -1598,6 +1598,53 @@ function core_last_post_empty()
 	return true;
 }
 
+/**
+ * Check if ID is exists on certain DB table
+ *
+ * @param int $id ID value
+ * @param string $db_table DB table name
+ * @param string $field_name DB field name
+ * @return bool true if exists
+ */
+function core_check_id($id, $db_table, $field_name)
+{
+	global $user_config;
+
+	$id = (int) $id;
+	$db_table = trim($db_table);
+	$field_name = trim($field_name);
+
+	if (!($id > 0 && $db_table && $field_name)) {
+
+		return false;
+	}
+
+	if (preg_match('/[^a-z\d\-_]+/i', $db_table)) {
+
+		return false;
+	}
+
+	if (preg_match('/[^a-z\d\-_]+/i', $field_name)) {
+
+		return false;
+	}
+
+	$conditions = [
+		$field_name => $id
+	];
+	if (!auth_isadmin()) {
+		$conditions['uid'] = $user_config['uid'];
+	}
+	$list = dba_search($db_table, $field_name, $conditions);
+	$db_id = isset($list[0][$field_name]) ? (int) $list[0][$field_name] : 0;
+	if ($db_id === $id) {
+
+		return true;
+	}
+
+	return false;
+}
+
 // --------------------------------------------------------------------------------------------
 
 // fixme anton
