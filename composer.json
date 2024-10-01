@@ -12,7 +12,6 @@
 		"ezyang/htmlpurifier": "^4",
 		"phpmailer/phpmailer": "^6",
 		"mlocati/ip-lib": "^1",
-		"openpsa/universalfeedcreator": "^1.9",
-		"ext-gd": "*"
+		"openpsa/universalfeedcreator": "^1.9"
 	}
 }
