@@ -858,7 +858,7 @@ function core_sanitize_sender($string)
 	$string = substr($string, 0, 16);
 
 	// check if contains alpha
-	if (preg_match('/^\p{L}+$/u', $string)) {
+	if (preg_match('/[\p{L}]+/u', $string)) {
 		$string = substr($string, 0, 11);
 	}
 
