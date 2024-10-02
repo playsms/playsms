@@ -43,6 +43,8 @@ function sms_autoreply_hook_keyword_isavail($keyword)
  * @param string $autoreply_keyword check if keyword is for sms_autoreply
  * @param string $autoreply_param get parameters from incoming sms
  * @param string $sms_receiver receiver number that is receiving incoming sms
+ * @param string $smsc SMSC
+ * @param string $raw_message Original SMS
  * @return array array of keyword owner uid and status
  */
 function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autoreply_keyword, $autoreply_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
@@ -82,10 +84,13 @@ function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autorep
  */
 function sms_autoreply_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_keyword, $autoreply_param = '', $smsc = '', $raw_message = '')
 {
-	$ret = false;
-
 	$autoreply_keyword = strtoupper(trim($autoreply_keyword));
 	$autoreply_param = strtoupper(trim($autoreply_param));
+	if (!($sms_sender && $autoreply_keyword)) {
+
+		return false;
+	}
+
 	$request = $autoreply_keyword . " " . $autoreply_param;
 	$param = preg_split('/[\s]+/', $request);
 	$autoreply_scenario_param_list = "";
@@ -105,15 +110,15 @@ function sms_autoreply_handle($list, $sms_datetime, $sms_sender, $sms_receiver, 
 	$db_result = dba_query($db_query, $db_argv);
 	$db_row = dba_fetch_array($db_result);
 	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result']) {
-		$ret = false;
 		$c_username = user_uid2username($list['uid']);
 		$unicode = core_detect_unicode($autoreply_scenario_result);
 		$autoreply_scenario_result = addslashes($autoreply_scenario_result);
 		list($ret, $to, $smslog_id, $queue) = sendsms_helper($c_username, $sms_sender, $autoreply_scenario_result, 'text', $unicode, $smsc);
-		$ret = isset($ret[0]) && $ret[0] === true ? true : false;
+
+		return isset($ret[0]) && $ret[0] === true ? true : false;
 	}
 
-	return $ret;
+	return false;
 }
 
 /**
