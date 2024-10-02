@@ -271,6 +271,8 @@ function common_hook_themes_search($search_category = [], $url = '', $keyword_co
 		$ret['dba_keywords'] = $tmp_dba_keywords;
 	}
 
+	$ret = _display($ret);
+
 	$content = "
 		<form action='" . $ret['url'] . "' method=POST>
 		" . _CSRF_FORM_ . "
