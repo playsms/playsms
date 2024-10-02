@@ -251,10 +251,10 @@ function sendsmsd($single_queue = '', $chunk = 0)
 				// make sure the queue is still there
 				// if the queue_code with flag=3 is not exists then break, stop sendqueue
 				if (
-					!dba_isexists(_DB_PREF_ . "_tblSMSOutgoing_queue", array(
+					!dba_isexists(_DB_PREF_ . "_tblSMSOutgoing_queue", [
 						'flag' => 3,
 						'queue_code' => $c_queue_code
-					), 'AND')
+					], 'AND')
 				) {
 					break;
 				}
@@ -263,9 +263,9 @@ function sendsmsd($single_queue = '', $chunk = 0)
 				if (
 					dba_isexists(
 						_DB_PREF_ . "_tblSMSOutgoing",
-						array(
+						[
 							'smslog_id' => $c_smslog_id
-						)
+						]
 					)
 				) {
 					// flag as done
@@ -835,7 +835,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 		}
 	}
 
-	return array(
+	return [
 		$ok,
 		$to,
 		$smslog_id,
@@ -844,7 +844,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 		$sms_count,
 		$sms_failed,
 		$error_strings
-	);
+	];
 }
 
 /**
@@ -902,14 +902,14 @@ function sendsms($username, $sms_to, $sms_msg, $sms_type = 'text', $unicode = 0,
 	// discard if banned
 	if (user_banned_get($uid)) {
 		_log("user banned, exit immediately uid:" . $uid . ' username:' . $user['username'], 2, "sendsms");
-		return array(
+		return [
 			false,
 			'',
 			'',
 			'',
 			'',
 			sprintf(_('Account %s is currently banned to use services'), $username)
-		);
+		];
 	}
 
 	// SMS sender ID
