@@ -35,11 +35,10 @@
 						<td>
 							<div id="msg_label">{{ data.in_datetime }}</div>
 							<div id="user_inbox_msg">{{ data.in_msg }}</div>
-							<div id="msg_option">{{ data.reply }}&nbsp{{ data.forward }}</div>
+							<div id="msg_option">{{ data.reply }}&nbsp;{{ data.forward }}</div>
 						</td>
 						<td>
-							<input type=hidden name=itemid{{ data.j }} value={{ data.in_id }}>
-							<input type=checkbox name=checkid{{ data.j }}>
+							<input type=checkbox name=itemid[] value={{ data.in_id }}>
 						</td>
 					</tr>
 				</loop.data>
