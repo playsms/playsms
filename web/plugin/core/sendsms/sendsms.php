@@ -65,7 +65,7 @@ switch (_OP_) {
 				$input_values .= "<input type='hidden' name='content_" . $i . "' value='" . $c_templates[$i]['text'] . "'>";
 			}
 			if ($c_templates[0]) {
-				$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onClick='SetSmsTemplate();'>$option_values</select></div>";
+				$sms_template = "<div id=msg_template><select name=smstemplate id=msg_template_select style='width: 100%' onChange='SetSmsTemplate();'>$option_values</select></div>";
 			}
 		}
 
