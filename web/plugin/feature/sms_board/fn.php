@@ -43,6 +43,8 @@ function sms_board_hook_keyword_isavail($keyword)
  * @param string $board_keyword check if keyword is for sms_board
  * @param string $board_param get parameters from incoming sms
  * @param string $sms_receiver receiver number that is receiving incoming sms
+ * @param string $smsc SMSC
+ * @param string $raw_message Original SMS
  * @return array array of keyword owner uid and status, true if incoming sms handled
  */
 function sms_board_hook_recvsms_process($sms_datetime, $sms_sender, $board_keyword, $board_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
@@ -84,62 +86,62 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 {
 	global $core_config;
 
-	$status = false;
-
 	$board_keyword = strtoupper(trim($board_keyword));
 	$board_param = trim($board_param);
-	if ($sms_sender && $board_keyword && $board_param) {
+	if (!($sms_sender && $board_keyword && $board_param)) {
 
-		// masked sender sets here
-		$masked_sender = substr_replace($sms_sender, 'xxxx', -4);
-		$db_query = "
+		return false;
+	}
+
+	// masked sender sets here
+	$masked_sender = substr_replace($sms_sender, 'xxxx', -4);
+	$db_query = "
 			INSERT INTO " . _DB_PREF_ . "_featureBoard_log
 			(board_id,in_gateway,in_sender,in_masked,in_keyword,in_msg,in_reply,in_datetime)
 			VALUES (?,?,?,?,?,?,?,?)";
-		if (dba_insert_id($db_query, [$list['board_id'], $smsc, $sms_sender, $masked_sender, $board_keyword, $board_param, $list['board_reply'], core_get_datetime()])) {
+	if (!dba_insert_id($db_query, [$list['board_id'], $smsc, $sms_sender, $masked_sender, $board_keyword, $board_param, $list['board_reply'], core_get_datetime()])) {
 
-			// forward to email
-			if ($email = $list['board_forward_email']) {
+		return false;
+	}
 
-				// get name from $uid's phonebostatus
-				$c_name = phonebook_number2name($list['uid'], $sms_sender);
-				$sms_sender = $c_name ? $c_name . ' <' . $sms_sender . '>' : $sms_sender;
-				$sms_datetime = core_display_datetime($sms_datetime);
-				$subject = "[" . $board_keyword . "] " . _('SMS board from') . " $sms_sender";
-				$body = $core_config['main']['web_title'] . PHP_EOL;
-				// fixme anton - ran by playsmsd, no http address, disabled for now lostatusing for solution
-				// $body.= $core_config['http_path']['base'] . PHP_EOL . "" . PHP_EOL;
-				$body .= _('Date and time') . ": $sms_datetime" . PHP_EOL;
-				$body .= _('Sender') . ": $sms_sender" . PHP_EOL;
-				$body .= _('Receiver') . ": $sms_receiver" . PHP_EOL;
-				$body .= _('SMS board keyword') . ": $board_keyword" . PHP_EOL . "" . PHP_EOL;
-				$body .= _('Message') . ":" . PHP_EOL . "$board_param" . PHP_EOL . "" . PHP_EOL;
-				$body .= $core_config['main']['email_footer'] . PHP_EOL . "" . PHP_EOL;
-				$body = stripslashes($body);
+	// forward to email
+	if ($email = $list['board_forward_email']) {
 
-				$email_data = [
-					'mail_from_name' => $core_config['main']['web_title'],
-					'mail_from' => $core_config['main']['email_service'],
-					'mail_to' => $email,
-					'mail_subject' => $subject,
-					'mail_body' => $body
-				];
-				sendmail($email_data);
-			}
+		// get name from $uid's phonebostatus
+		$c_name = phonebook_number2name($list['uid'], $sms_sender);
+		$sms_sender = $c_name ? $c_name . ' <' . $sms_sender . '>' : $sms_sender;
+		$sms_datetime = core_display_datetime($sms_datetime);
+		$subject = "[" . $board_keyword . "] " . _('SMS board from') . " $sms_sender";
+		$body = $core_config['main']['web_title'] . PHP_EOL;
+		// fixme anton - ran by playsmsd, no http address, disabled for now lostatusing for solution
+		// $body.= $core_config['http_path']['base'] . PHP_EOL . "" . PHP_EOL;
+		$body .= _('Date and time') . ": $sms_datetime" . PHP_EOL;
+		$body .= _('Sender') . ": $sms_sender" . PHP_EOL;
+		$body .= _('Receiver') . ": $sms_receiver" . PHP_EOL;
+		$body .= _('SMS board keyword') . ": $board_keyword" . PHP_EOL . "" . PHP_EOL;
+		$body .= _('Message') . ":" . PHP_EOL . "$board_param" . PHP_EOL . "" . PHP_EOL;
+		$body .= $core_config['main']['email_footer'] . PHP_EOL . "" . PHP_EOL;
+		$body = stripslashes($body);
 
-			// reply SMS
-			if ($message = $list['board_reply']) {
-				if ($username = user_uid2username($list['uid'])) {
-					$unicode = core_detect_unicode($message);
-					sendsms_helper($username, $sms_sender, $message, '', $unicode, $smsc);
-				}
-			}
+		$email_data = [
+			'mail_from_name' => $core_config['main']['web_title'],
+			'mail_from' => $core_config['main']['email_service'],
+			'mail_to' => $email,
+			'mail_subject' => $subject,
+			'mail_body' => $body
+		];
+		sendmail($email_data);
+	}
 
-			$status = true;
+	// reply SMS
+	if ($message = $list['board_reply']) {
+		if ($username = user_uid2username($list['uid'])) {
+			$unicode = core_detect_unicode($message);
+			sendsms_helper($username, $sms_sender, $message, '', $unicode, $smsc);
 		}
 	}
 
-	return $status;
+	return true;
 }
 
 function sms_board_output_serialize($keyword, $line = 10)
