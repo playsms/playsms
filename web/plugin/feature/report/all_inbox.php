@@ -334,8 +334,7 @@ switch (_OP_) {
 						<td><div>" . $in_receiver . "</div></td>
 						<td>" . $c_message . "</td>
 						<td>
-							<input type=hidden name=itemid" . $j . " value='" . $in_id . "'>
-							<input type=checkbox name=checkid" . $j . ">
+							<input type=checkbox name=itemid[] value='" . $in_id . "'>
 						</td>
 					</tr>";
 			} else {
@@ -344,8 +343,7 @@ switch (_OP_) {
 						<td><div>" . $current_in_sender . "</div></td>
 						<td>" . $c_message . "</td>
 						<td>
-							<input type=hidden name=itemid" . $j . " value='" . $in_id . "'>
-							<input type=checkbox name=checkid" . $j . ">
+							<input type=checkbox name=itemid[] value='" . $in_id . "'>
 						</td>
 					</tr>";
 			}
@@ -477,10 +475,8 @@ switch (_OP_) {
 				exit();
 
 			case 'delete':
-				for ($i = 0; $i < $nav['limit']; $i++) {
-					$checkid = $_REQUEST['checkid' . $i];
-					$itemid = $_REQUEST['itemid' . $i];
-					if (($checkid == "on") && $itemid) {
+				if (isset($_POST['itemid'])) {
+					foreach ($_POST['itemid'] as $itemid) {
 						$up = [
 							'c_timestamp' => time(),
 							'flag_deleted' => '1'
