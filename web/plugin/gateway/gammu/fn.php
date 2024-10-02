@@ -40,7 +40,7 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 		$dir[1] = $plugin_config['gammu']['path'] . '/error/';
 		
 		// list all files in sent and error dir
-		$fn = array();
+		$fn = [];
 		for ($i = 0; $i < count($dir); $i++) {
 			$j = 0;
 			if ($handle = @opendir($dir[$i])) {
@@ -110,8 +110,8 @@ function gammu_hook_getsmsinbox() {
 		$sms_receiver = $plugin_config['gammu']['sms_receiver'];
 		
 		$handle = @opendir($plugin_config['gammu']['path'] . "/inbox");
-		$messages = array();
-		$files = array();
+		$messages = [];
+		$files = [];
 		while ($sms_in_file = @readdir($handle)) {
 			if ($sms_in_file != "." && $sms_in_file != "..") {
 				$files[] = $sms_in_file;
@@ -121,7 +121,7 @@ function gammu_hook_getsmsinbox() {
 		foreach ($files as $sms_in_file) {
 			$fn = $plugin_config['gammu']['path'] . "/inbox/$sms_in_file";
 			
-			$matches = array();
+			$matches = [];
 			preg_match('/IN(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})(\d{2})_(\d+)_([\w\-\+\s]+)_(\d+)/', basename($fn), $matches);
 			list($s, $year, $month, $date, $hour, $minute, $second, $serial, $sms_sender, $seq) = $matches;
 			$sms_datetime = $year . "-" . $month . "-" . $date . " " . $hour . ":" . $minute . ":" . $second;

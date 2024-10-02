@@ -16,7 +16,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['infobip']['_smsc_config_'] = array();
+$plugin_config['infobip']['_smsc_config_'] = [];
 
 // $gateway_number = $plugin_config['infobip']['sender'];
 

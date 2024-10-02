@@ -23,7 +23,7 @@ defined('_SECURE_') or die('Forbidden');
  *
  * @param string $smsc
  *        SMSC name
- * @param unknown $sms_sender
+ * @param string $sms_sender
  *        Sender ID
  * @param string $sms_footer
  *        Message footer

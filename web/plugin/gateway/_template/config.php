@@ -10,7 +10,7 @@ if ($db_row = dba_fetch_array($db_result)) {
 }
 
 // smsc configuration
-$plugin_config['template']['_smsc_config_'] = array();
+$plugin_config['template']['_smsc_config_'] = [];
 
 //$gateway_number = $template_param['module_sender'];
 

@@ -53,7 +53,7 @@ switch (_OP_) {
 					<td>" . _mandatory(_('Webservice username')) . "</td><td><input type=text maxlength=30 name=up_username value=\"" . $plugin_config['uplink']['username'] . "\"></td>
 				</tr>
 				<tr>
-					<td>" . _mandatory(_('Webservice token')) . "</td><td><input type=text maxlength=32 name=up_token value=\"" . $plugin_config['uplink']['token'] . "\"></td>
+					<td>" . _mandatory(_('Webservice token')) . "</td><td><input type=text maxlength=255 name=up_token value=\"" . $plugin_config['uplink']['token'] . "\"></td>
 				</tr>
 				<tr>
 					<td>" . _('Try to disable SMS footer on master') . "</td><td><select name=up_try_disable_footer>" . $option_try_disable_footer . "</select></td>
