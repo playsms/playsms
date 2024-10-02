@@ -972,13 +972,15 @@ function sendsms($username, $sms_to, $sms_msg, $sms_type = 'text', $unicode = 0,
 	}
 
 	// remove double entries
-	$all_sms_to = array_unique($all_sms_to, SORT_STRING);
+	$all_sms_to = array_values(array_unique($all_sms_to, SORT_STRING));
 
 	// calculate total sms and charges
 	$total_count = 0;
 	$total_charges = 0;
-	foreach ( $all_sms_to as $c_sms_to ) {
+	$counts = [];
+	foreach ( $all_sms_to as $i => $c_sms_to ) {
 		list($count, $rate, $charge) = rate_getcharges($uid, core_smslen($sms_msg . $c_sms_footer), $unicode, $c_sms_to);
+		$counts[$i] = $count;
 		$total_count += $count;
 		$total_charges += $charge;
 	}
@@ -1024,23 +1026,18 @@ function sendsms($username, $sms_to, $sms_msg, $sms_type = 'text', $unicode = 0,
 		}
 	}
 
-	// default returns
-	$c_count = count($all_sms_to);
-	for ($i = 0; $i < $c_count; $i++) {
-		$ok[$i] = false;
-		$to[$i] = $all_sms_to[$i];
-		$smslog_id[$i] = 0;
-		$queue[$i] = $queue_code;
-		$counts[$i] = $count;
-	}
-
 	$queue_count = 0;
 	$sms_count = 0;
 	$failed_queue_count = 0;
 	$failed_sms_count = 0;
+	$ok = $to = $smslog_id = $queue = [];
 	$c_count = count($all_sms_to);
 	for ($i = 0; $i < $c_count; $i++) {
-		$c_sms_to = $all_sms_to[$i];
+		// default returns
+		$ok[$i] = false;
+		$to[$i] = $c_sms_to = $all_sms_to[$i];
+		$smslog_id[$i] = 0;
+		$queue[$i] = $queue_code;
 
 		$continue = true;
 		if (blacklist_mobile_isexists(0, $c_sms_to)) {
@@ -1052,17 +1049,13 @@ function sendsms($username, $sms_to, $sms_msg, $sms_type = 'text', $unicode = 0,
 		if ($continue && ($smslog_id[$i] = sendsms_queue_push($queue_code, $c_sms_to))) {
 			$ok[$i] = true;
 			$queue_count++;
-			$sms_count += $count;
+			$sms_count += $counts[$i];
 			$error_strings[$i] = sprintf(_('Message %s has been delivered to queue'), $smslog_id[$i]);
 		} else {
-			$ok[$i] = false;
 			$failed_queue_count++;
-			$failed_sms_count++;
+			$failed_sms_count += $counts[$i];
 			$error_strings[$i] = sprintf(_('Send message to %s in queue %s has failed'), $c_sms_to, $queue_code);
 		}
-		$to[$i] = $c_sms_to;
-		$queue[$i] = $queue_code;
-		$counts[$i] = $count;
 	}
 
 	if (($queue_count > 0) && ($sms_count > 0)) {
