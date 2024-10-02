@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>rateless</name>
+	<alias>Rateless</alias>
+	<description>Force allow sending without any billing back-end.</description>
+	<release>1.0</release>
+	<date>2023-08-03</date>
+	<author>Roy Orbitson</author>
+	<language_file>0</language_file>
+	<sql_file>0</sql_file>
+	<php_file>0</php_file>
+</plugin>
