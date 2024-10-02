@@ -89,8 +89,7 @@ switch (_OP_) {
 					<td>" . core_display_datetime($row['create_datetime']) . "</td>
 					<td>" . core_display_credit($row['amount']) . "</td>
 					<td>
-						<input type=hidden name=itemid" . $j . " value=\"" . $row['id'] . "\">
-						<input type=checkbox name=checkid" . $j . ">
+						<input type=checkbox name=itemid[] value=\"" . $row['id'] . "\">
 					</td>
 				</tr>";
 			$j++;
@@ -218,10 +217,8 @@ switch (_OP_) {
 				break;
 
 			case 'delete':
-				for ($i = 0; $i < $nav['limit']; $i++) {
-					$checkid = $_POST['checkid' . $i];
-					$itemid = $_POST['itemid' . $i];
-					if (($checkid == "on") && $itemid) {
+				if (isset($_POST['itemid'])) {
+					foreach ($_POST['itemid'] as $itemid) {
 						$up = [
 							'c_timestamp' => time(),
 							'delete_datetime' => core_get_datetime(),
