@@ -61,7 +61,7 @@ switch (_OP_) {
 			$db_row = _display($db_row);
 			$tid = $db_row['tid'];
 			$temp_title = $db_row['t_title'];
-			$temp_text = $db_row['t_text'];
+			$temp_text = nl2br($db_row['t_text']);
 			$i++;
 			$content .= "
 				<tr>
@@ -99,7 +99,7 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('Message template name') . "</td><td><input type=text maxlength=100 name=t_title></td>
 			</tr>
 			<tr>
-				<td>" . _('Message template content') . "</td><td><input type=text name=t_text></td>
+				<td>" . _('Message template content') . "</td><td><textarea rows=5 name=t_text></textarea></td>
 			</tr>	
 			</table>	
 			<p><input type='submit' class='button' value='" . _('Save') . "'></p>
@@ -131,7 +131,7 @@ switch (_OP_) {
 				<td class=label-sizer>" . _('Message template name') . "</td><td><input type=text maxlength=100 name=t_title value='" . $db_row['t_title'] . "'></td>
 			</tr>
 			<tr>
-				<td>" . _('Message template content') . "</td><td><input type=text name=t_text value='" . $db_row['t_text'] . "'></td>
+				<td>" . _('Message template content') . "</td><td><textarea rows=5 name=t_text>" . $db_row['t_text'] . "</textarea></td>
 			</tr>
 			</table>
 			<input type='hidden' name='item_count' value='$i'>
