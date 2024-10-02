@@ -117,7 +117,7 @@ switch (_OP_) {
 		$checkid = $_REQUEST['checkid'];
 		$itemid = $_REQUEST['itemid'];
 		
-		$items = array();
+		$items = [];
 		foreach ($checkid as $key => $val) {
 			if (strtoupper($val) == 'ON') {
 				if ($itemid[$key]) {
