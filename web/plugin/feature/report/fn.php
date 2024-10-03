@@ -179,7 +179,7 @@ function report_whoseonline($status = 0, $online_only = FALSE, $idle_only = FALS
 			'sid' => $val['sid'],
 			'hash' => $key,
 			'login_status' => $c_login_status,
-			'last_update' => date($core_config['datetime']['format'], $val['last_update']),
+			'last_update' => core_display_datetime(date($core_config['datetime']['format'], $val['last_update'])),
 			'action_link' => _a('index.php?app=main&inc=feature_report&route=online&op=kick&hash=' . $key, $icon_config['delete']) 
 		);
 	}
