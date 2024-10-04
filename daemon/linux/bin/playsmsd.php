@@ -24,267 +24,13 @@ set_time_limit(0);
 
 //error_reporting(0);
 
-// functions
-
-
-/**
- * Get pid for certain playsmsd process
- *
- * @param string $process process name
- * @return array PIDs
- */
-function playsmsd_pid_get($process)
-{
-	global $PLAYSMSD_CONF;
-
-	if ($PLAYSMSD_CONF && $process) {
-		$pids = trim(shell_exec(sprintf(
-			<<<'EOSH'
-ps -eo pid,command | grep -F %s | grep -F %s | grep -vF grep | sed -e 's/^ *//' -e 's/ *$//' | cut -d' ' -f1 | tr '\n' ' '
-EOSH
-			,
-			escapeshellarg($PLAYSMSD_CONF)
-			,
-			escapeshellarg($process)
-		)));
-
-		if ($pids) {
-			$ret = preg_split('/\s+/', $pids);
-
-			if ($ret !== false) {
-
-				return $ret;
-			}
-		}
-	}
-
-	return [];
-}
-
-/**
- * Get pids for all playsmsd main process
- *
- * @return array PIDs
- */
-function playsmsd_pids()
-{
-	global $PLAYSMSD_DAEMONS;
-
-	$pids = [];
-
-	foreach ( $PLAYSMSD_DAEMONS as $daemon ) {
-		$pids[$daemon] = playsmsd_pid_get($daemon);
-	}
-
-	return $pids;
-}
-
-/**
- * Show pids
- */
-function playsmsd_pids_show()
-{
-	global $PLAYSMSD_DAEMONS;
-
-	$pids = playsmsd_pids();
-
-	foreach ( $PLAYSMSD_DAEMONS as $daemon ) {
-		$daemon_pids = trim(implode(' ', $pids[$daemon]));
-		echo $daemon . " at pid " . $daemon_pids . PHP_EOL;
-	}
-}
-
-/**
- * Check whether or not playsmsd processes are running
- *
- * @return bool true if all processes are running
- */
-function playsmsd_isrunning()
-{
-	global $PLAYSMSD_DAEMONS;
-
-	$pids = playsmsd_pids();
-
-	foreach ( $PLAYSMSD_DAEMONS as $daemon ) {
-		$daemon_pids = trim(implode(' ', $pids[$daemon]));
-
-		// return false when theres daemon not running
-		if (!$daemon_pids) {
-
-			return false;
-		}
-	}
-
-	return true;
-}
-
-/**
- * Start playsmsd scripts
- */
-function playsmsd_start()
-{
-	global $PLAYSMSD_COMMAND, $PLAYSMSD_DAEMONS;
-
-	if (playsmsd_isrunning()) {
-		echo "playsmsd is already running" . PHP_EOL;
-		playsmsd_pids_show();
-		exit();
-	}
-
-	// stop all daemons
-	shell_exec($PLAYSMSD_COMMAND . " stop >/dev/null 2>&1");
-	sleep(2);
-
-	// run playsmsd services
-	foreach ( $PLAYSMSD_DAEMONS as $daemon ) {
-		shell_exec("nohup " . $PLAYSMSD_COMMAND . " " . escapeshellarg($daemon) . " >/dev/null 2>&1 &");
-	}
-
-	if (playsmsd_isrunning()) {
-		echo "playsmsd has been started" . PHP_EOL;
-		playsmsd_pids_show();
-	} else {
-		echo "Unable to start playsmsd" . PHP_EOL;
-	}
-}
-
-/**
- * Stop playsmsd scripts
- */
-function playsmsd_stop()
-{
-	$pids = playsmsd_pids();
-
-	foreach ( $pids as $key => $val ) {
-		if ($key && is_array($val) && $val) {
-			$daemon_pids = trim(implode(' ', $val));
-			echo "$key at pid $daemon_pids will be killed..." . PHP_EOL;
-			shell_exec("kill $daemon_pids >/dev/null 2>&1");
-		}
-	}
-	sleep(2);
-
-	if (playsmsd_isrunning()) {
-		echo "Unable to stop playsmsd" . PHP_EOL;
-		playsmsd_pids_show();
-	} else {
-		echo "playsmsd has been stopped" . PHP_EOL;
-	}
-}
-
-/**
- * Stop child scripts
- */
-function playsmsd_stop_childs()
-{
-	global $PLAYSMSD_CHILD_DAEMONS;
-
-	foreach ( $PLAYSMSD_CHILD_DAEMONS as $daemon ) {
-		$pids[$daemon] = playsmsd_pid_get($daemon);
-	}
-
-	foreach ( $pids as $key => $val ) {
-		if ($key && is_array($val) && $val) {
-			$daemon_pids = trim(implode(' ', $val));
-			echo "$key at pid $daemon_pids will be killed..." . PHP_EOL;
-			shell_exec("kill $daemon_pids >/dev/null 2>&1");
-		}
-	}
-}
-
-/**
- * Check variables and states of playsmsd
- *
- * @param bool $json true for json output data
- * @param bool $echo true for print data
- * @return string data
- */
-function playsmsd_check($json = false, $echo = true)
-{
-	global $PLAYSMSD_CONF, $DAEMON_SLEEP, $ERROR_REPORTING;
-	global $PLAYSMS_INSTALL_PATH, $PLAYSMS_LIB_PATH, $PLAYSMS_DAEMON_PATH, $PLAYSMS_LOG_PATH;
-
-	$ret = '';
-
-	$data = [
-		'PLAYSMSD_CONF' => $PLAYSMSD_CONF,
-		'PLAYSMS_PATH' => $PLAYSMS_INSTALL_PATH,
-		'PLAYSMS_LIB' => $PLAYSMS_LIB_PATH,
-		'PLAYSMS_BIN' => $PLAYSMS_DAEMON_PATH,
-		'PLAYSMS_LOG' => $PLAYSMS_LOG_PATH,
-		'DAEMON_SLEEP' => $DAEMON_SLEEP,
-		'ERROR_REPORTING' => $ERROR_REPORTING,
-		'IS_RUNNING' => playsmsd_isrunning(),
-		'PIDS' => playsmsd_pids()
-	];
-
-	if ($json) {
-		$ret = json_encode($data);
-	} else {
-		foreach ( $data as $key => $val ) {
-			if ($key == 'PIDS') {
-				$daemon_pids = playsmsd_pids();
-				foreach ( $daemon_pids as $daemon => $pids ) {
-					$pids = trim(implode(' ', $pids));
-					$ret .= $key . " " . $daemon . " = " . $pids . PHP_EOL;
-				}
-			} else {
-				if (is_array($val)) {
-					foreach ( $val as $k => $v ) {
-						$ret .= $key . " " . $k . " = " . $v . PHP_EOL;
-					}
-				} else {
-					$ret .= $key . " = " . $val . PHP_EOL;
-				}
-			}
-		}
-	}
-
-	if ($echo) {
-		echo $ret;
-	}
-
-	return $ret;
-}
-
-/**
- * View log
- *
- * @param string $debug_file Save log to debug file
- */
-function playsmsd_log($debug_file = '')
-{
-	global $PLAYSMS_LOG_PATH;
-
-	$log = $PLAYSMS_LOG_PATH . '/playsms.log';
-	if (is_file($log)) {
-
-		$process = 'tail -n 0 -f ' . escapeshellarg($log) . ' 2>&1';
-		if ($debug_file) {
-			@shell_exec('touch ' . escapeshellarg($debug_file));
-			if (is_file($debug_file)) {
-				$process .= '| tee ' . escapeshellarg($debug_file);
-			}
-		}
-
-		$handle = popen($process, 'r');
-		while (!feof($handle)) {
-			$buffer = fgets($handle);
-			echo $buffer;
-			flush();
-		}
-		pclose($handle);
-	}
-}
-
 // main procedure
 
-
-$PLAYSMSD_CONF = '';
+$core_config['daemon']['PLAYSMSD_CONF'] = '';
 $argument = $argv + array_fill(0, 5, '');
 
 // daemons
-$PLAYSMSD_DAEMONS = [
+$core_config['daemon']['PLAYSMSD_DAEMONS'] = [
 	'schedule',
 	'ratesmsd',
 	'dlrssmsd',
@@ -293,7 +39,7 @@ $PLAYSMSD_DAEMONS = [
 ];
 
 // child daemons
-$PLAYSMSD_CHILD_DAEMONS = [
+$core_config['daemon']['PLAYSMSD_CHILD_DAEMONS'] = [
 	'sendqueue',
 	'recvqueue',
 	'schdqueue',
@@ -301,7 +47,7 @@ $PLAYSMSD_CHILD_DAEMONS = [
 
 // check if 1st argv is playsmsd.conf path
 if ($argument[1] && is_file($argument[1])) {
-	$PLAYSMSD_CONF = $argument[1];
+	$core_config['daemon']['PLAYSMSD_CONF'] = $argument[1];
 	array_shift($argument);
 }
 
@@ -310,32 +56,33 @@ $ini_files = [];
 
 // fixme anton - get HOME_DIR
 // ref: https://stackoverflow.com/questions/1894917/how-to-get-the-home-directory-from-a-php-cli-script
-$HOME_DIR = "";
+$home_dir = "";
 if (isset($_SERVER['HOME']) && $_SERVER['HOME']) {
-	$HOME_DIR = $_SERVER['HOME'];
+	$home_dir = $_SERVER['HOME'];
 } else {
-	$HOME_DIR = getenv("HOME");
+	$home_dir = getenv("HOME");
 }
-if (empty($HOME_DIR) && isset($_SERVER['HOMEDRIVE']) && isset($_SERVER['HOMEPATH']) && $_SERVER['HOMEDRIVE'] && $_SERVER['HOMEPATH']) {
-	$HOME_DIR = $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
+if (empty($home_dir) && isset($_SERVER['HOMEDRIVE']) && isset($_SERVER['HOMEPATH']) && $_SERVER['HOMEDRIVE'] && $_SERVER['HOMEPATH']) {
+	$home_dir = $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
 }
-if (empty($HOME_DIR) && function_exists('exec')) {
+if (empty($home_dir) && function_exists('exec')) {
 	if (strncasecmp(PHP_OS, 'WIN', 3) === 0) {
-		$HOME_DIR = exec("echo %userprofile%");
+		$home_dir = exec("echo %userprofile%");
 	} else {
-		$HOME_DIR = exec("echo ~");
+		$home_dir = exec("echo ~");
 	}
 }
-$HOME_DIR = is_dir($HOME_DIR) ? $HOME_DIR : "";
+$home_dir = is_dir($home_dir) ? $home_dir : "";
+$core_config['daemon']['HOME_DIR'] = $home_dir;
 
-if ($PLAYSMSD_CONF) {
+if ($core_config['daemon']['PLAYSMSD_CONF']) {
 	$ini_files = [
-		$PLAYSMSD_CONF
+		$core_config['daemon']['PLAYSMSD_CONF']
 	];
 } else {
 	$ini_files = [
-		$HOME_DIR . '/playsmsd.conf',
-		$HOME_DIR . '/etc/playsmsd.conf',
+		$core_config['daemon']['HOME_DIR'] . '/playsmsd.conf',
+		$core_config['daemon']['HOME_DIR'] . '/etc/playsmsd.conf',
 		'./playsmsd.conf',
 		'/playsmsd.conf',
 		'./etc/playsmsd.conf',
@@ -346,13 +93,13 @@ if ($PLAYSMSD_CONF) {
 }
 
 $continue = false;
-foreach ( $ini_files as $PLAYSMSD_CONF ) {
-	$PLAYSMSD_CONF_REALPATH = realpath($PLAYSMSD_CONF);
-	$PLAYSMSD_CONF = $PLAYSMSD_CONF_REALPATH !== false ? $PLAYSMSD_CONF_REALPATH : $PLAYSMSD_CONF;
-	if ($PLAYSMSD_CONF && is_file($PLAYSMSD_CONF)) {
-		$ini = parse_ini_file($PLAYSMSD_CONF);
+foreach ( $ini_files as $core_config['daemon']['PLAYSMSD_CONF'] ) {
+	$core_config['daemon']['PLAYSMSD_CONF_REALPATH'] = realpath($core_config['daemon']['PLAYSMSD_CONF']);
+	$core_config['daemon']['PLAYSMSD_CONF'] = $core_config['daemon']['PLAYSMSD_CONF_REALPATH'] !== false ? $core_config['daemon']['PLAYSMSD_CONF_REALPATH'] : $core_config['daemon']['PLAYSMSD_CONF'];
+	if ($core_config['daemon']['PLAYSMSD_CONF'] && is_file($core_config['daemon']['PLAYSMSD_CONF'])) {
+		$ini = parse_ini_file($core_config['daemon']['PLAYSMSD_CONF']);
 		if ($ini['PLAYSMS_PATH'] && $ini['PLAYSMS_BIN'] && $ini['PLAYSMS_LOG']) {
-			$ini['PLAYSMSD_CONF'] = $PLAYSMSD_CONF;
+			$ini['PLAYSMSD_CONF'] = $core_config['daemon']['PLAYSMSD_CONF'];
 			$continue = true;
 			break;
 		}
@@ -364,27 +111,27 @@ if (!$continue) {
 	exit();
 }
 
+$core_config['daemon'] += $ini;
+
 // playSMS installation location
-$PLAYSMS_INSTALL_PATH = $ini['PLAYSMS_PATH'] ?: '/var/www/playsms';
+$core_config['daemon']['PLAYSMS_INSTALL_PATH'] = $ini['PLAYSMS_PATH'] ?: '/var/www/playsms';
 
 // playSMS lib location
-$PLAYSMS_LIB_PATH = $ini['PLAYSMS_LIB'] ?: '/var/lib/playsms';
+$core_config['daemon']['PLAYSMS_LIB_PATH'] = $ini['PLAYSMS_LIB'] ?: '/var/lib/playsms';
 
 // playSMS daemon location
-$PLAYSMS_DAEMON_PATH = $ini['PLAYSMS_BIN'] ?: '/usr/local/bin';
+$core_config['daemon']['PLAYSMS_DAEMON_PATH'] = $ini['PLAYSMS_BIN'] ?: '/usr/local/bin';
 
 // playSMS log location
-$PLAYSMS_LOG_PATH = $ini['PLAYSMS_LOG'] ?: '/var/log/playsms';
+$core_config['daemon']['PLAYSMS_LOG_PATH'] = $ini['PLAYSMS_LOG'] ?: '/var/log/playsms';
 
 // set default DAEMON_SLEEP at 1 second
-$DAEMON_SLEEP = $ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1;
+$core_config['daemon']['DAEMON_SLEEP'] = $ini['DAEMON_SLEEP'] >= 1 ? $ini['DAEMON_SLEEP'] : 1;
 
 // set PHP error reporting level
-$ERROR_REPORTING = isset($ini['ERROR_REPORTING']) ? (int) $ini['ERROR_REPORTING'] : E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT & ~E_DEPRECATED;
+$core_config['daemon']['ERROR_REPORTING'] = isset($ini['ERROR_REPORTING']) ? (int) $ini['ERROR_REPORTING'] : E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT & ~E_DEPRECATED;
 
-error_reporting($ERROR_REPORTING);
-
-$core_config['daemon'] = $ini;
+error_reporting($core_config['daemon']['ERROR_REPORTING']);
 
 // Daemon service
 $COMMAND = strtolower($argument[1]);
@@ -393,113 +140,14 @@ $COMMAND = strtolower($argument[1]);
 $LOOP_FLAG = strtolower($argument[2]) ?: 'loop';
 
 // Service parameters
-$CMD_PARAM = $argument[3];
+$COMMAND_PARAM = $argument[3];
 
 // playsmsd
-$PLAYSMSD_BIN = $PLAYSMS_DAEMON_PATH . "/playsmsd";
-$PLAYSMSD_COMMAND = $PLAYSMSD_BIN . " " . $PLAYSMSD_CONF;
+$core_config['daemon']['PLAYSMSD_BIN'] = $core_config['daemon']['PLAYSMS_DAEMON_PATH'] . "/playsmsd";
+$core_config['daemon']['PLAYSMSD_COMMAND'] = $core_config['daemon']['PLAYSMSD_BIN'] . " " . $core_config['daemon']['PLAYSMSD_CONF'];
 
-switch ($COMMAND) {
-	case 'watchdog':
-
-		// sanitize check interval
-		$interval = (int) $CMD_PARAM;
-		$interval_minimum = 60;
-		if ($interval < $interval_minimum) {
-			$interval = $interval_minimum;
-		}
-
-		do {
-			// start playsmsd services
-			playsmsd_start();
-
-			// watch playsmsd services
-			do {
-				sleep($interval);
-			} while (playsmsd_isrunning());
-
-			// show which services stopped, before any further actions
-			playsmsd_pids_show();
-
-			// stop playsmsd services
-			playsmsd_stop();
-
-			// stop playsmsd child scripts
-			playsmsd_stop_childs();
-
-			// restart if specified
-		} while ($LOOP_FLAG === 'loop' && sleep(2) == 0);
-
-		// treat any stopped subprocess as an error 
-		exit(1);
-
-	case 'start':
-
-		// start playsmsd services
-		playsmsd_start();
-
-		exit();
-
-	case 'stop':
-
-		// stop playsmsd services
-		playsmsd_stop();
-
-		// stop playsmsd child scripts
-		playsmsd_stop_childs();
-
-		exit();
-
-	case 'restart':
-
-		// stop, wait for 2 seconds and then start
-		playsmsd_stop();
-		sleep(2);
-		playsmsd_start();
-
-		exit();
-
-	case 'status':
-
-		if (playsmsd_isrunning()) {
-			echo "playsmsd is running" . PHP_EOL;
-			playsmsd_pids_show();
-		} else {
-			echo "playsmsd is not running" . PHP_EOL;
-		}
-
-		exit();
-
-	case 'check':
-
-		// non-JSON output
-		playsmsd_check(false);
-
-		exit();
-
-	case 'check_json':
-
-		// JSON output
-		playsmsd_check(true);
-
-		exit();
-
-	case 'log':
-
-		// View log
-		$debug_file = $argument[2] ?: '';
-		playsmsd_log($debug_file);
-
-		exit();
-}
-
-if (!$COMMAND) {
-	echo "Usage: playsmsd <start|stop|restart|status|check|check_json|log|version>" . PHP_EOL;
-	exit();
-}
-
-if (is_dir($PLAYSMS_INSTALL_PATH)) {
-	chdir($PLAYSMS_INSTALL_PATH);
+if (is_dir($core_config['daemon']['PLAYSMS_INSTALL_PATH'])) {
+	chdir($core_config['daemon']['PLAYSMS_INSTALL_PATH']);
 
 	// mark this process as a DAEMON_PROCESS
 	$DAEMON_PROCESS = true;
@@ -516,8 +164,14 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 		}
 	}
 
+	if (!$continue) {
+		echo "playSMS installation not found" . PHP_EOL;
+
+		exit();
+	}
+
 	// save playsmsd data in database for other plugins such as playsmslog
-	if ($continue && $json = playsmsd_check(true, false)) {
+	if ($json = playsmsd_check(true, false)) {
 		$json_array = json_decode($json, true);
 		if (!empty($json_array['IS_RUNNING'])) {
 			$items = [
@@ -535,12 +189,113 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 		registry_update(0, 'core', 'playsmsd', $items);
 	}
 
-	if ($continue && $COMMAND == 'version') {
+	switch ($COMMAND) {
+		case 'watchdog':
 
-		echo core_get_version() . PHP_EOL;
+			// sanitize check interval
+			$interval = (int) $COMMAND_PARAM;
+			$interval_minimum = 60;
+			if ($interval < $interval_minimum) {
+				$interval = $interval_minimum;
+			}
+
+			do {
+				// start playsmsd services
+				playsmsd_start();
+
+				// watch playsmsd services
+				do {
+					sleep($interval);
+				} while (playsmsd_isrunning());
+
+				// show which services stopped, before any further actions
+				playsmsd_pids_show();
+
+				// stop playsmsd services
+				playsmsd_stop();
+
+				// stop playsmsd child scripts
+				playsmsd_stop_childs();
+
+				// restart if specified
+			} while ($LOOP_FLAG === 'loop' && sleep(2) == 0);
+
+			// treat any stopped subprocess as an error 
+			exit(1);
+
+		case 'start':
+
+			// start playsmsd services
+			playsmsd_start();
+
+			exit();
+
+		case 'stop':
+
+			// stop playsmsd services
+			playsmsd_stop();
+
+			// stop playsmsd child scripts
+			playsmsd_stop_childs();
+
+			exit();
+
+		case 'restart':
+
+			// stop, wait for 2 seconds and then start
+			playsmsd_stop();
+			sleep(2);
+			playsmsd_start();
+
+			exit();
+
+		case 'status':
+
+			if (playsmsd_isrunning()) {
+				echo "playsmsd is running" . PHP_EOL;
+				playsmsd_pids_show();
+			} else {
+				echo "playsmsd is not running" . PHP_EOL;
+			}
+
+			exit();
+
+		case 'check':
+
+			// non-JSON output
+			playsmsd_check(false);
+
+			exit();
+
+		case 'check_json':
+
+			// JSON output
+			playsmsd_check(true);
+
+			exit();
+
+		case 'log':
+
+			// View log
+			$debug_file = $argument[2] ?: '';
+			playsmsd_log($debug_file);
+
+			exit();
+
+		case 'version':
+
+			echo core_get_version() . PHP_EOL;
+
+			exit();
+	}
+
+	if (!$COMMAND) {
+		echo "Usage: playsmsd <start|stop|restart|status|check|check_json|log|version>" . PHP_EOL;
 
 		exit();
-	} else if ($continue && $LOOP_FLAG == 'once') {
+	}
+
+	if ($LOOP_FLAG == 'once') {
 
 		// execute one time only
 
@@ -549,8 +304,8 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 		//echo $COMMAND . " start time:" . time() . PHP_EOL;
 
 		if ($COMMAND == 'sendqueue') {
-			if ($CMD_PARAM) {
-				$param = explode('_', $CMD_PARAM);
+			if ($COMMAND_PARAM) {
+				$param = explode('_', $COMMAND_PARAM);
 				if (isset($param[0]) && isset($param[1]) && $param[0] == 'Q' && $queue = core_sanitize_alphanumeric($param[1])) {
 					$chunk = isset($param[2]) && (int) $param[2] ? (int) $param[2] : 0;
 					sendsmsd($queue, $chunk);
@@ -559,8 +314,8 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 		}
 
 		if ($COMMAND == 'recvqueue') {
-			if ($CMD_PARAM) {
-				$param = explode('_', $CMD_PARAM);
+			if ($COMMAND_PARAM) {
+				$param = explode('_', $COMMAND_PARAM);
 				if (isset($param[0]) && isset($param[1]) && $param[0] == 'ID' && $id = (int) $param[1]) {
 					recvsms_queue($id);
 				}
@@ -568,8 +323,8 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 		}
 
 		if ($COMMAND == 'schdqueue') {
-			if ($CMD_PARAM) {
-				playsmsd_once($CMD_PARAM);
+			if ($COMMAND_PARAM) {
+				playsmsd_once($COMMAND_PARAM);
 			}
 		}
 
@@ -578,7 +333,7 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 		//echo $COMMAND . " end time:" . time() . PHP_EOL;
 
 		exit();
-	} else if ($continue && $LOOP_FLAG == 'loop') {
+	} else if ($LOOP_FLAG == 'loop') {
 
 		// execute in a loop
 
@@ -696,7 +451,7 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 						foreach ( $queue as $q ) {
 							// if found queue and it's not currently running, then run it
 							if ($q && !playsmsd_pid_get($q)) {
-								$RUN_THIS = "nohup " . $PLAYSMSD_COMMAND . " sendqueue once " . $q . " >/dev/null 2>&1 &";
+								$RUN_THIS = "nohup " . $core_config['daemon']['PLAYSMSD_COMMAND'] . " sendqueue once " . $q . " >/dev/null 2>&1 &";
 								//echo $COMMAND . " execute:" . $RUN_THIS . PHP_EOL;
 								shell_exec($RUN_THIS);
 							}
@@ -714,7 +469,7 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 			//echo $COMMAND . " end time:" . time() . PHP_EOL;
 
 
-			sleep($DAEMON_SLEEP);
+			sleep($core_config['daemon']['DAEMON_SLEEP']);
 
 			// empty buffer, yes doubled :)
 			ob_end_flush();

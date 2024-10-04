@@ -243,64 +243,6 @@ function core_call_hook($function = '', $param = [])
 }
 
 /**
- * Call playsmsd hook
- * 
- * @return void
- */
-function playsmsd()
-{
-	$gateways = [];
-
-	// plugin feature
-	core_call_hook();
-
-	// plugin gateway
-	$smscs = gateway_getall_smsc_names();
-	foreach ( $smscs as $smsc ) {
-		$smsc_data = gateway_get_smscbyname($smsc);
-		$gateways[] = $smsc_data['gateway'];
-	}
-	$gateways = array_unique($gateways);
-	foreach ( $gateways as $gateway ) {
-		core_hook($gateway, 'playsmsd');
-	}
-
-	// plugin themes
-	core_hook(core_themes_get(), 'playsmsd');
-}
-
-/**
- * Call playsmsd_once hook
- * 
- * @param mixed $param
- * @return void
- */
-function playsmsd_once($param)
-{
-	$gateways = [];
-
-	$param = isset($param) ? $param : [];
-	$param = is_array($param) ? $param : [$param];
-
-	// plugin feature
-	core_call_hook();
-
-	// plugin gateway
-	$smscs = gateway_getall_smsc_names();
-	foreach ( $smscs as $smsc ) {
-		$smsc_data = gateway_get_smscbyname($smsc);
-		$gateways[] = $smsc_data['gateway'];
-	}
-	$gateways = array_unique($gateways);
-	foreach ( $gateways as $gateway ) {
-		core_hook($gateway, 'playsmsd_once', $param);
-	}
-
-	// plugin themes
-	core_hook(core_themes_get(), 'playsmsd_once', $param);
-}
-
-/**
  * String to hex string
  * 
  * @param string $string
