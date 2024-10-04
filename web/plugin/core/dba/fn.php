@@ -208,7 +208,7 @@ function dba_affected_rows($db_query, $db_argv = [])
  * Insert into database and count the number of inserted rows
  * @param string $db_query Prepared SQL statement
  * @param array $db_argv SQL arguments
- * @return int Number of inserted rows
+ * @return int Insert ID
  */
 function dba_insert_id($db_query, $db_argv = [])
 {
@@ -370,7 +370,7 @@ function dba_count($db_table, $conditions = [], $keywords = [], $extras = [], $j
  * Insert into database
  * @param string $db_table DB table name prefixed with _DB_PREF_ or without
  * @param array $items List of items to be inserted
- * @return int Number of inserted rows
+ * @return int Insert ID
  */
 function dba_add($db_table, $items)
 {
