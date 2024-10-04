@@ -129,12 +129,12 @@ function playsmsd_start()
 	}
 
 	// stop all daemons
-	shell_exec("$PLAYSMSD_COMMAND stop >/dev/null 2>&1");
+	shell_exec($PLAYSMSD_COMMAND . " stop >/dev/null 2>&1");
 	sleep(2);
 
 	// run playsmsd services
 	foreach ( $PLAYSMSD_DAEMONS as $daemon ) {
-		shell_exec("nohup $PLAYSMSD_COMMAND " . $daemon . " >/dev/null 2>&1 &");
+		shell_exec("nohup " . $PLAYSMSD_COMMAND . " " . escapeshellarg($daemon) . " >/dev/null 2>&1 &");
 	}
 
 	if (playsmsd_isrunning()) {
@@ -541,12 +541,9 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 
 		// execute one time only
 
-
 		// MAIN ONCE BLOCK
 
-
 		//echo $COMMAND . " start time:" . time() . PHP_EOL;
-
 
 		if ($COMMAND == 'sendqueue') {
 			if ($CMD_PARAM) {
@@ -575,15 +572,12 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 
 		// END OF ONCE BLOCK
 
-
 		//echo $COMMAND . " end time:" . time() . PHP_EOL;
-
 
 		exit();
 	} else if ($continue && $LOOP_FLAG == 'loop') {
 
 		// execute in a loop
-
 
 		$DAEMON_LOOPING = true;
 
@@ -599,7 +593,6 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 			include 'init.php';
 
 			// MAIN LOOP BLOCK
-
 
 			switch ($COMMAND) {
 				case 'schedule':
@@ -680,7 +673,7 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 						$db_result2 = dba_query($db_query2, [$db_row['id']]);
 						while ($db_row2 = dba_fetch_array($db_result2)) {
 							if ($db_row['queue_code']) {
-								$queue[] = 'Q_' . $db_row['queue_code'] . '_' . (int) $db_row2['chunk'];
+								$queue[] = 'Q_' . core_sanitize_alphanumeric($db_row['queue_code']) . '_' . (int) $db_row2['chunk'];
 							}
 						}
 
@@ -700,8 +693,8 @@ if (is_dir($PLAYSMS_INSTALL_PATH)) {
 						foreach ( $queue as $q ) {
 							// if found queue and it's not currently running, then run it
 							if ($q && !playsmsd_pid_get($q)) {
-								$RUN_THIS = "nohup $PLAYSMSD_COMMAND sendqueue once $q >/dev/null 2>&1 &";
-								echo "$COMMAND execute: $RUN_THIS" . PHP_EOL;
+								$RUN_THIS = "nohup " . $PLAYSMSD_COMMAND . " sendqueue once " . $q . " >/dev/null 2>&1 &";
+								//echo $COMMAND . " execute:" . $RUN_THIS . PHP_EOL;
 								shell_exec($RUN_THIS);
 							}
 						}
