@@ -87,28 +87,35 @@ function recvsmsd()
 	//for ($j = 0; $j < $c_count; $j++) {
 	foreach ( $list as $db_row ) {
 		if ($id = $db_row['id']) {
-			$sms_datetime = $db_row['sms_datetime'];
-			$sms_sender = $db_row['sms_sender'];
-			$message = $db_row['message'];
-			$sms_receiver = $db_row['sms_receiver'];
-			$smsc = $db_row['smsc'];
-
-			_log("recvsms_id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " from:" . $sms_sender . " to:" . $sms_receiver . " smsc:" . $smsc . " m:" . $message, 3, "recvsmsd");
-
 			if (isset($core_config['isrecvsmsd_queue']) && $core_config['isrecvsmsd_queue']) {
-				$param = "ID_" . $id;
-				$playsmsd_bin = trim($core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd");
-				$playsmsd_conf = $core_config['daemon']['PLAYSMSD_CONF'];
-				if (is_file($playsmsd_conf) && is_file($playsmsd_bin) && is_executable($playsmsd_bin)) {
-					$RUN_THIS = "nohup " . escapeshellcmd($playsmsd_bin) . " " . escapeshellarg($playsmsd_conf) . " recvqueue once " . $param . " >/dev/null 2>&1 &";
 
-					//_log('execute:' . $RUN_THIS, 3, 'recvsmsd');
+				$pids = playsmsd_pid_get('recvqueue');
+				if (is_array($pids) && count($pids) < $recvsmsd_limit) {
+					_log("recvsms_id:" . $id . " isrecvsmsd_queue:" . (int) $core_config['isrecvsmsd_queue'] . " concurrent:" . count($pids), 3, "recvsmsd");
 
-					shell_exec($RUN_THIS);
+					$param = "ID_" . $id;
+					$playsmsd_bin = trim($core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd");
+					$playsmsd_conf = $core_config['daemon']['PLAYSMSD_CONF'];
+					if (is_file($playsmsd_conf) && is_file($playsmsd_bin) && is_executable($playsmsd_bin)) {
+						$RUN_THIS = "nohup " . escapeshellcmd($playsmsd_bin) . " " . escapeshellarg($playsmsd_conf) . " recvqueue once " . $param . " >/dev/null 2>&1 &";
+
+						//_log('execute:' . $RUN_THIS, 3, 'recvsmsd');
+
+						shell_exec($RUN_THIS);
+					}
+
 				}
 			} else {
 				// set flag_processed = 2, this incoming SMS have been selected for further processing
 				if (dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 2], ['flag_processed' => 1, 'id' => $id])) {
+					$sms_datetime = $db_row['sms_datetime'];
+					$sms_sender = $db_row['sms_sender'];
+					$message = $db_row['message'];
+					$sms_receiver = $db_row['sms_receiver'];
+					$smsc = $db_row['smsc'];
+
+					_log("recvsms_id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " from:" . $sms_sender . " to:" . $sms_receiver . " smsc:" . $smsc . " m:" . $message, 3, "recvsmsd");
+
 					// process incoming SMS
 					recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
 
