@@ -58,9 +58,10 @@ function mailsms_hook_playsmsd()
 	$param = 'mailsms_fetch';
 	$is_fetching = playsmsd_pid_get($param) ? true : false;
 	if (!$is_fetching) {
-		$script = $core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd";
-		if (file_exists($script) && is_executable($script)) {
-			$RUN_THIS = "nohup " . $script . " playsmsd once " . $param . " >/dev/null 2>&1 &";
+		$playsmsd_bin = trim($core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd");
+		$playsmsd_conf = $core_config['daemon']['PLAYSMSD_CONF'];
+		if (is_file($playsmsd_conf) && is_file($playsmsd_bin) && is_executable($playsmsd_bin)) {
+			$RUN_THIS = "nohup " . escapeshellcmd($playsmsd_bin) . " " . escapeshellarg($playsmsd_conf) . " schdqueue once " . $param . " >/dev/null 2>&1 &";
 
 			// _log('execute:' . $RUN_THIS, 3, 'mailsms_hook_playsmsd');
 
@@ -78,6 +79,7 @@ function mailsms_hook_playsmsd()
  */
 function mailsms_hook_playsmsd_once($param)
 {
+	$param = is_array($param) && isset($param[0]) ? $param[0] : '';
 	$param = trim($param);
 
 	if ($param != 'mailsms_fetch') {
