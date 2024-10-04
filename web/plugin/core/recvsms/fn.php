@@ -96,11 +96,11 @@ function recvsmsd()
 			_log("recvsms_id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " from:" . $sms_sender . " to:" . $sms_receiver . " smsc:" . $smsc . " m:" . $message, 3, "recvsmsd");
 
 			if (isset($core_config['isrecvsmsd_queue']) && $core_config['isrecvsmsd_queue']) {
+				$param = "ID_" . $id;
 				$playsmsd_bin = trim($core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd");
 				$playsmsd_conf = $core_config['daemon']['PLAYSMSD_CONF'];
-				if (file_exists($playsmsd_conf) && file_exists($playsmsd_bin) && is_executable($playsmsd_bin)) {
-					$param = "ID_" . $id;
-					$RUN_THIS = "nohup " . $playsmsd_bin . " " . $playsmsd_conf . " recvqueue once " . $param . " >/dev/null 2>&1 &";
+				if (is_file($playsmsd_conf) && is_file($playsmsd_bin) && is_executable($playsmsd_bin)) {
+					$RUN_THIS = "nohup " . escapeshellcmd($playsmsd_bin) . " " . escapeshellarg($playsmsd_conf) . " recvqueue once " . $param . " >/dev/null 2>&1 &";
 
 					//_log('execute:' . $RUN_THIS, 3, 'recvsmsd');
 
