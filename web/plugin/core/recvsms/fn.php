@@ -22,11 +22,13 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc
 {
 	global $core_config;
 
+	$id = 0;
+
 	if ($core_config['isrecvsmsd']) {
 		$c_isrecvsmsd = 1;
 
 		// save to db and mark as queued (flag_processed = 1)
-		$ret = dba_add(
+		$id = dba_add(
 			_DB_PREF_ . '_tblRecvSMS',
 			[
 				'flag_processed' => 1,
@@ -41,7 +43,7 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc
 		$c_isrecvsmsd = 0;
 
 		// save to db but mark as processed (flag_processed = 2) and then directly call recvsms_process()
-		$ret = dba_add(
+		$id = dba_add(
 			_DB_PREF_ . '_tblRecvSMS',
 			[
 				'flag_processed' => 2,
@@ -53,57 +55,108 @@ function recvsms($sms_datetime, $sms_sender, $message, $sms_receiver = "", $smsc
 			]
 		);
 
-		recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
-	}
-	_log("isrecvsmsd:" . $c_isrecvsmsd . " dt:" . $sms_datetime . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsms");
+		if ($id > 0) {
+			recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
 
-	return $ret;
+			// set flag_processed = 3, this incoming SMS have been processed
+			dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 3], ['flag_processed' => 2, 'id' => $id]);
+		}
+	}
+
+	_log("isrecvsmsd:" . $c_isrecvsmsd . " recvsms_id:" . $id . " dt:" . $sms_datetime . " from:" . $sms_sender . " to:" . $sms_receiver . " smsc:" . $smsc . " m:" . $message, 3, "recvsms");
+
+	return $id;
 }
 
 function recvsmsd()
 {
 	global $core_config;
 
-	$core_config['recvsmsd_limit'] = (int) $core_config['recvsmsd_limit'] ? (int) $core_config['recvsmsd_limit'] : 200;
+	// fixme anton
+	// 1 recvsmsd limit = 1 PHP cli process processing 1 incoming SMS
+	// recvsmsd limit is between 10 to 200
+	$recvsmsd_limit = (int) $core_config['recvsmsd_limit'];
+	$recvsmsd_limit = $recvsmsd_limit > 0 ? $recvsmsd_limit : 10;
+	$recvsmsd_limit = $recvsmsd_limit > 200 ? 200 : $recvsmsd_limit;
 
-	$list = dba_search(
-		_DB_PREF_ . '_tblRecvSMS',
-		'*',
-		[
-			'flag_processed' => 1
-		],
-		[],
-		[
-			'LIMIT' => $core_config['recvsmsd_limit']
-		]
-	);
+	// list all received incoming SMS that have not been selected for further processing (flag_processed = 1)
+	$list = dba_search(_DB_PREF_ . '_tblRecvSMS', 'id, sms_datetime, sms_sender, message, sms_receiver, smsc', ['flag_processed' => 1], [], ['LIMIT' => $recvsmsd_limit]);
 
-	$c_count = is_array($list) ? $c_count = count($list) : 0;
-	$j = 0;
-	for ($j = 0; $j < $c_count; $j++) {
-		if ($id = $list[$j]['id']) {
-			$sms_datetime = $list[$j]['sms_datetime'];
-			$sms_sender = $list[$j]['sms_sender'];
-			$message = $list[$j]['message'];
-			$sms_receiver = $list[$j]['sms_receiver'];
-			$smsc = $list[$j]['smsc'];
-			if (
-				dba_update(
-					_DB_PREF_ . '_tblRecvSMS',
-					[
-						'flag_processed' => 2
-					],
-					[
-						'id' => $id
-					]
-				)
-			) {
-				_log("id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " sender:" . $sms_sender . " m:" . $message . " receiver:" . $sms_receiver . " smsc:" . $smsc, 3, "recvsmsd");
+	//$c_count = is_array($list) ? $c_count = count($list) : 0;
+	//$j = 0;
+	//for ($j = 0; $j < $c_count; $j++) {
+	foreach ( $list as $db_row ) {
+		if ($id = $db_row['id']) {
+			$sms_datetime = $db_row['sms_datetime'];
+			$sms_sender = $db_row['sms_sender'];
+			$message = $db_row['message'];
+			$sms_receiver = $db_row['sms_receiver'];
+			$smsc = $db_row['smsc'];
 
-				recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
+			_log("recvsms_id:" . $id . " dt:" . core_display_datetime($sms_datetime) . " from:" . $sms_sender . " to:" . $sms_receiver . " smsc:" . $smsc . " m:" . $message, 3, "recvsmsd");
+
+			if (isset($core_config['isrecvsmsd_queue']) && $core_config['isrecvsmsd_queue']) {
+				$playsmsd_bin = trim($core_config['daemon']['PLAYSMS_BIN'] . "/playsmsd");
+				$playsmsd_conf = $core_config['daemon']['PLAYSMSD_CONF'];
+				if (file_exists($playsmsd_conf) && file_exists($playsmsd_bin) && is_executable($playsmsd_bin)) {
+					$param = "ID_" . $id;
+					$RUN_THIS = "nohup " . $playsmsd_bin . " " . $playsmsd_conf . " recvqueue once " . $param . " >/dev/null 2>&1 &";
+
+					//_log('execute:' . $RUN_THIS, 3, 'recvsmsd');
+
+					shell_exec($RUN_THIS);
+				}
+			} else {
+				// set flag_processed = 2, this incoming SMS have been selected for further processing
+				if (dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 2], ['flag_processed' => 1, 'id' => $id])) {
+					// process incoming SMS
+					recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
+
+					// set flag_processed = 3, this incoming SMS have been processed
+					dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 3], ['flag_processed' => 2, 'id' => $id]);
+				}
 			}
 		}
 	}
+}
+
+function recvsms_queue($id)
+{
+	$id = (int) $id;
+	if (!($id > 0)) {
+
+		return;
+	}
+
+	$db_query = "SELECT sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE id=? AND flag_processed=? LIMIT 1";
+	$db_result = dba_query($db_query, [$id, 1]);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$sms_datetime = $db_row['sms_datetime'];
+		$sms_sender = $db_row['sms_sender'];
+		$message = $db_row['message'];
+		$sms_receiver = $db_row['sms_receiver'];
+		$smsc = $db_row['smsc'];
+
+		// set flag_processed = 2, this incoming SMS have been selected for further processing
+		if (dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 2], ['flag_processed' => 1, 'id' => $id])) {
+			// process incoming SMS
+			recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
+
+			// set flag_processed = 3, this incoming SMS have been processed
+			dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 3], ['flag_processed' => 2, 'id' => $id]);
+		}
+	}
+
+	exit();
+}
+
+function recvsms_process_start($id, $sms_datetime, $sms_sender, $message, $sms_receiver, $smsc)
+{
+	// process incoming SMS
+	recvsms_process(core_display_datetime($sms_datetime), $sms_sender, $message, $sms_receiver, $smsc);
+
+	// set flag_processed = 3, this incoming SMS have been processed
+	dba_update(_DB_PREF_ . '_tblRecvSMS', ['flag_processed' => 3], ['flag_processed' => 2, 'id' => $id]);
 }
 
 function recvsms_process_before($sms_datetime, $sms_sender, $message, $sms_receiver = '', $smsc = '')
