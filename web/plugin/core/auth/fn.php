@@ -303,7 +303,7 @@ function auth_isvalid()
 
 		// check if user session's IP the same as recorded IP in registry
 		if (!($_SESSION['ip'] && ($_SESSION['ip'] == $d[$sid]['ip']))) {
-			_log("invalid auth  REMOTE_ADDR different session:" . $_SESSION['ip'] . " registry:" . $d[$sid]['ip'], 3, "auth_isvalid");
+			_log("invalid auth REMOTE_ADDR different session:" . $_SESSION['ip'] . " registry:" . $d[$sid]['ip'], 3, "auth_isvalid");
 
 			//auth_session_destroy();
 
