@@ -37,8 +37,6 @@ function playsmsd_pid_get($process)
 {
 	global $PLAYSMSD_CONF;
 
-	$ret = [];
-
 	if ($PLAYSMSD_CONF && $process) {
 		$pids = trim(shell_exec(sprintf(
 			<<<'EOSH'
@@ -52,10 +50,15 @@ EOSH
 
 		if ($pids) {
 			$ret = preg_split('/\s+/', $pids);
+
+			if ($ret !== false) {
+
+				return $ret;
+			}
 		}
 	}
 
-	return $ret;
+	return [];
 }
 
 /**
