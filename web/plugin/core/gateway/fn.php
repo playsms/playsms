@@ -105,15 +105,19 @@ function gateway_get_smscbyid($id)
  */
 function gateway_get_smscbyname($name)
 {
-	$ret = [];
+	$name = trim($name);
 
-	$db_table = _DB_PREF_ . "_tblGateway";
-	$conditions = array(
-		'name' => $name
-	);
-	$ret = dba_search($db_table, '*', $conditions);
+	if ($name) {
+		$db_table = _DB_PREF_ . "_tblGateway";
+		$conditions = [
+			'name' => $name
+		];
+		$ret = dba_search($db_table, '*', $conditions);
 
-	return $ret[0];
+		return isset($ret[0]) && $ret[0] ? $ret[0] : [];
+	}
+
+	return [];
 }
 
 /**
