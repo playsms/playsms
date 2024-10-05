@@ -97,16 +97,14 @@ function sms_autoreply_handle($list, $sms_datetime, $sms_sender, $sms_receiver, 
 	$db_argv = [$list['autoreply_id']];
 	for ($i = 1; $i < 7; $i++) {
 		if (isset($param[$i]) && $param[$i]) {
-			$autoreply_scenario_param_list .= "autoreply_scenario_param" . $i . "=? AND ";
+			$autoreply_scenario_param_list .= "AND autoreply_scenario_param" . $i . "=?";
 			$db_argv[] = $param[$i];
 		}
 	}
-	if ($autoreply_scenario_param_list) {
-		$autoreply_scenario_param_list = preg_replace('/\sAND\s$/i', '', $autoreply_scenario_param_list);
-	}
 	$db_query = "
 		SELECT autoreply_scenario_result FROM " . _DB_PREF_ . "_featureAutoreply_scenario 
-		WHERE autoreply_id=? AND $autoreply_scenario_param_list";
+		WHERE autoreply_id=? " . $autoreply_scenario_param_list;
+
 	$db_result = dba_query($db_query, $db_argv);
 	$db_row = dba_fetch_array($db_result);
 	if ($autoreply_scenario_result = $db_row['autoreply_scenario_result']) {
