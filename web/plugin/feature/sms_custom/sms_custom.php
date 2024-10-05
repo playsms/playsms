@@ -70,7 +70,7 @@ switch (_OP_) {
 				if ($db_row['sms_receiver']) {
 					$sms_receiver = "<div name=sms_custom_sms_receiver><span class=\"playsms-icon glyphicon glyphicon-inbox\" alt=\"" . _('Receiver number') . "\" title=\"" . _('Receiver number') . "\"></span>" . $db_row['sms_receiver'] . "</div>";
 				}
-				$custom_url = $db_row['custom_url'];
+				$custom_url = htmlspecialchars_decode($db_row['custom_url']);
 				$custom_return_as_reply = (int) $db_row['custom_return_as_reply'] ? _('Yes') : _('No');
 				if (auth_isadmin()) {
 					$show_owner = "<td>" . $owner . "</td>";
