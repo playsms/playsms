@@ -245,11 +245,26 @@ function playsmsd_log($debug_file = '')
 {
 	global $core_config;
 
+	ob_end_clean();
+
+	if ($debug_file && $debug_file == 'playsms.log') {
+		echo "debug file cannot be named playsms.log" . PHP_EOL;
+
+		return;
+	}
+
+	if ($debug_file && preg_match('/\/|[\.]{2}/', $debug_file)) {
+		echo "debug file cannot contain paths" . PHP_EOL;
+
+		return;
+	}
+
 	$log = $core_config['daemon']['PLAYSMS_LOG_PATH'] . '/playsms.log';
+
 	if (is_file($log)) {
 
 		$process = 'tail -n 0 -f ' . escapeshellarg($log) . ' 2>&1';
-		if ($debug_file) {
+		if ($debug_file && $debug_file = $core_config['daemon']['PLAYSMS_LOG_PATH'] . '/' . $debug_file) {
 			@shell_exec('touch ' . escapeshellarg($debug_file));
 			if (is_file($debug_file)) {
 				$process .= '| tee ' . escapeshellarg($debug_file);
