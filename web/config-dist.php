@@ -60,7 +60,7 @@ $core_config['isrecvsmsd_queue'] = true;
 
 // limit the number of incoming SMS processed by recvsmsd in one time (max: 200)
 // when isrecvsmsd_queue is true then 1 limit = 1 PHP CLI process processing 1 incoming SMS
-$core_config['recvsmsd_limit'] = 100;
+$core_config['recvsmsd_limit'] = 20;
 
 // are we using sendsmsd or not. the default is using sendsmsd
 $core_config['issendsmsd'] = true;
