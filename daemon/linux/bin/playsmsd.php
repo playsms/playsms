@@ -24,7 +24,26 @@ set_time_limit(0);
 
 //error_reporting(0);
 
-// main procedure
+// check CLI
+if (!(PHP_SAPI == 'cli')) {
+	echo "playsmsd must be called from cli" . PHP_EOL;
+
+	exit();
+}
+
+// prevent running this script as root
+if (function_exists('posix_getuid') && posix_getuid() === 0) {
+	echo "playsmsd must not run as root" . PHP_EOL;
+
+	exit();
+}
+
+// declare this script started from playSMS daemon
+$DAEMON_PROCESS = true;
+define('_DAEMON_PROCESS_', true);
+$core_config['daemon_process'] = true;
+
+// Let's start
 
 $core_config['daemon']['PLAYSMSD_CONF'] = '';
 $argument = $argv + array_fill(0, 5, '');
@@ -132,9 +151,6 @@ $core_config['daemon']['PLAYSMSD_COMMAND'] = $core_config['daemon']['PLAYSMSD_BI
 
 if (is_dir($core_config['daemon']['PLAYSMS_INSTALL_PATH'])) {
 	chdir($core_config['daemon']['PLAYSMS_INSTALL_PATH']);
-
-	// mark this process as a DAEMON_PROCESS
-	$DAEMON_PROCESS = true;
 
 	$continue = false;
 	if (is_file('init.php')) {
