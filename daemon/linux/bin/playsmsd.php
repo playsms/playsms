@@ -54,26 +54,10 @@ if ($argument[1] && is_file($argument[1])) {
 $ini = [];
 $ini_files = [];
 
-// fixme anton - get HOME_DIR
+// fixme anton - get HOME dir in Linux
 // ref: https://stackoverflow.com/questions/1894917/how-to-get-the-home-directory-from-a-php-cli-script
-$home_dir = "";
-if (isset($_SERVER['HOME']) && $_SERVER['HOME']) {
-	$home_dir = $_SERVER['HOME'];
-} else {
-	$home_dir = getenv("HOME");
-}
-if (empty($home_dir) && isset($_SERVER['HOMEDRIVE']) && isset($_SERVER['HOMEPATH']) && $_SERVER['HOMEDRIVE'] && $_SERVER['HOMEPATH']) {
-	$home_dir = $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
-}
-if (empty($home_dir) && function_exists('exec')) {
-	if (strncasecmp(PHP_OS, 'WIN', 3) === 0) {
-		$home_dir = exec("echo %userprofile%");
-	} else {
-		$home_dir = exec("echo ~");
-	}
-}
-$home_dir = is_dir($home_dir) ? $home_dir : "";
-$core_config['daemon']['HOME_DIR'] = $home_dir;
+$home_dir = isset($_SERVER['HOME']) && $_SERVER['HOME'] ? $_SERVER['HOME'] : getenv("HOME");
+$core_config['daemon']['HOME_DIR'] = is_dir($home_dir) ? $home_dir : '';
 
 if ($core_config['daemon']['PLAYSMSD_CONF']) {
 	$ini_files = [
