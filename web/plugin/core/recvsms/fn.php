@@ -82,15 +82,28 @@ function recvsmsd()
 	// list all received incoming SMS that have not been selected for further processing (flag_processed = 1)
 	$list = dba_search(_DB_PREF_ . '_tblRecvSMS', 'id, sms_datetime, sms_sender, message, sms_receiver, smsc', ['flag_processed' => 1], [], ['LIMIT' => $recvsmsd_limit]);
 
-	//$c_count = is_array($list) ? $c_count = count($list) : 0;
-	//$j = 0;
-	//for ($j = 0; $j < $c_count; $j++) {
+	$pid_counter = 0;
 	foreach ( $list as $db_row ) {
 		if ($id = $db_row['id']) {
 			if (isset($core_config['isrecvsmsd_queue']) && $core_config['isrecvsmsd_queue']) {
 
-				$pids = playsmsd_pid_get('recvqueue');
-				if (is_array($pids) && count($pids) < $recvsmsd_limit) {
+				if (isset($pids) && is_array($pids)) {
+					// check child processes every 5 seconds
+					// or if PID counter is more than 80% of recvsmsd_limit
+					if (core_playsmsd_timer(5)) {
+						$pids = playsmsd_pid_get('recvqueue');
+					} else if (round($pid_counter / $recvsmsd_limit) * 100 > 80) {
+						$pids = playsmsd_pid_get('recvqueue');
+					}
+				} else {
+					// check child processes for the first time
+					$pids = playsmsd_pid_get('recvqueue');
+				}
+
+				$pid_counter = isset($pids) && is_array($pids) ? count($pids) : 0;
+
+				// try to run child process if current processes under recvsmsd_limit
+				if ($pid_counter < $recvsmsd_limit) {
 					_log("recvsms_id:" . $id . " isrecvsmsd_queue:" . (int) $core_config['isrecvsmsd_queue'] . " concurrent:" . count($pids), 3, "recvsmsd");
 
 					$param = "ID_" . $id;
@@ -102,8 +115,10 @@ function recvsmsd()
 						//_log('execute:' . $RUN_THIS, 3, 'recvsmsd');
 
 						shell_exec($RUN_THIS);
-					}
 
+						// assumed its running, PID counter++
+						$pid_counter++;
+					}
 				}
 			} else {
 				// set flag_processed = 2, this incoming SMS have been selected for further processing
