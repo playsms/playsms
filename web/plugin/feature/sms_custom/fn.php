@@ -146,7 +146,11 @@ function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, 
 				'method' => 'POST',
 				'header' => "Content-type: application/x-www-form-urlencoded\r\n",
 				'content' => $parsed_url['query']
-			]
+			],
+			"ssl" => [
+				"verify_peer" => false,
+				"verify_peer_name" => false,
+			],
 		];
 
 		$context = stream_context_create($opts);
