@@ -82,8 +82,8 @@ function recvsmsd()
 	$pid_counter = 0;
 
 	// list all received incoming SMS that have not been selected for further processing (flag_processed = 1)
-	$db_query = "SELECT id, sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE flag_processed=? LIMIT ?";
-	$db_result = dba_query($db_query, [1, $recvsmsd_limit]);
+	$db_query = "SELECT id, sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE flag_processed=? LIMIT " . (int) $recvsmsd_limit;
+	$db_result = dba_query($db_query, [1]);
 	while ($db_row = dba_fetch_array($db_result)) {
 		if ($id = $db_row['id']) {
 			if (isset($core_config['isrecvsmsd_queue']) && $core_config['isrecvsmsd_queue']) {
@@ -150,8 +150,8 @@ function recvsms_queue($id)
 		return;
 	}
 
-	$db_query = "SELECT sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE id=? AND flag_processed=? LIMIT ?";
-	$db_result = dba_query($db_query, [$id, 1, 1]);
+	$db_query = "SELECT sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE id=? AND flag_processed=? LIMIT 1";
+	$db_result = dba_query($db_query, [$id, 1]);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$sms_datetime = $db_row['sms_datetime'];
 		$sms_sender = $db_row['sms_sender'];
