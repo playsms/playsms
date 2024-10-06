@@ -79,14 +79,14 @@ function recvsmsd()
 	$recvsmsd_limit = $recvsmsd_limit > 0 ? $recvsmsd_limit : 10;
 	$recvsmsd_limit = $recvsmsd_limit > 200 ? 200 : $recvsmsd_limit;
 
-	// list all received incoming SMS that have not been selected for further processing (flag_processed = 1)
-	$list = dba_search(_DB_PREF_ . '_tblRecvSMS', 'id, sms_datetime, sms_sender, message, sms_receiver, smsc', ['flag_processed' => 1], [], ['LIMIT' => $recvsmsd_limit]);
-
 	$pid_counter = 0;
-	foreach ( $list as $db_row ) {
+
+	// list all received incoming SMS that have not been selected for further processing (flag_processed = 1)
+	$db_query = "SELECT id, sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE flag_processed=? LIMIT ?";
+	$db_result = dba_query($db_query, [1, $recvsmsd_limit]);
+	while ($db_row = dba_fetch_array($db_result)) {
 		if ($id = $db_row['id']) {
 			if (isset($core_config['isrecvsmsd_queue']) && $core_config['isrecvsmsd_queue']) {
-
 				if (isset($pids) && is_array($pids)) {
 					// check child processes every 5 seconds
 					// or if PID counter is more than 80% of recvsmsd_limit
@@ -100,10 +100,10 @@ function recvsmsd()
 					$pids = playsmsd_pid_get('recvqueue');
 				}
 
-				$pid_counter = isset($pids) && is_array($pids) ? count($pids) : 0;
+				$pid_counter = isset($pids) && is_array($pids) ? count($pids) : $pid_counter;
 
 				// try to run child process if current processes under recvsmsd_limit
-				if ($pid_counter < $recvsmsd_limit) {
+				if ($pid_counter <= $recvsmsd_limit) {
 					_log("recvsms_id:" . $id . " isrecvsmsd_queue:" . (int) $core_config['isrecvsmsd_queue'] . " concurrent:" . count($pids), 3, "recvsmsd");
 
 					$param = "ID_" . $id;
@@ -150,8 +150,8 @@ function recvsms_queue($id)
 		return;
 	}
 
-	$db_query = "SELECT sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE id=? AND flag_processed=? LIMIT 1";
-	$db_result = dba_query($db_query, [$id, 1]);
+	$db_query = "SELECT sms_datetime, sms_sender, message, sms_receiver, smsc FROM " . _DB_PREF_ . "_tblRecvSMS WHERE id=? AND flag_processed=? LIMIT ?";
+	$db_result = dba_query($db_query, [$id, 1, 1]);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$sms_datetime = $db_row['sms_datetime'];
 		$sms_sender = $db_row['sms_sender'];
