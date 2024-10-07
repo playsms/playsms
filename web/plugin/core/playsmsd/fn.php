@@ -70,7 +70,25 @@ function playsmsd_pids()
 }
 
 /**
- * Show pids
+ * Get pids for all playsmsd's child processes
+ *
+ * @return array PIDs
+ */
+function playsmsd_child_pids()
+{
+	global $core_config;
+
+	$pids = [];
+
+	foreach ( $core_config['daemon']['PLAYSMSD_CHILD_DAEMONS'] as $daemon ) {
+		$pids[$daemon] = playsmsd_pid_get($daemon);
+	}
+
+	return $pids;
+}
+
+/**
+ * Show playsmsd pids
  */
 function playsmsd_pids_show()
 {
@@ -79,6 +97,21 @@ function playsmsd_pids_show()
 	$pids = playsmsd_pids();
 
 	foreach ( $core_config['daemon']['PLAYSMSD_DAEMONS'] as $daemon ) {
+		$daemon_pids = trim(implode(' ', $pids[$daemon]));
+		echo $daemon . " at pid " . $daemon_pids . PHP_EOL;
+	}
+}
+
+/**
+ * Show playsmsd's child pids
+ */
+function playsmsd_child_pids_show()
+{
+	global $core_config;
+
+	$pids = playsmsd_pids();
+
+	foreach ( $core_config['daemon']['PLAYSMSD_CHILD_DAEMONS'] as $daemon ) {
 		$daemon_pids = trim(implode(' ', $pids[$daemon]));
 		echo $daemon . " at pid " . $daemon_pids . PHP_EOL;
 	}
@@ -109,7 +142,31 @@ function playsmsd_isrunning()
 }
 
 /**
- * Start playsmsd scripts
+ * Check whether or not playsmsd's child processes are running
+ *
+ * @return bool true if all processes are running
+ */
+function playsmsd_child_isrunning()
+{
+	global $core_config;
+
+	$pids = playsmsd_child_pids();
+
+	foreach ( $core_config['daemon']['PLAYSMSD_CHILD_DAEMONS'] as $daemon ) {
+		$daemon_pids = trim(implode(' ', $pids[$daemon]));
+
+		// return false when theres daemon not running
+		if (!$daemon_pids) {
+
+			return false;
+		}
+	}
+
+	return true;
+}
+
+/**
+ * Start playsmsd
  */
 function playsmsd_start()
 {
@@ -139,7 +196,7 @@ function playsmsd_start()
 }
 
 /**
- * Stop playsmsd scripts
+ * Stop playsmsd
  */
 function playsmsd_stop()
 {
@@ -163,9 +220,9 @@ function playsmsd_stop()
 }
 
 /**
- * Stop child scripts
+ * Stop playsmsd's child processes
  */
-function playsmsd_stop_childs()
+function playsmsd_child_stop()
 {
 	global $core_config;
 
@@ -204,7 +261,8 @@ function playsmsd_check($json = false, $echo = true)
 		'DAEMON_SLEEP' => $core_config['daemon']['DAEMON_SLEEP'],
 		'ERROR_REPORTING' => $core_config['daemon']['ERROR_REPORTING'],
 		'IS_RUNNING' => playsmsd_isrunning(),
-		'PIDS' => playsmsd_pids()
+		'PIDS' => playsmsd_pids(),
+		'CHILD_PIDS' => playsmsd_child_pids(),
 	];
 
 	if ($json) {
@@ -213,6 +271,12 @@ function playsmsd_check($json = false, $echo = true)
 		foreach ( $data as $key => $val ) {
 			if ($key == 'PIDS') {
 				$daemon_pids = playsmsd_pids();
+				foreach ( $daemon_pids as $daemon => $pids ) {
+					$pids = trim(implode(' ', $pids));
+					$ret .= $key . " " . $daemon . " = " . $pids . PHP_EOL;
+				}
+			} else if ($key == 'CHILD_PIDS') {
+				$daemon_pids = playsmsd_child_pids();
 				foreach ( $daemon_pids as $daemon => $pids ) {
 					$pids = trim(implode(' ', $pids));
 					$ret .= $key . " " . $daemon . " = " . $pids . PHP_EOL;

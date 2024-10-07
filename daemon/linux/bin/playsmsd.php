@@ -215,7 +215,7 @@ if (is_dir($core_config['daemon']['PLAYSMS_INSTALL_PATH'])) {
 				playsmsd_stop();
 
 				// stop playsmsd child scripts
-				playsmsd_stop_childs();
+				playsmsd_child_stop();
 
 				// restart if specified
 			} while ($LOOP_FLAG === 'loop' && sleep(2) == 0);
@@ -236,7 +236,7 @@ if (is_dir($core_config['daemon']['PLAYSMS_INSTALL_PATH'])) {
 			playsmsd_stop();
 
 			// stop playsmsd child scripts
-			playsmsd_stop_childs();
+			playsmsd_child_stop();
 
 			exit();
 
