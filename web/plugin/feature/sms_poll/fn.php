@@ -27,6 +27,8 @@ defined('_SECURE_') or die('Forbidden');
  */
 function sms_poll_hook_keyword_isavail($keyword)
 {
+	$keyword = strtoupper(core_sanitize_alphanumeric($keyword));
+
 	$db_query = "SELECT poll_id FROM " . _DB_PREF_ . "_featurePoll WHERE poll_keyword=?";
 	if (dba_num_rows($db_query, [$keyword])) {
 

@@ -26,6 +26,8 @@ defined('_SECURE_') or die('Forbidden');
  */
 function sms_board_hook_keyword_isavail($keyword)
 {
+	$keyword = strtoupper(core_sanitize_alphanumeric($keyword));
+
 	$db_query = "SELECT board_id FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword=?";
 	if (dba_num_rows($db_query, [$keyword])) {
 

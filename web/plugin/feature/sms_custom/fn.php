@@ -29,7 +29,7 @@ function sms_custom_hook_keyword_isavail($keyword, $sms_receiver)
 {
 	$found = false;
 
-	$keyword = trim(strtoupper($keyword));
+	$keyword = strtoupper(core_sanitize_alphanumeric($keyword));
 	$sms_receiver = trim($sms_receiver);
 
 	// check with receiver number empty, a catchall

@@ -26,6 +26,8 @@ defined('_SECURE_') or die('Forbidden');
  */
 function sms_command_hook_keyword_isavail($keyword)
 {
+	$keyword = strtoupper(core_sanitize_alphanumeric($keyword));
+
 	$db_query = "SELECT command_id FROM " . _DB_PREF_ . "_featureCommand WHERE command_keyword=?";
 	if (dba_num_rows($db_query, [$keyword])) {
 
