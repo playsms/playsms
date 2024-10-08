@@ -60,6 +60,7 @@ switch (_OP_) {
 				</tr></thead>";
 		}
 		$content .= "<tbody>";
+		$db_argv = [];
 		if (!auth_isadmin()) {
 			$query_user_only = "WHERE uid=?";
 			$db_argv[] = $user_config['uid'];

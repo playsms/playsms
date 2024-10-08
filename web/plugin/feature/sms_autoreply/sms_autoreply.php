@@ -48,11 +48,13 @@ switch (_OP_) {
 				<th width=10%>" . _('Action') . "</th>";
 		}
 		$content .= "</tr></thead><tbody>";
+		$db_argv = [];
 		if (!auth_isadmin()) {
-			$query_user_only = "WHERE uid='" . $user_config['uid'] . "'";
+			$query_user_only = "WHERE uid=?";
+			$db_argv[] = $user_config['uid'];
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply " . $query_user_only . " ORDER BY autoreply_keyword";
-		$db_result = dba_query($db_query);
+		$db_result = dba_query($db_query, $db_argv);
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
 			$db_row = _display($db_row);
