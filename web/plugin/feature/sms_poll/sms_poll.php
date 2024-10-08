@@ -277,6 +277,7 @@ switch (_OP_) {
 			_('one time every month') => 3,
 			_('multiple times') => 4
 		);
+
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id=?";
 		$db_result = dba_query($db_query, [$poll_id]);
 		if (!($db_row = dba_fetch_array($db_result))) {

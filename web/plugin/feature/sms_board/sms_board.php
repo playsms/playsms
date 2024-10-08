@@ -87,8 +87,7 @@ switch (_OP_) {
 	case "sms_board_edit":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard WHERE board_id=?";
 		$db_result = dba_query($db_query, [$board_id]);
-		$db_row = dba_fetch_array($db_result);
-		if (!$db_row) {
+		if (!($db_row = dba_fetch_array($db_result))) {
 			$_SESSION['dialog']['danger'][] = _('Unknown error cannot find the data in database');
 			header("Location: " . _u('index.php?app=main&inc=feature_sms_board&op=sms_board_list'));
 			exit();

@@ -100,8 +100,7 @@ switch (_OP_) {
 	case "sms_custom_edit":
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id=?";
 		$db_result = dba_query($db_query, [$custom_id]);
-		$db_row = dba_fetch_array($db_result);
-		if (!$db_row) {
+		if (!($db_row = dba_fetch_array($db_result))) {
 			$_SESSION['dialog']['danger'][] = _('Unknown error cannot find the data in database');
 			header("Location: " . _u('index.php?app=main&inc=feature_sms_custom&op=sms_custom_list'));
 			exit();
