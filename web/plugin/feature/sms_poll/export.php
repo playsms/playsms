@@ -22,13 +22,22 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-$poll_id = $_REQUEST['poll_id'];
+$poll_id = (int) $_REQUEST['poll_id'];
+
+if ($poll_id && !sms_poll_check_id($poll_id)) {
+	auth_block();
+}
 
 switch (_OP_) {
-	case 'list' :
+	case 'list':
 		$conditions['poll_id'] = $poll_id;
 		$list = dba_search(_DB_PREF_ . '_featurePoll', '*', $conditions);
-		$poll_keyword = $list[0]['poll_keyword'];
+		if (!(isset($list[0]['poll_keyword']) && $poll_keyword = $list[0]['poll_keyword'])) {
+			$_SESSION['dialog']['danger'][] = _('Unknown error cannot find the data in database');
+			header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list'));
+			exit();
+		}
+
 		$content = sms_poll_export_csv($poll_id, $poll_keyword);
 		$filename = 'sms-poll-' . $poll_keyword . '-' . $core_config['datetime']['now_stamp'] . '.csv';
 		core_download($content, $filename, 'text/csv');

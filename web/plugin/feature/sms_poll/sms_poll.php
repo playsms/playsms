@@ -22,26 +22,17 @@ if (!auth_isvalid()) {
 	auth_block();
 }
 
-if ($poll_id = (int) $_REQUEST['poll_id']) {
-	$db_table = _DB_PREF_ . '_featurePoll';
-	$conditions = array(
-		'poll_id' => $poll_id 
-	);
-	if (!auth_isadmin()) {
-		$conditions['uid'] = $user_config['uid'];
-	}
-	$list = dba_search($db_table, 'poll_id', $conditions);
-	if (!($list[0]['poll_id'] == $poll_id)) {
-		auth_block();
-	}
+$poll_id = (int) $_REQUEST['poll_id'];
+
+if ($poll_id && !sms_poll_check_id($poll_id)) {
+	auth_block();
 }
 
 switch (_OP_) {
-	case "sms_poll_list" :
+	case "sms_poll_list":
 		$content = _dialog() . "
 			<h2>" . _('Manage poll') . "</h2>
-			" . _button('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
-		$content .= "
+			" . _button('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll')) . "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
 			<thead><tr>";
@@ -74,11 +65,13 @@ switch (_OP_) {
 			<tbody>";
 		$i = 0;
 		if (!auth_isadmin()) {
-			$query_user_only = "WHERE uid='" . $user_config['uid'] . "'";
+			$query_user_only = "WHERE uid=?";
+			$db_argv[] = $user_config['uid'];
 		}
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll " . $query_user_only . " ORDER BY poll_id";
-		$db_result = dba_query($db_query);
+		$db_result = dba_query($db_query, $db_argv);
 		while ($db_row = dba_fetch_array($db_result)) {
+			$db_row = _display($db_row);
 			if ($owner = user_uid2username($db_row['uid'])) {
 				$poll_status = "<a href=\"" . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_status&poll_id=' . $db_row['poll_id'] . '&ps=1') . "\"><span class=status_disabled /></a>";
 				if ($db_row['poll_enable']) {
@@ -115,49 +108,46 @@ switch (_OP_) {
 			" . _button('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add', _('Add SMS poll'));
 		_p($content);
 		break;
-	case "sms_poll_view" :
-		$db_query = "SELECT poll_keyword FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
-		$db_result = dba_query($db_query);
+
+	case "sms_poll_view":
+		$db_query = "SELECT poll_keyword FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id=?";
+		$db_result = dba_query($db_query, [$poll_id]);
 		$db_row = dba_fetch_array($db_result);
 		$poll_keyword = $db_row['poll_keyword'];
 		header("Location: " . _u('index.php?app=webservices&op=sms_poll&keyword=' . $poll_keyword));
 		exit();
-		break;
-	case "sms_poll_status" :
+
+	case "sms_poll_status":
 		$ps = $_REQUEST['ps'];
-		$db_query = "UPDATE " . _DB_PREF_ . "_featurePoll SET c_timestamp='" . time() . "',poll_enable='$ps' WHERE poll_id='$poll_id'";
-		$db_result = @dba_affected_rows($db_query);
+		$db_query = "UPDATE " . _DB_PREF_ . "_featurePoll SET c_timestamp=?,poll_enable=? WHERE poll_id=?";
+		$db_result = dba_affected_rows($db_query, [time(), $ps, $poll_id]);
 		if ($db_result > 0) {
 			$_SESSION['dialog']['info'][] = _('SMS poll status has been changed');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list'));
 		exit();
-		break;
-	case "sms_poll_del" :
-		$db_query = "SELECT poll_keyword FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
-		$db_result = dba_query($db_query);
+
+	case "sms_poll_del":
+		$db_query = "SELECT poll_keyword FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id=?";
+		$db_result = dba_query($db_query, [$poll_id]);
 		$db_row = dba_fetch_array($db_result);
 		if ($poll_keyword = $db_row['poll_keyword']) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
-			if (@dba_affected_rows($db_query)) {
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id=?";
+			if (@dba_affected_rows($db_query, [$poll_id])) {
 				$_SESSION['dialog']['info'][] = _('SMS poll with all its messages has been deleted') . " (" . _('keyword') . ": $poll_keyword)";
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list'));
 		exit();
-		break;
-	case "sms_poll_choice_add" :
+
+	case "sms_poll_choice_add":
 		$add_choice_title = $_POST['add_choice_title'];
-		$add_choice_keyword = strtoupper($_POST['add_choice_keyword']);
+		$add_choice_keyword = strtoupper(core_sanitize_alphanumeric($_POST['add_choice_keyword']));
 		if ($poll_id && $add_choice_title && $add_choice_keyword) {
-			$db_query = "SELECT choice_id FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' AND choice_keyword='$add_choice_keyword'";
-			$db_result = @dba_num_rows($db_query);
-			if (!$db_result) {
-				$db_query = "
-					INSERT INTO " . _DB_PREF_ . "_featurePoll_choice
-					(poll_id,choice_title,choice_keyword)
-					VALUES ('$poll_id','$add_choice_title','$add_choice_keyword')";
-				if ($db_result = @dba_insert_id($db_query)) {
+			$db_query = "SELECT choice_id FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id=? AND choice_keyword=?";
+			if (!($db_result = dba_num_rows($db_query, [$poll_id, $add_choice_keyword]))) {
+				$db_query = "INSERT INTO " . _DB_PREF_ . "_featurePoll_choice (poll_id,choice_title,choice_keyword) VALUES (?,?,?)";
+				if (dba_insert_id($db_query, [$poll_id, $add_choice_title, $add_choice_keyword])) {
 					$_SESSION['dialog']['info'][] = _('Choice has been added') . " (" . _('keyword') . ": $add_choice_keyword)";
 				}
 			} else {
@@ -168,40 +158,45 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
 		exit();
-		break;
-	case "sms_poll_choice_del" :
-		$choice_id = $_REQUEST['choice_id'];
-		$db_query = "SELECT choice_keyword FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
-		$db_result = dba_query($db_query);
+
+	case "sms_poll_choice_del":
+		$choice_id = (int) $_REQUEST['choice_id'];
+		$db_query = "SELECT choice_keyword FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id=? AND choice_id=?";
+		$db_result = dba_query($db_query, [$poll_id, $choice_id]);
 		$db_row = dba_fetch_array($db_result);
 		$choice_keyword = $db_row['choice_keyword'];
 		$_SESSION['dialog']['info'][] = _('Fail to delete SMS poll choice') . " (" . _('keyword') . ": $choice_keyword)";
 		if ($poll_id && $choice_id && $choice_keyword) {
-			$db_query = "DELETE FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
-			if (@dba_affected_rows($db_query)) {
-				$db_query = "DELETE FROM " . _DB_PREF_ . "_featurePoll_log WHERE poll_id='$poll_id' AND choice_id='$choice_id'";
-				dba_query($db_query);
-				$_SESSION['dialog']['info'][] = _('SMS poll choice and all its voters has been deleted') . " (" . _('keyword') . ": $choice_keyword)";
+			$db_query = "DELETE FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id=? AND choice_id=?";
+			if (dba_affected_rows($db_query, [$poll_id, $choice_id])) {
+				$db_query = "DELETE FROM " . _DB_PREF_ . "_featurePoll_log WHERE poll_id=? AND choice_id=?";
+				if (dba_affected_rows($db_query, [$poll_id, $choice_id])) {
+					$_SESSION['dialog']['info'][] = _('SMS poll choice and all its voters has been deleted') . " (" . _('keyword') . ": $choice_keyword)";
+				} else {
+					$_SESSION['dialog']['info'][] = _('Fail to delete SMS poll choice and all its voters') . " (" . _('keyword') . ": $choice_keyword)";
+				}
+			} else {
+				$_SESSION['dialog']['info'][] = _('Fail to delete SMS poll choice') . " (" . _('keyword') . ": $choice_keyword)";
 			}
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
 		exit();
-		break;
-	
-	case "sms_poll_add" :
-		$option_vote = array(
+
+	case "sms_poll_add":
+		$option_vote = [
 			_('one time') => 0,
 			_('one time every 24 hours') => 1,
 			_('one time every week') => 2,
 			_('one time every month') => 3,
-			_('multiple times') => 4 
-		);
-		$add_poll_access_code = md5(_PID_);
-		
+			_('multiple times') => 4,
+		];
+		//$add_poll_access_code = md5(_PID_);
+		$add_poll_access_code = core_random();
+
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('add_smsc') . "</td></tr>";
 		}
-		
+
 		$content = _dialog() . "
 			<h2>" . _('Manage poll') . "</h2>
 			<h3>" . _('Add SMS poll') . "</h3>
@@ -209,25 +204,25 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _('SMS poll keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_poll_keyword value=\"$add_poll_keyword\"></td>
+				<td class=label-sizer>" . _('SMS poll keyword') . "</td><td><input type=text size=10 maxlength=10 name=add_poll_keyword value=\"\"></td>
 			</tr>
 			<tr>
-				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=add_poll_title value=\"$add_poll_title\"></td>
+				<td>" . _('SMS poll title') . "</td><td><input type=text maxlength=100 name=add_poll_title value=\"\"></td>
 			</tr>
 			<tr>
-				<td>" . _('SMS poll access code') . "</td><td><input type=text maxlength=40 name=add_poll_access_code value=\"$add_poll_access_code\"> " . _hint(_('SMS poll access code used mainly by webservices')) . "</td>
+				<td>" . _('SMS poll access code') . "</td><td><input type=text maxlength=40 name=add_poll_access_code value=\"\"> " . _hint(_('SMS poll access code used mainly by webservices')) . "</td>
 			</tr>
 			<tr>
 				<td>" . _('Vote option') . "</td><td>" . _select('add_poll_option_vote', $option_vote) . "</td>
 			</tr>
 			<tr>
-				<td>" . _('Reply message on out of vote option') . "</td><td><textarea maxlength=160 name=\"add_poll_message_option\">$add_poll_message_option</textarea></td>
+				<td>" . _('Reply message on out of vote option') . "</td><td><textarea maxlength=160 name=\"add_poll_message_option\"></textarea></td>
 			</tr>
 			<tr>
-				<td>" . _('Reply message on valid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_valid\">$add_poll_message_valid</textarea></td>
+				<td>" . _('Reply message on valid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_valid\"></textarea></td>
 			</tr>
 			<tr>
-				<td>" . _('Reply message on invalid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_invalid\">$add_poll_message_invalid</textarea></td>
+				<td>" . _('Reply message on invalid vote') . "</td><td><textarea maxlength=160 name=\"add_poll_message_invalid\"></textarea></td>
 			</tr>
 			" . $select_reply_smsc . "
 			</table>
@@ -236,20 +231,20 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
-	
-	case "sms_poll_add_yes" :
-		$add_poll_keyword = strtoupper($_POST['add_poll_keyword']);
+
+	case "sms_poll_add_yes":
+		$add_poll_keyword = strtoupper(core_sanitize_alphanumeric($_POST['add_poll_keyword']));
 		$add_poll_title = $_POST['add_poll_title'];
 		$add_poll_access_code = $_POST['add_poll_access_code'];
 		$add_poll_option_vote = (int) $_POST['add_poll_option_vote'];
 		$add_poll_message_option = $_POST['add_poll_message_option'];
 		$add_poll_message_valid = $_POST['add_poll_message_valid'];
 		$add_poll_message_invalid = $_POST['add_poll_message_invalid'];
-		
+
 		if (auth_isadmin()) {
 			$add_smsc = $_POST['add_smsc'];
 		}
-		
+
 		if ($add_poll_title && $add_poll_keyword && $add_poll_message_valid && $add_poll_message_invalid) {
 			if (keyword_isavail($add_poll_keyword)) {
 				$db_query = "
@@ -272,31 +267,36 @@ switch (_OP_) {
 			header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_add'));
 		}
 		exit();
-		break;
-	
-	case "sms_poll_edit" :
+
+	case "sms_poll_edit":
 		$option_vote = array(
 			_('one time') => 0,
 			_('one time every 24 hours') => 1,
 			_('one time every week') => 2,
 			_('one time every month') => 3,
-			_('multiple times') => 4 
+			_('multiple times') => 4
 		);
-		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id='$poll_id'";
-		$db_result = dba_query($db_query);
-		$db_row = dba_fetch_array($db_result);
+		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_id=?";
+		$db_result = dba_query($db_query, [$poll_id]);
+		if (!($db_row = dba_fetch_array($db_result))) {
+			$_SESSION['dialog']['danger'][] = _('Unknown error cannot find the data in database');
+			header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list'));
+			exit();
+		}
+		$db_row = _display($db_row);
+
 		$edit_poll_title = $db_row['poll_title'];
-		$edit_poll_keyword = $db_row['poll_keyword'];
+		$edit_poll_keyword = strtoupper(core_sanitize_alphanumeric($db_row['poll_keyword']));
 		$edit_poll_access_code = $db_row['poll_access_code'];
 		$edit_poll_option_vote = (int) $db_row['poll_option_vote'];
 		$edit_poll_message_option = $db_row['poll_message_option'];
 		$edit_poll_message_valid = $db_row['poll_message_valid'];
 		$edit_poll_message_invalid = $db_row['poll_message_invalid'];
-		
+
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('edit_smsc', $db_row['smsc']) . "</td></tr>";
 		}
-		
+
 		$content = _dialog() . "
 			<h2>" . _('Manage poll') . "</h2>
 			<h3>" . _('Edit SMS poll') . "</h3>
@@ -332,8 +332,8 @@ switch (_OP_) {
 			</form>
 			<br />
 			<h3>" . _('Edit SMS poll choices') . "</h3>";
-		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id='$poll_id' ORDER BY choice_keyword";
-		$db_result = dba_query($db_query);
+		$db_query = "SELECT choice_id,choice_title,choice_keyword FROM " . _DB_PREF_ . "_featurePoll_choice WHERE poll_id=? ORDER BY choice_keyword";
+		$db_result = dba_query($db_query, [$poll_id]);
 		$content .= "
 			<div class=table-responsive>
 			<table class=playsms-table-list>
@@ -345,8 +345,9 @@ switch (_OP_) {
 			<tbody>";
 		$i = 0;
 		while ($db_row = dba_fetch_array($db_result)) {
-			$choice_id = $db_row['choice_id'];
-			$choice_keyword = $db_row['choice_keyword'];
+			$db_row = _display($db_row);
+			$choice_id = (int) $db_row['choice_id'];
+			$choice_keyword = strtoupper(core_sanitize_alphanumeric($db_row['choice_keyword']));
 			$choice_title = $db_row['choice_title'];
 			$i++;
 			$content .= "
@@ -378,33 +379,45 @@ switch (_OP_) {
 			" . _back('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list');
 		_p($content);
 		break;
-	
-	case "sms_poll_edit_yes" :
-		$edit_poll_keyword = strtoupper($_POST['edit_poll_keyword']);
+
+	case "sms_poll_edit_yes":
+		$edit_poll_keyword = strtoupper(core_sanitize_alphanumeric($_POST['edit_poll_keyword']));
 		$edit_poll_title = $_POST['edit_poll_title'];
 		$edit_poll_access_code = $_POST['edit_poll_access_code'];
 		$edit_poll_option_vote = (int) $_POST['edit_poll_option_vote'];
 		$edit_poll_message_option = $_POST['edit_poll_message_option'];
 		$edit_poll_message_valid = $_POST['edit_poll_message_valid'];
 		$edit_poll_message_invalid = $_POST['edit_poll_message_invalid'];
-		
-		if (auth_isadmin()) {
-			$edit_smsc = $_POST['edit_smsc'];
-			$query_smsc = ",smsc='$edit_smsc'";
-		}
-		
 		if ($poll_id && $edit_poll_title && $edit_poll_keyword && $edit_poll_message_valid && $edit_poll_message_invalid) {
+			$db_argv = [
+				time(),
+				$edit_poll_title,
+				$edit_poll_access_code,
+				$edit_poll_keyword,
+				$edit_poll_option_vote,
+				$edit_poll_message_option,
+				$edit_poll_message_valid,
+				$edit_poll_message_invalid,
+			];
+			if (auth_isadmin()) {
+				$edit_smsc = $_POST['edit_smsc'];
+				$query_smsc = ",smsc=?";
+				$db_argv[] = $edit_smsc;
+			}
+			$db_argv[] = $poll_id;
+
 			$db_query = "
 				UPDATE " . _DB_PREF_ . "_featurePoll
-				SET c_timestamp='" . time() . "',poll_title='$edit_poll_title',poll_access_code='$edit_poll_access_code',poll_keyword='$edit_poll_keyword', poll_option_vote='$edit_poll_option_vote', poll_message_option='$edit_poll_message_option', poll_message_valid='$edit_poll_message_valid', poll_message_invalid='$edit_poll_message_invalid'" . $query_smsc . "
-				WHERE poll_id='$poll_id'";
-			if (@dba_affected_rows($db_query)) {
+				SET c_timestamp=?,poll_title=?,poll_access_code=?,poll_keyword=?,poll_option_vote=?,poll_message_option=?,poll_message_valid=?,poll_message_invalid=?" . $query_smsc . "
+				WHERE poll_id=?";
+			if (dba_affected_rows($db_query)) {
 				$_SESSION['dialog']['info'][] = _('SMS poll has been saved') . " (" . _('keyword') . ": $edit_poll_keyword)";
+			} else {
+				$_SESSION['dialog']['info'][] = _('Fail to save SMS poll') . " (" . _('keyword') . ": $edit_poll_keyword)";
 			}
 		} else {
 			$_SESSION['dialog']['info'][] = _('You must fill all fields');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_edit&poll_id=' . $poll_id));
 		exit();
-		break;
 }
