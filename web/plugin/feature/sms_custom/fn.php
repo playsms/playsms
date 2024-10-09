@@ -64,19 +64,27 @@ function sms_custom_hook_keyword_isavail($keyword, $sms_receiver)
  *
  * @param string $sms_datetime date and time when incoming sms inserted to playsms
  * @param string $sms_sender sender on incoming sms
- * @param string $keyword check if keyword is for sms_custom
+ * @param string $custom_keyword check if keyword is for sms_custom
  * @param string $custom_param get parameters from incoming sms
  * @param string $sms_receiver receiver number that is receiving incoming sms
  * @param string $smsc SMSC ID
  * @param string $raw_message raw incoming message
  * @return array $ret array of keyword owner uid and status, true if incoming sms handled
  */
-function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $custom_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
+function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $custom_keyword, $custom_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
 {
-	$ok = false;
+	$ret = [];
 
-	$keyword = trim(strtoupper($keyword));
+	$uid = 0;
+	$status = false;
+
+	$custom_keyword = strtoupper(core_sanitize_alphanumeric($custom_keyword));
+	$custom_param = trim($custom_param);
+
+	$keyword = $custom_keyword;
 	$sms_receiver = trim($sms_receiver);
+
+	$list = [];
 
 	// match keyword with receiver number
 	if ($sms_receiver) {
@@ -100,27 +108,24 @@ function sms_custom_hook_recvsms_process($sms_datetime, $sms_sender, $keyword, $
 		$list = $db_row;
 	}
 
-	if ($uid && $custom_id) {
+	if ($uid && $custom_id && $list) {
 		if (sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param, $smsc, $raw_message)) {
-			$ok = true;
+			$status = true;
 		}
-		$ret['uid'] = $uid;
 	}
 
-	$ret['status'] = $ok;
+	$ret['uid'] = $uid;
+	$ret['status'] = $status;
 
 	return $ret;
 }
 
-function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $keyword, $custom_param = '', $smsc = '', $raw_message = '')
+function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, $sms_receiver, $custom_keyword, $custom_param = '', $smsc = '', $raw_message = '')
 {
-	$ok = false;
-
 	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
 
 	$username = user_uid2username($uid);
-	$keyword = trim(strtoupper($keyword));
-	$custom_param = trim($custom_param);
+	$keyword = $custom_keyword;
 
 	$db_query = "SELECT custom_url,service_name,custom_return_as_reply FROM " . _DB_PREF_ . "_featureCustom WHERE custom_id=?";
 	$db_result = dba_query($db_query, [$custom_id]);
@@ -128,50 +133,51 @@ function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, 
 	$service_name = htmlspecialchars_decode($db_row['service_name']);
 	$custom_url = htmlspecialchars_decode($db_row['custom_url']);
 	$custom_return_as_reply = (int) $db_row['custom_return_as_reply'];
-	if ($username && $keyword && $custom_url) {
-		$sms_datetime = core_display_datetime($sms_datetime);
-		$custom_url = str_replace("{SERVICENAME}", urlencode($service_name), $custom_url);
-		$custom_url = str_replace("{SMSDATETIME}", urlencode($sms_datetime), $custom_url);
-		$custom_url = str_replace("{SMSSENDER}", urlencode($sms_sender), $custom_url);
-		$custom_url = str_replace("{SMSRECEIVER}", urlencode($sms_receiver), $custom_url);
-		$custom_url = str_replace("{CUSTOMKEYWORD}", urlencode($keyword), $custom_url);
-		$custom_url = str_replace("{CUSTOMPARAM}", urlencode($custom_param), $custom_url);
-		$custom_url = str_replace("{CUSTOMRAW}", urlencode($raw_message), $custom_url);
-		_log("custom_url:[" . $custom_url . "]", 3, "sms_custom_handle");
+	if (!($username && $keyword && $custom_url)) {
 
-		$parsed_url = parse_url($custom_url);
-
-		$opts = [
-			'http' => [
-				'method' => 'POST',
-				'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-				'content' => $parsed_url['query']
-			],
-			"ssl" => [
-				"verify_peer" => false,
-				"verify_peer_name" => false,
-			],
-		];
-
-		$context = stream_context_create($opts);
-
-		$server_url = explode('?', $custom_url);
-
-		if ($returns = trim(file_get_contents($server_url[0], false, $context))) {
-			$unicode = core_detect_unicode($returns);
-			$returns = addslashes($returns);
-			_log("returns:[" . $returns . "]", 3, "sms_custom_handle");
-			if ($custom_return_as_reply === 1) {
-				sendsms_helper($username, $sms_sender, $returns, 'text', $unicode, $smsc);
-			}
-		} else {
-			_log("returns empty", 3, "sms_custom_handle");
-		}
-
-		$ok = true;
+		return false;
 	}
 
-	return $ok;
+	$sms_datetime = core_display_datetime($sms_datetime);
+	$custom_url = str_replace("{SERVICENAME}", urlencode($service_name), $custom_url);
+	$custom_url = str_replace("{SMSDATETIME}", urlencode($sms_datetime), $custom_url);
+	$custom_url = str_replace("{SMSSENDER}", urlencode($sms_sender), $custom_url);
+	$custom_url = str_replace("{SMSRECEIVER}", urlencode($sms_receiver), $custom_url);
+	$custom_url = str_replace("{CUSTOMKEYWORD}", urlencode($keyword), $custom_url);
+	$custom_url = str_replace("{CUSTOMPARAM}", urlencode($custom_param), $custom_url);
+	$custom_url = str_replace("{CUSTOMRAW}", urlencode($raw_message), $custom_url);
+	_log("custom_url:[" . $custom_url . "]", 3, "sms_custom_handle");
+
+	$parsed_url = parse_url($custom_url);
+
+	$opts = [
+		'http' => [
+			'method' => 'POST',
+			'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+			'content' => $parsed_url['query']
+		],
+		"ssl" => [
+			"verify_peer" => false,
+			"verify_peer_name" => false,
+		],
+	];
+
+	$context = stream_context_create($opts);
+
+	$server_url = explode('?', $custom_url);
+
+	if ($returns = trim(file_get_contents($server_url[0], false, $context))) {
+		$unicode = core_detect_unicode($returns);
+		$returns = addslashes($returns);
+		_log("returns:[" . $returns . "]", 3, "sms_custom_handle");
+		if ($custom_return_as_reply === 1) {
+			sendsms_helper($username, $sms_sender, $returns, 'text', $unicode, $smsc);
+		}
+	} else {
+		_log("returns empty", 3, "sms_custom_handle");
+	}
+
+	return true;
 }
 
 /**
