@@ -56,9 +56,13 @@ function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autorep
 	$uid = 0;
 	$status = false;
 
+	$autoreply_keyword = strtoupper(core_sanitize_alphanumeric($autoreply_keyword));
+	$autoreply_param = trim($autoreply_param);
+
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_keyword=?";
 	$db_result = dba_query($db_query, [$autoreply_keyword]);
 	if ($db_row = dba_fetch_array($db_result)) {
+		$uid = $db_row['uid'];
 		$smsc = gateway_decide_smsc($smsc, $db_row['smsc']);
 		if (sms_autoreply_handle($db_row, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_keyword, $autoreply_param, $smsc, $raw_message)) {
 			$status = true;
@@ -86,8 +90,8 @@ function sms_autoreply_hook_recvsms_process($sms_datetime, $sms_sender, $autorep
  */
 function sms_autoreply_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $autoreply_keyword, $autoreply_param = '', $smsc = '', $raw_message = '')
 {
-	$autoreply_keyword = strtoupper(trim($autoreply_keyword));
-	$autoreply_param = strtoupper(trim($autoreply_param));
+	$autoreply_keyword = strtoupper($autoreply_keyword);
+	$autoreply_param = strtoupper($autoreply_param);
 	if (!($sms_sender && $autoreply_keyword)) {
 
 		return false;

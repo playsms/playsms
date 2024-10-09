@@ -202,7 +202,7 @@ switch (_OP_) {
 
 	case "sms_autoreply_add_yes":
 		// max keyword is 10 chars
-		$add_autoreply_keyword = substr(core_sanitize_keyword($_POST['add_autoreply_keyword']), 0, 10);
+		$add_autoreply_keyword = substr(strtoupper(core_sanitize_keyword($_POST['add_autoreply_keyword'])), 0, 10);
 
 		if (auth_isadmin()) {
 			$smsc = $_POST['smsc'];
@@ -231,7 +231,7 @@ switch (_OP_) {
 			'autoreply_id' => $autoreply_id
 		];
 		$list = dba_search($db_table, '*', $conditions);
-		$edit_autoreply_keyword = _display(strtoupper($list[0]['autoreply_keyword']));
+		$edit_autoreply_keyword = _display(strtoupper(core_sanitize_alphanumeric($list[0]['autoreply_keyword'])));
 		$select_reply_smsc = '';
 		if (auth_isadmin()) {
 			$select_reply_smsc = "<tr><td>" . _('SMSC') . "</td><td>" . gateway_select_smsc('smsc', $list[0]['smsc']) . "</td></tr>";
@@ -295,7 +295,7 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id=?";
 		$db_result = dba_query($db_query, [$autoreply_id]);
 		$db_row = dba_fetch_array($db_result);
-		$autoreply_keyword = _display(core_sanitize_keyword($db_row['autoreply_keyword']));
+		$autoreply_keyword = _display(strtoupper(core_sanitize_keyword($db_row['autoreply_keyword'])));
 		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<h3>" . _('Add SMS autoreply scenario') . "</h3>
@@ -327,7 +327,7 @@ switch (_OP_) {
 	case "sms_autoreply_scenario_add_yes":
 		$add_autoreply_scenario_result = $_POST['add_autoreply_scenario_result'];
 		for ($i = 1; $i <= 7; $i++) {
-			${"add_autoreply_scenario_param" . $i} = core_sanitize_keyword($_POST['add_autoreply_scenario_param' . $i]);
+			${"add_autoreply_scenario_param" . $i} = strtoupper(core_sanitize_keyword($_POST['add_autoreply_scenario_param' . $i]));
 		}
 		if ($add_autoreply_scenario_result) {
 			$autoreply_scenario_param_list = '';
@@ -366,7 +366,7 @@ switch (_OP_) {
 		$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureAutoreply WHERE autoreply_id=?";
 		$db_result = dba_query($db_query, [$autoreply_id]);
 		$db_row = dba_fetch_array($db_result);
-		$autoreply_keyword = core_sanitize_keyword($db_row['autoreply_keyword']);
+		$autoreply_keyword = strtoupper(core_sanitize_keyword($db_row['autoreply_keyword']));
 		$content = _dialog() . "
 			<h2>" . _('Manage autoreply') . "</h2>
 			<h3>" . _('Edit SMS autoreply scenario') . "</h3>
@@ -412,7 +412,7 @@ switch (_OP_) {
 			$edit_autoreply_scenario_result,
 		];
 		for ($i = 1; $i <= 7; $i++) {
-			${"edit_autoreply_scenario_param" . $i} = core_sanitize_keyword($_POST['edit_autoreply_scenario_param' . $i]);
+			${"edit_autoreply_scenario_param" . $i} = strtoupper(core_sanitize_keyword($_POST['edit_autoreply_scenario_param' . $i]));
 		}
 		if ($edit_autoreply_scenario_result) {
 			$autoreply_scenario_param_list = "";
