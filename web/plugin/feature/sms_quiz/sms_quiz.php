@@ -300,7 +300,7 @@ switch (_OP_) {
 		exit();
 
 	case "sms_quiz_status":
-		$ps = $_REQUEST['ps'];
+		$ps = (int) $_REQUEST['ps'] ? 1 : 0;
 		$db_query = "UPDATE " . _DB_PREF_ . "_featureQuiz SET c_timestamp=?,quiz_enable=? WHERE quiz_id=?";
 		if (dba_affected_rows($db_query, [time(), $ps, $quiz_id])) {
 			$_SESSION['dialog']['info'][] = _('SMS quiz status has been changed');

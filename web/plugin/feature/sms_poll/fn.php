@@ -57,6 +57,9 @@ function sms_poll_hook_recvsms_process($sms_datetime, $sms_sender, $poll_keyword
 	$uid = 0;
 	$status = false;
 
+	$poll_keyword = strtoupper(core_sanitize_alphanumeric($poll_keyword));
+	$poll_param = trim($poll_param);
+
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featurePoll WHERE poll_keyword=?";
 	$db_result = dba_query($db_query, [$poll_keyword]);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -79,8 +82,7 @@ function sms_poll_hook_recvsms_process($sms_datetime, $sms_sender, $poll_keyword
 function sms_poll_handle($list, $sms_datetime, $sms_sender, $poll_keyword, $poll_param = '', $sms_receiver = '', $smsc = '', $raw_message = '')
 {
 	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
-	$poll_keyword = strtoupper(trim($poll_keyword));
-	$poll_param = strtoupper(trim($poll_param));
+	$poll_param = strtoupper($poll_param);
 	$choice_keyword = $poll_param;
 
 	if (!($sms_sender && $poll_keyword && $choice_keyword)) {

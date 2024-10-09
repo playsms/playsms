@@ -119,11 +119,12 @@ switch (_OP_) {
 		exit();
 
 	case "sms_poll_status":
-		$ps = $_REQUEST['ps'];
+		$ps = (int) $_REQUEST['ps'] ? 1 : 0;
 		$db_query = "UPDATE " . _DB_PREF_ . "_featurePoll SET c_timestamp=?,poll_enable=? WHERE poll_id=?";
-		$db_result = dba_affected_rows($db_query, [time(), $ps, $poll_id]);
-		if ($db_result > 0) {
+		if (dba_affected_rows($db_query, [time(), $ps, $poll_id])) {
 			$_SESSION['dialog']['info'][] = _('SMS poll status has been changed');
+		} else {
+			$_SESSION['dialog']['danger'][] = _('Fail to change SMS poll status');
 		}
 		header("Location: " . _u('index.php?app=main&inc=feature_sms_poll&op=sms_poll_list'));
 		exit();

@@ -56,6 +56,9 @@ function sms_quiz_hook_recvsms_process($sms_datetime, $sms_sender, $quiz_keyword
 	$uid = 0;
 	$status = false;
 
+	$quiz_keyword = strtoupper(core_sanitize_alphanumeric($quiz_keyword));
+	$quiz_param = trim($quiz_param);
+
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureQuiz WHERE quiz_keyword=?";
 	$db_result = dba_query($db_query, [$quiz_keyword]);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -79,10 +82,8 @@ function sms_quiz_handle($list, $sms_datetime, $sms_sender, $quiz_keyword, $quiz
 {
 	global $core_config;
 
-	$quiz_keyword = strtoupper(core_sanitize_alphanumeric($quiz_keyword));
-	$quiz_param = strtoupper(core_sanitize_alphanumeric($quiz_param));
 	if (($list['quiz_enable']) && $quiz_param) {
-		if (strtoupper($list['quiz_answer']) == $quiz_param) {
+		if (strtoupper($list['quiz_answer']) == strtoupper($quiz_param)) {
 			$message = $list['quiz_msg_correct'];
 		} else {
 			$message = $list['quiz_msg_incorrect'];
