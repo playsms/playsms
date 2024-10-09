@@ -56,6 +56,9 @@ function sms_board_hook_recvsms_process($sms_datetime, $sms_sender, $board_keywo
 	$uid = 0;
 	$status = false;
 
+	$board_keyword = strtoupper(core_sanitize_alphanumeric($board_keyword));
+	$board_param = trim($board_param);
+
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword=?";
 	$db_result = dba_query($db_query, [$board_keyword]);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -65,6 +68,7 @@ function sms_board_hook_recvsms_process($sms_datetime, $sms_sender, $board_keywo
 			$status = true;
 		}
 	}
+
 	$ret['uid'] = $uid;
 	$ret['status'] = $status;
 
@@ -88,8 +92,6 @@ function sms_board_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $boa
 {
 	global $core_config;
 
-	$board_keyword = strtoupper(trim($board_keyword));
-	$board_param = trim($board_param);
 	if (!($sms_sender && $board_keyword && $board_param)) {
 
 		return false;
@@ -150,7 +152,7 @@ function sms_board_output_serialize($keyword, $line = 10)
 {
 	$ret = [];
 
-	$keyword = core_sanitize_keyword($keyword);
+	$keyword = strtoupper(core_sanitize_keyword($keyword));
 	$line = $line > 0 ? $line : 10;
 
 	$ret['board']['keyword'] = $keyword;
@@ -176,7 +178,7 @@ function sms_board_output_json($keyword, $line = 10)
 
 function sms_board_output_xml($keyword, $line = 10)
 {
-	$keyword = core_sanitize_keyword($keyword);
+	$keyword = strtoupper(core_sanitize_keyword($keyword));
 	$line = $line > 0 ? $line : 10;
 
 	$xml = '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
@@ -210,7 +212,7 @@ function sms_board_output_rss($keyword, $line = 10, $format = "RSS0.91")
 {
 	global $core_config;
 
-	$keyword = core_sanitize_keyword($keyword);
+	$keyword = strtoupper(core_sanitize_keyword($keyword));
 	$line = $line > 0 ? $line : 10;
 	$formats = ["RSS0.91", "RSS1.0", "RSS2.0", "ATOM"];
 	$format_output = "RSS0.91";
@@ -247,7 +249,7 @@ function sms_board_output_html($keyword, $line = 10)
 {
 	$content = "";
 
-	$keyword = core_sanitize_keyword($keyword);
+	$keyword = strtoupper(core_sanitize_keyword($keyword));
 	$line = $line > 0 ? $line : 10;
 
 	$db_query = "SELECT board_css FROM " . _DB_PREF_ . "_featureBoard WHERE board_keyword=?";
@@ -295,7 +297,7 @@ function sms_board_hook_webservices_output($operation, $requests, $returns)
 		return $returns;
 	}
 
-	$keyword = core_sanitize_keyword($keyword);
+	$keyword = strtoupper(core_sanitize_keyword($keyword));
 	$line = isset($requests['line']) && (int) $requests['line'] > 0 ? (int) $requests['line'] : 10;
 
 	$type = strtolower($requests['type']);
