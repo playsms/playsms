@@ -104,7 +104,7 @@ switch (_OP_) {
 		$db_row = _display($db_row);
 
 		$edit_command_uid = $db_row['uid'];
-		$edit_command_keyword = $db_row['command_keyword'];
+		$edit_command_keyword = strtoupper(core_sanitize_alphanumeric($db_row['command_keyword']));
 		$edit_command_exec = stripslashes($db_row['command_exec']);
 		$edit_command_exec = str_replace($sms_command_bin . "/", '', $edit_command_exec);
 		$edit_command_return_as_reply = ($db_row['command_return_as_reply'] == '1' ? 'checked' : '');
@@ -119,8 +119,8 @@ switch (_OP_) {
 			<h3>" . _('Edit SMS command') . "</h3>
 			<form action=index.php?app=main&inc=feature_sms_command&op=sms_command_edit_yes method=post>
 			" . _CSRF_FORM_ . "
-			<input type=hidden name=command_id value=$command_id>
-			<input type=hidden name=edit_command_keyword value=$edit_command_keyword>
+			<input type=hidden name=command_id value=\"$command_id\">
+			<input type=hidden name=edit_command_keyword value=\"$edit_command_keyword\">
 			<table class=playsms-table>
 				<tbody>
 				<tr>
@@ -160,7 +160,7 @@ switch (_OP_) {
 
 	case "sms_command_edit_yes":
 		$edit_command_return_as_reply = $_POST['edit_command_return_as_reply'] == 'on' ? '1' : '0';
-		$edit_command_keyword = $_POST['edit_command_keyword'];
+		$edit_command_keyword = strtoupper(core_sanitize_alphanumeric($_POST['edit_command_keyword']));
 		$edit_command_exec = $_POST['edit_command_exec'];
 		if ($command_id && $edit_command_keyword && $edit_command_exec) {
 			$edit_command_exec = str_replace("..", "", $edit_command_exec);
@@ -256,7 +256,7 @@ switch (_OP_) {
 
 	case "sms_command_add_yes":
 		$add_command_return_as_reply = $_POST['add_command_return_as_reply'] == 'on' ? '1' : '0';
-		$add_command_keyword = strtoupper($_POST['add_command_keyword']);
+		$add_command_keyword = strtoupper(core_sanitize_alphanumeric($_POST['add_command_keyword']));
 		$add_command_exec = $_POST['add_command_exec'];
 
 		if (auth_isadmin()) {

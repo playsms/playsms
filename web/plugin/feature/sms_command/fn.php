@@ -56,6 +56,9 @@ function sms_command_hook_recvsms_process($sms_datetime, $sms_sender, $command_k
 	$uid = 0;
 	$status = false;
 
+	$command_keyword = strtoupper(core_sanitize_alphanumeric($command_keyword));
+	$command_param = trim($command_param);
+
 	$db_query = "SELECT * FROM " . _DB_PREF_ . "_featureCommand WHERE command_keyword=?";
 	$db_result = dba_query($db_query, [$command_keyword]);
 	if ($db_row = dba_fetch_array($db_result)) {
@@ -65,6 +68,7 @@ function sms_command_hook_recvsms_process($sms_datetime, $sms_sender, $command_k
 			$status = true;
 		}
 	}
+
 	$ret['uid'] = $uid;
 	$ret['status'] = $status;
 
@@ -77,8 +81,6 @@ function sms_command_handle($list, $sms_datetime, $sms_sender, $sms_receiver, $c
 
 	$smsc = gateway_decide_smsc($smsc, $list['smsc']);
 
-	$command_keyword = strtoupper(trim($command_keyword));
-	$command_param = trim($command_param);
 	if (!($sms_sender && $command_keyword)) {
 
 		return false;
