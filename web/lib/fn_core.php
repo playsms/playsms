@@ -1542,6 +1542,7 @@ function core_last_post_empty()
 
 /**
  * Check if ID is exists on certain DB table
+ * Please note that this function does not check if both DB table and field name exist
  *
  * @param int $id ID value
  * @param string $db_table DB table name
@@ -1561,25 +1562,20 @@ function core_check_id($id, $db_table, $field_name)
 		return false;
 	}
 
-	if (preg_match('/[^a-z\d\-_]+/i', $db_table)) {
+	// db table and field name cannot contain characters other than alphanumeric and underscore
+	if (preg_match('/[^a-zA-Z0-9_]+/', $db_table) || preg_match('/[^a-zA-Z0-9_]+/', $field_name)) {
 
 		return false;
 	}
 
-	if (preg_match('/[^a-z\d\-_]+/i', $field_name)) {
-
-		return false;
-	}
-
-	$conditions = [
-		$field_name => $id
-	];
+	$db_argv = [$id];
+	$sql_uid = "";
 	if (!auth_isadmin()) {
-		$conditions['uid'] = $user_config['uid'];
+		$sql_uid = ",uid=?";
+		$db_argv[] = $user_config['uid'];
 	}
-	$list = dba_search($db_table, $field_name, $conditions);
-	$db_id = isset($list[0][$field_name]) ? (int) $list[0][$field_name] : 0;
-	if ($db_id === $id) {
+	$db_query = "SELECT " . $field_name . " FROM " . $db_table . " WHERE " . $field_name . "=?" . $sql_uid;
+	if (dba_num_rows($db_query, $db_argv)) {
 
 		return true;
 	}
