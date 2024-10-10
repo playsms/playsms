@@ -918,6 +918,53 @@ function core_net_match($network, $ip, $quiet = false)
 }
 
 /**
+ * Function: core_net_check()
+ * ref: https://github.com/mlocati/ip-lib
+ *
+ * This function returns a bool value.
+ * Usage: core_net_check("IP OR NETWORK")
+ * 
+ * @param string $ip_or_network Network
+ * @return bool
+ */
+function core_net_check($ip_or_network)
+{
+	$ip_or_network = trim($ip_or_network);
+
+	if ($ip_or_network && class_exists('\IPLib\Factory')) {
+
+		// don't match with network that starts with asterisk or 0
+		// to prevent matches with *.*.*.* or 0.0.0.0
+		if (preg_match('/^[\*0]/', $ip_or_network)) {
+
+			return false;
+		}
+
+		try {
+			$address = \IPLib\Factory::parseAddressString($ip_or_network);
+			$range = \IPLib\Factory::parseRangeString($ip_or_network);
+
+			if (is_object($address)) {
+
+				return true;
+			} else if (is_object($range)) {
+
+				return true;
+			} else {
+
+				return false;
+			}
+		} catch (Exception $e) {
+
+			return false;
+		}
+	} else {
+
+		return false;
+	}
+}
+
+/**
  * Function: core_string_to_gsm()
  * This function encodes an UTF-8 string into GSM 03.38
  * Since UTF-8 is largely ASCII compatible, and GSM 03.38 is somewhat compatible, unnecessary conversions are removed.
