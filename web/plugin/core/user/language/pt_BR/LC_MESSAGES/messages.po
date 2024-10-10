@@ -25,6 +25,10 @@ msgstr ""
 msgid "Account already exists"
 msgstr "A conta já existe"
 
+#, fuzzy
+msgid "Account email is mandatory"
+msgstr "Nome da conta é obrigatório"
+
 msgid "Account has been added and password has been emailed"
 msgstr "A conta foi adicionada e a senha foi enviada por email"
 
@@ -43,11 +47,19 @@ msgstr "A conta foi desbanida"
 msgid "Account name is mandatory"
 msgstr "Nome da conta é obrigatório"
 
+#, fuzzy
+msgid "Account name must be at least 1 character"
+msgstr "A senha deve conter no mínimo 4 caracteres"
+
 msgid "Account registration is not available"
 msgstr "O registro de conta não está disponível"
 
 msgid "Account status"
 msgstr "Status da conta"
+
+#, fuzzy
+msgid "Account username is mandatory"
+msgstr "Nome da conta é obrigatório"
 
 msgid "Account with this email already exists"
 msgstr "Uma conta com esse email já existe"
@@ -147,9 +159,6 @@ msgstr "Ex.: +0300 para fuso horário São Paulo/Brasil"
 
 msgid "Email"
 msgstr "Email"
-
-msgid "Email address is mandatory"
-msgstr "Campo email é obrigatório"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Habilitar cobrança de SMS unicode como SMS normal"

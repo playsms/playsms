@@ -32,6 +32,10 @@ msgstr ""
 msgid "Account already exists"
 msgstr "Kontoen eksisterer allerede"
 
+#, fuzzy
+msgid "Account email is mandatory"
+msgstr "Kontonavn er krævet"
+
 msgid "Account has been added and password has been emailed"
 msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
 
@@ -50,11 +54,19 @@ msgstr "Konto er ikke længere bandlyst"
 msgid "Account name is mandatory"
 msgstr "Kontonavn er krævet"
 
+#, fuzzy
+msgid "Account name must be at least 1 character"
+msgstr "Adgangskoden skal være mindst 4 tegn"
+
 msgid "Account registration is not available"
 msgstr "Konto registrering er ikke tilgængeligt"
 
 msgid "Account status"
 msgstr "Kontostatus"
+
+#, fuzzy
+msgid "Account username is mandatory"
+msgstr "Kontonavn er krævet"
 
 msgid "Account with this email already exists"
 msgstr "Konto med denne e-mail eksisterer allerede"
@@ -154,9 +166,6 @@ msgstr "F.eks: +0700 for Jakarta/Bangkok tidszone"
 
 msgid "Email"
 msgstr "E-mail"
-
-msgid "Email address is mandatory"
-msgstr "E-mailadressen er påkrævet"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Aktiver kreditering af unicode SMS som normal SMS"

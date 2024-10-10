@@ -64,6 +64,18 @@ msgid "Fail to add message"
 msgstr "增加"
 
 #, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "增加短信订阅"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "发送短信失败"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "发送短信失败"
+
+#, fuzzy
 msgid "Fail to edit SMS subscribe"
 msgstr "编辑短信订阅"
 
@@ -82,6 +94,10 @@ msgstr ""
 
 msgid "Manage subscribe"
 msgstr "管理订阅"
+
+#, fuzzy
+msgid "Member"
+msgstr "浏览人数"
 
 msgid "Member has been deleted"
 msgstr "会员已删除"
@@ -187,6 +203,9 @@ msgstr "短信订阅回复"
 #, fuzzy
 msgid "Subscription expired reply"
 msgstr "短信订阅回复"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 #, fuzzy
 msgid "Unknown format reply"

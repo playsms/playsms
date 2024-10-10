@@ -66,6 +66,18 @@ msgstr "Не удалось добавить рассылку"
 msgid "Fail to add message"
 msgstr "Не удалось добавить сообщение"
 
+#, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "Не удалось добавить рассылку"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "Не удалось изменить сообщение"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "Не удалось изменить сообщение"
+
 msgid "Fail to edit SMS subscribe"
 msgstr "Не удалось изменить рассылку"
 
@@ -83,6 +95,10 @@ msgstr "Последнее обновление"
 
 msgid "Manage subscribe"
 msgstr "Рассылки"
+
+#, fuzzy
+msgid "Member"
+msgstr "Подписчики"
 
 msgid "Member has been deleted"
 msgstr "Подписчик удалён"
@@ -183,6 +199,9 @@ msgstr "Продолжительность подписки"
 
 msgid "Subscription expired reply"
 msgstr "Ответ об истечении подписки"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "Unknown format reply"
 msgstr "Ответ о неизвестном формате"

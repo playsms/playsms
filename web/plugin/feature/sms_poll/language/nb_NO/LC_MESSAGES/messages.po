@@ -56,17 +56,26 @@ msgstr "Rediger SMS-poll alternativer"
 msgid "Fail to add SMS poll"
 msgstr "Kunne ikke legge til SMS-poll"
 
+#, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "Kunne ikke legge til SMS-poll"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "Kunne ikke slette SMS-poll alternativ"
+
+#, fuzzy
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr "Kunne ikke slette SMS-poll alternativ"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
+msgstr "Kunne ikke legge til SMS-poll"
 
 msgid "Grand total SMS"
 msgstr "Totalt antall SMS"
 
 msgid "Grand total senders"
 msgstr "Totalt antall sendere"
-
-msgid "Graph output"
-msgstr "Grafisk output"
 
 msgid "HTML output"
 msgstr "HTML output"
@@ -103,9 +112,6 @@ msgstr "Svarmelding ved ute av stemmevalg"
 
 msgid "Reply message on valid vote"
 msgstr "Svarmelding ved ved gyldig stemme"
-
-msgid "Result graph"
-msgstr "Resultatgraf"
 
 msgid "Result table"
 msgstr "Resultattabell"
@@ -177,6 +183,9 @@ msgstr "Totalt antall enkeltstemme SMS"
 
 msgid "Total valid SMS"
 msgstr "Totalt antall gyldige SMS"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Bruker"

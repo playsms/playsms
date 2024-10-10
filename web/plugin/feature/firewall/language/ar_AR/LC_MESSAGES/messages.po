@@ -34,11 +34,5 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-msgid "Select username"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
 msgid "You must fill all fields"
 msgstr ""

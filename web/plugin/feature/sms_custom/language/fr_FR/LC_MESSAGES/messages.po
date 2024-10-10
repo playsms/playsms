@@ -55,11 +55,21 @@ msgstr "Envoyer le résultat du script comme réponse"
 msgid "Manage custom"
 msgstr "Gérer URL script personnalisé"
 
+msgid "No"
+msgstr ""
+
 msgid "Pass these parameters to custom URL field"
 msgstr "Passez ces paramètres dans le champ 'URL du script personnalisé'"
 
 msgid "Receiver number"
 msgstr ""
+
+msgid "Return"
+msgstr ""
+
+#, fuzzy
+msgid "Return as reply"
+msgstr "Envoyer le résultat du script comme réponse"
 
 msgid "SMS custom URL"
 msgstr "URL du script personnalisé"
@@ -90,8 +100,14 @@ msgstr ""
 msgid "Service name"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "Utilisateur"
+
+msgid "Yes"
+msgstr ""
 
 msgid "keyword"
 msgstr "mot-clé"

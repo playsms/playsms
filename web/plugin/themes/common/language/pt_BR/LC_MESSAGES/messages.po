@@ -11,6 +11,13 @@ msgstr "Adicionar"
 msgid "Administrator"
 msgstr "Administrador"
 
+#, fuzzy
+msgid "Administrators"
+msgstr "Administrador"
+
+msgid "Back"
+msgstr ""
+
 msgid "Ban"
 msgstr "Banir"
 
@@ -52,6 +59,9 @@ msgstr "Inativo"
 
 msgid "Import"
 msgstr "Importar"
+
+msgid "Information"
+msgstr ""
 
 msgid "Logged in as"
 msgstr "Logado como"
@@ -98,6 +108,9 @@ msgstr "Offline"
 msgid "Online"
 msgstr "Online"
 
+msgid "Please select"
+msgstr ""
+
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -113,11 +126,30 @@ msgstr "Relatórios"
 msgid "Resend"
 msgstr "Reenviar"
 
+msgid "Search"
+msgstr ""
+
+#, fuzzy
+msgid "Select users"
+msgstr "Excluir usurio"
+
 msgid "Settings"
 msgstr "Configurações"
 
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "This field is required"
+msgstr ""
+
 msgid "Unban"
 msgstr "Desbanir"
+
+msgid "User"
+msgstr ""
 
 msgid "User configuration"
 msgstr "Configurações de usuário"
@@ -125,11 +157,20 @@ msgstr "Configurações de usuário"
 msgid "User preference"
 msgstr "Preferências de usuário"
 
+msgid "Users"
+msgstr ""
+
 msgid "View"
 msgstr "Visualizar"
 
 msgid "Your credit"
 msgstr "Seus créditos"
 
+msgid "no"
+msgstr ""
+
 msgid "return"
 msgstr "voltar"
+
+msgid "yes"
+msgstr ""

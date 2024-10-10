@@ -53,9 +53,6 @@ msgstr "مخرجات JSON"
 msgid "Keyword"
 msgstr "الكلمات المفتاحية"
 
-msgid "MBOX output"
-msgstr "مخرجات MBOX"
-
 msgid "Manage board"
 msgstr "إدارة اللوح"
 
@@ -79,9 +76,6 @@ msgstr "مخرجات RSS ATOM"
 
 msgid "Receiver"
 msgstr "رقم المستلم"
-
-msgid "Row template"
-msgstr "القالب"
 
 msgid "SMS Board"
 msgstr "لوح الرسائل"
@@ -116,6 +110,9 @@ msgstr "حفظ"
 
 msgid "Sender"
 msgstr "المرسل"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "المستخدم"

@@ -44,16 +44,22 @@ msgstr ""
 msgid "Fail to add SMS poll"
 msgstr ""
 
+msgid "Fail to change SMS poll status"
+msgstr ""
+
 msgid "Fail to delete SMS poll choice"
+msgstr ""
+
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr ""
+
+msgid "Fail to save SMS poll"
 msgstr ""
 
 msgid "Grand total SMS"
 msgstr ""
 
 msgid "Grand total senders"
-msgstr ""
-
-msgid "Graph output"
 msgstr ""
 
 msgid "HTML output"
@@ -90,9 +96,6 @@ msgid "Reply message on out of vote option"
 msgstr ""
 
 msgid "Reply message on valid vote"
-msgstr ""
-
-msgid "Result graph"
 msgstr ""
 
 msgid "Result table"
@@ -162,6 +165,9 @@ msgid "Total one time vote SMS"
 msgstr ""
 
 msgid "Total valid SMS"
+msgstr ""
+
+msgid "Unknown error cannot find the data in database"
 msgstr ""
 
 msgid "User"

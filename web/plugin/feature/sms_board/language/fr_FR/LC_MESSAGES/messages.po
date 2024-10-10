@@ -45,9 +45,6 @@ msgstr "Output JSON"
 msgid "Keyword"
 msgstr "Mot-clé"
 
-msgid "MBOX output"
-msgstr "Output MBOX"
-
 msgid "Manage board"
 msgstr "Gérer service de redirection"
 
@@ -71,9 +68,6 @@ msgstr "Output RSS ATOM"
 
 msgid "Receiver"
 msgstr "Destinataire"
-
-msgid "Row template"
-msgstr "Modèle de ligne"
 
 msgid "SMS Board"
 msgstr "Service de redirection"
@@ -108,6 +102,9 @@ msgstr "Enregistrer"
 
 msgid "Sender"
 msgstr "Expéditeur"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Utilisateur"

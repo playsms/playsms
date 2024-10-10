@@ -12,47 +12,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.7\n"
 
-msgid "Administrator"
-msgstr "Administrator"
+#~ msgid "Administrator"
+#~ msgstr "Administrator"
 
-msgid "Administrators"
-msgstr "Administratorer"
+#~ msgid "Administrators"
+#~ msgstr "Administratorer"
 
-msgid "Back"
-msgstr "Tilbage"
+#~ msgid "Back"
+#~ msgstr "Tilbage"
 
-msgid "Compose message"
-msgstr "Opret besked"
+#~ msgid "Compose message"
+#~ msgstr "Opret besked"
 
-msgid "Information"
-msgstr "Information"
+#~ msgid "Information"
+#~ msgstr "Information"
 
-msgid "Please select"
-msgstr "Vælg venligst"
+#~ msgid "Please select"
+#~ msgstr "Vælg venligst"
 
-msgid "Search"
-msgstr "Søg"
+#~ msgid "Search"
+#~ msgstr "Søg"
 
-msgid "Select users"
-msgstr "Vælg brugere"
+#~ msgid "Select users"
+#~ msgstr "Vælg brugere"
 
-msgid "Subuser"
-msgstr "Underbruger"
+#~ msgid "Subuser"
+#~ msgstr "Underbruger"
 
-msgid "Subusers"
-msgstr "Underbrugere"
+#~ msgid "Subusers"
+#~ msgstr "Underbrugere"
 
-msgid "This field is required"
-msgstr "Dette felt er påkrævet"
+#~ msgid "This field is required"
+#~ msgstr "Dette felt er påkrævet"
 
-msgid "User"
-msgstr "Bruger"
+#~ msgid "User"
+#~ msgstr "Bruger"
 
-msgid "Users"
-msgstr "Brugere"
+#~ msgid "Users"
+#~ msgstr "Brugere"
 
-msgid "no"
-msgstr "nej"
+#~ msgid "no"
+#~ msgstr "nej"
 
-msgid "yes"
-msgstr "ja"
+#~ msgid "yes"
+#~ msgstr "ja"

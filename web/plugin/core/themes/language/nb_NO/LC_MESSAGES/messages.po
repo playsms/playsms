@@ -8,47 +8,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Administrator"
-msgstr "Administrator"
+#~ msgid "Administrator"
+#~ msgstr "Administrator"
 
-msgid "Administrators"
-msgstr "Administratorer"
+#~ msgid "Administrators"
+#~ msgstr "Administratorer"
 
-msgid "Back"
-msgstr "Tilbake"
+#~ msgid "Back"
+#~ msgstr "Tilbake"
 
-msgid "Compose message"
-msgstr "Send melding"
+#~ msgid "Compose message"
+#~ msgstr "Send melding"
 
-msgid "Information"
-msgstr "Informasjon"
+#~ msgid "Information"
+#~ msgstr "Informasjon"
 
-msgid "Please select"
-msgstr "Vennligst velg"
+#~ msgid "Please select"
+#~ msgstr "Vennligst velg"
 
-msgid "Search"
-msgstr "Søk"
+#~ msgid "Search"
+#~ msgstr "Søk"
 
-msgid "Select users"
-msgstr "Velg brukere"
+#~ msgid "Select users"
+#~ msgstr "Velg brukere"
 
-msgid "Subuser"
-msgstr "Underbruker"
+#~ msgid "Subuser"
+#~ msgstr "Underbruker"
 
-msgid "Subusers"
-msgstr "Underbrukere"
+#~ msgid "Subusers"
+#~ msgstr "Underbrukere"
 
-msgid "This field is required"
-msgstr "Dette feltet er påkrevd"
+#~ msgid "This field is required"
+#~ msgstr "Dette feltet er påkrevd"
 
-msgid "User"
-msgstr "Bruker"
+#~ msgid "User"
+#~ msgstr "Bruker"
 
-msgid "Users"
-msgstr "Brukere"
+#~ msgid "Users"
+#~ msgstr "Brukere"
 
-msgid "no"
-msgstr "nei"
+#~ msgid "no"
+#~ msgstr "nei"
 
-msgid "yes"
-msgstr "ja"
+#~ msgid "yes"
+#~ msgstr "ja"

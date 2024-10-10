@@ -44,9 +44,6 @@ msgstr "Keluaran JSON"
 msgid "Keyword"
 msgstr "Kata kunci"
 
-msgid "MBOX output"
-msgstr "Keluaran MBOX"
-
 msgid "Manage board"
 msgstr "Pengaturan papan SMS"
 
@@ -70,9 +67,6 @@ msgstr "Keluaran ATOM"
 
 msgid "Receiver"
 msgstr "Penerima"
-
-msgid "Row template"
-msgstr "Template baris"
 
 msgid "SMS Board"
 msgstr "Layanan papan SMS"
@@ -108,6 +102,9 @@ msgstr "Simpan"
 
 msgid "Sender"
 msgstr "Pengirim"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Pengguna"

@@ -41,11 +41,5 @@ msgstr "Salvar"
 msgid "Select"
 msgstr "Selecionar"
 
-msgid "Select username"
-msgstr "Selecionar nome de usuário"
-
-msgid "User"
-msgstr "Usuário"
-
 msgid "You must fill all fields"
 msgstr "Preencha todos os campos"

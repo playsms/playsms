@@ -54,6 +54,9 @@ msgstr "Sende aus Datei wurde abgebrochen"
 msgid "Unable to open uploaded CSV file"
 msgstr "Gültige Einträge in hochgeladener Datei gefunden"
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr "Datei hochladen"
 

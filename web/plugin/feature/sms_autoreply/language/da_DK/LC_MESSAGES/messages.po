@@ -110,6 +110,15 @@ msgstr "Gem"
 msgid "This field is not mandatory"
 msgstr "Dette felt er ikke krævet"
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
+msgid "Unknown error no data found on database"
+msgstr ""
+
+msgid "Unknown error no keyword found"
+msgstr ""
+
 msgid "User"
 msgstr "Bruger"
 

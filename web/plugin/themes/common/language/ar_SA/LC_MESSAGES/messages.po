@@ -4,6 +4,12 @@ msgstr ""
 msgid "Administrator"
 msgstr ""
 
+msgid "Administrators"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
 msgid "Ban"
 msgstr ""
 
@@ -44,6 +50,9 @@ msgid "Idle"
 msgstr ""
 
 msgid "Import"
+msgstr ""
+
+msgid "Information"
 msgstr ""
 
 msgid "Logged in as"
@@ -91,6 +100,9 @@ msgstr ""
 msgid "Online"
 msgstr ""
 
+msgid "Please select"
+msgstr ""
+
 msgid "Preferences"
 msgstr ""
 
@@ -106,10 +118,28 @@ msgstr ""
 msgid "Resend"
 msgstr ""
 
+msgid "Search"
+msgstr ""
+
+msgid "Select users"
+msgstr ""
+
 msgid "Settings"
 msgstr ""
 
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "This field is required"
+msgstr ""
+
 msgid "Unban"
+msgstr ""
+
+msgid "User"
 msgstr ""
 
 msgid "User configuration"
@@ -118,11 +148,20 @@ msgstr ""
 msgid "User preference"
 msgstr ""
 
+msgid "Users"
+msgstr ""
+
 msgid "View"
 msgstr ""
 
 msgid "Your credit"
 msgstr ""
 
+msgid "no"
+msgstr ""
+
 msgid "return"
+msgstr ""
+
+msgid "yes"
 msgstr ""

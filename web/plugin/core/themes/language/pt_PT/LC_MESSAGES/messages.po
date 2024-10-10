@@ -12,47 +12,47 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.7.5\n"
 
-msgid "Administrator"
-msgstr "Administrador"
+#~ msgid "Administrator"
+#~ msgstr "Administrador"
 
-msgid "Administrators"
-msgstr "Administradores"
+#~ msgid "Administrators"
+#~ msgstr "Administradores"
 
-msgid "Back"
-msgstr "Voltar"
+#~ msgid "Back"
+#~ msgstr "Voltar"
 
-msgid "Compose message"
-msgstr "Enviar Mensagem"
+#~ msgid "Compose message"
+#~ msgstr "Enviar Mensagem"
 
-msgid "Information"
-msgstr "Informação"
+#~ msgid "Information"
+#~ msgstr "Informação"
 
-msgid "Please select"
-msgstr "Por favor selecione"
+#~ msgid "Please select"
+#~ msgstr "Por favor selecione"
 
-msgid "Search"
-msgstr "Procurar"
+#~ msgid "Search"
+#~ msgstr "Procurar"
 
-msgid "Select users"
-msgstr "Selecionar utilizadores"
+#~ msgid "Select users"
+#~ msgstr "Selecionar utilizadores"
 
-msgid "Subuser"
-msgstr "Subutilizador"
+#~ msgid "Subuser"
+#~ msgstr "Subutilizador"
 
-msgid "Subusers"
-msgstr "Subutilizadores"
+#~ msgid "Subusers"
+#~ msgstr "Subutilizadores"
 
-msgid "This field is required"
-msgstr "Este campo é obrigatório"
+#~ msgid "This field is required"
+#~ msgstr "Este campo é obrigatório"
 
-msgid "User"
-msgstr "Utilizador"
+#~ msgid "User"
+#~ msgstr "Utilizador"
 
-msgid "Users"
-msgstr "Utilizadores"
+#~ msgid "Users"
+#~ msgstr "Utilizadores"
 
-msgid "no"
-msgstr "Não"
+#~ msgid "no"
+#~ msgstr "Não"
 
-msgid "yes"
-msgstr "Sim"
+#~ msgid "yes"
+#~ msgstr "Sim"

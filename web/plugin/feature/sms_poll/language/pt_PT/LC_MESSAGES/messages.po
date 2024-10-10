@@ -59,17 +59,26 @@ msgstr "Editar opções da votação SMS"
 msgid "Fail to add SMS poll"
 msgstr "Erro ao adicionar a opção da votação SMS"
 
+#, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "Erro ao adicionar a opção da votação SMS"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "Erro ao eliminar a opçao da votação SMS"
+
+#, fuzzy
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr "Erro ao eliminar a opçao da votação SMS"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
+msgstr "Erro ao adicionar a opção da votação SMS"
 
 msgid "Grand total SMS"
 msgstr "SMS Total"
 
 msgid "Grand total senders"
 msgstr "Total de Remetentes"
-
-msgid "Graph output"
-msgstr "Saída Graph"
 
 msgid "HTML output"
 msgstr "Saída HTML"
@@ -106,9 +115,6 @@ msgstr "Mensagem de retorno caso mensagem seja fora de opção de voto"
 
 msgid "Reply message on valid vote"
 msgstr "Mensagem de retorno caso mensagem seja válida"
-
-msgid "Result graph"
-msgstr "Resultado Gráfico"
 
 msgid "Result table"
 msgstr "Tabela de Resultados"
@@ -178,6 +184,9 @@ msgstr "Total de votos únicos"
 
 msgid "Total valid SMS"
 msgstr "Total de SMS válidos"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Utilizador"

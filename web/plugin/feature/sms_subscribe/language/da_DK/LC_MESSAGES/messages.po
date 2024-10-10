@@ -66,6 +66,18 @@ msgstr "Kunne ikke tilføje SMS abonnement"
 msgid "Fail to add message"
 msgstr "Kunne ikke tilføje besked"
 
+#, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "Kunne ikke tilføje SMS abonnement"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "Kunne ikke redigere besked"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "Kunne ikke redigere besked"
+
 msgid "Fail to edit SMS subscribe"
 msgstr "Kunne ikke redigere SMS abonnement"
 
@@ -83,6 +95,10 @@ msgstr "Sidst opdateret"
 
 msgid "Manage subscribe"
 msgstr "Håndter abonnement"
+
+#, fuzzy
+msgid "Member"
+msgstr "Medlemmer"
 
 msgid "Member has been deleted"
 msgstr "Medlem er blevet slettet"
@@ -184,6 +200,9 @@ msgstr "Abonnement varighed"
 
 msgid "Subscription expired reply"
 msgstr "Abonnement udløbet svar"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "Unknown format reply"
 msgstr "Ukendt svar-format"

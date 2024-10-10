@@ -45,9 +45,6 @@ msgstr ""
 msgid "Keyword"
 msgstr "关键字"
 
-msgid "MBOX output"
-msgstr ""
-
 msgid "Manage board"
 msgstr "管理面板"
 
@@ -71,10 +68,6 @@ msgstr ""
 
 msgid "Receiver"
 msgstr ""
-
-#, fuzzy
-msgid "Row template"
-msgstr "模板"
 
 #, fuzzy
 msgid "SMS Board"
@@ -111,6 +104,9 @@ msgstr "保存"
 
 msgid "Sender"
 msgstr "发件人"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "用户"

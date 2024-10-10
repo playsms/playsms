@@ -39,6 +39,17 @@ msgstr "التحرير"
 msgid "Fail to add SMS quiz"
 msgstr "فشل إضافة الاختبار"
 
+#, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "فشل إضافة الاختبار"
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "فشل التحرير"
+
 msgid "Fail to edit SMS quiz"
 msgstr "فشل التحرير"
 
@@ -98,6 +109,9 @@ msgstr "المرسل"
 
 msgid "Status"
 msgstr "الحالة"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "المستخدم"

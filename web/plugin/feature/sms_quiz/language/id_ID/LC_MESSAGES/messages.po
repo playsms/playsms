@@ -31,6 +31,17 @@ msgstr "Ubah kuis SMS"
 msgid "Fail to add SMS quiz"
 msgstr "Gagal menambah kuis SMS"
 
+#, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "Gagal menambah kuis SMS"
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "Gagal mengubah kuis SMS"
+
 msgid "Fail to edit SMS quiz"
 msgstr "Gagal mengubah kuis SMS"
 
@@ -90,6 +101,9 @@ msgstr "Pengirim"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Pengguna"

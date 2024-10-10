@@ -60,6 +60,9 @@ msgstr "L'envoi depuis un fichier a été annulé"
 msgid "Unable to open uploaded CSV file"
 msgstr "Entrées valables trouvées dans le fichier CSV"
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr "Importer le fichier"
 

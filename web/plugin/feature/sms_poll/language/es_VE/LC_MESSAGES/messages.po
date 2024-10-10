@@ -54,16 +54,25 @@ msgstr "Editar opciones de la encuesta SMS"
 msgid "Fail to add SMS poll"
 msgstr "Fallo al eliminar la encuesta SMS"
 
+#, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "Fallo al eliminar la encuesta SMS"
+
 msgid "Fail to delete SMS poll choice"
+msgstr "Fallo al eliminar la encuesta SMS"
+
+#, fuzzy
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr "Fallo al eliminar la encuesta SMS"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
 msgstr "Fallo al eliminar la encuesta SMS"
 
 msgid "Grand total SMS"
 msgstr ""
 
 msgid "Grand total senders"
-msgstr ""
-
-msgid "Graph output"
 msgstr ""
 
 msgid "HTML output"
@@ -100,9 +109,6 @@ msgid "Reply message on out of vote option"
 msgstr ""
 
 msgid "Reply message on valid vote"
-msgstr ""
-
-msgid "Result graph"
 msgstr ""
 
 msgid "Result table"
@@ -174,6 +180,9 @@ msgid "Total one time vote SMS"
 msgstr ""
 
 msgid "Total valid SMS"
+msgstr ""
+
+msgid "Unknown error cannot find the data in database"
 msgstr ""
 
 msgid "User"

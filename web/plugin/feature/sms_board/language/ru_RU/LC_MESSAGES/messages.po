@@ -52,9 +52,6 @@ msgstr "JSON формат"
 msgid "Keyword"
 msgstr "Ключевое слово"
 
-msgid "MBOX output"
-msgstr "MBOX формат"
-
 msgid "Manage board"
 msgstr "Доски объявлений"
 
@@ -78,9 +75,6 @@ msgstr "RSS ATOM формат"
 
 msgid "Receiver"
 msgstr "Получатель"
-
-msgid "Row template"
-msgstr "Шаблон строки"
 
 msgid "SMS Board"
 msgstr "Доска объявлений"
@@ -117,6 +111,9 @@ msgstr "Сохранить"
 
 msgid "Sender"
 msgstr "Отправитель"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Пользователь"

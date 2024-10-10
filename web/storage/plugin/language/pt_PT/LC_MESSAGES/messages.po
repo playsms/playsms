@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Jonadabe <jonadabe@hotmail.com>\n"
 "Language-Team: \n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -57,8 +57,9 @@ msgstr ""
 msgid "API secret"
 msgstr "Secreto API"
 
+#, fuzzy
 msgid "API username"
-msgstr ""
+msgstr "Eliminar utilizador"
 
 msgid "Access Control List"
 msgstr "Lista de controlo de acesso"
@@ -89,6 +90,9 @@ msgstr "Conta admin ou administrador conectado no momento não pode ser banido"
 msgid "Account already exists"
 msgstr "A conta já existe"
 
+msgid "Account email is mandatory"
+msgstr ""
+
 msgid "Account has been added and password has been emailed"
 msgstr "A conta foi adicionada e palavra-passe enviada para o email"
 
@@ -107,11 +111,17 @@ msgstr "Foi removido o banir da conta"
 msgid "Account name is mandatory"
 msgstr "Nome da conta é obrigatória"
 
+msgid "Account name must be at least 1 character"
+msgstr ""
+
 msgid "Account registration is not available"
 msgstr "O registo da conta não está disponível"
 
 msgid "Account status"
 msgstr "Estado da Conta"
+
+msgid "Account username is mandatory"
+msgstr ""
 
 msgid "Account with this email already exists"
 msgstr "A conta com este email já existe"
@@ -120,7 +130,7 @@ msgid "Account with this mobile already exists"
 msgstr "A conta com este numero de telemóvel já existe"
 
 msgid "Action"
-msgstr "Acção"
+msgstr "Ação"
 
 msgid "Active language"
 msgstr "Ativar Idioma"
@@ -399,9 +409,6 @@ msgstr "Token de autenticação"
 msgid "Author"
 msgstr "Autor"
 
-msgid "Back"
-msgstr "Voltar"
-
 msgid "Ban"
 msgstr "Banir"
 
@@ -474,9 +481,6 @@ msgstr ""
 
 msgid "Check email sender"
 msgstr "Verifique o remetente do email"
-
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr "Selecione para ativar a Recepção de mensagens de envio do SMSSync app"
 
 msgid "Choice already exists"
 msgstr "A opção já existe"
@@ -664,7 +668,7 @@ msgstr ""
 "separador palavra-chave padrão com espaço"
 
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Eliminar"
 
 msgid "Delete ALL queues"
 msgstr "Eliminar todas as filas"
@@ -717,18 +721,14 @@ msgstr "DomÃ­nio"
 msgid "Download"
 msgstr ""
 
-msgid "Download SMSSync app for Android from"
-msgstr "Transferir SMSSync app para Android"
-
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Edit ACL"
 msgstr "Editar ACL"
 
-#, fuzzy
 msgid "Edit SMS autoreply"
-msgstr "Adicionar auto-resposta SMS"
+msgstr ""
 
 msgid "Edit SMS autoreply scenario"
 msgstr "Editar cenário de auto-resposta SMS"
@@ -796,9 +796,6 @@ msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
 msgid "Email"
 msgstr "Email"
 
-msgid "Email address is mandatory"
-msgstr "Endereço de e-mail é obrigatório"
-
 msgid "Email footer"
 msgstr "RodapÃ© de e-mail"
 
@@ -831,9 +828,6 @@ msgstr ""
 "Identificação do remetente padrão vazio permiti que os usuários definem a "
 "sua própria identificação do remetente"
 
-msgid "Enable SMS Sync"
-msgstr "Ativar SMS Sync"
-
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Ativar créditos Unicode SMS como SMS normais"
 
@@ -864,9 +858,8 @@ msgstr "Entradas do ficheiro CSV foram importados"
 msgid "Example"
 msgstr ""
 
-#, fuzzy
 msgid "Example of SMS custom URL"
-msgstr "URL do SMS personalizado"
+msgstr ""
 
 msgid "Exception"
 msgstr ""
@@ -885,7 +878,7 @@ msgid "Export %s records as CSV"
 msgstr ""
 
 msgid "FATAL ERROR"
-msgstr "Erro Fatal"
+msgstr "ERRO FATAL"
 
 msgid "Fail to add SMS autoreply"
 msgstr "Erro ao adicionar auto-resposta SMS"
@@ -943,10 +936,22 @@ msgstr "Erro ao adicionar novo destinatário"
 
 #, fuzzy
 msgid "Fail to add route"
-msgstr "Erro ao guardar a rota"
+msgstr "Erro ao carregar tema"
 
-msgid "Fail to connect to database"
+#, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "Erro ao carregar tema"
+
+#, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "Erro ao carregar tema"
+
+msgid "Fail to change SMS subscribe status"
 msgstr ""
+
+#, fuzzy
+msgid "Fail to connect to database"
+msgstr "Erro ao carregar o gateway"
 
 msgid "Fail to delete ACL"
 msgstr "Erro ao eliminar ACL"
@@ -966,6 +971,17 @@ msgstr "Erro ao eliminar o SMS personalizado"
 msgid "Fail to delete SMS poll choice"
 msgstr "Erro ao eliminar a opçao da votação SMS"
 
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr "Erro ao carregar tema"
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "Erro ao carregar o gateway"
+
 msgid "Fail to delete SMS schedule"
 msgstr "Erro ao eliminar o SMS programado"
 
@@ -983,6 +999,10 @@ msgstr "Erro ao remover grupo de caixa de entrada"
 
 msgid "Fail to delete member"
 msgstr "Erro ao remover membro"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "Erro ao carregar tema"
 
 msgid "Fail to delete rate"
 msgstr "Erro ao remover a taxa"
@@ -1044,14 +1064,15 @@ msgstr "Erro ao registar a conta"
 msgid "Fail to remove SMSC"
 msgstr "Erro ao remover SMSC"
 
-msgid "Fail to save SMS Sync configuration"
-msgstr "Erro ao guardar configuração de sincronização de SMS"
-
 msgid "Fail to save SMS command"
 msgstr "Erro ao guardar o comando SMS"
 
 msgid "Fail to save SMS custom"
 msgstr "Erro ao guardar o SMS personalizado"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
+msgstr "Erro ao carregar tema"
 
 msgid "Fail to save configuration"
 msgstr "Erro ao salvar as configurações"
@@ -1100,7 +1121,7 @@ msgstr "Funcionadas"
 
 #, fuzzy
 msgid "Feature messages"
-msgstr "Minhas mensagens das características"
+msgstr "Enviar mensagem"
 
 msgid "Features"
 msgstr "Características"
@@ -1136,11 +1157,10 @@ msgid "Format YYYY-MM-DD hh:mm"
 msgstr "Formato YYYY-MM-DD hh:mm"
 
 msgid "Forward"
-msgstr "Encaminhar"
+msgstr "Reencaminhar"
 
-#, fuzzy
 msgid "Forward all sandbox SMS to a URL"
-msgstr "Roteamento de todas as mensagens sandbox para todos os utilizadores "
+msgstr ""
 
 msgid "Forward message to email"
 msgstr "Reencaminhar mensagem para o email"
@@ -1170,9 +1190,8 @@ msgstr "Encontradas entradas válidas no arquivo enviado"
 msgid "From"
 msgstr "De"
 
-#, fuzzy
 msgid "From date/time"
-msgstr "Banido Data e Hora"
+msgstr ""
 
 msgid "Full name"
 msgstr "Nome Completo"
@@ -1184,7 +1203,7 @@ msgid "Gateway host"
 msgstr "Host do gateway"
 
 msgid "Gateway module configurations has been saved"
-msgstr "Configurações do módulo de gateway foram guardas"
+msgstr "Configurações do módulo de gateway foram guardadas"
 
 msgid "Gateway name"
 msgstr "Nome do gateway"
@@ -1213,9 +1232,6 @@ msgstr "SMS Total"
 
 msgid "Grand total senders"
 msgstr "Total de Remetentes"
-
-msgid "Graph output"
-msgstr "Saída Graph"
 
 msgid "Group"
 msgstr "Grupo"
@@ -1311,7 +1327,7 @@ msgstr "Importação de confirmação"
 
 #, fuzzy
 msgid "Inbox messages"
-msgstr "Minhas mensagens enviadas"
+msgstr "Enviar mensagem"
 
 msgid "Incoming SMS route changes has been saved"
 msgstr "Configurações de roteamento de sms recebidas foram guardadas  "
@@ -1330,9 +1346,6 @@ msgstr "Infobip é um provedor de SMS em massa"
 
 msgid "Infobip will push DLR and incoming SMS to above URL"
 msgstr "Infobip vai ler DLR e SMS de entrada para URL acima"
-
-msgid "Information"
-msgstr "Informações"
 
 msgid "Information page"
 msgstr "Informações da página"
@@ -1379,9 +1392,8 @@ msgstr "Palavra-passe de administrador Kannel"
 msgid "Kannel admin port"
 msgstr "Porta de administração Kannel"
 
-#, fuzzy
 msgid "Kannel dlr-mask option"
-msgstr "host de administração Kannel"
+msgstr ""
 
 msgid "Kannel specific"
 msgstr "Específico do Kannel"
@@ -1479,9 +1491,6 @@ msgstr "Sair"
 msgid "Lowest credit limit to trigger notification"
 msgstr "O limite mais baixo de crédito para ser notificado"
 
-msgid "MBOX output"
-msgstr "Saída MBOX"
-
 msgid "Mail server address"
 msgstr "Servidor de email"
 
@@ -1557,14 +1566,16 @@ msgstr "Gerir gammu"
 msgid "Manage gateway and SMSC"
 msgstr "Gerir gateway e SMSC"
 
+#, fuzzy
 msgid "Manage generic"
-msgstr ""
+msgstr "Gerir identificação de envio"
 
 msgid "Manage infobip"
 msgstr "Gerir infobip"
 
+#, fuzzy
 msgid "Manage jasmin"
-msgstr ""
+msgstr "Gerir Site"
 
 msgid "Manage kannel"
 msgstr "Gerir kannel"
@@ -1572,8 +1583,9 @@ msgstr "Gerir kannel"
 msgid "Manage nexmo"
 msgstr "Gerir nexmo"
 
+#, fuzzy
 msgid "Manage playnet"
-msgstr ""
+msgstr "Gerir conta"
 
 msgid "Manage plugin"
 msgstr "Gerir Plugin"
@@ -1596,17 +1608,15 @@ msgstr "Gerir Site"
 msgid "Manage smstools"
 msgstr "Gerir smstools"
 
+#, fuzzy
 msgid "Manage stoplist"
-msgstr ""
+msgstr "Gerir Site"
 
 msgid "Manage subscribe"
 msgstr "Gerir Subscrições"
 
 msgid "Manage subuser"
-msgstr "Gerir sub-utilizador"
-
-msgid "Manage sync"
-msgstr "Gerir Sync"
+msgstr "Gerir subutilizador"
 
 msgid "Manage template"
 msgstr "Gerir Tema"
@@ -1627,8 +1637,7 @@ msgid "Match with all approved sender ID"
 msgstr "Combine com todos ID dos remetentes  aprovados"
 
 msgid "Max. 16 numeric or 11 alphanumeric char. empty to disable"
-msgstr ""
-"Máx 16 caracteres numéricos ou 11 alfanuméricos. Deixe vazio pra desabilitar"
+msgstr "Máximo 16 números ou 11 letras. Deixe em branco para desabilitar"
 
 msgid "Max. 16 numeric or 11 alphanumeric characters"
 msgstr "Max. 16 numérico ou 11 caracteres alfanuméricos"
@@ -1652,11 +1661,14 @@ msgstr "Máximo de caracteres de utilizador tem que ser entre 4 a 100"
 msgid "Me only"
 msgstr "Somente para mim"
 
+msgid "Member"
+msgstr ""
+
 msgid "Member has been added"
 msgstr "Membro foi adicionado"
 
 msgid "Member has been deleted"
-msgstr "Membro foi removido"
+msgstr "O membro foi eliminado"
 
 msgid "Member join datetime"
 msgstr "Data de entrada do membro"
@@ -1668,14 +1680,14 @@ msgid "Member list for keyword"
 msgstr "Lista de membros por palavra-chave"
 
 msgid "Members"
-msgstr "Membros"
+msgstr "Ver membros"
 
 msgid "Message"
 msgstr "Mensagem"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Message %s has been delivered to queue"
-msgstr "Sua mensagem foi entregue para a fila"
+msgstr ""
 
 msgid "Message ID"
 msgstr "ID da Mensagem"
@@ -1738,10 +1750,10 @@ msgid "Mobile numbers have been deleted"
 msgstr ""
 
 msgid "Module sender ID"
-msgstr "Modulo Remetente ID"
+msgstr "Módulo ID Remetente"
 
 msgid "Module timezone"
-msgstr "Modulo Fuso Horário"
+msgstr "Módulo Fuso Horário"
 
 msgid "Monthly"
 msgstr "Mensal"
@@ -1775,7 +1787,7 @@ msgstr "Meu email para sms"
 
 #, fuzzy
 msgid "My inbox"
-msgstr "Todas as Caixas de entrada"
+msgstr "Grupo"
 
 msgid "My report"
 msgstr "Meu Relatorio"
@@ -1817,7 +1829,7 @@ msgid "No"
 msgstr "Não"
 
 msgid "No changes have been made"
-msgstr "Não foi efectuado qualquer alteração"
+msgstr "Nenhuma mudança efectuada"
 
 msgid "No changes made"
 msgstr "Não foi efectuado qualquer alteração"
@@ -1842,7 +1854,7 @@ msgid "None"
 msgstr "Nenhum"
 
 msgid "Notes"
-msgstr "Notas"
+msgstr "Observações"
 
 msgid "Number"
 msgstr "Número"
@@ -1907,7 +1919,7 @@ msgid "Pass these parameters to custom URL field"
 msgstr "Use esses parâmetros no campo de URL"
 
 msgid "Password"
-msgstr "Palavra-passr"
+msgstr "Palavra-passe"
 
 msgid "Password does not match"
 msgstr "Palavra-passe não corresponde"
@@ -1934,9 +1946,6 @@ msgid "Please remove all subusers from this user to delete"
 msgstr ""
 "Por favor remova todos os sub-utilizadores deste utilizador para poder apagar"
 
-msgid "Please select"
-msgstr "Por favor selecione"
-
 msgid "Please select CSV file"
 msgstr "Por favor selecione o ficheiro CSV"
 
@@ -1952,9 +1961,8 @@ msgstr "Por favor escreva a frase \"captcha\" corretamente"
 msgid "Please use alphanumeric only and make it short"
 msgstr "Por favor use alfanuméricos só"
 
-#, fuzzy
 msgid "Please use uppercase and make it short"
-msgstr "por favor, use letras maiúsculas"
+msgstr ""
 
 msgid "Post rules"
 msgstr "Regras Posteriores"
@@ -2091,7 +2099,7 @@ msgstr "Registar uma conta"
 
 #, fuzzy
 msgid "Register an account is disabled"
-msgstr "Registar uma conta"
+msgstr "Gerir conta"
 
 msgid "Registered"
 msgstr "Registado"
@@ -2165,18 +2173,21 @@ msgstr "Reiniciar Kannel"
 msgid "Restrict sender to regular members or catch-all members only"
 msgstr ""
 
-msgid "Result graph"
-msgstr "Resultado Gráfico"
-
 msgid "Result table"
 msgstr "Tabela de Resultados"
+
+#, fuzzy
+msgid "Return"
+msgstr "Voltar"
+
+msgid "Return as reply"
+msgstr ""
 
 msgid "Route SMS outgoing"
 msgstr "Rota de saída de SMS"
 
-#, fuzzy
 msgid "Route all sandbox SMS to one or more users"
-msgstr "Roteamento de todas as mensagens sandbox para todos os utilizadores "
+msgstr ""
 
 msgid "Route all sandbox SMS to users"
 msgstr "Roteamento de todas as mensagens sandbox para todos os utilizadores "
@@ -2209,9 +2220,6 @@ msgstr ""
 msgid "Routed SMSC"
 msgstr "Rotas SMSC"
 
-msgid "Row template"
-msgstr "Linha Modelo"
-
 msgid "Rules applied after incoming SMS processed"
 msgstr ""
 "Regras serão aplicadas depois de todas as mensagens recebidas serem "
@@ -2225,9 +2233,6 @@ msgstr "SMS"
 
 msgid "SMS Board"
 msgstr "Placa SMS"
-
-msgid "SMS Sync configuration has been saved"
-msgstr "Configuração de sincronização de SMS foi guardado"
 
 msgid "SMS autoreply has been deleted"
 msgstr "A auto-resposta SMS foi eliminada"
@@ -2253,9 +2258,8 @@ msgstr "O cenário de auto-resposta SMS foi alterado"
 msgid "SMS autoreply scenario parameter"
 msgstr "Parâmetro do cenário de auto-resposta SMS"
 
-#, fuzzy
 msgid "SMS autoreply scenario reply"
-msgstr "O cenário de auto-resposta SMS responde com"
+msgstr ""
 
 msgid "SMS board from"
 msgstr "Placa SMS de"
@@ -2269,9 +2273,8 @@ msgstr "A placa SMS foi guardada"
 msgid "SMS board keyword"
 msgstr "Palavra-chave da placa SMS"
 
-#, fuzzy
 msgid "SMS board reply message"
-msgstr "Placa SMS de"
+msgstr ""
 
 msgid "SMS board with all its messages has been deleted"
 msgstr "A placa SMS foi eliminada com todas as suas mensagens"
@@ -2306,13 +2309,12 @@ msgstr "O SMS personalizado foi eliminado"
 msgid "SMS custom has been saved"
 msgstr "SMS personalizado foi guardado"
 
-#, fuzzy
 msgid "SMS custom keywords"
-msgstr "Palavra-chave do SMS personalizado"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "SMS custom with keyword %s has been added"
-msgstr "O SMS personalizado foi adicionado"
+msgstr ""
 
 msgid "SMS footer"
 msgstr "Rodapé SMS"
@@ -2485,27 +2487,15 @@ msgstr "Programado"
 msgid "Scheduled message"
 msgstr "Mensagem programada"
 
-msgid "Search"
-msgstr "Procurar"
-
 #, fuzzy
 msgid "Search message"
-msgstr "Minhas mensagens das características"
-
-msgid "Secret key"
-msgstr "chave privada"
-
-msgid "Secret key is used in SMSSync app"
-msgstr "Chave privada usada em SMSSync app"
+msgstr "Enviar mensagem"
 
 msgid "Select"
 msgstr "Selecionar"
 
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr "Selecione Não se o fuso horário de recepção de SMS está em UTC"
-
-msgid "Select username"
-msgstr "Selecionar Nome de Utilizador"
 
 msgid "Select users"
 msgstr "Selecionar utilizadores"
@@ -2519,16 +2509,14 @@ msgstr "Contato selecionado foi eliminado"
 msgid "Selected contact moved to new group"
 msgstr "Contato selecionado foi movido para o novo grupo"
 
-#, fuzzy
 msgid "Selected feature messages has been deleted"
-msgstr "Mensagens enviadas selecionadas foram apagadas"
+msgstr ""
 
 msgid "Selected group has been deleted"
 msgstr "O grupo selecionado foi eliminado "
 
-#, fuzzy
 msgid "Selected inbox messages has been deleted"
-msgstr "Mensagens recebidas selecionadas foram apagadas"
+msgstr ""
 
 msgid "Selected members"
 msgstr "Membros selecionados"
@@ -2536,9 +2524,8 @@ msgstr "Membros selecionados"
 msgid "Selected message template has been deleted"
 msgstr "Modelo de mensagem selecionado foi eliminado"
 
-#, fuzzy
 msgid "Selected sent messages has been deleted"
-msgstr "Mensagens recebidas selecionadas foram apagadas"
+msgstr ""
 
 msgid "Selected transactions has been deleted"
 msgstr "Transações selecionadas foram apagadas"
@@ -2636,13 +2623,16 @@ msgstr "Enviado"
 
 #, fuzzy
 msgid "Sent messages"
-msgstr "Minhas mensagens enviadas"
+msgstr "Enviar mensagem"
 
 msgid "Separate by comma for multiple destinations"
 msgstr "Separar por vírgula os destinatários"
 
 msgid "Separate with comma for multiple items"
 msgstr "Separado por vírgula para múltiplos ítens"
+
+msgid "Server time"
+msgstr ""
 
 msgid "Service data"
 msgstr ""
@@ -2715,9 +2705,6 @@ msgstr "Sub-utilizadores"
 msgid "Supplied SMSC"
 msgstr "Fornecedor SMSC"
 
-msgid "Sync URL"
-msgstr ""
-
 msgid "System error has occured"
 msgstr "Ocorreu um erro de sistema"
 
@@ -2739,9 +2726,6 @@ msgstr "Temas"
 msgid "This field is not mandatory"
 msgstr ""
 
-msgid "This field is required"
-msgstr "Este campo é obrigatório"
-
 msgid "This is a test incoming SMS message"
 msgstr "Este é um teste de chegada de mensagem SMS"
 
@@ -2762,9 +2746,8 @@ msgstr "Título"
 msgid "To"
 msgstr "Para"
 
-#, fuzzy
 msgid "To date/time"
-msgstr "Banido Data e Hora"
+msgstr ""
 
 msgid "Total"
 msgstr ""
@@ -2799,9 +2782,8 @@ msgstr "URL do playSMS, deixe em branco para usar a URL base"
 msgid "URLs"
 msgstr "URLs"
 
-#, fuzzy
 msgid "Unable to add group"
-msgstr "Erro ao eliminar o grupo"
+msgstr ""
 
 msgid "Unable to ban account"
 msgstr "Não é possível banir a conta"
@@ -2827,7 +2809,7 @@ msgstr "Impossível fazer login"
 
 #, fuzzy
 msgid "Unable to open uploaded CSV file"
-msgstr "Encontradas entradas válidas no arquivo enviado"
+msgstr "Erro ao carregar o idioma"
 
 msgid "Unable to process subuser addition"
 msgstr "Não é possível processar o sub-utilizador"
@@ -2835,9 +2817,8 @@ msgstr "Não é possível processar o sub-utilizador"
 msgid "Unable to process user addition"
 msgstr "Não é possível processar o utilizador"
 
-#, fuzzy
 msgid "Unable to save gateway module configurations"
-msgstr "Configurações do módulo de gateway foram guardadas"
+msgstr ""
 
 msgid "Unable to unban account"
 msgstr "Não é possível remover ban da conta"
@@ -2857,8 +2838,21 @@ msgstr "Mensagem Unicode"
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "Unknown error has occurred"
 msgstr "Ocorreu um erro desconhecido"
+
+msgid "Unknown error no data found on database"
+msgstr ""
+
+msgid "Unknown error no keyword found"
+msgstr ""
+
+#, fuzzy
+msgid "Unknown error unable to delete upload session"
+msgstr "Incapaz de encontrar ficheiros composer"
 
 msgid "Unknown format reply"
 msgstr "Formato de resposta desconhecido"
@@ -2866,9 +2860,8 @@ msgstr "Formato de resposta desconhecido"
 msgid "Unlimited"
 msgstr "Ilimitado"
 
-#, fuzzy
 msgid "Update status"
-msgstr "Estado do Kannel"
+msgstr ""
 
 msgid "Upload file"
 msgstr "Enviar arquivo"
@@ -2926,7 +2919,7 @@ msgid "User preference"
 msgstr "Preferências de utilizador"
 
 msgid "Username"
-msgstr "Nome de Utilizador"
+msgstr "Nome de utilizador:"
 
 #, php-format
 msgid "Username %s with account ID %d has reached lowest credit limit of %s"
@@ -3045,10 +3038,10 @@ msgid "You have reached lowest credit limit of %s"
 msgstr ""
 
 msgid "You must fill all field"
-msgstr "Preencha todos os campos"
+msgstr "Você deve preencher todos os campos"
 
 msgid "You must fill all fields"
-msgstr "Você deve preencher todos os campos"
+msgstr "Preencha todos os campos"
 
 msgid "You must fill all mandatory fields"
 msgstr "Deve preencher todos os campos obrigatórios"
@@ -3075,7 +3068,7 @@ msgid "Your SMS has been delivered to queue"
 msgstr "Seu SMS foi enviado para a fila"
 
 msgid "Your callback URL is"
-msgstr "Sua URL de callback é"
+msgstr "Sua URL callback é"
 
 msgid "Your callback URL should be accessible from Infobip"
 msgstr "O seu URL de callback tem que ser acessível a partir de infobip"
@@ -3086,9 +3079,8 @@ msgstr ""
 msgid "Your callback URL should be accessible from Nexmo"
 msgstr "Sua URL callback deve estar acessível pelo Nexmo"
 
-#, fuzzy
 msgid "Your callback URL should be accessible from OpenVox"
-msgstr "Sua URL callback deve estar acessível pelo Nexmo"
+msgstr ""
 
 msgid "Your callback URL should be accessible from remote gateway"
 msgstr ""
@@ -3156,9 +3148,8 @@ msgstr "Criar uma conta para enviar SMS"
 msgid "destination"
 msgstr "destino"
 
-#, fuzzy
 msgid "destination number, message"
-msgstr "formato: número do destinatário, mensagem"
+msgstr ""
 
 msgid "destination number, message, username"
 msgstr "formato: número do destinatário, mensagem, utilizador"
@@ -3268,9 +3259,8 @@ msgstr "será substituído pela data/hora de chegada do SMS"
 msgid "will be replaced by SMS raw message"
 msgstr "será substituído pelo SMS puro"
 
-#, fuzzy
 msgid "will be replaced by actual receiver number"
-msgstr "será substituído pelo número do remetente"
+msgstr ""
 
 msgid "will be replaced by command keyword"
 msgstr "será substituído pela palavra-chave do comando"
@@ -3285,16 +3275,14 @@ msgstr "será substituído pela palavra-chave do personalizado"
 msgid "will be replaced by custom parameter passed to server from SMS"
 msgstr "será substituído pelo parâmetro passado pro servidor por SMS"
 
-#, fuzzy
 msgid "will be replaced by receiver number"
-msgstr "será substituído pelo número do remetente"
+msgstr ""
 
 msgid "will be replaced by sender number"
 msgstr "será substituído pelo número do remetente"
 
-#, fuzzy
 msgid "will be replaced by service name"
-msgstr "será substituído pelo número do remetente"
+msgstr ""
 
 msgid "will be replaced with the name listed in phonebook"
 msgstr "Será substituído com o nome que consta na agenda"
@@ -3304,3 +3292,18 @@ msgstr "Será substituído com o número de telemóvel que consta na agenda"
 
 msgid "yes"
 msgstr "sim"
+
+#~ msgid "Back"
+#~ msgstr "Voltar"
+
+#~ msgid "Information"
+#~ msgstr "Informação"
+
+#~ msgid "Please select"
+#~ msgstr "Por favor selecione"
+
+#~ msgid "Search"
+#~ msgstr "Procurar"
+
+#~ msgid "This field is required"
+#~ msgstr "Este campo é obrigatório"

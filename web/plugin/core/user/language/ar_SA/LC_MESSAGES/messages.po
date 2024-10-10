@@ -32,6 +32,10 @@ msgstr "مدير الحساب أو مسجل دخول حاليًا لا يمكن 
 msgid "Account already exists"
 msgstr "الحساب موجود مسبقًا"
 
+#, fuzzy
+msgid "Account email is mandatory"
+msgstr "اسم الحساب لايمكن أن يكون فارغ"
+
 msgid "Account has been added and password has been emailed"
 msgstr "تم إنشاء الحساب وإرسال كلمة المرور"
 
@@ -50,11 +54,19 @@ msgstr "تم إلغاء حظر الحساب"
 msgid "Account name is mandatory"
 msgstr "اسم الحساب لايمكن أن يكون فارغ"
 
+#, fuzzy
+msgid "Account name must be at least 1 character"
+msgstr "يجب أن تكون كلمة المرور 4 أحرف على الأقل"
+
 msgid "Account registration is not available"
 msgstr "إنشاء حساب جديد غير متاح"
 
 msgid "Account status"
 msgstr "حالة الحساب "
+
+#, fuzzy
+msgid "Account username is mandatory"
+msgstr "اسم الحساب لايمكن أن يكون فارغ"
 
 msgid "Account with this email already exists"
 msgstr "يوجد حساب بنفس البريد الالكتروني"
@@ -154,9 +166,6 @@ msgstr "مثال: +0200 لتوقيت القدس المحتلة/ فلسطين"
 
 msgid "Email"
 msgstr "البريد الالكتروني"
-
-msgid "Email address is mandatory"
-msgstr "عنوان البريد الالكتروني أساسي"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "تمكين احتساب رسائل يونيكود كرسائل عادية"

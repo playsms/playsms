@@ -121,6 +121,9 @@ msgstr "مجموعة الوارد"
 msgid "My report"
 msgstr "تقاريري"
 
+msgid "Parent"
+msgstr ""
+
 msgid "Pending"
 msgstr "قيد الإرسال"
 
@@ -179,6 +182,9 @@ msgstr "تم الإرسال"
 #, fuzzy
 msgid "Sent messages"
 msgstr "رسائلي المرسلة"
+
+msgid "Server time"
+msgstr ""
 
 msgid "Status"
 msgstr "الحالة"

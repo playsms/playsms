@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 17:59+0700\n"
+"POT-Creation-Date: 2012-10-11 22:14+0700\n"
 "Language: en_US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -79,6 +79,9 @@ msgstr ""
 msgid "Account already exists"
 msgstr ""
 
+msgid "Account email is mandatory"
+msgstr ""
+
 msgid "Account has been added and password has been emailed"
 msgstr ""
 
@@ -97,10 +100,16 @@ msgstr ""
 msgid "Account name is mandatory"
 msgstr ""
 
+msgid "Account name must be at least 1 character"
+msgstr ""
+
 msgid "Account registration is not available"
 msgstr ""
 
 msgid "Account status"
+msgstr ""
+
+msgid "Account username is mandatory"
 msgstr ""
 
 msgid "Account with this email already exists"
@@ -458,9 +467,6 @@ msgstr ""
 msgid "Check email sender"
 msgstr ""
 
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr ""
-
 msgid "Choice already exists"
 msgstr ""
 
@@ -692,9 +698,6 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-msgid "Download SMSSync app for Android from"
-msgstr ""
-
 msgid "Edit"
 msgstr ""
 
@@ -770,9 +773,6 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-msgid "Email address is mandatory"
-msgstr ""
-
 msgid "Email footer"
 msgstr ""
 
@@ -801,9 +801,6 @@ msgid "Empty callback URL to set default"
 msgstr ""
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
-msgstr ""
-
-msgid "Enable SMS Sync"
 msgstr ""
 
 msgid "Enable credit unicode SMS as normal SMS"
@@ -915,6 +912,15 @@ msgstr ""
 msgid "Fail to add route"
 msgstr ""
 
+msgid "Fail to change SMS poll status"
+msgstr ""
+
+msgid "Fail to change SMS quiz status"
+msgstr ""
+
+msgid "Fail to change SMS subscribe status"
+msgstr ""
+
 msgid "Fail to connect to database"
 msgstr ""
 
@@ -936,6 +942,15 @@ msgstr ""
 msgid "Fail to delete SMS poll choice"
 msgstr ""
 
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr ""
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+msgid "Fail to delete SMS quiz answer messages"
+msgstr ""
+
 msgid "Fail to delete SMS schedule"
 msgstr ""
 
@@ -952,6 +967,9 @@ msgid "Fail to delete group inbox"
 msgstr ""
 
 msgid "Fail to delete member"
+msgstr ""
+
+msgid "Fail to delete message"
 msgstr ""
 
 msgid "Fail to delete rate"
@@ -1014,13 +1032,13 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
-msgid "Fail to save SMS Sync configuration"
-msgstr ""
-
 msgid "Fail to save SMS command"
 msgstr ""
 
 msgid "Fail to save SMS custom"
+msgstr ""
+
+msgid "Fail to save SMS poll"
 msgstr ""
 
 msgid "Fail to save configuration"
@@ -1178,9 +1196,6 @@ msgid "Grand total SMS"
 msgstr ""
 
 msgid "Grand total senders"
-msgstr ""
-
-msgid "Graph output"
 msgstr ""
 
 msgid "Group"
@@ -1438,9 +1453,6 @@ msgstr ""
 msgid "Lowest credit limit to trigger notification"
 msgstr ""
 
-msgid "MBOX output"
-msgstr ""
-
 msgid "Mail server address"
 msgstr ""
 
@@ -1564,9 +1576,6 @@ msgstr ""
 msgid "Manage subuser"
 msgstr ""
 
-msgid "Manage sync"
-msgstr ""
-
 msgid "Manage template"
 msgstr ""
 
@@ -1608,6 +1617,9 @@ msgid "Maximum username length must be a number between 4 to 100"
 msgstr ""
 
 msgid "Me only"
+msgstr ""
+
+msgid "Member"
 msgstr ""
 
 msgid "Member has been added"
@@ -2106,10 +2118,13 @@ msgstr ""
 msgid "Restrict sender to regular members or catch-all members only"
 msgstr ""
 
-msgid "Result graph"
+msgid "Result table"
 msgstr ""
 
-msgid "Result table"
+msgid "Return"
+msgstr ""
+
+msgid "Return as reply"
 msgstr ""
 
 msgid "Route SMS outgoing"
@@ -2145,9 +2160,6 @@ msgstr ""
 msgid "Routed SMSC"
 msgstr ""
 
-msgid "Row template"
-msgstr ""
-
 msgid "Rules applied after incoming SMS processed"
 msgstr ""
 
@@ -2158,9 +2170,6 @@ msgid "SMS"
 msgstr ""
 
 msgid "SMS Board"
-msgstr ""
-
-msgid "SMS Sync configuration has been saved"
 msgstr ""
 
 msgid "SMS autoreply has been deleted"
@@ -2422,19 +2431,10 @@ msgstr ""
 msgid "Search message"
 msgstr ""
 
-msgid "Secret key"
-msgstr ""
-
-msgid "Secret key is used in SMSSync app"
-msgstr ""
-
 msgid "Select"
 msgstr ""
 
 msgid "Select no if the incoming SMS time is in UTC"
-msgstr ""
-
-msgid "Select username"
 msgstr ""
 
 msgid "Select users"
@@ -2569,6 +2569,9 @@ msgstr ""
 msgid "Separate with comma for multiple items"
 msgstr ""
 
+msgid "Server time"
+msgstr ""
+
 msgid "Service data"
 msgstr ""
 
@@ -2634,9 +2637,6 @@ msgid "Subusers"
 msgstr ""
 
 msgid "Supplied SMSC"
-msgstr ""
-
-msgid "Sync URL"
 msgstr ""
 
 msgid "System error has occured"
@@ -2771,7 +2771,19 @@ msgstr ""
 msgid "Unknown error"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "Unknown error has occurred"
+msgstr ""
+
+msgid "Unknown error no data found on database"
+msgstr ""
+
+msgid "Unknown error no keyword found"
+msgstr ""
+
+msgid "Unknown error unable to delete upload session"
 msgstr ""
 
 msgid "Unknown format reply"

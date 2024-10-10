@@ -52,9 +52,6 @@ msgstr "JSON output"
 msgid "Keyword"
 msgstr "Nøgleord"
 
-msgid "MBOX output"
-msgstr "MBOX output"
-
 msgid "Manage board"
 msgstr "Håndter forum"
 
@@ -78,9 +75,6 @@ msgstr "RSS ATOM output"
 
 msgid "Receiver"
 msgstr "Modtager"
-
-msgid "Row template"
-msgstr "Række skabelon"
 
 msgid "SMS Board"
 msgstr "SMS forum"
@@ -117,6 +111,9 @@ msgstr "Gem"
 
 msgid "Sender"
 msgstr "Afsender"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Bruger"

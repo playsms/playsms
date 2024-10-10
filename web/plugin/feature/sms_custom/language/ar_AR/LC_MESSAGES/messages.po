@@ -38,10 +38,19 @@ msgstr ""
 msgid "Manage custom"
 msgstr ""
 
+msgid "No"
+msgstr ""
+
 msgid "Pass these parameters to custom URL field"
 msgstr ""
 
 msgid "Receiver number"
+msgstr ""
+
+msgid "Return"
+msgstr ""
+
+msgid "Return as reply"
 msgstr ""
 
 msgid "SMS custom URL"
@@ -72,7 +81,13 @@ msgstr ""
 msgid "Service name"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
+msgstr ""
+
+msgid "Yes"
 msgstr ""
 
 msgid "keyword"

@@ -49,11 +49,5 @@ msgstr "حفظ"
 msgid "Select"
 msgstr "اختيار"
 
-msgid "User"
-msgstr "المستخدم"
-
-msgid "Username"
-msgstr "اسم المستخدم"
-
 msgid "You must fill all fields"
 msgstr "يجب ملء كافة الحقول"

@@ -45,9 +45,6 @@ msgstr ""
 msgid "Keyword"
 msgstr "Clave"
 
-msgid "MBOX output"
-msgstr ""
-
 msgid "Manage board"
 msgstr "Administrar pizarra"
 
@@ -71,10 +68,6 @@ msgstr ""
 
 msgid "Receiver"
 msgstr ""
-
-#, fuzzy
-msgid "Row template"
-msgstr "Plantilla"
 
 #, fuzzy
 msgid "SMS Board"
@@ -111,6 +104,9 @@ msgstr "Guardar"
 
 msgid "Sender"
 msgstr "Emisor"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Usuario"

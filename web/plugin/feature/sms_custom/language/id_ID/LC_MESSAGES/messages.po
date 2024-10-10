@@ -47,11 +47,21 @@ msgstr "Membuat kembalian menjadi balasan"
 msgid "Manage custom"
 msgstr "Pengaturan SMS kustom"
 
+msgid "No"
+msgstr ""
+
 msgid "Pass these parameters to custom URL field"
 msgstr "Masukkan parameter-parameter ini ke kolom penyesuaian URL"
 
 msgid "Receiver number"
 msgstr ""
+
+msgid "Return"
+msgstr ""
+
+#, fuzzy
+msgid "Return as reply"
+msgstr "Membuat kembalian menjadi balasan"
 
 msgid "SMS custom URL"
 msgstr "URL SMS kustom"
@@ -82,8 +92,14 @@ msgstr ""
 msgid "Service name"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "Pengguna"
+
+msgid "Yes"
+msgstr ""
 
 msgid "keyword"
 msgstr "kata kunci"

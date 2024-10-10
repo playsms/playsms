@@ -42,11 +42,5 @@ msgstr "Simpan"
 msgid "Select"
 msgstr ""
 
-msgid "Select username"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
 msgid "You must fill all fields"
 msgstr "Anda harus mengisi semua kolom"

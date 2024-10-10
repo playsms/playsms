@@ -23,6 +23,15 @@ msgstr ""
 msgid "Fail to add SMS quiz"
 msgstr ""
 
+msgid "Fail to change SMS quiz status"
+msgstr ""
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+msgid "Fail to delete SMS quiz answer messages"
+msgstr ""
+
 msgid "Fail to edit SMS quiz"
 msgstr ""
 
@@ -81,6 +90,9 @@ msgid "Sender"
 msgstr ""
 
 msgid "Status"
+msgstr ""
+
+msgid "Unknown error cannot find the data in database"
 msgstr ""
 
 msgid "User"

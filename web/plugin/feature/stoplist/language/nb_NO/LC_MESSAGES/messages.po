@@ -34,11 +34,5 @@ msgstr "Lagre"
 msgid "Select"
 msgstr "Velg"
 
-msgid "User"
-msgstr "Bruker"
-
-msgid "Username"
-msgstr "Brukernavn"
-
 msgid "You must fill all fields"
 msgstr "Du m utfylle alle felDu m utfylle alle felt"

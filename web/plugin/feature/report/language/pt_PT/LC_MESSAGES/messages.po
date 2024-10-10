@@ -119,6 +119,9 @@ msgstr "Todas as Caixas de entrada"
 msgid "My report"
 msgstr "Meu Relatorio"
 
+msgid "Parent"
+msgstr ""
+
 msgid "Pending"
 msgstr "Pendente"
 
@@ -177,6 +180,9 @@ msgstr "Enviado"
 #, fuzzy
 msgid "Sent messages"
 msgstr "Minhas mensagens enviadas"
+
+msgid "Server time"
+msgstr ""
 
 msgid "Status"
 msgstr "Estado"

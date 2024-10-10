@@ -115,6 +115,9 @@ msgstr "Alle innbokser"
 msgid "My report"
 msgstr "Min rapport"
 
+msgid "Parent"
+msgstr ""
+
 msgid "Pending"
 msgstr "Avventer"
 
@@ -173,6 +176,9 @@ msgstr "Sendt"
 #, fuzzy
 msgid "Sent messages"
 msgstr "Mine sendte meldinger"
+
+msgid "Server time"
+msgstr ""
 
 msgid "Status"
 msgstr "Status"

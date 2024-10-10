@@ -52,6 +52,15 @@ msgstr ""
 msgid "Fail to add message"
 msgstr ""
 
+msgid "Fail to change SMS subscribe status"
+msgstr ""
+
+msgid "Fail to delete member"
+msgstr ""
+
+msgid "Fail to delete message"
+msgstr ""
+
 msgid "Fail to edit SMS subscribe"
 msgstr ""
 
@@ -68,6 +77,9 @@ msgid "Last update"
 msgstr ""
 
 msgid "Manage subscribe"
+msgstr ""
+
+msgid "Member"
 msgstr ""
 
 msgid "Member has been deleted"
@@ -167,6 +179,9 @@ msgid "Subscribe duration"
 msgstr ""
 
 msgid "Subscription expired reply"
+msgstr ""
+
+msgid "Unknown error cannot find the data in database"
 msgstr ""
 
 msgid "Unknown format reply"

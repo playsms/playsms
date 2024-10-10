@@ -4,6 +4,13 @@ msgstr "Legg til"
 msgid "Administrator"
 msgstr "Administrator"
 
+#, fuzzy
+msgid "Administrators"
+msgstr "Administrator"
+
+msgid "Back"
+msgstr ""
+
 msgid "Ban"
 msgstr "Bannlys"
 
@@ -45,6 +52,9 @@ msgstr "Idle"
 
 msgid "Import"
 msgstr "Importer"
+
+msgid "Information"
+msgstr ""
 
 msgid "Logged in as"
 msgstr "Logget inn som"
@@ -91,6 +101,9 @@ msgstr "Avlogget"
 msgid "Online"
 msgstr "Plogget"
 
+msgid "Please select"
+msgstr ""
+
 msgid "Preferences"
 msgstr "Preferanse"
 
@@ -106,11 +119,30 @@ msgstr "Rapporter"
 msgid "Resend"
 msgstr "Send p nytt"
 
+msgid "Search"
+msgstr ""
+
+#, fuzzy
+msgid "Select users"
+msgstr "Slett bruker"
+
 msgid "Settings"
 msgstr "Innstillinger"
 
+msgid "Subuser"
+msgstr ""
+
+msgid "Subusers"
+msgstr ""
+
+msgid "This field is required"
+msgstr ""
+
 msgid "Unban"
 msgstr "Fjern bannlysning"
+
+msgid "User"
+msgstr ""
 
 msgid "User configuration"
 msgstr "Brukerkonfigurasjon"
@@ -118,11 +150,20 @@ msgstr "Brukerkonfigurasjon"
 msgid "User preference"
 msgstr "Brukerpreferanser"
 
+msgid "Users"
+msgstr ""
+
 msgid "View"
 msgstr "Se"
 
 msgid "Your credit"
 msgstr "Din kreditt"
 
+msgid "no"
+msgstr ""
+
 msgid "return"
 msgstr "tilbake"
+
+msgid "yes"
+msgstr ""

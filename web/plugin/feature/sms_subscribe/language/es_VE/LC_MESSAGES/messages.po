@@ -64,6 +64,18 @@ msgid "Fail to add message"
 msgstr "Añadir un mensaje"
 
 #, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "Añadir suscripción SMS"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "No es posible enviar el SMS"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "No es posible enviar el SMS"
+
+#, fuzzy
 msgid "Fail to edit SMS subscribe"
 msgstr "Editar subscripción de SMS"
 
@@ -82,6 +94,10 @@ msgstr ""
 
 msgid "Manage subscribe"
 msgstr "Administrar suscripciones"
+
+#, fuzzy
+msgid "Member"
+msgstr "Ver miembros"
 
 msgid "Member has been deleted"
 msgstr "El miembro ha sido eliminado"
@@ -188,6 +204,9 @@ msgstr "Respuesta de subscripción de SMS"
 #, fuzzy
 msgid "Subscription expired reply"
 msgstr "Respuesta de subscripción de SMS"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 #, fuzzy
 msgid "Unknown format reply"

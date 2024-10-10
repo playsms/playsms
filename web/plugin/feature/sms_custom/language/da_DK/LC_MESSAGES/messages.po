@@ -52,11 +52,21 @@ msgstr "Gør returværdi til svar"
 msgid "Manage custom"
 msgstr "Håndter tilpasset"
 
+msgid "No"
+msgstr ""
+
 msgid "Pass these parameters to custom URL field"
 msgstr "Videresend disse parametre til tilpasset URL felt"
 
 msgid "Receiver number"
 msgstr "Modtagernummer"
+
+msgid "Return"
+msgstr ""
+
+#, fuzzy
+msgid "Return as reply"
+msgstr "Gør returværdi til svar"
 
 msgid "SMS custom URL"
 msgstr "Tilpasset SMS URL"
@@ -86,8 +96,14 @@ msgstr "Servicedata"
 msgid "Service name"
 msgstr "Servicenavn"
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "Bruger"
+
+msgid "Yes"
+msgstr ""
 
 msgid "keyword"
 msgstr "nøgleord"

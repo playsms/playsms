@@ -60,17 +60,26 @@ msgstr "تحرير الخيارات"
 msgid "Fail to add SMS poll"
 msgstr "فشل إضافة استفتاء"
 
+#, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "فشل إضافة استفتاء"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "فشل الحذف"
+
+#, fuzzy
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr "فشل الحذف"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
+msgstr "فشل إضافة استفتاء"
 
 msgid "Grand total SMS"
 msgstr "مجموع الرسائل"
 
 msgid "Grand total senders"
 msgstr "مجموع المرسلين"
-
-msgid "Graph output"
-msgstr "رسوم بيانية"
 
 msgid "HTML output"
 msgstr "مخرجات HTML"
@@ -107,9 +116,6 @@ msgstr "رسالة الرد عند عدم وجود صلاحية للتصويت"
 
 msgid "Reply message on valid vote"
 msgstr "رسالة الرد للأصوات الصحيحة"
-
-msgid "Result graph"
-msgstr "الرسم البياني للنتيجة"
 
 msgid "Result table"
 msgstr "جدول النتيجة"
@@ -179,6 +185,9 @@ msgstr "العدد الكلي للأصوات الفردية"
 
 msgid "Total valid SMS"
 msgstr "مجموع الرسائل الصحيحة"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "المستخدم"

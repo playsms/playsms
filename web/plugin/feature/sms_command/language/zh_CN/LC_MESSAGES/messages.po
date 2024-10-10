@@ -68,6 +68,9 @@ msgstr ""
 msgid "Save"
 msgstr "保存"
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "用户"
 

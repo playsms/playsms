@@ -37,9 +37,6 @@ msgstr ""
 msgid "Keyword"
 msgstr ""
 
-msgid "MBOX output"
-msgstr ""
-
 msgid "Manage board"
 msgstr ""
 
@@ -62,9 +59,6 @@ msgid "RSS ATOM output"
 msgstr ""
 
 msgid "Receiver"
-msgstr ""
-
-msgid "Row template"
 msgstr ""
 
 msgid "SMS Board"
@@ -98,6 +92,9 @@ msgid "Save"
 msgstr ""
 
 msgid "Sender"
+msgstr ""
+
+msgid "Unknown error cannot find the data in database"
 msgstr ""
 
 msgid "User"

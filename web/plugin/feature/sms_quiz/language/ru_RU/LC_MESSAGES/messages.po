@@ -38,6 +38,17 @@ msgstr "Изменить викторину"
 msgid "Fail to add SMS quiz"
 msgstr "Не удалось добавить викторину"
 
+#, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "Не удалось добавить викторину"
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "Не удалось изменить викторину"
+
 msgid "Fail to edit SMS quiz"
 msgstr "Не удалось изменить викторину"
 
@@ -98,6 +109,9 @@ msgstr "Отправитель"
 
 msgid "Status"
 msgstr "Состояние"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Пользователь"

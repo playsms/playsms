@@ -79,6 +79,9 @@ msgstr ""
 msgid "Account already exists"
 msgstr ""
 
+msgid "Account email is mandatory"
+msgstr ""
+
 msgid "Account has been added and password has been emailed"
 msgstr ""
 
@@ -97,10 +100,16 @@ msgstr ""
 msgid "Account name is mandatory"
 msgstr ""
 
+msgid "Account name must be at least 1 character"
+msgstr ""
+
 msgid "Account registration is not available"
 msgstr ""
 
 msgid "Account status"
+msgstr ""
+
+msgid "Account username is mandatory"
 msgstr ""
 
 msgid "Account with this email already exists"
@@ -229,9 +238,8 @@ msgstr ""
 msgid "All mandatory fields must be filled"
 msgstr ""
 
-#, fuzzy
 msgid "All queues have been removed"
-msgstr "Queue wurde gelscht"
+msgstr ""
 
 msgid "All reports"
 msgstr ""
@@ -292,9 +300,8 @@ msgstr ""
 msgid "Are you sure you want to delete ACL ?"
 msgstr ""
 
-#, fuzzy
 msgid "Are you sure you want to delete ALL queues"
-msgstr "Mchten Sie wirklich die Warteschlange lschen?"
+msgstr ""
 
 msgid "Are you sure you want to delete SMS autoreply ?"
 msgstr ""
@@ -458,9 +465,6 @@ msgid "Charge"
 msgstr ""
 
 msgid "Check email sender"
-msgstr ""
-
-msgid "Check to enable receiving push messages from SMSSync app"
 msgstr ""
 
 msgid "Choice already exists"
@@ -694,9 +698,6 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-msgid "Download SMSSync app for Android from"
-msgstr ""
-
 msgid "Edit"
 msgstr ""
 
@@ -772,9 +773,6 @@ msgstr ""
 msgid "Email"
 msgstr "Email"
 
-msgid "Email address is mandatory"
-msgstr ""
-
 msgid "Email footer"
 msgstr ""
 
@@ -803,9 +801,6 @@ msgid "Empty callback URL to set default"
 msgstr ""
 
 msgid "Empty default sender ID to allow users setting their own sender ID"
-msgstr ""
-
-msgid "Enable SMS Sync"
 msgstr ""
 
 msgid "Enable credit unicode SMS as normal SMS"
@@ -917,6 +912,15 @@ msgstr ""
 msgid "Fail to add route"
 msgstr ""
 
+msgid "Fail to change SMS poll status"
+msgstr ""
+
+msgid "Fail to change SMS quiz status"
+msgstr ""
+
+msgid "Fail to change SMS subscribe status"
+msgstr ""
+
 msgid "Fail to connect to database"
 msgstr ""
 
@@ -938,6 +942,15 @@ msgstr ""
 msgid "Fail to delete SMS poll choice"
 msgstr ""
 
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr ""
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+msgid "Fail to delete SMS quiz answer messages"
+msgstr ""
+
 msgid "Fail to delete SMS schedule"
 msgstr ""
 
@@ -955,6 +968,9 @@ msgstr "Fehler beim Löschen der Gruppen-Inbox"
 
 msgid "Fail to delete member"
 msgstr "Fehler beim Löschen des Mitglieds"
+
+msgid "Fail to delete message"
+msgstr ""
 
 msgid "Fail to delete rate"
 msgstr ""
@@ -1016,13 +1032,13 @@ msgstr ""
 msgid "Fail to remove SMSC"
 msgstr ""
 
-msgid "Fail to save SMS Sync configuration"
-msgstr ""
-
 msgid "Fail to save SMS command"
 msgstr ""
 
 msgid "Fail to save SMS custom"
+msgstr ""
+
+msgid "Fail to save SMS poll"
 msgstr ""
 
 msgid "Fail to save configuration"
@@ -1180,9 +1196,6 @@ msgid "Grand total SMS"
 msgstr ""
 
 msgid "Grand total senders"
-msgstr ""
-
-msgid "Graph output"
 msgstr ""
 
 msgid "Group"
@@ -1440,9 +1453,6 @@ msgstr ""
 msgid "Lowest credit limit to trigger notification"
 msgstr ""
 
-msgid "MBOX output"
-msgstr ""
-
 msgid "Mail server address"
 msgstr ""
 
@@ -1566,9 +1576,6 @@ msgstr ""
 msgid "Manage subuser"
 msgstr ""
 
-msgid "Manage sync"
-msgstr ""
-
 msgid "Manage template"
 msgstr ""
 
@@ -1611,6 +1618,9 @@ msgstr ""
 
 msgid "Me only"
 msgstr "Nur ich"
+
+msgid "Member"
+msgstr ""
 
 msgid "Member has been added"
 msgstr "Mitglied wurde hinzugefügt"
@@ -1784,9 +1794,8 @@ msgstr ""
 msgid "No changes made!"
 msgstr ""
 
-#, fuzzy
 msgid "No group"
-msgstr "Gruppe"
+msgstr ""
 
 msgid "No route has been saved"
 msgstr ""
@@ -1904,13 +1913,11 @@ msgstr ""
 msgid "Please type the displayed captcha phrase correctly"
 msgstr ""
 
-#, fuzzy
 msgid "Please use alphanumeric only and make it short"
-msgstr "Bitte in Großbuchstaben und kurz"
+msgstr ""
 
-#, fuzzy
 msgid "Please use uppercase and make it short"
-msgstr "Bitte in Großbuchstaben und kurz"
+msgstr ""
 
 msgid "Post rules"
 msgstr ""
@@ -2115,10 +2122,13 @@ msgstr ""
 msgid "Restrict sender to regular members or catch-all members only"
 msgstr "Sender auf gültige Mitglieder oder Catch-All-Mitglieder beschränken"
 
-msgid "Result graph"
+msgid "Result table"
 msgstr ""
 
-msgid "Result table"
+msgid "Return"
+msgstr ""
+
+msgid "Return as reply"
 msgstr ""
 
 msgid "Route SMS outgoing"
@@ -2154,9 +2164,6 @@ msgstr ""
 msgid "Routed SMSC"
 msgstr ""
 
-msgid "Row template"
-msgstr ""
-
 msgid "Rules applied after incoming SMS processed"
 msgstr ""
 
@@ -2167,9 +2174,6 @@ msgid "SMS"
 msgstr ""
 
 msgid "SMS Board"
-msgstr ""
-
-msgid "SMS Sync configuration has been saved"
 msgstr ""
 
 msgid "SMS autoreply has been deleted"
@@ -2431,19 +2435,10 @@ msgstr ""
 msgid "Search message"
 msgstr ""
 
-msgid "Secret key"
-msgstr ""
-
-msgid "Secret key is used in SMSSync app"
-msgstr ""
-
 msgid "Select"
 msgstr "Auswählen"
 
 msgid "Select no if the incoming SMS time is in UTC"
-msgstr ""
-
-msgid "Select username"
 msgstr ""
 
 msgid "Select users"
@@ -2578,6 +2573,9 @@ msgstr ""
 msgid "Separate with comma for multiple items"
 msgstr "Mit Komma trennen für mehrere Objekte"
 
+msgid "Server time"
+msgstr ""
+
 msgid "Service data"
 msgstr ""
 
@@ -2643,9 +2641,6 @@ msgid "Subusers"
 msgstr ""
 
 msgid "Supplied SMSC"
-msgstr ""
-
-msgid "Sync URL"
 msgstr ""
 
 msgid "System error has occured"
@@ -2727,9 +2722,8 @@ msgstr ""
 msgid "URLs"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to add group"
-msgstr "Fehler beim Löschen der Gruppe"
+msgstr ""
 
 msgid "Unable to ban account"
 msgstr ""
@@ -2751,9 +2745,8 @@ msgstr ""
 msgid "Unable to login"
 msgstr ""
 
-#, fuzzy
 msgid "Unable to open uploaded CSV file"
-msgstr "Gültige Einträge in hochgeladener Datei gefunden"
+msgstr ""
 
 msgid "Unable to process subuser addition"
 msgstr ""
@@ -2782,7 +2775,19 @@ msgstr ""
 msgid "Unknown error"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "Unknown error has occurred"
+msgstr ""
+
+msgid "Unknown error no data found on database"
+msgstr ""
+
+msgid "Unknown error no keyword found"
+msgstr ""
+
+msgid "Unknown error unable to delete upload session"
 msgstr ""
 
 msgid "Unknown format reply"
@@ -3074,13 +3079,11 @@ msgstr ""
 msgid "destination"
 msgstr ""
 
-#, fuzzy
 msgid "destination number, message"
-msgstr "Format: Zielrufnummer, Nachricht"
+msgstr ""
 
-#, fuzzy
 msgid "destination number, message, username"
-msgstr "Format: Zielrufnummer, Nachricht, Benutzername"
+msgstr ""
 
 msgid "domain"
 msgstr ""

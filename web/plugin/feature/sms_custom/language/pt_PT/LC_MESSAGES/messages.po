@@ -54,11 +54,21 @@ msgstr "Enviar retorno como resposta"
 msgid "Manage custom"
 msgstr "Gerir SMS personalizado"
 
+msgid "No"
+msgstr ""
+
 msgid "Pass these parameters to custom URL field"
 msgstr "Use esses parâmetros no campo de URL"
 
 msgid "Receiver number"
 msgstr ""
+
+msgid "Return"
+msgstr ""
+
+#, fuzzy
+msgid "Return as reply"
+msgstr "Enviar retorno como resposta"
 
 msgid "SMS custom URL"
 msgstr "URL do SMS personalizado"
@@ -89,8 +99,14 @@ msgstr ""
 msgid "Service name"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "Utilizador"
+
+msgid "Yes"
+msgstr ""
 
 msgid "keyword"
 msgstr "palavra-chave"

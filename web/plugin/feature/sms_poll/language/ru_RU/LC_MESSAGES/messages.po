@@ -58,17 +58,26 @@ msgstr "Изменить варианты"
 msgid "Fail to add SMS poll"
 msgstr "Не удалось добавить голосование"
 
+#, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "Не удалось добавить голосование"
+
 msgid "Fail to delete SMS poll choice"
 msgstr "Не удалось удалить вариант"
+
+#, fuzzy
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr "Не удалось удалить вариант"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
+msgstr "Не удалось добавить голосование"
 
 msgid "Grand total SMS"
 msgstr "Общее количество СМС"
 
 msgid "Grand total senders"
 msgstr "Общее количество отправителей"
-
-msgid "Graph output"
-msgstr "График"
 
 msgid "HTML output"
 msgstr "HTML формат"
@@ -105,9 +114,6 @@ msgstr "Ответ при превышении количества голосо
 
 msgid "Reply message on valid vote"
 msgstr "Ответ при валидном выборе"
-
-msgid "Result graph"
-msgstr "График результатов"
 
 msgid "Result table"
 msgstr "Таблица результатов"
@@ -178,6 +184,9 @@ msgstr "Всего проголосовавших 1 раз"
 
 msgid "Total valid SMS"
 msgstr "Всего валидных СМС"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Пользователь"

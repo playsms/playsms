@@ -112,6 +112,9 @@ msgstr "Toutes les boîtes de réception"
 msgid "My report"
 msgstr "Mon rapport"
 
+msgid "Parent"
+msgstr ""
+
 msgid "Pending"
 msgstr "En attente"
 
@@ -170,6 +173,9 @@ msgstr "Envoyé"
 #, fuzzy
 msgid "Sent messages"
 msgstr "Mes messages envoyés"
+
+msgid "Server time"
+msgstr ""
 
 msgid "Status"
 msgstr "Statut"

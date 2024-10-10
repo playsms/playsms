@@ -56,11 +56,21 @@ msgstr "إرسال القيمة الناتجة كرسالة رد"
 msgid "Manage custom"
 msgstr "إدارة الرسائل المخصصة"
 
+msgid "No"
+msgstr ""
+
 msgid "Pass these parameters to custom URL field"
 msgstr "تمرير هذه المتغيرات لحقل URL مخصص"
 
 msgid "Receiver number"
 msgstr ""
+
+msgid "Return"
+msgstr ""
+
+#, fuzzy
+msgid "Return as reply"
+msgstr "إرسال القيمة الناتجة كرسالة رد"
 
 msgid "SMS custom URL"
 msgstr "رابط الرسالة المخصصة"
@@ -91,8 +101,14 @@ msgstr ""
 msgid "Service name"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "المستخدم"
+
+msgid "Yes"
+msgstr ""
 
 msgid "keyword"
 msgstr "الكلمات المفتاحية"

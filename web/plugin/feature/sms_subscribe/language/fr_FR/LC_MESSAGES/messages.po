@@ -60,6 +60,18 @@ msgstr "Échec de l'ajout de l'abonnement SMS"
 msgid "Fail to add message"
 msgstr "Échec de l'ajout du message"
 
+#, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "Échec de l'ajout de l'abonnement SMS"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "Échec de l'édition du message"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "Échec de l'édition du message"
+
 msgid "Fail to edit SMS subscribe"
 msgstr "Échec de l'édition de l'abonnement SMS"
 
@@ -77,6 +89,10 @@ msgstr "Dernière mise à jour"
 
 msgid "Manage subscribe"
 msgstr "Gérer abonnement"
+
+#, fuzzy
+msgid "Member"
+msgstr "Membres"
 
 msgid "Member has been deleted"
 msgstr "Le membre a été supprimé"
@@ -177,6 +193,9 @@ msgstr "Durée d'abonnement"
 
 msgid "Subscription expired reply"
 msgstr "Réponse d'abonnement expiré"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "Unknown format reply"
 msgstr "Réponse avec un format inconnu"

@@ -91,6 +91,10 @@ msgstr ""
 msgid "Account already exists"
 msgstr "Kontoen eksisterer allerede"
 
+#, fuzzy
+msgid "Account email is mandatory"
+msgstr "Kontonavn er krævet"
+
 msgid "Account has been added and password has been emailed"
 msgstr "Konto er blevet tilføjet og adgangskode er blevet e-mailet"
 
@@ -109,11 +113,19 @@ msgstr "Konto er ikke længere bandlyst"
 msgid "Account name is mandatory"
 msgstr "Kontonavn er krævet"
 
+#, fuzzy
+msgid "Account name must be at least 1 character"
+msgstr "Adgangskoden skal være mindst 4 tegn"
+
 msgid "Account registration is not available"
 msgstr "Konto registrering er ikke tilgængeligt"
 
 msgid "Account status"
 msgstr "Kontostatus"
+
+#, fuzzy
+msgid "Account username is mandatory"
+msgstr "Kontonavn er krævet"
 
 msgid "Account with this email already exists"
 msgstr "Konto med denne e-mail eksisterer allerede"
@@ -479,9 +491,6 @@ msgstr ""
 msgid "Check email sender"
 msgstr "Tjek e-mail afsender"
 
-msgid "Check to enable receiving push messages from SMSSync app"
-msgstr "Marker for at aktivere modtagelse af push beskeder fra SMSSync app"
-
 msgid "Choice already exists"
 msgstr "Valget eksisterer allerede"
 
@@ -722,9 +731,6 @@ msgstr "Domæne"
 msgid "Download"
 msgstr ""
 
-msgid "Download SMSSync app for Android from"
-msgstr "Download SMSSync app til Android fra"
-
 msgid "Edit"
 msgstr "Rediger"
 
@@ -800,9 +806,6 @@ msgstr "F.eks: +0700 til Jakarta/Bangkok tidszone"
 msgid "Email"
 msgstr "E-mail"
 
-msgid "Email address is mandatory"
-msgstr "E-mailadressen er påkrævet"
-
 msgid "Email footer"
 msgstr "E-mail footer"
 
@@ -833,9 +836,6 @@ msgstr "Tom callback URL der skal gøres til standard"
 msgid "Empty default sender ID to allow users setting their own sender ID"
 msgstr ""
 "Nulstil standard afsender ID for at lade brugere vælge deres eget afsender ID"
-
-msgid "Enable SMS Sync"
-msgstr "Aktiver SMS Sync"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Aktiver kreditering af unicode SMS som normal SMS"
@@ -948,6 +948,18 @@ msgid "Fail to add route"
 msgstr "Kunne ikke tilføje rute"
 
 #, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "Kunne ikke tilføje SMS afstemning"
+
+#, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "Kunne ikke tilføje SMS quiz"
+
+#, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "Kunne ikke tilføje SMS abonnement"
+
+#, fuzzy
 msgid "Fail to connect to database"
 msgstr "Kunne ikke slette prit"
 
@@ -969,6 +981,18 @@ msgstr "Kunne ikke slette tilpasset SMS"
 msgid "Fail to delete SMS poll choice"
 msgstr "Kunne ikke slette SMS afstemnings-valg"
 
+#, fuzzy
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr "Kunne ikke slette SMS afstemnings-valg"
+
+#, fuzzy
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr "Kunne ikke slette SMS afstemnings-valg"
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "Kunne ikke slette tilpasset SMS"
+
 msgid "Fail to delete SMS schedule"
 msgstr "Kunne ikke slette SMS tidsplan"
 
@@ -986,6 +1010,10 @@ msgstr "Kunne ikke slette gruppe-indbakke"
 
 msgid "Fail to delete member"
 msgstr "Kunne ikke slette medlem"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "Kunne ikke redigere besked"
 
 msgid "Fail to delete rate"
 msgstr "Kunne ikke slette prit"
@@ -1047,14 +1075,15 @@ msgstr "Kunne ikke registrere en konto"
 msgid "Fail to remove SMSC"
 msgstr "Kunne ikke fjerne SMSC"
 
-msgid "Fail to save SMS Sync configuration"
-msgstr "Kunne ikke gemme SMS Sync konfiguration"
-
 msgid "Fail to save SMS command"
 msgstr "Kunne ikke gemme SMS kommando"
 
 msgid "Fail to save SMS custom"
 msgstr "Kunne ikke gemme tilpasset SMS"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
+msgstr "Kunne ikke tilføje SMS afstemning"
 
 msgid "Fail to save configuration"
 msgstr "Kunne ikke gemme konfiguration"
@@ -1215,9 +1244,6 @@ msgstr "Samlet antal SMS"
 
 msgid "Grand total senders"
 msgstr "Samlet antal afsendere"
-
-msgid "Graph output"
-msgstr "Grafisk output"
 
 msgid "Group"
 msgstr "Gruppe"
@@ -1482,9 +1508,6 @@ msgstr "Log ud"
 msgid "Lowest credit limit to trigger notification"
 msgstr "Laveste kredritgrænse der aktiverer besked"
 
-msgid "MBOX output"
-msgstr "MBOX output"
-
 msgid "Mail server address"
 msgstr "Postserver adresse"
 
@@ -1608,9 +1631,6 @@ msgstr "Håndter abonnement"
 msgid "Manage subuser"
 msgstr "Håndter underbruger"
 
-msgid "Manage sync"
-msgstr "Håndter synk"
-
 msgid "Manage template"
 msgstr "Håndter skabelon"
 
@@ -1653,6 +1673,10 @@ msgstr "Maksimum brugernavns længde skal være et tal mellem 4 og 100"
 
 msgid "Me only"
 msgstr "Kun mig"
+
+#, fuzzy
+msgid "Member"
+msgstr "Medlemmer"
 
 msgid "Member has been added"
 msgstr "Medlem er blevet tilføjet"
@@ -2161,11 +2185,16 @@ msgstr "Genstart Kannel"
 msgid "Restrict sender to regular members or catch-all members only"
 msgstr "Begræns afsender til normale medlemmer eller catch-all medlemmer"
 
-msgid "Result graph"
-msgstr "Resultatgraf"
-
 msgid "Result table"
 msgstr "Resultattabel"
+
+#, fuzzy
+msgid "Return"
+msgstr "tilbage"
+
+#, fuzzy
+msgid "Return as reply"
+msgstr "Gør returværdi til svar"
 
 msgid "Route SMS outgoing"
 msgstr "Diriger udgående SMS"
@@ -2202,9 +2231,6 @@ msgstr ""
 msgid "Routed SMSC"
 msgstr "Routet SMSC"
 
-msgid "Row template"
-msgstr "Række skabelon"
-
 msgid "Rules applied after incoming SMS processed"
 msgstr "Regler der anvendes efter behandling af indkommende SMS"
 
@@ -2216,9 +2242,6 @@ msgstr "SMS"
 
 msgid "SMS Board"
 msgstr "SMS forum"
-
-msgid "SMS Sync configuration has been saved"
-msgstr "SMS Sync konfiguration er blevet gemt"
 
 msgid "SMS autoreply has been deleted"
 msgstr "SMS autosvar er blevet slettet"
@@ -2490,20 +2513,11 @@ msgstr "Søg"
 msgid "Search message"
 msgstr "Flash besked"
 
-msgid "Secret key"
-msgstr "Hemmelig nøgle"
-
-msgid "Secret key is used in SMSSync app"
-msgstr "Hemmelig nøgle bruges i SMSSync app"
-
 msgid "Select"
 msgstr "Vælg"
 
 msgid "Select no if the incoming SMS time is in UTC"
 msgstr "Vælg nej, hvis de indkommende SMS tider er i UTC"
-
-msgid "Select username"
-msgstr "Vælg brugernavn"
 
 msgid "Select users"
 msgstr "Vælg brugere"
@@ -2641,6 +2655,10 @@ msgstr "Adskil med komma ved flere destinationer"
 msgid "Separate with comma for multiple items"
 msgstr "Flere emner adskilles med komma"
 
+#, fuzzy
+msgid "Server time"
+msgstr "Servicenavn"
+
 msgid "Service data"
 msgstr "Servicedata"
 
@@ -2711,9 +2729,6 @@ msgstr "Underbrugere"
 
 msgid "Supplied SMSC"
 msgstr "Leveret SMSC"
-
-msgid "Sync URL"
-msgstr "Sync URL"
 
 msgid "System error has occured"
 msgstr "Der opstod en systemfejl"
@@ -2852,8 +2867,22 @@ msgstr "Unicode besked"
 msgid "Unknown error"
 msgstr "Ukendt fejl"
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "Unknown error has occurred"
 msgstr "Der opstod en ukendt fejl"
+
+msgid "Unknown error no data found on database"
+msgstr ""
+
+#, fuzzy
+msgid "Unknown error no keyword found"
+msgstr "Der opstod en ukendt fejl"
+
+#, fuzzy
+msgid "Unknown error unable to delete upload session"
+msgstr "Kan ikke slette andre brugere"
 
 msgid "Unknown format reply"
 msgstr "Ukendt svar-format"

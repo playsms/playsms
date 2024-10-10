@@ -54,6 +54,9 @@ msgstr "Kirim dari file telah dibatalkan"
 msgid "Unable to open uploaded CSV file"
 msgstr "Ditemukan entri yang valid dalam file yang diunggah"
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr "Unggah file"
 

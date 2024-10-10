@@ -54,11 +54,21 @@ msgstr "Отправить результат в ответе"
 msgid "Manage custom"
 msgstr "Запрос URL"
 
+msgid "No"
+msgstr ""
+
 msgid "Pass these parameters to custom URL field"
 msgstr "Эти параметры могут быть переданы странице в строке вызова"
 
 msgid "Receiver number"
 msgstr ""
+
+msgid "Return"
+msgstr ""
+
+#, fuzzy
+msgid "Return as reply"
+msgstr "Отправить результат в ответе"
 
 msgid "SMS custom URL"
 msgstr "URL адрес"
@@ -89,8 +99,14 @@ msgstr ""
 msgid "Service name"
 msgstr ""
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "Пользователь"
+
+msgid "Yes"
+msgstr ""
 
 msgid "keyword"
 msgstr "ключевое слово"

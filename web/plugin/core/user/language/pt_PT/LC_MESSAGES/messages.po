@@ -31,6 +31,10 @@ msgstr "Conta admin ou administrador conectado no momento não pode ser banido"
 msgid "Account already exists"
 msgstr "A conta já existe"
 
+#, fuzzy
+msgid "Account email is mandatory"
+msgstr "Nome da conta é obrigatória"
+
 msgid "Account has been added and password has been emailed"
 msgstr "A conta foi adicionada e palavra-passe enviada para o email"
 
@@ -49,11 +53,19 @@ msgstr "Foi removido o banir da conta"
 msgid "Account name is mandatory"
 msgstr "Nome da conta é obrigatória"
 
+#, fuzzy
+msgid "Account name must be at least 1 character"
+msgstr "A palavra-passe deve ter pelo menos 4 caracteres"
+
 msgid "Account registration is not available"
 msgstr "O registo da conta não está disponível"
 
 msgid "Account status"
 msgstr "Estado da Conta"
+
+#, fuzzy
+msgid "Account username is mandatory"
+msgstr "Nome da conta é obrigatória"
 
 msgid "Account with this email already exists"
 msgstr "A conta com este email já existe"
@@ -154,9 +166,6 @@ msgstr "Ex: +0000 para Europe/Lisbon Fuso Horário"
 
 msgid "Email"
 msgstr "Email"
-
-msgid "Email address is mandatory"
-msgstr "Endereço de e-mail é obrigatório"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr "Ativar créditos Unicode SMS como SMS normais"

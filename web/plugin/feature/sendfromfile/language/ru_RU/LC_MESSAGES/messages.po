@@ -61,6 +61,9 @@ msgstr "Отправка из файла была отменена"
 msgid "Unable to open uploaded CSV file"
 msgstr "Допустимые записи в загруженном файле"
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr "Загрузить файл"
 

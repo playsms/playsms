@@ -53,6 +53,9 @@ msgstr ""
 msgid "Unable to open uploaded CSV file"
 msgstr ""
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr ""
 

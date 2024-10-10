@@ -63,6 +63,9 @@ msgstr "تم إلغاء الإرسال من ملف"
 msgid "Unable to open uploaded CSV file"
 msgstr "الإدخالات الصالحة في الملف المحمَّل"
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr "تحميل الملف "
 

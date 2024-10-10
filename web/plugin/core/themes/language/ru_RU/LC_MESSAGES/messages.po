@@ -12,47 +12,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-msgid "Administrator"
-msgstr "Администратор"
+#~ msgid "Administrator"
+#~ msgstr "Администратор"
 
-msgid "Administrators"
-msgstr "Администраторы"
+#~ msgid "Administrators"
+#~ msgstr "Администраторы"
 
-msgid "Back"
-msgstr "Назад"
+#~ msgid "Back"
+#~ msgstr "Назад"
 
-msgid "Compose message"
-msgstr ""
+#~ msgid "Search"
+#~ msgstr "Поиск"
 
-msgid "Information"
-msgstr ""
+#~ msgid "Select users"
+#~ msgstr "Выберите пользователей"
 
-msgid "Please select"
-msgstr ""
+#~ msgid "Subuser"
+#~ msgstr "Дочерний пользователь"
 
-msgid "Search"
-msgstr "Поиск"
+#~ msgid "Subusers"
+#~ msgstr "Дочерние пользователи"
 
-msgid "Select users"
-msgstr "Выберите пользователей"
+#~ msgid "This field is required"
+#~ msgstr "Обязательное поле"
 
-msgid "Subuser"
-msgstr "Дочерний пользователь"
+#~ msgid "User"
+#~ msgstr "Пользователь"
 
-msgid "Subusers"
-msgstr "Дочерние пользователи"
+#~ msgid "Users"
+#~ msgstr "Пользователи"
 
-msgid "This field is required"
-msgstr "Обязательное поле"
+#~ msgid "no"
+#~ msgstr "нет"
 
-msgid "User"
-msgstr "Пользователь"
-
-msgid "Users"
-msgstr "Пользователи"
-
-msgid "no"
-msgstr "нет"
-
-msgid "yes"
-msgstr "да"
+#~ msgid "yes"
+#~ msgstr "да"

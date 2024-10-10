@@ -14,47 +14,47 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 
-msgid "Administrator"
-msgstr "المدير"
+#~ msgid "Administrator"
+#~ msgstr "المدير"
 
-msgid "Administrators"
-msgstr "المدراء"
+#~ msgid "Administrators"
+#~ msgstr "المدراء"
 
-msgid "Back"
-msgstr "رجوع"
+#~ msgid "Back"
+#~ msgstr "رجوع"
 
-msgid "Compose message"
-msgstr "إنشاء رسالة"
+#~ msgid "Compose message"
+#~ msgstr "إنشاء رسالة"
 
-msgid "Information"
-msgstr "المعلومات"
+#~ msgid "Information"
+#~ msgstr "المعلومات"
 
-msgid "Please select"
-msgstr "الرجاء اختيار  "
+#~ msgid "Please select"
+#~ msgstr "الرجاء اختيار  "
 
-msgid "Search"
-msgstr "بحث"
+#~ msgid "Search"
+#~ msgstr "بحث"
 
-msgid "Select users"
-msgstr "اختيار المستخدمين"
+#~ msgid "Select users"
+#~ msgstr "اختيار المستخدمين"
 
-msgid "Subuser"
-msgstr "المستخدم الفرعي"
+#~ msgid "Subuser"
+#~ msgstr "المستخدم الفرعي"
 
-msgid "Subusers"
-msgstr "المستخدمون الفرعيون"
+#~ msgid "Subusers"
+#~ msgstr "المستخدمون الفرعيون"
 
-msgid "This field is required"
-msgstr "هذا الحقل مطلوب"
+#~ msgid "This field is required"
+#~ msgstr "هذا الحقل مطلوب"
 
-msgid "User"
-msgstr "المستخدم"
+#~ msgid "User"
+#~ msgstr "المستخدم"
 
-msgid "Users"
-msgstr "المستخدمون"
+#~ msgid "Users"
+#~ msgstr "المستخدمون"
 
-msgid "no"
-msgstr "لا"
+#~ msgid "no"
+#~ msgstr "لا"
 
-msgid "yes"
-msgstr "نعم"
+#~ msgid "yes"
+#~ msgstr "نعم"

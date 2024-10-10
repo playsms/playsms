@@ -57,6 +57,9 @@ msgstr "Send fra fil har blitt avbrutt"
 msgid "Unable to open uploaded CSV file"
 msgstr "Fant gyldige oppføringer i opplastet fil"
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr "Opplast fil"
 

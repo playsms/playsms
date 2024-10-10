@@ -75,6 +75,9 @@ msgstr ""
 msgid "Save"
 msgstr "Guardar"
 
+msgid "Unknown error cannot find the data in database"
+msgstr ""
+
 msgid "User"
 msgstr "Utilizador"
 

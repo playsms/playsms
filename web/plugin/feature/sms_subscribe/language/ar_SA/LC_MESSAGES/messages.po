@@ -68,6 +68,18 @@ msgstr "فشل إضافة رسالة اشتراك"
 msgid "Fail to add message"
 msgstr "فشل إضافة رسالة"
 
+#, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "فشل إضافة رسالة اشتراك"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "فشل تحرير الرسائل"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "فشل تحرير الرسائل"
+
 msgid "Fail to edit SMS subscribe"
 msgstr "فشل التحرير"
 
@@ -85,6 +97,10 @@ msgstr "آخر تحديث"
 
 msgid "Manage subscribe"
 msgstr "إدارة الاشتراك"
+
+#, fuzzy
+msgid "Member"
+msgstr "الأعضاء"
 
 msgid "Member has been deleted"
 msgstr "تم الحذف"
@@ -184,6 +200,9 @@ msgstr "مدة الاشتراك"
 
 msgid "Subscription expired reply"
 msgstr "رد انتهاء الاشتراك"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "Unknown format reply"
 msgstr "رد الصيغة الباطلة"

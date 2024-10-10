@@ -118,6 +118,9 @@ msgstr "Все входящие"
 msgid "My report"
 msgstr "Мой отчёт"
 
+msgid "Parent"
+msgstr ""
+
 msgid "Pending"
 msgstr "Ожидает"
 
@@ -176,6 +179,9 @@ msgstr "Отправлено"
 #, fuzzy
 msgid "Sent messages"
 msgstr "Сообщение"
+
+msgid "Server time"
+msgstr ""
 
 msgid "Status"
 msgstr "Состояние"

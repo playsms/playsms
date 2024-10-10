@@ -5,47 +5,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Administrator"
-msgstr "Administrateur"
+#~ msgid "Administrator"
+#~ msgstr "Administrateur"
 
-msgid "Administrators"
-msgstr "Administrateurs"
+#~ msgid "Administrators"
+#~ msgstr "Administrateurs"
 
-msgid "Back"
-msgstr "Retour"
+#~ msgid "Back"
+#~ msgstr "Retour"
 
-msgid "Compose message"
-msgstr "Rédiger un message"
+#~ msgid "Compose message"
+#~ msgstr "Rédiger un message"
 
-msgid "Information"
-msgstr "Information"
+#~ msgid "Information"
+#~ msgstr "Information"
 
-msgid "Please select"
-msgstr "Veuillez sélectionner"
+#~ msgid "Please select"
+#~ msgstr "Veuillez sélectionner"
 
-msgid "Search"
-msgstr "Recherche"
+#~ msgid "Search"
+#~ msgstr "Recherche"
 
-msgid "Select users"
-msgstr "Sélectionner les utilisateurs"
+#~ msgid "Select users"
+#~ msgstr "Sélectionner les utilisateurs"
 
-msgid "Subuser"
-msgstr "Sous-utilisateur"
+#~ msgid "Subuser"
+#~ msgstr "Sous-utilisateur"
 
-msgid "Subusers"
-msgstr "Sous-utilisateurs"
+#~ msgid "Subusers"
+#~ msgstr "Sous-utilisateurs"
 
-msgid "This field is required"
-msgstr "Ce champ est obligatoire"
+#~ msgid "This field is required"
+#~ msgstr "Ce champ est obligatoire"
 
-msgid "User"
-msgstr "Utilisateur"
+#~ msgid "User"
+#~ msgstr "Utilisateur"
 
-msgid "Users"
-msgstr "Utilisateurs"
+#~ msgid "Users"
+#~ msgstr "Utilisateurs"
 
-msgid "no"
-msgstr "non"
+#~ msgid "no"
+#~ msgstr "non"
 
-msgid "yes"
-msgstr "yes"
+#~ msgid "yes"
+#~ msgstr "yes"

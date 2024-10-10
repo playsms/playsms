@@ -32,6 +32,17 @@ msgid "Fail to add SMS quiz"
 msgstr "增加短信测试"
 
 #, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "增加短信测试"
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "编辑短信测试"
+
+#, fuzzy
 msgid "Fail to edit SMS quiz"
 msgstr "编辑短信测试"
 
@@ -93,6 +104,9 @@ msgstr "发件人"
 
 msgid "Status"
 msgstr "状态"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "用户"

@@ -52,9 +52,6 @@ msgstr "Saída JSON"
 msgid "Keyword"
 msgstr "Palavra-chave"
 
-msgid "MBOX output"
-msgstr "Saída MBOX"
-
 msgid "Manage board"
 msgstr "Gerir Placa"
 
@@ -78,9 +75,6 @@ msgstr "Saída RSS ATOM"
 
 msgid "Receiver"
 msgstr "Destinatário"
-
-msgid "Row template"
-msgstr "Linha Modelo"
 
 msgid "SMS Board"
 msgstr "Placa SMS"
@@ -115,6 +109,9 @@ msgstr "Guardar"
 
 msgid "Sender"
 msgstr "Remetente"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Utilizador"

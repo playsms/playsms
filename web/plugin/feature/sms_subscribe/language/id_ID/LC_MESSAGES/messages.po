@@ -59,6 +59,18 @@ msgstr "Gagal tambah layanan SMS berlangganan"
 msgid "Fail to add message"
 msgstr "Gagal tambah pesan"
 
+#, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "Gagal tambah layanan SMS berlangganan"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "Gagal mengubah pesan"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "Gagal mengubah pesan"
+
 msgid "Fail to edit SMS subscribe"
 msgstr "Gagal ubah layanan SMS berlangganan"
 
@@ -76,6 +88,10 @@ msgstr "Pembaruan terakhir"
 
 msgid "Manage subscribe"
 msgstr "Pengaturan SMS berlangganan"
+
+#, fuzzy
+msgid "Member"
+msgstr "Anggota"
 
 msgid "Member has been deleted"
 msgstr "Anggota telah dihapus"
@@ -178,6 +194,9 @@ msgstr "Balasan SMS berlangganan"
 #, fuzzy
 msgid "Subscription expired reply"
 msgstr "Balasan SMS berlangganan"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "Unknown format reply"
 msgstr "Balasan format SMS tidak dikenal"

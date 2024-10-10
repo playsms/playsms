@@ -42,11 +42,5 @@ msgstr "保存"
 msgid "Select"
 msgstr ""
 
-msgid "Select username"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
 msgid "You must fill all fields"
 msgstr "你必须填满全部空白"

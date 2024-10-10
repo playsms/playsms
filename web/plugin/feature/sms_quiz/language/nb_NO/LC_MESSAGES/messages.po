@@ -34,6 +34,17 @@ msgstr "Rediger SMS-quiz"
 msgid "Fail to add SMS quiz"
 msgstr "Kunne ikke legge til SMS-quiz"
 
+#, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "Kunne ikke legge til SMS-quiz"
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "Kunne ikke redigere SMS-quiz"
+
 msgid "Fail to edit SMS quiz"
 msgstr "Kunne ikke redigere SMS-quiz"
 
@@ -94,6 +105,9 @@ msgstr "Sender"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Bruker"

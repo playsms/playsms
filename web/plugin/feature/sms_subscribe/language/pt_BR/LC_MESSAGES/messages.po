@@ -59,6 +59,18 @@ msgstr "Falha ao adicionar assinatura SMS"
 msgid "Fail to add message"
 msgstr "Falha ao adicionar mensagem"
 
+#, fuzzy
+msgid "Fail to change SMS subscribe status"
+msgstr "Falha ao adicionar assinatura SMS"
+
+#, fuzzy
+msgid "Fail to delete member"
+msgstr "Falha ao editar mensagem"
+
+#, fuzzy
+msgid "Fail to delete message"
+msgstr "Falha ao editar mensagem"
+
 msgid "Fail to edit SMS subscribe"
 msgstr "Falha ao editar assinatura SMS"
 
@@ -76,6 +88,10 @@ msgstr "Última atualização"
 
 msgid "Manage subscribe"
 msgstr "Gerenciar assinaturas"
+
+#, fuzzy
+msgid "Member"
+msgstr "Ver membros"
 
 msgid "Member has been deleted"
 msgstr "O membro foi removido"
@@ -175,6 +191,9 @@ msgstr "Tempo de adesão"
 
 msgid "Subscription expired reply"
 msgstr "Resposta para adesão expirada"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "Unknown format reply"
 msgstr "Formato de resposta desconhecido"

@@ -54,7 +54,19 @@ msgstr "Ubah pilihan-pilihan dalam layanan poling SMS?"
 msgid "Fail to add SMS poll"
 msgstr "Gagal menghapus pilihan poling SMS"
 
+#, fuzzy
+msgid "Fail to change SMS poll status"
+msgstr "Gagal menghapus pilihan poling SMS"
+
 msgid "Fail to delete SMS poll choice"
+msgstr "Gagal menghapus pilihan poling SMS"
+
+#, fuzzy
+msgid "Fail to delete SMS poll choice and all its voters"
+msgstr "Gagal menghapus pilihan poling SMS"
+
+#, fuzzy
+msgid "Fail to save SMS poll"
 msgstr "Gagal menghapus pilihan poling SMS"
 
 msgid "Grand total SMS"
@@ -62,9 +74,6 @@ msgstr ""
 
 msgid "Grand total senders"
 msgstr ""
-
-msgid "Graph output"
-msgstr "Keluaran grafik"
 
 #, fuzzy
 msgid "HTML output"
@@ -105,9 +114,6 @@ msgstr "Pesan balasan untuk jawaban benar"
 #, fuzzy
 msgid "Reply message on valid vote"
 msgstr "Pesan balasan untuk jawaban benar"
-
-msgid "Result graph"
-msgstr ""
 
 msgid "Result table"
 msgstr ""
@@ -178,6 +184,9 @@ msgid "Total one time vote SMS"
 msgstr ""
 
 msgid "Total valid SMS"
+msgstr ""
+
+msgid "Unknown error cannot find the data in database"
 msgstr ""
 
 msgid "User"

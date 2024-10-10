@@ -35,6 +35,10 @@ msgstr ""
 msgid "Account already exists"
 msgstr "Пользователь уже существует"
 
+#, fuzzy
+msgid "Account email is mandatory"
+msgstr "Имя пользователя обязательно"
+
 msgid "Account has been added and password has been emailed"
 msgstr "Пользователь добавлен, пароль отправлен по почте"
 
@@ -53,11 +57,19 @@ msgstr "Пользователь разблокирован"
 msgid "Account name is mandatory"
 msgstr "Имя пользователя обязательно"
 
+#, fuzzy
+msgid "Account name must be at least 1 character"
+msgstr "Минимальная длина пароля 4 знака"
+
 msgid "Account registration is not available"
 msgstr "Регистрация не доступна"
 
 msgid "Account status"
 msgstr "Состояние пользователя"
+
+#, fuzzy
+msgid "Account username is mandatory"
+msgstr "Имя пользователя обязательно"
 
 #, fuzzy
 msgid "Account with this email already exists"
@@ -161,9 +173,6 @@ msgstr "Например, +0300 для Москвы"
 
 msgid "Email"
 msgstr "Email"
-
-msgid "Email address is mandatory"
-msgstr "Email адрес обязателен"
 
 msgid "Enable credit unicode SMS as normal SMS"
 msgstr ""

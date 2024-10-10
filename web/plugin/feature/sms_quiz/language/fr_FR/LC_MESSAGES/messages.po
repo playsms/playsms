@@ -33,6 +33,17 @@ msgstr "Éditer quiz SMS"
 msgid "Fail to add SMS quiz"
 msgstr "Échec de l'ajout du quiz SMS"
 
+#, fuzzy
+msgid "Fail to change SMS quiz status"
+msgstr "Échec de l'ajout du quiz SMS"
+
+msgid "Fail to delete SMS quiz and all its messages"
+msgstr ""
+
+#, fuzzy
+msgid "Fail to delete SMS quiz answer messages"
+msgstr "Échec de l'édition du quiz SMS"
+
 msgid "Fail to edit SMS quiz"
 msgstr "Échec de l'édition du quiz SMS"
 
@@ -92,6 +103,9 @@ msgstr "Expéditeur"
 
 msgid "Status"
 msgstr "Statut"
+
+msgid "Unknown error cannot find the data in database"
+msgstr ""
 
 msgid "User"
 msgstr "Utilisateur"

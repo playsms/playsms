@@ -61,6 +61,9 @@ msgstr "Enviar de arquivo foi cancelado"
 msgid "Unable to open uploaded CSV file"
 msgstr "Encontradas entradas válidas no arquivo enviado"
 
+msgid "Unknown error unable to delete upload session"
+msgstr ""
+
 msgid "Upload file"
 msgstr "Enviar arquivo"
 

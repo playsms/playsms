@@ -16,6 +16,9 @@ msgstr ""
 msgid "Account already exists"
 msgstr ""
 
+msgid "Account email is mandatory"
+msgstr ""
+
 msgid "Account has been added and password has been emailed"
 msgstr ""
 
@@ -34,10 +37,16 @@ msgstr ""
 msgid "Account name is mandatory"
 msgstr ""
 
+msgid "Account name must be at least 1 character"
+msgstr ""
+
 msgid "Account registration is not available"
 msgstr ""
 
 msgid "Account status"
+msgstr ""
+
+msgid "Account username is mandatory"
 msgstr ""
 
 msgid "Account with this email already exists"
@@ -137,9 +146,6 @@ msgid "Eg: +0700 for Jakarta/Bangkok timezone"
 msgstr ""
 
 msgid "Email"
-msgstr ""
-
-msgid "Email address is mandatory"
 msgstr ""
 
 msgid "Enable credit unicode SMS as normal SMS"

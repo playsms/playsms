@@ -107,6 +107,9 @@ msgstr ""
 msgid "My report"
 msgstr ""
 
+msgid "Parent"
+msgstr ""
+
 msgid "Pending"
 msgstr ""
 
@@ -159,6 +162,9 @@ msgid "Sent"
 msgstr ""
 
 msgid "Sent messages"
+msgstr ""
+
+msgid "Server time"
 msgstr ""
 
 msgid "Status"

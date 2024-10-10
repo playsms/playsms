@@ -48,11 +48,5 @@ msgstr "Gem"
 msgid "Select"
 msgstr "Vælg"
 
-msgid "Select username"
-msgstr "Vælg brugernavn"
-
-msgid "User"
-msgstr "Bruger"
-
 msgid "You must fill all fields"
 msgstr "Du skal udfylde alle felter"
