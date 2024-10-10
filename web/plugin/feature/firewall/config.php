@@ -27,4 +27,7 @@ if (auth_isadmin()) {
 	];
 }
 
-$plugin_config['firewall']['login_attempt_limit'] = 3;
+// the number of allowed login attempts including wrong captchas before added to blacklist
+// enable login attempt limit from Main configuration -> Enable login brute force detection
+// by default its disabled
+$plugin_config['firewall']['login_attempt_limit'] = 10;

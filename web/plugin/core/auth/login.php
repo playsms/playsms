@@ -49,6 +49,9 @@ if (_OP_ == 'login') {
 
 			$_SESSION['dialog']['danger'][] = _('Please type the displayed captcha phrase correctly');
 
+			// check blacklist
+			blacklist_checkip(_REMOTE_ADDR_);
+
 			header("Location: " . _u($core_config['http_path']['base']));
 			exit();
 		}
