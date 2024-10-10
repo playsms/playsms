@@ -1,6 +1,6 @@
 # INSTALL
 
-This document explains about how to install and setup playSMS version **1.4.7**
+This document explains about how to install and setup playSMS version **1.4.8**
 
 
 ## Requirements
@@ -28,17 +28,17 @@ Install playSMS using install script `install-playsms.sh`
 
 1.  Extract playSMS package in playSMS source directory
 
-    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playsms-1.4.7`.
+    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playsms-1.4.8`.
     
     Note: In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
     mkdir -p /home/komodo/src
     cd /home/komodo/src
-    wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.7.tar.gz
-    ls -l 1.4.7.tar.gz
-    tar -zxf 1.4.7.tar.gz
-    ls -l playsms-1.4.7
+    wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.8.tar.gz
+    ls -l 1.4.8.tar.gz
+    tar -zxf 1.4.8.tar.gz
+    ls -l playsms-1.4.8
     ```
 
 2.  Copy `install.conf.dist` to `install.conf` and edit `install.conf`
@@ -46,7 +46,7 @@ Install playSMS using install script `install-playsms.sh`
     Read `install.conf` and make changes to suit your system configuration
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.7/
+    cd /home/komodo/src/playsms-1.4.8/
     cp install.conf.dist install.conf
     vi install.conf
     ```
@@ -54,7 +54,7 @@ Install playSMS using install script `install-playsms.sh`
 3.  Run playSMS install script
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.7/
+    cd /home/komodo/src/playsms-1.4.8/
     ./install-playsms.sh
     ```
 
@@ -106,23 +106,23 @@ Install playSMS by following step-by-step:
 
 1.  Extract playSMS package in playSMS source directory
 
-    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playSMS-1.4.7`.
+    In this example your Linux user is `komodo` and your home directory is `/home/komodo`. Your playSMS source directory will be `/home/komodo/src/playSMS-1.4.8`.
     
     In real installation you need to use your own Linux user and home directory or wherever you want to and have access to install playSMS.
     
     ```bash
     mkdir -p /home/komodo/src
     cd /home/komodo/src
-    wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.7.tar.gz
-    ls -l 1.4.7.tar.gz
-    tar -zxf 1.4.7.tar.gz
-    ls -l playsms-1.4.7
+    wget -c https://github.com/playsms/playsms/archive/refs/tags/1.4.8.tar.gz
+    ls -l 1.4.8.tar.gz
+    tar -zxf 1.4.8.tar.gz
+    ls -l playsms-1.4.8
     ```
 
 2.  Run `getcomposer.sh`
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.7/
+    cd /home/komodo/src/playsms-1.4.8/
     ./getcomposer.sh
     ```
 
@@ -139,7 +139,7 @@ Install playSMS by following step-by-step:
 4.  Copy files and directories inside `web` directory to playSMS web root and set ownership to web server user
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.7/
+    cd /home/komodo/src/playsms-1.4.8/
     cp -R web/* /home/komodo/web/
     ```
     
@@ -155,7 +155,7 @@ Install playSMS by following step-by-step:
 
     ```bash
     sudo mysqladmin -u root -p create playsms
-    cd /home/komodo/src/playsms-1.4.7/
+    cd /home/komodo/src/playsms-1.4.8/
     cat db/playsms.sql | mysql -u root -p playsms
     ```
     
@@ -178,7 +178,7 @@ Install playSMS by following step-by-step:
     Go back to playSMS source directory.
 
     ```bash
-    cd /home/komodo/src/playsms-1.4.7/
+    cd /home/komodo/src/playsms-1.4.8/
     sudo cp daemon/linux/home/komodo/etc/playsmsd.conf /home/komodo/etc/playsmsd.conf
     cp daemon/linux/bin/playsmsd.php /home/komodo/bin/playsmsd
     chmod +x /home/komodo/bin/playsmsd
