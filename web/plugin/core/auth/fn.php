@@ -295,8 +295,13 @@ function auth_isvalid()
 		$d = user_session_get($uid);
 
 		// check if user session's HTTP_USER_AGENT the same as recorded HTTP_USER_AGENT in registry
-		if (!($_SESSION['http_user_agent'] && $d[$sid]['http_user_agent'] && ($_SESSION['http_user_agent'] == stripslashes($d[$sid]['http_user_agent'])))) {
-			_log("invalid auth HTTP_USER_AGENT different session:[" . $_SESSION['http_user_agent'] . "] registry:[" . $d[$sid]['http_user_agent'] . "]", 3, "auth_isvalid");
+		$c_http_user_agent = isset($d[$sid]['http_user_agent']) ? stripslashes($d[$sid]['http_user_agent']) : '';
+		if (!($_SESSION['http_user_agent'] && $c_http_user_agent && ($_SESSION['http_user_agent'] == $c_http_user_agent))) {
+
+			// log it only when HTTP_USER_AGENT still recorded in session
+			if ($c_http_user_agent) {
+				_log("invalid auth HTTP_USER_AGENT different session:[" . $_SESSION['http_user_agent'] . "] registry:[" . $c_http_user_agent . "]", 3, "auth_isvalid");
+			}
 
 			//auth_session_destroy();
 
