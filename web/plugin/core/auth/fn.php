@@ -61,14 +61,16 @@ function auth_validate_login($username, $password)
 	_log('login attempt u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_login');
 
 	// check if user's IP blacklist
-	if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
+	if (blacklist_ifipexists(_REMOTE_ADDR_)) {
 		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+
 		return false;
 	}
 
 	// check if user banned
 	if (user_banned_get($uid)) {
 		_log('user banned u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
+
 		return false;
 	}
 
@@ -86,7 +88,7 @@ function auth_validate_login($username, $password)
 		// login successful, visitor is user
 
 		// remove IP on successful login
-		blacklist_clearip($username, _REMOTE_ADDR_);
+		blacklist_clearip(_REMOTE_ADDR_);
 
 		return true;
 	} else {
@@ -110,7 +112,7 @@ function auth_validate_login($username, $password)
 			}
 
 			// remove IP on successful login
-			blacklist_clearip($username, _REMOTE_ADDR_);
+			blacklist_clearip(_REMOTE_ADDR_);
 
 			return true;
 		} else {
@@ -131,7 +133,7 @@ function auth_validate_login($username, $password)
 						_log('WARNING: md5 password converted u:' . $username, 2, 'auth_validate_login');
 
 						// remove IP on successful login
-						blacklist_clearip($username, _REMOTE_ADDR_);
+						blacklist_clearip(_REMOTE_ADDR_);
 
 						return true;
 					} else {
@@ -151,7 +153,7 @@ function auth_validate_login($username, $password)
 	}
 
 	// check blacklist
-	blacklist_checkip($username, _REMOTE_ADDR_);
+	blacklist_checkip(_REMOTE_ADDR_);
 
 	// we are here, visitor is unverified, visitor is not user, login failed, return false
 	_log('invalid login u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_login');
@@ -216,7 +218,7 @@ function auth_validate_token($token)
 	//_log('login attempt token:' . $token . ' username:' . $username . ' ip:' . _REMOTE_ADDR_, 3, 'auth_validate_login');
 
 	// check blacklist
-	if (blacklist_ifipexists($username, _REMOTE_ADDR_)) {
+	if (blacklist_ifipexists(_REMOTE_ADDR_)) {
 		_log('IP blacklisted u:' . $username . ' uid:' . $uid . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_token');
 
 		return false;
@@ -245,7 +247,7 @@ function auth_validate_token($token)
 					}
 
 					// remove IP on successful login
-					blacklist_clearip($username, _REMOTE_ADDR_);
+					blacklist_clearip(_REMOTE_ADDR_);
 
 					return true;
 				}
@@ -254,7 +256,7 @@ function auth_validate_token($token)
 	}
 
 	// check blacklist
-	blacklist_checkip($username, _REMOTE_ADDR_);
+	blacklist_checkip(_REMOTE_ADDR_);
 
 	_log('invalid login t:' . $token . ' ip:' . _REMOTE_ADDR_, 2, 'auth_validate_token');
 

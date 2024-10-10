@@ -282,7 +282,7 @@ function recvsms_process($sms_datetime, $sms_sender, $message, $sms_receiver = '
 	$sms_receiver = core_sanitize_mobile($sms_receiver);
 
 	// blacklist
-	if (blacklist_mobile_isexists(0, $sms_sender)) {
+	if (blacklist_mobile_isexists($sms_sender)) {
 		_log("incoming SMS discarded sender is in the blacklist dt:" . $sms_datetime . " sender:" . $sms_sender . " receiver:" . $sms_receiver . " message:[" . $message . "]  smsc:" . $smsc, 3, "recvsms_process");
 
 		return false;

@@ -32,11 +32,11 @@ switch (_OP_) {
 		$keywords = $search['dba_keywords'];
 		$count = dba_count(_DB_PREF_ . '_featureFirewall', [], $keywords);
 		$nav = themes_nav($count, $search['url']);
-		$extras = array(
-			'ORDER BY' => 'uid',
+		$extras = [
+			'ORDER BY' => 'ip_address',
 			'LIMIT' => (int) $nav['limit'],
 			'OFFSET' => (int) $nav['offset']
-		);
+		];
 		$list = dba_search(_DB_PREF_ . '_featureFirewall', '*', [], $keywords, $extras);
 
 		$content = _dialog() . "
@@ -71,29 +71,18 @@ switch (_OP_) {
 						</td>
 					</tr>
 					<tr>
-						<th width=45%>" . _('User') . "</th>
-						<th width=50%>" . _('Blocked IP address') . "</th>
+						<th width=95%>" . _('Blocked IP address') . "</th>
 						<th width=5%><input type=checkbox onclick=CheckUncheckAll(document.fm_firewall_list)></th>
 					</tr>
 				</thead>
 			<tbody>";
 
-		$i = $nav['top'];
-		$j = 0;
 		$list = _display($list);
-		$c_count = is_array($list) ? count($list) : 0;
-		for ($j = 0; $j < $c_count; $j++) {
-			$pid = $list[$j]['id'];
-			$username = user_uid2username($list[$j]['uid']);
-			$ip_address = $list[$j]['ip_address'];
-			$i--;
-			$c_i = "<a href=\"" . _u('index.php?app=main&inc=feature_firewall&op=firewall_edit&id=' . $pid) . "\">" . $i . ".</a>";
-			if ($list[$j]['uid'] == $user_config['uid']) {
-				$name = "<a href='" . _u('index.php?app=main&inc=feature_firewall&op=firewall_edit&pid=' . $pid) . "'>" . $name . "</a>";
-			}
+		foreach ( $list as $db_row ) {
+			$pid = $db_row['id'];
+			$ip_address = $db_row['ip_address'];
 			$content .= "
 				<tr>
-					<td>$username</td>
 					<td>$ip_address</td>
 					<td>
 						<input type=checkbox name=itemid[] value=\"$pid\">
@@ -112,17 +101,14 @@ switch (_OP_) {
 		break;
 
 	case "actions":
+		$is_removed = false;
 		$items = isset($_REQUEST['itemid']) ? $_REQUEST['itemid'] : [];
-		$removed = false;
 		$go = $_REQUEST['go'];
 		switch ($go) {
 			case 'delete':
 				foreach ( $items as $item ) {
-					$conditions = [
-						'id' => $item
-					];
-					if (dba_remove(_DB_PREF_ . '_featureFirewall', $conditions)) {
-						$removed = TRUE;
+					if (dba_remove(_DB_PREF_ . '_featureFirewall', ['id' => $item])) {
+						$is_removed = true;
 					}
 				}
 				break;
@@ -131,7 +117,7 @@ switch (_OP_) {
 		$search = themes_search_session();
 		$nav = themes_nav_session();
 
-		if ($removed) {
+		if ($is_removed) {
 			$_SESSION['dialog']['info'][] = _('IP addresses have been deleted');
 		}
 		$ref = $search['url'] . '&search_keyword=' . $search['keyword'] . '&search_category=' . $search['category'] . '&page=' . $nav['page'] . '&nav=' . $nav['nav'];
@@ -146,10 +132,6 @@ switch (_OP_) {
 			" . _CSRF_FORM_ . "
 			<table class=playsms-table>
 			<tr>
-				<td class=label-sizer>" . _mandatory(_('Select username')) . "</td>
-				<td>" . themes_select_users_single('add_username') . "</td>
-			</tr>
-			<tr>
 				<td class=label-sizer>" . _mandatory(_('IP addresses')) . "</td>
 				<td><input type=text name='add_ip_address' required> " . _hint(_('Comma separated values for multiple IP addresses')) . "
 				</td>
@@ -162,13 +144,15 @@ switch (_OP_) {
 		break;
 
 	case "firewall_add_yes":
-		$add_username = user_uid2username($_POST['add_username']);
-		$add_ip_address = $_POST['add_ip_address'];
-		if ($add_username && $add_ip_address) {
-			$add_ip_address = preg_replace('/[\s]+/', '', $add_ip_address);
-			$add_ip_addresses = explode(',', $add_ip_address);
-			foreach ( $add_ip_addresses as $ip ) {
-				blacklist_addip($add_username, $ip);
+		$add_ip_address = preg_replace('/[^\da-f\/:.,]+/i', '', $_POST['add_ip_address']);
+		if ($add_ip_address) {
+			$ip_addresses = explode(',', $add_ip_address);
+			$ip_addresses = array_unique($ip_addresses);
+			sort($ip_addresses);
+			foreach ( $ip_addresses as $ip ) {
+				if (core_net_check($ip)) {
+					blacklist_addip($ip);
+				}
 			}
 			$_SESSION['dialog']['info'][] = _('IP addresses have been blocked');
 		} else {

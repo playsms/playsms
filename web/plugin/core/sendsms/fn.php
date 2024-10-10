@@ -461,7 +461,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 
 	_log("start", 2, "sendsms_process");
 
-	if (blacklist_mobile_isexists(0, $sms_to)) {
+	if (blacklist_mobile_isexists($sms_to)) {
 		_log("fail to send. mobile is in the blacklist mobile:" . $sms_to . " smslog_id:" . $smslog_id, 2, "sendsms_process");
 
 		$ret['status'] = false;
@@ -1040,7 +1040,7 @@ function sendsms($username, $sms_to, $sms_msg, $sms_type = 'text', $unicode = 0,
 		$queue[$i] = $queue_code;
 
 		$continue = true;
-		if (blacklist_mobile_isexists(0, $c_sms_to)) {
+		if (blacklist_mobile_isexists($c_sms_to)) {
 			$continue = false;
 
 			_log("fail to send. mobile is in the blacklist mobile:" . $c_sms_to, 2, "sendsms");
