@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin>
-	<name>name</name>
-	<alias>Alias</alias>
-	<description>Description</description>
+	<name>example</name>
+	<alias>Example</alias>
+	<description>Gateway Example</description>
 	<release>1.0</release>
-	<date>20yy-mm-dd</date>
-	<author>Author</author>
+	<date>2024-10-11</date>
+	<author>araharja@proton.me</author>
 	<language_file>1</language_file>
 	<sql_file>0</sql_file>
 	<php_file>1</php_file>

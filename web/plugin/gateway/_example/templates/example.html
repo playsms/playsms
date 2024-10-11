@@ -1,0 +1,33 @@
+{{ DIALOG_DISPLAY }}
+<h2>{{ Manage }} {{ gateway_name }}</h2>
+<form action=index.php?app=main&inc=gateway_example&op=manage_save method=POST>
+    {{ CSRF_FORM }}
+    <table class=playsms-table>
+        <tbody>
+            <tr>
+                <td class=label-sizer>{{ Gateway }}</td>
+                <td>{{ gateway_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ API Account ID }}</td>
+                <td><input type=text maxlength=250 name=api_account value="{{ api_account_id }}"></td>
+            </tr>
+            <tr>
+                <td>{{ API Token }}</td>
+                <td><input type=password maxlength=250 name=api_token value=""> {{ HINT_FILL_PASSWORD }}</td>
+            </tr>
+            <tr>
+                <td>{{ Sender ID }}</td>
+                <td><input type=text maxlength=16 name=sender_id value="{{ sender_id }}"> {{ HINT_SENDER_ID }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><input type=submit class=button value="{{ Save }}">
+</form>
+<p>
+    {{ Notes }}:<br />
+    - {{ API_CALLBACK_URL_IS }} {{ api_callback_url }}<br />
+    - {{ MUST_ACCESSIBLE }}<br />
+    - {{ PUSH_DLR }}<br />
+</p>
+<p>{{ BUTTON_BACK }}</p>
