@@ -32,62 +32,35 @@ function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datet
 		// OUT<priority><date>_<time>_<serialno>_<phone_number>_<anything>.<ext><options>
 		// $fn = 'A'.$date.'_'.$time.'_00_'.$sms_to.'_'.$smslog_id.'10001'.$uid.'10001'.$gpid.'.txtd';
 		$sms_id = $smslog_id . '10001' . $uid . '10001' . $gpid;
+		$p_status = 2; # failure is default
 		
-		// sent dir
-		$dir[0] = $plugin_config['gammu']['path'] . '/sent/';
-		
-		// error dir
-		$dir[1] = $plugin_config['gammu']['path'] . '/error/';
-		
-		// list all files in sent and error dir
-		$fn = [];
-		for ($i = 0; $i < count($dir); $i++) {
-			$j = 0;
-			if ($handle = @opendir($dir[$i])) {
-				while ($file = @readdir($handle)) {
-					if ($file != "." && $file != "..") {
-						$fn[$i][$j] = $file;
-						$j++;
-					}
-				}
-				@closedir($handle);
-			}
+		$the_fn = glob(
+			quotemeta($plugin_config['gammu']['path']) . "/sent/*_$sms_id.txt*"
+			, $glob_flags = GLOB_MARK | GLOB_NOSORT
+		);
+		if ($the_fn) {
+			$p_status = 1;
 		}
-		
-		// check listed files above againts sms_id
-		$the_fn = '';
-		for ($i = 0; $i < count($dir); $i++) {
-			for ($j = 0; $j < count($fn[$i]); $j++) {
-				if (preg_match("/" . $sms_id . "/", $fn[$i][$j])) {
-					$the_fn = $dir[$i] . $fn[$i][$j];
-					if ($i === 0) {
-						
-						// sms sent
-						$p_status = 1;
-						dlr($smslog_id, $uid, $p_status);
-					} else if ($i == 1) {
-						
-						// failed to sent sms
-						$p_status = 2;
-						dlr($smslog_id, $uid, $p_status);
-					}
-					break;
-				}
-			}
+		else {
+			$the_fn = glob(
+				quotemeta($plugin_config['gammu']['path']) . "/error/*_$sms_id.txt*"
+				, $glob_flags
+			);
 		}
+		$the_fn = $the_fn ? reset($the_fn) : '';
+		#_log("smslog_id:$smslog_id the_fn:$the_fn", 2, "gammu_hook_getsmsstatus");
 		
 		// if file not found
-		if (!file_exists($the_fn)) {
-			$p_datetime_stamp = strtotime($p_datetime);
-			$p_update_stamp = strtotime($p_update);
-			$p_delay = floor(($p_update_stamp - $p_datetime_stamp) / 86400);
+		if (!$the_fn) {
+			$p_stamp = strtotime($p_update > $p_datetime ? $p_update : $p_datetime);
+			$p_delay = (time() - $p_stamp) / 86400;
 			
 			// set failed if its at least 2 days old
 			if ($p_delay >= 2) {
-				$p_status = 2;
 				dlr($smslog_id, $uid, $p_status);
 			}
 		} else {
+			dlr($smslog_id, $uid, $p_status);
 			
 			// delete the file if exists
 			_log("smslog_id:" . $smslog_id . " unlink the_fn:" . $the_fn . " p_status:" . $p_status . " smsc:" . $smsc, 2, "gammu_hook_getsmsstatus");

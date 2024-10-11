@@ -58,6 +58,10 @@ function dlrd()
 {
 	global $core_config;
 
+	if (!$core_config['isdlrd']) {
+		return;
+	}
+
 	$c_dlrd_limit = (int) $core_config['dlrd_limit'] > 0 ? (int) $core_config['dlrd_limit'] : 1000;
 	$db_query = "SELECT id, smslog_id, p_status, uid FROM " . _DB_PREF_ . "_tblDLR WHERE flag_processed=1 LIMIT " . $c_dlrd_limit;
 	$db_result = dba_query($db_query);
