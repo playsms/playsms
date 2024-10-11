@@ -40,15 +40,15 @@
 
 					<if.enable_captcha>
 					<tr>
-						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100> {{ HINT_CAPTCHA }}</td>
+						<td><div style="padding-top: 5px; padding-bottom: 5px;"><img id="captcha-image" class="playsms-auth-captcha" src="{{ CAPTCHA_IMAGE }}"></div></td>
 					</tr>
 					<tr>
-						<td><p class=well><img src="{{ CAPTCHA_IMAGE }}"></p></td>
+						<td><input type=text class=form-control placeholder="{{ Verify captcha }}" name=captcha maxlength=100</td>
 					</tr>
 					</if.enable_captcha>
 
 					<tr>
-						<td><input type=submit class=button value='{{ Login }}'></td>
+						<td><div style="padding-top: 10px;"><input type=submit class=button value='{{ Login }}'></div></td>
 					</tr>
 					<tr><td>&nbsp;</td></tr>
 

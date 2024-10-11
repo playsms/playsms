@@ -19,9 +19,9 @@
 defined('_SECURE_') or die('Forbidden');
 
 // captcha options
-$auth_captcha_length = 6;
+$auth_captcha_length = 5;
 $auth_captcha_seed = 'efhkmnpqrwxyz98765432';
-$auth_captcha_width = 220;
+$auth_captcha_width = 256;
 $auth_captcha_height = 80;
 
 // enable/disable captcha
