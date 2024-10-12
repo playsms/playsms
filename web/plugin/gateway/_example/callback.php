@@ -50,7 +50,7 @@ if (is_array($requests)) {
 $smslog_id = isset($requests['id']) ? (int) $requests['id'] : 0;
 $status = isset($requests['status']) ? core_sanitize_alphanumeric($requests['status']) : '';
 
-// Handle DLR
+// handle DLR
 if ($smslog_id && $status) {
 	$db_query = "SELECT uid,smslog_id FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id=? AND p_status=1 AND flag_deleted=0";
 	$db_result = dba_query($db_query, [$smslog_id]);
@@ -100,7 +100,7 @@ if ($smslog_id && $status) {
 //   to - SMS receiver number
 //   message - Content or message of incoming SMS
 //
-// Read the correct variable names and their format from your API server documentation
+// read the correct variable names and their format from your API server documentation
 
 $ts = isset($requests['ts']) ? (int) $requests['ts'] : 0;
 $datetime = date($ts, $datetime_format);
@@ -108,7 +108,7 @@ $sender = isset($requests['from']) ? core_sanitize_mobile($requests['from']) : '
 $receiver = isset($requests['to']) ? core_sanitize_mobile($requests['to']) : '';
 $message = isset($requests['message']) ? $requests['message'] : '';
 
-// Handle incoming SMS (MO)
+// handle incoming SMS (MO)
 if ($sender && $message) {
 	// log it
 	_log("incoming dt:" . $datetime . " from:" . $sender . " to:" . $receiver . " message:[" . $message . "]", 2, "example callback");
