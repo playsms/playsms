@@ -25,7 +25,7 @@ if (!auth_isadmin()) {
 include $core_config['apps_path']['plug'] . "/gateway/dev/config.php";
 
 switch (_OP_) {
-	case "manage" :
+	case "manage":
 		if ($err = TRUE) {
 			$content = _dialog();
 		}
@@ -35,7 +35,7 @@ switch (_OP_) {
 				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>dev</td></tr></tbody>
 			</table>
 		";
-		$content.= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
+		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
 		_p($content);
 		break;
 }
