@@ -357,16 +357,19 @@ function gateway_decide_smsc($smsc_supplied, $smsc_configured)
 	return $smsc;
 }
 
-function gateway_callback_url($gateway, $callback_file = 'callback.php')
+function gateway_callback_url($gateway, $callback = 'callback.php')
 {
 	global $core_config;
 
-	if (!($gateway = core_sanitize_alphanumeric($gateway) && $callback_file = core_sanitize_filename($callback_file))) {
+	$gateway = core_sanitize_alphanumeric($gateway);
+	$callback_file = core_sanitize_filename($callback);
+
+	if (!($gateway && $callback_file)) {
 
 		return '';
 	}
 
-	if (!($callback_file = core_sanitize_path(_APPS_PATH_PLUG_ . '/gateway/' . $gateway . '/' . $callback_file) && is_file($callback_file))) {
+	if (!is_file(core_sanitize_path(_APPS_PATH_PLUG_ . '/gateway/' . $gateway . '/' . $callback_file))) {
 
 		return '';
 	}
