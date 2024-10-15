@@ -677,16 +677,14 @@ function core_sanitize_inputs($data, $type = 'text')
 /**
  * Sanitize file/folder path
  * 
- * @param string $string
+ * @param string $string file/folder path
  * @return string
  */
 function core_sanitize_path($string)
 {
 	$string = trim($string);
 
-	$string = str_replace("|", "", $string);
-	$string = str_replace(">", "", $string);
-	$string = str_replace("<", "", $string);
+	$string = trim(preg_replace("/[^\p{L}\p{N}\s\.\-_\/]+/u", '', $string));
 	$string = str_replace("..", "", $string);
 
 	return $string;
@@ -701,8 +699,7 @@ function core_sanitize_path($string)
 function core_sanitize_filename($string)
 {
 	$string = core_sanitize_path($string);
-
-	$string = trim(preg_replace('/[^\p{L}\p{N}\s\.\-_]+/u', '', $string));
+	$string = str_replace("/", "", $string);
 
 	return $string;
 }
