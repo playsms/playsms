@@ -26,9 +26,9 @@ include $core_config['apps_path']['plug'] . "/gateway/example/config.php";
 
 switch (_OP_) {
 	case "manage":
-		$tpl = array(
+		$tpl = [
 			'name' => 'example',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
 				'Manage' => _('Manage'),
 				'Gateway' => _('Gateway'),
@@ -47,8 +47,8 @@ switch (_OP_) {
 				'api_callback_url' => $plugin_config['example']['api_callback_url'],
 				'api_account_id' => $plugin_config['example']['api_account_id'],
 				'sender_id' => $plugin_config['example']['sender_id'],
-			)
-		);
+			]
+		];
 		_p(tpl_apply($tpl));
 		break;
 

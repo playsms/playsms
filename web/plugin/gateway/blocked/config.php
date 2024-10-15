@@ -18,7 +18,10 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-$plugin_config['blocked']['name'] = 'blocked';
+// plugin configuration
+$plugin_config['blocked'] = [
+	'name' => 'blocked',
+];
 
 // smsc configuration
 $plugin_config['blocked']['_smsc_config_'] = [];

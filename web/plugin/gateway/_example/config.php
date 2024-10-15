@@ -20,12 +20,15 @@ defined('_SECURE_') or die('Forbidden');
 
 // gateway configuration in registry
 $data = registry_search(0, 'gateway', 'example');
-$plugin_config['example'] = $data['gateway']['example'];
-$plugin_config['example']['name'] = 'example';
-$plugin_config['example']['api_url'] = 'https://example.com/?account={API_ACCOUNT_ID}&token={API_TOKEN}&sender={SENDER_ID}';
-$plugin_config['example']['api_account_id'] = isset($data['gateway']['api_account_id']) ? $data['gateway']['api_account_id'] : '';
-$plugin_config['example']['api_token'] = isset($data['gateway']['api_token']) ? $data['gateway']['api_token'] : '';
-$plugin_config['example']['sender_id'] = isset($data['gateway']['sender_id']) ? $data['gateway']['sender_id'] : '';
+
+// plugin configuration
+$plugin_config['example'] = [
+	'name' => 'example',
+	'api_url' => 'https://example.com/?account={API_ACCOUNT_ID}&token={API_TOKEN}&sender={SENDER_ID}',
+	'api_account_id' => isset($data['gateway']['api_account_id']) ? $data['gateway']['api_account_id'] : '',
+	'api_token' => isset($data['gateway']['api_token']) ? $data['gateway']['api_token'] : '',
+	'sender_id' => isset($data['gateway']['sender_id']) ? $data['gateway']['sender_id'] : '',
+];
 
 // smsc configuration
 $plugin_config['example']['_smsc_config_'] = [
@@ -35,7 +38,4 @@ $plugin_config['example']['_smsc_config_'] = [
 ];
 
 // insert API callback URL to $plugin_config
-$api_callback_url = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/plugin/gateway/example/callback.php";
-$api_callback_url = str_replace("//", "/", $api_callback_url);
-$api_callback_url = ($core_config['ishttps'] ? "https://" : "http://") . $api_callback_url;
-$plugin_config['example']['api_callback_url'] = $api_callback_url;
+$plugin_config['example']['api_callback_url'] = gateway_callback_url('example');

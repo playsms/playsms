@@ -18,13 +18,17 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-$plugin_config['dev']['name'] = 'dev';
-$plugin_config['dev']['enable_incoming'] = true;
-$plugin_config['dev']['enable_outgoing'] = true;
+// plugin configuration
+$plugin_config['dev'] = [
+	'name' => 'dev',
+	'enable_incoming' => true,
+	'enable_outgoing' => true,
+];
 
 // smsc configuration
 $plugin_config['dev']['_smsc_config_'] = [];
 
+// insert menu
 if (auth_isadmin()) {
 	$menutab = $core_config['menutab']['settings'];
 	$menu_config[$menutab][] = [
