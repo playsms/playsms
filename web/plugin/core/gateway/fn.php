@@ -356,3 +356,26 @@ function gateway_decide_smsc($smsc_supplied, $smsc_configured)
 
 	return $smsc;
 }
+
+function gateway_callback_url($gateway, $callback_file = 'callback.php')
+{
+	global $core_config;
+
+	if (!($gateway = core_sanitize_alphanumeric($gateway) && $callback_file = core_sanitize_filename($callback_file))) {
+
+		return '';
+	}
+
+	if (!($callback_file = core_sanitize_path(_APPS_PATH_PLUG_ . '/gateway/' . $gateway . '/' . $callback_file) && is_file($callback_file))) {
+
+		return '';
+	}
+
+	$callback = core_sanitize_path(dirname($_SERVER['PHP_SELF']) . '/plugin/gateway/' . $gateway . '/' . $callback_file);
+
+	$callback_url = $_SERVER['HTTP_HOST'] . $callback;
+	$callback_url = str_replace('//', '/', $callback_url);
+	$callback_url = ($core_config['ishttps'] ? 'https://' : 'http://') . $callback_url;
+
+	return $callback_url;
+}
