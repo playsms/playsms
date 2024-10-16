@@ -556,7 +556,7 @@ function themes_select($name, $options = [], $selected = '', $tag_params = [], $
  * Generate select HTML tag for yes-no or enabled-disabled type of options
  *
  * @param string $name tag name
- * @param boolean $selected true if yes/enabled
+ * @param bool $selected true if yes/enabled
  * @param string $yes 'Yes' or 'Enabled' option
  * @param string $no 'No' or 'Disabled' option
  * @param array $tag_params additional input tag parameters
@@ -564,7 +564,7 @@ function themes_select($name, $options = [], $selected = '', $tag_params = [], $
  * @param string $css_class CSS class name
  * @return string select HTML tag
  */
-function themes_select_yesno($name, $selected, $yes = '', $no = '', $tag_params = [], $css_id = '', $css_class = '')
+function themes_select_yesno($name, $selected = false, $yes = '', $no = '', $tag_params = [], $css_id = '', $css_class = '')
 {
 	$ret = '';
 

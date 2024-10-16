@@ -106,8 +106,8 @@ function _select($name, $options = [], $selected = '', $tag_params = [], $css_id
  *
  * @param string $name
  *        Tag name
- * @param boolean $selected
- *        TRUE if yes/enabled
+ * @param bool $selected
+ *        true if yes/enabled
  * @param string $yes
  *        'Yes' or 'Enabled' option
  * @param string $no
@@ -120,7 +120,7 @@ function _select($name, $options = [], $selected = '', $tag_params = [], $css_id
  *        CSS class name
  * @return string Select HTML tag
  */
-function _yesno($name, $selected = '', $yes = '', $no = '', $tag_params = [], $css_id = '', $css_class = '')
+function _yesno($name, $selected = false, $yes = '', $no = '', $tag_params = [], $css_id = '', $css_class = '')
 {
 	return themes_select_yesno($name, $selected, $yes, $no, $tag_params, $css_id, $css_class);
 }
@@ -221,7 +221,7 @@ function _lastpost($key = '')
 /**
  * Empty last submitted $_POST data
  *
- * @return boolean TRUE
+ * @return bool true
  */
 function _lastpost_empty()
 {
