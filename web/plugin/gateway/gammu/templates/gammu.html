@@ -1,0 +1,27 @@
+{{ DIALOG_DISPLAY }}
+<h2>{{ Manage }} {{ gateway_name }}</h2>
+<form action=index.php?app=main&inc=gateway_gammu&op=manage_save method=POST>
+    {{ CSRF_FORM }}
+    <table class=playsms-table>
+        <tbody>
+            <tr>
+                <td class=label-sizer>{{ Gateway }}</td>
+                <td>{{ gateway_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ Receiver number }}</td>
+                <td><input type=text maxlength=16 name=sms_receiver value="{{ sms_receiver }}"></td>
+            </tr>
+            <tr>
+                <td>{{ Spool folder }}</td>
+                <td><input type=text maxlength=250 name=path value="{{ path }}"></td>
+            </tr>
+            <tr>
+                <td>{{ Delivery reports }}</td>
+                <td>{{ dlr }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><input type=submit class=button value="{{ Save }}">
+</form>
+<p>{{ BUTTON_BACK }}</p>

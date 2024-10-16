@@ -26,37 +26,44 @@ include $core_config['apps_path']['plug'] . "/gateway/gammu/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
-			<h2>" . _('Manage gammu') . "</h2>
-			<form action=index.php?app=main&inc=gateway_gammu&op=manage_save method=post>
-			" . _CSRF_FORM_ . "
-			<table class=playsms-table>
-				<tbody>
-				<tr>
-					<td class=label-sizer>" . _('Gateway name') . "</td><td>gammu</td>
-				</tr>
-				<tr>
-					<td>" . _('Spool folder') . "</td><td><input type=text name=up_path value=\"" . $plugin_config['gammu']['path'] . "\"></td>
-				</tr>
-				</tbody>
-			</table>
-			<p><input type=submit class=button value=\"" . _('Save') . "\">
-			</form>";
-		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
-		_p($content);
+		$tpl = [
+			'name' => 'gammu',
+			'vars' => [
+				'DIALOG_DISPLAY' => _dialog(),
+				'Manage' => _('Manage'),
+				'Gateway' => _('Gateway'),
+				'Receiver number' => _('Receiver number'),
+				'Spool folder' => _mandatory(_('Spool folder')),
+				'Delivery reports' => _('Delivery reports'),
+				'Save' => _('Save'),
+				'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
+				'gateway_name' => $plugin_config['gammu']['name'],
+				'sms_receiver' => $plugin_config['gammu']['sms_Receiver'],
+				'path' => $plugin_config['gammu']['path'],
+				'dlr' => _yesno('dlr', (bool) $plugin_config['gammu']['dlr']),
+			]
+		];
+		_p(tpl_apply($tpl));
 		break;
+
 	case "manage_save":
-		$up_path = core_sanitize_path($_POST['up_path']);
-		$items = array(
-			'path' => $up_path 
-		);
-		registry_update(0, 'gateway', 'gammu', $items);
-		
-		$_SESSION['dialog']['info'][] = _('Changes have been made');
+		$sms_receiver = isset($_REQUEST['sms_receiver']) ? core_sanitize_sender($_REQUEST['sms_receiver']) : '';
+		$path = isset($_REQUEST['path']) ? core_sanitize_path($_REQUEST['path']) : '';
+		$dlr = isset($_REQUEST['dlr']) && (bool) $_REQUEST['dlr'] ? 1 : 0;
+		if ($path) {
+			$items = [
+				'sms_receiver' => $sms_receiver,
+				'path' => $path,
+				'dlr' => $dlr,
+			];
+			if (registry_update(0, 'gateway', 'gammu', $items)) {
+				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
+			} else {
+				$_SESSION['dialog']['danger'][] = _('Fail to save gateway module configurations');
+			}
+		} else {
+			$_SESSION['dialog']['danger'][] = _('All mandatory fields must be filled');
+		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_gammu&op=manage'));
 		exit();
-		break;
 }
