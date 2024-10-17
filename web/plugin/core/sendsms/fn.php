@@ -1272,20 +1272,22 @@ function sendsms_get_template()
 /**
  * Get SMS data from SMS Log ID
  *
- * @param int $smslog_id        
+ * @param int $smslog_id SMS Log ID
+ * @param array $fields array of field names
+ * @param array $conditions array of other conditions
  * @return array
  */
-function sendsms_get_sms($smslog_id)
+function sendsms_get_sms($smslog_id, $fields = [], $conditions = [])
 {
-	$data = [];
+	$smslog_id = (int) $smslog_id;
+	if (!($smslog_id > 0)) {
 
-	$db_query = "SELECT * FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id=?";
-	$db_result = dba_query($db_query, [$smslog_id]);
-	if ($db_row = dba_fetch_array($db_result)) {
-		$data = $db_row;
+		return [];
 	}
 
-	return $data;
+	$conditions['smslog_id'] = $smslog_id;
+
+	return dba_search(_DB_PREF_ . '_tblSMSOutgoing', $fields, $conditions);
 }
 
 /**
