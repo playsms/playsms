@@ -1,2 +1,5 @@
+Version 1.1
+- map of remote_id to local smslog_id is in tblSMSOutgoing added in 1.4.8
+
 Version 1.0
 - changelog started

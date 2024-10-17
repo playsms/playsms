@@ -47,13 +47,13 @@ if (is_array($requests)) {
 //
 // read the correct variable names and their format from your API server documentation
 
-$smslog_id = isset($requests['id']) ? (int) $requests['id'] : 0;
 $status = isset($requests['status']) ? core_sanitize_alphanumeric($requests['status']) : '';
+$remote_id = isset($requests['id']) ? (int) $requests['id'] : 0;
 
 // handle DLR
-if ($smslog_id && $status) {
-	$db_query = "SELECT uid,smslog_id FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id=? AND p_status=1 AND flag_deleted=0";
-	$db_result = dba_query($db_query, [$smslog_id]);
+if ($status && $remote_id) {
+	$db_query = "SELECT uid,smslog_id FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE remote_id=? AND p_status=1 AND flag_deleted=0";
+	$db_result = dba_query($db_query, [$remote_id]);
 	if ($db_row = dba_fetch_array($db_result)) {
 		$uid = (int) $db_row['uid'];
 		$smslog_id = (int) $db_row['smslog_id'];
@@ -68,6 +68,7 @@ if ($smslog_id && $status) {
 			//
 			// read the correct status values and their format from your API server documentation
 
+			// default pending
 			$p_status = 0;
 			switch ($status) {
 				case 'DELIVRD':
@@ -86,9 +87,9 @@ if ($smslog_id && $status) {
 			dlr($smslog_id, $uid, $p_status);
 
 			// respond to the API server
-			// read the correct way to respond back the API server in API server documentation
+			// read the correct way to respond back the API server in your API server documentation
 			ob_end_clean();
-			echo "ACK " . $smslog_id;
+			echo "ACK " . $remote_id;
 			exit();
 		}
 	}

@@ -40,13 +40,14 @@ function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// override $plugin_config by $plugin_config from selected SMSC
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 
-	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " from:" . $sms_sender . " to:" . $sms_to, 3, "example_hook_sendsms");
-
 	// re-filter, sanitize, modify some vars if needed
 	$sms_sender = core_sanitize_sender($sms_sender);
 	$sms_to = core_sanitize_mobile($sms_to);
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_msg = stripslashes($sms_msg) . ($sms_footer ? ' ' . $sms_footer : '');
+
+	// log it
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " from:" . $sms_sender . " to:" . $sms_to, 3, "example_hook_sendsms");
 
 	// prepare API_URL or some other way
 	$api_url = $plugin_config['example']['api_url'];
@@ -56,18 +57,47 @@ function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 
 	// routine to submit data to API_URL here
 	// ...
+	// $response = core_get_contents($api_url);
+	// ...
 	// read the returns, decide to flag this delivery right away or wait for a callback
 	// ...
-	// use this to set delivery report for this SMS:
-	// p_status :
-	// 	 0 = pending
-	//   1 = sent
-	//   2 = failed
-	//   3 = delivered
-	//dlr($smslog_id, $uid, $p_status);
+	// example response format: [OK] [REMOTE_ID]
+	/*
+	if ($response = core_get_contents($api_url)) {
+		$response = preg_split('/\s+/', $response);
+		if ($response !== false) {
+			$status = isset($response[0]) && strtoupper($response) = 'OK' ? true : false;
+			$remote_id = isset($response[1]) && (int) $response ? (int) $response : 0;
+			if ($status && $remote_id) {
+				// save remote_id in smslog_id record, essentially mapped remote_id with local smslog_id
+				if (dba_update(_DB_PREF_ . '_playsms_tblSMSOutgoing', ['remote_id' => $remote_id], ['smslog_id' => $smslog_id, flag_deleted => 0])) {
+					// p_status :
+					// 	 0 = pending
+					//   1 = sent
+					//   2 = failed
+					//   3 = delivered
+
+					// some gateway update the status via callback
+					// $p_status = 0;
+					// other gateway will not, so just set it as 'sent'
+					$p_status = 1;
+					// or if we really don't care we can just assume that submitted SMS is delivered
+					// $p_status = 3;
+					dlr($smslog_id, $uid, $p_status);
+
+					return true;
+				}
+			}
+		}
+	}
+	*/
 	// ...
 	// 
 	// return true or false
+
+	// by default its a failed submission
+	//$p_status = 2;
+	//dlr($smslog_id, $uid, $p_status);
 
 	return false; // or true, depends on the submission returns
 }
