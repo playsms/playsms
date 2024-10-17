@@ -1627,6 +1627,56 @@ function core_check_id($id, $db_table, $field_name)
 	return false;
 }
 
+/**
+ * file_get_contents() replacement
+ * 
+ * @param string $url URL
+ * @param string $method POST or GET, default POST
+ * @param bool $verify_peer Verify SSL certificate
+ * @param bool $verify_peer_name Verify peer name
+ * @param bool $allow_self_signed Allow self-signed SSL certificate
+ * @return string
+ */
+function core_get_contents($url, $method = 'POST', $verify_peer = false, $verify_peer_name = false, $allow_self_signed = false)
+{
+	$url = trim($url) ? $url : '';
+	$method = strtoupper(trim($method));
+	$method = $method == 'POST' || $method == 'GET' ? $method : 'POST';
+	$verify_peer = (bool) $verify_peer;
+	$verify_peer_name = (bool) $verify_peer_name;
+
+	if (!($url && $parsed_url = parse_url($url))) {
+
+		return '';
+	}
+
+	$query = isset($parsed_url['query']) ? trim($parsed_url['query']) : '';
+
+	$context = stream_context_create([
+		'http' => [
+			'method' => $method,
+			'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+			'content' => $query,
+		],
+		'ssl' => [
+			'verify_peer' => $verify_peer,
+			'verify_peer_name' => $verify_peer_name,
+			'allow_self_signed' => $allow_self_signed,
+		],
+	]);
+
+	$server_url = explode('?', $url);
+
+	$response = file_get_contents($server_url[0], false, $context);
+
+	if ($response === false) {
+
+		return '';
+	}
+
+	return $response === false ? '' : trim($response);
+}
+
 // --------------------------------------------------------------------------------------------
 
 // fixme anton
