@@ -148,25 +148,7 @@ function sms_custom_handle($list, $uid, $custom_id, $sms_datetime, $sms_sender, 
 	$custom_url = str_replace("{CUSTOMRAW}", urlencode($raw_message), $custom_url);
 	_log("custom_url:[" . $custom_url . "]", 3, "sms_custom_handle");
 
-	$parsed_url = parse_url($custom_url);
-
-	$opts = [
-		'http' => [
-			'method' => 'POST',
-			'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-			'content' => $parsed_url['query']
-		],
-		"ssl" => [
-			"verify_peer" => false,
-			"verify_peer_name" => false,
-		],
-	];
-
-	$context = stream_context_create($opts);
-
-	$server_url = explode('?', $custom_url);
-
-	if ($returns = trim(file_get_contents($server_url[0], false, $context))) {
+	if ($returns = core_get_contents($custom_url)) {
 		$unicode = core_detect_unicode($returns);
 		$returns = addslashes($returns);
 		_log("returns:[" . $returns . "]", 3, "sms_custom_handle");
