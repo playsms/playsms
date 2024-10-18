@@ -53,7 +53,7 @@ function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$api_url = $plugin_config['example']['api_url'];
 	$api_url = str_replace('{API_ACCOUNT_ID}', $plugin_config['example']['api_account_id'], $api_url);
 	$api_url = str_replace('{API_TOKEN}', $plugin_config['example']['api_token'], $api_url);
-	$api_url = str_replace('{SENDER_ID}', $plugin_config['example']['sender_id'], $api_url);
+	$api_url = str_replace('{MODULE_SENDER}', $plugin_config['example']['module_sender'], $api_url);
 
 	// routine to submit data to API_URL here
 	// ...
