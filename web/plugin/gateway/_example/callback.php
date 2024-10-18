@@ -81,7 +81,7 @@ if ($status && $remote_id) {
 			}
 
 			// log it
-			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " status:" . $p_status, 2, "example callback");
+			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status, 2, "example callback");
 
 			// set delivery report
 			dlr($smslog_id, $uid, $p_status);
