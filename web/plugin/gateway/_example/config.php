@@ -25,10 +25,10 @@ $data = registry_search(0, 'gateway', 'example');
 $plugin_config['example'] = [
 	'name' => 'example',
 	'api_url' => 'https://example.com/?account={API_ACCOUNT_ID}&token={API_TOKEN}&sender={MODULE_SENDER}',
-	'api_account_id' => isset($data['gateway']['api_account_id']) ? $data['gateway']['api_account_id'] : '',
-	'api_token' => isset($data['gateway']['api_token']) ? $data['gateway']['api_token'] : '',
-	'module_sender' => isset($data['gateway']['module_sender']) ? $data['gateway']['module_sender'] : '',
-	'datetime_timezone' => isset($data['gateway']['datetime_timezone']) ? $data['gateway']['datetime_timezone'] : '',
+	'api_account_id' => isset($data['gateway']['example']['api_account_id']) ? $data['gateway']['example']['api_account_id'] : '',
+	'api_token' => isset($data['gateway']['example']['api_token']) ? $data['gateway']['example']['api_token'] : '',
+	'module_sender' => isset($data['gateway']['example']['module_sender']) ? $data['gateway']['example']['module_sender'] : '',
+	'datetime_timezone' => isset($data['gateway']['example']['datetime_timezone']) ? $data['gateway']['example']['datetime_timezone'] : '',
 ];
 
 // smsc configuration
