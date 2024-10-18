@@ -37,10 +37,17 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 {
 	global $plugin_config;
 
-	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "gammu_hook_sendsms");
-
-	// override plugin gateway configuration by smsc configuration
+	// override $plugin_config by $plugin_config from selected SMSC
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
+
+	// re-filter, sanitize, modify some vars if needed
+	$sms_sender = core_sanitize_sender($sms_sender);
+	$sms_to = core_sanitize_mobile($sms_to);
+	$sms_footer = core_sanitize_footer($sms_footer);
+	$sms_msg = stripslashes($sms_msg) . ($sms_footer ? ' ' . $sms_footer : '');
+
+	// log it
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " from:" . $sms_sender . " to:" . $sms_to, 3, "gammu_hook_sendsms");
 
 	$date = date('Ymd', time());
 	$time = date('Gis', time());
@@ -52,10 +59,6 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
 
 	if ($sms_type == 'flash') {
 		$sms_id .= 'f';
-	}
-
-	if ($sms_footer) {
-		$sms_msg = $sms_msg . $sms_footer;
 	}
 
 	// no need to do anything on unicoded messages since InboxFormat and OutboxFormat is already set to unicode

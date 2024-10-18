@@ -37,9 +37,16 @@ function dev_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $u
 {
 	global $plugin_config;
 
-	// override plugin gateway configuration by smsc configuration
+	// override $plugin_config by $plugin_config from selected SMSC
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 
+	// re-filter, sanitize, modify some vars if needed
+	$sms_sender = core_sanitize_sender($sms_sender);
+	$sms_to = core_sanitize_mobile($sms_to);
+	$sms_footer = core_sanitize_footer($sms_footer);
+	$sms_msg = stripslashes($sms_msg) . ($sms_footer ? ' ' . $sms_footer : '');
+
+	// log it
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " from:" . $sms_sender . " to:" . $sms_to, 3, "dev_hook_sendsms");
 
 	if (isset($plugin_config['dev']['enable_outgoing']) && $plugin_config['dev']['enable_outgoing']) {
