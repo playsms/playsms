@@ -13,3 +13,5 @@ ALTER TABLE `playsms_tblSMSInbox` CHANGE `reference_id` `reference_id` VARCHAR(2
 ALTER TABLE `playsms_tblSMSOutgoing` CHANGE `queue_code` `queue_code` VARCHAR(255) NOT NULL DEFAULT '';
 ALTER TABLE `playsms_tblSMSOutgoing_queue` CHANGE `queue_code` `queue_code` VARCHAR(255) NOT NULL DEFAULT '';
 ALTER TABLE `playsms_tblUser` CHANGE `token` `token` VARCHAR(255) NOT NULL DEFAULT '';
+
+ALTER TABLE `playsms_tblSMSOutgoing` ADD `remote_id` varchar(255) DEFAULT NULL AFTER `queue_code`, ADD `in_id` int(11) DEFAULT NULL;
