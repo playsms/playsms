@@ -280,7 +280,7 @@ function _gateway_display_smsc()
 	$extras = array(
 		'ORDER BY' => 'gateway'
 	);
-	$smsc_list = dba_search($db_table, '*', '', '', $extras);
+	$smsc_list = dba_search($db_table, '*', [], [], $extras);
 
 	$content = "
 		<div class=table-responsive>
