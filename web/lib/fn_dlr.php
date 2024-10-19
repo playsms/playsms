@@ -18,9 +18,19 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
+/**
+ * Set delivery report
+ * 
+ * @param int $smslog_id
+ * @param int $uid
+ * @param int $p_status
+ * @return int tblDlr DB insert ID
+ */
 function dlr($smslog_id, $uid, $p_status)
 {
 	global $core_config;
+
+	$ret = 0;
 
 	if ($core_config['isdlrd']) {
 		$c_isdlrd = 1;
@@ -74,16 +84,26 @@ function dlrd()
 	}
 }
 
+/**
+ * Set delivery status for SMS outgoing and runs through hooks
+ * 
+ * @param int $smslog_id
+ * @param int $uid
+ * @param int $p_status
+ * @return bool
+ */
 function setsmsdeliverystatus($smslog_id, $uid, $p_status)
 {
 	global $core_config;
+
+	$ok = false;
 
 	// $p_status = 0 --> pending
 	// $p_status = 1 --> sent
 	// $p_status = 2 --> failed
 	// $p_status = 3 --> delivered
 	// _log("smslog_id:".$smslog_id." uid:".$uid." p_status:".$p_status, 2, "setsmsdeliverystatus");
-	$ok = false;
+
 	$db_query = "UPDATE " . _DB_PREF_ . "_tblSMSOutgoing SET c_timestamp=?,p_update=?,p_status=? WHERE smslog_id=? AND uid=?";
 	if (dba_affected_rows($db_query, [time(), core_get_datetime(), $p_status, $smslog_id, $uid])) {
 		// _log("saved smslog_id:".$smslog_id, 2, "setsmsdeliverystatus");
