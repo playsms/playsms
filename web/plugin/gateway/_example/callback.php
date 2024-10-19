@@ -96,10 +96,8 @@ if ($status && $remote_id) {
 			}
 
 			// log it
-			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status . " p_status:" . $p_status, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
 
-
-			// ---------- END OF CALLBACK INIT ----------
 			// set delivery report
 			dlr($smslog_id, $uid, $p_status);
 
@@ -131,8 +129,6 @@ if ($sender && $message) {
 	// log it
 	_log("incoming dt:" . $datetime . " from:" . $sender . " to:" . $receiver . " message:[" . $message . "]", 2, _CALLBACK_GATEWAY_LOG_MARKER_);
 
-
-	// ---------- END OF CALLBACK INIT ----------
 	// save incoming SMS for further processing
 	$recvlog_id = recvsms($datetime, $sender, $message, $receiver, $smsc);
 
