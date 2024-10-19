@@ -26,90 +26,80 @@ include $core_config['apps_path']['libs'] . "/fn_dlr.php";
 include $core_config['apps_path']['libs'] . "/fn_webservices.php";
 include $core_config['apps_path']['libs'] . "/fn_keyword.php";
 
-// load common configurations
-$c_fn1 = $core_config['apps_path']['plug'] . '/themes/common/config.php';
-if (file_exists($c_fn1)) {
-	include $c_fn1;
-	$c_fn2 = $core_config['apps_path']['plug'] . '/themes/common/fn.php';
-	if (file_exists($c_fn2)) {
-		include $c_fn2;
+// plugins category
+$core_config['plugins']['category'] = isset($core_config['plugins']['category']) && is_array($core_config['plugins']['category'])
+	? $core_config['plugins']['category'] : [
+		'feature',
+		'gateway',
+		'themes',
+		'language'
+	];
+
+// plugins list
+$core_config['plugins']['list'] = [];
+
+// load commons
+$dir = $core_config['apps_path']['plug'] . '/';
+foreach ( $core_config['plugins']['category'] as $category ) {
+	$dir = $core_config['apps_path']['plug'] . '/' . $category . '/';
+	$common_conf = $dir . '/common/config.php';
+	if (is_file($common_conf)) {
+		include $common_conf;
+		$common_fn = $dir . '/common/fn.php';
+		if (is_file($common_fn)) {
+			include $common_fn;
+		}
 	}
 }
 
 // load list of plugins
-if (!isset($core_config['plugins']['category']) || !is_array($core_config['plugins']['category'])) {
-	$core_config['plugins']['category'] = [];
-}
-
-$c_count = is_array($core_config['plugins']['category']) ? count($core_config['plugins']['category']) : 0;
-for ($i = 0; $i < $c_count; $i++) {
-	if (isset($core_config['plugins']['category'][$i]) && $core_config['plugins']['category'][$i]) {
-		$pc = $core_config['plugins']['category'][$i];
-		// get plugins
-		$dir = $core_config['apps_path']['plug'] . '/' . $pc . '/';
-		unset($core_config['plugins']['list'][$pc]);
-		unset($tmp_core_config['plugins']['list'][$pc]);
+foreach ( $core_config['plugins']['category'] as $category ) {
+	$dir = $core_config['apps_path']['plug'] . '/' . $category . '/';
+	if (is_dir($dir)) {
+		$core_config['plugins']['list'][$category] = [];
+		$plugins = [];
 		$fd = opendir($dir);
-		$pc_names = [];
-		while (false !== ($pl_name = readdir($fd))) {
-			// plugin's dir prefixed with dot or underscore will not be loaded
-			if (substr($pl_name, 0, 1) != "." && substr($pl_name, 0, 1) != "_") {
-				// exeptions for themes/common
-				if (!(($pc == 'themes') && ($pl_name == 'common'))) {
-					$pc_names[] = $pl_name;
-				}
+		while (false !== ($plugin = readdir($fd))) {
+			// plugin's dir prefixed with a dot or an underscore, or named 'common', will not be loaded
+			if (preg_match('/^[^\._][a-zA-Z0-9\_]+/', $plugin) && strlen($plugin) <= 64 && $plugin != 'common') {
+				$plugins[] = $plugin;
 			}
 		}
 		closedir();
-		sort($pc_names);
-		for ($j = 0; $j < count($pc_names); $j++) {
-			if (is_dir($dir . $pc_names[$j])) {
-				$core_config['plugins']['list'][$pc][] = $pc_names[$j];
+		sort($plugins);
+		foreach ( $plugins as $plugin ) {
+			if (is_dir($dir . $plugin)) {
+				$core_config['plugins']['list'][$category][] = $plugin;
 			}
 		}
 	}
 }
 
-// load each plugin's config
+// load configs and functions
 $dir = $core_config['apps_path']['plug'] . '/';
-$pcs = array('themes', 'language', 'gateway', 'feature');
-foreach ( $pcs as $pc ) {
-	if (!isset($core_config['plugins']['list'][$pc]) && !is_array($core_config['plugins']['list'][$pc])) {
-		$core_config['plugins']['list'][$pc] = [];
-	}
-	for ($i = 0; $i < count($core_config['plugins']['list'][$pc]); $i++) {
-		$pl = $core_config['plugins']['list'][$pc][$i];
-		$pl_dir = $dir . $pc . '/' . $pl;
-		$c_fn1 = $pl_dir . '/config.php';
-		if (file_exists($c_fn1)) {
-			include $c_fn1;
-		}
-	}
-}
-
-// load each plugin's libs
-$dir = $core_config['apps_path']['plug'] . '/';
-$pcs = array('feature', 'gateway');
-foreach ( $pcs as $pc ) {
-	$c_count = is_array($core_config['plugins']['list'][$pc]) ? count($core_config['plugins']['list'][$pc]) : 0;
-	for ($i = 0; $i < $c_count; $i++) {
-		$pl = $core_config['plugins']['list'][$pc][$i];
-		$pl_dir = $dir . $pc . '/' . $pl;
-		$c_fn1 = $pl_dir . '/fn.php';
-		if (file_exists($c_fn1)) {
-			include $c_fn1;
+foreach ( $core_config['plugins']['category'] as $category ) {
+	foreach ( $core_config['plugins']['list'][$category] as $plugin ) {
+		$c_conf = $dir . $category . '/' . $plugin . '/config.php';
+		if (is_file($c_conf)) {
+			include $c_conf;
+			if ($category == 'feature' || $category == 'gateway') {
+				$c_fn = $dir . $category . '/' . $plugin . '/fn.php';
+				if (is_file($c_fn)) {
+					include $c_fn;
+				}
+			}
 		}
 	}
 }
 
 // load active themes libs
 $dir = $core_config['apps_path']['plug'] . '/';
-$pc = 'themes';
-$pl = core_themes_get();
-$pl_dir = $dir . $pc . '/' . $pl;
-$c_fn1 = $pl_dir . '/fn.php';
-if (file_exists($c_fn1)) {
-	include $c_fn1;
+$category = 'themes';
+$plugin = core_themes_get();
+$plugin_dir = $dir . $category . '/' . $plugin;
+$c_fn = $plugin_dir . '/fn.php';
+if (is_file($c_fn)) {
+	include $c_fn;
 }
 
 // themes main overrides
