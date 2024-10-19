@@ -1,6 +1,6 @@
 {{ DIALOG_DISPLAY }}
 <h2>{{ Manage }} {{ gateway_name }}</h2>
-<form action=index.php?app=main&inc=gateway_example&op=manage_save method=POST>
+<form action="index.php?app=main&inc=gateway_example&op=manage_save" method=POST>
     {{ CSRF_FORM }}
     <table class=playsms-table>
         <tbody>
@@ -18,13 +18,18 @@
             </tr>
             <tr>
                 <td>{{ Module sender ID }}</td>
-                <td><input type=text size=16 maxlength=16 name=module_sender value="{{ module_sender }}"> {{ HINT_MODULE_SENDER }}</td>
+                <td>
+                    <input type=text size=16 maxlength=16 name=module_sender value="{{ module_sender }}">
+                    {{ HINT_MODULE_SENDER }}
+                </td>
             </tr>
             <tr>
                 <td>{{ Module timezone }}</td>
-                <td><input type=text size=5 maxlength=5 name=datetime_timezone value="{{ datetime_timezone }}"> {{ HINT_TIMEZONE }}</td>
+                <td>
+                    <input type=text size=5 maxlength=5 name=datetime_timezone value="{{ datetime_timezone }}">
+                    {{ HINT_TIMEZONE }}
+                </td>
             </tr>
-
         </tbody>
     </table>
     <p><input type=submit class=button value="{{ Save }}">
