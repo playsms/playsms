@@ -299,12 +299,15 @@ $core_config['datetime']['now_stamp'] = $datetime_now_stamp;
 // --- playSMS Specifics --- //
 
 // plugins category
-$core_config['plugins']['category'] = array(
+$core_config['plugins']['category'] = [
 	'feature',
 	'gateway',
+	'language',
 	'themes',
-	'language'
-);
+];
+
+// plugins list
+$core_config['plugins']['list'] = [];
 
 // max sms text length
 // single text sms can be 160 char instead of 1*153
