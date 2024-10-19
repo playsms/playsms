@@ -24,8 +24,8 @@ define('_CALLBACK_GATEWAY_LOG_MARKER_', _CALLBACK_GATEWAY_NAME_ . ' callback');
 error_reporting(0);
 
 // load callback init
-if ($callback_init = _APPS_PATH_PLUG_ . '/gateway/common/callback_init.php' && is_file($callback_init)) {
-	include $callback_init;
+if (!(isset($PLAYSMS_INIT_SKIP) && $PLAYSMS_INIT_SKIP === true) && is_file('../common/callback_init.php')) {
+	include '../common/callback_init.php';
 }
 
 // incoming message
