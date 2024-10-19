@@ -55,81 +55,54 @@ if (is_array($requests)) {
 }
 // -------------------- END OF CALLBACK INIT --------------------
 
-$remote_addr = $_SERVER['REMOTE_ADDR'];
-
-// srosa 20100531: added var below
+$remote_addr = _REMOTE_ADDR_;
 $remote_host = $_SERVER['HTTP_HOST'];
-
-// srosa 20100531: changed test below to allow hostname in bearerbox_host instead of ip
-// if ($remote_addr != $kannel_param['bearerbox_host'])
-// if ($remote_addr != $kannel_param['bearerbox_host'] && $remote_host != $kannel_param['bearerbox_host']) {
-// _log("exit remote_addr:".$remote_addr." remote_host:".$remote_host." bearerbox_host:".$kannel_param['bearerbox_host'], 2, "kannel dlr");
-// exit();
-// }
 
 $xml = file_get_contents('php://input');
 
-// file_put_contents('toto.txt', $xml, true);
 _log("dlr request: " . $xml, 3, _CALLBACK_GATEWAY_LOG_MARKER_);
 
-preg_match_all('/id=\"([0-9]+)\"/', $xml, $result);
-$apimsgid = $result[1][0];
-_log("apimsgid: " . $apimsgid, 3, _CALLBACK_GATEWAY_LOG_MARKER_);
+$remote_id = '';
+if (preg_match_all('/id=\"([0-9]+)\"/', $xml, $result)) {
+	$remote_id = isset($result[1][0]) && $result[1][0] ? $result[1][0] : '';
+}
 
+$status = '';
 if (preg_match_all('/status=\"([A-Z]+)\"/', $xml, $result)) {
-	$status = $result[1][0];
+	$status = isset($result[1][0]) && $result[1][0] ? $result[1][0] : '';
 }
 
-$db_query = "SELECT smslog_id FROM " . _DB_PREF_ . "_gatewayInfobip_apidata WHERE apimsgid='$apimsgid'";
-$db_result = dba_query($db_query);
-$db_row = dba_fetch_array($db_result);
-$smslog_id = $db_row['smslog_id'];
+if (!($remote_id && $status)) {
 
-$db_query = "SELECT uid FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE smslog_id='$smslog_id'";
-$db_result = dba_query($db_query);
-$db_row = dba_fetch_array($db_result);
-$uid = $db_row['uid'];
-
-_log("addr:" . $remote_addr . " host:" . $remote_host . " type:" . $status . " smslog_id:" . $smslog_id . " uid:" . $uid, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
-
-if ($status && $smslog_id && $uid) {
-	switch ($status) {
-		case "DELIVERED":
-			$p_status = 3;
-			break;
-
-		// delivered
-
-
-		case "NOT_DELIVERED":
-			$p_status = 2;
-			break;
-
-		// failed
-
-
-		case "NOT_ENOUGH_CREDITS":
-			$p_status = 2;
-			break;
-
-		// failed
-
-
-	}
-
-	dlr($smslog_id, $uid, $p_status);
-
-	// log dlr
-	// $db_query = "SELECT apimsgid FROM "._DB_PREF_."_gatewayInfobip_apidata WHERE smslog_id='$smslog_id'";
-	// $db_result = dba_num_rows($db_query);
-	// if ($db_result > 0) {
-	$db_query = "UPDATE " . _DB_PREF_ . "_gatewayInfobip_apidata SET c_timestamp='" . time() . "', status='$status' WHERE smslog_id='$smslog_id'";
-	$db_result = dba_query($db_query);
-
-	// } else {
-	// $db_query = "INSERT INTO "._DB_PREF_."_gatewayKannel_dlr (smslog_id,kannel_dlr_type) VALUES ('$smslog_id','$type')";
-	// $db_result = dba_query($db_query);
-	// }
-
-
+	exit();
 }
+
+$db_query = "SELECT uid,smslog_id FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE remote_id=? AND p_status=1 AND flag_deleted=0";
+$db_result = dba_query($db_query, [$remote_id]);
+$db_row = dba_fetch_array($db_result);
+$uid = (int) $db_row['uid'];
+$smslog_id = (int) $db_row['smslog_id'];
+
+if (!($uid && $smslog_id)) {
+
+	exit();
+}
+
+_log("dlr addr:" . $remote_addr . " host:" . $remote_host . " remote_id:" . $remote_id . " status:" . $status . " smslog_id:" . $smslog_id . " uid:" . $uid, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+
+
+switch ($status) {
+	case "DELIVERED":
+		$p_status = 3; // delivered
+		break;
+
+	case "NOT_DELIVERED":
+		$p_status = 2; // failed
+		break;
+
+	case "NOT_ENOUGH_CREDITS":
+		$p_status = 2; // failed
+		break;
+}
+
+dlr($smslog_id, $uid, $p_status);

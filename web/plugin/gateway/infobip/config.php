@@ -1,30 +1,52 @@
 <?php
+
+/**
+ * This file is part of playSMS.
+ *
+ * playSMS is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * playSMS is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
+ */
 defined('_SECURE_') or die('Forbidden');
 
-$db_query = "SELECT * FROM " . _DB_PREF_ . "_gatewayInfobip_config";
-$db_result = dba_query($db_query);
-if ($db_row = dba_fetch_array($db_result)) {
-	$plugin_config['infobip']['name'] = 'infobip';
-	$plugin_config['infobip']['username'] = $db_row['cfg_username'];
-	$plugin_config['infobip']['password'] = $db_row['cfg_password'];
-	$plugin_config['infobip']['module_sender'] = $db_row['cfg_module_sender'];
-	$plugin_config['infobip']['send_url'] = ($db_row['cfg_send_url'] ? $db_row['cfg_send_url'] : 'http://api.infobip.com/api/v3');
-	$plugin_config['infobip']['additional_param'] = $db_row['cfg_additional_param'];
-	$plugin_config['infobip']['datetime_timezone'] = $db_row['cfg_datetime_timezone'];
-	// $plugin_config['infobip']['dlr_nopush'] = $db_row['cfg_dlr_nopush'];
-	$plugin_config['infobip']['dlr_nopush'] = 1;
+// gateway configuration in registry
+$reg = [];
+$regs = registry_search(0, 'gateway', 'infobip');
+if (isset($regs['gateway']['infobip']) && $regs = $regs['gateway']['infobip']) {
+	foreach ( $regs as $key => $val ) {
+		$reg[$key] = $val;
+	}
 }
 
+// plugin configuration
+$plugin_config['infobip'] = [
+	'name' => 'infobip',
+	'default_url' => 'http://api.infobip.com/api/v3',
+	'default_callback_url' => gateway_callback_url('infobip'),
+	'send_url' => isset($reg['send_url']) && $reg['send_url'] ? $reg['send_url'] : $plugin_config['infobip']['default_url'],
+	'callback_url' => isset($reg['callback_url']) && $reg['callback_url'] ? $reg['callback_url'] : $plugin_config['infobip']['default_callback_url'],
+	'callback_url_authcode' => isset($reg['callback_url_authcode']) && $reg['callback_url_authcode'] ? $reg['callback_url_authcode'] : core_random(),
+	'username' => isset($reg['username']) ? $reg['username'] : '',
+	'password' => isset($reg['password']) ? $reg['password'] : '',
+	'additional_param' => isset($reg['additional_param']) ? $reg['additional_param'] : '',
+	'dlr_nopush' => isset($reg['dlr_nopush']) && $reg['dlr_nopush'] ? 1 : 0,
+	'module_sender' => isset($data['gateway']['module_sender']) ? core_sanitize_sender($data['gateway']['module_sender']) : '',
+	'datetime_timezone' => isset($data['gateway']['datetime_timezone']) ? $data['gateway']['datetime_timezone'] : '',
+];
+
 // smsc configuration
-$plugin_config['infobip']['_smsc_config_'] = [];
-
-// $gateway_number = $plugin_config['infobip']['sender'];
-
-// insert to left menu array
-//if (isadmin ()) {
-//	$menutab_gateway = $core_config['menutab']['gateway'];
-//	$menu_config[$menutab_gateway][] = array (
-//			"index.php?app=main&inc=gateway_infobip&op=manage",
-//			_( 'Manage infobip' ) 
-//	);
-//}
+$plugin_config['infobip']['_smsc_config_'] = [
+	'username' => _('Username'),
+	'password' => _('Password'),
+	'module_sender' => _('Module sender ID'),
+	'datetime_timezone' => _('Module timezone'),
+];

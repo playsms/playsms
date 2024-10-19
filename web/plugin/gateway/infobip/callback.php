@@ -55,84 +55,67 @@ if (is_array($requests)) {
 }
 // -------------------- END OF CALLBACK INIT --------------------
 
-$cb_from = $_REQUEST['sender'];
-$cb_to = $_REQUEST['receiver'];
-$cb_timestamp = ($_REQUEST['datetime'] ? strtotime($_REQUEST['datetime']) : time());
-$cb_text = $_REQUEST['text'];
-$cb_status = $_REQUEST['status'];
-$cb_charge = $_REQUEST['charge'];
-$cb_apimsgid = $_REQUEST['apiMsgId'];
-$cb_smsc = $_REQUEST['smsc'];
+// handle incoming
+$cb_timestamp = isset($requests['datetime']) && strtotime($requests['datetime']) ? strtotime($requests['datetime']) : time();
+$datetime = date($datetime_format, (int) $cb_timestamp);
+$sender = isset($requests['sender']) ? core_sanitize_mobile($requests['sender']) : '';
+$receiver = isset($requests['receiver']) ? core_sanitize_mobile($requests['receiver']) : '';
+$message = isset($requests['text']) ? $requests['text'] : '';
+$smsc = isset($requests['smsc']) ? $requests['smsc'] : '';
 
-/*
- * $fc = "from: $cb_from - to: $cb_to - timestamp: $cb_timestamp - text: $cb_text - status: $cb_status - charge: $cb_charge - apimsgid: $cb_apimsgid\n"; $fn = "/tmp/infobip_callback"; umask(0); $fd = fopen($fn,"a+"); fputs($fd,$fc); fclose($fd); die();
- */
+if ($datetime && $sender && $message) {
 
-if ($cb_timestamp && $cb_from && $cb_text) {
-	$cb_datetime = date($datetime_format, $cb_timestamp);
-	$sms_datetime = trim($cb_datetime);
-	$sms_sender = trim($cb_from);
-	$message = trim(htmlspecialchars_decode(urldecode($cb_text)));
-	$sms_receiver = trim($cb_to);
-
-	_log("sender:" . $sms_sender . " receiver:" . $sms_receiver . " dt:" . $sms_datetime . " msg:[" . $message . "]", 3, _CALLBACK_GATEWAY_LOG_MARKER_);
+	_log("incoming dt:" . $datetime . " from:" . $sender . " to:" . $receiver . " message:[" . $message . "]", 2, _CALLBACK_GATEWAY_LOG_MARKER_);
 
 	// collected:
-	// $sms_datetime, $sms_sender, $message, $sms_receiver
-	$sms_sender = addslashes($sms_sender);
-	$message = addslashes($message);
-	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $cb_smsc);
+	// $datetime, $sender, $message, $receiver
+	recvsms($datetime, $sender, $message, $receiver, $smsc);
 }
 
-if ($cb_status && $cb_apimsgid) {
-	$db_query = "
-		SELECT " . _DB_PREF_ . "_tblSMSOutgoing.smslog_id AS smslog_id," . _DB_PREF_ . "_tblSMSOutgoing.uid AS uid
-		FROM " . _DB_PREF_ . "_tblSMSOutgoing," . _DB_PREF_ . "_gatewayInfobip_apidata
-		WHERE
-			" . _DB_PREF_ . "_tblSMSOutgoing.smslog_id=" . _DB_PREF_ . "_gatewayInfobip_apidata.smslog_id AND
-			" . _DB_PREF_ . "_gatewayInfobip_apidata.apimsgid=?";
-	$db_result = dba_query($db_query, [$cb_apimsgid]);
-	$db_row = dba_fetch_array($db_result);
-	$uid = $db_row['uid'];
-	$smslog_id = $db_row['smslog_id'];
-	if ($uid && $smslog_id) {
-		$c_sms_status = 0;
-		switch ($cb_status) {
-			case "001":
-			case "002":
-			case "011":
-				$c_sms_status = 0;
-				break;
-			// pending
+// handle dlr
+$status = $requests['status'];
+$remote_id = $requests['apiMsgId'];
+//$charge = $requests['charge'];
 
-			case "003":
-			case "008":
-				$c_sms_status = 1;
-				break;
-			// sent
+if ($status && $remote_id) {
+	$db_query = "SELECT uid,smslog_id FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE remote_id=? AND p_status=1 AND flag_deleted=0";
+	$db_result = dba_query($db_query, [$remote_id]);
+	if ($db_row = dba_fetch_array($db_result)) {
+		$uid = (int) $db_row['uid'];
+		$smslog_id = (int) $db_row['smslog_id'];
 
-			case "005":
-			case "006":
-			case "007":
-			case "009":
-			case "010":
-			case "012":
-				$c_sms_status = 2;
-				break;
-			// failed
+		if ($uid && $smslog_id) {
+			$p_status = 0;
+			switch ($status) {
+				case "001":
+				case "002":
+				case "011":
+					$p_status = 0; // pending
+					break;
 
-			case "004":
-				$c_sms_status = 3;
-				break;
-			// delivered
+				case "003":
+				case "008":
+					$p_status = 1; // sent
+					break;
+
+				case "005":
+				case "006":
+				case "007":
+				case "009":
+				case "010":
+				case "012":
+					$p_status = 2; // failed
+					break;
+
+				case "004":
+					$p_status = 3; // delivered
+					break;
+			}
+
+			// log it
+			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status . " p_status:" . $p_status, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+
+			dlr($smslog_id, $uid, $p_status);
 		}
-		$c_sms_credit = ceil($cb_charge);
-
-		// pending
-		$p_status = 0;
-		if ($c_sms_status) {
-			$p_status = $c_sms_status;
-		}
-		setsmsdeliverystatus($smslog_id, $uid, $p_status);
 	}
 }

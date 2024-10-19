@@ -586,48 +586,6 @@ CREATE TABLE `playsms_gatewayGeneric_log` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playsms_gatewayInfobip_apidata`
---
-
-DROP TABLE IF EXISTS `playsms_gatewayInfobip_apidata`;
-CREATE TABLE `playsms_gatewayInfobip_apidata` (
-  `c_timestamp` int(11) NOT NULL DEFAULT 0,
-  `apidata_id` int(11) NOT NULL,
-  `smslog_id` int(11) NOT NULL DEFAULT 0,
-  `apimsgid` varchar(100) NOT NULL DEFAULT '',
-  `status` varchar(15) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `playsms_gatewayInfobip_config`
---
-
-DROP TABLE IF EXISTS `playsms_gatewayInfobip_config`;
-CREATE TABLE `playsms_gatewayInfobip_config` (
-  `c_timestamp` int(11) NOT NULL DEFAULT 0,
-  `cfg_name` varchar(20) NOT NULL DEFAULT 'infobip',
-  `cfg_username` varchar(100) NOT NULL DEFAULT '',
-  `cfg_password` varchar(100) NOT NULL DEFAULT '',
-  `cfg_module_sender` varchar(20) NOT NULL DEFAULT '',
-  `cfg_send_url` varchar(255) NOT NULL DEFAULT '',
-  `cfg_credit` int(11) NOT NULL DEFAULT 0,
-  `cfg_additional_param` varchar(255) NOT NULL DEFAULT '',
-  `cfg_datetime_timezone` varchar(30) NOT NULL DEFAULT '',
-  `cfg_dlr_nopush` varchar(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `playsms_gatewayInfobip_config`
---
-
-INSERT INTO `playsms_gatewayInfobip_config` (`c_timestamp`, `cfg_name`, `cfg_username`, `cfg_password`, `cfg_module_sender`, `cfg_send_url`, `cfg_credit`, `cfg_additional_param`, `cfg_datetime_timezone`, `cfg_dlr_nopush`) VALUES
-(0, 'infobip', '', '', '', 'http://api.infobip.com/api/v3', 0, '', '', '1');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `playsms_gatewayJasmin_log`
 --
 
@@ -1609,12 +1567,6 @@ ALTER TABLE `playsms_gatewayGeneric_log`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `playsms_gatewayInfobip_apidata`
---
-ALTER TABLE `playsms_gatewayInfobip_apidata`
-  ADD PRIMARY KEY (`apidata_id`);
-
---
 -- Indexes for table `playsms_gatewayJasmin_log`
 --
 ALTER TABLE `playsms_gatewayJasmin_log`
@@ -1953,12 +1905,6 @@ ALTER TABLE `playsms_featureSubscribe_msg`
 --
 ALTER TABLE `playsms_gatewayGeneric_log`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `playsms_gatewayInfobip_apidata`
---
-ALTER TABLE `playsms_gatewayInfobip_apidata`
-  MODIFY `apidata_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `playsms_gatewayJasmin_log`
