@@ -154,7 +154,7 @@ function kannel_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 function kannel_hook_call($requests) {
 	global $core_config, $plugin_config;
 	
-	$called_from_hook_call = true;
+	$do_not_reload_init = true;
 	$access = $requests['access'];
 	if ($access == 'dlr') {
 		$fn = $core_config['apps_path']['plug'] . '/gateway/kannel/dlr.php';

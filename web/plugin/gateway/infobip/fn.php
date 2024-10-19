@@ -218,7 +218,7 @@ function infobip_setsmsapimsgid($smslog_id, $apimsgid) {
 function infobip_hook_call($requests) {
 	// please note that we must globalize these 2 variables
 	global $core_config, $plugin_config;
-	$called_from_hook_call = true;
+	$do_not_reload_init = true;
 	$access = $requests['access'];
 	
 	if ($access == 'callback') {
