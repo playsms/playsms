@@ -18,28 +18,43 @@
  */
 defined('_SECRET_') or die('REMOVE THIS LINE IF YOU KNOW WHAT YOU ARE DOING');
 
+// set gateway name and log marker
+define('_CALLBACK_GATEWAY_NAME_', 'example');
+define('_CALLBACK_GATEWAY_LOG_MARKER_', _CALLBACK_GATEWAY_NAME_ . ' callback');
+// -------------------- START OF CALLBACK INIT --------------------
 error_reporting(0);
-
-if (!$called_from_hook_call) {
-	chdir("../../../");
-
-	// ignore CSRF
-	$core_config['init']['ignore_csrf'] = TRUE;
-
-	include "init.php";
-	include $core_config['apps_path']['libs'] . "/function.php";
-	chdir("plugin/gateway/example/");
-	$requests = $_REQUEST;
+if (!(isset($do_not_reload_init) && $do_not_reload_init === true)) {
+	if ($core_config['init']['cwd'] = getcwd()) {
+		if (chdir('../../../')) {
+			$core_config['init']['ignore_csrf'] = true; // ignore CSRF
+			if (is_file('init.php')) { // load init && functions
+				include 'init.php';
+				if (isset($core_config['apps_path']['libs']) && $core_config['apps_path']['libs'] && is_file($core_config['apps_path']['libs'] . '/function.php')) {
+					include $core_config['apps_path']['libs'] . '/function.php';
+				}
+			}
+			if (!(function_exists('core_sanitize_alphanumeric') && function_exists('gateway_decide_smsc'))) { // double check
+				exit();
+			}
+			if (!(isset($core_config['init']['cwd']) && chdir($core_config['init']['cwd']))) { // go back
+				exit();
+			}
+		} else {
+			exit();
+		}
+	} else {
+		exit();
+	}
 }
-
-// log all incoming API requests from API server
-$log = '';
+$requests = $_REQUEST; // get web requests
+$log = ''; // log pushed vars
 if (is_array($requests)) {
 	foreach ( $requests as $key => $val ) {
 		$log .= $key . ':' . $val . ' ';
 	}
-	_log("pushed " . $log, 2, "example callback");
+	_log("pushed " . $log, 3, _CALLBACK_GATEWAY_LOG_MARKER_);
 }
+// -------------------- END OF CALLBACK INIT --------------------
 
 // Example API server only pushed these variables for DLR:
 //   id - SMS Log ID sent previously by us
@@ -81,8 +96,10 @@ if ($status && $remote_id) {
 			}
 
 			// log it
-			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status, 2, "example callback");
+			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
 
+
+			// ---------- END OF CALLBACK INIT ----------
 			// set delivery report
 			dlr($smslog_id, $uid, $p_status);
 
@@ -112,8 +129,10 @@ $message = isset($requests['message']) ? $requests['message'] : '';
 // handle incoming SMS (MO)
 if ($sender && $message) {
 	// log it
-	_log("incoming dt:" . $datetime . " from:" . $sender . " to:" . $receiver . " message:[" . $message . "]", 2, "example callback");
+	_log("incoming dt:" . $datetime . " from:" . $sender . " to:" . $receiver . " message:[" . $message . "]", 2, _CALLBACK_GATEWAY_LOG_MARKER_);
 
+
+	// ---------- END OF CALLBACK INIT ----------
 	// save incoming SMS for further processing
 	$recvlog_id = recvsms($datetime, $sender, $message, $receiver, $smsc);
 

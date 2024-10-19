@@ -19,16 +19,22 @@
 defined('_SECURE_') or die('Forbidden');
 
 // gateway configuration in registry
-$data = registry_search(0, 'gateway', 'example');
+$reg = [];
+$regs = registry_search(0, 'gateway', 'example');
+if (isset($regs['gateway']['example']) && $regs = $regs['gateway']['example']) {
+	foreach ( $regs as $key => $val ) {
+		$reg[$key] = $val;
+	}
+}
 
 // plugin configuration
 $plugin_config['example'] = [
 	'name' => 'example',
-	'api_url' => 'https://example.com/?account={API_ACCOUNT_ID}&token={API_TOKEN}&sender={MODULE_SENDER}',
-	'api_account_id' => isset($data['gateway']['example']['api_account_id']) ? $data['gateway']['example']['api_account_id'] : '',
-	'api_token' => isset($data['gateway']['example']['api_token']) ? $data['gateway']['example']['api_token'] : '',
-	'module_sender' => isset($data['gateway']['example']['module_sender']) ? $data['gateway']['example']['module_sender'] : '',
-	'datetime_timezone' => isset($data['gateway']['example']['datetime_timezone']) ? $data['gateway']['example']['datetime_timezone'] : '',
+	'api_url' => 'https://example.com/?account={API_ACCOUNT_ID}&token={API_TOKEN}&sender={SENDER_ID}',
+	'api_account_id' => isset($reg['api_account_id']) ? core_sanitize_alphanumeric($reg['api_account_id']) : '',
+	'api_token' => isset($reg['api_token']) ? core_sanitize_alphanumeric($reg['api_token']) : '',
+	'module_sender' => isset($reg['module_sender']) ? core_sanitize_sender($reg['module_sender']) : '',
+	'datetime_timezone' => isset($reg['datetime_timezone']) ? $reg['datetime_timezone'] : '',
 ];
 
 // smsc configuration

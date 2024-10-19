@@ -28,12 +28,12 @@ defined('_SECURE_') or die('Forbidden');
  * @param string $sms_msg SMS message
  * @param int $uid User ID
  * @param int $gpid Group phonebook ID
- * @param string $smslog_id SMS Log ID
+ * @param int $smslog_id SMS Log ID
  * @param string $sms_type Type of SMS
  * @param int $unicode Indicate that the SMS message is in unicode
  * @return bool true if delivery successful
  */
-function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = 0, $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
 {
 	global $plugin_config;
 
@@ -41,7 +41,7 @@ function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 
 	// re-filter, sanitize, modify some vars if needed
-	$sms_sender = core_sanitize_sender($sms_sender);
+	$sms_sender = isset($plugin_config['example']['module_sender']) ? core_sanitize_sender($plugin_config['example']['module_sender']) : core_sanitize_sender($sms_sender);
 	$sms_to = core_sanitize_mobile($sms_to);
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_msg = stripslashes($sms_msg) . ($sms_footer ? ' ' . $sms_footer : '');
@@ -53,7 +53,7 @@ function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$api_url = $plugin_config['example']['api_url'];
 	$api_url = str_replace('{API_ACCOUNT_ID}', $plugin_config['example']['api_account_id'], $api_url);
 	$api_url = str_replace('{API_TOKEN}', $plugin_config['example']['api_token'], $api_url);
-	$api_url = str_replace('{MODULE_SENDER}', $plugin_config['example']['module_sender'], $api_url);
+	$api_url = str_replace('{SENDER_ID}', $sms_sender, $api_url);
 
 	// routine to submit data to API_URL here
 	// ...
@@ -70,7 +70,7 @@ function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			$remote_id = isset($response[1]) && (int) $response ? (int) $response : 0;
 			if ($status && $remote_id) {
 				// save remote_id in smslog_id record, essentially mapped remote_id with local smslog_id
-				if (dba_update(_DB_PREF_ . '_playsms_tblSMSOutgoing', ['remote_id' => $remote_id], ['smslog_id' => $smslog_id, flag_deleted => 0])) {
+				if (dba_update(_DB_PREF_ . '_playsms_tblSMSOutgoing', ['remote_id' => $remote_id], ['smslog_id' => $smslog_id, 'flag_deleted' => 0])) {
 					// p_status :
 					// 	 0 = pending
 					//   1 = sent
@@ -111,12 +111,12 @@ function example_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
  * 
  * @param int $gpid Group phonebook ID
  * @param int $uid User ID
- * @param string $smslog_id SMS Log ID
+ * @param int $smslog_id SMS Log ID
  * @param string $p_datetime SMS delivery datetime
  * @param string $p_update SMS last update datetime
  * @return void
  */
-function example_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "")
+function example_hook_getsmsstatus($gpid = 0, $uid = 0, $smslog_id = 0, $p_datetime = '', $p_update = '')
 {
 	//global $plugin_config;
 
