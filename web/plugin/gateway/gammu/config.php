@@ -18,17 +18,21 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-// get gammu config from registry
-$data = registry_search(0, 'gateway', 'gammu');
+// gateway configuration in registry
+$reg = [];
+$regs = registry_search(0, 'gateway', 'gammu');
+if (isset($regs['gateway']['gammu']) && $regs = $regs['gateway']['gammu']) {
+	foreach ( $regs as $key => $val ) {
+		$reg[$key] = $val;
+	}
+}
 
 // plugin configuration
 $plugin_config['gammu'] = [
 	'name' => 'gammu',
-	'sms_receiver' => isset($data['gateway']['gammu']['sms_receiver']) && $data['gateway']['gammu']['sms_receiver']
-		? core_sanitize_sender($data['gateway']['gammu']['sms_receiver']) : '',
-	'path' => isset($data['gateway']['gammu']['path']) && $data['gateway']['gammu']['path']
-		? core_sanitize_path($data['gateway']['gammu']['path']) : '/var/spool/gammu',
-	'dlr' => isset($data['gateway']['gammu']['dlr']) && $data['gateway']['gammu']['dlr'] ? 1 : 0,
+	'sms_receiver' => isset($reg['sms_receiver']) && $reg['sms_receiver'] ? core_sanitize_mobile($reg['sms_receiver']) : '',
+	'path' => isset($reg['path']) && $reg['path'] ? core_sanitize_path($reg['path']) : '/var/spool/gammu',
+	'dlr' => isset($reg['dlr']) && $reg['dlr'] ? 1 : 0,
 ];
 
 // smsc configuration
