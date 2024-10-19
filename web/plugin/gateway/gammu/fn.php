@@ -28,12 +28,12 @@ defined('_SECURE_') or die('Forbidden');
  * @param string $sms_msg SMS message
  * @param int $uid User ID
  * @param int $gpid Group phonebook ID
- * @param string $smslog_id SMS Log ID
+ * @param int $smslog_id SMS Log ID
  * @param string $sms_type Type of SMS
  * @param int $unicode Indicate that the SMS message is in unicode
  * @return bool true if delivery successful
  */
-function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = 0, $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
 {
 	global $plugin_config;
 
@@ -96,12 +96,12 @@ function gammu_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, 
  * 
  * @param int $gpid Group phonebook ID
  * @param int $uid User ID
- * @param string $smslog_id SMS Log ID
+ * @param int $smslog_id SMS Log ID
  * @param string $p_datetime SMS delivery datetime
  * @param string $p_update SMS last update datetime
  * @return void
  */
-function gammu_hook_getsmsstatus($gpid = 0, $uid = "", $smslog_id = "", $p_datetime = "", $p_update = "")
+function gammu_hook_getsmsstatus($gpid = 0, $uid = 0, $smslog_id = 0, $p_datetime = '', $p_update = '')
 {
 	global $plugin_config;
 
