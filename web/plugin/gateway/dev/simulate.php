@@ -24,44 +24,48 @@ if (!auth_isadmin()) {
 
 switch (_OP_) {
 	case "simulate":
-		$sender = '629876543210';
-		$receiver = '1234';
-		$datetime = core_get_datetime();
-
-		$content .= _dialog() . "
-			<h2 class=page-header-title>" . _('Simulate incoming SMS') . "</h2>
-			<form action=\"index.php?app=main&inc=gateway_dev&route=simulate&op=simulate_yes\" method=post>
-			" . _CSRF_FORM_ . "
-			<table class=playsms-table>
-				<tbody>
-				<tr><td class=playsms-label-sizer>" . _('Message') . "</td><td><input type=text name=message value=\"$message\" maxlength=250></td></tr>
-				<tr><td>" . _('Sender') . "</td><td><input type=text name=sender value=\"$sender\" maxlength=20></td></tr>
-				<tr><td>" . _('Receiver') . "</td><td><input type=text name=receiver value=\"$receiver\" maxlength=20></td></tr>
-				<tr><td>" . _('Date/Time') . "</td><td><input type=text name=datetime value=\"" . core_display_datetime($datetime) . "\" maxlength=20></td></tr>
-				</tbody>
-			</table>
-			<p><input type=submit class=button value=\"" . _('Submit') . "\">
-			</form>";
-		_p($content);
+		$tpl = [
+			'name' => 'simulate',
+			'vars' => [
+				'DIALOG_DISPLAY' => _dialog(),
+				'Simulate incoming SMS' => _('Simulate incoming SMS'),
+				'Gateway' => _('Gateway'),
+				'Message' => _mandatory(_('Message')),
+				'Sender' => _('Sender'),
+				'Receiver' => _('Receiver'),
+				'Date/Time' => _('Date/Time'),
+				'Submit' => _('Submit'),
+				'HINT_MESSAGE_LENGTH' => _hint(_('Max. length 320 characters')),
+				'HINT_DATE_TIME_FORMAT' => _hint(_('Format: YYYY-MM-DD HH:ii:ss')),
+				'gateway_name' => $plugin_config['dev']['name'],
+				'placeholder_message' => _('This is a test incoming SMS message'),
+				'placeholder_sender' => '629876543210',
+				'placeholder_receiver' => '1234',
+				'placeholder_datetime' => core_get_datetime(),
+			]
+		];
+		_p(tpl_apply($tpl));
 		break;
 
 	case "simulate_yes":
-		$sms_sender = ($_REQUEST['sender'] ? $_REQUEST['sender'] : '629876543210');
-		$sms_receiver = ($_REQUEST['receiver'] ? $_REQUEST['receiver'] : '1234');
-		$sms_datetime = ($_REQUEST['datetime'] ? $_REQUEST['datetime'] : core_get_datetime());
-		$message = ($_REQUEST['message'] ? $_REQUEST['message'] : _('This is a test incoming SMS message'));
-		$message = htmlspecialchars_decode($message);
+		$sms_sender = isset($_REQUEST['sender']) && $_REQUEST['sender'] ? core_sanitize_sender($_REQUEST['sender']) : '629876543210';
+		$sms_receiver = isset($_REQUEST['receiver']) && $_REQUEST['receiver'] ? core_sanitize_sender($_REQUEST['receiver']) : '1234';
+		$sms_datetime = isset($_REQUEST['datetime']) && $_REQUEST['datetime'] ? $_REQUEST['datetime'] : core_get_datetime();
+		$message = isset($_REQUEST['message']) && $_REQUEST['message'] ? $_REQUEST['message'] : _('This is a test incoming SMS message');
 
 		if (trim($sms_sender) && trim($sms_receiver) && trim($sms_datetime) && trim($message)) {
-			recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, 'dev');
-			$debug_msg[] = "Sender ID: " . $sms_sender;
-			$debug_msg[] = "Receiver number: " . $sms_receiver;
-			$debug_msg[] = "Sent: " . $sms_datetime;
-			$debug_msg[] = "Message: " . stripslashes($message);
-			_log(print_r($debug_msg, TRUE), 3, "dev incoming");
-			$_SESSION['dialog']['info'][] = $debug_msg;
+			if (recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, 'dev')) {
+				$debug_msg[] = "Sender ID: " . $sms_sender;
+				$debug_msg[] = "Receiver number: " . $sms_receiver;
+				$debug_msg[] = "Sent: " . $sms_datetime;
+				$debug_msg[] = "Message: " . stripslashes($message);
+				_log(print_r($debug_msg, true), 3, "dev simulate");
+				$_SESSION['dialog']['info'][] = $debug_msg;
+			} else {
+				$_SESSION['dialog']['danger'][] = _('Fail to receiver incoming SMS');
+			}
 		} else {
-			$_SESSION['dialog']['info'][] = _('Fail to simulate incoming SMS');
+			$_SESSION['dialog']['danger'][] = _('Fail to simulate incoming SMS');
 		}
 
 		header("Location: " . _u('index.php?app=main&inc=gateway_dev&route=simulate&op=simulate'));

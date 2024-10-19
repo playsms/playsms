@@ -22,20 +22,19 @@ if (!auth_isadmin()) {
 	auth_block();
 }
 
-include $core_config['apps_path']['plug'] . "/gateway/dev/config.php";
+include $core_config['apps_path']['plug'] . "/gateway/blocked/config.php";
 
 switch (_OP_) {
 	case "manage":
-		if ($err = TRUE) {
-			$content = _dialog();
-		}
-		$content .= "
-			<h2>" . _('Manage dev') . "</h2>
-			<table class=playsms-table>
-				<tbody><tr><td class=label-sizer>" . _('Gateway name') . "</td><td>dev</td></tr></tbody>
-			</table>
-		";
-		$content .= _back('index.php?app=main&inc=core_gateway&op=gateway_list');
-		_p($content);
+		$tpl = [
+			'name' => 'dev',
+			'vars' => [
+				'Manage' => _('Manage'),
+				'Gateway' => _('Gateway'),
+				'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
+				'gateway_name' => $plugin_config['dev']['name'],
+			]
+		];
+		_p(tpl_apply($tpl));
 		break;
 }

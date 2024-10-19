@@ -1,0 +1,40 @@
+{{ DIALOG_DISPLAY }}
+<h2>{{ Simulate incoming SMS }}</h2>
+<form action="index.php?app=main&inc=gateway_dev&route=simulate&op=simulate_yes" method=POST>
+    {{ CSRF_FORM }}
+    <table class=playsms-table>
+        <tbody>
+            <tr>
+                <td class=label-sizer>{{ Gateway }}</td>
+                <td>{{ gateway_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ Message }}</td>
+                <td>
+                    <input type=text maxlength=255 name=message value="{{ message }}"
+                        placeholder="{{ placeholder_message }}">
+                    {{ HINT_MESSAGE_LENGTH }}
+                </td>
+            </tr>
+            <tr>
+                <td>{{ Sender }}</td>
+                <td><input type=text size=16 maxlength=16 name=sender value="{{ sms_sender }}"
+                        placeholder="{{ placeholder_sender }}"></td>
+            </tr>
+            <tr>
+                <td>{{ Receiver }}</td>
+                <td><input type=text size=16 maxlength=16 name=receiver value="{{ sms_receiver }}"
+                        placeholder="{{ placeholder_receiver }}"></td>
+            </tr>
+            <tr>
+                <td>{{ Date/Time }}</td>
+                <td>
+                    <input type=text size=19 maxlength=19 name=datetime value="{{ sms_datetime }}"
+                        placeholder="{{ placeholder_datetime }}">
+                    {{ HINT_DATE_TIME_FORMAT }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p><input type=submit class=button value="{{ Submit }}">
+</form>
