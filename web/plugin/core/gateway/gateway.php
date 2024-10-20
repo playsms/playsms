@@ -61,9 +61,10 @@ switch (_OP_) {
 			$continue = true;
 		}
 
-		$c_name = core_sanitize_alphanumeric(strtolower($_REQUEST['name']));
+		// SMSC name may contain: unicodes alphanumeric, dot, underscore and hyphen
+		$c_name = preg_replace('/[^\p{L}\p{N}\.\-_]+/u', '', $_REQUEST['name']);
 		if (!$c_name) {
-			$c_name = time();
+			$c_name = 'smsc-' . time();
 		}
 
 		$smsc = gateway_get_smscbyname($c_name);
