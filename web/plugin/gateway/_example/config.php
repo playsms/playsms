@@ -19,17 +19,12 @@
 defined('_SECURE_') or die('Forbidden');
 
 // gateway configuration in registry
-$reg = [];
-$regs = registry_search(0, 'gateway', 'example');
-if (isset($regs['gateway']['example']) && $regs = $regs['gateway']['example']) {
-	foreach ( $regs as $key => $val ) {
-		$reg[$key] = $val;
-	}
-}
+$reg = gateway_get_registry('generic');
 
 // plugin configuration
 $plugin_config['example'] = [
 	'name' => 'example',
+	'api_callback_url' => gateway_callback_url('example'),
 	'api_url' => 'https://example.com/?account={API_ACCOUNT_ID}&token={API_TOKEN}&sender={SENDER_ID}',
 	'api_account_id' => isset($reg['api_account_id']) ? core_sanitize_alphanumeric($reg['api_account_id']) : '',
 	'api_token' => isset($reg['api_token']) ? core_sanitize_alphanumeric($reg['api_token']) : '',
@@ -44,6 +39,3 @@ $plugin_config['example']['_smsc_config_'] = [
 	'module_sender' => _('Module sender ID'),
 	'datetime_timezone' => _('Module timezone'),
 ];
-
-// insert API callback URL to $plugin_config
-$plugin_config['example']['api_callback_url'] = gateway_callback_url('example');

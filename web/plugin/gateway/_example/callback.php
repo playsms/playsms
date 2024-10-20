@@ -18,10 +18,6 @@
  */
 defined('_SECRET_') or die('REMOVE THIS LINE IF YOU KNOW WHAT YOU ARE DOING');
 
-// set gateway name and log marker
-define('_CALLBACK_GATEWAY_NAME_', 'example');
-define('_CALLBACK_GATEWAY_LOG_MARKER_', _CALLBACK_GATEWAY_NAME_ . ' callback');
-
 error_reporting(0);
 
 // load callback init
@@ -69,7 +65,7 @@ if ($status && $remote_id) {
 			}
 
 			// log it
-			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status . " p_status:" . $p_status, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status . " p_status:" . $p_status, 2, "example callback");
 
 			// set delivery report
 			dlr($smslog_id, $uid, $p_status);
@@ -100,7 +96,7 @@ $message = isset($requests['message']) ? $requests['message'] : '';
 // handle incoming SMS (MO)
 if ($sender && $message) {
 	// log it
-	_log("incoming dt:" . $datetime . " from:" . $sender . " to:" . $receiver . " message:[" . $message . "]", 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+	_log("incoming dt:" . $datetime . " from:" . $sender . " to:" . $receiver . " message:[" . $message . "]", 2, "example callback");
 
 	// save incoming SMS for further processing
 	$recvlog_id = recvsms($datetime, $sender, $message, $receiver, $smsc);
