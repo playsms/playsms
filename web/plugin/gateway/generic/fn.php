@@ -41,10 +41,12 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 
 	// re-filter, sanitize, modify some vars if needed
-	$sms_sender = isset($plugin_config['generic']['module_sender']) ? core_sanitize_sender($plugin_config['generic']['module_sender']) : core_sanitize_sender($sms_sender);
+	$module_sender = isset($plugin_config['generic']['module_sender']) && core_sanitize_sender($plugin_config['generic']['module_sender'])
+		? core_sanitize_sender($plugin_config['generic']['module_sender']) : '';
+	$sms_sender = $module_sender ?: core_sanitize_sender($sms_sender);
 	$sms_to = core_sanitize_mobile($sms_to);
 	$sms_footer = core_sanitize_footer($sms_footer);
-	$sms_msg = stripslashes($sms_msg) . ($sms_footer ? ' ' . $sms_footer : '');
+	$sms_msg = stripslashes($sms_msg . $sms_footer);
 
 	if ($plugin_config['generic']['module_sender']) {
 		$sms_sender = $plugin_config['generic']['module_sender'];
@@ -52,8 +54,6 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 
 	// log it
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " from:" . $sms_sender . " to:" . $sms_to, 3, "generic_hook_sendsms");
-
-	$ok = false;
 
 	if ($sms_sender && $sms_to && $sms_msg) {
 
@@ -97,28 +97,23 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			$remote_id = (int) $resp[0];
 			_log("sent smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " smsc:" . $smsc, 2, "generic_hook_sendsms");
 			if (dba_update(_DB_PREF_ . '_playsms_tblSMSOutgoing', ['remote_id' => $remote_id], ['smslog_id' => $smslog_id, 'flag_deleted' => 0])) {
-				$ok = true;
 				$p_status = 1;
 				dlr($smslog_id, $uid, $p_status);
 			} else {
-				$ok = true;
 				$p_status = 0;
 				dlr($smslog_id, $uid, $p_status);
 			}
-		} else {
-			// even when the response is not what we expected we still print it out for debug purposes
-			if ($resp[0] === '0') {
-				$resp = trim($resp[1]);
-			} else {
-				$resp = $response;
-			}
-			_log("failed smslog_id:" . $smslog_id . " resp:[" . $resp . "] smsc:" . $smsc, 2, "generic_hook_sendsms");
+
+			return true;
+		} else if (isset($resp[0]) && $resp[0] === '0' && isset($resp[1])) {
+			$response = $resp[1];
 		}
-	}
-	if (!$ok) {
-		$p_status = 2;
-		dlr($smslog_id, $uid, $p_status);
+
+		_log("failed smslog_id:" . $smslog_id . " response:[" . $response . "] smsc:" . $smsc, 2, "generic_hook_sendsms");
 	}
 
-	return $ok;
+	$p_status = 2;
+	dlr($smslog_id, $uid, $p_status);
+
+	return false;
 }
