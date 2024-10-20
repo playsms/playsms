@@ -42,16 +42,14 @@ if ($core_config['init']['cwd'] = getcwd()) {
 	exit();
 }
 
-// get web requests
-$requests = $_REQUEST;
-
 // log pushed vars
 $log = '';
-if (is_array($requests)) {
-	foreach ( $requests as $key => $val ) {
+if (is_array($_REQUEST)) {
+	foreach ( $_REQUEST as $key => $val ) {
 		$log .= $key . ':' . $val . ' ';
 	}
-	_log("pushed " . $log, 3, _CALLBACK_GATEWAY_LOG_MARKER_);
+	_log("pushed " . $log, 3, "callback");
 }
+unset($log);
 
 // -------------------- END OF CALLBACK INIT --------------------
