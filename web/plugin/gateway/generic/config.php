@@ -26,9 +26,11 @@ $plugin_config['generic'] = [
 	'name' => 'generic',
 	'default_url' => 'http://example.com/?user={GENERIC_API_USERNAME}&pwd={GENERIC_API_PASSWORD}&sender={GENERIC_SENDER}&msisdn={GENERIC_TO}&message={GENERIC_MESSAGE}',
 	'url' => isset($reg['url']) && $reg['url'] ? $reg['url'] : $plugin_config['generic']['default_url'],
-	'callback_url' => gateway_callback_url('generic'),
+	'callback_url' => isset($reg['callback_url']) && $reg['callback_url'] ? $reg['callback_url'] : '',
 	'callback_authcode' => isset($reg['callback_authcode']) && $reg['callback_authcode'] ? $reg['callback_authcode'] : '',
 	'callback_server' => isset($reg['callback_server']) && $reg['callback_server'] ? $reg['callback_server'] : '',
+	'api_username' => isset($reg['api_username']) && $reg['api_username'] ? $reg['api_username'] : '',
+	'api_password' => isset($reg['api_password']) && $reg['api_password'] ? $reg['api_password'] : '',
 	'module_sender' => isset($reg['module_sender']) ? $reg['module_sender'] : '',
 	'datetime_timezone' => isset($reg['datetime_timezone']) ? $reg['datetime_timezone'] : '',
 ];

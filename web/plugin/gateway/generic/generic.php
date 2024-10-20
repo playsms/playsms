@@ -55,7 +55,7 @@ switch (_OP_) {
 				'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
 				'gateway_name' => $plugin_config['generic']['name'],
 				'url' => $plugin_config['generic']['url'],
-				'callback_url' => $plugin_config['generic']['callback_url'],
+				'callback_url' => gateway_callback_url('generic'),
 				'callback_authcode' => $plugin_config['generic']['callback_authcode'],
 				'callback_server' => $plugin_config['generic']['callback_server'],
 				'api_username' => $plugin_config['generic']['api_username'],
@@ -68,7 +68,7 @@ switch (_OP_) {
 
 	case "manage_save":
 		$url = isset($_REQUEST['url']) && $_REQUEST['url'] ? $_REQUEST['url'] : $plugin_config['generic']['default_url'];
-		$callback_url = isset($_REQUEST['callback_url']) && $_REQUEST['callback_url'] ? $_REQUEST['callback_url'] : $plugin_config['generic']['default_callback_url'];
+		$callback_url = gateway_callback_url('generic');
 		$callback_authcode = isset($_REQUEST['callback_authcode']) && core_sanitize_alphanumeric($_REQUEST['callback_authcode'])
 			? core_sanitize_alphanumeric($_REQUEST['callback_authcode']) : '';
 		$callback_server = isset($_REQUEST['callback_server']) ? preg_replace('/[^0-9a-zA-Z\.,_\-\/]+/', '', trim($_REQUEST['callback_server'])) : '';

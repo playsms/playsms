@@ -25,8 +25,8 @@ if (!(isset($PLAYSMS_INIT_SKIP) && $PLAYSMS_INIT_SKIP === true) && is_file('../c
 }
 
 // get SMS data from request
-$remote_id = $_REQUEST['id'];
-$status = (int) $_REQUEST['message_status'];
+$remote_id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
+$status = isset($_REQUEST['message_status']) ? (int) $_REQUEST['message_status'] : 0;
 $sms_datetime = core_get_datetime();
 $sms_sender = isset($_REQUEST['from']) ? core_sanitize_mobile($_REQUEST['from']) : '';
 $sms_receiver = isset($_REQUEST['to']) ? core_sanitize_mobile($_REQUEST['to']) : '';
@@ -63,14 +63,14 @@ if ($remote_id && $status) {
 		if ($uid && $smslog_id) {
 			switch ($status) {
 				case 1:
-					$p_status = 1;
-					break; // sent
+					$p_status = 1; // sent
+					break;
 				case 3:
-					$p_status = 3;
-					break; // delivered
+					$p_status = 3; // delivered
+					break;
 				default:
-					$p_status = 2;
-					break; // failed
+					$p_status = 2; // failed
+					break;
 			}
 			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status, 2, "generic callback");
 
