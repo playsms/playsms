@@ -48,10 +48,6 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	$sms_footer = core_sanitize_footer($sms_footer);
 	$sms_msg = stripslashes($sms_msg . $sms_footer);
 
-	if ($plugin_config['generic']['module_sender']) {
-		$sms_sender = $plugin_config['generic']['module_sender'];
-	}
-
 	// log it
 	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " from:" . $sms_sender . " to:" . $sms_to, 3, "generic_hook_sendsms");
 
