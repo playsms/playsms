@@ -19,26 +19,29 @@
 defined('_SECURE_') or die('Forbidden');
 
 // gateway configuration in registry
-$data = registry_search(0, 'gateway', 'jasmin');
+$reg = gateway_get_registry('jasmin');
 
 // plugin configuration
-$plugin_config['jasmin'] = $data['gateway']['jasmin'];
-$plugin_config['jasmin']['name'] = 'jasmin';
-$plugin_config['jasmin']['default_url'] = 'https://127.0.0.1:1401/send';
-$plugin_config['jasmin']['default_callback_url'] = gateway_callback_url('jasmin');
-if (!trim($plugin_config['jasmin']['url'])) {
-	$plugin_config['jasmin']['url'] = $plugin_config['jasmin']['default_url'];
-}
-if (!trim($plugin_config['jasmin']['callback_url'])) {
-	$plugin_config['jasmin']['callback_url'] = $plugin_config['jasmin']['default_callback_url'];
-}
+$plugin_config['jasmin'] = [
+	'name' => 'jasmin',
+	'default_url' => 'https://127.0.0.1:1401/send',
+	'url' => isset($reg['url']) && $reg['url'] ? $reg['url'] : $plugin_config['jasmin']['default_url'],
+	'callback_url' => isset($reg['callback_url']) && $reg['callback_url'] ? $reg['callback_url'] : '',
+	'callback_authcode' => isset($reg['callback_authcode']) && $reg['callback_authcode'] ? $reg['callback_authcode'] : '',
+	'callback_server' => isset($reg['callback_server']) && $reg['callback_server'] ? $reg['callback_server'] : '',
+	'api_username' => isset($reg['api_username']) && $reg['api_username'] ? $reg['api_username'] : '',
+	'api_password' => isset($reg['api_password']) && $reg['api_password'] ? $reg['api_password'] : '',
+	'module_sender' => isset($reg['module_sender']) ? $reg['module_sender'] : '',
+	'datetime_timezone' => isset($reg['datetime_timezone']) ? $reg['datetime_timezone'] : '',
+];
 
 // smsc configuration
-$plugin_config['jasmin']['_smsc_config_'] = array(
+$plugin_config['jasmin']['_smsc_config_'] = [
 	'url' => _('Jasmin send SMS URL'),
-	'callback_url' => _('Callback URL'),
+	'callback_authcode' => _('Callback authcode'),
+	'callback_server' => _('Callback server'),
 	'api_username' => _('API username'),
 	'api_password' => _('API password'),
 	'module_sender' => _('Module sender ID'),
 	'datetime_timezone' => _('Module timezone')
-);
+];

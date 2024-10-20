@@ -26,56 +26,69 @@ include $core_config['apps_path']['plug'] . "/gateway/jasmin/config.php";
 
 switch (_OP_) {
 	case "manage":
-		$tpl = array(
+		$tpl = [
 			'name' => 'jasmin',
-			'vars' => array(
+			'vars' => [
 				'DIALOG_DISPLAY' => _dialog(),
-				'Manage jasmin' => _('Manage jasmin'),
-				'Gateway name' => _('Gateway name'),
+				'Manage' => _('Manage'),
+				'Gateway' => _('Gateway'),
 				'Jasmin send SMS URL' => _mandatory(_('Jasmin send SMS URL')),
 				'Callback URL' => _('Callback URL'),
-				'API username' => _mandatory(_('API username')),
+				'Callback authcode' => _('Callback authcode'),
+				'Callback server' => _('Callback server'),
+				'API username' => _('API username'),
 				'API password' => _('API password'),
 				'Module sender ID' => _('Module sender ID'),
 				'Module timezone' => _('Module timezone'),
 				'Save' => _('Save'),
 				'Notes' => _('Notes'),
 				'HINT_CALLBACK_URL' => _hint(_('Empty callback URL to set default')),
+				'HINT_CALLBACK_AUTHCODE' => _hint(_('Fill with at least 16 alphanumeric authentication code to secure callback URL')),
+				'HINT_CALLBACK_SERVER' => _hint(_('Fill with server IP addresses (separated by comma) to limit access to callback URL')),
 				'HINT_FILL_PASSWORD' => _hint(_('Fill to change the API password')),
 				'HINT_MODULE_SENDER' => _hint(_('Max. 16 numeric or 11 alphanumeric char. empty to disable')),
-				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for Jakarta/Bangkok timezone')),
-				'CALLBACK_URL_IS' => _('Your current callback URL is'),
-				'CALLBACK_URL_ACCESSIBLE' => _('Your callback URL should be accessible from Jasmin'),
-				'JASMIN_PUSH_DLR' => _('Jasmin will push DLR and incoming SMS to your callback URL'),
+				'HINT_TIMEZONE' => _hint(_('Eg: +0700 for UTC+7 or Jakarta/Bangkok timezone')),
+				'CALLBACK_URL_ACCESSIBLE' => _('Your callback URL must be accessible from remote gateway'),
+				'CALLBACK_AUTHCODE' => sprintf(_('You have to include callback authcode as query parameter %s'), ': <strong>authcode</strong>'),
+				'CALLBACK_SERVER' => _('Your callback requests must be coming from callback server IP addresses'),
+				'REMOTE_PUSH_DLR' => _('Remote gateway or callback server will push DLR and incoming SMS to your callback URL'),
 				'BUTTON_BACK' => _back('index.php?app=main&inc=core_gateway&op=gateway_list'),
-				'status_active' => $status_active,
-				'jasmin_param_url' => $plugin_config['jasmin']['url'],
-				'jasmin_param_callback_url' => $plugin_config['jasmin']['callback_url'],
-				'jasmin_param_api_username' => $plugin_config['jasmin']['api_username'],
-				'jasmin_param_module_sender' => $plugin_config['jasmin']['module_sender'],
-				'jasmin_param_datetime_timezone' => $plugin_config['jasmin']['datetime_timezone'] 
-			) 
-		);
+				'gateway_name' => $plugin_config['jasmin']['name'],
+				'url' => $plugin_config['jasmin']['url'],
+				'callback_url' => gateway_callback_url('jasmin'),
+				'callback_authcode' => $plugin_config['jasmin']['callback_authcode'],
+				'callback_server' => $plugin_config['jasmin']['callback_server'],
+				'api_username' => $plugin_config['jasmin']['api_username'],
+				'module_sender' => $plugin_config['jasmin']['module_sender'],
+				'datetime_timezone' => $plugin_config['jasmin']['datetime_timezone']
+			]
+		];
 		_p(tpl_apply($tpl));
 		break;
-	
+
 	case "manage_save":
-		$up_url = ($_REQUEST['up_url'] ? $_REQUEST['up_url'] : $plugin_config['jasmin']['default_url']);
-		$up_callback_url = ($_REQUEST['up_callback_url'] ? $_REQUEST['up_callback_url'] : $plugin_config['jasmin']['default_callback_url']);
-		$up_api_username = $_REQUEST['up_api_username'];
-		$up_api_password = $_REQUEST['up_api_password'];
-		$up_module_sender = $_REQUEST['up_module_sender'];
-		$up_datetime_timezone = $_REQUEST['up_datetime_timezone'];
-		if ($up_url && $up_api_username) {
-			$items = array(
-				'url' => $up_url,
-				'callback_url' => $up_callback_url,
-				'api_username' => $up_api_username,
-				'module_sender' => $up_module_sender,
-				'datetime_timezone' => $up_datetime_timezone 
-			);
-			if ($up_api_password) {
-				$items['api_password'] = $up_api_password;
+		$url = isset($_REQUEST['url']) && $_REQUEST['url'] ? $_REQUEST['url'] : $plugin_config['jasmin']['default_url'];
+		$callback_url = gateway_callback_url('jasmin');
+		$callback_authcode = isset($_REQUEST['callback_authcode']) && core_sanitize_alphanumeric($_REQUEST['callback_authcode'])
+			? core_sanitize_alphanumeric($_REQUEST['callback_authcode']) : '';
+		$callback_server = isset($_REQUEST['callback_server']) ? preg_replace('/[^0-9a-zA-Z\.,_\-\/]+/', '', trim($_REQUEST['callback_server'])) : '';
+		$callback_server = preg_replace('/[,]+/', ',', $callback_server);
+		$api_username = $_REQUEST['api_username'];
+		$api_password = $_REQUEST['api_password'];
+		$module_sender = core_sanitize_sender($_REQUEST['module_sender']);
+		$datetime_timezone = $_REQUEST['datetime_timezone'];
+		if ($url) {
+			$items = [
+				'url' => $url,
+				'callback_url' => $callback_url,
+				'callback_authcode' => $callback_authcode,
+				'callback_server' => $callback_server,
+				'api_username' => $api_username,
+				'module_sender' => $module_sender,
+				'datetime_timezone' => $datetime_timezone
+			];
+			if ($api_password) {
+				$items['api_password'] = $api_password;
 			}
 			if (registry_update(0, 'gateway', 'jasmin', $items)) {
 				$_SESSION['dialog']['info'][] = _('Gateway module configurations has been saved');
@@ -87,5 +100,4 @@ switch (_OP_) {
 		}
 		header("Location: " . _u('index.php?app=main&inc=gateway_jasmin&op=manage'));
 		exit();
-		break;
 }

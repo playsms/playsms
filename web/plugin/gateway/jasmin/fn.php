@@ -18,40 +18,41 @@
  */
 defined('_SECURE_') or die('Forbidden');
 
-// hook_sendsms
-// called by main sms sender
-// return true for success delivery
-// $smsc : smsc
-// $sms_sender : sender mobile number
-// $sms_footer : sender sms footer or sms sender ID
-// $sms_to : destination sms number
-// $sms_msg : sms message tobe delivered
-// $gpid : group phonebook id (optional)
-// $uid : sender User ID
-// $smslog_id : sms ID
-function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = '', $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0) {
+/**
+ * This function hooks sendsms() and called by daemon sendsmsd
+ * 
+ * @param string $smsc Selected SMSC
+ * @param string $sms_sender SMS sender ID
+ * @param string $sms_footer SMS message footer
+ * @param string $sms_to Mobile phone number
+ * @param string $sms_msg SMS message
+ * @param int $uid User ID
+ * @param int $gpid Group phonebook ID
+ * @param int $smslog_id SMS Log ID
+ * @param string $sms_type Type of SMS
+ * @param int $unicode Indicate that the SMS message is in unicode
+ * @return bool true if delivery successful
+ */
+function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg, $uid = 0, $gpid = 0, $smslog_id = 0, $sms_type = 'text', $unicode = 0)
+{
 	global $plugin_config;
-	
-	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " to:" . $sms_to, 3, "jasmin_hook_sendsms");
-	
-	// override plugin gateway configuration by smsc configuration
+
+	// override $plugin_config by $plugin_config from selected SMSC
 	$plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
-	
-	$sms_sender = stripslashes($sms_sender);
-	if ($plugin_config['jasmin']['module_sender']) {
-		$sms_sender = $plugin_config['jasmin']['module_sender'];
-	}
-	
-	$sms_footer = stripslashes($sms_footer);
-	$sms_msg = stripslashes($sms_msg);
-	$ok = false;
-	
-	if ($sms_footer) {
-		$sms_msg = $sms_msg . $sms_footer;
-	}
-	
+
+	// re-filter, sanitize, modify some vars if needed
+	$module_sender = isset($plugin_config['jasmin']['module_sender']) && core_sanitize_sender($plugin_config['jasmin']['module_sender'])
+		? core_sanitize_sender($plugin_config['jasmin']['module_sender']) : '';
+	$sms_sender = $module_sender ?: core_sanitize_sender($sms_sender);
+	$sms_to = core_sanitize_mobile($sms_to);
+	$sms_footer = core_sanitize_footer($sms_footer);
+	$sms_msg = stripslashes($sms_msg . $sms_footer);
+
+	// log it
+	_log("enter smsc:" . $smsc . " smslog_id:" . $smslog_id . " uid:" . $uid . " from:" . $sms_sender . " to:" . $sms_to, 3, "jasmin_hook_sendsms");
+
 	if ($sms_sender && $sms_to && $sms_msg) {
-		
+
 		$unicode_query_string = '';
 		if ($unicode) {
 			if (function_exists('mb_convert_encoding')) {
@@ -61,55 +62,46 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 				$unicode_query_string = "&coding=8"; // added at the of query string if unicode
 			}
 		}
-		
-		$query_string = "username=" . urlencode($plugin_config['jasmin']['api_username']) . "&password=" . urlencode($plugin_config['jasmin']['api_password']) . "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
-		$query_string .= "&dlr=yes&dlr-level=2&dlr-url=" . urlencode($plugin_config['jasmin']['callback_url']);
+
+		$callback_url = isset($plugin_config['jasmin']['callback_authcode']) && $plugin_config['jasmin']['callback_authcode']
+			? $plugin_config['jasmin']['callback_url'] . "?authcode=" . $plugin_config['jasmin']['callback_authcode'] : $plugin_config['jasmin']['callback_url'];
+
+		$query_string = "username=" . urlencode($plugin_config['jasmin']['api_username']) . "&password=" . urlencode($plugin_config['jasmin']['api_password']);
+		$query_string .= "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
+		$query_string .= "&dlr=yes&dlr-level=2&dlr-method=GET&dlr-url=" . urlencode($callback_url);
 		$url = $plugin_config['jasmin']['url'] . "?" . $query_string;
-		
+
 		_log("send url:[" . $url . "]", 3, "jasmin_hook_sendsms");
-		
-		// new way
-		$opts = array(
-			'http' => array(
-				'method' => 'POST',
-				'header' => "Content-type: application/x-www-form-urlencoded\r\nContent-Length: " . strlen($query_string) . "\r\nConnection: close\r\n",
-				'content' => $query_string 
-			) 
-		);
-		$context = stream_context_create($opts);
-		$response = file_get_contents($plugin_config['jasmin']['url'], FALSE, $context);
-		
+
+		// send it
+		$response = core_get_contents($url);
+
 		// Success "07033084-5cfd-4812-90a4-e4d24ffb6e3d"
 		// Error "No route found"
 		$resp = explode(' ', $response, 2);
-		
-		if ($resp[0] == 'Success') {
-			$c_message_id = $resp[1];
-			$c_message_id = str_replace('"', '', $c_message_id);
-			_log("sent smslog_id:" . $smslog_id . " message_id:" . $c_message_id . " smsc:" . $smsc, 2, "jasmin_hook_sendsms");
-			$db_query = "
-				INSERT INTO " . _DB_PREF_ . "_gatewayJasmin_log (local_smslog_id, remote_smslog_id)
-				VALUES ('$smslog_id', '$c_message_id')";
-			$id = @dba_insert_id($db_query);
-			if ($id) {
-				$ok = true;
-				$p_status = 1;
-				dlr($smslog_id, $uid, $p_status);
+
+		if (isset($resp[0]) && strtolower($resp[0]) == 'success') {
+			$remote_id = isset($resp[1]) && $resp[1] ? $resp[1] : '';
+			$remote_id = str_replace('"', '', $remote_id);
+			if ($remote_id) {
+				_log("sent smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " smsc:" . $smsc, 2, "jasmin_hook_sendsms");
+
+				if (dba_update(_DB_PREF_ . '_playsms_tblSMSOutgoing', ['remote_id' => $remote_id], ['smslog_id' => $smslog_id, 'flag_deleted' => 0])) {
+					$p_status = 1;
+					dlr($smslog_id, $uid, $p_status);
+
+					return true;
+				}
 			}
-		} else {
-			// even when the response is not what we expected we still print it out for debug purposes
-			if ($resp[0] == 'Error') {
-				$resp = $resp[1];
-			} else {
-				$resp = $response;
-			}
-			_log("failed smslog_id:" . $smslog_id . " resp:[" . $resp . "] smsc:" . $smsc, 2, "jasmin_hook_sendsms");
+		} else if (isset($resp[0]) && strtolower($resp[0]) == 'error' && isset($resp[1])) {
+			$response = str_replace('"', '', $resp[1]);
 		}
+
+		_log("failed smslog_id:" . $smslog_id . " response:[" . $response . "] smsc:" . $smsc, 2, "jasmin_hook_sendsms");
 	}
-	if (!$ok) {
-		$p_status = 2;
-		dlr($smslog_id, $uid, $p_status);
-	}
-	
-	return $ok;
+
+	$p_status = 2;
+	dlr($smslog_id, $uid, $p_status);
+
+	return false;
 }
