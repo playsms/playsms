@@ -133,7 +133,7 @@ function outgoing_prefix2smsc($prefix, $uid = 0)
 		return $ret;
 	}
 
-	$prefix = core_sanitize_numeric($prefix);
+	$prefix = (string) core_sanitize_numeric($prefix);
 	if (strlen($prefix) > 8) {
 		$prefix = substr($prefix, 0, 8);
 	}
@@ -143,7 +143,8 @@ function outgoing_prefix2smsc($prefix, $uid = 0)
 	while ($db_row = dba_fetch_array($db_result)) {
 		$c_prefixes = explode(',', $db_row['prefix']);
 		foreach ( $c_prefixes as $c_prefix ) {
-			if ($c_prefix && $c_prefix == $prefix) {
+			$c_prefix = trim($c_prefix);
+			if (($c_prefix || $c_prefix === '0') && $c_prefix === $prefix) {
 				$ret[] = $db_row['smsc'];
 			}
 		}
