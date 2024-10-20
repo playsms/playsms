@@ -75,6 +75,14 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$url = str_replace('{GENERIC_MESSAGE}', urlencode($sms_msg), $url);
 		$url = str_replace('{GENERIC_CALLBACK_URL}', urlencode($plugin_config['generic']['callback_url']), $url);
 
+		// shortcuts
+		$url = str_replace('{USERNAME}', urlencode($plugin_config['generic']['api_username']), $url);
+		$url = str_replace('{PASSWORD}', urlencode($plugin_config['generic']['api_password']), $url);
+		$url = str_replace('{SENDER}', urlencode($sms_sender), $url);
+		$url = str_replace('{TO}', urlencode($sms_to), $url);
+		$url = str_replace('{MESSAGE}', urlencode($sms_msg), $url);
+		$url = str_replace('{CALLBACK_URL}', urlencode($plugin_config['generic']['callback_url']), $url);
+
 		_log("send url:[" . $url . "]", 3, "generic_hook_sendsms");
 
 		// send it

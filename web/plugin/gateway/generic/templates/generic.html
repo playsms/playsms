@@ -15,15 +15,21 @@
 			<tr>
 				<td>{{ Callback URL }}</td>
 				<td>
-					<input type=text maxlength=255 name=callback_url value="{{ callback_url }}">
-					{{ HINT_CALLBACK_URL }}
+					<span>{{ callback_url }}</span>
 				</td>
 			</tr>
 			<tr>
-				<td>{{ Callback URL authcode }}</td>
+				<td>{{ Callback authcode }}</td>
 				<td>
-					<input type=text maxlength=255 name=callback_url_authcode value="{{ callback_url_authcode }}">
-					{{ HINT_CALLBACK_URL_AUTHCODE }}
+					<input type=text maxlength=255 name=callback_authcode value="{{ callback_authcode }}">
+					{{ HINT_CALLBACK_AUTHCODE }}
+				</td>
+			</tr>
+			<tr>
+				<td>{{ Callback server }}</td>
+				<td>
+					<input type=text maxlength=255 name=callback_server value="{{ callback_server }}">
+					{{ HINT_CALLBACK_SERVER }}
 				</td>
 			</tr>
 			<tr>
@@ -54,8 +60,9 @@
 </form>
 <p>
 	{{ Notes }}:<br />
+	- {{ REMOTE_PUSH_DLR }}<br />
 	- {{ CALLBACK_URL_ACCESSIBLE }}<br />
-	- {{ CALLBACK_URL_AUTHCODE }}<br />
-	- {{ GENERIC_PUSH_DLR }}<br />
+	- {{ CALLBACK_AUTHCODE }}<br />
+	- {{ CALLBACK_SERVER }}<br />
 </p>
 <p>{{ BUTTON_BACK }}

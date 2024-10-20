@@ -17,10 +17,6 @@
  * along with playSMS. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// set gateway name and log marker
-define('_CALLBACK_GATEWAY_NAME_', 'generic');
-define('_CALLBACK_GATEWAY_LOG_MARKER_', _CALLBACK_GATEWAY_NAME_ . ' callback');
-
 error_reporting(0);
 
 // load callback init
@@ -28,21 +24,35 @@ if (!(isset($PLAYSMS_INIT_SKIP) && $PLAYSMS_INIT_SKIP === true) && is_file('../c
 	include '../common/callback_init.php';
 }
 
-$remote_id = $requests['id'];
+// get SMS data from request
+$remote_id = $_REQUEST['id'];
+$status = (int) $_REQUEST['message_status'];
+$sms_datetime = core_get_datetime();
+$sms_sender = isset($_REQUEST['from']) ? core_sanitize_mobile($_REQUEST['from']) : '';
+$sms_receiver = isset($_REQUEST['to']) ? core_sanitize_mobile($_REQUEST['to']) : '';
+$message = isset($_REQUEST['message']) ? $_REQUEST['message'] : '';
+$smsc = isset($_REQUEST['smsc']) ? $_REQUEST['smsc'] : '';
+$authcode = isset($_REQUEST['authcode']) && trim($_REQUEST['authcode']) ? trim($_REQUEST['authcode']) : '';
 
-// auth first
-$authcode = trim($requests['authcode']);
-$data = registry_search(0, 'gateway', 'generic');
-if (!($authcode && isset($data['gateway']['generic']['callback_url_authcode']) && ($authcode == $data['gateway']['generic']['callback_url_authcode']))) {
-	_log("error auth authcode:" . $authcode . " smsc:" . $smsc . " remote_id:" . $remote_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+// validate authcode
+if (!gateway_callback_auth('generic', 'callback_authcode', $authcode, $smsc)) {
+	_log("error auth authcode:" . $authcode . " smsc:" . $smsc . " remote_id:" . $remote_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
 
 	ob_end_clean();
 	echo 'ERROR AUTH ' . _PID_;
 	exit();
 }
 
-// delivery receipt
-$status = (int) $requests['message_status'];
+// validate requests must be coming from callback servers
+if (!gateway_callback_server('generic', 'callback_server', $smsc)) {
+	_log("error forbidden authcode:" . $authcode . " smsc:" . $smsc . " remote_id:" . $remote_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
+
+	ob_end_clean();
+	echo 'ERROR FORBIDDEN ' . _PID_;
+	exit();
+}
+
+// handle DLR
 if ($remote_id && $status) {
 	$db_query = "SELECT uid,smslog_id,p_status FROM " . _DB_PREF_ . "_tblSMSOutgoing WHERE remote_id=? AND p_status=1 AND flag_deleted=0";
 	$db_result = dba_query($db_query, [$remote_id]);
@@ -62,7 +72,7 @@ if ($remote_id && $status) {
 					$p_status = 2;
 					break; // failed
 			}
-			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status, 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+			_log("dlr uid:" . $uid . " smslog_id:" . $smslog_id . " remote_id:" . $remote_id . " status:" . $status, 2, "generic callback");
 
 			dlr($smslog_id, $uid, $p_status);
 
@@ -73,15 +83,9 @@ if ($remote_id && $status) {
 	}
 }
 
-// incoming message
-$sms_datetime = core_get_datetime();
-$sms_sender = isset($requests['from']) ? core_sanitize_mobile($requests['from']) : '';
-$sms_receiver = isset($requests['to']) ? core_sanitize_mobile($requests['to']) : '';
-$message = isset($requests['message']) ? $requests['message'] : '';
-$smsc = isset($requests['smsc']) ? $requests['smsc'] : '';
-
+// handle incoming SMS
 if ($remote_id && $message) {
-	_log("incoming smsc:" . $smsc . " remote_id:" . $remote_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, _CALLBACK_GATEWAY_LOG_MARKER_);
+	_log("incoming smsc:" . $smsc . " remote_id:" . $remote_id . " from:" . $sms_sender . " to:" . $sms_receiver . " content:[" . $message . "]", 2, "generic callback");
 
 	recvsms($sms_datetime, $sms_sender, $message, $sms_receiver, $smsc);
 
