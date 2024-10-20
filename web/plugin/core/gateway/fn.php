@@ -382,3 +382,28 @@ function gateway_callback_url($gateway, $callback = 'callback.php')
 
 	return $callback_url;
 }
+
+/**
+ * Get gateway config from registry
+ * 
+ * @param string $gateway
+ * @return array gateway config in registry
+ */
+function gateway_get_registry($gateway)
+{
+	$reg = [];
+
+	if (!($gateway = preg_replace('/[^\p{L}\p{N}\-_]+/u', '', $gateway))) {
+
+		return $reg;
+	}
+
+	$regs = registry_search(0, 'gateway', $gateway);
+	if (isset($regs['gateway'][$gateway]) && $regs = $regs['gateway'][$gateway]) {
+		foreach ( $regs as $key => $val ) {
+			$reg[$key] = $val;
+		}
+	}
+
+	return $reg;
+}
