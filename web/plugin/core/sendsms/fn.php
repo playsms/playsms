@@ -508,7 +508,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	if ($id = dba_insert_id($db_query, $db_argv)) {
 		_log("saved smslog_id:" . $smslog_id . " id:" . $id, 2, "sendsms_process");
 		if ($p_status === 0) {
-			_log("final smslog_id:" . $smslog_id . " gw:" . $gateway . " smsc:" . $smsc . " message:" . $sms_msg . $sms_footer . " len:" . core_smslen($sms_msg . $sms_footer), 3, "sendsms");
+			_log("final smslog_id:" . $smslog_id . " gw:" . $gateway . " smsc:" . $smsc . " sender:" . $sms_sender . " to:" . $sms_to . " message:[" . $sms_msg . $sms_footer . "] len:" . core_smslen($sms_msg . $sms_footer), 3, "sendsms");
 			if (
 				core_hook(
 					$gateway,
