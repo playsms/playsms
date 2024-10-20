@@ -63,7 +63,7 @@ function generic_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg
 			}
 		}
 
-		$url = htmlspecialchars_decode($plugin_config['generic']['url']);
+		$url = htmlspecialchars_decode($plugin_config['generic']['url'] . $unicode_query_string);
 		$url = str_replace('{GENERIC_API_USERNAME}', urlencode($plugin_config['generic']['api_username']), $url);
 		$url = str_replace('{GENERIC_API_PASSWORD}', urlencode($plugin_config['generic']['api_password']), $url);
 		$url = str_replace('{GENERIC_SENDER}', urlencode($sms_sender), $url);
