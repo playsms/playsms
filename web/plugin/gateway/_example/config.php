@@ -19,7 +19,7 @@
 defined('_SECURE_') or die('Forbidden');
 
 // gateway configuration in registry
-$reg = gateway_get_registry('generic');
+$reg = gateway_get_registry('example');
 
 // plugin configuration
 $plugin_config['example'] = [
