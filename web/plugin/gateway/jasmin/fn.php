@@ -68,7 +68,7 @@ function jasmin_hook_sendsms($smsc, $sms_sender, $sms_footer, $sms_to, $sms_msg,
 
 		$query_string = "username=" . urlencode($plugin_config['jasmin']['api_username']) . "&password=" . urlencode($plugin_config['jasmin']['api_password']);
 		$query_string .= "&to=" . urlencode($sms_to) . "&from=" . urlencode($sms_sender) . "&content=" . urlencode($sms_msg) . $unicode_query_string;
-		$query_string .= "&dlr=yes&dlr-level=2&dlr-method=GET&dlr-url=" . urlencode($callback_url);
+		$query_string .= "&dlr=yes&dlr-level=2&dlr-method=POST&dlr-url=" . urlencode($callback_url);
 		$url = $plugin_config['jasmin']['url'] . "?" . $query_string;
 
 		_log("send url:[" . $url . "]", 3, "jasmin_hook_sendsms");
