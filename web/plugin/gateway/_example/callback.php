@@ -25,6 +25,9 @@ if (!(isset($PLAYSMS_INIT_SKIP) && $PLAYSMS_INIT_SKIP === true) && is_file('../c
 	include '../common/callback_init.php';
 }
 
+// log original request
+_log($_REQUEST, 3, "example callback");
+
 // Example API server only pushed these variables for DLR:
 //   id - SMS Log ID sent previously by us
 //   status - Delivery Report for the SMS Log ID sent previously by us

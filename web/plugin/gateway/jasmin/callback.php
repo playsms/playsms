@@ -24,6 +24,9 @@ if (!(isset($PLAYSMS_INIT_SKIP) && $PLAYSMS_INIT_SKIP === true) && is_file('../c
 	include '../common/callback_init.php';
 }
 
+// log original request
+_log($_REQUEST, 3, "jasmin callback");
+
 // get SMS data from request
 $remote_id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
 $status = isset($_REQUEST['message_status']) ? $_REQUEST['message_status'] : '';

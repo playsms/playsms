@@ -42,14 +42,4 @@ if ($core_config['init']['cwd'] = getcwd()) {
 	exit();
 }
 
-// log pushed vars
-$log = '';
-if (is_array($_REQUEST)) {
-	foreach ( $_REQUEST as $key => $val ) {
-		$log .= $key . ':' . $val . ' ';
-	}
-	_log("pushed " . $log, 3, "callback");
-}
-unset($log);
-
 // -------------------- END OF CALLBACK INIT --------------------
