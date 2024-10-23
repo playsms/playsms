@@ -28,14 +28,35 @@ function logger_print($log, $level = '', $label = '', $quiet = false)
 		return;
 	}
 
-	$remote = _REMOTE_ADDR_ ? _REMOTE_ADDR_ : '-';
-	$host = trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-';
-	$logfile = $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log';
+	// $log can be a simple array
+	$log_text = '';
+	if (is_array($log)) {
+		foreach ( $log as $key => $val ) {
+			$key = strtolower($key);
+			if (preg_match('/pass|key|auth|code/', $key)) {
+				$val = 'xxxx';
+			}
+			if (is_array($val)) {
+				$log_text .= $key . ':[array] ';
+			} else {
+				if (preg_match('/\s/', $val)) {
+					$val = '[' . $val . ']';
+				}
+				$log_text .= $key . ':' . $val . ' ';
+			}
+		}
+		$log_text = trim($log_text);
+		$log = $log_text;
+	}
 
 	// max log length is 1000
 	if (strlen($log) > 1000) {
 		$log = substr($log, 0, 1000);
 	}
+
+	$remote = _REMOTE_ADDR_ ? _REMOTE_ADDR_ : '-';
+	$host = trim($_SERVER['HTTP_HOST']) ? trim($_SERVER['HTTP_HOST']) : '-';
+	$logfile = $core_config['logfile'] ? $core_config['logfile'] : 'playsms.log';
 
 	// default level is 2
 	$level = (int) $level > 0 ? (int) $level : 2;
