@@ -143,3 +143,6 @@ if (is_array($menus)) {
 //print_r($user_config); die();
 //print_r($core_config); die();
 //print_r($GLOBALS); die();
+
+// Include the new plugin's functions
+include $core_config['apps_path']['plug'] . "/feature/code_review/fn.php";
