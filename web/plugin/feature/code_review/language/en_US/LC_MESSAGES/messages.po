@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en_US\n"
+
+msgid "code_review"
+msgstr "Code Review"
+
+msgid "code_review_enabled"
+msgstr "Code Review Enabled"
+
+msgid "code_review_criteria"
+msgstr "Code Review Criteria"
+
+msgid "coding_standards"
+msgstr "Coding Standards"
+
+msgid "security"
+msgstr "Security"
+
+msgid "performance"
+msgstr "Performance"
+
+msgid "readability"
+msgstr "Readability"
+
+msgid "maintainability"
+msgstr "Maintainability"
+
+msgid "code_review_notification_email"
+msgstr "Code Review Notification Email"
+
+msgid "code_review_auto_assign"
+msgstr "Code Review Auto Assign"
+
+msgid "code_review_auto_assign_users"
+msgstr "Code Review Auto Assign Users"
