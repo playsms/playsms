@@ -457,6 +457,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 	// $sms_sender = core_sanitize_mobile($sms_sender);
 
 	// fixme anton - add a space in front of $sms_footer
+	$orig_sms_footer = $sms_footer;
 	if (trim($sms_footer)) {
 		$sms_footer = ' ' . trim($sms_footer);
 	}
@@ -496,7 +497,7 @@ function sendsms_process($smslog_id, $sms_sender, $sms_footer, $sms_to, $sms_msg
 		$smsc,
 		$sms_sender,
 		$sms_to,
-		$sms_footer,
+		$orig_sms_footer,
 		$sms_msg,
 		$sms_datetime,
 		$p_status,
