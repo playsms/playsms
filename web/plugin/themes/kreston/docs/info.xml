@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>kreston</name>
+	<alias>Theme Kreston</alias>
+	<description>Dark gradient Kreston theme</description>
+	<release>1.2</release>
+	<date>2024-08-15</date>
+	<author>Damith Rushika Kothalawala</author>
+	<language_file>1</language_file>
+	<sql_file>0</sql_file>
+	<php_file>1</php_file>
+</plugin>
