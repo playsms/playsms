@@ -46,8 +46,8 @@ $smsc = trim($_REQUEST['smsc']);
 $src = trim($_REQUEST['src']);
 $dst = trim($_REQUEST['dst']);
 $dt = trim($_REQUEST['dt']);
-$c = trim($_REQUEST['c']);
-$last = trim($_REQUEST['last']);
+$c = (int) trim($_REQUEST['c']);
+$last = (int) trim($_REQUEST['last']);
 
 // DS
 $queue = trim($_REQUEST['queue']);
