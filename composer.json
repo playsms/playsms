@@ -8,7 +8,7 @@
 	"require": {
 		"playsms/tpl": "^1",
 		"playsms/webservices": "^1",
-		"gregwar/captcha": "^1",
+		"gregwar/captcha": "^2",
 		"ezyang/htmlpurifier": "^4",
 		"phpmailer/phpmailer": "^6",
 		"mlocati/ip-lib": "^1",
