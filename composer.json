@@ -10,7 +10,7 @@
 		"playsms/webservices": "^1",
 		"gregwar/captcha": "^1",
 		"ezyang/htmlpurifier": "^4",
-		"phpmailer/phpmailer": "^6",
+		"phpmailer/phpmailer": "^7",
 		"mlocati/ip-lib": "^1",
 		"openpsa/universalfeedcreator": "^1.9"
 	}
