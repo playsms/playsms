@@ -119,7 +119,8 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = 0, $smslog_id = 0, $p_date
 	foreach ( $smscs as $smsc ) {
 		$c_plugin_config = gateway_apply_smsc_config($smsc, $plugin_config);
 
-		$c_plugin_config['smstools']['backup'] = $c_plugin_config['smstools']['queue'] . '/backup';
+		// smsd writes sent/failed files to the main spool (not the per-SMSC queue), as 1.4.3 expected
+		$c_plugin_config['smstools']['backup'] = $plugin_config['smstools']['queue'] . '/backup';
 		if (!is_dir($c_plugin_config['smstools']['backup'] . '/sent')) {
 			mkdir($c_plugin_config['smstools']['backup'] . '/sent', 0777, true);
 		}
@@ -135,8 +136,22 @@ function smstools_hook_getsmsstatus($gpid = 0, $uid = 0, $smslog_id = 0, $p_date
 		$sms_id = $sms_datetime . '.' . $gpid . '.' . $uid . '.' . $smslog_id;
 		$outfile = 'out.' . $sms_id;
 
-		$fn = $c_plugin_config['smstools']['queue'] . '/sent/' . $outfile;
-		$efn = $c_plugin_config['smstools']['queue'] . '/failed/' . $outfile;
+		$fn = $plugin_config['smstools']['queue'] . '/sent/' . $outfile;
+		$efn = $plugin_config['smstools']['queue'] . '/failed/' . $outfile;
+
+		// smstools_hook_sendsms() names the file with core_get_datetime() at send time, which can be a second
+		// later than p_datetime; if the exact name is missing, find the file by its unique gpid.uid.smslog_id suffix
+		if ($smslog_id && !file_exists($fn) && !file_exists($efn)) {
+			$suffix = '.' . $gpid . '.' . $uid . '.' . $smslog_id;
+			foreach (['sent' => 'fn', 'failed' => 'efn'] as $dir => $var) {
+				$found = glob($plugin_config['smstools']['queue'] . '/' . $dir . '/out.*' . $suffix);
+				if ($found) {
+					$$var = $found[0];
+					$outfile = basename($found[0]);
+					break;
+				}
+			}
+		}
 
 		// set if its sent, SMS Log ID must exists
 		if ($smslog_id && file_exists($fn)) {

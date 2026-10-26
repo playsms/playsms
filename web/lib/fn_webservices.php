@@ -92,11 +92,11 @@ function webservices_pv($c_username, $to, $msg, $type = 'text', $unicode = 0, $n
 {
 	if ($c_username && $to && $msg) {
 		// $to is array
-		$to = is_array($to) ? $to : [$to];
+		$to = is_array($to) ? $to : explode(',', $to);
 
 		// send SMS, note that we can't let user to define SMSC for now
 		list($ok, $to, $smslog_id, $queue_code, $counts, $sms_count, $sms_failed) = sendsms_helper($c_username, $to, $msg, $type, $unicode, '', $nofooter, $footer, $from, $schedule);
-		for ($i = 0; $i < count($to); $i++) {
+		for ($i = 0; $i < count((array) $to); $i++) {
 			if (($ok[$i] == 1 || $ok[$i] == true) && $to[$i] && ($queue_code[$i] || $smslog_id[$i])) {
 				$json['data'][$i]['status'] = 'OK';
 				$json['data'][$i]['error'] = '0';

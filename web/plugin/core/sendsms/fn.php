@@ -761,7 +761,7 @@ function sendsms_helper($username, $sms_to, $message, $sms_type = 'text', $unico
 
 	// get user data
 	$user = $user_config;
-	if ($username && isset($user['username']) && $user['username'] != $username) {
+	if ($username && (!isset($user['username']) || $user['username'] != $username)) {
 		$user = user_getdatabyusername($username);
 	}
 
@@ -910,7 +910,7 @@ function sendsms($username, $sms_to, $sms_msg, $sms_type = 'text', $unicode = 0,
 
 	// get user data
 	$user = $user_config;
-	if ($username && isset($user['username']) && $user['username'] != $username) {
+	if ($username && (!isset($user['username']) || $user['username'] != $username)) {
 		$user = user_getdatabyusername($username);
 	}
 
